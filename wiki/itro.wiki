@@ -20,3 +20,9 @@ The Isilme Engine uses some open-source components
  - Guichan for GUI
  - TinyXML for XML managing
 It also uses Boost to be safer and cleverer 
+
+= Building =
+You must have Microsoft Visual Studio 2010 to build this project. You can also use another compiler or ID if you want, but I give you no guaranties.
+
+
+To be continued.. 
