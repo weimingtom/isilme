@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A110B53D-FF13-4B46-BE40-DF3377753D29}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Engine</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>../Debug/</OutDir>
+    <TargetName>Engine_d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>../Release/</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;ISILME_DLL;_DEBUG;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)../;$(ProjectDir)../GUIChan/include/;$(ProjectDir)../HGE/include;$(ProjectDir)/include;$(ProjectDir)../TinyXML/include;$(ProjectDir)../Box2D/;$(ProjectDir)../Lua514/include</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>Isilme.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)Isilme.pch</PrecompiledHeaderOutputFile>
+      <DisableSpecificWarnings>4251;4275;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>hge_d.lib;hgehelp_d.lib;GUIChan_d.lib;tinyxml_d.lib;box2d_d.lib;lua514_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../Lua514/lib; ../GUIChan/lib;../HGE/lib;../TinyXML/lib;../Box2D/lib;../Engine/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>libc.lib; libcmt.lib; libcmtd.lib</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>$(ProjectDir)/lib/Engine_d.lib</ImportLibrary>
+      <OutputFile>../Debug/Engine_d.dll</OutputFile>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>GUIChan.lib; hge.lib; hgehelp.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../GUIChan/lib/;../HGE/lib;../TinyXML/lib;../Box2D/lib;../Lua514/lib%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;ISILME_DLL;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)../GUIChan/include/;$(ProjectDir)../HGE/include;$(ProjectDir)/include;$(ProjectDir)../TinyXML/include;$(ProjectDir)../Box2D/;$(ProjectDir)../Lua514/include</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4251;4275;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>../Lua514/lib; ../GUIChan/lib;../HGE/lib;../TinyXML/lib;../Box2D/lib;../Engine/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>hge.lib;hgehelp.lib;GUIChan.lib;tinyxml.lib;box2d.lib;lua514.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>$(ProjectDir)/lib/Engine.lib</ImportLibrary>
+      <OutputFile>../Release/Engine.dll</OutputFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Action\SpecialAction.h" />
+    <ClInclude Include="Action\SpecialTactics.h" />
+    <ClInclude Include="Action\Strategy.h" />
+    <ClInclude Include="Action\Tactics.h" />
+    <ClInclude Include="Graphics\Animation.h" />
+    <ClInclude Include="Graphics\Particles.h" />
+    <ClInclude Include="Graphics\SpecialGraphics.h" />
+    <ClInclude Include="Graphics\Sprite.h" />
+    <ClInclude Include="Graphics\StateGraphics.h" />
+    <ClInclude Include="Graphics\TriggerGraphics.h" />
+    <ClInclude Include="GUI\ProgressBar.h" />
+    <ClInclude Include="include\Action.h" />
+    <ClInclude Include="include\Behaviour.h" />
+    <ClInclude Include="include\Bodies.h" />
+    <ClInclude Include="include\Camera.h" />
+    <ClInclude Include="include\Collisions.h" />
+    <ClInclude Include="include\Conversation.h" />
+    <ClInclude Include="include\Definitions.h" />
+    <ClInclude Include="include\Engine.h" />
+    <ClInclude Include="include\Entity.h" />
+    <ClInclude Include="include\EntityDefinition.h" />
+    <ClInclude Include="include\FactoryManager.h" />
+    <ClInclude Include="include\Game.h" />
+    <ClInclude Include="include\Graphics.h" />
+    <ClInclude Include="include\GraphicsFactory.h" />
+    <ClInclude Include="include\InputSystem.h" />
+    <ClInclude Include="include\Isilme.h" />
+    <ClInclude Include="include\Joints.h" />
+    <ClInclude Include="include\Layer.h" />
+    <ClInclude Include="include\Level.h" />
+    <ClInclude Include="include\LevelLoaders.h" />
+    <ClInclude Include="include\LogoState.h" />
+    <ClInclude Include="include\Renderer.h" />
+    <ClInclude Include="include\ResourceManager.h" />
+    <ClInclude Include="include\Schemas.h" />
+    <ClInclude Include="include\Sensor.h" />
+    <ClInclude Include="include\SoundSystem.h" />
+    <ClInclude Include="include\State.h" />
+    <ClInclude Include="include\StateManager.h" />
+    <ClInclude Include="include\Trigger.h" />
+    <ClInclude Include="Loading\GraphicsDefinition.h" />
+    <ClInclude Include="Quest\Journal.h" />
+    <ClInclude Include="Quest\QuestAPI.h" />
+    <ClInclude Include="Quest\Quests.h" />
+    <ClInclude Include="Quest\Story.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Action\Tactics.cpp" />
+    <ClCompile Include="Graphics\Animation.cpp" />
+    <ClCompile Include="Graphics\Particles.cpp" />
+    <ClCompile Include="Graphics\Sprite.cpp" />
+    <ClCompile Include="Graphics\TriggerGraphics.cpp" />
+    <ClCompile Include="Quest\QuestAPI.cpp" />
+    <ClCompile Include="Quest\Quests.cpp" />
+    <ClCompile Include="Quest\Story.cpp" />
+    <ClCompile Include="source\Action.cpp" />
+    <ClCompile Include="source\Behaviour.cpp" />
+    <ClCompile Include="source\Bodies.cpp" />
+    <ClCompile Include="source\Camera.cpp" />
+    <ClCompile Include="source\Collisions.cpp" />
+    <ClCompile Include="source\Engine.cpp" />
+    <ClCompile Include="source\Entity.cpp" />
+    <ClCompile Include="source\EntityDefinition.cpp" />
+    <ClCompile Include="source\FactoryManager.cpp" />
+    <ClCompile Include="source\Game.cpp" />
+    <ClCompile Include="source\Graphics.cpp" />
+    <ClCompile Include="source\GraphicsFactory.cpp" />
+    <ClCompile Include="source\InputSystem.cpp" />
+    <ClCompile Include="source\Isilme.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="source\Joints.cpp" />
+    <ClCompile Include="source\Layer.cpp" />
+    <ClCompile Include="source\Level.cpp" />
+    <ClCompile Include="source\LevelLoaders.cpp" />
+    <ClCompile Include="source\Renderer.cpp" />
+    <ClCompile Include="source\ResourceManager.cpp" />
+    <ClCompile Include="source\Schemas.cpp" />
+    <ClCompile Include="source\Sensor.cpp" />
+    <ClCompile Include="source\SoundSystem.cpp" />
+    <ClCompile Include="source\State.cpp" />
+    <ClCompile Include="source\StateManager.cpp" />
+    <ClCompile Include="source\Trigger.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
