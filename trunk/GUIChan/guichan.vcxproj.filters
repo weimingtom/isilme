@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\actionevent.cpp">
+      <Filter>GUIChan</Filter>
+    </ClCompile>
+    <ClCompile Include="src\basiccontainer.cpp">
+      <Filter>GUIChan</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cliprectangle.cpp">
+      <Filter>GUIChan</Filter>
+    </ClCompile>
+    <ClCompile Include="src\color.cpp">
+      <Filter>GUIChan</Filter>
+    </ClCompile>
+    <ClCompile Include="src\defaultfont.cpp">
+      <Filter>GUIChan</Filter>
+    </ClCompile>
+    <ClCompile Include="src\event.cpp">
+      <Filter>GUIChan</Filter>
+    </ClCompile>
+    <ClCompile Include="src\exception.cpp">
+      <Filter>GUIChan</Filter>
+    </ClCompile>
+    <ClCompile Include="src\focushandler.cpp">
+      <Filter>GUIChan</Filter>
+    </ClCompile>
+    <ClCompile Include="src\font.cpp">
+      <Filter>GUIChan</Filter>
+    </ClCompile>
+    <ClCompile Include="src\genericinput.cpp">
+      <Filter>GUIChan</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics.cpp">
+      <Filter>GUIChan</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gui.cpp">
+      <Filter>GUIChan</Filter>
+    </ClCompile>
+    <ClCompile Include="src\guichan.cpp">
+      <Filter>GUIChan</Filter>
+    </ClCompile>
+    <ClCompile Include="src\image.cpp">
+      <Filter>GUIChan</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imagefont.cpp">
+      <Filter>GUIChan</Filter>
+    </ClCompile>
+    <ClCompile Include="src\inputevent.cpp">
+      <Filter>GUIChan</Filter>
+    </ClCompile>
+    <ClCompile Include="src\key.cpp">
+      <Filter>GUIChan</Filter>
+    </ClCompile>
+    <ClCompile Include="src\keyevent.cpp">
+      <Filter>GUIChan</Filter>
+    </ClCompile>
+    <ClCompile Include="src\keyinput.cpp">
+      <Filter>GUIChan</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mouseevent.cpp">
+      <Filter>GUIChan</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mouseinput.cpp">
+      <Filter>GUIChan</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rectangle.cpp">
+      <Filter>GUIChan</Filter>
+    </ClCompile>
+    <ClCompile Include="src\selectionevent.cpp">
+      <Filter>GUIChan</Filter>
+    </ClCompile>
+    <ClCompile Include="src\widget.cpp">
+      <Filter>GUIChan</Filter>
+    </ClCompile>
+    <ClCompile Include="src\widgets\button.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\widgets\checkbox.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\widgets\container.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\widgets\dropdown.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\widgets\icon.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\widgets\imagebutton.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\widgets\label.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\widgets\listbox.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\widgets\radiobutton.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\widgets\scrollarea.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\widgets\slider.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\widgets\tab.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\widgets\tabbedarea.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\widgets\textbox.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\widgets\textfield.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\widgets\window.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hge\hgegraphics.cpp">
+      <Filter>HGE</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hge\hgeimage.cpp">
+      <Filter>HGE</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hge\hgeimagefont.cpp">
+      <Filter>HGE</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hge\hgeimageloader.cpp">
+      <Filter>HGE</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hge\hgeinput.cpp">
+      <Filter>HGE</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="HGE">
+      <UniqueIdentifier>{d6030a08-4ea3-4edb-b864-c645a47b0d68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Widgets">
+      <UniqueIdentifier>{E1D1A259-B835-4F11-9F6F-2B28FA582FBE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GUIChan">
+      <UniqueIdentifier>{E1651AB9-7DFB-4804-9466-8862F532398D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XML">
+      <UniqueIdentifier>{3c4a551b-6656-46f5-864c-db751e7d0b91}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{C8A03B30-0222-481E-A167-E388466229D7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src/guichan/contrib/widgets">
+      <UniqueIdentifier>{AD9D6699-68D0-4ED5-B592-F6B39F757CD4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="include\guichan.hpp">
+      <Filter>src</Filter>
+    </None>
+    <None Include="include\guichan\actionevent.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\actionlistener.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\cliprectangle.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\color.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\deathlistener.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\defaultfont.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\event.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\exception.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\focushandler.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\focuslistener.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\font.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\genericinput.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\glut.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\graphics.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\gui.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\image.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\imagefont.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\imageloader.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\input.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\inputevent.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\key.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\keyevent.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\keyinput.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\keylistener.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\listmodel.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\mouseevent.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\mouseinput.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\mouselistener.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\platform.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\rectangle.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\selectionevent.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\selectionlistener.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\widget.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\widgetlistener.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\hge\hgegraphics.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\hge\hgeimage.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\hge\hgeimagefont.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\hge\hgeimageloader.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\hge\hgeinput.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
+    <None Include="include\guichan\widgets\button.hpp">
+      <Filter>Widgets</Filter>
+    </None>
+    <None Include="include\guichan\widgets\checkbox.hpp">
+      <Filter>Widgets</Filter>
+    </None>
+    <None Include="include\guichan\widgets\container.hpp">
+      <Filter>Widgets</Filter>
+    </None>
+    <None Include="include\guichan\widgets\dropdown.hpp">
+      <Filter>Widgets</Filter>
+    </None>
+    <None Include="include\guichan\widgets\icon.hpp">
+      <Filter>Widgets</Filter>
+    </None>
+    <None Include="include\guichan\widgets\imagebutton.hpp">
+      <Filter>Widgets</Filter>
+    </None>
+    <None Include="include\guichan\widgets\label.hpp">
+      <Filter>Widgets</Filter>
+    </None>
+    <None Include="include\guichan\widgets\listbox.hpp">
+      <Filter>Widgets</Filter>
+    </None>
+    <None Include="include\guichan\widgets\radiobutton.hpp">
+      <Filter>Widgets</Filter>
+    </None>
+    <None Include="include\guichan\widgets\scrollarea.hpp">
+      <Filter>Widgets</Filter>
+    </None>
+    <None Include="include\guichan\widgets\slider.hpp">
+      <Filter>Widgets</Filter>
+    </None>
+    <None Include="include\guichan\widgets\tab.hpp">
+      <Filter>Widgets</Filter>
+    </None>
+    <None Include="include\guichan\widgets\tabbedarea.hpp">
+      <Filter>Widgets</Filter>
+    </None>
+    <None Include="include\guichan\widgets\textbox.hpp">
+      <Filter>Widgets</Filter>
+    </None>
+    <None Include="include\guichan\widgets\textfield.hpp">
+      <Filter>Widgets</Filter>
+    </None>
+    <None Include="include\guichan\widgets\window.hpp">
+      <Filter>Widgets</Filter>
+    </None>
+    <None Include="include\guichan\contrib\widgets\adjustingcontainer.hpp">
+      <Filter>src/guichan/contrib/widgets</Filter>
+    </None>
+  </ItemGroup>
+</Project>

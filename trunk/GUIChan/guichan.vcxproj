@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{4E915AE2-2C7A-4C4F-9A99-0A289E9A0EE5}</ProjectGUID>
+    <SccProjectName />
+    <SccLocalPath />
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../Debug/</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">./Debug/</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">GUIChan_d</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../Release/</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)/Release/</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">guichan</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\Velorth\Desktop\guichan-0.8.2\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">guichan.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">guichan</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\Velorth\Desktop\guichan-0.8.2\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">guichan.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">guichan</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions> /Zm1000 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(ProjectDir)/include;$(ProjectDir)/../HGE/include;$(ProjectDir)/../TinyXML/include;$(ProjectDir)/XML/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;_DEBUG;GUICHAN_BUILD;GUICHAN_EXTENSION_BUILD;CMAKE_INTDIR="Debug";guichan_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>Debug</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>C:/Users/Velorth/Desktop/guichan-0.8.2/Debug/guichan.pdb</ProgramDataBaseFileName>
+      <DisableSpecificWarnings>4244;4800;4251;4275;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>C:/Users/Velorth/Desktop/guichan-0.8.2/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:/Users/Velorth/Desktop/guichan-0.8.2/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 /debug %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>tinyxml_d.lib;hge_d.lib;hgehelp_d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../TinyXML/lib;../HGE/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ImportLibrary>$(ProjectDir)/lib/GUIChan_d.lib</ImportLibrary>
+      <ProgramDataBaseFileName>C:/Users/Velorth/Desktop/guichan-0.8.2/Debug/guichan.pdb</ProgramDataBaseFileName>
+      <StackReserveSize>10000000</StackReserveSize>
+      <SubSystem>Console</SubSystem>
+      <Version>0.0</Version>
+      <IgnoreSpecificDefaultLibraries>libc.lib</IgnoreSpecificDefaultLibraries>
+      <OutputFile>$(ProjectDir)../Debug/GUIChan_d.dll</OutputFile>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions> /Zm1000 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(ProjectDir)/include;$(ProjectDir)/../HGE/include;$(ProjectDir)/../TinyXML/include;$(ProjectDir)/XML/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;GUICHAN_BUILD;GUICHAN_EXTENSION_BUILD;CMAKE_INTDIR="Release";guichan_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>Release</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>C:/Users/Velorth/Desktop/guichan-0.8.2/Release/guichan.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>C:/Users/Velorth/Desktop/guichan-0.8.2/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:/Users/Velorth/Desktop/guichan-0.8.2/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>tinyxml.lib;hge.lib;hgehelp.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../TinyXML/lib;../HGE/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <ImportLibrary>$(ProjectDir)/lib/GUIChan.lib</ImportLibrary>
+      <ProgramDataBaseFileName>C:/Users/Velorth/Desktop/guichan-0.8.2/Release/guichan.pdb</ProgramDataBaseFileName>
+      <StackReserveSize>10000000</StackReserveSize>
+      <SubSystem>Console</SubSystem>
+      <Version>0.0</Version>
+      <OutputFile>$(ProjectDir)../Release/GUIChan.dll</OutputFile>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <ClCompile>
+      <AdditionalOptions> /Zm1000 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>C:/Users/Velorth/Desktop/guichan-0.8.2/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;GUICHAN_BUILD;GUICHAN_EXTENSION_BUILD;CMAKE_INTDIR="MinSizeRel";guichan_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>MinSizeRel</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>C:/Users/Velorth/Desktop/guichan-0.8.2/MinSizeRel/guichan.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>C:/Users/Velorth/Desktop/guichan-0.8.2/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:/Users/Velorth/Desktop/guichan-0.8.2/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <ImportLibrary>C:/Users/Velorth/Desktop/guichan-0.8.2/MinSizeRel/guichan.lib</ImportLibrary>
+      <ProgramDataBaseFileName>C:/Users/Velorth/Desktop/guichan-0.8.2/MinSizeRel/guichan.pdb</ProgramDataBaseFileName>
+      <StackReserveSize>10000000</StackReserveSize>
+      <SubSystem>Console</SubSystem>
+      <Version>0.0</Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalOptions> /Zm1000 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>C:/Users/Velorth/Desktop/guichan-0.8.2/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;GUICHAN_BUILD;GUICHAN_EXTENSION_BUILD;CMAKE_INTDIR="RelWithDebInfo";guichan_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>RelWithDebInfo</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>C:/Users/Velorth/Desktop/guichan-0.8.2/RelWithDebInfo/guichan.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>C:/Users/Velorth/Desktop/guichan-0.8.2/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:/Users/Velorth/Desktop/guichan-0.8.2/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 /debug %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ImportLibrary>C:/Users/Velorth/Desktop/guichan-0.8.2/RelWithDebInfo/guichan.lib</ImportLibrary>
+      <ProgramDataBaseFileName>C:/Users/Velorth/Desktop/guichan-0.8.2/RelWithDebInfo/guichan.pdb</ProgramDataBaseFileName>
+      <StackReserveSize>10000000</StackReserveSize>
+      <SubSystem>Console</SubSystem>
+      <Version>0.0</Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="include\guichan.hpp" />
+    <None Include="include\guichan\actionevent.hpp" />
+    <None Include="include\guichan\actionlistener.hpp" />
+    <None Include="include\guichan\cliprectangle.hpp" />
+    <None Include="include\guichan\color.hpp" />
+    <None Include="include\guichan\deathlistener.hpp" />
+    <None Include="include\guichan\defaultfont.hpp" />
+    <None Include="include\guichan\event.hpp" />
+    <None Include="include\guichan\exception.hpp" />
+    <None Include="include\guichan\focushandler.hpp" />
+    <None Include="include\guichan\focuslistener.hpp" />
+    <None Include="include\guichan\font.hpp" />
+    <None Include="include\guichan\genericinput.hpp" />
+    <None Include="include\guichan\glut.hpp" />
+    <None Include="include\guichan\graphics.hpp" />
+    <None Include="include\guichan\gui.hpp" />
+    <None Include="include\guichan\image.hpp" />
+    <None Include="include\guichan\imagefont.hpp" />
+    <None Include="include\guichan\imageloader.hpp" />
+    <None Include="include\guichan\input.hpp" />
+    <None Include="include\guichan\inputevent.hpp" />
+    <None Include="include\guichan\key.hpp" />
+    <None Include="include\guichan\keyevent.hpp" />
+    <None Include="include\guichan\keyinput.hpp" />
+    <None Include="include\guichan\keylistener.hpp" />
+    <None Include="include\guichan\listmodel.hpp" />
+    <None Include="include\guichan\mouseevent.hpp" />
+    <None Include="include\guichan\mouseinput.hpp" />
+    <None Include="include\guichan\mouselistener.hpp" />
+    <None Include="include\guichan\platform.hpp" />
+    <None Include="include\guichan\rectangle.hpp" />
+    <None Include="include\guichan\selectionevent.hpp" />
+    <None Include="include\guichan\selectionlistener.hpp" />
+    <None Include="include\guichan\widget.hpp" />
+    <None Include="include\guichan\widgetlistener.hpp" />
+    <None Include="include\guichan\hge\hgegraphics.hpp" />
+    <None Include="include\guichan\hge\hgeimage.hpp" />
+    <None Include="include\guichan\hge\hgeimagefont.hpp" />
+    <None Include="include\guichan\hge\hgeimageloader.hpp" />
+    <None Include="include\guichan\hge\hgeinput.hpp" />
+    <None Include="include\guichan\widgets\button.hpp" />
+    <None Include="include\guichan\widgets\checkbox.hpp" />
+    <None Include="include\guichan\widgets\container.hpp" />
+    <None Include="include\guichan\widgets\dropdown.hpp" />
+    <None Include="include\guichan\widgets\icon.hpp" />
+    <None Include="include\guichan\widgets\imagebutton.hpp" />
+    <None Include="include\guichan\widgets\label.hpp" />
+    <None Include="include\guichan\widgets\listbox.hpp" />
+    <None Include="include\guichan\widgets\radiobutton.hpp" />
+    <None Include="include\guichan\widgets\scrollarea.hpp" />
+    <None Include="include\guichan\widgets\slider.hpp" />
+    <None Include="include\guichan\widgets\tab.hpp" />
+    <None Include="include\guichan\widgets\tabbedarea.hpp" />
+    <None Include="include\guichan\widgets\textbox.hpp" />
+    <None Include="include\guichan\widgets\textfield.hpp" />
+    <None Include="include\guichan\widgets\window.hpp" />
+    <None Include="include\guichan\contrib\widgets\adjustingcontainer.hpp" />
+    <ClCompile Include="src\actionevent.cpp" />
+    <ClCompile Include="src\basiccontainer.cpp" />
+    <ClCompile Include="src\cliprectangle.cpp" />
+    <ClCompile Include="src\color.cpp" />
+    <ClCompile Include="src\defaultfont.cpp" />
+    <ClCompile Include="src\event.cpp" />
+    <ClCompile Include="src\exception.cpp" />
+    <ClCompile Include="src\focushandler.cpp" />
+    <ClCompile Include="src\font.cpp" />
+    <ClCompile Include="src\genericinput.cpp" />
+    <ClCompile Include="src\graphics.cpp" />
+    <ClCompile Include="src\gui.cpp" />
+    <ClCompile Include="src\guichan.cpp" />
+    <ClCompile Include="src\hge\hgegraphics.cpp" />
+    <ClCompile Include="src\hge\hgeimage.cpp" />
+    <ClCompile Include="src\hge\hgeimagefont.cpp" />
+    <ClCompile Include="src\hge\hgeimageloader.cpp" />
+    <ClCompile Include="src\hge\hgeinput.cpp" />
+    <ClCompile Include="src\image.cpp" />
+    <ClCompile Include="src\imagefont.cpp" />
+    <ClCompile Include="src\inputevent.cpp" />
+    <ClCompile Include="src\key.cpp" />
+    <ClCompile Include="src\keyevent.cpp" />
+    <ClCompile Include="src\keyinput.cpp" />
+    <ClCompile Include="src\mouseevent.cpp" />
+    <ClCompile Include="src\mouseinput.cpp" />
+    <ClCompile Include="src\rectangle.cpp" />
+    <ClCompile Include="src\selectionevent.cpp" />
+    <ClCompile Include="src\widget.cpp" />
+    <ClCompile Include="src\widgets\button.cpp" />
+    <ClCompile Include="src\widgets\checkbox.cpp" />
+    <ClCompile Include="src\widgets\container.cpp" />
+    <ClCompile Include="src\widgets\dropdown.cpp" />
+    <ClCompile Include="src\widgets\icon.cpp" />
+    <ClCompile Include="src\widgets\imagebutton.cpp" />
+    <ClCompile Include="src\widgets\label.cpp" />
+    <ClCompile Include="src\widgets\listbox.cpp" />
+    <ClCompile Include="src\widgets\radiobutton.cpp" />
+    <ClCompile Include="src\widgets\scrollarea.cpp" />
+    <ClCompile Include="src\widgets\slider.cpp" />
+    <ClCompile Include="src\widgets\tab.cpp" />
+    <ClCompile Include="src\widgets\tabbedarea.cpp" />
+    <ClCompile Include="src\widgets\textbox.cpp" />
+    <ClCompile Include="src\widgets\textfield.cpp" />
+    <ClCompile Include="src\widgets\window.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
