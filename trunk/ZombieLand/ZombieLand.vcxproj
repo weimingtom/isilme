@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{335ADDE9-3CDA-4414-8379-46408E2D98BE}</ProjectGuid>
+    <RootNamespace>TeddyTerror</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</GenerateManifest>
+    <EmbedManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</EmbedManifest>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">TeddyTerror</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)../Luabind;;$(ProjectDir)../;$(ProjectDir)../GUIChan/include/;$ProjectDir)/include;../HGE/include;./Game;../Engine/include;../TinyXML/include;../Box2D/;./Include;$(ProjectDir)../Lua514/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <GenerateXMLDocumentationFiles>true</GenerateXMLDocumentationFiles>
+      <DisableSpecificWarnings>4251;4275</DisableSpecificWarnings>
+      <PrecompiledHeaderFile>ZombieLand.h</PrecompiledHeaderFile>
+      <UseFullPaths>true</UseFullPaths>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>luabind_d.lib;GUIChan_d.lib;engine_d.lib;hge_d.lib;hgehelp_d.lib;tinyxml_d.lib;box2d_d.lib;lua514_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../Luabind/lib;../Lua514/lib;../GUIChan/lib;../HGE/lib;../TinyXML/lib;../Box2D/lib;$(ProjectDir)../Engine/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>libc.lib</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+      <RegisterOutput>false</RegisterOutput>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(ProjectDir)../;$(ProjectDir)../GUIChan/include/;$ProjectDir)/include;../HGE/include;./Game;../Engine/include;../TinyXML/include;../Box2D/;./Include;$(ProjectDir)../Lua514/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>GUIChan.lib; engine.lib; hge.lib;hgehelp.lib;tinyxml.lib;box2d.lib;lua514.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../Lua514/lib;../GUIChan/lib;../HGE/lib;../TinyXML/lib;../Box2D/lib;$(ProjectDir)../Engine/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <IgnoreSpecificDefaultLibraries>libc.lib; </IgnoreSpecificDefaultLibraries>
+      <ForceFileOutput>UndefinedSymbolOnly</ForceFileOutput>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Action\Attack.cpp" />
+    <ClCompile Include="Action\Die.cpp" />
+    <ClCompile Include="Action\Heal.cpp" />
+    <ClCompile Include="Action\Move.cpp" />
+    <ClCompile Include="Action\Shild.cpp" />
+    <ClCompile Include="Action\Shot.cpp" />
+    <ClCompile Include="Action\Wind.cpp" />
+    <ClCompile Include="Behaviour\Bullet.cpp" />
+    <ClCompile Include="Behaviour\Creature.cpp" />
+    <ClCompile Include="Behaviour\Destroyable.cpp" />
+    <ClCompile Include="Behaviour\Player.cpp" />
+    <ClCompile Include="Behaviour\Zombie.cpp" />
+    <ClCompile Include="Graphics\Creature.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\Graphics\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)\Graphics</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="Graphics\Player.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\Graphics</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)\Graphics\Player</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Sources\Cameras.cpp" />
+    <ClCompile Include="Sources\Configuration.cpp" />
+    <ClCompile Include="sources\ScriptAPI.cpp" />
+    <ClCompile Include="Sources\ZombieLand.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ZombieLand.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="State\Play.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Data\Entities.xml" />
+    <None Include="..\Data\Graphics.xml" />
+    <None Include="..\Data\Levels\Level1.xml" />
+    <None Include="..\Data\Quests\Story1.xml" />
+    <None Include="..\Data\Scripts\Level1.lua" />
+    <None Include="..\Data\Scripts\script.lua" />
+    <None Include="..\Data\Scripts\Triggers.lua" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Action\Attack.h" />
+    <ClInclude Include="Action\Die.h" />
+    <ClInclude Include="Action\Heal.h" />
+    <ClInclude Include="Action\Move.h" />
+    <ClInclude Include="Action\Shild.h" />
+    <ClInclude Include="Action\Shot.h" />
+    <ClInclude Include="Action\Wind.h" />
+    <ClInclude Include="Behaviour\Bullet.h" />
+    <ClInclude Include="Behaviour\Creature.h" />
+    <ClInclude Include="Behaviour\Destroyable.h" />
+    <ClInclude Include="Behaviour\Player.h" />
+    <ClInclude Include="Behaviour\Zombie.h" />
+    <ClInclude Include="Graphics\Creature.h" />
+    <ClInclude Include="Graphics\Destroyable.h" />
+    <ClInclude Include="Graphics\Player.h" />
+    <ClInclude Include="Include\Cameras.h" />
+    <ClInclude Include="include\Configuration.h" />
+    <ClInclude Include="include\Definitions.h" />
+    <ClInclude Include="include\ScriptAPI.h" />
+    <ClInclude Include="Include\ZombieLand.h" />
+    <ClInclude Include="State\Play.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
