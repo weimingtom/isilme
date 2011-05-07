@@ -13,7 +13,7 @@ namespace behaviour
 	Player::Player(PlayerDef* def) : Creature(def)
 	{
 		GetShotAction()->SetSound("../Data/Sounds/Weapons/Gun.wav");
-		SetHealth(25);
+		//SetHealth(25);
 		GetMoveAction()->SetSound("../Data/Sounds/Walk.wav");
 		GetMoveBackAction()->SetSound("../Data/Sounds/Walk.wav");
 

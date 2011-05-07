@@ -33,8 +33,8 @@ namespace behaviour
 	Destroyable::Destroyable(DestroyableDef* def)
 	{
 		mHitSound = 0;
-		mMaxHealth = def->Health;
-		mHealth = def->MaxHealth;
+		mMaxHealth = def->MaxHealth;
+		mHealth = def->Health;
 		mResistance = def->Resistance;
 		mBlood = def->Blood;
 
