@@ -47,7 +47,7 @@ void	ZombieLand::Init()
 	// Регистрируем камеру
 	factoryManager->RegisterCamera("Following", new CameraFactory<camera::FollowingCameraDef>());
 
-	playState = new state::Play();
+	playState = StatePtr(new state::Play());
 
 	GetStateManager()->Push(playState);
 

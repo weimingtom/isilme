@@ -1,0 +1,899 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="BodyDef" Collapsed="true">
+    <Position X="21.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAgAAAAABAAAAgAAQEAAAAAAAAAAAAAAQAAQAAAAAA=</HashCode>
+      <FileName>include\Bodies.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Body">
+    <Position X="13.75" Y="1.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>YAAEAAAAACAAACAAAAABEJAAAAAAAgEAAAAAgIAAAAA=</HashCode>
+      <FileName>include\Bodies.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Box2DBody" Collapsed="true">
+    <Position X="15.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAAEAAAAACAAAAAAAAABEIAAAAAEAgAQABAAgcAAIIA=</HashCode>
+      <FileName>include\Bodies.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleBody" Collapsed="true">
+    <Position X="12.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAAEAAACACEAAAAAAAABEIAAAAEAQgAAAAAAgAAAAgA=</HashCode>
+      <FileName>include\Bodies.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Camera" Collapsed="true">
+    <Position X="10" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAABAAAAQAQAAAAAAAAAAAAAAAAABgAABAAAA=</HashCode>
+      <FileName>include\Camera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CameraDefinition" Collapsed="true">
+    <Position X="26.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAgAEAAAAAAAQAAAAA=</HashCode>
+      <FileName>include\Camera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICameraFactory" Collapsed="true">
+    <Position X="11" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAACAAAAAA=</HashCode>
+      <FileName>include\Camera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CameraFactory&lt;CameraType&gt;" Collapsed="true">
+    <Position X="11" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAFAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Camera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DestructionListener" Collapsed="true">
+    <Position X="31.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAARAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Collisions.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ContactListener" Collapsed="true">
+    <Position X="30" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAA=</HashCode>
+      <FileName>include\Collisions.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ContactFilter" Collapsed="true">
+    <Position X="28.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAQAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>include\Collisions.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Box2DEngine" Collapsed="true">
+    <Position X="23" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAEAAAAAAAABAAAAAAAAAAAAAAgAABAAAAAAAAAAA=</HashCode>
+      <FileName>include\Collisions.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phrase" Collapsed="true">
+    <Position X="24.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Conversation.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine">
+    <Position X="13.25" Y="14.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>EEAAAAAIACQAABAAAEQAAAQRAAABEEAQBASBAQAgAAA=</HashCode>
+      <FileName>include\Engine.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entity">
+    <Position X="10.75" Y="2.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>UAREABoBACAICCAAAAAABAABICBEAigAAAggAAkAFAA=</HashCode>
+      <FileName>include\Entity.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game">
+    <Position X="22.75" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAIACAQABAAAAAAAAAAAAiAAAAAIAACAAAAAAg=</HashCode>
+      <FileName>include\Game.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HGEGame" Collapsed="true">
+    <Position X="18.75" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AGAAQAAAACAAIAAAAAAAAAAAAAAAACAAAAQCQAAAAAA=</HashCode>
+      <FileName>include\Game.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputSystem">
+    <Position X="15" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAKAgAAgAAAAAgAAAAAQAACAQAAAAAAAAQAAAQAA=</HashCode>
+      <FileName>include\InputSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HGEInputSystem" Collapsed="true">
+    <Position X="15" Y="18" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAgAIAgAAgAAAAAgAAAAAQAACAQAAAAAAAAQAAEQAA=</HashCode>
+      <FileName>include\InputSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JointDefinition" Collapsed="true">
+    <Position X="31.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAgEACAAAAAAAACAAAAgAAAAAAAAAAAAAAAAAAAACQ=</HashCode>
+      <FileName>include\Joints.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Layer" Collapsed="true">
+    <Position X="12" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQIIQAQAAAAAgAAAAAIAAAAAAAAAAAAEAAAAAABAAAA=</HashCode>
+      <FileName>include\Layer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Level">
+    <Position X="10.75" Y="6.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AATKgAAAAQAAAAAAAAACIAAAAAAAAAABhAADAABAAAA=</HashCode>
+      <FileName>include\Level.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LogoState" Collapsed="true">
+    <Position X="9.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAABAAAQAgAEAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>include\LogoState.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Renderer">
+    <Position X="21" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAggIAAACAAAgAAAAAAAAAAAAAAAAAABEDACAEgAAA=</HashCode>
+      <FileName>include\Renderer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HGERenderer" Collapsed="true">
+    <Position X="21" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAgIAAAAEAAgAAAAAAAAAAAAAAAAAABABACAEAAAA=</HashCode>
+      <FileName>include\Renderer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ResourceManager">
+    <Position X="16.75" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IIAACAACAAAIAAAAAAAQIAAAAAAgAAAAAAAACAAIAAA=</HashCode>
+      <FileName>include\ResourceManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HGEResourceManager" Collapsed="true">
+    <Position X="16.75" Y="18" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IMAACAACAAAIAAAAAAAQIAABAAAgAAAAAAAACAAAQIA=</HashCode>
+      <FileName>include\ResourceManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ISensor" Collapsed="true">
+    <Position X="0.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAgABAAAAAAAAAAAAAACAAAEAAAA=</HashCode>
+      <FileName>include\Sensor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sensor&lt;T&gt;" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAIQABAgAAAAABAAAAAAAEQAAAAACAAAEAAAA=</HashCode>
+      <FileName>include\Sensor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoundSystem">
+    <Position X="18.5" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEgAAAAAACAAAAAAAABAAEAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>include\SoundSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HGESoundSystem" Collapsed="true">
+    <Position X="18.5" Y="18" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEgAAAAAAAACAAAAAQBEAEAAAAAAAAAAgAAEAAAAAAE=</HashCode>
+      <FileName>include\SoundSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="State" Collapsed="true">
+    <Position X="9.5" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAQBAACEAAggAEABAgAADwAhAGBgEAAAgBBGAIAA=</HashCode>
+      <FileName>include\State.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StateManager" Collapsed="true">
+    <Position X="28.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQAAEAAAAASAgAAAgQAAAABAAGEACAAAAAAAAAACAg=</HashCode>
+      <FileName>include\StateManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphicsDefinition">
+    <Position X="15.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAgAAAAABAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Graphics.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Graphics">
+    <Position X="9.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAABAAAACAAAQAAAABAAAAAAAAE=</HashCode>
+      <FileName>include\Graphics.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Behaviour">
+    <Position X="2.5" Y="1" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>QAQAAAAAAAEAASAgEAAAABABAAEAQCiEAIAAIIAgIAA=</HashCode>
+      <FileName>include\Behaviour.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BehaviourDefinition">
+    <Position X="13.75" Y="9.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAgAAgAAAAAAAAAAAAAABAAAAAAAEAAAAAAAAQAAAA=</HashCode>
+      <FileName>include\Behaviour.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IBehaviourFactory">
+    <Position X="12" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Behaviour.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BehaviourFactory&lt;T&gt;" Collapsed="true">
+    <Position X="12" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Behaviour.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TriggerDefinition" Collapsed="true">
+    <Position X="13.75" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAgAAAAQAAAAAAAAAAAAAAAAAAAAEAAAAAAEAAAAAA=</HashCode>
+      <FileName>include\Trigger.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EntityDefinition">
+    <Position X="12" Y="9.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACAAABAAAAiAAAAgAIAAAAAAAEAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>include\EntityDefinition.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FactoryManager">
+    <Position X="10.25" Y="9.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>EgKAgAEiAAAAAhAIAACBCABAAAggAQAACAAAQAAAAAE=</HashCode>
+      <FileName>include\FactoryManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IGraphicsFactory">
+    <Position X="15.5" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\GraphicsFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphicsFactory&lt;T&gt;" Collapsed="true">
+    <Position X="15.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAABAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\GraphicsFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ActionDefinition" Collapsed="true">
+    <Position X="19.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAACAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\LevelLoaders.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EntityData" Collapsed="true">
+    <Position X="23" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAFAAAAAABgAABAAAA=</HashCode>
+      <FileName>include\LevelLoaders.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GroupData" Collapsed="true">
+    <Position X="28.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAQAAAABgAAAAAAA=</HashCode>
+      <FileName>include\LevelLoaders.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelLoader" Collapsed="true">
+    <Position X="23" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAgAAAAAAECBBAAAAEAIBAEEABAEAAmAAAAAACAAAA=</HashCode>
+      <FileName>include\LevelLoaders.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IAction">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAAAAAAIAAEAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>include\Action.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Action">
+    <Position X="7" Y="3.25" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>QAQAAEABGAAAAIAAEAEAQAEBwEAAAASAYIAAAgAAAAQ=</HashCode>
+      <FileName>include\Action.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="graphics::Sprite" Collapsed="true">
+    <Position X="11" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAQAAAAAAAAAAAAAAQABAAAAAAAAI=</HashCode>
+      <FileName>Graphics\Sprite.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="graphics::Animation" Collapsed="true">
+    <Position X="9.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAgAAAACAAAAAAAAAAABAAAAAAAAE=</HashCode>
+      <FileName>Graphics\Animation.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="graphics::Particles" Collapsed="true">
+    <Position X="11.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAAAAAAAAACAAAAAAAAAAAAAAAAAAAQBAAAAAAAAA=</HashCode>
+      <FileName>Graphics\Particles.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="gcn::ProgressBar" Collapsed="true">
+    <Position X="26.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAIAAAIAAgAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>GUI\ProgressBar.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="action::SpecialAction&lt;T&gt;" Collapsed="true">
+    <Position X="2" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Action\SpecialAction.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="action::SpecialTactics&lt;T&gt;" Collapsed="true">
+    <Position X="2" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Action\SpecialTactics.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="action::IStrategy" Collapsed="true">
+    <Position X="30" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Action\Strategy.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="action::Tactics">
+    <Position X="4.75" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ACQAAEABiAAAAIAAEAAAQAAACAAAAAAAIAIAAAAAAAA=</HashCode>
+      <FileName>Action\Tactics.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="story::Story" Collapsed="true">
+    <Position X="30" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAAAAAAAAAAAABAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quest\Story.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Typedef Name="SensorPtr" Collapsed="true">
+    <Position X="19.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="ActionPtr" Collapsed="true">
+    <Position X="23" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="ActionWPtr" Collapsed="true">
+    <Position X="24.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="BehaviourPtr" Collapsed="true">
+    <Position X="31.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="BehaviourWPtr" Collapsed="true">
+    <Position X="19.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="BodyPtr" Collapsed="true">
+    <Position X="21.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="BodyWPtr" Collapsed="true">
+    <Position X="23" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="CameraPtr" Collapsed="true">
+    <Position X="26.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="CameraWPtr" Collapsed="true">
+    <Position X="28.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="EntityPtr" Collapsed="true">
+    <Position X="28.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="EntityWPtr" Collapsed="true">
+    <Position X="31.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="LayerPtr" Collapsed="true">
+    <Position X="30" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="LayerWPtr" Collapsed="true">
+    <Position X="31.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="LevelPtr" Collapsed="true">
+    <Position X="19.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="LevelWPtr" Collapsed="true">
+    <Position X="21.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="TriggerPtr" Collapsed="true">
+    <Position X="24.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="BehaviourDefPtr" Collapsed="true">
+    <Position X="28.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="EntityDefPtr" Collapsed="true">
+    <Position X="21.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GraphicsDefPtr" Collapsed="true">
+    <Position X="26.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GraphicsPalette" Collapsed="true">
+    <Position X="19.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="CameraDefPtr" Collapsed="true">
+    <Position X="24.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GraphicsPtr" Collapsed="true">
+    <Position X="21.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GraphicsWPtr" Collapsed="true">
+    <Position X="23" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GraphicsMap" Collapsed="true">
+    <Position X="31.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="graphics::SpritePtr" Collapsed="true">
+    <Position X="21.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="graphics::AnimationPtr" Collapsed="true">
+    <Position X="26.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="SensorList" Collapsed="true">
+    <Position X="31.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="StringList" Collapsed="true">
+    <Position X="26.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="StringMap" Collapsed="true">
+    <Position X="28.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="EntitySet" Collapsed="true">
+    <Position X="30" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="EntityMap" Collapsed="true">
+    <Position X="24.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="EntityList" Collapsed="true">
+    <Position X="23" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Vector2" Collapsed="true">
+    <Position X="26.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Fixture" Collapsed="true">
+    <Position X="19.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="FixtureDefList" Collapsed="true">
+    <Position X="21.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="FixtureDefMap" Collapsed="true">
+    <Position X="23" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="FixtureMap" Collapsed="true">
+    <Position X="24.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Definitions.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="JointDefPtr" Collapsed="true">
+    <Position X="24.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Joints.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="LayerList" Collapsed="true">
+    <Position X="26.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Layer.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="LayerMap" Collapsed="true">
+    <Position X="28.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Layer.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="BoolSensor" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Sensor.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="IntSensor" Collapsed="true">
+    <Position X="0.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Sensor.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="FloatSensor" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Sensor.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="BehaviourMap" Collapsed="true">
+    <Position X="30" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Behaviour.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="EntityPalette" Collapsed="true">
+    <Position X="26.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\EntityDefinition.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GraphicsFactoryPtr" Collapsed="true">
+    <Position X="30" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\GraphicsFactory.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GraphicsFactoryMap" Collapsed="true">
+    <Position X="28.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\GraphicsFactory.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="ActionList" Collapsed="true">
+    <Position X="19.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Action.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="ActionMap" Collapsed="true">
+    <Position X="21.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\Action.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="story::EndingPtr" Collapsed="true">
+    <Position X="19.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quest\Quests.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="story::EndingMap" Collapsed="true">
+    <Position X="31.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quest\Quests.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="story::EndingList" Collapsed="true">
+    <Position X="30" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quest\Quests.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="story::TaskPtr" Collapsed="true">
+    <Position X="19.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quest\Quests.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="story::TaskWPtr" Collapsed="true">
+    <Position X="23" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quest\Quests.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="story::TaskMap" Collapsed="true">
+    <Position X="31.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quest\Quests.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="story::TaskSet" Collapsed="true">
+    <Position X="21.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quest\Quests.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="story::TaskList" Collapsed="true">
+    <Position X="30" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quest\Quests.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="story::QuestPtr" Collapsed="true">
+    <Position X="26.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quest\Quests.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="story::QuestQPtr" Collapsed="true">
+    <Position X="28.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quest\Quests.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="story::QuestMap" Collapsed="true">
+    <Position X="24.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quest\Quests.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="story::QuestSet" Collapsed="true">
+    <Position X="30" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quest\Quests.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="story::QuestList" Collapsed="true">
+    <Position X="23" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quest\Quests.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="story::StoryPtr" Collapsed="true">
+    <Position X="23" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quest\Quests.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="story::StoryWPtr" Collapsed="true">
+    <Position X="24.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quest\Quests.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Enum Name="action::ActionState" Collapsed="true">
+    <Position X="19.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAEAAAAAAAAAAQAAAAAABBAAAAAAAAI=</HashCode>
+      <FileName>include\Action.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

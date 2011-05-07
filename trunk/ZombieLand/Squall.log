@@ -73,8 +73,8 @@
 		ALG_3D_OFF
 		ALG_3D_FULL
 		ALG_3D_LIGTH
-[00:00:00.162]	SQUALL_Init(0x0)
-		[out]Window                   = 0x340F8C
+[00:00:00.441]	SQUALL_Init(0x0)
+		[out]Window                   = 0x6C0D5E
 		[out]Device                   = 0
 		[out]SampleRate               = 44100
 		[out]BitPerSample             = 16
@@ -87,62 +87,19 @@
 		[out]DopplerFactor            = 1.000000
 		[out]UseHW2D                  = 0
 		[out]UseHW3D                  = 0
-[00:00:02.127]	SQUALL_Sample_LoadFile(../Data/Sounds/Zombie/Die.wav, 1, 0x0)
+[00:00:03.150]	SQUALL_Sample_LoadFile(../Data/Sounds/Weapons/Gun.wav, 1, 0x0)
 		result = 0x10000
-[00:00:02.128]	SQUALL_Sample_LoadFile(../Data/Sounds/Zombie/Hit.wav, 1, 0x0)
+[00:00:03.150]	SQUALL_Sample_LoadFile(../Data/Sounds/Walk.wav, 1, 0x0)
 		result = 0x10001
-[00:00:02.453]	SQUALL_Sample_LoadFile(../Data/Sounds/Weapons/Gun.wav, 1, 0x0)
-		result = 0x10002
-[00:00:02.454]	SQUALL_Sample_LoadFile(../Data/Sounds/Walk.wav, 1, 0x0)
-		result = 0x10003
-[00:00:02.783]	SQUALL_Sample_PlayEx(0x0, 1, 0, 1, 1, 100, 0, 0)
-		result = SQUALL_ERROR_SAMPLE_BAD
-[00:00:02.784]	SQUALL_Sample_PlayEx(0x0, 1, 0, 1, 1, 100, 0, 0)
-		result = SQUALL_ERROR_SAMPLE_BAD
-[00:00:02.786]	SQUALL_Sample_PlayEx(0x0, 1, 0, 1, 1, 100, 0, 0)
-		result = SQUALL_ERROR_SAMPLE_BAD
-[00:00:02.830]	SQUALL_Sample_PlayEx(0x0, 1, 0, 1, 1, 100, 0, 0)
-		result = SQUALL_ERROR_SAMPLE_BAD
-[00:00:02.980]	SQUALL_Channel_Stop(0xFFFFFFE6)
-		error = SQUALL_ERROR_CHANNEL_NOT_FOUND
-[00:00:04.893]	SQUALL_Sample_PlayEx(0x10003, 1, 0, 1, 1, 100, 0, 0)
+[00:00:04.212]	SQUALL_Sample_PlayEx(0x10001, 1, 0, 1, 1, 100, 0, 0)
 		result = 0x100
-[00:00:05.055]	SQUALL_Channel_Stop(0xFFFFFFE6)
-		error = SQUALL_ERROR_CHANNEL_NOT_FOUND
-[00:00:05.190]	SQUALL_Channel_Stop(0x100)
-[00:00:06.020]	SQUALL_Sample_PlayEx(0x10003, 1, 0, 1, 1, 100, 0, 0)
+[00:00:13.812]	SQUALL_Channel_Stop(0x100)
+[00:00:14.194]	SQUALL_Sample_PlayEx(0x10001, 1, 0, 1, 1, 100, 0, 0)
 		result = 0x200
-[00:00:06.437]	SQUALL_Channel_Stop(0x200)
-[00:00:06.734]	SQUALL_Sample_PlayEx(0x10003, 1, 0, 1, 1, 100, 0, 0)
+[00:00:14.611]	SQUALL_Channel_Stop(0x200)
+[00:00:15.805]	SQUALL_Sample_PlayEx(0x10001, 1, 0, 1, 1, 100, 0, 0)
 		result = 0x300
-[00:00:07.030]	SQUALL_Sample_PlayEx(0x0, 1, 0, 1, 1, 100, 0, 0)
-		result = SQUALL_ERROR_SAMPLE_BAD
-[00:00:07.200]	SQUALL_Channel_Stop(0x300)
-[00:00:08.242]	SQUALL_Sample_PlayEx(0x10002, 0, 0, 1, 1, 100, 0, 0)
+[00:00:16.985]	SQUALL_Channel_Stop(0x300)
+[00:00:17.932]	SQUALL_Sample_PlayEx(0x10001, 1, 0, 1, 1, 100, 0, 0)
 		result = 0x400
-[00:00:08.495]	SQUALL_Sample_PlayEx(0x10001, 0, 0, 1, 1, 100, 0, 0)
-		result = 0x101
-[00:00:08.558]	SQUALL_Sample_PlayEx(0x10002, 0, 0, 1, 1, 100, 0, 0)
-		result = 0x102
-[00:00:08.777]	SQUALL_Sample_PlayEx(0x10001, 0, 0, 1, 1, 100, 0, 0)
-		result = 0x103
-[00:00:08.791]	SQUALL_Sample_PlayEx(0x10000, 0, 0, 1, 1, 100, 0, 0)
-		result = 0x104
-[00:00:08.857]	SQUALL_Sample_PlayEx(0x10002, 0, 0, 1, 1, 100, 0, 0)
-		result = 0x105
-[00:00:09.441]	SQUALL_Sample_PlayEx(0x10001, 0, 0, 1, 1, 100, 0, 0)
-		result = 0x201
-[00:00:09.458]	SQUALL_Sample_PlayEx(0x10003, 1, 0, 1, 1, 100, 0, 0)
-		result = 0x106
-[00:00:09.938]	SQUALL_Sample_PlayEx(0x0, 1, 0, 1, 1, 100, 0, 0)
-		result = SQUALL_ERROR_SAMPLE_BAD
-[00:00:09.971]	SQUALL_Channel_Stop(0xFFFFFFE6)
-		error = SQUALL_ERROR_CHANNEL_NOT_FOUND
-[00:00:10.037]	SQUALL_Sample_PlayEx(0x0, 1, 0, 1, 1, 100, 0, 0)
-		result = SQUALL_ERROR_SAMPLE_BAD
-[00:00:10.071]	SQUALL_Channel_Stop(0xFFFFFFE6)
-		error = SQUALL_ERROR_CHANNEL_NOT_FOUND
-[00:00:10.372]	SQUALL_Channel_Stop(0x106)
-[00:00:10.654]	SQUALL_Sample_PlayEx(0x10003, 1, 0, 1, 1, 100, 0, 0)
-		result = 0x500
-[00:00:10.903]	SQUALL_Channel_Stop(0x500)
+[00:00:19.643]	SQUALL_Channel_Stop(0x400)

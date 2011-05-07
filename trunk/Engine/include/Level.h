@@ -54,6 +54,8 @@ public:
 
 	/// Создает новый слой
 	LayerPtr		AddLayer(std::string name);
+
+	EntityPtr		CreateEntity(std::string type, float x, float y, float angle, std::string name = "");
 private:
 	/// Таймер итераций физического мира
 	float		mPhisicsTimer;

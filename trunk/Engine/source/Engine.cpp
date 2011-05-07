@@ -55,7 +55,7 @@ void Engine::ShowLogo()
 {
 	Sleep(200);
 	mLogo = new LogoState(new hgeSprite(mResourceManager->GetTexture("../Data/Textures/Logo.png"),0,0,954, 755));
-	mStateManager->Push(mLogo);
+	mStateManager->Push(StatePtr(mLogo));
 	mHGE->System_Start();
 	Sleep(200);
 }

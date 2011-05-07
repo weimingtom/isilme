@@ -18,6 +18,15 @@ LayerList*	Level::GetLayers()
 	return &mLayers;
 }
 
+EntityPtr	Level::CreateEntity(std::string type, float x, float y, float angle, std::string name)
+{
+	EntityPtr entity = FactoryManager::GetSingleton()->CreateEntity(type, name, shared_from_this());
+	entity->SetPosition(x, y);
+	entity->SetAngle(angle);
+	mLayers.back()->Add(entity);
+	return entity;
+}
+
 void		Level::Clear()
 {
 	mLayers.clear();

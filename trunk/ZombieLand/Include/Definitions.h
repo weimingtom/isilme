@@ -48,6 +48,7 @@ namespace action
 namespace state
 {
 	class Play;
+	typedef boost::shared_ptr<Play> PlayPtr;
 };
 
 namespace graphics

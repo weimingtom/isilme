@@ -42,12 +42,7 @@ void	Trigger::Think(float elapsedTime)
 		bool result;
 		if (GetActivationFunction() != "")
 		{
-			lua->CallFunction(
-				GetActivationFunction().c_str(),	// Имя функции
-				result,								// Результат
-				GetActor()->GetName(),				// Имя триггера
-				GetTarget()->GetName()				// Имя объекта
-			);
+			luabind::call_function<void, EntityPtr, Entity*>(lua->GetState(), mActivationFunction.c_str(), GetActor(), GetTarget());
 		}
 		isActivated = false;
 		mTarget = 0;

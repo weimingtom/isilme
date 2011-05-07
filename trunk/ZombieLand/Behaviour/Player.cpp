@@ -13,7 +13,7 @@ namespace behaviour
 	Player::Player(PlayerDef* def) : Creature(def)
 	{
 		GetShotAction()->SetSound("../Data/Sounds/Weapons/Gun.wav");
-		//SetHealth(25);
+		SetHealth(25);
 		GetMoveAction()->SetSound("../Data/Sounds/Walk.wav");
 		GetMoveBackAction()->SetSound("../Data/Sounds/Walk.wav");
 
@@ -95,26 +95,26 @@ namespace behaviour
 			if (!(GetHealAction()->IsActive()) && GetEnergy() >= GetHealAction()->GetCost())
 				StartAction(GetHealAction());
 
-			lua_State* state = Engine::GetSingleton()->GetLua()->GetState();
-			luaL_loadstring(state, "TestStory();");
-			func_index = lua_gettop(state);
+			//lua_State* state = Engine::GetSingleton()->GetLua()->GetState();
+			//luaL_loadstring(state, "TestStory();");
+			//func_index = lua_gettop(state);
 
-			func = luabind::object(luabind::from_stack(state, func_index));
+			//func = luabind::object(luabind::from_stack(state, func_index));
 		}
 		if (inputSystem->IsKeyDown(HGEK_4))
 		{
 			lua_State* state = Engine::GetSingleton()->GetLua()->GetState();
 
 			//luabind::object func(luabind::from_stack(state, func_index));
-			try
-			{
-				luabind::call_function<void>(func);
-				int a = 1;
-			}
-			catch (std::exception e)
-			{
-				int b = 0;
-			}
+			//try
+			//{
+			//	luabind::call_function<void>(func);
+			//	int a = 1;
+			//}
+			//catch (std::exception e)
+			//{
+			//	int b = 0;
+			//}
 			//lua_pushvalue(state, func_index);
 			//lua_pcall(state, 0, 0, 0);
 			//luaL_dostring(Engine::GetSingleton()->GetLua()->GetState(), "TestEngineAPI();");

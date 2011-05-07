@@ -32,7 +32,7 @@ public:
 	virtual void Init();
 
 	/// Состояние "Игра"
-	State*		playState;
+	StatePtr		playState;
 
 	/// Возвращает конфигурацию игры
 	Configuration* GetConfguration();

@@ -18,15 +18,15 @@ public:
 
 	bool		Update(float elapsedTime);
 	bool		Draw(float elapsedTime);
-	State*		GetState();
+	StatePtr		GetState();
 	LevelPtr		GetLevel();
-	void		Push(State* state);
+	void		Push(StatePtr state);
 	void		Pop();
 	Renderer*	GetRenderer();
 	void		SetRenderer(Renderer* renderer);
 private:
-	std::list <State*>	mStates;
-	std::list <State*>	mUpdatedStates;
+	StateList	mStates;
+	StateList	mUpdatedStates;
 	Lua*				mLua;
 	Renderer*			mRenderer;
 	HGE*				mHGE;

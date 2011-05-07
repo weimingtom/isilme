@@ -15,13 +15,13 @@ void		StateManager::Pop()
 	mStates.pop_back();
 }
 
-void		StateManager::Push(State* state)
+void		StateManager::Push(StatePtr state)
 {
 	mStates.push_back(state);
 	state->Start();
 }
 
-State*		StateManager::GetState()
+StatePtr		StateManager::GetState()
 {
 	return mStates.back();
 }

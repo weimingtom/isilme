@@ -66,9 +66,12 @@ class Renderer;
 class ResourceManager;
 class SoundSystem;
 class State;
+typedef boost::shared_ptr<State> StatePtr;
+
 class StateManager;
 class FactoryManager;
 typedef boost::shared_ptr<FactoryManager> FactoryPtr;
+typedef std::list<StatePtr>	StateList;
 
 class Trigger;
 typedef boost::shared_ptr<Trigger> TriggerPtr;
