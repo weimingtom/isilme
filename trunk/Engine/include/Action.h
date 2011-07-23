@@ -2,6 +2,7 @@
 #define ACTION_H
 
 #include "Definitions.h"
+#include "Engine/Action/Strategy.h"
 
 
 namespace action
@@ -17,18 +18,34 @@ namespace action
 	};
 };
 
+/// Интерфейс действия
 class IAction
 {
 	friend class Behaviour;
 public:
+	/// Итерация действия
 	virtual bool Update(float elapsedTime) = 0;
+
+	/// Выполняется в момент начала действия
 	virtual void Stop() = 0;
+
+	/// Возвращает состояние действия
 	virtual action::ActionState GetState() = 0;
+
+	/// @depricated
 	virtual unsigned long GetMask() = 0;
+
+	/// Проверяе активно ли действие
 	virtual bool IsActive() = 0;
+
+	/// Возвращает родительское действие
+	virtual ActionPtr	GetParent() = 0;
+
+	virtual void	SetParent(ActionPtr parent) = 0;
 protected:
 	/// Вызывается из Behaviour владельца
 	virtual void	OnStart(BehaviourPtr behaviour) = 0;
+
 };
 
 /// @class Action
@@ -64,11 +81,17 @@ public:
 
 	/// Проверяет, возможно ли выполнение действия
 	virtual bool	IsEnabled();
-
+	
 	unsigned long GetMask();
 
-
+	
+	/// Возвращает родительское действие
+	virtual ActionPtr	GetParent();
 protected:
+	virtual void	SetParent(ActionPtr parent);
+
+	/// Родительское действие
+	ActionWPtr	mParent;
 
 	unsigned long mMask;
 

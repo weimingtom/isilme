@@ -3,6 +3,8 @@
 #include "ZombieLand/Action/Move.h"
 #include "ZombieLand/Action/Shot.h"
 #include "ZombieLand/Action/Attack.h"
+#include "ZombieLand/Items/Weapon.h"
+#include "ZombieLand/Item.h"
 
 namespace behaviour
 {
@@ -21,10 +23,20 @@ namespace behaviour
 		mEnergy = def->Energy;
 		mMaxEnergy = def->MaxEnergy;
 		mEnergyResoration = def->EnergyRestoration;
+
+		mInventory = Inventory::New();
+
+		ItemPtr p = items::CreatePistol();
+		mInventory->Equip(p);
 	}
 
 	Creature::~Creature()
 	{
+	}
+
+	InventoryPtr	Creature::GetInventory()
+	{
+		return mInventory;
 	}
 
 	void	Creature::SetMaxEnergy(float energy)

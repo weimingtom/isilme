@@ -4,11 +4,11 @@
 #include "Definitions.h"
 #include "Action.h"
 
-namespace action
+
+/// @class Strategy
+/// Интерфейс стратегии
+class IStrategy
 {
-	class IStrategy
-	{
-	};
 };
 
 #endif

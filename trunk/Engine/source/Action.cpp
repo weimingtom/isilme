@@ -27,6 +27,16 @@ void	Action::OnStart(BehaviourPtr behaviour)
 	OnStart();
 }
 
+void	Action::SetParent(ActionPtr action)
+{
+	mParent = action;
+}
+
+ActionPtr	Action::GetParent()
+{
+	return mParent.lock();
+}
+
 bool	Action::IsEnabled()
 {
 	return true;

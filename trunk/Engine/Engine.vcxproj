@@ -58,7 +58,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>luabind_d.lib;hge_d.lib;hgehelp_d.lib;GUIChan_d.lib;tinyxml_d.lib;box2d_d.lib;lua514_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>xinput.lib;luabind_d.lib;hge_d.lib;hgehelp_d.lib;GUIChan_d.lib;tinyxml_d.lib;box2d_d.lib;lua514_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../Luabind/lib;../Lua514/lib; ../GUIChan/lib;../HGE/lib;../TinyXML/lib;../Box2D/lib;../Engine/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>libc.lib; libcmt.lib; libcmtd.lib</IgnoreSpecificDefaultLibraries>
       <ImportLibrary>$(ProjectDir)/lib/Engine_d.lib</ImportLibrary>
@@ -81,7 +81,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;ISILME_DLL;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)../;$(ProjectDir)../GUIChan/include/;$(ProjectDir)../HGE/include;$(ProjectDir)/include;$(ProjectDir)../TinyXML/include;$(ProjectDir)../Box2D/;$(ProjectDir)../Lua514/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)../Luabind/;$(ProjectDir)../;$(ProjectDir)../GUIChan/include/;$(ProjectDir)../HGE/include;$(ProjectDir)/include;$(ProjectDir)../TinyXML/include;$(ProjectDir)../Box2D/;$(ProjectDir)../Lua514/include</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4251;4275;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Link>
@@ -149,6 +149,7 @@
     <ClInclude Include="Quest\Solution.h" />
     <ClInclude Include="Quest\Story.h" />
     <ClInclude Include="ScriptAPI.h" />
+    <ClInclude Include="System\ActionManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Action\Tactics.cpp" />
@@ -190,6 +191,7 @@
     <ClCompile Include="source\State.cpp" />
     <ClCompile Include="source\StateManager.cpp" />
     <ClCompile Include="source\Trigger.cpp" />
+    <ClCompile Include="System\ActionManager.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -29,10 +29,18 @@ class ISensor;
 template <class T> class Sensor;
 typedef boost::shared_ptr<ISensor> SensorPtr;
 
+class IStrategy;
+typedef boost::shared_ptr<IStrategy> StrategyPtr;
+typedef boost::weak_ptr<IStrategy> StrategyWPtr;
+
 class IAction;
 class Action;
 typedef boost::shared_ptr<IAction> ActionPtr;
 typedef boost::weak_ptr<IAction> ActionWPtr;
+typedef std::set<ActionPtr>	ActionSet;
+
+class ActionManager;
+typedef boost::shared_ptr<ActionManager> ActionManagerPtr;
 
 class Behaviour;
 typedef boost::shared_ptr<Behaviour> BehaviourPtr;

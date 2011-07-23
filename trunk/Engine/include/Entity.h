@@ -73,6 +73,13 @@ public:
 	/// Удалить все физические связи
 	void			RemoveJoints();
 
+	float		GetAngleTo(EntityPtr entity);
+
+	float		GetAngleTo(Vector2 point);
+
+	float		GetDistanceTo(EntityPtr entity);
+
+	float		GetDistanceTo(Vector2 point);
 protected:
 	/// Создает сущность
 	Entity();

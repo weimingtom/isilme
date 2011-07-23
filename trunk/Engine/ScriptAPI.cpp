@@ -43,6 +43,14 @@ namespace ScriptAPI
 				.def("IsFinished", &Quest::IsFinished)
 			];
 	}
+	
+	void RegisterGUIAPI(lua_State* state)
+	{
+		//luabind::module(state)
+		//	[
+		//		luabind::class_<gcn::Button>("Button")
+		//	];
+	}
 
 	void RegisterEngineAPI()
 	{
@@ -145,5 +153,6 @@ namespace ScriptAPI
 
 		RegisterQuestAPI(state);
 		RegisterFunctions(state);
+		RegisterGUIAPI(state);
 	}
 };

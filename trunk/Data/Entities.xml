@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entities>
+	<!-- -->
+	<Entity Type="Box" Graphics="Box" Behaviour="Destroyable">
+		<!-- Сущность описывает динамический ящик -->
+		<Body Type="Dynamic" LinearDumping="2.5" AngularDumping="2.2">
+			<Box Width="1.0" Height="1.0" CategoryBits="32" MaskBits="111" Restitution="0.2" Density="125" LinearDumping="120.5" ></Box>
+		</Body>
+		<Behaviour Health="120" MaxHealth="130">
+		</Behaviour>
+	</Entity>
+	<Entity Type="Player" Graphics="Player" Behaviour="Player">
+		<Body Type="Dynamic" LinearDumping="2.5" AngularDumping="2.2">
+			<Box Width="1.0" Height="1.0" CategoryBits="96" MaskBits="111" Restitution="0.5" Density="5"></Box>
+		</Body>
+		<Behaviour  MaxHealth="100" Health="100" Resistance="0" Blood="Blood"></Behaviour>
+	</Entity>
+	<Entity Type="Zombie1" Graphics="Zombie1" Behaviour="Zombie">
+		<Body Type="Dynamic" LinearDumping="2.5" AngularDumping="2.2">
+			<Box Width="1.0" Height="1.0" CategoryBits="32" MaskBits="111" Restitution="0.5" Density="5"></Box>
+		</Body>
+		<Behaviour  MaxHealth="40" Health="40" Resistance="0" Blood="Blood"></Behaviour>
+	</Entity>
+	<Entity Type="Blood" Graphics="Blood"></Entity>
+	<Entity Type="Splinters" Graphics="Splinters"></Entity>
+	<Entity Type="Bullet" Graphics="Bullets/Normal" Behaviour="Bullet">
+		<!-- Сущность описывает динамический ящик -->
+		<Body Type="Dynamic">
+			<Box Width="0.25" Height="0.05" CategoryBits="32" MaskBits="111"></Box>
+		</Body>
+		<Behaviour>
+		</Behaviour>
+	</Entity>
+	<!-- Crates -->
+	<Entity Type="Crates/Barrel" Graphics="Crates/Barrel">
+		<!-- Сущность описывает динамический ящик -->
+		<Body Type="Dynamic" LinearDumping="2.5" AngularDumping="2.2">
+			<Circle Radius="0.5" CategoryBits="32" MaskBits="111" Restitution="0.2" Density="20"></Circle>
+		</Body>
+		<Behaviour Health="20" MaxHealth="30">
+		</Behaviour>
+	</Entity>
+	<!-- Terrain -->
+	<Entity Type="Terrain/Grass" Graphics="Terrain/Grass"></Entity>
+	<Entity Type="Terrain/Corner1" Graphics="Terrain/Corner1"></Entity>
+	<Entity Type="Terrain/Corner2" Graphics="Terrain/Corner2"></Entity>
+	<Entity Type="Terrain/Corner3" Graphics="Terrain/Corner3"></Entity>
+	<Entity Type="Terrain/Corner4" Graphics="Terrain/Corner4"></Entity>
+	<Entity Type="Terrain/Corner5" Graphics="Terrain/Corner5"></Entity>
+	<Entity Type="Terrain/Corner6" Graphics="Terrain/Corner6"></Entity>
+	<Entity Type="Terrain/Corner7" Graphics="Terrain/Corner7"></Entity>
+	<Entity Type="Terrain/Corner8" Graphics="Terrain/Corner8"></Entity>
+	<Entity Type="Terrain/HalfU" Graphics="Terrain/HalfU"></Entity>
+	<Entity Type="Terrain/HalfD" Graphics="Terrain/HalfD"></Entity>
+	<Entity Type="Terrain/HalfL" Graphics="Terrain/HalfL"></Entity>
+	<Entity Type="Terrain/HalfR" Graphics="Terrain/HalfR"></Entity>
+	<Entity Type="Terrain/Sand" Graphics="Terrain/Sand"></Entity>
+	<!-- Cars -->
+	<Entity Type="Cars/Car1" Graphics="Cars/Car1">
+		<Body Type="Static">
+			<Box Width="3.6" Heigh="1.9" CategoryBits="32" MaskBits="111"></Box>
+		</Body>
+	</Entity>
+	<!-- Buildings -->
+	<Entity Type="Buildings/House1" Graphics="Buildings/House1">
+		<Body Type="Static">
+			<Box CategoryBits="32" MaskBits="111" Height="6.0" Width="8.0"/>
+		</Body>
+	</Entity>
+	<Entity Type="Buildings/Trash1" Graphics="Buildings/Trash1">
+		<Body Type="Static">
+			<Box CategoryBits="32" MaskBits="111" Height="1.0" Width="1.0"/>
+		</Body>
+	</Entity>
+	<!-- Trees -->
+	<Entity Type="Trees/Fence" Graphics="Trees/Fence">
+		<Body Type="Static">
+			<Box CategoryBits="32" MaskBits="111" Height="8.0" Width="1.5"/>
+		</Body>
+	</Entity>
+	<Entity Type="Trees/Tree1" Graphics="Trees/Tree1">
+		<Body Type="Static">
+			<Circle Radius="0.5" CategoryBits="32" MaskBits="111"></Circle>
+		</Body>
+	</Entity>
+	<Entity Type="Trees/Tree2" Graphics="Trees/Tree2">
+		<Body Type="Static">
+			<Circle Radius="0.5" CategoryBits="32" MaskBits="111"></Circle>
+		</Body>
+	</Entity>
+	<Entity Type="Trees/Tree3" Graphics="Trees/Tree3">
+		<Body Type="Static">
+			<Circle Radius="0.5" CategoryBits="32" MaskBits="111"></Circle>
+		</Body>
+	</Entity>
+	<Entity Type="Trees/Tree4" Graphics="Trees/Tree4">
+		<Body Type="Static">
+			<Circle Radius="0.5" CategoryBits="32" MaskBits="111"></Circle>
+		</Body>
+	</Entity>
+	<!-- Bonuses -->
+	<Entity Type="Bonuses/Health" Graphics="Bonuses/Health" Behaviour="Trigger">
+		<!-- Сущность описывает динамический ящик -->
+		<Body Type="Dynamic" LinearDumping="2.5" AngularDumping="2.2">
+			<Box Width="0.5" Heigh="0.5" CategoryBits="32" MaskBits="64" Restitution="0.2" Density="5"></Box>
+		</Body>
+		<Behaviour ActivationFunction="BonusHealth" ReactivateTime="5" ActivateMask="64">
+			
+		</Behaviour>
+	</Entity>
+</Entities>

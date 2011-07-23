@@ -27,6 +27,34 @@ namespace behaviour
 	{
 	}
 
+	void	Player::ClearTarget()
+	{
+		mTarget.reset();
+	}
+
+	void	Player::SetTarget()
+	{
+		if (mTarget != 0)
+		{
+			if (mTarget->GetBehaviour()->IsActive())
+			return;
+		}
+
+		float min = 1000;
+		LayerPtr layer = GetActor()->GetLevel()->GetLayer("Zombies");
+		for (EntityList::iterator it = layer->GetObjects()->begin(); it != layer->GetObjects()->end(); ++it)
+		{
+			if (abs(GetActor()->GetAngleTo(*it) - GetActor()->GetAngle()) < min && (*it)->GetBehaviour()->IsActive() && GetActor()->GetDistanceTo(*it) < 4.0f)
+			{
+				min = abs(GetActor()->GetAngleTo(*it) - GetActor()->GetAngle());
+				mTarget = *it;
+			}
+		}
+
+		if (mTarget != 0)
+		GetActor()->SetAngle(GetActor()->GetAngleTo(mTarget));
+	}
+
 	action::ShildPtr Player::GetShildAction()
 	{
 		return mShildAction;
@@ -48,29 +76,50 @@ namespace behaviour
 
 		InputSystem* inputSystem = Engine::GetSingleton()->GetInputSystem();
 
-		Vector2 p = inputSystem->GetMousePosition();
-		p.x = ZombieLand::GetSingleton()->GetStateManager()->GetRenderer()->PixelToMeter(p.x) + GetLevel()->GetCamera()->x;
-		p.y = ZombieLand::GetSingleton()->GetStateManager()->GetRenderer()->PixelToMeter(p.y) + GetLevel()->GetCamera()->y;
-
-		RotateToPoint(p);
-
-		if (inputSystem->IsKeyDown(HGEK_A))
+		//Vector2 p = inputSystem->GetMousePosition();
+		//p.x = ZombieLand::GetSingleton()->GetStateManager()->GetRenderer()->PixelToMeter(p.x) + GetLevel()->GetCamera()->x;
+		//p.y = ZombieLand::GetSingleton()->GetStateManager()->GetRenderer()->PixelToMeter(p.y) + GetLevel()->GetCamera()->y;
+		//RotateToPoint(p);
+		// Перемещение
+		Vector2 p = inputSystem->GetPadLeftStick(0);
+		p *= 1.0f / MAXINT16;
+		p.y = -p.y;
+		if (p.LengthSquared() < 0.1f)
 		{
-			GetActor()->SetAngle(GetActor()->GetAngle() + 0.1);
+			if (inputSystem->GetKeyState(HGEK_D))
+				p.x = 1.0f;
+			if (inputSystem->GetKeyState(HGEK_A))
+				p.x = -1.0f;
+			if (inputSystem->GetKeyState(HGEK_S))
+				p.y = 1.0f;
+			if (inputSystem->GetKeyState(HGEK_W))
+				p.y = -1.0f;
 		}
-		else if (inputSystem->IsKeyDown(HGEK_D))
+		if (p.LengthSquared() > 0.1f)
 		{
-			GetActor()->SetAngle(GetActor()->GetAngle() - 0.1);
+			//p.Normalize();
+			p += GetActor()->GetPosition();
+			RotateToPoint(p);
+			if (!GetMoveAction()->IsActive() && p.LengthSquared() > 0.5f)
+				StartAction(GetMoveAction());
 		}
-		else if (inputSystem->IsKeyDown(HGEK_W))
-		{
-			StartAction(GetMoveAction());
-		}
-		else if (inputSystem->IsKeyUp(HGEK_W))
-		{
+		else
+			if (GetMoveAction()->IsActive())
 			GetMoveAction()->Stop();
+
+		// Стрельба
+		if (inputSystem->GetPadState(0, gamepad::GamepadX) && !GetShotAction()->IsActive())
+		{
+			StartAction(GetShotAction());
 		}
-		else if (inputSystem->IsKeyDown(HGEK_S))
+
+		// Прицеливание
+		if (inputSystem->GetPadState(0, gamepad::RightShoulder) || inputSystem->GetKeyState(HGEK_SPACE))
+			SetTarget();
+		else
+			ClearTarget();
+
+		if (inputSystem->IsKeyDown(HGEK_S))
 		{
 			StartAction(GetMoveBackAction());
 		}
@@ -85,7 +134,7 @@ namespace behaviour
 			else
 				GetShildAction()->Stop();
 		}
-		if (inputSystem->IsKeyDown(HGEK_2))
+		if (inputSystem->IsKeyDown(HGEK_2) || inputSystem->GetPadState(0, gamepad::GamepadB))
 		{
 			if (!(GetWindAction()->IsActive()) && GetEnergy() >= GetWindAction()->GetCost())
 				StartAction(GetWindAction());

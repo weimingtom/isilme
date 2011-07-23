@@ -1,6 +1,11 @@
 #include <luabind/lua_include.hpp>
 #include <luabind/luabind.hpp>
 
+#include <vector>
+#include <list>
+#include <set>
+#include <map>
+
 #include "Definitions.h"
 #include "Action.h"
 #include "Behaviour.h"

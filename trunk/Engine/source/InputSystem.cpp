@@ -48,6 +48,30 @@ HGEInputSystem::~HGEInputSystem()
 {
 }
 
+bool	HGEInputSystem::GetPadState(int pad, gamepad::PadKey key)
+{
+	bool value;
+	XINPUT_STATE state;
+	XInputGetState(pad, &state);
+
+	value = state.Gamepad.wButtons & key;
+	return value;
+}
+
+Vector2 HGEInputSystem::GetPadLeftStick(int pad)
+{
+	XINPUT_STATE state;
+	XInputGetState(pad, &state);
+	return Vector2(state.Gamepad.sThumbLX, state.Gamepad.sThumbLY);
+}
+
+Vector2 HGEInputSystem::GetPadRightStick(int pad)
+{
+	XINPUT_STATE state;
+	XInputGetState(pad, &state);
+	return Vector2(state.Gamepad.sThumbRX, state.Gamepad.sThumbRY);
+}
+
 void	HGEInputSystem::SetMousePosition(float x, float y)
 {
 	mHGE->Input_SetMousePos(x, y);

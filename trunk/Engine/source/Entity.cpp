@@ -35,6 +35,37 @@ Entity::~Entity()
 	delete mBody;
 }
 
+float	Entity::GetAngleTo(EntityPtr entity)
+{
+	return GetAngleTo(entity->GetPosition());
+}
+
+float		Entity::GetAngleTo(Vector2 point)
+{
+	Vector2 v = point - GetPosition();
+	float l = v.Length();
+
+	float sina = v.y / l;
+	float cosa = v.x / l;
+
+	if (cosa >= 0.0f)
+		return asin(sina);
+	else
+		return 3.14f - asin(sina);
+}
+
+float	Entity::GetDistanceTo(EntityPtr entity)
+{
+	return GetDistanceTo(entity->GetPosition());
+}
+
+float	Entity::GetDistanceTo(Vector2 point)
+{
+	Vector2 v = GetPosition();
+	v -= point;
+	return v.Length();
+}
+
 LayerPtr	Entity::GetLayer()
 {
 	return mLayer.lock();

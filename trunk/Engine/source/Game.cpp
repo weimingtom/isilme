@@ -66,7 +66,7 @@ void	HGEGame::SetupHGE()
 	// Создаем HGE
 	if (!(mHGE = hgeCreate(HGE_VERSION)))
 	{
-		//MessageBoxA(0, "Невозможно создать интерфейс HGE", "Ошибка", 0);
+		MessageBoxA(0, "Невозможно создать интерфейс HGE", "Ошибка", 0);
 		return;
 	}
 
@@ -92,7 +92,6 @@ void	HGEGame::SetupHGE()
 	mHGE->System_SetState(HGE_SCREENBPP, color);			// Глубина цвета
 	mHGE->System_SetState(HGE_ZBUFFER, true);				// Использовать Z-буфер
 	mHGE->System_SetState(HGE_HIDEMOUSE, false);			// Не прятать мышь
-
 
 	// Инициализируем HGE
 	if(!mHGE->System_Initiate())

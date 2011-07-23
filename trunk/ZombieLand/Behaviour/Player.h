@@ -30,6 +30,11 @@ namespace behaviour
 		action::WindPtr mWindAction;
 		action::ShildPtr mShildAction;
 		action::HealPtr mHealAction;
+
+		EntityPtr	mTarget;
+
+		void	SetTarget();
+		void	ClearTarget();
 	};
 
 };

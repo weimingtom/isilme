@@ -81,7 +81,7 @@
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>$(ProjectDir)../;$(ProjectDir)../GUIChan/include/;$ProjectDir)/include;../HGE/include;./Game;../Engine/include;../TinyXML/include;../Box2D/;./Include;$(ProjectDir)../Lua514/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)../Luabind/;$(ProjectDir)../;$(ProjectDir)../GUIChan/include/;$ProjectDir)/include;../HGE/include;./Game;../Engine/include;../TinyXML/include;../Box2D/;./Include;$(ProjectDir)../Lua514/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -89,10 +89,11 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4251;4275</DisableSpecificWarnings>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>GUIChan.lib; engine.lib; hge.lib;hgehelp.lib;tinyxml.lib;box2d.lib;lua514.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../Lua514/lib;../GUIChan/lib;../HGE/lib;../TinyXML/lib;../Box2D/lib;$(ProjectDir)../Engine/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>luabind.lib;GUIChan.lib; engine.lib; hge.lib;hgehelp.lib;tinyxml.lib;box2d.lib;lua514.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../Luabind/lib;../Lua514/lib;../GUIChan/lib;../HGE/lib;../TinyXML/lib;../Box2D/lib;$(ProjectDir)../Engine/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -123,6 +124,9 @@
       <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\Graphics</ObjectFileName>
       <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)\Graphics\Player</ObjectFileName>
     </ClCompile>
+    <ClCompile Include="Inventory.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Items\Weapon.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Sources\Cameras.cpp" />
     <ClCompile Include="Sources\Configuration.cpp" />
@@ -163,6 +167,9 @@
     <ClInclude Include="include\Definitions.h" />
     <ClInclude Include="include\ScriptAPI.h" />
     <ClInclude Include="Include\ZombieLand.h" />
+    <ClInclude Include="Inventory.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="Items\Weapon.h" />
     <ClInclude Include="State\Play.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

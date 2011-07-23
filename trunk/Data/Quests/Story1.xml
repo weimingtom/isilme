@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Story>
+	<Scripts>
+		<Script></Script>
+	</Scripts>
+	<Quest Name="quest1" Title="Test quest" Description="A test quest started">
+		<Solution Triggered="TestEngineAPI();" Condition="TestCondition();"></Solution>
+	</Quest>
+</Story>

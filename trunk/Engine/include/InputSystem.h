@@ -3,7 +3,28 @@
 
 #include <hge.h>
 #include "Definitions.h"
+#include "xinput.h"
 
+namespace gamepad
+{
+	enum PadKey
+	{
+		DPadUp			= XINPUT_GAMEPAD_DPAD_UP,
+		DPadDpwn		= XINPUT_GAMEPAD_DPAD_DOWN,
+		DPadLeft		= XINPUT_GAMEPAD_DPAD_LEFT,       
+		DPadRIght		= XINPUT_GAMEPAD_DPAD_RIGHT,
+		Start			= XINPUT_GAMEPAD_START,
+		Back			= XINPUT_GAMEPAD_BACK,
+		LeftThumb		= XINPUT_GAMEPAD_LEFT_THUMB,       
+		RightThumb		= XINPUT_GAMEPAD_RIGHT_THUMB,      
+		LeftShoulder	= XINPUT_GAMEPAD_LEFT_SHOULDER,    
+		RightShoulder	= XINPUT_GAMEPAD_RIGHT_SHOULDER,   
+		GamepadA		= XINPUT_GAMEPAD_A,                
+		GamepadB		= XINPUT_GAMEPAD_B,                
+		GamepadX		= XINPUT_GAMEPAD_X,                
+		GamepadY		= XINPUT_GAMEPAD_Y
+	};
+};
 
 /// @class InputEvent
 /// Структура с описанием базового события
@@ -71,6 +92,9 @@ public:
 	virtual bool		IsKeyDown(int key) = 0;
 	virtual bool		IsKeyUp(int key) = 0;
 	virtual bool		IsMouseOver() = 0;
+	virtual bool		GetPadState(int pad, gamepad::PadKey key) = 0;
+	virtual Vector2		GetPadLeftStick(int pad) = 0;
+	virtual Vector2		GetPadRightStick(int pad) = 0;
 protected:
 };
 
@@ -94,6 +118,9 @@ public:
 	virtual bool		IsKeyDown(int key);
 	virtual bool		IsKeyUp(int key);
 	virtual bool		IsMouseOver();
+	virtual bool		GetPadState(int pad, gamepad::PadKey key);
+	virtual Vector2		GetPadLeftStick(int pad);
+	virtual Vector2		GetPadRightStick(int pad);
 protected:
 	HGE*	mHGE;
 };

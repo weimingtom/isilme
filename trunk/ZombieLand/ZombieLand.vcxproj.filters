@@ -53,6 +53,15 @@
     <ClCompile Include="Graphics\Player.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="Inventory.cpp">
+      <Filter>Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="Items\Weapon.cpp">
+      <Filter>Inventory</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Configuration.h" />
@@ -110,6 +119,15 @@
     <ClInclude Include="Graphics\Player.h">
       <Filter>Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory.h">
+      <Filter>Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="Items\Weapon.h">
+      <Filter>Inventory</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Data\Entities.xml">
@@ -152,6 +170,9 @@
     </Filter>
     <Filter Include="Behaviour">
       <UniqueIdentifier>{ffcc0f15-7102-4ee3-a6a2-ad4e1bdb27ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inventory">
+      <UniqueIdentifier>{f8b106b0-58d4-4dcf-95fa-9ab29ba9d457}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

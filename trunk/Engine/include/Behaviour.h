@@ -6,6 +6,7 @@
 #include "Definitions.h"
 #include "Collisions.h"
 #include "Entity.h"
+#include "Engine/System/ActionManager.h"
 
 #define BEHAVIOUR_GROUP_COMMON 0
 
@@ -15,6 +16,7 @@
 class IsilmeExport Behaviour : public boost::enable_shared_from_this<Behaviour>
 {
 	friend class Entity;
+	friend class Tactics;
 public:
 	static BehaviourPtr New();
 
@@ -51,7 +53,6 @@ protected:
 
 	/// Устанавливает группу поведения
 	void			SetGroup(unsigned long group);
-
 private:
 	/// Группа поведения
 	unsigned long	mGroup;
@@ -70,6 +71,9 @@ private:
 	/// Устанавливает сущность, которой управляет поведение
 	/// Метод вызывается автоматически
 	void			SetActor(EntityPtr actor);
+
+	/// Начинает
+	//void			StartAction(ActionPtr parent, ActionPtr action);
 protected:
 	// Обновляет действия, выполняемые объектом
 	void			UpdateActions(float elapsedTime);

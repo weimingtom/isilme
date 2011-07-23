@@ -2,6 +2,9 @@
 #define TT_DEFINITIONS_H
 
 #include <boost/smart_ptr.hpp>
+#include <list>
+#include <set>
+#include <map>
 
 namespace behaviour
 {
@@ -55,5 +58,12 @@ namespace graphics
 {
 	class Creature;
 };
+
+class Item;
+typedef boost::shared_ptr<Item> ItemPtr;
+typedef std::set<ItemPtr>	ItemsList;
+
+class Inventory;
+typedef boost::shared_ptr<Inventory> InventoryPtr;
 
 #endif
