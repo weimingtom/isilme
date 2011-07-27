@@ -13,25 +13,16 @@ namespace items
 		virtual ~Weapon();
 
 		virtual void	OnUse(EntityPtr actor);
+		virtual void	OnAdd();
+		virtual void	OnEquip();
 
-		bool	IsInfinity();
-
-		void	SetInfinity(bool flag);
-
-		int		GetAmmo();
-
-		int		GetMaxAmmo();
-
-		void	SetAmmo(int count);
-
-		void	SetMaxAmmo(int count);
-	protected:
-		int mAmmo;
-		int mMaxAmmo;
-		bool	isInfinity;
+		void	SetAmmoTag(std::string ammoTag);
+	private:
+		std::string mAmmoTag;
 	};
 
 	ItemPtr	CreatePistol();
 	ItemPtr	CreateRifle();
+	ItemPtr	CreateItem(std::string tag);
 };
 #endif

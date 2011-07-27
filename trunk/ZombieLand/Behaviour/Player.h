@@ -6,6 +6,7 @@
 #include "ZombieLand/Action/Heal.h"
 #include "ZombieLand/Action/Wind.h"
 #include "ZombieLand/Action/Shild.h"
+#include "ZombieLand/Item.h"
 
 namespace behaviour
 {
@@ -26,6 +27,15 @@ namespace behaviour
 		action::WindPtr GetWindAction();
 		action::ShildPtr GetShildAction();
 		action::HealPtr GetHealAction();
+
+		/// Переключение оружия
+		void	NextWeapon();
+
+		/// Переключение способности
+		void	NextSpell();
+
+		/// Включить активатор
+		void	SwitchActivator();
 	protected:
 		action::WindPtr mWindAction;
 		action::ShildPtr mShildAction;
@@ -35,6 +45,11 @@ namespace behaviour
 
 		void	SetTarget();
 		void	ClearTarget();
+
+		bool	isReloading;
+
+		int		mCurrentWeapon;
+	
 	};
 
 };

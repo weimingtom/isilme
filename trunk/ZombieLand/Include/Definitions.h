@@ -14,6 +14,9 @@ namespace behaviour
 	class Destroyable;
 	typedef boost::shared_ptr<Destroyable> DestroyablePtr;
 
+	class Activator;
+	typedef boost::shared_ptr<Activator> ActivatorPtr;
+
 	class Creature;
 	typedef boost::shared_ptr<Creature> CreaturePtr;
 
@@ -61,9 +64,10 @@ namespace graphics
 
 class Item;
 typedef boost::shared_ptr<Item> ItemPtr;
-typedef std::set<ItemPtr>	ItemsList;
+typedef std::vector<ItemPtr>	ItemsList;
 
 class Inventory;
 typedef boost::shared_ptr<Inventory> InventoryPtr;
+typedef boost::weak_ptr<Inventory>	InventoryWPtr;
 
 #endif

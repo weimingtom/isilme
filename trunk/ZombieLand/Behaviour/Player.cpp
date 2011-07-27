@@ -1,8 +1,9 @@
 #include "ZombieLand.h"
 #include "ZombieLand/Behaviour/Player.h"
-#include "ZombieLand/Action/Shot.h"
 #include "ZombieLand/Action/Move.h"
 #include "ZombieLand/Action/Wind.h"
+#include "ZombieLand/Items/Weapon.h"
+#include "ZombieLand/Item.h"
 #include <LuaBind/luabind/luabind.hpp>
 
 namespace behaviour
@@ -12,7 +13,7 @@ namespace behaviour
 
 	Player::Player(PlayerDef* def) : Creature(def)
 	{
-		GetShotAction()->SetSound("../Data/Sounds/Weapons/Gun.wav");
+		//GetShotAction()->SetSound("../Data/Sounds/Weapons/Gun.wav");
 		//SetHealth(25);
 		GetMoveAction()->SetSound("../Data/Sounds/Walk.wav");
 		GetMoveBackAction()->SetSound("../Data/Sounds/Walk.wav");
@@ -21,10 +22,31 @@ namespace behaviour
 		mWindAction = action::WindPtr(new action::Wind());
 		mShildAction = action::ShildPtr(new action::Shild());
 
+		isReloading = false;
+		mCurrentWeapon = 0;
 	}
 
 	Player::~Player()
 	{
+	}
+
+	void	Player::NextWeapon()
+	{
+		if (GetInventory()->GetItemsCount() == 0)
+			return;
+
+		mCurrentWeapon++;
+		if (mCurrentWeapon >= GetInventory()->GetItemsCount())
+			mCurrentWeapon = 0;
+		GetInventory()->Equip(GetInventory()->GetItem(mCurrentWeapon));
+	}
+
+	void	Player::SwitchActivator()
+	{
+		ActivatorPtr a = Activator::GetActivatorFor(GetActor());
+		if (a == 0)
+			return;
+		a->UseBy(boost::shared_dynamic_cast<Creature>(GetActor()->GetBehaviour()));
 	}
 
 	void	Player::ClearTarget()
@@ -107,67 +129,38 @@ namespace behaviour
 			if (GetMoveAction()->IsActive())
 			GetMoveAction()->Stop();
 
-		// Стрельба
-		if (inputSystem->GetPadState(0, gamepad::GamepadX) && !GetShotAction()->IsActive())
-		{
-			StartAction(GetShotAction());
-		}
-
 		// Прицеливание
 		if (inputSystem->GetPadState(0, gamepad::RightShoulder) || inputSystem->GetKeyState(HGEK_SPACE))
 			SetTarget();
 		else
 			ClearTarget();
 
-		if (inputSystem->IsKeyDown(HGEK_S))
+		// Активатор
+		if (inputSystem->IsKeyDown(HGEK_K) || inputSystem->GetPadState(0, gamepad::GamepadA))
 		{
-			StartAction(GetMoveBackAction());
+			SwitchActivator();
 		}
-		else if (inputSystem->IsKeyUp(HGEK_S))
-		{
-			GetMoveBackAction()->Stop();
-		}
-		if (inputSystem->IsKeyDown(HGEK_1))
+		if (inputSystem->IsKeyDown(HGEK_1) || inputSystem->GetPadState(0, gamepad::DPadLeft))
 		{
 			if (!(GetShildAction()->IsActive()))
 				StartAction(GetShildAction());
 			else
 				GetShildAction()->Stop();
 		}
-		if (inputSystem->IsKeyDown(HGEK_2) || inputSystem->GetPadState(0, gamepad::GamepadB))
+		if (inputSystem->IsKeyDown(HGEK_2) || inputSystem->GetPadState(0, gamepad::DPadUp))
 		{
 			if (!(GetWindAction()->IsActive()) && GetEnergy() >= GetWindAction()->GetCost())
 				StartAction(GetWindAction());
 		}
-		if (inputSystem->IsKeyDown(HGEK_3))
+		if (inputSystem->IsKeyDown(HGEK_3) || inputSystem->GetPadState(0, gamepad::DPadRIght))
 		{
 			if (!(GetHealAction()->IsActive()) && GetEnergy() >= GetHealAction()->GetCost())
 				StartAction(GetHealAction());
-
-			//lua_State* state = Engine::GetSingleton()->GetLua()->GetState();
-			//luaL_loadstring(state, "TestStory();");
-			//func_index = lua_gettop(state);
-
-			//func = luabind::object(luabind::from_stack(state, func_index));
 		}
-		if (inputSystem->IsKeyDown(HGEK_4))
+		if (inputSystem->IsKeyDown(HGEK_4) || inputSystem->GetPadState(0, gamepad::DPadDpwn))
 		{
-			lua_State* state = Engine::GetSingleton()->GetLua()->GetState();
-
-			//luabind::object func(luabind::from_stack(state, func_index));
-			//try
-			//{
-			//	luabind::call_function<void>(func);
-			//	int a = 1;
-			//}
-			//catch (std::exception e)
-			//{
-			//	int b = 0;
-			//}
-			//lua_pushvalue(state, func_index);
-			//lua_pcall(state, 0, 0, 0);
-			//luaL_dostring(Engine::GetSingleton()->GetLua()->GetState(), "TestEngineAPI();");
 		}
+		
 	}
 
 	BehaviourPtr PlayerDef::Create()

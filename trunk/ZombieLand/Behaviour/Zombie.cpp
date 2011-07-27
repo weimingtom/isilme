@@ -14,6 +14,7 @@ namespace behaviour
 
 	Zombie::Zombie(ZombieDef* def) : Creature(def)
 	{
+		SetUsable(false);
 		mMoveAction->SetSpeed(1.5f);
 		GetDieAction()->SetSound("../Data/Sounds/Zombie/Die.wav");
 

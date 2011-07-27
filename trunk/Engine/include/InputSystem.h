@@ -95,6 +95,8 @@ public:
 	virtual bool		GetPadState(int pad, gamepad::PadKey key) = 0;
 	virtual Vector2		GetPadLeftStick(int pad) = 0;
 	virtual Vector2		GetPadRightStick(int pad) = 0;
+	virtual int			GetLeftTrigger(int pad) = 0;
+	virtual int			GetRightTrigger(int pad) = 0;
 protected:
 };
 
@@ -121,6 +123,8 @@ public:
 	virtual bool		GetPadState(int pad, gamepad::PadKey key);
 	virtual Vector2		GetPadLeftStick(int pad);
 	virtual Vector2		GetPadRightStick(int pad);
+	virtual int			GetLeftTrigger(int pad);
+	virtual int			GetRightTrigger(int pad);
 protected:
 	HGE*	mHGE;
 };

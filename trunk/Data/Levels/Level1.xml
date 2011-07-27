@@ -280,6 +280,8 @@
 		<Entity Name="" Type="Bonuses/Health" Position="49, 21, 1" Scale="1"></Entity>
 		<Entity Name="" Type="Bonuses/Health" Position="6, 23, 1" Scale="1"></Entity>
 		<Entity Name="" Type="Bonuses/Health" Position="7, 21, 1" Scale="1"></Entity>
+		<Entity Name="" Type="Items/Weapons/Gun" Position="25, 8, 1" Scale="1"></Entity>
+		<Entity Name="" Type="Items/Weapons/AK47" Position="25, 5, 1" Scale="1"></Entity>
 		<Entity Name="Player" Type="Player" Position="26.0, 6.0, 1.0" Scale="1.0"></Entity>
 	</Layer>
 	<Layer Name="Bullets"></Layer>

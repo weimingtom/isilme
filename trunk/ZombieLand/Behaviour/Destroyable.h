@@ -3,6 +3,7 @@
 
 #include <Isilme.h>
 #include "ZombieLand/Action/Die.h"
+#include "Activator.h"
 
 namespace behaviour
 {
@@ -21,7 +22,7 @@ namespace behaviour
 
 	};
 
-	class Destroyable : public Behaviour
+	class Destroyable : public Activator
 	{
 	public:
 		Destroyable(DestroyableDef* def);

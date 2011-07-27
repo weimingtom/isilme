@@ -20,6 +20,21 @@ Action::~Action()
 {
 }
 
+void	Action::SetBeginningTime(float time)
+{
+	mBeginningTime = time;
+}
+
+void	Action::SetDoingTime(float time)
+{
+	mDoingTime = time;
+}
+
+void	Action::SetEndingTime(float time)
+{
+	mEndingTime = time;
+}
+
 void	Action::OnStart(BehaviourPtr behaviour)
 {
 	mBehaviour = behaviour;

@@ -48,11 +48,28 @@ HGEInputSystem::~HGEInputSystem()
 {
 }
 
+int		HGEInputSystem::GetLeftTrigger(int pad)
+{
+	XINPUT_STATE state;
+	if (XInputGetState(pad, &state) != ERROR_SUCCESS)
+		return 0;
+	return state.Gamepad.bLeftTrigger;
+}
+
+int		HGEInputSystem::GetRightTrigger(int pad)
+{
+	XINPUT_STATE state;
+	if (XInputGetState(pad, &state) != ERROR_SUCCESS)
+		return 0;
+	return state.Gamepad.bRightTrigger;
+}
+
 bool	HGEInputSystem::GetPadState(int pad, gamepad::PadKey key)
 {
 	bool value;
 	XINPUT_STATE state;
-	XInputGetState(pad, &state);
+	if (XInputGetState(pad, &state) != ERROR_SUCCESS)
+		return false;
 
 	value = state.Gamepad.wButtons & key;
 	return value;
@@ -62,6 +79,8 @@ Vector2 HGEInputSystem::GetPadLeftStick(int pad)
 {
 	XINPUT_STATE state;
 	XInputGetState(pad, &state);
+	if (XInputGetState(pad, &state) != ERROR_SUCCESS)
+		return Vector2(0.0f, 0.0f);
 	return Vector2(state.Gamepad.sThumbLX, state.Gamepad.sThumbLY);
 }
 
@@ -69,6 +88,8 @@ Vector2 HGEInputSystem::GetPadRightStick(int pad)
 {
 	XINPUT_STATE state;
 	XInputGetState(pad, &state);
+	if (XInputGetState(pad, &state) != ERROR_SUCCESS)
+		return Vector2(0.0f, 0.0f);
 	return Vector2(state.Gamepad.sThumbRX, state.Gamepad.sThumbRY);
 }
 

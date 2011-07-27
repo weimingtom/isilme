@@ -7,13 +7,13 @@
 #include "ZombieLand/Behaviour/Player.h"
 #include "ZombieLand/Behaviour/Zombie.h"
 #include "Engine/GUI/ProgressBar.h"
-#include "ZombieLand/Action/Shot.h"
 
 namespace state
 {
 Play::Play() : State()
 {	
-
+	isReloading = false;
+	isChangingWeapon = false;
 	// Init GUI
 	gcn::Container* top;
 	//
@@ -48,11 +48,22 @@ Play::Play() : State()
 
 	mHealthImage	= new gcn::Icon();
 	mHealthField	= new gcn::Label("none");
+	mWeaponIcon		= new gcn::Icon();
+	mWeaponAmmo		= new gcn::ProgressBar();
 
 	// Иконка здоровья
 	mHealthImage->setImage(gcn::Image::load("../Data/Textures/Icons/Health.png"));
 	mHealthImage->setSize(64, 64);
 
+	// Иконка оружия
+	mWeaponIcon->setImage(gcn::Image::load("../Data/Icons/Empty.png"));
+	mWeaponIcon->setSize(64, 64);
+
+	// Уровень заряда
+	mWeaponAmmo->setProgress(100);
+	mWeaponAmmo->setSelectionColor(gcn::Color(255, 100, 100));
+	mWeaponAmmo->setSize(64, 16);
+	
 	// Кнопка обычных патронов
 	mAmmo1Button->setBackgroundColor(gcn::Color(255, 0, 0, 100));
 	mAmmo1Button->setSize(64, 64);
@@ -161,6 +172,8 @@ Play::Play() : State()
 	top->add(mAbility1Button, 554, 536);
 	top->add(mAbility2Button, 618, 536);
 	top->add(mAbility3Button, 682, 536);
+	top->add(mWeaponIcon, 0, 520);
+	top->add(mWeaponAmmo, 0, 584);
 	//top->add(mAbility4Button, 746, 536);
 	//top->add(mHealthImage, 400, 500);
 	//top->add(mHealthField, 420, 530);
@@ -217,9 +230,10 @@ void Play::mouseClicked(gcn::MouseEvent& evt)
 	}
 	else
 	{
-			if (!(mPlayer->GetShotAction()->IsActive()))
-				mPlayer->StartAction(mPlayer->GetShotAction());
-		}
+		if (!(mPlayer->GetShotAction()->IsActive()))
+			mPlayer->StartAction(mPlayer->GetShotAction());
+	}
+
 }
 
 void	Play::OnUpdate(float elapsedTime)
@@ -247,12 +261,59 @@ void	Play::OnUpdate(float elapsedTime)
 			mHealthBar->setSelectionColor(gcn::Color(255, 255, 0));
 		else
 			mHealthBar->setSelectionColor(gcn::Color(255, 0, 0));
+
+		
+		ItemPtr w = mPlayer->GetInventory()->GetSlot(Item::Weapon);
+		if (w != 0)
+		{
+			mWeaponAmmo->setProgress((float)w->GetAmmo() / w->GetMaxAmmo());
+			mWeaponIcon->setImage(w->GetIcon());
+		}
+		else
+			mWeaponAmmo->setProgress(1.0f);
 	}
+
+	InputSystem* inputSystem = Engine::GetSingleton()->GetInputSystem();
 
 	if (Engine::GetSingleton()->GetInputSystem()->IsKeyDown(HGEK_ESCAPE))
 	{
 		mMenu->setVisible(!(mMenu->isVisible()));
 		SetPaused(mMenu->isVisible());
+	}
+	
+	
+	// Стрельба
+	if ((inputSystem->GetPadState(0, gamepad::GamepadX) || inputSystem->GetKeyState(HGEK_J)) && !mPlayer->GetShotAction()->IsActive())
+	{
+		mPlayer->StartAction(mPlayer->GetShotAction());
+	}
+
+	// Перезарядка
+	if ((inputSystem->GetKeyState(HGEK_R) || inputSystem->GetPadState(0, gamepad::LeftShoulder)) && !isReloading)
+	{
+		isReloading = true;
+		mPlayer->GetInventory()->GetSlot(Item::Ammo)->UseBy(mPlayer->GetActor());
+	}
+	else if (!(inputSystem->GetKeyState(HGEK_R) || inputSystem->GetPadState(0, gamepad::LeftShoulder)))
+	{
+		isReloading = false;
+	}
+	
+	/// Смена оружия
+	int leftTrigger = inputSystem->GetLeftTrigger(0);
+	if ((inputSystem->IsKeyDown(HGEK_Q) || leftTrigger > 180) && !isChangingWeapon)
+	{
+		mPlayer->NextWeapon();
+		isChangingWeapon = true;
+
+		ItemPtr w = mPlayer->GetInventory()->GetSlot(Item::Weapon);
+		if (w != 0)
+			mWeaponIcon->setImage(w->GetIcon());
+			
+	}
+	else	if (!(inputSystem->IsKeyDown(HGEK_Q) || leftTrigger > 180))
+	{
+		isChangingWeapon = false;
 	}
 
 	Game::GetSingleton()->GetStory()->Update(elapsedTime);

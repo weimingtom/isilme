@@ -66,9 +66,14 @@ namespace state
 		gcn::ProgressBar*	mEnergyBar;
 		gcn::HGELabel*			mZombieLeftLabel;
 
+		gcn::Icon*			mWeaponIcon;
+		gcn::ProgressBar*	mWeaponAmmo;
 		behaviour::PlayerPtr mPlayer;
 
 		virtual void OnUpdate(float elapsedTime);
+
+		bool	isReloading;
+		bool	isChangingWeapon;
 	};
 };
 

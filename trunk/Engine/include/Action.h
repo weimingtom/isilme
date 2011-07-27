@@ -87,6 +87,12 @@ public:
 	
 	/// Возвращает родительское действие
 	virtual ActionPtr	GetParent();
+
+	void	SetBeginningTime(float time);
+
+	void	SetDoingTime(float time);
+
+	void	SetEndingTime(float time);
 protected:
 	virtual void	SetParent(ActionPtr parent);
 

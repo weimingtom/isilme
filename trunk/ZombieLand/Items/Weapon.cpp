@@ -1,5 +1,7 @@
 #include "ZombieLand.h"
+#include "ZombieLand/Inventory.h"
 #include "Weapon.h"
+#include "Ammo.h"
 #include "ZombieLand/Behaviour/Bullet.h"
 
 namespace items
@@ -7,27 +9,54 @@ namespace items
 	Weapon::Weapon()
 	{
 		SetSlot(Item::Weapon);
-		mMaxAmmo = 10;
-		mAmmo = 10;
-		isInfinity = false;
+		SetMaxAmmo(10);
+		SetAmmo(10);
+		SetInfinity(false);
 	}
 
 	Weapon::~Weapon()
 	{
 	}
 
+	ItemPtr	CreatePistol()
+	{
+		Weapon* w = new Weapon();
+		w->SetInfinity(false);
+		w->SetMaxAmmo(15);
+		w->SetAmmo(15);
+		w->SetUseSound("../Data/Sounds/Weapons/Gun.wav");
+		w->SetUsingTime(0.1f);
+		w->SetReloadingTime(0.3f);
+		w->SetIcon("../Data/Icons/Weapons/Gun.png");
+		w->SetAmmoTag("PistolAmmo");
+
+		return ItemPtr(w);
+	}
+
+	void	Weapon::OnAdd()
+	{
+		ItemPtr w = GetInventory()->GetSlot(Item::Weapon);
+		
+		bool f = w != 0;
+		if (w != 0)
+			f = w->GetAmmo() > 0 || w->IsInfinity();
+
+		if (!f)
+			GetInventory()->Equip(shared_from_this());
+	}
+
+	void	Weapon::OnEquip()
+	{
+		ItemPtr ammo = GetInventory()->GetItemByTag(mAmmoTag);
+		if (ammo == 0)
+		{
+			ammo = CreateItem(mAmmoTag);
+		}
+		GetInventory()->Equip(ammo);
+	}
+
 	void	Weapon::OnUse(EntityPtr actor)
 	{
-		if (!isInfinity)
-		{
-			if (mAmmo <= 0)
-				return;
-			mAmmo--;
-		}
-
-		if (GetUseSound())
-			Engine::GetSingleton()->GetSoundSystem()->PlayEffect(GetUseSound());
-
 		EntityPtr bullet = FactoryManager::GetSingleton()->CreateEntity("Bullet", "", actor->GetLevel());
 		bullet->SetAngle(actor->GetAngle());
 		bullet->SetPosition(actor->GetPosition().x, actor->GetPosition().y);
@@ -36,37 +65,82 @@ namespace items
 		actor->GetLevel()->GetLayer("Bullets")->Add(bullet);
 	}
 
-	int		Weapon::GetAmmo()
+	void	Weapon::SetAmmoTag(std::string ammoTag)
 	{
-		return mAmmo;
+		mAmmoTag = ammoTag;
 	}
 
-	void	Weapon::SetAmmo(int count)
-	{
-		mAmmo = min(count, mMaxAmmo);
-	}
-
-	int		Weapon::GetMaxAmmo()
-	{
-		return mMaxAmmo;
-	}
-
-	void	Weapon::SetMaxAmmo(int count)
-	{
-		mMaxAmmo = count;
-	}
-
-	void	Weapon::SetInfinity(bool flag)
-	{
-		isInfinity = flag;
-	}
-
-	ItemPtr	CreatePistol()
+	ItemPtr	CreateRifle()
 	{
 		Weapon* w = new Weapon();
-		w->SetInfinity(true);
+		w->SetInfinity(false);
+		w->SetMaxAmmo(360);
+		w->SetAmmo(30);
 		w->SetUseSound("../Data/Sounds/Weapons/Gun.wav");
+		w->SetUsingTime(0.1f);
+		w->SetReloadingTime(0.1f);
+		w->SetIcon("../Data/Icons/Weapons/AK47.png");
 
 		return ItemPtr(w);
+	}
+
+	ItemPtr	CreateAK47()
+	{
+		Weapon* w = new Weapon();
+		w->SetInfinity(false);
+		w->SetMaxAmmo(360);
+		w->SetAmmo(50);
+		w->SetUseSound("../Data/Sounds/Weapons/Gun.wav");
+		w->SetUsingTime(0.1f);
+		w->SetReloadingTime(0.1f);
+		w->SetIcon("../Data/Icons/Weapons/AK47.png");
+		w->SetAmmoTag("AK47Ammo");
+		return ItemPtr(w);
+	}
+
+	ItemPtr CreatePistolAmmo()
+	{
+		Ammo* a = new Ammo();
+		a->SetInfinity(true);
+		//w->SetUseSound("../Data/Sounds/Weapons/Gun.wav");
+		a->SetUsingTime(0.5f);
+		a->SetReloadingTime(0.0f);
+		//w->SetIcon("../Data/Icons/Weapons/Gun.png");
+
+		return ItemPtr(a);
+	}
+
+	ItemPtr CreateAK47Ammo()
+	{
+		Ammo* a = new Ammo();
+		a->SetInfinity(true);
+		//w->SetUseSound("../Data/Sounds/Weapons/Gun.wav");
+		a->SetUsingTime(0.5f);
+		a->SetReloadingTime(0.0f);
+		//w->SetIcon("../Data/Icons/Weapons/Gun.png");
+
+		return ItemPtr(a);
+	}
+
+	ItemPtr	CreateItem(std::string tag)
+	{
+		ItemPtr item;
+		if (tag == "Pistol")
+			item = CreatePistol();
+		else if (tag == "Rifle")
+			item = CreateRifle();
+		else if (tag == "AK47")
+			item = CreateAK47();
+		else if (tag == "PistolAmmo")
+			item = CreatePistolAmmo();
+		else if (tag == "AK47Ammo")
+			item = CreateAK47Ammo();
+		else
+			item = ItemPtr();
+
+		if (item != 0)
+			item->SetTag(tag);
+
+		return item;
 	}
 };

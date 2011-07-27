@@ -31,7 +31,7 @@ namespace behaviour
 
 		action::MovePtr GetMoveBackAction();
 
-		action::ShotPtr GetShotAction();
+		ActionPtr GetShotAction();
 
 		action::AttackPtr GetAttackAction();
 		
@@ -57,7 +57,7 @@ namespace behaviour
 	protected:
 		action::MovePtr	mMoveAction;
 		action::MovePtr	mMoveBack;
-		action::ShotPtr	mShotAction;
+		ActionPtr	mShotAction;
 		action::AttackPtr mAttack;
 		action::HealPtr mHealAction;
 		action::WindPtr mWindAction;

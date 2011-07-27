@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Entities>
+	<Entity Graphics="Items/Weapons/Gun" Type="Items/Weapons/Gun" Behaviour="Item">
+		<Body Type="Static" LinearDumping="2.5" AngularDumping="2.2">
+			<Box Width="0.5" Heigh="0.5" CategoryBits="32" MaskBits="64" Restitution="0.2" Density="5" Sensor="1"></Box>
+		</Body>
+		<Behaviour ItemType="Pistol">
+		</Behaviour>
+	</Entity>
+	<Entity Graphics="Items/Weapons/AK47" Type="Items/Weapons/AK47" Behaviour="Item">
+		<Body Type="Static" LinearDumping="2.5" AngularDumping="2.2">
+			<Box Width="0.5" Heigh="0.5" CategoryBits="32" MaskBits="64" Restitution="0.2" Density="5" Sensor="1"></Box>
+		</Body>
+		<Behaviour ItemType="AK47">
+		</Behaviour>
+	</Entity>
 	<!-- -->
 	<Entity Type="Box" Graphics="Box" Behaviour="Destroyable">
 		<!-- Сущность описывает динамический ящик -->

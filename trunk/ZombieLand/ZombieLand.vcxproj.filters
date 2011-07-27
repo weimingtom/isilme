@@ -32,9 +32,6 @@
     <ClCompile Include="Behaviour\Bullet.cpp">
       <Filter>Behaviour</Filter>
     </ClCompile>
-    <ClCompile Include="Action\Shot.cpp">
-      <Filter>Actions</Filter>
-    </ClCompile>
     <ClCompile Include="Behaviour\Zombie.cpp">
       <Filter>Behaviour</Filter>
     </ClCompile>
@@ -60,6 +57,18 @@
       <Filter>Inventory</Filter>
     </ClCompile>
     <ClCompile Include="Items\Weapon.cpp">
+      <Filter>Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="Behaviour\Activator.cpp">
+      <Filter>Behaviour</Filter>
+    </ClCompile>
+    <ClCompile Include="Behaviour\Item.cpp">
+      <Filter>Behaviour</Filter>
+    </ClCompile>
+    <ClCompile Include="Action\UseItem.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Items\Ammo.cpp">
       <Filter>Inventory</Filter>
     </ClCompile>
   </ItemGroup>
@@ -101,9 +110,6 @@
     <ClInclude Include="Behaviour\Player.h">
       <Filter>Behaviour</Filter>
     </ClInclude>
-    <ClInclude Include="Action\Shot.h">
-      <Filter>Actions</Filter>
-    </ClInclude>
     <ClInclude Include="Action\Attack.h">
       <Filter>Actions</Filter>
     </ClInclude>
@@ -126,6 +132,18 @@
       <Filter>Inventory</Filter>
     </ClInclude>
     <ClInclude Include="Items\Weapon.h">
+      <Filter>Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="Behaviour\Activator.h">
+      <Filter>Behaviour</Filter>
+    </ClInclude>
+    <ClInclude Include="Behaviour\Item.h">
+      <Filter>Behaviour</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\UseItem.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Items\Ammo.h">
       <Filter>Inventory</Filter>
     </ClInclude>
   </ItemGroup>

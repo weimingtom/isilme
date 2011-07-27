@@ -2,7 +2,6 @@
 #include "ZombieLand/Graphics/Creature.h"
 #include "ZombieLand/Action/Attack.h"
 #include "ZombieLand/Action/Move.h"
-#include "ZombieLand/Action/Shot.h"
 
 namespace graphics
 {

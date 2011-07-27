@@ -1,8 +1,8 @@
 #include "ZombieLand.h"
 #include "ZombieLand/Behaviour/Creature.h"
 #include "ZombieLand/Action/Move.h"
-#include "ZombieLand/Action/Shot.h"
 #include "ZombieLand/Action/Attack.h"
+#include "ZombieLand/Action/UseItem.h"
 #include "ZombieLand/Items/Weapon.h"
 #include "ZombieLand/Item.h"
 
@@ -18,16 +18,13 @@ namespace behaviour
 
 		mAttack = action::AttackPtr(new action::Attack());
 
-		mShotAction = action::ShotPtr(new action::Shot());
 
 		mEnergy = def->Energy;
 		mMaxEnergy = def->MaxEnergy;
 		mEnergyResoration = def->EnergyRestoration;
 
 		mInventory = Inventory::New();
-
-		ItemPtr p = items::CreatePistol();
-		mInventory->Equip(p);
+		mShotAction = action::UseItem::New(Item::Weapon, GetInventory());
 	}
 
 	Creature::~Creature()
@@ -88,7 +85,7 @@ namespace behaviour
 		return mMoveAction;
 	}
 
-	action::ShotPtr	Creature::GetShotAction()
+	ActionPtr	Creature::GetShotAction()
 	{
 		return mShotAction;
 	}
