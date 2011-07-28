@@ -39,6 +39,7 @@ void	Action::OnStart(BehaviourPtr behaviour)
 {
 	mBehaviour = behaviour;
 	mState = action::Beginning;
+	mTime = 0.0f;
 	OnStart();
 }
 
@@ -88,6 +89,11 @@ LevelPtr Action::GetLevel()
 	return GetActor()->GetLevel();
 }
 
+float	Action::GetDoingTime()
+{
+	return mDoingTime;
+}
+
 bool Action::Update(float elapsedTime)
 {
 	mTime += elapsedTime;
@@ -97,12 +103,18 @@ bool Action::Update(float elapsedTime)
 		UpdateOnBeginning(elapsedTime);
 		if (mTime > mBeginningTime)
 			mState++;
+		if (mTime > mBeginningTime + mDoingTime)
+			mState++;
+		if (mTime > mBeginningTime + mDoingTime + mEndingTime)
+			mState++;
 	}
 
 	if (mState == action::Doing)
 	{
 		UpdateOnDoing(elapsedTime);
 		if (mTime > mBeginningTime + mDoingTime)
+			mState++;
+		if (mTime > mBeginningTime + mDoingTime + mEndingTime)
 			mState++;
 	}
 

@@ -99,4 +99,9 @@ namespace action
 		mParent = action;
 	}
 
+	float	Tactics::GetDoingTime()
+	{
+		return 0;
+	}
+
 };

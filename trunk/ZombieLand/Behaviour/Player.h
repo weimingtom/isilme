@@ -24,10 +24,6 @@ namespace behaviour
 
 		virtual void	Think(float elapsedTIme);
 
-		action::WindPtr GetWindAction();
-		action::ShildPtr GetShildAction();
-		action::HealPtr GetHealAction();
-
 		/// Переключение оружия
 		void	NextWeapon();
 
@@ -37,9 +33,6 @@ namespace behaviour
 		/// Включить активатор
 		void	SwitchActivator();
 	protected:
-		action::WindPtr mWindAction;
-		action::ShildPtr mShildAction;
-		action::HealPtr mHealAction;
 
 		EntityPtr	mTarget;
 
@@ -49,8 +42,8 @@ namespace behaviour
 		bool	isReloading;
 
 		int		mCurrentWeapon;
+		int		mCurrentSpell;
 	
 	};
-
 };
 #endif

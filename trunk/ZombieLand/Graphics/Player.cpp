@@ -39,8 +39,5 @@ void	Player::SelectState()
 void Player::Render(float x, float y, float angle)
 {
 		StateGraphics<behaviour::Player>::Render(x, y, angle);
-
-	if (GetBehaviour()->GetShildAction()->IsActive())
-		GetState("Shild")->Render(x, y, angle);
 }
-}
+};

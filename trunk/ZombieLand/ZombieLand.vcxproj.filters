@@ -71,6 +71,9 @@
     <ClCompile Include="Items\Ammo.cpp">
       <Filter>Inventory</Filter>
     </ClCompile>
+    <ClCompile Include="Items\Spell.cpp">
+      <Filter>Inventory</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Configuration.h" />
@@ -144,6 +147,9 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="Items\Ammo.h">
+      <Filter>Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="Items\Spell.h">
       <Filter>Inventory</Filter>
     </ClInclude>
   </ItemGroup>

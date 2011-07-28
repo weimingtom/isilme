@@ -18,12 +18,17 @@ namespace behaviour
 		GetMoveAction()->SetSound("../Data/Sounds/Walk.wav");
 		GetMoveBackAction()->SetSound("../Data/Sounds/Walk.wav");
 
-		mHealAction = action::HealPtr(new action::Heal());
-		mWindAction = action::WindPtr(new action::Wind());
-		mShildAction = action::ShildPtr(new action::Shild());
-
 		isReloading = false;
 		mCurrentWeapon = 0;
+		mCurrentSpell = 0;
+
+		ItemPtr spell = items::CreateItem("HealSpell");
+		GetInventory()->AddItem(spell);
+		spell = items::CreateItem("WindSpell");
+		GetInventory()->AddItem(spell);
+		spell = items::CreateItem("ShildSpell");
+		GetInventory()->AddItem(spell);
+		NextSpell();
 	}
 
 	Player::~Player()
@@ -36,9 +41,32 @@ namespace behaviour
 			return;
 
 		mCurrentWeapon++;
+		
 		if (mCurrentWeapon >= GetInventory()->GetItemsCount())
 			mCurrentWeapon = 0;
-		GetInventory()->Equip(GetInventory()->GetItem(mCurrentWeapon));
+
+		ItemPtr item = GetInventory()->GetItem(mCurrentWeapon);
+		if (item->GetSlot() == Item::Weapon)
+			GetInventory()->Equip(item);
+		else
+			NextWeapon();
+	}
+
+	void	Player::NextSpell()
+	{
+		if (GetInventory()->GetItemsCount() == 0)
+			return;
+
+		mCurrentSpell++;
+		
+		if (mCurrentSpell >= GetInventory()->GetItemsCount())
+			mCurrentSpell = 0;
+
+		ItemPtr item = GetInventory()->GetItem(mCurrentSpell);
+		if (item->GetSlot() == Item::Spell)
+			GetInventory()->Equip(item);
+		else
+			NextSpell();
 	}
 
 	void	Player::SwitchActivator()
@@ -75,21 +103,6 @@ namespace behaviour
 
 		if (mTarget != 0)
 		GetActor()->SetAngle(GetActor()->GetAngleTo(mTarget));
-	}
-
-	action::ShildPtr Player::GetShildAction()
-	{
-		return mShildAction;
-	}
-
-	action::WindPtr Player::GetWindAction()
-	{
-		return mWindAction;
-	}
-
-	action::HealPtr Player::GetHealAction()
-	{
-		return mHealAction;
 	}
 
 	void	Player::Think(float elapsedTime)
@@ -140,27 +153,6 @@ namespace behaviour
 		{
 			SwitchActivator();
 		}
-		if (inputSystem->IsKeyDown(HGEK_1) || inputSystem->GetPadState(0, gamepad::DPadLeft))
-		{
-			if (!(GetShildAction()->IsActive()))
-				StartAction(GetShildAction());
-			else
-				GetShildAction()->Stop();
-		}
-		if (inputSystem->IsKeyDown(HGEK_2) || inputSystem->GetPadState(0, gamepad::DPadUp))
-		{
-			if (!(GetWindAction()->IsActive()) && GetEnergy() >= GetWindAction()->GetCost())
-				StartAction(GetWindAction());
-		}
-		if (inputSystem->IsKeyDown(HGEK_3) || inputSystem->GetPadState(0, gamepad::DPadRIght))
-		{
-			if (!(GetHealAction()->IsActive()) && GetEnergy() >= GetHealAction()->GetCost())
-				StartAction(GetHealAction());
-		}
-		if (inputSystem->IsKeyDown(HGEK_4) || inputSystem->GetPadState(0, gamepad::DPadDpwn))
-		{
-		}
-		
 	}
 
 	BehaviourPtr PlayerDef::Create()

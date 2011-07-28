@@ -25,10 +25,22 @@ namespace behaviour
 
 		mInventory = Inventory::New();
 		mShotAction = action::UseItem::New(Item::Weapon, GetInventory());
+		mReloadAction = action::UseItem::New(Item::Ammo, GetInventory());
+		mSpellAction = action::UseItem::New(Item::Spell, GetInventory());
 	}
 
 	Creature::~Creature()
 	{
+	}
+
+	ActionPtr	Creature::GetSpellAction()
+	{
+		return mSpellAction;
+	}
+
+	ActionPtr	Creature::GetReloadAction()
+	{
+		return mReloadAction;
 	}
 
 	InventoryPtr	Creature::GetInventory()

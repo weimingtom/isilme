@@ -31,15 +31,15 @@ namespace behaviour
 
 		action::MovePtr GetMoveBackAction();
 
+		/// Стрельба из активного оружия
 		ActionPtr GetShotAction();
 
+		/// Перезарядка активного оружия
+		ActionPtr	GetReloadAction();
+
+		ActionPtr	GetSpellAction();
+
 		action::AttackPtr GetAttackAction();
-		
-		action::HealPtr	GetHealAction();
-
-		action::WindPtr	GetWindAction();
-
-		action::ShildPtr GetShildAction();
 
 		virtual void	Think(float elapsedTIme);
 
@@ -58,10 +58,9 @@ namespace behaviour
 		action::MovePtr	mMoveAction;
 		action::MovePtr	mMoveBack;
 		ActionPtr	mShotAction;
+		ActionPtr	mReloadAction;
+		ActionPtr	mSpellAction;
 		action::AttackPtr mAttack;
-		action::HealPtr mHealAction;
-		action::WindPtr mWindAction;
-		action::ShildPtr mShildAction;
 		InventoryPtr	mInventory;
 
 		float	mEnergy;

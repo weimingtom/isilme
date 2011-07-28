@@ -42,6 +42,8 @@ public:
 	virtual ActionPtr	GetParent() = 0;
 
 	virtual void	SetParent(ActionPtr parent) = 0;
+
+	virtual float	GetDoingTime() = 0;
 protected:
 	/// Вызывается из Behaviour владельца
 	virtual void	OnStart(BehaviourPtr behaviour) = 0;
@@ -81,6 +83,8 @@ public:
 
 	/// Проверяет, возможно ли выполнение действия
 	virtual bool	IsEnabled();
+
+	virtual float	GetDoingTime();
 	
 	unsigned long GetMask();
 

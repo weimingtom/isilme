@@ -2,7 +2,11 @@
 #include "ZombieLand/Inventory.h"
 #include "Weapon.h"
 #include "Ammo.h"
+#include "Spell.h"
 #include "ZombieLand/Behaviour/Bullet.h"
+#include "ZombieLand/Action/Heal.h"
+#include "ZombieLand/Action/Wind.h"
+#include "ZombieLand/Action/Shild.h"
 
 namespace items
 {
@@ -88,8 +92,8 @@ namespace items
 	{
 		Weapon* w = new Weapon();
 		w->SetInfinity(false);
-		w->SetMaxAmmo(360);
-		w->SetAmmo(50);
+		w->SetMaxAmmo(40);
+		w->SetAmmo(40);
 		w->SetUseSound("../Data/Sounds/Weapons/Gun.wav");
 		w->SetUsingTime(0.1f);
 		w->SetReloadingTime(0.1f);
@@ -113,13 +117,46 @@ namespace items
 	ItemPtr CreateAK47Ammo()
 	{
 		Ammo* a = new Ammo();
-		a->SetInfinity(true);
+		a->SetInfinity(false);
+		a->SetMaxAmmo(360);
+		a->SetAmmo(360);
 		//w->SetUseSound("../Data/Sounds/Weapons/Gun.wav");
 		a->SetUsingTime(0.5f);
 		a->SetReloadingTime(0.0f);
 		//w->SetIcon("../Data/Icons/Weapons/Gun.png");
 
 		return ItemPtr(a);
+	}
+
+	ItemPtr	CreateHealSpell()
+	{
+		Spell* s = new Spell();
+		s->SetInfinity(true);
+		s->SetAction(ActionPtr(new action::Heal()));
+		s->SetIcon("../Data/Icons/Spells/Heal.png");
+
+		return ItemPtr(s);
+	}
+
+	ItemPtr	CreateWindSpell()
+	{
+		Spell* s = new Spell();
+		s->SetInfinity(true);
+		s->SetAction(ActionPtr(new action::Wind()));
+		s->SetIcon("../Data/Icons/Spells/Wind.png");
+
+		return ItemPtr(s);
+	}
+
+	ItemPtr	CreateShildSpell()
+	{
+		Spell* s = new Spell();
+		s->SetInfinity(true);
+		s->SetAction(ActionPtr(new action::Shild()));
+		s->SetIcon("../Data/Icons/Spells/Shild.png");
+		s->SetContinuous(true);
+
+		return ItemPtr(s);
 	}
 
 	ItemPtr	CreateItem(std::string tag)
@@ -135,6 +172,12 @@ namespace items
 			item = CreatePistolAmmo();
 		else if (tag == "AK47Ammo")
 			item = CreateAK47Ammo();
+		else if (tag == "HealSpell")
+			item = CreateHealSpell();
+		else if (tag == "WindSpell")
+			item = CreateWindSpell();
+		else if (tag == "ShildSpell")
+			item = CreateShildSpell();
 		else
 			item = ItemPtr();
 

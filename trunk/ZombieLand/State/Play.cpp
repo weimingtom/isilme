@@ -14,6 +14,8 @@ Play::Play() : State()
 {	
 	isReloading = false;
 	isChangingWeapon = false;
+	isChangingSpell = false;
+	isSpellCasting = false;
 	// Init GUI
 	gcn::Container* top;
 	//
@@ -36,20 +38,16 @@ Play::Play() : State()
 	mOptions	= new gcn::Button();
 	mExit		= new gcn::Button();
 
-	mAmmo1Button	= new gcn::ImageButton("../Data/Textures/Icons/Ammo1.png");
-	mAmmo2Button	= new gcn::ImageButton("../Data/Textures/Icons/Ammo2.png");
-	mAmmo3Button	= new gcn::ImageButton("../Data/Textures/Icons/Ammo3.png");
-	mAmmo4Button	= new gcn::ImageButton("../Data/Textures/Icons/Ammo4.png");
-	
-	mAbility1Button	= new gcn::ImageButton("../Data/Textures/Icons/Ability1.png");
-	mAbility2Button	= new gcn::ImageButton("../Data/Textures/Icons/Ability2.png");
-	mAbility3Button	= new gcn::ImageButton("../Data/Textures/Icons/Ability3.png");
-	mAbility4Button	= new gcn::ImageButton("../Data/Textures/Icons/Ability4.png");
-
 	mHealthImage	= new gcn::Icon();
 	mHealthField	= new gcn::Label("none");
+	mAmmoLabel		= new gcn::HGELabel("../Data/Fonts/font1.fnt");
 	mWeaponIcon		= new gcn::Icon();
-	mWeaponAmmo		= new gcn::ProgressBar();
+	mWeaponAmmo		= new gcn::HGELabel("../Data/Fonts/font1.fnt");
+	mSpellIcon		= new gcn::Icon();
+
+	// Иконка способности
+	mSpellIcon->setSize(64, 64);
+	mSpellIcon->setImage(gcn::Image::load("../Data/Icons/Empty.png"));
 
 	// Иконка здоровья
 	mHealthImage->setImage(gcn::Image::load("../Data/Textures/Icons/Health.png"));
@@ -60,61 +58,11 @@ Play::Play() : State()
 	mWeaponIcon->setSize(64, 64);
 
 	// Уровень заряда
-	mWeaponAmmo->setProgress(100);
-	mWeaponAmmo->setSelectionColor(gcn::Color(255, 100, 100));
-	mWeaponAmmo->setSize(64, 16);
+	mWeaponAmmo->setTextColor(gcn::Color(255,255,255));
+
+	// Количество паторнов
+	mAmmoLabel->setTextColor(gcn::Color(255, 255, 255));
 	
-	// Кнопка обычных патронов
-	mAmmo1Button->setBackgroundColor(gcn::Color(255, 0, 0, 100));
-	mAmmo1Button->setSize(64, 64);
-	mAmmo1Button->setFrameSize(0);
-	mAmmo1Button->setFont(font);
-	mAmmo1Button->setAlignment(gcn::Graphics::CENTER);
-//	mAmmo1Button->addMouseListener(this);
-
-	// Кнопка зажигательных патронов
-	mAmmo2Button->setBackgroundColor(gcn::Color(255, 0, 0, 100));
-	mAmmo2Button->setSize(64, 64);
-
-	mAmmo2Button->setFrameSize(0);
-//	mAmmo2Button->addMouseListener(this);
-
-	// Кнопка усиленных патронов
-	mAmmo3Button->setBackgroundColor(gcn::Color(255, 0, 0, 100));
-	mAmmo3Button->setSize(64, 64);
-	mAmmo3Button->setFrameSize(0);
-//	mAmmo3Button->addMouseListener(this);
-
-	// Кнопка разрывных патронов
-	mAmmo4Button->setBackgroundColor(gcn::Color(255, 0, 0, 100));
-	mAmmo4Button->setSize(64, 64);
-	mAmmo4Button->setFrameSize(0);
-//	mAmmo4Button->addMouseListener(this);
-
-	// Способность щит
-	mAbility1Button->setBackgroundColor(gcn::Color(255, 0, 0, 100));
-	mAbility1Button->setSize(64, 64);
-	mAbility1Button->setFrameSize(0);
-	//mAbility1Button->addMouseListener(this);
-
-	// Знак аард
-	mAbility2Button->setBackgroundColor(gcn::Color(255, 0, 0, 100));
-	mAbility2Button->setSize(64, 64);
-	mAbility2Button->setFrameSize(0);
-	//mAbility2Button->addMouseListener(this);
-
-	// ??
-	mAbility3Button->setBackgroundColor(gcn::Color(255, 0, 0, 100));
-	mAbility3Button->setSize(64, 64);
-	mAbility3Button->setFrameSize(0);
-	//mAbility3Button->addMouseListener(this);
-
-	// ??
-	mAbility4Button->setBackgroundColor(gcn::Color(255, 0, 0, 100));
-	mAbility4Button->setSize(64, 64);
-	mAbility4Button->setFrameSize(0);
-//	mAbility4Button->addMouseListener(this);
-
 	// Иконка бонусов
 	mOrbImage = new gcn::Icon("../Data/Textures/Icons/Orb.png");
 	mOrbImage->setSize(64, 64);
@@ -164,22 +112,11 @@ Play::Play() : State()
 //	mMenu->addMouseListener(this);
 	mMenu->setVisible(false);
 
-	// 
-	//top->add(mAmmo1Button, 0, 536);
-	//top->add(mAmmo2Button, 64, 536);
-	//top->add(mAmmo3Button, 128, 536);
-	//top->add(mAmmo4Button, 192, 536);
-	top->add(mAbility1Button, 554, 536);
-	top->add(mAbility2Button, 618, 536);
-	top->add(mAbility3Button, 682, 536);
-	top->add(mWeaponIcon, 0, 520);
-	top->add(mWeaponAmmo, 0, 584);
-	//top->add(mAbility4Button, 746, 536);
-	//top->add(mHealthImage, 400, 500);
-	//top->add(mHealthField, 420, 530);
+	top->add(mWeaponIcon, 0, 536);
+	top->add(mWeaponAmmo,70, 550);
+	top->add(mAmmoLabel, 70, 580);
+	top->add(mSpellIcon, 736, 536);
 
-	//top->add(mOrbImage, 700, 10);
-	//top->add(mOrbLabel, 732, 42);
 	top->add(mZombieLeftLabel, 600, 8);
 	top->addMouseListener(this);
 	top->add(mMenu);
@@ -205,23 +142,6 @@ void Play::mouseClicked(gcn::MouseEvent& evt)
 	if (evt.getSource() == mExit)
 	{
 		Close();
-	}
-	else if (evt.getSource() == mAbility3Button)
-	{
-		if (!(mPlayer->GetHealAction()->IsActive()) && mPlayer->GetEnergy() >= mPlayer->GetHealAction()->GetCost())
-			mPlayer->StartAction(mPlayer->GetHealAction());
-	}
-	else if (evt.getSource() == mAbility1Button)
-	{
-		if (!(mPlayer->GetShildAction()->IsActive()))
-			mPlayer->StartAction(mPlayer->GetShildAction());
-		else
-			mPlayer->GetShildAction()->Stop();
-	}
-	else if (evt.getSource() == mAbility2Button)
-	{
-		if (!(mPlayer->GetWindAction()->IsActive()) && mPlayer->GetEnergy() >= mPlayer->GetWindAction()->GetCost())
-			mPlayer->StartAction(mPlayer->GetWindAction());
 	}
 	else if (evt.getSource() == mContinue)
 	{
@@ -266,11 +186,31 @@ void	Play::OnUpdate(float elapsedTime)
 		ItemPtr w = mPlayer->GetInventory()->GetSlot(Item::Weapon);
 		if (w != 0)
 		{
-			mWeaponAmmo->setProgress((float)w->GetAmmo() / w->GetMaxAmmo());
+			mWeaponAmmo->setCaption(itoa(w->GetAmmo(), h, 10));
 			mWeaponIcon->setImage(w->GetIcon());
 		}
 		else
-			mWeaponAmmo->setProgress(1.0f);
+			mWeaponAmmo->setCaption("");
+
+		w = mPlayer->GetInventory()->GetSlot(Item::Spell);
+		if (w != 0)
+		{
+			mSpellIcon->setImage(w->GetIcon());
+		}
+
+		w = mPlayer->GetInventory()->GetSlot(Item::Ammo);
+		if (w != 0)
+		{
+			if (!(w->IsInfinity()))
+			{
+				sprintf(h, "%d", w->GetAmmo());
+				mAmmoLabel->setCaption(h);
+			}
+			else
+				mAmmoLabel->setCaption("");
+		}
+		else
+			mAmmoLabel->setCaption("");
 	}
 
 	InputSystem* inputSystem = Engine::GetSingleton()->GetInputSystem();
@@ -292,7 +232,8 @@ void	Play::OnUpdate(float elapsedTime)
 	if ((inputSystem->GetKeyState(HGEK_R) || inputSystem->GetPadState(0, gamepad::LeftShoulder)) && !isReloading)
 	{
 		isReloading = true;
-		mPlayer->GetInventory()->GetSlot(Item::Ammo)->UseBy(mPlayer->GetActor());
+		if (!(mPlayer->GetReloadAction()->IsActive()))
+			mPlayer->StartAction(mPlayer->GetReloadAction());
 	}
 	else if (!(inputSystem->GetKeyState(HGEK_R) || inputSystem->GetPadState(0, gamepad::LeftShoulder)))
 	{
@@ -316,7 +257,29 @@ void	Play::OnUpdate(float elapsedTime)
 		isChangingWeapon = false;
 	}
 
+	// Заклинание
+	if ((inputSystem->GetPadState(0, gamepad::GamepadB) || inputSystem->GetKeyState(HGEK_L)) && ! mPlayer->GetSpellAction()->IsActive() && !isSpellCasting)
+	{
+		mPlayer->StartAction(mPlayer->GetSpellAction());
+		isSpellCasting = true;
+	}
+	else if (!(inputSystem->GetPadState(0, gamepad::GamepadB) || inputSystem->GetKeyState(HGEK_L)))
+	{
+		isSpellCasting = false;
+	}
 	Game::GetSingleton()->GetStory()->Update(elapsedTime);
+
+	// Смена способности
+	int rightTrigger = inputSystem->GetRightTrigger(0);
+	if ((inputSystem->IsKeyDown(HGEK_E) || rightTrigger > 180) && !isChangingSpell)
+	{
+		mPlayer->NextSpell();
+		isChangingSpell = true;			
+	}
+	else	if (!(inputSystem->IsKeyDown(HGEK_E) || rightTrigger > 180))
+	{
+		isChangingSpell = false;
+	}
 }
 
 void Play::OnStart()

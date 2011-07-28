@@ -48,6 +48,8 @@ namespace action
 		virtual void	StartAction(ActionPtr action);
 
 		virtual ActionPtr	GetParent();
+
+		virtual float	GetDoingTime();
 	protected:
 		virtual void	SetParent(ActionPtr parent);
 		/// Вызывается из Behaviour владельца

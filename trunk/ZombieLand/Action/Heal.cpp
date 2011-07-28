@@ -22,6 +22,11 @@ namespace action
 
 	void	Heal::OnStart()
 	{
+		if (GetBehaviour()->GetEnergy() < mCost)
+		{
+			Stop();
+			return;
+		}
 		GetBehaviour()->SetEnergy(GetBehaviour()->GetEnergy() - mCost);
 	}
 

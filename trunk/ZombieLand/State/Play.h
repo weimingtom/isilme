@@ -51,14 +51,6 @@ namespace state
 		gcn::Button* mRestart;
 		gcn::Label* mHealthField;
 		gcn::Icon*			mHealthImage;
-		gcn::ImageButton*	mAmmo1Button;
-		gcn::ImageButton*	mAmmo2Button;
-		gcn::ImageButton*	mAmmo3Button;
-		gcn::ImageButton*	mAmmo4Button;
-		gcn::ImageButton*	mAbility1Button;
-		gcn::ImageButton*	mAbility2Button;
-		gcn::ImageButton*	mAbility3Button;
-		gcn::ImageButton*	mAbility4Button;
 
 		gcn::Icon*			mOrbImage;
 		gcn::Label*			mOrbLabel;
@@ -67,13 +59,18 @@ namespace state
 		gcn::HGELabel*			mZombieLeftLabel;
 
 		gcn::Icon*			mWeaponIcon;
-		gcn::ProgressBar*	mWeaponAmmo;
+		gcn::HGELabel*		mWeaponAmmo;
+		gcn::HGELabel*		mAmmoLabel;
+		gcn::Icon*			mSpellIcon;
 		behaviour::PlayerPtr mPlayer;
 
 		virtual void OnUpdate(float elapsedTime);
 
 		bool	isReloading;
 		bool	isChangingWeapon;
+		bool	isChangingSpell;
+		bool	isSpellCasting;
+		bool	isShooting;
 	};
 };
 
