@@ -5,7 +5,9 @@ namespace action
 {
 	Die::Die()
 	{
-		mDoingTime = 1.0f;
+		SetEndingTime(0.0f);
+		SetBeginningTime(0.0f);
+		SetDoingTime(1.0f);
 		mEffect = 0;
 	}
 
@@ -15,12 +17,12 @@ namespace action
 
 	void	Die::OnDone()
 	{
+		GetActor()->GetBehaviour()->SetActive(false);
 	}
 
 	void	Die::OnStart()
 	{
-		GetActor()->RemoveBody();
-		GetActor()->GetBehaviour()->SetActive(false);
+		GetActor()->GetBody()->SetActive(false);
 
 		if (mEffect != 0)
 		Engine::GetSingleton()->GetSoundSystem()->PlayEffect(mEffect);

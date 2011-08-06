@@ -14,6 +14,12 @@ namespace graphics
 		delete mAnimation;
 	}
 
+	void Animation::Reset()
+	{
+		mAnimation->Stop();
+		mAnimation->Play();
+	}
+
 	void Animation::Render(float x, float y, float angle)
 	{
 		float width = mAnimation->GetWidth() / 2.0f;

@@ -126,8 +126,12 @@ bool Action::Update(float elapsedTime)
 			mState++;
 			OnDone();
 			mTime = 0.0f;
+			return false;
 		}
 	}
+
+	if (mState == action::Done)
+		OnDone();
 
 	return mState < action::Done;
 }

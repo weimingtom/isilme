@@ -10,7 +10,7 @@ namespace graphics
 
 void	Player::SelectState()
 {
-	if (GetBehaviour()->GetDieAction()->IsActive())
+	if (GetBehaviour()->GetDieAction()->IsActive() || !GetBehaviour()->IsActive())
 	{
 		SetState("Die");
 	}
@@ -32,6 +32,7 @@ void	Player::SelectState()
 	}
 	else if (GetBehaviour()->IsActive())
 	{
+		GetState("Die")->Reset();
 		SetState("Idle");
 	}
 }

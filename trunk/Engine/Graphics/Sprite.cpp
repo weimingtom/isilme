@@ -35,6 +35,11 @@ namespace graphics
 		delete mSprite;
 	}
 
+	void  Sprite::Reset()
+	{
+		
+	}
+
 	void  Sprite::Render(float x, float y, float angle)
 	{
 		float width = mSprite->GetWidth() / 2.0f;

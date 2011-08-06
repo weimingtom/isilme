@@ -152,6 +152,15 @@
     <ClInclude Include="Items\Spell.h">
       <Filter>Inventory</Filter>
     </ClInclude>
+    <ClInclude Include="Behaviour\NPC.h">
+      <Filter>Behaviour</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\Seek.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\Pursue.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Data\Entities.xml">

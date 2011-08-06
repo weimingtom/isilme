@@ -7,7 +7,7 @@ namespace graphics
 {
 	void	Creature::SelectState()
 	{
-		if (GetBehaviour()->GetDieAction()->IsActive())
+		if (GetBehaviour()->GetDieAction()->IsActive() || !GetBehaviour()->IsActive())
 		{
 			SetState("Die");
 		}
@@ -29,6 +29,7 @@ namespace graphics
 		}
 		else if (GetBehaviour()->IsActive())
 		{
+			GetState("Die")->Reset();
 			SetState("Idle");
 		}
 	}

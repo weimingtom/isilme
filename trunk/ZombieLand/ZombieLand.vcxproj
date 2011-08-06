@@ -129,6 +129,7 @@
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Item.cpp">
       <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">items_Item.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">items_Item.obj</ObjectFileName>
     </ClCompile>
     <ClCompile Include="Items\Ammo.cpp" />
     <ClCompile Include="Items\Spell.cpp" />
@@ -157,6 +158,8 @@
     <ClInclude Include="Action\Die.h" />
     <ClInclude Include="Action\Heal.h" />
     <ClInclude Include="Action\Move.h" />
+    <ClInclude Include="Action\Pursue.h" />
+    <ClInclude Include="Action\Seek.h" />
     <ClInclude Include="Action\Shild.h" />
     <ClInclude Include="Action\UseItem.h" />
     <ClInclude Include="Action\Wind.h" />
@@ -165,6 +168,7 @@
     <ClInclude Include="Behaviour\Creature.h" />
     <ClInclude Include="Behaviour\Destroyable.h" />
     <ClInclude Include="Behaviour\Item.h" />
+    <ClInclude Include="Behaviour\NPC.h" />
     <ClInclude Include="Behaviour\Player.h" />
     <ClInclude Include="Behaviour\Zombie.h" />
     <ClInclude Include="Graphics\Creature.h" />

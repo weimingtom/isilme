@@ -326,6 +326,7 @@
     <ClCompile Include="src\widgets\imagebutton.cpp" />
     <ClCompile Include="src\widgets\label.cpp" />
     <ClCompile Include="src\widgets\listbox.cpp" />
+    <ClCompile Include="src\widgets\ListBoxItem.cpp" />
     <ClCompile Include="src\widgets\radiobutton.cpp" />
     <ClCompile Include="src\widgets\scrollarea.cpp" />
     <ClCompile Include="src\widgets\slider.cpp" />
@@ -334,6 +335,9 @@
     <ClCompile Include="src\widgets\textbox.cpp" />
     <ClCompile Include="src\widgets\textfield.cpp" />
     <ClCompile Include="src\widgets\window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\guichan\widgets\ListBoxItem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

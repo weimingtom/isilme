@@ -38,6 +38,8 @@ namespace graphics
 		virtual void Render(float x, float y, float angle);
 
 		virtual void Update(float elapsedTime);
+
+		virtual void Reset();
 	private:
 		/// HGE-спрайт
 		hgeSprite* mSprite;

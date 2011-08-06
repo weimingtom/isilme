@@ -51,6 +51,7 @@
 #include "guichan/mouselistener.hpp"
 #include "guichan/platform.hpp"
 #include "guichan/widget.hpp"
+#include "ListBoxItem.h"
 
 namespace gcn
 {
@@ -227,6 +228,7 @@ namespace gcn
          * The list model to use.
          */
         ListModel *mListModel;
+		ItemsList	mItems;
 
         /**
          * True if wrapping is enabled, false otherwise.

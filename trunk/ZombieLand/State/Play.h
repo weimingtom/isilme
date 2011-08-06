@@ -63,6 +63,12 @@ namespace state
 		gcn::HGELabel*		mAmmoLabel;
 		gcn::Icon*			mSpellIcon;
 		behaviour::PlayerPtr mPlayer;
+		
+		gcn::Container* top;
+		gcn::Window* mRespawn;
+		gcn::Button* mRRestart;
+		gcn::Button* mRRespawn;
+		gcn::Button* mRMenu;
 
 		virtual void OnUpdate(float elapsedTime);
 
@@ -71,6 +77,8 @@ namespace state
 		bool	isChangingSpell;
 		bool	isSpellCasting;
 		bool	isShooting;
+
+		bool	Asking;
 	};
 };
 

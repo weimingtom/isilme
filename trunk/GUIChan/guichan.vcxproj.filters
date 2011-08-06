@@ -136,6 +136,9 @@
     <ClCompile Include="src\hge\hgeinput.cpp">
       <Filter>HGE</Filter>
     </ClCompile>
+    <ClCompile Include="src\widgets\ListBoxItem.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="HGE">
@@ -331,5 +334,10 @@
     <None Include="include\guichan\contrib\widgets\adjustingcontainer.hpp">
       <Filter>src/guichan/contrib/widgets</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\guichan\widgets\ListBoxItem.h">
+      <Filter>Widgets</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -32,6 +32,12 @@ namespace behaviour
 
 		/// ¬ключить активатор
 		void	SwitchActivator();
+
+		/// —охранить координаты игрока
+		void	SavePoint();
+
+		/// ќживить игрока
+		void	Respawn();
 	protected:
 
 		EntityPtr	mTarget;
@@ -44,6 +50,7 @@ namespace behaviour
 		int		mCurrentWeapon;
 		int		mCurrentSpell;
 	
+		Vector2	mCheckPoint;
 	};
 };
 #endif

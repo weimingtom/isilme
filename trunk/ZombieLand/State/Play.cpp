@@ -17,7 +17,6 @@ Play::Play() : State()
 	isChangingSpell = false;
 	isSpellCasting = false;
 	// Init GUI
-	gcn::Container* top;
 	//
 	top = new gcn::Container();
     // We set the dimension of the top container to match the screen.
@@ -25,7 +24,7 @@ Play::Play() : State()
 	top->setBackgroundColor(gcn::Color(0,0,0,0));
 	top->setBaseColor(gcn::Color(0,0,0,0));
 	top->setFocusable(true);
-	gcn::ImageFont* font = new gcn::ImageFont("../Data/Fonts/fixedfont.bmp", " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
+	gcn::Font* font = new gcn::HGEImageFont("../Data/Fonts/font1.fnt");//new gcn::ImageFont("../Data/Fonts/fixedfont.bmp", " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
 	gcn::Widget::setGlobalFont(font);
     // Finally we pass the top widget to the Gui object.
     GetGUI()->setTop(top);
@@ -37,6 +36,11 @@ Play::Play() : State()
 	mRestart	= new gcn::Button();
 	mOptions	= new gcn::Button();
 	mExit		= new gcn::Button();
+
+	mRespawn	= new gcn::Window();
+	mRRestart	= new gcn::Button();
+	mRRespawn	= new gcn::Button();
+	mRMenu		= new gcn::Button();
 
 	mHealthImage	= new gcn::Icon();
 	mHealthField	= new gcn::Label("none");
@@ -112,6 +116,22 @@ Play::Play() : State()
 //	mMenu->addMouseListener(this);
 	mMenu->setVisible(false);
 
+	// Респаун
+	mRespawn->setCaption("");
+	mRespawn->setSize(400, 200);
+	mRespawn->add(mRRespawn, 16, 16);
+	mRespawn->add(mRRestart, 16, 72);
+	mRespawn->add(mRMenu, 16, 136);
+	mRespawn->setVisible(false);
+
+	mRRespawn->setCaption("Respawn");
+	mRRespawn->adjustSize();
+	mRRestart->setCaption("Restart");
+	mRRestart->adjustSize();
+	mRMenu->setCaption("Cancel");
+	mRMenu->adjustSize();
+
+
 	top->add(mWeaponIcon, 0, 536);
 	top->add(mWeaponAmmo,70, 550);
 	top->add(mAmmoLabel, 70, 580);
@@ -133,6 +153,7 @@ Play::Play() : State()
 
 	top->add(mHealthBar, 8, 8);
 	top->add(mEnergyBar, 8, 42);
+	top->add(mRespawn, 100, 100);
 }
 
 void Play::mouseClicked(gcn::MouseEvent& evt)
@@ -148,12 +169,17 @@ void Play::mouseClicked(gcn::MouseEvent& evt)
 		mMenu->setVisible(!(mMenu->isVisible()));
 		SetPaused(mMenu->isVisible());
 	}
-	else
+	else if (evt.getSource() == mRRespawn)
+	{
+		mPlayer->Respawn();
+		SetPaused(false);
+		mRespawn->setVisible(false);
+	}
+	else if (!IsPaused())
 	{
 		if (!(mPlayer->GetShotAction()->IsActive()))
 			mPlayer->StartAction(mPlayer->GetShotAction());
 	}
-
 }
 
 void	Play::OnUpdate(float elapsedTime)
@@ -166,8 +192,13 @@ void	Play::OnUpdate(float elapsedTime)
 
 	if (mPlayer != 0)
 	{
-		if (mPlayer->GetHealth() <= 0.0f)
-			GetLevel()->GetLayer("Grass")->Add(mPlayer->GetActor());
+		if (!(mPlayer->IsActive()) && !IsPaused())
+		{
+			//GetLevel()->GetLayer("Grass")->Add(mPlayer->GetActor());
+			mRespawn->setVisible(true);
+			SetPaused(true);
+		}
+
 		float health = mPlayer->GetHealth() / mPlayer->GetMaxHealth();
 		mHealthBar->setProgress(health);
 		mEnergyBar->setProgress(mPlayer->GetEnergy() / mPlayer->GetMaxEnergy());
@@ -211,6 +242,11 @@ void	Play::OnUpdate(float elapsedTime)
 		}
 		else
 			mAmmoLabel->setCaption("");
+
+		if (!mPlayer->IsActive())
+		{
+			
+		}
 	}
 
 	InputSystem* inputSystem = Engine::GetSingleton()->GetInputSystem();
@@ -288,6 +324,7 @@ void Play::OnStart()
 	//Engine::GetSingleton()->GetLua()->DoFile("../Data/Scripts/Triggers.lua");
 
 	EntityPtr player = FactoryManager::GetSingleton()->GetEntity("Player");
+	boost::shared_dynamic_cast<behaviour::Player>(player->GetBehaviour())->SavePoint();
 
 	mMenu->setVisible(false);
 	SetPaused(false);

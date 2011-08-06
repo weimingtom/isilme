@@ -35,6 +35,8 @@ public:
 	/// Визуализировать 
 	virtual void Render(float x, float y, float angle);
 
+	virtual void Reset() {};
+
 	/// Сущность
 	EntityPtr	GetEntity();
 protected:

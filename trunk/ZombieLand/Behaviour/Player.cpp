@@ -6,6 +6,8 @@
 #include "ZombieLand/Item.h"
 #include <LuaBind/luabind/luabind.hpp>
 
+int pw = 0;
+
 namespace behaviour
 {
 	int func_index = 0;
@@ -35,6 +37,19 @@ namespace behaviour
 	{
 	}
 
+	void	Player::SavePoint()
+	{
+		mCheckPoint = GetActor()->GetPosition();
+	}
+
+	void	Player::Respawn()
+	{
+		SetActive(true);
+		SetHealth(GetMaxHealth());
+		GetActor()->SetPosition(mCheckPoint.x, mCheckPoint.y);
+		GetActor()->GetBody()->SetActive(true);
+	}
+
 	void	Player::NextWeapon()
 	{
 		if (GetInventory()->GetItemsCount() == 0)
@@ -47,9 +62,18 @@ namespace behaviour
 
 		ItemPtr item = GetInventory()->GetItem(mCurrentWeapon);
 		if (item->GetSlot() == Item::Weapon)
+		{
 			GetInventory()->Equip(item);
+			pw = 0;
+		}
 		else
-			NextWeapon();
+		{
+			if (pw < GetInventory()->GetItemsCount() + 3)
+			{
+				pw++;
+				NextWeapon();
+			}
+		}
 	}
 
 	void	Player::NextSpell()
