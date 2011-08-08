@@ -3,6 +3,21 @@
 	<Scripts>
 		<Script></Script>
 	</Scripts>
+	<Quest Name="Level1" Title="First level quest">
+		<Stage
+			ID="10"
+			Text="You should find weapon. When you find it press K to pick it up. Weapon automaticaly equips."
+			StartScript=""
+			UpdateScript="">
+		</Stage>
+		<Stage 
+			ID="20" 
+			Text="You should kill all enemies to survive"
+			StartScript=""
+			UpdateScript="">
+		</Stage>
+		<Stage ID="30" Text="All enemies are killed" FinishQuest="1"></Stage>
+	</Quest>
 	<Quest Name="quest1" Title="Test quest" Description="A test quest started">
 		<Solution Triggered="TestEngineAPI();" Condition="TestCondition();"></Solution>
 	</Quest>

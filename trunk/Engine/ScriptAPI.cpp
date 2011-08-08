@@ -7,6 +7,7 @@
 #include "Quest/Quests.h"
 #include "Quest/Quest.h"
 #include "Quest/Story.h"
+#include "Quest/Stage.h"
 
 namespace ScriptAPI
 {
@@ -27,20 +28,34 @@ namespace ScriptAPI
 	{
 		using namespace story;
 		
+		// Story
 		luabind::module(state)
 			[
 				luabind::class_<Story, StoryPtr>("Story")
-				.def("StartQuest", &Story::StartQuest)
 				.def("GetQuest", &Story::GetQuest)
 				.def("Load", &Story::Load)
 			];
 		luabind::globals(state)["Story"] = Game::GetSingleton()->GetStory();
 
+		// Quest
 		luabind::module(state)
 			[
 				luabind::class_<Quest, QuestPtr>("Quest")
 				.def("IsActive", &Quest::IsActive)
 				.def("IsFinished", &Quest::IsFinished)
+				.def("GetStage", &Quest::GetStage)
+				.def("GetText", &Quest::GetText)
+				.def("GetTitle", &Quest::GetTitle)
+				.def("GetName", &Quest::GetName)
+				.def("SetStage", &Quest::SetStage)
+			];
+
+		// Stage
+		luabind::module(state)
+			[
+				luabind::class_<Stage, StagePtr>("Stage")
+				.def("GetID", &Stage::GetID)
+				.def("GetText", &Stage::GetText)
 			];
 	}
 	

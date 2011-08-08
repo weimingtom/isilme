@@ -343,7 +343,8 @@
 		<Entity Name="" Type="Trees/Tree1" Position="54, 26, 1" Scale="1"/>
 	</Layer>
 	<World Gravity="0.0, 0.0"></World>
-	<Scripts>
+	<Scripts
+		StartScript="Story:Load(&quot;../Data/Quests/Story1.xml&quot;); q = Story:GetQuest(&quot;Level1&quot;); q:SetStage(10);">
 		<Lua>../Data/Scripts/Triggers.lua</Lua>
 	</Scripts>
 </Level>

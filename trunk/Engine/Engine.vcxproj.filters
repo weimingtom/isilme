@@ -190,6 +190,12 @@
     <ClInclude Include="System\ActionManager.h">
       <Filter>System</Filter>
     </ClInclude>
+    <ClInclude Include="Quest\Stage.h">
+      <Filter>Quests</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\QuestBook.h">
+      <Filter>GUIChan</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Camera.cpp">
@@ -202,9 +208,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\Entity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Graphics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\Level.cpp">
@@ -305,6 +308,15 @@
     </ClCompile>
     <ClCompile Include="System\ActionManager.cpp">
       <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Graphics.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Quest\Stage.cpp">
+      <Filter>Quests</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\QuestBook.cpp">
+      <Filter>GUIChan</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

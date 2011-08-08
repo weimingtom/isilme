@@ -8,6 +8,7 @@
 #include "Definitions.h"
 #include "Engine/GUI/ProgressBar.h"
 #include "Engine/GUI/HGELabel.h"
+#include "Engine/GUI/QuestBook.h"
 
 namespace state
 {
@@ -69,6 +70,7 @@ namespace state
 		gcn::Button* mRRestart;
 		gcn::Button* mRRespawn;
 		gcn::Button* mRMenu;
+		gcn::QuestBook* mQuestBook;
 
 		virtual void OnUpdate(float elapsedTime);
 

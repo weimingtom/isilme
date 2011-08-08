@@ -1,15 +1,64 @@
 #include "Isilme.h"
+#include "Story.h"
 #include "Quest.h"
+#include "Stage.h"
 #include "Solution.h"
 
 namespace story
 {
+	QuestPtr Quest::Load(TiXmlElement* element)
+	{
+		Quest* quest = new Quest();
+		QuestPtr q = QuestPtr(quest);
+		TiXmlElement* stageElement = element->FirstChildElement("Stage");
+		
+		q->mTitle = element->Attribute("Title") ? element->Attribute("Title") : "";
+		q->mName = element->Attribute("Name") ? element->Attribute("Name") : "";
+
+		while (stageElement)
+		{
+			StagePtr stage = Stage::Load(stageElement);
+			stage->mQuest = q;
+			q->mStages[stage->GetID()] = stage;
+
+			stageElement = stageElement->NextSiblingElement("Stage");
+		}
+		return q;
+	}
 	Quest::Quest()
 	{
+		mText = "";
+		isActive = false;
+		isFinished = false;
 	}
 
 	Quest::~Quest()
 	{
+	}
+
+	void	Quest::SetStage(int id)
+	{
+		if (mStages.find(id) == mStages.end())
+			return;
+
+		mCurrentStage = mStages[id];
+		mText += "\n";
+		mText += mCurrentStage->GetText();
+
+		if (!isActive && !isFinished)
+		{
+			OnStart();
+		}
+	}
+
+	std::string Quest::GetText()
+	{
+		return mText;
+	}
+
+	StagePtr	Quest::GetStage()
+	{
+		return mCurrentStage;
 	}
 
 	std::string Quest::GetName()
@@ -44,25 +93,33 @@ namespace story
 
 	void	Quest::OnUpdate(float elapsedTime)
 	{
-		for (SolutionList::iterator it = mSolutions.begin(); it != mSolutions.end(); ++it)
+		if (mCurrentStage != 0)
 		{
-			SolutionPtr solution = *it;
-			if (solution->OnCheckCondition())
+			if (mCurrentStage->IsFinishQuest())
 			{
 				isFinished = true;
-				solution->OnTriggered();
+			}
+			else
+			{
+				mCurrentStage->OnUpdate(elapsedTime);
 			}
 		}
 	}
 
 	void	Quest::OnStart()
 	{
+		mStory.lock()->OnStartQuest(shared_from_this());
+		isActive = true;
+		isFinished = false;
+
 		if (mStartScript.interpreter() != 0)
 			luabind::call_function<void>(mStartScript);
 	}
 
 	void	Quest::OnFinished()
 	{
+		isFinished = true;
+		isActive = false;
 		if (mFinishScript.interpreter() != 0)
 			luabind::call_function<void>(mFinishScript);
 	}

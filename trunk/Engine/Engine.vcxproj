@@ -112,6 +112,7 @@
     <ClInclude Include="Graphics\TriggerGraphics.h" />
     <ClInclude Include="GUI\HGELabel.h" />
     <ClInclude Include="GUI\ProgressBar.h" />
+    <ClInclude Include="GUI\QuestBook.h" />
     <ClInclude Include="include\Action.h" />
     <ClInclude Include="include\Behaviour.h" />
     <ClInclude Include="include\Bodies.h" />
@@ -147,6 +148,7 @@
     <ClInclude Include="Quest\QuestAPI.h" />
     <ClInclude Include="Quest\Quests.h" />
     <ClInclude Include="Quest\Solution.h" />
+    <ClInclude Include="Quest\Stage.h" />
     <ClInclude Include="Quest\Story.h" />
     <ClInclude Include="ScriptAPI.h" />
     <ClInclude Include="System\ActionManager.h" />
@@ -157,10 +159,12 @@
     <ClCompile Include="Graphics\Particles.cpp" />
     <ClCompile Include="Graphics\Sprite.cpp" />
     <ClCompile Include="Graphics\TriggerGraphics.cpp" />
+    <ClCompile Include="GUI\QuestBook.cpp" />
     <ClCompile Include="Quest\Quest.cpp" />
     <ClCompile Include="Quest\QuestAPI.cpp" />
     <ClCompile Include="Quest\Quests.cpp" />
     <ClCompile Include="Quest\Solution.cpp" />
+    <ClCompile Include="Quest\Stage.cpp" />
     <ClCompile Include="Quest\Story.cpp" />
     <ClCompile Include="ScriptAPI.cpp" />
     <ClCompile Include="source\Action.cpp" />

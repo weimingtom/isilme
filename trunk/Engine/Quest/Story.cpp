@@ -5,6 +5,7 @@
 
 namespace story
 {
+
 	Story::Story()
 	{
 	}
@@ -47,10 +48,9 @@ namespace story
 		}
 	}
 
-	void	Story::StartQuest(QuestPtr quest)
+	void	Story::OnStartQuest(QuestPtr quest)
 	{
 		mQuestsToStart.insert(quest);
-		quest->OnStart();
 	}
 
 	QuestPtr	Story::GetQuest(std::string name)
@@ -60,6 +60,7 @@ namespace story
 		else
 			return QuestPtr();
 	}
+
 
 	void	Story::Load(std::string fileName)
 	{
@@ -72,44 +73,25 @@ namespace story
 
 		while (questElement)
 		{
-			QuestPtr quest = QuestPtr(new Quest());
+			QuestPtr quest = Quest::Load(questElement);
+			quest->mStory = shared_from_this();
 
-			char* attr;
-			attr = const_cast<char*>(questElement->Attribute("Name"));
-			if (attr)
-			{
-				quest->SetName(attr);
-
-				attr = const_cast<char*>(questElement->Attribute("Title"));
-				if (attr)
-					quest->SetTitle(attr);
-
-				attr = const_cast<char*>(questElement->Attribute("Description"));
-				if (attr)
-					quest->SetDescription(attr);
-
-				TiXmlElement* solutionElement = questElement->FirstChildElement("Solution");
-				while (solutionElement)
-				{
-					SolutionPtr solution = SolutionPtr(new Solution());
-					quest->AddSolution(solution);
-
-					attr = const_cast<char*>(solutionElement->Attribute("Triggered"));
-					if (attr)
-						solution->SetTriggeredScript(attr);
-
-					attr = const_cast<char*>(solutionElement->Attribute("Condition"));
-					if (attr)
-						solution->SetConditionScript(std::string("return ") + attr);
-
-					solutionElement = solutionElement->NextSiblingElement("Solution");
-				}
-
-				mQuests[quest->GetName()] = quest;
-			}
+			mQuests[quest->GetName()] = quest;
+			
 
 			questElement = questElement->NextSiblingElement("Quest");
 		}
 		delete document;
+
+	}
+
+	QuestList* Story::GetActiveQuests()
+	{
+		return &mActiveQuests;
+	}
+
+	QuestList* Story::GetFinishedQuests()
+	{
+		return &mFinishedQuests;
 	}
 };

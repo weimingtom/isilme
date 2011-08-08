@@ -37,10 +37,15 @@ public:
 
 	virtual void Reset() {};
 
+	virtual void Attach(std::string tag, GraphicsPtr g);
+
+	virtual void Remove(std::string tag);
+
 	/// Сущность
 	EntityPtr	GetEntity();
 protected:
 	EntityWPtr mEntity;
+	GraphicsMap mAttached;
 };
 
 #endif

@@ -18,6 +18,10 @@ void	Player::SelectState()
 	{
 		SetState("Attack");
 	}
+	else if (GetBehaviour()->GetReloadAction()->IsActive())
+	{
+		SetState("Reload");
+	}
 	else if (GetBehaviour()->GetShotAction()->IsActive())
 	{
 		SetState("Shot");

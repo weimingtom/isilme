@@ -20,10 +20,15 @@ namespace story
 
 	class Quest;
 	typedef boost::shared_ptr<Quest>		QuestPtr;
-	typedef	boost::weak_ptr<Quest>			QuestQPtr;
+	typedef	boost::weak_ptr<Quest>			QuestWPtr;
 	typedef std::map<std::string, QuestPtr>	QuestMap;
 	typedef std::set<QuestPtr>				QuestSet;
 	typedef std::list<QuestPtr>				QuestList;
+
+	class Stage;
+	typedef boost::shared_ptr<Stage>		StagePtr;
+	typedef boost::weak_ptr<Stage>			StageWPtr;
+	typedef std::map<int, StagePtr>			StageMap;
 
 	class Solution;
 	typedef boost::shared_ptr<Solution>		SolutionPtr;

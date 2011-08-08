@@ -89,6 +89,7 @@ namespace graphics
 	void StateGraphics<T>::Render(float x, float y, float angle)
 	{
 		mCurrentGraphics->Render(x, y, angle);
+		Graphics::Render(x,y,angle);
 	}
 
 	template<class T>
@@ -96,6 +97,7 @@ namespace graphics
 	{
 		SelectState();
 		mCurrentGraphics->Update(elapsedTime);
+		Graphics::Update(elapsedTime);
 	}
 
 	template<class T>

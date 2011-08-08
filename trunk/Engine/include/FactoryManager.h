@@ -62,6 +62,7 @@ public:
 	/// Регистрирует новый тип камеры
 	void			RegisterCamera(std::string type, ICameraFactory* factory);
 
+	GraphicsPtr		CreateGraphics(std::string tag);
 protected:	
 	/// Создает сущность из определения
 	EntityPtr			CreateEntity(EntityDefPtr definition, std::string name, LevelPtr level);

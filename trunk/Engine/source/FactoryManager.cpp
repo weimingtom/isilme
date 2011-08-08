@@ -56,6 +56,11 @@ void			FactoryManager::DestroyEntity(std::string name)
 	mCreatedEntities.erase(name);
 }
 
+GraphicsPtr		FactoryManager::CreateGraphics(std::string tag)
+{
+	return mGraphicsDefinitions[tag]->Create();
+}
+
 void			FactoryManager::DestroyEntity(EntityPtr entity)
 {
 	entity->Remove();

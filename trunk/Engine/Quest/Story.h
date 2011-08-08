@@ -6,9 +6,11 @@
 
 namespace story
 {
-	class IsilmeExport Story
+	class IsilmeExport Story : public boost::enable_shared_from_this<Story>
 	{
+		friend class Quest;
 	public:
+		void Load(std::string filename);
 		Story();
 		virtual ~Story();
 
@@ -16,15 +18,15 @@ namespace story
 		/// Обновить историю
 		void			Update(float elapsedTime);
 
-		/// Загрузить историю
-		void			Load(std::string fileName);
-
 		/// Возвращает квест по имени
 		QuestPtr		GetQuest(std::string name);
 
-		/// Начинает выполнение квеста
-		void			StartQuest(QuestPtr quest);
+		QuestList*		GetActiveQuests();
 
+		QuestList*		GetFinishedQuests();
+
+	protected:
+		void			OnStartQuest(QuestPtr quest);
 	private:
 		QuestMap	mQuests;
 		QuestList	mActiveQuests;

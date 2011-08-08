@@ -26,6 +26,9 @@
 		<State Name="Shot">
 			<Animation Name="Player" X="0" Y="448" Width="150" Height="112" Frames="5" FPS="12">../Data/Sprites/Player.png</Animation>
 		</State>
+		<State Name="Reload">
+			<Animation Name="Player" X="0" Y="672" Width="150" Height="112" Frames="5" FPS="5">../Data/Sprites/Player.png</Animation>
+		</State>
 		<State Name="MoveBack">
 			<Animation Name="Player" X="0" Y="224" Width="150" Height="112" Frames="8">../Data/Sprites/Player.png</Animation>
 		</State>
@@ -34,6 +37,8 @@
 		</State>
 	</Player>
 
+	<!--Effects-->
+	<Sprite Name="Effects/Shild" X="0" Y ="0" Width="128" Height="128">../Data/Sprites/Shild.png</Sprite>
 	<Creature Name="Zombie1">
 		<State Name="Idle">
 			<Animation Name="Zombie" X="0" Y="0" Width="80" Height="62" Frames="8">../Data/Sprites/Zombie1.png</Animation>

@@ -30,10 +30,14 @@ namespace action
 		mOldSpeed = GetBehaviour()->GetMoveAction()->GetSpeed();
 		GetBehaviour()->SetResistance(1.0f);
 		GetBehaviour()->GetMoveAction()->SetSpeed(mOldSpeed * 0.8f);
+
+		GraphicsPtr g = FactoryManager::GetSingleton()->CreateGraphics("Effects/Shild");
+		GetBehaviour()->GetActor()->GetGraphics()->Attach("ShildEffect", g);
 	}
 
 	void Shild::OnDone()
 	{
+		GetBehaviour()->GetActor()->GetGraphics()->Remove("ShildEffect");
 		GetBehaviour()->SetResistance(mOldResistance);
 		GetBehaviour()->GetMoveAction()->SetSpeed(mOldSpeed);
 	}

@@ -2,14 +2,16 @@
 #include "FactoryManager.h"
 #include "Engine/Quest/Story.h"
 #include <string>
-
+#include <guichan.hpp>
 #include "Play.h"
 #include "ZombieLand/Behaviour/Player.h"
 #include "ZombieLand/Behaviour/Zombie.h"
 #include "Engine/GUI/ProgressBar.h"
+#include "Engine/GUI/QuestBook.h"
 
 namespace state
 {
+
 Play::Play() : State()
 {	
 	isReloading = false;
@@ -48,6 +50,10 @@ Play::Play() : State()
 	mWeaponIcon		= new gcn::Icon();
 	mWeaponAmmo		= new gcn::HGELabel("../Data/Fonts/font1.fnt");
 	mSpellIcon		= new gcn::Icon();
+
+	mQuestBook		= new gcn::QuestBook();
+
+	mQuestBook->setVisible(false);
 
 	// »конка способности
 	mSpellIcon->setSize(64, 64);
@@ -154,6 +160,7 @@ Play::Play() : State()
 	top->add(mHealthBar, 8, 8);
 	top->add(mEnergyBar, 8, 42);
 	top->add(mRespawn, 100, 100);
+	top->add(mQuestBook);
 }
 
 void Play::mouseClicked(gcn::MouseEvent& evt)
@@ -184,6 +191,7 @@ void Play::mouseClicked(gcn::MouseEvent& evt)
 
 void	Play::OnUpdate(float elapsedTime)
 {
+
 	char h[100];
 	if (mPlayer == 0)
 	{
@@ -254,7 +262,18 @@ void	Play::OnUpdate(float elapsedTime)
 	if (Engine::GetSingleton()->GetInputSystem()->IsKeyDown(HGEK_ESCAPE))
 	{
 		mMenu->setVisible(!(mMenu->isVisible()));
+		
+		mQuestBook->UpdateQuests(Game::GetSingleton()->GetStory());
 		SetPaused(mMenu->isVisible());
+	}
+
+	if (inputSystem->IsKeyDown(HGEK_TAB))
+	{
+		//mMenu->setVisible(!(mMenu->isVisible()));
+		
+		mQuestBook->UpdateQuests(Game::GetSingleton()->GetStory());
+		mQuestBook->setVisible(!(mQuestBook->isVisible()));
+		SetPaused(mQuestBook->isVisible());
 	}
 	
 	
