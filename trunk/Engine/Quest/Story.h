@@ -6,14 +6,13 @@
 
 namespace story
 {
-	class IsilmeExport Story : public boost::enable_shared_from_this<Story>
+	class IsilmeExport Story/* : public boost::enable_shared_from_this<Story>*/
 	{
 		friend class Quest;
 	public:
 		void Load(std::string filename);
 		Story();
 		virtual ~Story();
-
 		
 		/// Обновить историю
 		void			Update(float elapsedTime);

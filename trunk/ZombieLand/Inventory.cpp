@@ -16,6 +16,16 @@ Inventory::~Inventory()
 {
 }
 
+bool	Inventory::IsEquiped(Item::Slot slot)
+{
+	bool r = mSlots.find(slot) != mSlots.end();
+	if (r)
+	{
+		r = mSlots[slot] != 0;
+	}
+	return r;
+}
+
 ItemPtr	Inventory::GetItemByTag(std::string tag)
 {
 	for (ItemsList::iterator it = mItems.begin(); it != mItems.end(); ++it)

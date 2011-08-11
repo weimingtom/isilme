@@ -30,6 +30,8 @@ public:
 	ItemPtr	GetItem(int number);
 
 	ItemPtr	GetItemByTag(std::string tag);
+
+	bool	IsEquiped(Item::Slot slot);
 protected:
 	Inventory();
 private:

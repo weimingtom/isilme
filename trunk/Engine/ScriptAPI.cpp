@@ -11,6 +11,18 @@
 
 namespace ScriptAPI
 {
+	class ClassA
+{
+public:
+	ClassA(){}
+	virtual ~ClassA(){}
+};
+	class ClassB
+{
+public:
+	ClassB(){}
+	virtual ~ClassB(){}
+};
 	StatePtr	GetCurrentState()
 	{
 		return Game::GetSingleton()->GetStateManager()->GetState();
@@ -18,24 +30,22 @@ namespace ScriptAPI
 
 	void RegisterFunctions(lua_State* state)
 	{
-		luabind::module(state)
-			[
-				luabind::def("GetState", &GetCurrentState)
-			];
+		//luabind::module(state)
+		//	[
+		//		luabind::def("GetState", &GetCurrentState)
+		//	];
 	}
 
 	void RegisterQuestAPI(lua_State* state)
 	{
 		using namespace story;
-		
 		// Story
 		luabind::module(state)
-			[
-				luabind::class_<Story, StoryPtr>("Story")
-				.def("GetQuest", &Story::GetQuest)
-				.def("Load", &Story::Load)
-			];
-		luabind::globals(state)["Story"] = Game::GetSingleton()->GetStory();
+		[
+			luabind::class_<Story, StoryPtr>("StoryClass")
+			.def("GetQuest", &Story::GetQuest)
+			.def("Load", &Story::Load)
+		];
 
 		// Quest
 		luabind::module(state)
@@ -46,17 +56,11 @@ namespace ScriptAPI
 				.def("GetStage", &Quest::GetStage)
 				.def("GetText", &Quest::GetText)
 				.def("GetTitle", &Quest::GetTitle)
-				.def("GetName", &Quest::GetName)
 				.def("SetStage", &Quest::SetStage)
+				.def("GetName", &Quest::GetName)
 			];
 
-		// Stage
-		luabind::module(state)
-			[
-				luabind::class_<Stage, StagePtr>("Stage")
-				.def("GetID", &Stage::GetID)
-				.def("GetText", &Stage::GetText)
-			];
+		luabind::globals(state)["Story"] = Game::GetSingleton()->GetStory();
 	}
 	
 	void RegisterGUIAPI(lua_State* state)
@@ -70,7 +74,6 @@ namespace ScriptAPI
 	void RegisterEngineAPI()
 	{
 		lua_State* state = Engine::GetSingleton()->GetLua()->GetState();
-
 		luabind::open(state);
 
 		// Vector2
@@ -164,6 +167,12 @@ namespace ScriptAPI
 				.def("DestroyEntity", (void(FactoryManager::*)(std::string))&FactoryManager::DestroyEntity)
 				.def("GetEntity", &FactoryManager::GetEntity)
 			];
+
+		//luabind::module(state)
+		//[
+		//	luabind::class_<Body>("Body")
+		//];
+
 		luabind::globals(state)["Factory"] = FactoryManager::GetSingleton();
 
 		RegisterQuestAPI(state);

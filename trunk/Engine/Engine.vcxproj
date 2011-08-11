@@ -49,7 +49,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;ISILME_DLL;_DEBUG;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>LUABIND_DYNAMIC_LINK;WIN32;ISILME_DLL;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)../Luabind;$(ProjectDir)../;$(ProjectDir)../GUIChan/include/;$(ProjectDir)../HGE/include;$(ProjectDir)/include;$(ProjectDir)../TinyXML/include;$(ProjectDir)../Box2D/;$(ProjectDir)../Lua514/include</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>Isilme.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)Isilme.pch</PrecompiledHeaderOutputFile>
@@ -80,7 +80,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;ISILME_DLL;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>LUABIND_DYNAMIC_LINK;WIN32;ISILME_DLL;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)../Luabind/;$(ProjectDir)../;$(ProjectDir)../GUIChan/include/;$(ProjectDir)../HGE/include;$(ProjectDir)/include;$(ProjectDir)../TinyXML/include;$(ProjectDir)../Box2D/;$(ProjectDir)../Lua514/include</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4251;4275;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
@@ -143,11 +143,9 @@
     <ClInclude Include="include\StateManager.h" />
     <ClInclude Include="include\Trigger.h" />
     <ClInclude Include="Loading\GraphicsDefinition.h" />
-    <ClInclude Include="Quest\Journal.h" />
     <ClInclude Include="Quest\Quest.h" />
     <ClInclude Include="Quest\QuestAPI.h" />
     <ClInclude Include="Quest\Quests.h" />
-    <ClInclude Include="Quest\Solution.h" />
     <ClInclude Include="Quest\Stage.h" />
     <ClInclude Include="Quest\Story.h" />
     <ClInclude Include="ScriptAPI.h" />
@@ -163,7 +161,6 @@
     <ClCompile Include="Quest\Quest.cpp" />
     <ClCompile Include="Quest\QuestAPI.cpp" />
     <ClCompile Include="Quest\Quests.cpp" />
-    <ClCompile Include="Quest\Solution.cpp" />
     <ClCompile Include="Quest\Stage.cpp" />
     <ClCompile Include="Quest\Story.cpp" />
     <ClCompile Include="ScriptAPI.cpp" />

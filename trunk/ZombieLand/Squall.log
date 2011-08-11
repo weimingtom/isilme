@@ -73,8 +73,8 @@
 		ALG_3D_OFF
 		ALG_3D_FULL
 		ALG_3D_LIGTH
-[00:00:00.161]	SQUALL_Init(0x0)
-		[out]Window                   = 0xC81112
+[00:00:00.447]	SQUALL_Init(0x0)
+		[out]Window                   = 0x6D0BA0
 		[out]Device                   = 0
 		[out]SampleRate               = 44100
 		[out]BitPerSample             = 16
@@ -87,19 +87,28 @@
 		[out]DopplerFactor            = 1.000000
 		[out]UseHW2D                  = 0
 		[out]UseHW3D                  = 0
-[00:00:02.183]	SQUALL_Sample_LoadFile(../Data/Sounds/Zombie/Die.wav, 1, 0x0)
+[00:00:02.506]	SQUALL_Sample_LoadFile(../Data/Sounds/Zombie/Die.wav, 1, 0x0)
 		result = 0x10000
-[00:00:02.184]	SQUALL_Sample_LoadFile(../Data/Sounds/Zombie/Hit.wav, 1, 0x0)
+[00:00:02.506]	SQUALL_Sample_LoadFile(../Data/Sounds/Zombie/Hit.wav, 1, 0x0)
 		result = 0x10001
-[00:00:02.531]	SQUALL_Sample_LoadFile(../Data/Sounds/Walk.wav, 1, 0x0)
+[00:00:02.915]	SQUALL_Sample_LoadFile(../Data/Sounds/Walk.wav, 1, 0x0)
 		result = 0x10002
-[00:00:02.797]	SQUALL_Sample_PlayEx(0x0, 1, 0, 1, 1, 100, 0, 0)
+[00:00:03.274]	SQUALL_Sample_PlayEx(0x0, 1, 0, 1, 1, 100, 0, 0)
 		result = SQUALL_ERROR_SAMPLE_BAD
-[00:00:02.798]	SQUALL_Sample_PlayEx(0x0, 1, 0, 1, 1, 100, 0, 0)
+[00:00:03.275]	SQUALL_Sample_PlayEx(0x0, 1, 0, 1, 1, 100, 0, 0)
 		result = SQUALL_ERROR_SAMPLE_BAD
-[00:00:02.800]	SQUALL_Sample_PlayEx(0x0, 1, 0, 1, 1, 100, 0, 0)
+[00:00:03.277]	SQUALL_Sample_PlayEx(0x0, 1, 0, 1, 1, 100, 0, 0)
 		result = SQUALL_ERROR_SAMPLE_BAD
-[00:00:02.848]	SQUALL_Sample_PlayEx(0x0, 1, 0, 1, 1, 100, 0, 0)
+[00:00:03.332]	SQUALL_Sample_PlayEx(0x0, 1, 0, 1, 1, 100, 0, 0)
 		result = SQUALL_ERROR_SAMPLE_BAD
-[00:00:02.989]	SQUALL_Channel_Stop(0xFFFFFFE6)
+[00:00:03.481]	SQUALL_Channel_Stop(0xFFFFFFE6)
 		error = SQUALL_ERROR_CHANNEL_NOT_FOUND
+[00:00:26.938]	SQUALL_Sample_PlayEx(0x10002, 1, 0, 1, 1, 100, 0, 0)
+		result = 0x100
+[00:00:27.107]	SQUALL_Sample_PlayEx(0x0, 1, 0, 1, 1, 100, 0, 0)
+		result = SQUALL_ERROR_SAMPLE_BAD
+[00:00:27.137]	SQUALL_Sample_PlayEx(0x0, 1, 0, 1, 1, 100, 0, 0)
+		result = SQUALL_ERROR_SAMPLE_BAD
+[00:00:27.354]	SQUALL_Channel_Stop(0x100)
+[00:00:27.471]	SQUALL_Sample_LoadFile(../Data/Sounds/Weapons/Gun.wav, 1, 0x0)
+		result = 0x10003

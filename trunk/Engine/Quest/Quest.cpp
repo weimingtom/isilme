@@ -2,7 +2,6 @@
 #include "Story.h"
 #include "Quest.h"
 #include "Stage.h"
-#include "Solution.h"
 
 namespace story
 {
@@ -56,9 +55,12 @@ namespace story
 		return mText;
 	}
 
-	StagePtr	Quest::GetStage()
+	int	Quest::GetStage()
 	{
-		return mCurrentStage;
+		if (mCurrentStage != 0)
+			return mCurrentStage->GetID();
+		else
+			return 0;
 	}
 
 	std::string Quest::GetName()
@@ -108,7 +110,8 @@ namespace story
 
 	void	Quest::OnStart()
 	{
-		mStory.lock()->OnStartQuest(shared_from_this());
+		QuestPtr me = mStory.lock()->GetQuest(GetName());
+		mStory.lock()->OnStartQuest(me);
 		isActive = true;
 		isFinished = false;
 
@@ -132,11 +135,6 @@ namespace story
 	bool	Quest::IsFinished()
 	{
 		return isFinished;
-	}
-
-	void	Quest::AddSolution(SolutionPtr solution)
-	{
-		mSolutions.push_back(solution);
 	}
 
 	void	Quest::SetStartScript(std::string script)

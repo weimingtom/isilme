@@ -60,18 +60,19 @@ void LevelLoader::ParseScripts(TiXmlElement* rootElement)
 	// Читаем и выполняем Lua-сценарии
 	Lua* lua = Engine::GetSingleton()->GetLua();
 
-	if (scriptsElement->Attribute("StartScript"))
-	{
-		const char* sc = scriptsElement->Attribute("StartScript");
-		luaL_dostring(lua->GetState(), sc);
-	}
-
 	TiXmlElement* luaElement = scriptsElement->FirstChildElement("Lua");
 	while (luaElement)
 	{
 		lua->DoFile(luaElement->GetText());
 		luaElement = luaElement->NextSiblingElement("Lua");
 	}
+
+	if (scriptsElement->Attribute("StartScript"))
+	{
+		const char* sc = scriptsElement->Attribute("StartScript");
+		luaL_dostring(lua->GetState(), sc);
+	}
+
 }
 
 void LevelLoader::ParseJoints(LevelPtr level, TiXmlElement* rootElement)

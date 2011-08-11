@@ -344,7 +344,7 @@
 	</Layer>
 	<World Gravity="0.0, 0.0"></World>
 	<Scripts
-		StartScript="Story:Load(&quot;../Data/Quests/Story1.xml&quot;); q = Story:GetQuest(&quot;Level1&quot;); q:SetStage(10);">
+		StartScript="Story:GetQuest(&quot;Level1&quot;):SetStage(10)">
 		<Lua>../Data/Scripts/Triggers.lua</Lua>
 	</Scripts>
 </Level>

@@ -2,10 +2,12 @@
 #include "Stage.h"
 #include <tinyxml.h>
 
+int counter = 0;
 namespace story
 {
 	Stage::Stage()
 	{
+		isFinish = false;
 	}
 
 	Stage::~Stage()
@@ -14,6 +16,9 @@ namespace story
 
 	void		Stage::OnUpdate(float elapsedTime)
 	{
+		counter++;
+		if (mUpdateScript.interpreter() != 0)
+			luabind::call_function<void>(mUpdateScript);
 	}
 
 	bool		Stage::IsFinishQuest()
@@ -23,7 +28,7 @@ namespace story
 
 	StagePtr	Stage::Load(TiXmlElement* element)
 	{
-		Stage* stage = new Stage();
+		StagePtr stage = StagePtr(new Stage());
 
 		stage->mID = 0;
 		stage->mText = "";
@@ -41,9 +46,29 @@ namespace story
 		stage->isFinish = (f != 0);
 
 		// Скрипт итерации
-		// Скрипт старта
 
-		return StagePtr(stage);
+		lua_State* state = Engine::GetSingleton()->GetLua()->GetState();
+		std::string script = element->Attribute("UpdateScript") ? element->Attribute("UpdateScript") : "";
+		if (script != "")
+		{
+			if (luaL_loadstring(state, script.c_str()) == 0)
+			{
+				int f = lua_gettop(state);
+				stage->mUpdateScript = luabind::object(luabind::from_stack(state, f));
+			}
+		}
+		// Скрипт старта
+		script = element->Attribute("StartScript") ? element->Attribute("StartScript") : "";
+		if (script != "")
+		{
+			if (luaL_loadstring(state, script.c_str()) == 0)
+			{
+				int f = lua_gettop(state);
+				stage->mStartScript = luabind::object(luabind::from_stack(state, f));
+			}
+		}
+
+		return stage;
 	}
 
 	QuestPtr	Stage::GetQuest()

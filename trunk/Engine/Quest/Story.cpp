@@ -1,7 +1,7 @@
 #include "Isilme.h"
 #include "Story.h"
 #include "Quest.h"
-#include "Solution.h"
+#include "Stage.h"
 
 namespace story
 {
@@ -64,6 +64,14 @@ namespace story
 
 	void	Story::Load(std::string fileName)
 	{
+		//QuestPtr q = QuestPtr(new Quest());
+		//q->mName = "Level1";
+		//q->mStory = Game::GetSingleton()->GetStory();
+
+		//StagePtr s = StagePtr(new Stage());
+		//q->mStages[10] = s;
+		//s->mQuest = q;
+		//mQuests["Level1"] = q;
 		TiXmlDocument* document = new TiXmlDocument();
 
 		document->LoadFile(fileName.data());
@@ -74,7 +82,7 @@ namespace story
 		while (questElement)
 		{
 			QuestPtr quest = Quest::Load(questElement);
-			quest->mStory = shared_from_this();
+			quest->mStory = Game::GetSingleton()->GetStory();
 
 			mQuests[quest->GetName()] = quest;
 			

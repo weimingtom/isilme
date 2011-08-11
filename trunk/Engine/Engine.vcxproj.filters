@@ -34,6 +34,9 @@
     <Filter Include="Quests">
       <UniqueIdentifier>{e958e960-2e7b-409c-a216-f7edd4dd0876}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{c1703a33-d638-466e-8143-79bbc37485d7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -145,9 +148,6 @@
     <ClInclude Include="Action\SpecialAction.h">
       <Filter>Action</Filter>
     </ClInclude>
-    <ClInclude Include="Quest\Journal.h">
-      <Filter>Quests</Filter>
-    </ClInclude>
     <ClInclude Include="Quest\QuestAPI.h">
       <Filter>Quests</Filter>
     </ClInclude>
@@ -182,9 +182,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Quest\Quest.h">
-      <Filter>Quests</Filter>
-    </ClInclude>
-    <ClInclude Include="Quest\Solution.h">
       <Filter>Quests</Filter>
     </ClInclude>
     <ClInclude Include="System\ActionManager.h">
@@ -301,9 +298,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Quest\Quest.cpp">
-      <Filter>Quests</Filter>
-    </ClCompile>
-    <ClCompile Include="Quest\Solution.cpp">
       <Filter>Quests</Filter>
     </ClCompile>
     <ClCompile Include="System\ActionManager.cpp">

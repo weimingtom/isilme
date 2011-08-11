@@ -51,7 +51,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ProjectDir)../Luabind;;$(ProjectDir)../;$(ProjectDir)../GUIChan/include/;$ProjectDir)/include;../HGE/include;./Game;../Engine/include;../TinyXML/include;../Box2D/;./Include;$(ProjectDir)../Lua514/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>LUABIND_DYNAMIC_LINK;WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -82,7 +82,7 @@
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <AdditionalIncludeDirectories>$(ProjectDir)../Luabind/;$(ProjectDir)../;$(ProjectDir)../GUIChan/include/;$ProjectDir)/include;../HGE/include;./Game;../Engine/include;../TinyXML/include;../Box2D/;./Include;$(ProjectDir)../Lua514/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>LUABIND_DYNAMIC_LINK;WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <PrecompiledHeader>

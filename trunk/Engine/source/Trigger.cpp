@@ -1,4 +1,6 @@
 ﻿#include "Isilme.h"
+#include <luabind/luabind.hpp>
+#include <luabind/lua_include.hpp>
 
 Trigger::Trigger()
 {

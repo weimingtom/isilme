@@ -30,12 +30,9 @@ function TestCondition()
 end
 
 function TestStory()
-	Story:Load("../Data/Quests/Story1.xml");
-	local q = Story:GetQuest("quest1");
-	Story:StartQuest(q);
-	local state = GetState();
-	local level = state:GetLevel();
-	level:CreateEntity("Box", 26, 8, 0, "");
+
+	local q = Story:GetQuest("Level1");
+	q:SetStage(10);
 end
 
 --TestEngineAPI();

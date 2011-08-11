@@ -6,7 +6,7 @@
 
 namespace story
 {
-	class IsilmeExport Quest : public boost::enable_shared_from_this<Quest>
+	class IsilmeExport Quest
 	{
 		friend class Story;
 	public:
@@ -23,7 +23,7 @@ namespace story
 		void			SetTitle(std::string title);
 
 		/// Возвращает стадию квеста
-		StagePtr		GetStage();
+		int				GetStage();
 		void			SetStage(int stage);
 
 		std::string		GetText();
@@ -45,7 +45,6 @@ namespace story
 
 		void			SetFinishScript(std::string scritpt);
 
-		void			AddSolution(SolutionPtr	solution);
 	protected:
 		StoryWPtr	mStory;
 		std::string mName;
@@ -54,7 +53,6 @@ namespace story
 		std::string mText;
 		bool	isActive;
 		bool	isFinished;
-		SolutionList	mSolutions;
 
 		luabind::object		mStartScript;
 		luabind::object		mFinishScript;

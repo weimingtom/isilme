@@ -5,9 +5,10 @@
 
 namespace story
 {
-	class IsilmeExport Stage : public boost::enable_shared_from_this<Stage>
+	class IsilmeExport Stage
 	{
 		friend class Quest;
+		friend class Story;
 	public:
 		/// Загружает стадию квеста из XML-файла
 		static StagePtr	Load(TiXmlElement* element);

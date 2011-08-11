@@ -3,6 +3,6 @@
 
 namespace ScriptAPI
 {
-	void RegisterEngineAPI();
+	void IsilmeExport RegisterEngineAPI();
 };
 #endif

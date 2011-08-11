@@ -1,6 +1,8 @@
 #include "ZombieLand.h"
 #include "FactoryManager.h"
 #include "Engine/Quest/Story.h"
+#include "Engine/Quest/Quest.h"
+#include "Engine/Quest/Stage.h"
 #include <string>
 #include <guichan.hpp>
 #include "Play.h"
@@ -200,6 +202,13 @@ void	Play::OnUpdate(float elapsedTime)
 
 	if (mPlayer != 0)
 	{
+		try
+		{
+		luaL_dostring(Engine::GetSingleton()->GetLua()->GetState(), "TestCondition();");
+		}
+		catch(...)
+		{
+		}
 		if (!(mPlayer->IsActive()) && !IsPaused())
 		{
 			//GetLevel()->GetLayer("Grass")->Add(mPlayer->GetActor());
@@ -275,7 +284,15 @@ void	Play::OnUpdate(float elapsedTime)
 		mQuestBook->setVisible(!(mQuestBook->isVisible()));
 		SetPaused(mQuestBook->isVisible());
 	}
-	
+
+	if (inputSystem->IsKeyDown(HGEK_0))
+	{
+		luaL_dostring(Engine::GetSingleton()->GetLua()->GetState(), "Player:GetHealth()");
+	}
+	if (inputSystem->IsKeyDown(HGEK_9))
+	{
+		ZombieLand::GetSingleton()->GetStory()->GetQuest("Level1")->SetStage(10);
+	}
 	
 	// Стрельба
 	if ((inputSystem->GetPadState(0, gamepad::GamepadX) || inputSystem->GetKeyState(HGEK_J)) && !mPlayer->GetShotAction()->IsActive())
@@ -339,10 +356,12 @@ void	Play::OnUpdate(float elapsedTime)
 
 void Play::OnStart()
 {
+	Game::GetSingleton()->GetStory()->Load("../Data/Quests/Story1.xml");
 	GetLevel()->Load("../Data/Levels/Level1.xml");
 	//Engine::GetSingleton()->GetLua()->DoFile("../Data/Scripts/Triggers.lua");
 
 	EntityPtr player = FactoryManager::GetSingleton()->GetEntity("Player");
+	luabind::globals(Engine::GetSingleton()->GetLua()->GetState())["Player"] = boost::shared_dynamic_cast<behaviour::Creature>(player->GetBehaviour());
 	boost::shared_dynamic_cast<behaviour::Player>(player->GetBehaviour())->SavePoint();
 
 	mMenu->setVisible(false);

@@ -8,7 +8,7 @@
 			ID="10"
 			Text="You should find weapon. When you find it press K to pick it up. Weapon automaticaly equips."
 			StartScript=""
-			UpdateScript="">
+			UpdateScript="if Player:GetInventory():IsEquiped(Item.Weapon) then Story:GetQuest(&quot;Level1&quot;):SetStage(20) end">
 		</Stage>
 		<Stage 
 			ID="20" 
