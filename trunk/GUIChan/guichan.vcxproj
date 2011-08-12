@@ -133,6 +133,7 @@
       <AssemblerListingLocation>Release</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <ProgramDataBaseFileName>C:/Users/Velorth/Desktop/guichan-0.8.2/Release/guichan.pdb</ProgramDataBaseFileName>
+      <DisableSpecificWarnings>4251;4275;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <ResourceCompile>
       <AdditionalIncludeDirectories>C:/Users/Velorth/Desktop/guichan-0.8.2/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
