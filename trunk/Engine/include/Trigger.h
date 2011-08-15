@@ -4,23 +4,33 @@
 #include "Definitions.h"
 #include "Behaviour.h"
 
+
+class IsilmeExport TriggerDefinition : public BehaviourDefinition
+{
+public:
+	float ReacticvateTime;
+	std::string ActivationFunction;
+	int ActivateMask;
+
+	virtual void Parse(TiXmlElement* element);
+
+	virtual BehaviourPtr Create();
+};
+
 /// @class Trigger
 /// Триггеры используются для реализации бонусов, ловушек, дверей и переключателей
 /// @see TriggerGraphics
 class IsilmeExport Trigger : public Behaviour
 {
 public:
-	Trigger();
+	Trigger(TriggerDefinition* def);
 	virtual ~Trigger();
 
 	/// Обрабатывает столкновения с другими объектами
 	virtual void HandleContact(b2Contact* contact, const b2Manifold* oldManifold, Entity* other);
 
 	/// Возвращает цель, которая активировала триггер
-	Entity*		GetTarget();
-
-	/// Возвращает функцию активации
-	std::string GetActivationFunction();
+	EntityPtr		GetTarget();
 
 	/// Устанавливает время реактивации
 	void	SetReactivateTime(float time);
@@ -39,7 +49,7 @@ public:
 protected:
 	
 	/// Активирует триггер
-	void		Activate(Entity* target);
+	void		Activate(EntityPtr target);
 
 	/// Является ли триггер активированнным
 	bool		IsActivated();
@@ -49,7 +59,7 @@ protected:
 
 private:
 	/// Функция активации триггера
-	std::string mActivationFunction;
+	luabind::object mActivationFunction;
 
 	/// Время реактивации триггера
 	float		mReactivateTime;
@@ -61,22 +71,11 @@ private:
 	bool		isActivated;
 
 	/// Цель, захваченная триггером
-	Entity*		mTarget;
+	EntityPtr		mTarget;
 
 	/// Маска активации триггера
 	int mActivateMask;
 };
 
-class IsilmeExport TriggerDefinition : public BehaviourDefinition
-{
-public:
-	float ReacticvateTime;
-	std::string ActivationFunction;
-	int ActivateMask;
-
-	virtual void Parse(TiXmlElement* element);
-
-	virtual BehaviourPtr Create();
-};
 
 #endif

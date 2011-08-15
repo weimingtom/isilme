@@ -118,7 +118,7 @@
 		<Body Type="Dynamic" LinearDumping="2.5" AngularDumping="2.2">
 			<Box Width="0.5" Heigh="0.5" CategoryBits="32" MaskBits="64" Restitution="0.2" Density="5"></Box>
 		</Body>
-		<Behaviour ActivationFunction="BonusHealth" ReactivateTime="5" ActivateMask="64">
+		<Behaviour ActivationFunction="if target:GetName() == &quot;Player&quot; then Player:SetHealth(Player:GetHealth() + 10); trigger:Remove(); end" ReactivateTime="5" ActivateMask="64">
 			
 		</Behaviour>
 	</Entity>

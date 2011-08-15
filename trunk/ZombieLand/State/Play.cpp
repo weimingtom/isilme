@@ -10,7 +10,7 @@
 #include "ZombieLand/Behaviour/Zombie.h"
 #include "Engine/GUI/ProgressBar.h"
 #include "Engine/GUI/QuestBook.h"
-
+#include <luabind/function.hpp>
 namespace state
 {
 
@@ -202,13 +202,6 @@ void	Play::OnUpdate(float elapsedTime)
 
 	if (mPlayer != 0)
 	{
-		try
-		{
-		luaL_dostring(Engine::GetSingleton()->GetLua()->GetState(), "TestCondition();");
-		}
-		catch(...)
-		{
-		}
 		if (!(mPlayer->IsActive()) && !IsPaused())
 		{
 			//GetLevel()->GetLayer("Grass")->Add(mPlayer->GetActor());
@@ -267,7 +260,17 @@ void	Play::OnUpdate(float elapsedTime)
 	}
 
 	InputSystem* inputSystem = Engine::GetSingleton()->GetInputSystem();
+	lua_State* state = Engine::GetSingleton()->GetLua()->GetState();
 
+	if (inputSystem->IsKeyDown(HGEK_Y))
+	{
+		if (luaL_loadstring(state, "return function(stage) local q = Story:GetQuest(\"Level1\");	q:SetStage(stage); end") == 0)
+		{
+			luabind::object f = luabind::object(luabind::from_stack(state, lua_gettop(state)));
+			luabind::object t = f();
+			t(20);
+		}
+	}
 	if (Engine::GetSingleton()->GetInputSystem()->IsKeyDown(HGEK_ESCAPE))
 	{
 		mMenu->setVisible(!(mMenu->isVisible()));

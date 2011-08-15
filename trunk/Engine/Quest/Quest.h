@@ -6,7 +6,7 @@
 
 namespace story
 {
-	class IsilmeExport Quest
+	class IsilmeExport Quest : public boost::enable_shared_from_this<Quest>
 	{
 		friend class Story;
 	public:
@@ -40,11 +40,6 @@ namespace story
 		/// Выполняется в начале квеста
 		void			OnStart();
 		void			OnFinished();
-
-		void			SetStartScript(std::string script);
-
-		void			SetFinishScript(std::string scritpt);
-
 	protected:
 		StoryWPtr	mStory;
 		std::string mName;

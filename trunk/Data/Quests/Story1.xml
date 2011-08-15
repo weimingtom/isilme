@@ -3,12 +3,16 @@
 	<Scripts>
 		<Script></Script>
 	</Scripts>
-	<Quest Name="Level1" Title="First level quest">
+	<Quest 
+		Name="Level1" 
+		Title="First level quest"
+		StartScript=""
+		FinishScript="">
 		<Stage
 			ID="10"
 			Text="You should find weapon. When you find it press K to pick it up. Weapon automaticaly equips."
 			StartScript=""
-			UpdateScript="if Player:GetInventory():IsEquiped(Item.Weapon) then Story:GetQuest(&quot;Level1&quot;):SetStage(20) end">
+			UpdateScript="if Player:GetInventory():IsEquiped(Item.Weapon) then quest:SetStage(20) end">
 		</Stage>
 		<Stage 
 			ID="20" 

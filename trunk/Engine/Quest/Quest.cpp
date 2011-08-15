@@ -2,11 +2,13 @@
 #include "Story.h"
 #include "Quest.h"
 #include "Stage.h"
+#include "Engine/ScriptAPI.h"
 
 namespace story
 {
 	QuestPtr Quest::Load(TiXmlElement* element)
 	{
+		lua_State* state = Engine::GetSingleton()->GetLua()->GetState();
 		Quest* quest = new Quest();
 		QuestPtr q = QuestPtr(quest);
 		TiXmlElement* stageElement = element->FirstChildElement("Stage");
@@ -19,6 +21,11 @@ namespace story
 			StagePtr stage = Stage::Load(stageElement);
 			stage->mQuest = q;
 			q->mStages[stage->GetID()] = stage;
+
+			if (element->Attribute("StartScript"))
+			{
+				q->mStartScript = ScriptAPI::MakeFunction("quest", element->Attribute("StartScript"));
+			}
 
 			stageElement = stageElement->NextSiblingElement("Stage");
 		}
@@ -110,13 +117,13 @@ namespace story
 
 	void	Quest::OnStart()
 	{
-		QuestPtr me = mStory.lock()->GetQuest(GetName());
+		QuestPtr me = shared_from_this();
 		mStory.lock()->OnStartQuest(me);
 		isActive = true;
 		isFinished = false;
 
-		if (mStartScript.interpreter() != 0)
-			luabind::call_function<void>(mStartScript);
+		if (mStartScript)
+			mStartScript(me);
 	}
 
 	void	Quest::OnFinished()
@@ -135,25 +142,5 @@ namespace story
 	bool	Quest::IsFinished()
 	{
 		return isFinished;
-	}
-
-	void	Quest::SetStartScript(std::string script)
-	{
-		lua_State* state = Engine::GetSingleton()->GetLua()->GetState();
-		if (luaL_loadstring(state, script.c_str()) == 0)
-		{
-			int f = lua_gettop(state);
-			mStartScript = luabind::object(luabind::from_stack(state, f));
-		}
-	}
-
-	void	Quest::SetFinishScript(std::string script)
-	{
-		lua_State* state = Engine::GetSingleton()->GetLua()->GetState();
-		if (luaL_loadstring(state, script.c_str()) == 0)
-		{
-			int f = lua_gettop(state);
-			mFinishScript = luabind::object(luabind::from_stack(state, f));
-		}
 	}
 };

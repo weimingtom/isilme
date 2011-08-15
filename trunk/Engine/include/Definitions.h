@@ -24,6 +24,9 @@
 
 #include <tinyxml.h>
 
+#include <luabind/lua_include.hpp>
+#include <luabind/luabind.hpp>
+
 class ISensor;
 
 template <class T> class Sensor;

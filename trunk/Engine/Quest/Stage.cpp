@@ -1,8 +1,8 @@
 #include "Isilme.h"
+#include "Quest.h"
 #include "Stage.h"
 #include <tinyxml.h>
 
-int counter = 0;
 namespace story
 {
 	Stage::Stage()
@@ -16,9 +16,8 @@ namespace story
 
 	void		Stage::OnUpdate(float elapsedTime)
 	{
-		counter++;
-		if (mUpdateScript.interpreter() != 0)
-			luabind::call_function<void>(mUpdateScript);
+		if (mUpdateScript)
+			mUpdateScript(GetQuest(), elapsedTime);
 	}
 
 	bool		Stage::IsFinishQuest()
@@ -48,24 +47,16 @@ namespace story
 		// Скрипт итерации
 
 		lua_State* state = Engine::GetSingleton()->GetLua()->GetState();
-		std::string script = element->Attribute("UpdateScript") ? element->Attribute("UpdateScript") : "";
-		if (script != "")
+
+		if (element->Attribute("UpdateScript"))
 		{
-			if (luaL_loadstring(state, script.c_str()) == 0)
-			{
-				int f = lua_gettop(state);
-				stage->mUpdateScript = luabind::object(luabind::from_stack(state, f));
-			}
+			stage->mUpdateScript = ScriptAPI::MakeFunction("quest, elapsedTime", element->Attribute("UpdateScript"));
 		}
+
 		// Скрипт старта
-		script = element->Attribute("StartScript") ? element->Attribute("StartScript") : "";
-		if (script != "")
+		if (element->Attribute("StartScript"))
 		{
-			if (luaL_loadstring(state, script.c_str()) == 0)
-			{
-				int f = lua_gettop(state);
-				stage->mStartScript = luabind::object(luabind::from_stack(state, f));
-			}
+			stage->mStartScript = ScriptAPI::MakeFunction("quest", element->Attribute("StartScript"));
 		}
 
 		return stage;
@@ -86,11 +77,10 @@ namespace story
 		return mText;
 	}
 
-	void	OnStart()
+	void	Stage::OnStart()
 	{
+		if (mStartScript)
+			mStartScript(GetQuest());
 	}
 
-	void	OnUpdate()
-	{
-	}
 };

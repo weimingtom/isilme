@@ -11,18 +11,26 @@
 
 namespace ScriptAPI
 {
-	class ClassA
-{
-public:
-	ClassA(){}
-	virtual ~ClassA(){}
-};
-	class ClassB
-{
-public:
-	ClassB(){}
-	virtual ~ClassB(){}
-};
+	luabind::object MakeFunction(std::string params, std::string body)
+	{
+		std::string s;
+		s = "return function(";
+		s.append(params);
+		s.append(")\n");
+		s.append(body);
+		s.append("\nend;");
+
+		lua_State* state = Engine::GetSingleton()->GetLua()->GetState();
+				
+		if (luaL_loadstring(state, s.c_str()) == 0)
+		{
+			luabind::object f = luabind::object(luabind::from_stack(state, lua_gettop(state)));
+			return f();
+		}
+		else
+			return luabind::object();
+	}
+
 	StatePtr	GetCurrentState()
 	{
 		return Game::GetSingleton()->GetStateManager()->GetState();

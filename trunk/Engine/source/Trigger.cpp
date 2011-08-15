@@ -2,13 +2,13 @@
 #include <luabind/luabind.hpp>
 #include <luabind/lua_include.hpp>
 
-Trigger::Trigger()
+Trigger::Trigger(TriggerDefinition* def)
 {
 	isActivated = false;
-	mActivationFunction = "";
-	mTarget = 0;
 	mTimer = -1.0f;
-	mReactivateTime = 0.0f;
+	mReactivateTime = def->ReacticvateTime;
+	mActivateMask	= def->ActivateMask;
+	mActivationFunction = ScriptAPI::MakeFunction("trigger, target", def->ActivationFunction);
 }
 
 Trigger::~Trigger()
@@ -25,12 +25,12 @@ void	Trigger::SetActivateMask(int mask)
 	mActivateMask = mask;
 }
 
-Entity*	Trigger::GetTarget()
+EntityPtr	Trigger::GetTarget()
 {
 	return mTarget;
 }
 
-void	Trigger::Activate(Entity* target)
+void	Trigger::Activate(EntityPtr target)
 {
 	mTarget = target;
 	isActivated = true;
@@ -42,12 +42,12 @@ void	Trigger::Think(float elapsedTime)
 	{
 		Lua* lua = Engine::GetSingleton()->GetLua();
 		bool result;
-		if (GetActivationFunction() != "")
+		if (mActivationFunction)
 		{
-			luabind::call_function<void, EntityPtr, Entity*>(lua->GetState(), mActivationFunction.c_str(), GetActor(), GetTarget());
+			mActivationFunction(GetActor(), GetTarget());
 		}
 		isActivated = false;
-		mTarget = 0;
+		mTarget.reset();
 		mTimer = mReactivateTime;
 	}
 
@@ -71,13 +71,8 @@ void	Trigger::HandleContact(b2Contact* contact, const b2Manifold* oldManifold, E
 		contact->SetEnabled(false);
 		if (mTimer > 0.0f)
 			return;
-		Activate(other);
+		Activate(other->GetBehaviour()->GetActor());
 	}
-}
-
-std::string	Trigger::GetActivationFunction()
-{
-	return mActivationFunction;
 }
 
 bool	Trigger::IsActivated()
@@ -87,7 +82,7 @@ bool	Trigger::IsActivated()
 
 void	Trigger::SetActivationFunction(std::string function)
 {
-	mActivationFunction = function;
+	mActivationFunction = ScriptAPI::MakeFunction("trigger, target", function);
 }
 
 void	Trigger::SetReactivateTime(float time)
@@ -97,10 +92,7 @@ void	Trigger::SetReactivateTime(float time)
 
 BehaviourPtr TriggerDefinition::Create()
 {
-	Trigger* trigger = new Trigger();
-	trigger->SetActivationFunction(ActivationFunction);
-	trigger->SetReactivateTime(ReacticvateTime);
-	trigger->SetActivateMask(ActivateMask);
+	Trigger* trigger = new Trigger(this);
 	return BehaviourPtr(trigger);
 }
 

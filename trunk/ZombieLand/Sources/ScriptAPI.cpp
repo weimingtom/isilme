@@ -56,6 +56,8 @@ void	ScriptAPI::RegisterAPI()
 	luabind::module(state)
 	[
 		luabind::class_<behaviour::Destroyable, luabind::bases<behaviour::Activator>, BehaviourPtr>("Destroyable")
+		.def("GetHealth", &behaviour::Destroyable::GetHealth)
+		.def("SetHealth", &behaviour::Destroyable::SetHealth)
 	];
 
 	luabind::module(state)
