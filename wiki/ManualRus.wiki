@@ -1,0 +1,106 @@
+#summary Руководство на русском языке
+
+= Introduction =
+
+Перед Вами двжиок для рзработки 2D игр Isilme. Движок находится на раннем этапе разработки и постоянно меняется.
+
+= Details =
+
+= Палитра графики =
+Палитра графики описывается в XML-файле. В примере это Graphics.xml
+Каждый элемент палитры имеет свое уникальное имя, указываемое аттрибутом Name
+
+Спрайты:
+
+`<Sprite `
+ Name="Items/Weapons/Gun" 
+ X="0" 
+ Y="0" 
+ Width="64" 
+ Height="64">
+../Data/Sprites/Weapons.png
+`</Sprite>`
+X, Y, Width, Height - текстурные координаты
+Содержимое элемнента - файл текстуры
+
+Анимации:
+
+`<Animation `
+ Name="Player"
+ X="0"
+ Y="0"
+ Width="150"
+ Height="112"
+ Frames="8"
+ Loop="1"
+ FPS="10"
+ >
+../Data/Sprites/Player.png
+`</Animation>`
+X,Y, Width, Height - текстурные координаты первого кадра
+Frames - количество кадров
+Loop - 1 или 0, зацикленность анимации
+FPS - скорость проигрывания анаимации кадр/секунду
+
+Системы частиц:
+
+= Палитра объектов =
+Палитра объектов описывает объекты, которые могут присутствовать в игровом мире. В примере это Entities.xml
+
+`<Entity `
+ Graphics="Items/Weapons/Gun" 
+ Type="Items/Weapons/Gun" 
+` Behaviour="Item">``
+ `<Body `
+  Type="Static" 
+  LinearDumping="2.5" 
+  AngularDumping="2.2">
+  `<Box `
+    Width="0.5" 
+    Heigh="0.5" 
+    CategoryBits="32" 
+    MaskBits="64" 
+    Restitution="0.2" 
+    Density="5" 
+    Sensor="1">
+`  </Box>`
+` </Body>`
+ `<Behaviour `
+  ItemType="Pistol">
+` </Behaviour>`
+`</Entity>`
+Graphics - имя графической модели
+Type - уникальное имя элемента палитры
+Behaviour - тип поведения
+
+Элемнт Body - описывает Box2D-тело, может отсутствовать
+Элемнт Behaviour - описывает поведение объекта, набор аттрибутов определяется типом поведения
+
+= Уровень = 
+`<Level>`
+` <Layer Name="Main">`
+`  <Entity Name="" Type="Items/Weapons/AK47" Position="25, 5, 1" Scale="1"></Entity>`
+`  <Entity Name="Player" Type="Player" Position="26.0, 6.0, 1.0" Scale="1.0"></Entity>`
+` </Layer>`
+` <World Gravity="0.0, 0.0"></World>`
+`	<Scripts`
+ StartScript="Story:GetQuest(&quot;Level1&quot;):SetStage(10)">`
+		<Lua>../Data/Scripts/Triggers.lua</Lua>
+	`</Scripts>`
+`</Level>`
+
+= Сюжетная линия = 
+`<Story>`
+`	<Quest `
+		Name="Level1" 
+		Title="First level quest"
+		StartScript=""
+`		FinishScript="">`
+	`	<Stage`
+			ID="10"
+			Text="You should find weapon. When you find it press K to pick it up. Weapon automaticaly equips."
+			StartScript=""
+			UpdateScript="if Player:GetInventory():IsEquiped(Item.Weapon) then quest:SetStage(20) end">
+		`</Stage>`
+`</Quest>`
+`</Story>`
