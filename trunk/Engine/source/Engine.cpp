@@ -19,6 +19,9 @@ Engine::Engine() :
 
 	// Регистрируем ScripAPI
 	ScriptAPI::RegisterEngineAPI();
+
+	
+	gcn::Image::setImageLoader(new gcn::HGEImageLoader());
 }
 
 Engine::~Engine()

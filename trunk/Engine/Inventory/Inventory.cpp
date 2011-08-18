@@ -1,7 +1,9 @@
-#include "ZombieLand.h"
+#include "Isilme.h"
 #include "Inventory.h"
 #include <algorithm>
 
+namespace inventory
+{
 InventoryPtr Inventory::New()
 {
 	Inventory* i = new Inventory();
@@ -87,3 +89,4 @@ ItemPtr	Inventory::GetSlot(Item::Slot slot)
 {
 	return mSlots[slot];
 }
+};

@@ -15,6 +15,7 @@
 #include "Definitions.h"
 #include "EntityDefinition.h"
 #include "GraphicsFactory.h"
+#include "Engine/Inventory/ItemFactory.h"
 
 /// class FactoryManager
 /// Управляет созданием всех объектов игры, графических моделей, поведений
@@ -35,6 +36,12 @@ public:
 	/// Зарегистрировать новый тип поведения
 	void			RegisterBehaviour(std::string type, IBehaviourFactory* factory);
 
+	/// Зарегистрировать тип предмета
+	void			RegisterItem(std::string type, inventory::ItemFactoryPtr factory);
+
+	/// Создать предмет
+	inventory::ItemPtr	CreateItem(std::string tag);
+
 	/// Создать сущность
 	EntityPtr			CreateEntity(std::string type, std::string name, LevelPtr level);
 
@@ -53,6 +60,11 @@ public:
 	/// Загружает палитру объектов из XML-файла
 	void			LoadEntities(std::string fileName);
 
+	void			ClearItems();
+
+	/// Загружает палитру предметов
+	void			LoadItems(std::string fileName);
+
 	/// Фозвращает единственный экзэмпляр фабрики
 	static FactoryPtr GetSingleton();
 
@@ -67,6 +79,8 @@ protected:
 	/// Создает сущность из определения
 	EntityPtr			CreateEntity(EntityDefPtr definition, std::string name, LevelPtr level);
 
+	inventory::ItemDefPtr LoadItem(TiXmlElement* def);
+
 	/// Создает физическую модель объекта и определения
 	Body*			CreateBody(BodyDef* def);
 private:
@@ -76,6 +90,8 @@ private:
 	/// Фабрики графических моделей
 	GraphicsFactoryMap		mGraphicsFactories;
 
+	/// Фабрики предметов
+	inventory::ItemFactoryMap mItemFactories;
 	std::map<std::string, ICameraFactory*>	mCameraFactories;
 
 	/// Графическая палитра
@@ -83,6 +99,9 @@ private:
 
 	/// Палитра объектов
 	EntityPalette			mEntityDefinitions;
+
+	/// Палитра предметов
+	inventory::ItemsPalette mItemsPalette;
 	
 	// Созданные объекты
 	EntityMap		mCreatedEntities;

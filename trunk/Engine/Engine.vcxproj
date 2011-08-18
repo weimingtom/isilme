@@ -142,6 +142,10 @@
     <ClInclude Include="include\State.h" />
     <ClInclude Include="include\StateManager.h" />
     <ClInclude Include="include\Trigger.h" />
+    <ClInclude Include="Inventory\ItemDef.h" />
+    <ClInclude Include="Inventory\ItemFactory.h" />
+    <ClInclude Include="Inventory\Inventory.h" />
+    <ClInclude Include="Inventory\Item.h" />
     <ClInclude Include="Loading\GraphicsDefinition.h" />
     <ClInclude Include="Quest\Quest.h" />
     <ClInclude Include="Quest\QuestAPI.h" />
@@ -158,6 +162,10 @@
     <ClCompile Include="Graphics\Sprite.cpp" />
     <ClCompile Include="Graphics\TriggerGraphics.cpp" />
     <ClCompile Include="GUI\QuestBook.cpp" />
+    <ClCompile Include="Inventory\Inventory.cpp" />
+    <ClCompile Include="Inventory\Item.cpp" />
+    <ClCompile Include="Inventory\ItemDef.cpp" />
+    <ClCompile Include="Inventory\ItemFactory.cpp" />
     <ClCompile Include="Quest\Quest.cpp" />
     <ClCompile Include="Quest\QuestAPI.cpp" />
     <ClCompile Include="Quest\Quests.cpp" />

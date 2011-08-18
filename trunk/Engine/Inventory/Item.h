@@ -2,9 +2,12 @@
 #define ZOMBIELAND_ITEM_H
 
 #include "Definitions.h"
+#include "Isilme.h"
 #include <guichan.hpp>
 
-class Item : public boost::enable_shared_from_this<Item>
+namespace inventory
+{
+class IsilmeExport Item : public boost::enable_shared_from_this<Item>
 {
 	friend class Inventory;
 public:
@@ -17,6 +20,7 @@ public:
 		Ammo
 	};
 	Item();
+	Item(ItemDef* def);
 	virtual ~Item();
 
 	/// Использовать предмет
@@ -92,4 +96,5 @@ private:
 	InventoryWPtr mInventory;
 };
 
+};
 #endif

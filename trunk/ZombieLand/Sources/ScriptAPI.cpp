@@ -1,8 +1,8 @@
 #include "ZombieLand.h"
 #include "ZombieLand/Behaviour/Player.h"
 #include "ZombieLand/Behaviour/Creature.h"
-#include "ZombieLand/Inventory.h"
-#include "ZombieLand/Item.h"
+#include "Engine/Inventory/Inventory.h"
+#include "Engine/Inventory/Item.h"
 #include "Engine/Quest/Stage.h"
 #include "Engine/Quest/Story.h"
 #include "Engine/Quest/Quest.h"
@@ -20,24 +20,11 @@ void	ScriptAPI::RegisterAPI()
 	//luabind::open(state);	
 //	RegisterEngineAPI();
 
-	
+	{
+		
 	// Класс инветнаря
-	luabind::module(state)
-		[
-			luabind::class_<Inventory, InventoryPtr>("Inventory")
-			.def("GetItemByTag", &Inventory::GetItemByTag)
-			.def("GetSlot", &Inventory::GetSlot)
-			.def("IsEquiped", &Inventory::IsEquiped)
-		];
-	luabind::module(state)
-		[
-			luabind::class_<Item, ItemPtr>("Item")
-			.enum_("Slot")
-			[
-				luabind::value("Weapon", Item::Weapon),
-				luabind::value("Spell", Item::Spell)
-			]
-		];
+
+	}
 	
 	//luabind::module(state)
 	//[

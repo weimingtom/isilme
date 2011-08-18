@@ -1,5 +1,5 @@
 #include "ZombieLand.h"
-#include "ZombieLand/Inventory.h"
+#include "Engine/Inventory/Inventory.h"
 #include "Weapon.h"
 #include "Ammo.h"
 #include "Spell.h"
@@ -8,33 +8,35 @@
 #include "ZombieLand/Action/Wind.h"
 #include "ZombieLand/Action/Shild.h"
 
-namespace items
+namespace inventory
 {
-	Weapon::Weapon()
+	WeaponDef::WeaponDef()
+	{
+	}
+
+	WeaponDef::~WeaponDef()
+	{
+	}
+
+	ItemPtr WeaponDef::Create()
+	{
+		return ItemPtr(new Weapon(this));
+	}
+
+	void	WeaponDef::Parse(TiXmlElement* def)
+	{
+		ItemDef::Parse(def);
+		AmmoTag = def->Attribute("AmmoTag");
+	}
+
+	Weapon::Weapon(WeaponDef* def) : Item(def)
 	{
 		SetSlot(Item::Weapon);
-		SetMaxAmmo(10);
-		SetAmmo(10);
-		SetInfinity(false);
+		mAmmoTag = def->AmmoTag;
 	}
 
 	Weapon::~Weapon()
 	{
-	}
-
-	ItemPtr	CreatePistol()
-	{
-		Weapon* w = new Weapon();
-		w->SetInfinity(false);
-		w->SetMaxAmmo(15);
-		w->SetAmmo(15);
-		w->SetUseSound("../Data/Sounds/Weapons/Gun.wav");
-		w->SetUsingTime(0.1f);
-		w->SetReloadingTime(0.3f);
-		w->SetIcon("../Data/Icons/Weapons/Gun.png");
-		w->SetAmmoTag("PistolAmmo");
-
-		return ItemPtr(w);
 	}
 
 	void	Weapon::OnAdd()
@@ -72,34 +74,6 @@ namespace items
 	void	Weapon::SetAmmoTag(std::string ammoTag)
 	{
 		mAmmoTag = ammoTag;
-	}
-
-	ItemPtr	CreateRifle()
-	{
-		Weapon* w = new Weapon();
-		w->SetInfinity(false);
-		w->SetMaxAmmo(360);
-		w->SetAmmo(30);
-		w->SetUseSound("../Data/Sounds/Weapons/Gun.wav");
-		w->SetUsingTime(0.1f);
-		w->SetReloadingTime(0.1f);
-		w->SetIcon("../Data/Icons/Weapons/AK47.png");
-
-		return ItemPtr(w);
-	}
-
-	ItemPtr	CreateAK47()
-	{
-		Weapon* w = new Weapon();
-		w->SetInfinity(false);
-		w->SetMaxAmmo(40);
-		w->SetAmmo(40);
-		w->SetUseSound("../Data/Sounds/Weapons/Gun.wav");
-		w->SetUsingTime(0.1f);
-		w->SetReloadingTime(0.1f);
-		w->SetIcon("../Data/Icons/Weapons/AK47.png");
-		w->SetAmmoTag("AK47Ammo");
-		return ItemPtr(w);
 	}
 
 	ItemPtr CreatePistolAmmo()
@@ -162,13 +136,7 @@ namespace items
 	ItemPtr	CreateItem(std::string tag)
 	{
 		ItemPtr item;
-		if (tag == "Pistol")
-			item = CreatePistol();
-		else if (tag == "Rifle")
-			item = CreateRifle();
-		else if (tag == "AK47")
-			item = CreateAK47();
-		else if (tag == "PistolAmmo")
+		if (tag == "PistolAmmo")
 			item = CreatePistolAmmo();
 		else if (tag == "AK47Ammo")
 			item = CreateAK47Ammo();

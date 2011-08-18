@@ -50,12 +50,6 @@
     <ClCompile Include="Graphics\Player.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Item.cpp">
-      <Filter>Inventory</Filter>
-    </ClCompile>
-    <ClCompile Include="Inventory.cpp">
-      <Filter>Inventory</Filter>
-    </ClCompile>
     <ClCompile Include="Items\Weapon.cpp">
       <Filter>Inventory</Filter>
     </ClCompile>
@@ -128,12 +122,6 @@
     <ClInclude Include="Graphics\Player.h">
       <Filter>Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Item.h">
-      <Filter>Inventory</Filter>
-    </ClInclude>
-    <ClInclude Include="Inventory.h">
-      <Filter>Inventory</Filter>
-    </ClInclude>
     <ClInclude Include="Items\Weapon.h">
       <Filter>Inventory</Filter>
     </ClInclude>
@@ -182,6 +170,9 @@
       <Filter>Data</Filter>
     </None>
     <None Include="..\Data\Quests\Story1.xml">
+      <Filter>Data</Filter>
+    </None>
+    <None Include="..\Data\Items.xml">
       <Filter>Data</Filter>
     </None>
   </ItemGroup>

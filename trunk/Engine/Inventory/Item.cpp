@@ -1,7 +1,9 @@
-#include "ZombieLand.h"
+#include "Isilme.h"
 #include "Item.h"
 #include "Inventory.h"
 
+namespace inventory
+{
 Item::Item()
 {
 	mUseSound = 0;
@@ -13,6 +15,20 @@ Item::Item()
 	isInfinity = true;
 	mIconImage = 0;
 	mTag = "";
+}
+
+Item::Item(ItemDef* def)
+{
+	mUseSound = def->UseSound;
+	mUsingTime = def->UsingTime;
+	mReloadingTime = def->ReloadingTime;
+	mAmmo = def->Ammo;
+	mMaxAmmo = def->MaxAmmo;
+	isInfinity = def->Infinity;
+	mIconImage = def->Icon;
+	mTag = def->Tag;
+
+	mIcon = "";
 }
 
 Item::~Item()
@@ -147,3 +163,4 @@ void	Item::SetUseSound(std::string sound)
 	HEFFECT eff = Engine::GetSingleton()->GetResourceManager()->GetEffect(sound);
 	mUseSound = eff;
 }
+};

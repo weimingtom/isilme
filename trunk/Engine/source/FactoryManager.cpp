@@ -1,6 +1,9 @@
 
 #include "Isilme.h"
 #include "GraphicsFactory.h"
+#include "Engine/Inventory/Item.h"
+#include "Engine/Inventory/ItemDef.h"
+#include "Engine/Inventory/ItemFactory.h"
 
 
 FactoryPtr FactoryManager::mInstance;
@@ -27,6 +30,64 @@ FactoryPtr FactoryManager::GetSingleton()
 	if (mInstance == 0)
 		mInstance = FactoryPtr(new FactoryManager());
 	return mInstance;
+}
+
+inventory::ItemPtr	FactoryManager::CreateItem(std::string tag)
+{
+	if (mItemsPalette.find(tag) != mItemsPalette.end())
+	{
+		return mItemsPalette[tag]->Create();
+	}
+	else
+		return inventory::ItemPtr();
+}
+
+void	FactoryManager::RegisterItem(std::string type, inventory::ItemFactoryPtr factory)
+{
+	mItemFactories[type] = factory;
+}
+
+void	FactoryManager::ClearItems()
+{
+	mItemsPalette.clear();
+}
+
+void	FactoryManager::LoadItems(std::string fileName)
+{
+	TiXmlDocument* document = new TiXmlDocument();
+	document->LoadFile(fileName.data());
+
+	TiXmlElement* root = document->RootElement();
+	TiXmlElement* defElement = root->FirstChildElement();
+
+	// Загружаем поочередно все элементы с описаниями графики
+	while(defElement)
+	{
+		inventory::ItemDefPtr def = LoadItem(defElement);
+
+		defElement = defElement->NextSiblingElement();
+	}
+	delete  document;
+}
+
+inventory::ItemDefPtr FactoryManager::LoadItem(TiXmlElement* element)
+{
+	inventory::ItemDefPtr def;
+	std::string name = element->Attribute("Tag");
+	std::string type = element->Value();
+
+	inventory::ItemFactoryMap::iterator it = mItemFactories.find(type);
+	if (it != mItemFactories.end())
+	{
+		def = it->second->LoadDefinition(element);
+		mItemsPalette[name] = def;
+	}
+	else
+	{
+		// Какой-то хлам, вывести сообщение о незарегистрированном типе
+	}
+
+	return def;
 }
 
 Body*	FactoryManager::CreateBody(BodyDef* def)

@@ -4,8 +4,8 @@
 #include <Isilme.h>
 #include "ZombieLand/Include/Definitions.h"
 #include "Destroyable.h"
-#include "ZombieLand/Item.h"
-#include "ZombieLand/Inventory.h"
+#include "Engine/Inventory/Inventory.h"
+#include "Engine/Inventory/Item.h"
 
 namespace behaviour
 {
@@ -53,7 +53,7 @@ namespace behaviour
 
 		float	GetMaxEnergy();
 
-		InventoryPtr	GetInventory();
+		inventory::InventoryPtr	GetInventory();
 	protected:
 		action::MovePtr	mMoveAction;
 		action::MovePtr	mMoveBack;
@@ -61,7 +61,7 @@ namespace behaviour
 		ActionPtr	mReloadAction;
 		ActionPtr	mSpellAction;
 		action::AttackPtr mAttack;
-		InventoryPtr	mInventory;
+		inventory::InventoryPtr	mInventory;
 
 		float	mEnergy;
 		float	mMaxEnergy;

@@ -1,7 +1,7 @@
 #include "ZombieLand.h"
 #include "Spell.h"
 
-namespace items
+namespace inventory
 {
 	Spell::Spell()
 	{

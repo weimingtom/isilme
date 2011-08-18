@@ -11,6 +11,9 @@
 #define TEDDY_TERROR_H
 
 #include <Isilme.h>
+#include "Engine/Inventory/Inventory.h"
+#include "Engine/Inventory/Item.h"
+
 #include "Definitions.h"
 
 

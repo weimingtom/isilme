@@ -1,8 +1,8 @@
 #include "ZombieLand.h"
 #include "Ammo.h"
-#include "ZombieLand/Inventory.h"
+#include "Engine/Inventory/Inventory.h"
 
-namespace items
+namespace inventory
 {
 	Ammo::Ammo()
 	{

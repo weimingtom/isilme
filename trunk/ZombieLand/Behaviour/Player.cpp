@@ -3,7 +3,7 @@
 #include "ZombieLand/Action/Move.h"
 #include "ZombieLand/Action/Wind.h"
 #include "ZombieLand/Items/Weapon.h"
-#include "ZombieLand/Item.h"
+#include "Engine/Inventory/Item.h"
 #include <LuaBind/luabind/luabind.hpp>
 
 int pw = 0;
@@ -24,11 +24,11 @@ namespace behaviour
 		mCurrentWeapon = 0;
 		mCurrentSpell = 0;
 
-		ItemPtr spell = items::CreateItem("HealSpell");
+		inventory::ItemPtr spell = inventory::CreateItem("HealSpell");
 		GetInventory()->AddItem(spell);
-		spell = items::CreateItem("WindSpell");
+		spell = inventory::CreateItem("WindSpell");
 		GetInventory()->AddItem(spell);
-		spell = items::CreateItem("ShildSpell");
+		spell = inventory::CreateItem("ShildSpell");
 		GetInventory()->AddItem(spell);
 		NextSpell();
 	}
@@ -60,8 +60,8 @@ namespace behaviour
 		if (mCurrentWeapon >= GetInventory()->GetItemsCount())
 			mCurrentWeapon = 0;
 
-		ItemPtr item = GetInventory()->GetItem(mCurrentWeapon);
-		if (item->GetSlot() == Item::Weapon)
+		inventory::ItemPtr item = GetInventory()->GetItem(mCurrentWeapon);
+		if (item->GetSlot() == inventory::Item::Weapon)
 		{
 			GetInventory()->Equip(item);
 			pw = 0;
@@ -86,8 +86,8 @@ namespace behaviour
 		if (mCurrentSpell >= GetInventory()->GetItemsCount())
 			mCurrentSpell = 0;
 
-		ItemPtr item = GetInventory()->GetItem(mCurrentSpell);
-		if (item->GetSlot() == Item::Spell)
+		inventory::ItemPtr item = GetInventory()->GetItem(mCurrentSpell);
+		if (item->GetSlot() == inventory::Item::Spell)
 			GetInventory()->Equip(item);
 		else
 			NextSpell();

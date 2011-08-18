@@ -8,6 +8,8 @@
 #include "Quest/Quest.h"
 #include "Quest/Story.h"
 #include "Quest/Stage.h"
+#include "Inventory/Inventory.h"
+#include "Inventory/Item.h"
 
 namespace ScriptAPI
 {
@@ -44,6 +46,28 @@ namespace ScriptAPI
 		//	];
 	}
 
+	void RegisterInventoryAPI(lua_State* state)
+	{
+		// Инвентарь
+		luabind::module(state)
+		[
+			luabind::class_<inventory::Inventory, inventory::InventoryPtr>("Inventory")
+			.def("GetItemByTag", &inventory::Inventory::GetItemByTag)
+			.def("GetSlot", &inventory::Inventory::GetSlot)
+			.def("IsEquiped", &inventory::Inventory::IsEquiped)
+		];
+
+		// Предмет
+		luabind::module(state)
+		[
+			luabind::class_<inventory::Item, inventory::ItemPtr>("Item")
+			.enum_("Slot")
+			[
+				luabind::value("Weapon", inventory::Item::Weapon),
+				luabind::value("Spell", inventory::Item::Spell)
+			]
+		];
+	}
 	void RegisterQuestAPI(lua_State* state)
 	{
 		using namespace story;
@@ -182,7 +206,7 @@ namespace ScriptAPI
 		//];
 
 		luabind::globals(state)["Factory"] = FactoryManager::GetSingleton();
-
+		RegisterInventoryAPI(state);
 		RegisterQuestAPI(state);
 		RegisterFunctions(state);
 		RegisterGUIAPI(state);

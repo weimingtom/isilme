@@ -2,9 +2,9 @@
 #define ZOMBIELAND_ITEMS_AMMO_H
 
 #include "ZombieLand/Include/Definitions.h"
-#include "ZombieLand/Item.h"
+#include "Engine/Inventory/Item.h"
 
-namespace items
+namespace inventory
 {
 	class Ammo : public Item
 	{

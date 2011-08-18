@@ -8,6 +8,10 @@
 #include "ZombieLand/Behaviour/Zombie.h"
 #include "ZombieLand/Behaviour/Item.h"
 
+#include "ZombieLand/Items/Weapon.h"
+#include "ZombieLand/Items/Ammo.h"
+#include "ZombieLand/Items/Spell.h"
+
 ZombieLand::ZombieLand()
 {
 
@@ -49,6 +53,10 @@ void	ZombieLand::Init()
 	// Регистрируем камеру
 	factoryManager->RegisterCamera("Following", new CameraFactory<camera::FollowingCameraDef>());
 
+	// Регистрируем предметы
+	factoryManager->RegisterItem("Weapon", inventory::ItemFactory<inventory::WeaponDef>::New());
+
+	factoryManager->LoadItems("../Data/Items.xml");
 	playState = StatePtr(new state::Play());
 
 	GetStateManager()->Push(playState);

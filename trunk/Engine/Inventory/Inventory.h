@@ -6,7 +6,9 @@
 #include <list>
 #include <map>
 
-class Inventory : public boost::enable_shared_from_this<Inventory>
+namespace inventory
+{
+class IsilmeExport Inventory : public boost::enable_shared_from_this<Inventory>
 {
 public:
 	static InventoryPtr New();
@@ -37,5 +39,6 @@ protected:
 private:
 	std::map<Item::Slot, ItemPtr>	mSlots;
 	ItemsList	mItems;
+};
 };
 #endif

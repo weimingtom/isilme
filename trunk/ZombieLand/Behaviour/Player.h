@@ -6,7 +6,7 @@
 #include "ZombieLand/Action/Heal.h"
 #include "ZombieLand/Action/Wind.h"
 #include "ZombieLand/Action/Shild.h"
-#include "ZombieLand/Item.h"
+#include "Engine/Inventory/Item.h"
 
 namespace behaviour
 {

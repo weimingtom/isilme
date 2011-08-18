@@ -224,7 +224,7 @@ void	Play::OnUpdate(float elapsedTime)
 			mHealthBar->setSelectionColor(gcn::Color(255, 0, 0));
 
 		
-		ItemPtr w = mPlayer->GetInventory()->GetSlot(Item::Weapon);
+		inventory::ItemPtr w = mPlayer->GetInventory()->GetSlot(inventory::Item::Weapon);
 		if (w != 0)
 		{
 			mWeaponAmmo->setCaption(itoa(w->GetAmmo(), h, 10));
@@ -233,13 +233,13 @@ void	Play::OnUpdate(float elapsedTime)
 		else
 			mWeaponAmmo->setCaption("");
 
-		w = mPlayer->GetInventory()->GetSlot(Item::Spell);
+		w = mPlayer->GetInventory()->GetSlot(inventory::Item::Spell);
 		if (w != 0)
 		{
 			mSpellIcon->setImage(w->GetIcon());
 		}
 
-		w = mPlayer->GetInventory()->GetSlot(Item::Ammo);
+		w = mPlayer->GetInventory()->GetSlot(inventory::Item::Ammo);
 		if (w != 0)
 		{
 			if (!(w->IsInfinity()))
@@ -322,7 +322,7 @@ void	Play::OnUpdate(float elapsedTime)
 		mPlayer->NextWeapon();
 		isChangingWeapon = true;
 
-		ItemPtr w = mPlayer->GetInventory()->GetSlot(Item::Weapon);
+		inventory::ItemPtr w = mPlayer->GetInventory()->GetSlot(inventory::Item::Weapon);
 		if (w != 0)
 			mWeaponIcon->setImage(w->GetIcon());
 			

@@ -2,10 +2,10 @@
 #define ZOMBIELAND_ITEMS_SPELL_H
 
 #include "ZombieLand/Include/Definitions.h"
-#include "ZombieLand/Item.h"
+#include "Engine/Inventory/Item.h"
 #include "ZombieLand/Items/Spell.h"
 
-namespace items
+namespace inventory
 {
 	class Spell : public Item
 	{

@@ -34,7 +34,7 @@ void	Item::OnUse(CreaturePtr actor)
 	if (mItemTag == "")
 		return;
 
-	ItemPtr item = items::CreateItem(mItemTag);
+	inventory::ItemPtr item = FactoryManager::GetSingleton()->CreateItem(mItemTag);
 	actor->GetInventory()->AddItem(item);
 	GetActor()->Remove();
 

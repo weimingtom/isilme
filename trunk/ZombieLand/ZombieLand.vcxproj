@@ -126,11 +126,6 @@
       <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\Graphics</ObjectFileName>
       <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)\Graphics\Player</ObjectFileName>
     </ClCompile>
-    <ClCompile Include="Inventory.cpp" />
-    <ClCompile Include="Item.cpp">
-      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">items_Item.obj</ObjectFileName>
-      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">items_Item.obj</ObjectFileName>
-    </ClCompile>
     <ClCompile Include="Items\Ammo.cpp" />
     <ClCompile Include="Items\Spell.cpp" />
     <ClCompile Include="Items\Weapon.cpp" />
@@ -147,6 +142,7 @@
   <ItemGroup>
     <None Include="..\Data\Entities.xml" />
     <None Include="..\Data\Graphics.xml" />
+    <None Include="..\Data\Items.xml" />
     <None Include="..\Data\Levels\Level1.xml" />
     <None Include="..\Data\Quests\Story1.xml" />
     <None Include="..\Data\Scripts\Level1.lua" />
@@ -179,8 +175,6 @@
     <ClInclude Include="include\Definitions.h" />
     <ClInclude Include="include\ScriptAPI.h" />
     <ClInclude Include="Include\ZombieLand.h" />
-    <ClInclude Include="Inventory.h" />
-    <ClInclude Include="Item.h" />
     <ClInclude Include="Items\Ammo.h" />
     <ClInclude Include="Items\Spell.h" />
     <ClInclude Include="Items\Weapon.h" />

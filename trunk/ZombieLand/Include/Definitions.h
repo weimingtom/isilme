@@ -6,6 +6,10 @@
 #include <set>
 #include <map>
 
+
+#include "Engine/Inventory/Inventory.h"
+#include "Engine/Inventory/Item.h"
+
 namespace behaviour
 {
 	class Bullet;
@@ -61,13 +65,5 @@ namespace graphics
 {
 	class Creature;
 };
-
-class Item;
-typedef boost::shared_ptr<Item> ItemPtr;
-typedef std::vector<ItemPtr>	ItemsList;
-
-class Inventory;
-typedef boost::shared_ptr<Inventory> InventoryPtr;
-typedef boost::weak_ptr<Inventory>	InventoryWPtr;
 
 #endif

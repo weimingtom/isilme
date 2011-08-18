@@ -2,14 +2,25 @@
 #define ITEMS_WEAPON_H
 
 #include "ZombieLand/Include/Definitions.h"
-#include "ZombieLand/Item.h"
+#include "Engine/Inventory/Item.h"
 
-namespace items
+namespace inventory
 {
-	class Weapon : public Item
+	class WeaponDef : public ItemDef
 	{
 	public:
-		Weapon();
+		WeaponDef();
+		virtual ~WeaponDef();
+
+		virtual ItemPtr Create();
+		virtual void Parse(TiXmlElement* def);
+		std::string AmmoTag;
+	};
+
+	class Weapon : public inventory::Item
+	{
+	public:
+		Weapon(WeaponDef* def);
 		virtual ~Weapon();
 
 		virtual void	OnUse(EntityPtr actor);
@@ -21,8 +32,6 @@ namespace items
 		std::string mAmmoTag;
 	};
 
-	ItemPtr	CreatePistol();
-	ItemPtr	CreateRifle();
-	ItemPtr	CreateItem(std::string tag);
+	inventory::ItemPtr	CreateItem(std::string tag);
 };
 #endif

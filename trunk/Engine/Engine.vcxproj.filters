@@ -37,6 +37,9 @@
     <Filter Include="Game">
       <UniqueIdentifier>{c1703a33-d638-466e-8143-79bbc37485d7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Inventory">
+      <UniqueIdentifier>{244e1285-30b3-461c-97bf-06af855a3ab6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -193,6 +196,18 @@
     <ClInclude Include="GUI\QuestBook.h">
       <Filter>GUIChan</Filter>
     </ClInclude>
+    <ClInclude Include="Inventory\Item.h">
+      <Filter>Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory\Inventory.h">
+      <Filter>Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory\ItemFactory.h">
+      <Filter>Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory\ItemDef.h">
+      <Filter>Inventory</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Camera.cpp">
@@ -311,6 +326,18 @@
     </ClCompile>
     <ClCompile Include="GUI\QuestBook.cpp">
       <Filter>GUIChan</Filter>
+    </ClCompile>
+    <ClCompile Include="Inventory\Item.cpp">
+      <Filter>Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="Inventory\Inventory.cpp">
+      <Filter>Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="Inventory\ItemFactory.cpp">
+      <Filter>Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="Inventory\ItemDef.cpp">
+      <Filter>Inventory</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

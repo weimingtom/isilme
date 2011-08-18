@@ -4,7 +4,7 @@
 #include "ZombieLand/Action/Attack.h"
 #include "ZombieLand/Action/UseItem.h"
 #include "ZombieLand/Items/Weapon.h"
-#include "ZombieLand/Item.h"
+#include "Engine/Inventory/Item.h"
 
 namespace behaviour
 {
@@ -23,10 +23,10 @@ namespace behaviour
 		mMaxEnergy = def->MaxEnergy;
 		mEnergyResoration = def->EnergyRestoration;
 
-		mInventory = Inventory::New();
-		mShotAction = action::UseItem::New(Item::Weapon, GetInventory());
-		mReloadAction = action::UseItem::New(Item::Ammo, GetInventory());
-		mSpellAction = action::UseItem::New(Item::Spell, GetInventory());
+		mInventory = inventory::Inventory::New();
+		mShotAction = action::UseItem::New(inventory::Item::Weapon, GetInventory());
+		mReloadAction = action::UseItem::New(inventory::Item::Ammo, GetInventory());
+		mSpellAction = action::UseItem::New(inventory::Item::Spell, GetInventory());
 	}
 
 	Creature::~Creature()
@@ -43,7 +43,7 @@ namespace behaviour
 		return mReloadAction;
 	}
 
-	InventoryPtr	Creature::GetInventory()
+	inventory::InventoryPtr	Creature::GetInventory()
 	{
 		return mInventory;
 	}

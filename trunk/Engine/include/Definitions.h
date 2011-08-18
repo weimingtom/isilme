@@ -121,6 +121,26 @@ namespace graphics
 	class TriggerGraphics;
 };
 
+namespace inventory
+{
+	class IItemFactory;
+	typedef boost::shared_ptr<IItemFactory> ItemFactoryPtr;
+	typedef std::map<std::string, ItemFactoryPtr> ItemFactoryMap;
+
+	class ItemDef;
+	typedef boost::shared_ptr<ItemDef>	ItemDefPtr;
+	typedef std::map<std::string, ItemDefPtr> ItemsPalette;
+
+	class Item;
+	typedef boost::shared_ptr<Item> ItemPtr;
+	typedef boost::weak_ptr<Item> ItemWPtr;
+	typedef std::vector<ItemPtr> ItemsList;
+
+	class Inventory;
+	typedef boost::shared_ptr<Inventory> InventoryPtr;
+	typedef boost::weak_ptr<Inventory> InventoryWPtr;
+};
+
 typedef std::list<SensorPtr> SensorList;
 
 typedef std::list<std::string>					StringList;
