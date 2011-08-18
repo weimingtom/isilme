@@ -4,7 +4,20 @@
 
 namespace inventory
 {
-	Ammo::Ammo()
+	AmmoDef::AmmoDef()
+	{
+	}
+
+	AmmoDef::~AmmoDef()
+	{
+	}
+
+	ItemPtr	AmmoDef::Create()
+	{
+		return ItemPtr(new inventory::Ammo(this));
+	}
+
+	Ammo::Ammo(AmmoDef* def) : Item(def)
 	{
 		SetSlot(Item::Ammo);
 	}

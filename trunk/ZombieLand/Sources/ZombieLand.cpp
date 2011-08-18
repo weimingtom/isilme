@@ -55,6 +55,7 @@ void	ZombieLand::Init()
 
 	// Регистрируем предметы
 	factoryManager->RegisterItem("Weapon", inventory::ItemFactory<inventory::WeaponDef>::New());
+	factoryManager->RegisterItem("Ammo", inventory::ItemFactory<inventory::AmmoDef>::New());
 
 	factoryManager->LoadItems("../Data/Items.xml");
 	playState = StatePtr(new state::Play());

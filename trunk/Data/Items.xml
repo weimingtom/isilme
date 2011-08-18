@@ -22,5 +22,16 @@
 		Icon="../Data/Icons/Weapons/Gun.png"
 		AmmoTag="PistolAmmo">
 	</Weapon>
-	
+	<Ammo
+		Tag="PistolAmmo"
+		Infinity ="1"
+		UseTime="0.8">
+	</Ammo>
+	<Ammo
+		Tag="AK47Ammo"
+		Infinity ="0"
+		Ammo="360"
+		MaxAmmo="360"
+		UseTime="0.8">
+	</Ammo>
 </Items>

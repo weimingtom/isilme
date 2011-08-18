@@ -6,10 +6,19 @@
 
 namespace inventory
 {
+	class AmmoDef : public ItemDef
+	{
+	public:
+		AmmoDef();
+		virtual ~AmmoDef();
+
+		virtual ItemPtr Create();
+	};
+
 	class Ammo : public Item
 	{
 	public:
-		Ammo();
+		Ammo(AmmoDef* def);
 		virtual ~Ammo();
 
 		virtual void OnUse(EntityPtr actor);

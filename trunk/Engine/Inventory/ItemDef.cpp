@@ -21,6 +21,7 @@ namespace inventory
 
 	void	ItemDef::Parse(TiXmlElement* def)
 	{
+		Tag = def->Attribute("Tag");
 		def->QueryFloatAttribute("UsingTime", &UsingTime);
 		def->QueryFloatAttribute("ReloadingTime", &ReloadingTime);
 		def->QueryIntAttribute("Ammo", &Ammo);
