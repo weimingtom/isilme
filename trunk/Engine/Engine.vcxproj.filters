@@ -40,6 +40,9 @@
     <Filter Include="Inventory">
       <UniqueIdentifier>{244e1285-30b3-461c-97bf-06af855a3ab6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Conversations">
+      <UniqueIdentifier>{5a03916d-8e10-4718-9852-f9f9e7c48a11}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -50,9 +53,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Collisions.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Conversation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Engine.h">
@@ -207,6 +207,9 @@
     </ClInclude>
     <ClInclude Include="Inventory\ItemDef.h">
       <Filter>Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\Seek.h">
+      <Filter>Action</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

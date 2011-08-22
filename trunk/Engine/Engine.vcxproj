@@ -100,6 +100,7 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Action\Seek.h" />
     <ClInclude Include="Action\SpecialAction.h" />
     <ClInclude Include="Action\SpecialTactics.h" />
     <ClInclude Include="Action\Strategy.h" />
@@ -118,7 +119,6 @@
     <ClInclude Include="include\Bodies.h" />
     <ClInclude Include="include\Camera.h" />
     <ClInclude Include="include\Collisions.h" />
-    <ClInclude Include="include\Conversation.h" />
     <ClInclude Include="include\Definitions.h" />
     <ClInclude Include="include\Engine.h" />
     <ClInclude Include="include\Entity.h" />

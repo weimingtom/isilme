@@ -1,8 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Story>
-	<Scripts>
-		<Script></Script>
-	</Scripts>
 	<Quest 
 		Name="Level1" 
 		Title="First level quest"
@@ -21,8 +18,5 @@
 			UpdateScript="">
 		</Stage>
 		<Stage ID="30" Text="All enemies are killed" FinishQuest="1"></Stage>
-	</Quest>
-	<Quest Name="quest1" Title="Test quest" Description="A test quest started">
-		<Solution Triggered="TestEngineAPI();" Condition="TestCondition();"></Solution>
 	</Quest>
 </Story>

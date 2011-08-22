@@ -39,6 +39,10 @@ class IsilmeExport Box2DEngine
 public:
 	b2World* CreateWorld();
 	static Box2DEngine* GetSingleton();
+
+	static EntityPtr	GetEntityAABB(b2World* world, float lx, float ly, float ux, float uy);
+
+	static EntityList	GetEntitiesAABB(b2World* world, float lx, float ly, float ux, float uy);
 protected:
 	Box2DEngine();
 	virtual ~Box2DEngine();

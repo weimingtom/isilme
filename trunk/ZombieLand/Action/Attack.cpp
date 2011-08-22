@@ -23,36 +23,25 @@ namespace action
 	{
 		Vector2 v = GetActor()->GetPosition() + Vector2(mDistance * cos(GetActor()->GetAngle()), mDistance * sin(GetActor()->GetAngle()));
 
-		b2AABB aabb;
-		aabb.lowerBound.Set(v.x - mDistance / 2, v.y - mDistance /2);
-		aabb.upperBound.Set(v.x + mDistance / 2, v.y + mDistance /2);
+		//b2AABB aabb;
+		//aabb.lowerBound.Set(v.x - mDistance / 2, v.y - mDistance /2);
+		//aabb.upperBound.Set(v.x + mDistance / 2, v.y + mDistance /2);
 
-		GetLevel()->GetWorld()->QueryAABB(this, aabb);
+		//GetLevel()->GetWorld()->QueryAABB(this, aabb);
+		EntityList entities = Box2DEngine::GetEntitiesAABB(GetLevel()->GetWorld(),v.x - mDistance / 2, v.y - mDistance /2,v.x + mDistance / 2, v.y + mDistance /2);
+		for (EntityList::iterator it = entities.begin(); it != entities.end(); ++it)
+			if (*it != GetActor())
+			{
+				behaviour::DestroyablePtr d = (*it)->As<behaviour::Destroyable>();
+				if (d)
+				{
+					d->Damage(mDamage);
+				}
+			}
 	}
 
 	void	Attack::SetSound(std::string sound)
 	{
 		mSound = Engine::GetSingleton()->GetResourceManager()->GetEffect(sound);
-	}
-
-	bool	Attack::ReportFixture(b2Fixture* fixture)
-	{
-		b2Body* body = fixture->GetBody();
-		Entity* entity = (Entity*)(body->GetUserData());
-		if (entity == GetActor().get())
-			return true;
-
-		try
-		{
-			behaviour::DestroyablePtr d = boost::shared_dynamic_cast<behaviour::Destroyable>( entity->GetBehaviour());
-
-			if (d != 0)
-				d->Damage(mDamage);
-		}
-		catch (...)
-		{
-		}
-
-		return true;
 	}
 };

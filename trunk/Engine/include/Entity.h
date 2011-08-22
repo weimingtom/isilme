@@ -80,6 +80,12 @@ public:
 	float		GetDistanceTo(EntityPtr entity);
 
 	float		GetDistanceTo(Vector2 point);
+
+	template<class T>
+	bool Is();
+
+	template <class T>
+	boost::shared_ptr<T> As();
 protected:
 	/// Создает сущность
 	Entity();
@@ -114,4 +120,15 @@ private:
 	Body*			mBody;
 };
 
+template<class T>
+bool Entity::Is()
+{
+	return !(boost::shared_dynamic_cast<T>(GetBehaviour()) == 0);
+}
+
+template<class T>
+boost::shared_ptr<T> Entity::As()
+{
+	return boost::shared_dynamic_cast<T>(GetBehaviour());
+}
 #endif

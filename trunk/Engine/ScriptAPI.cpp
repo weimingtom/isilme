@@ -10,6 +10,7 @@
 #include "Quest/Stage.h"
 #include "Inventory/Inventory.h"
 #include "Inventory/Item.h"
+#include <luabind/operator.hpp>
 
 namespace ScriptAPI
 {
@@ -55,12 +56,20 @@ namespace ScriptAPI
 			.def("GetItemByTag", &inventory::Inventory::GetItemByTag)
 			.def("GetSlot", &inventory::Inventory::GetSlot)
 			.def("IsEquiped", &inventory::Inventory::IsEquiped)
+			.def("AddItem", (void (inventory::Inventory::*)(inventory::ItemPtr))&inventory::Inventory::AddItem)
 		];
 
 		// Предмет
 		luabind::module(state)
 		[
 			luabind::class_<inventory::Item, inventory::ItemPtr>("Item")
+			.def("GetTag", &inventory::Item::GetTag)
+			.def("GetAmmo", &inventory::Item::GetAmmo)
+			.def("GetMaxAmmo", &inventory::Item::GetMaxAmmo)
+			.def("IsInfinity", &inventory::Item::IsInfinity)
+			.def("SetAmmo", &inventory::Item::SetAmmo)
+			.def("SetMaxAmmo", &inventory::Item::SetMaxAmmo)
+			.def("SetInfinity", &inventory::Item::SetInfinity)
 			.enum_("Slot")
 			[
 				luabind::value("Weapon", inventory::Item::Weapon),
@@ -115,6 +124,11 @@ namespace ScriptAPI
 				.def(luabind::constructor<>())
 				.def_readwrite("x", &Vector2::x)
 				.def_readwrite("y", &Vector2::y)
+				.def("IsValid", &Vector2::IsValid)
+				.def("Length", &Vector2::Length)
+				.def("LengthSquared", &Vector2::LengthSquared)
+				.def("Normalize", &Vector2::Normalize)
+				//.def(luabind::self + Vector2())
 			];
 
 		// Entity
@@ -129,6 +143,12 @@ namespace ScriptAPI
 				.def("RemoveBody", &Entity::RemoveBody)
 				.def("GetName", &Entity::GetName)
 				.def("IsRemoved", &Entity::IsRemoved)
+				.def("GetBehaviour", &Entity::GetBehaviour)
+				.def("GetAngleTo", (float (Entity::*)(EntityPtr))&Entity::GetAngleTo)
+				.def("GetAngleTo", (float (Entity::*)(Vector2))&Entity::GetAngleTo)
+				.def("GetDistanceTo", (float (Entity::*)(EntityPtr))&Entity::GetDistanceTo)
+				.def("GetDistanceTo", (float (Entity::*)(Vector2))&Entity::GetDistanceTo)
+				.def("GetBody", &Entity::GetBody)
 			];
 
 		// Behaviour
@@ -200,10 +220,10 @@ namespace ScriptAPI
 				.def("GetEntity", &FactoryManager::GetEntity)
 			];
 
-		//luabind::module(state)
-		//[
-		//	luabind::class_<Body>("Body")
-		//];
+		luabind::module(state)
+		[
+			luabind::class_<Body>("Body")
+		];
 
 		luabind::globals(state)["Factory"] = FactoryManager::GetSingleton();
 		RegisterInventoryAPI(state);

@@ -8,7 +8,7 @@
 
 namespace action
 {
-	class Attack : public SpecialAction<behaviour::Creature>, public b2QueryCallback
+	class Attack : public SpecialAction<behaviour::Creature>
 	{
 	public:
 		Attack();
@@ -17,8 +17,6 @@ namespace action
 		virtual void OnStart();
 
 		void	SetSound(std::string sound);
-
-		virtual bool ReportFixture(b2Fixture* fixture);
 	private:
 		HEFFECT	mSound;
 		float mDamage;
