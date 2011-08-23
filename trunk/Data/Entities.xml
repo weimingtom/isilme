@@ -15,6 +15,14 @@
 		</Behaviour>
 	</Entity>
 	<!-- -->
+	<Entity Type="Trash/Box" Graphics="Box" Behaviour="Destroyable">
+		<!-- Сущность описывает динамический ящик -->
+		<Body Type="Dynamic" LinearDumping="2.5" AngularDumping="2.2">
+			<Box Width="1.0" Height="1.0" CategoryBits="32" MaskBits="111" Restitution="0.2" Density="125" LinearDumping="120.5" ></Box>
+		</Body>
+		<Behaviour Health="120" MaxHealth="130">
+		</Behaviour>
+	</Entity>
 	<Entity Type="Box" Graphics="Box" Behaviour="Destroyable">
 		<!-- Сущность описывает динамический ящик -->
 		<Body Type="Dynamic" LinearDumping="2.5" AngularDumping="2.2">
@@ -69,13 +77,38 @@
 	<Entity Type="Terrain/HalfL" Graphics="Terrain/HalfL"></Entity>
 	<Entity Type="Terrain/HalfR" Graphics="Terrain/HalfR"></Entity>
 	<Entity Type="Terrain/Sand" Graphics="Terrain/Sand"></Entity>
+	<Entity Type="Roads/Walk" Graphics="Roads/Walk"></Entity>
+	<Entity Type="Roads/Walk2" Graphics="Roads/Walk2"></Entity>
+	<Entity Type="Roads/WalkCorner" Graphics="Roads/WalkCorner"></Entity>
+	<Entity Type="Roads/Road" Graphics="Roads/Road"></Entity>
 	<!-- Cars -->
 	<Entity Type="Cars/Car1" Graphics="Cars/Car1">
 		<Body Type="Static">
 			<Box Width="3.6" Heigh="1.9" CategoryBits="32" MaskBits="111"></Box>
 		</Body>
 	</Entity>
+	<Entity Type="Cars/Car2" Graphics="Cars/Car2">
+		<Body Type="Static">
+			<Box Width="3.6" Heigh="1.9" CategoryBits="32" MaskBits="111"></Box>
+		</Body>
+	</Entity>
+	<Entity Type="Cars/Car3" Graphics="Cars/Car3">
+		<Body Type="Static">
+			<Box Width="3.6" Heigh="1.9" CategoryBits="32" MaskBits="111"></Box>
+		</Body>
+	</Entity>
 	<!-- Buildings -->
+	<Entity Type="Buildings/Old/Part1" Graphics="Buildings/Old/Part1">
+		<Body Type="Static">
+			<Box CategoryBits="32" MaskBits="111" Height="6.0" Width="3.0"/>
+		</Body>
+	</Entity>
+	<Entity Type="Buildings/Old/Part2" Graphics="Buildings/Old/Part2">
+		<Body Type="Static">
+			<Box CategoryBits="32" MaskBits="111" Height="6.0" Width="4.0"/>
+		</Body>
+	</Entity>
+	
 	<Entity Type="Buildings/House1" Graphics="Buildings/House1">
 		<Body Type="Static">
 			<Box CategoryBits="32" MaskBits="111" Height="6.0" Width="8.0"/>
@@ -84,6 +117,17 @@
 	<Entity Type="Buildings/Trash1" Graphics="Buildings/Trash1">
 		<Body Type="Static">
 			<Box CategoryBits="32" MaskBits="111" Height="1.0" Width="1.0"/>
+		</Body>
+	</Entity>
+	<!-- Fencies -->
+	<Entity Type="Fencies/Bush" Graphics="Trees/Fence">
+		<Body Type="Static">
+			<Box CategoryBits="32" MaskBits="111" Height="8.0" Width="1.5"/>
+		</Body>
+	</Entity>
+	<Entity Type="Fencies/Stone" Graphics="Trees/Fence">
+		<Body Type="Static">
+			<Box CategoryBits="32" MaskBits="111" Height="6" Width="1"/>
 		</Body>
 	</Entity>
 	<!-- Trees -->

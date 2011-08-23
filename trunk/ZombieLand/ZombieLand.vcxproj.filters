@@ -68,6 +68,9 @@
     <ClCompile Include="Items\Spell.cpp">
       <Filter>Inventory</Filter>
     </ClCompile>
+    <ClCompile Include="LootTable.cpp">
+      <Filter>Inventory</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Configuration.h" />
@@ -148,6 +151,9 @@
     </ClInclude>
     <ClInclude Include="Action\Pursue.h">
       <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="LootTable.h">
+      <Filter>Inventory</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

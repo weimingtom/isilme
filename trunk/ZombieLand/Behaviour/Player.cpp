@@ -118,10 +118,14 @@ namespace behaviour
 		LayerPtr layer = GetActor()->GetLevel()->GetLayer("Zombies");
 		for (EntityList::iterator it = layer->GetObjects()->begin(); it != layer->GetObjects()->end(); ++it)
 		{
-			if (abs(GetActor()->GetAngleTo(*it) - GetActor()->GetAngle()) < min && (*it)->GetBehaviour()->IsActive() && GetActor()->GetDistanceTo(*it) < 4.0f)
+			if ((*it)->GetBehaviour()->IsActive() && GetActor()->GetDistanceTo(*it) < 4.0f && (*it) != GetActor())
 			{
-				min = abs(GetActor()->GetAngleTo(*it) - GetActor()->GetAngle());
-				mTarget = *it;
+				float f = GetActor()->GetAngleTo(*it);
+				if (abs(f - GetActor()->GetAngle()) < min)
+				{
+					min = abs(GetActor()->GetAngleTo(*it) - GetActor()->GetAngle());
+					mTarget = *it;
+				}
 			}
 		}
 

@@ -66,4 +66,12 @@ namespace graphics
 	class Creature;
 };
 
+
+class LootRecord;
+
+class LootTable;
+typedef boost::shared_ptr<LootTable> LootTablePtr;
+typedef std::map<std::string, LootTablePtr> LootMap;
+
+class LootManager;
 #endif

@@ -129,6 +129,7 @@
     <ClCompile Include="Items\Ammo.cpp" />
     <ClCompile Include="Items\Spell.cpp" />
     <ClCompile Include="Items\Weapon.cpp" />
+    <ClCompile Include="LootTable.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Sources\Cameras.cpp" />
     <ClCompile Include="Sources\Configuration.cpp" />
@@ -178,6 +179,7 @@
     <ClInclude Include="Items\Ammo.h" />
     <ClInclude Include="Items\Spell.h" />
     <ClInclude Include="Items\Weapon.h" />
+    <ClInclude Include="LootTable.h" />
     <ClInclude Include="State\Play.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
