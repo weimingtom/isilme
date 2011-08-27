@@ -145,6 +145,7 @@
     <None Include="..\Data\Graphics.xml" />
     <None Include="..\Data\Items.xml" />
     <None Include="..\Data\Levels\Level1.xml" />
+    <None Include="..\Data\Loot.xml" />
     <None Include="..\Data\Quests\Story1.xml" />
     <None Include="..\Data\Scripts\Level1.lua" />
     <None Include="..\Data\Scripts\script.lua" />

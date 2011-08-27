@@ -1,5 +1,6 @@
 #include "ZombieLand.h"
 #include "Die.h"
+#include "ZombieLand/LootTable.h"
 
 namespace action
 {
@@ -18,6 +19,18 @@ namespace action
 	void	Die::OnDone()
 	{
 		GetActor()->GetBehaviour()->SetActive(false);
+
+		LootTablePtr lootTable = GetBehaviour()->GetLootTable();
+		if (lootTable)
+		{
+			std::list<Loot> lootList;
+			lootTable->GenerateLoot(&lootList);
+
+			for (std::list<Loot>::iterator it = lootList.begin(); it != lootList.end(); ++it)
+			{
+				EntityPtr e = GetLevel()->CreateEntity(it->Item, GetActor()->GetPosition().x, GetActor()->GetPosition().y, GetActor()->GetAngle(), "");
+			}
+		}
 	}
 
 	void	Die::OnStart()

@@ -28,11 +28,19 @@ Item::Item(ItemDef* def)
 	mIconImage = def->Icon;
 	mTag = def->Tag;
 
+	mGND = def->GND;
+	useMerging = def->UseMerging;
+
 	mIcon = "";
 }
 
 Item::~Item()
 {
+}
+
+std::string Item::GetGND()
+{
+	return mGND;
 }
 
 std::string	Item::GetTag()
@@ -70,6 +78,11 @@ void	Item::UseBy(EntityPtr entity)
 		Engine::GetSingleton()->GetSoundSystem()->PlayEffect(GetUseSound());
 
 	OnUse(entity);
+}
+
+bool	Item::UseMerging()
+{
+	return useMerging;
 }
 
 InventoryPtr	Item::GetInventory()

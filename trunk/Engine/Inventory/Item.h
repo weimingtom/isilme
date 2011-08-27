@@ -70,6 +70,10 @@ public:
 	void	SetMaxAmmo(int count);
 
 	InventoryPtr GetInventory();
+
+	std::string	GetGND();
+
+	bool	UseMerging();
 protected:
 	virtual void	OnAdd();
 	virtual void	OnEquip();
@@ -85,7 +89,9 @@ private:
 	std::string mDescription;
 	std::string mIcon;
 	std::string mTag;
+	std::string mGND;
 	bool isQuestItem;
+	bool useMerging;
 	Slot	mSlot;
 
 	float	mUsingTime;

@@ -2,6 +2,7 @@
 <Graphics>
 	<Sprite Name="Items/Weapons/Gun" X="0" Y="0" Width="64" Height="64">../Data/Sprites/Weapons.png</Sprite>
 	<Sprite Name="Items/Weapons/AK47" X="64" Y="0" Width="64" Height="64">../Data/Sprites/Weapons.png</Sprite>
+	<Sprite Name="Items/Ammo/AK47" X="64" Y="0" Width="64" Height="64">../Data/Icons/Ammo/AK47.png</Sprite>
 	<Sprite Name="Box" X="0" Y ="0" Width="64" Height="64">../Data/Textures/Sprites.png</Sprite>
 	
 	<!--Buildings -->
@@ -9,6 +10,8 @@
 	<Sprite Name="Buildings/Trash1" X="0" Y="0" Height="100" Width="100">../Data/Sprites/Trash1.png</Sprite>
 	<Sprite Name="Buildings/Old/Part1" X="64" Y="0" Width="192" Height="512">../Data/Sprites/BuildingsOld.png</Sprite>
 	<Sprite Name="Buildings/Old/Part2" X="256" Y="0" Width="256" Height="512">../Data/Sprites/BuildingsOld.png</Sprite>
+  <Sprite Name="Buildings/New/Part1" X="64" Y="0" Width="192" Height="512">../Data/Sprites/BuildingsNew.png</Sprite>
+  <Sprite Name="Buildings/New/Part2" X="256" Y="0" Width="256" Height="512">../Data/Sprites/BuildingsNew.png</Sprite>
 	<!-- Roads -->
 	<Sprite Name="Roads/Road" X="128" Y="0" Width="256" Height="256">../Data/Sprites/Roads.png</Sprite>
 	<Sprite Name="Roads/Walk" X="0" Y="0" Width="64" Height="128">../Data/Sprites/Roads.png</Sprite>
@@ -23,32 +26,56 @@
 			<Sprite Name="Box" X="0" Y ="0" Width="64" Height="64">../Data/Textures/Sprites.png</Sprite>
 		</State>
 	</Trigger>
-	<Player Name="Player">
-		<State Name="Idle">
-			<Animation Name="Player" X="0" Y="0" Width="150" Height="112" Frames="8">../Data/Sprites/Player.png</Animation>
-		</State>
-		<State Name="Move">
-			<Animation Name="Player" X="0" Y="112" Width="150" Height="112" Frames="8">../Data/Sprites/Player.png</Animation>
-		</State>
-		<State Name="Die">
-			<Animation Name="Player" X="0" Y="336" Width="150" Height="112" Frames="8" Loop="0">../Data/Sprites/Player.png</Animation>
-		</State>
-		<State Name="Shot">
-			<Animation Name="Player" X="0" Y="448" Width="150" Height="112" Frames="5" FPS="12">../Data/Sprites/Player.png</Animation>
-		</State>
-		<State Name="Reload">
-			<Animation Name="Player" X="0" Y="672" Width="150" Height="112" Frames="5" FPS="5">../Data/Sprites/Player.png</Animation>
-		</State>
-		<State Name="MoveBack">
-			<Animation Name="Player" X="0" Y="224" Width="150" Height="112" Frames="8">../Data/Sprites/Player.png</Animation>
-		</State>
-		<State Name="Shild">
-			<Sprite Name="Shild" X="0" Y ="0" Width="128" Height="128">../Data/Sprites/Shild.png</Sprite>
-		</State>
-	</Player>
 
+  <Creature Name="Creatures/Bandit1">
+    <State Name="Idle">
+      <Animation Name="Player" X="0" Y="0" Width="150" Height="112" Frames="8">../Data/Sprites/Bandit.png</Animation>
+    </State>
+    <State Name="Move">
+      <Animation Name="Player" X="0" Y="112" Width="150" Height="112" Frames="8">../Data/Sprites/Bandit.png</Animation>
+    </State>
+    <State Name="Die">
+      <Animation Name="Player" X="0" Y="336" Width="150" Height="112" Frames="8" Loop="0">../Data/Sprites/Bandit.png</Animation>
+    </State>
+    <State Name="Shot">
+      <Animation Name="Player" X="0" Y="448" Width="150" Height="112" Frames="5" FPS="12">../Data/Sprites/Bandit.png</Animation>
+    </State>
+    <State Name="Reload">
+      <Animation Name="Player" X="0" Y="672" Width="150" Height="112" Frames="5" FPS="5">../Data/Sprites/Bandit.png</Animation>
+    </State>
+    <State Name="MoveBack">
+      <Animation Name="Player" X="0" Y="224" Width="150" Height="112" Frames="8">../Data/Sprites/Bandit.png</Animation>
+    </State>
+    <State Name="Shild">
+      <Sprite Name="Shild" X="0" Y ="0" Width="128" Height="128">../Data/Sprites/Shild.png</Sprite>
+    </State>
+  </Creature>
+  <Creature Name="Player">
+    <State Name="Idle">
+      <Animation Name="Player" X="0" Y="0" Width="150" Height="112" Frames="8">../Data/Sprites/Player.png</Animation>
+    </State>
+    <State Name="Move">
+      <Animation Name="Player" X="0" Y="112" Width="150" Height="112" Frames="8">../Data/Sprites/Player.png</Animation>
+    </State>
+    <State Name="Die">
+      <Animation Name="Player" X="0" Y="336" Width="150" Height="112" Frames="8" Loop="0">../Data/Sprites/Player.png</Animation>
+    </State>
+    <State Name="Shot">
+      <Animation Name="Player" X="0" Y="448" Width="150" Height="112" Frames="5" FPS="12">../Data/Sprites/Player.png</Animation>
+    </State>
+    <State Name="Reload">
+      <Animation Name="Player" X="0" Y="672" Width="150" Height="112" Frames="5" FPS="5">../Data/Sprites/Player.png</Animation>
+    </State>
+    <State Name="MoveBack">
+      <Animation Name="Player" X="0" Y="224" Width="150" Height="112" Frames="8">../Data/Sprites/Player.png</Animation>
+    </State>
+    <State Name="Shild">
+      <Sprite Name="Shild" X="0" Y ="0" Width="128" Height="128">../Data/Sprites/Shild.png</Sprite>
+    </State>
+  </Creature>
 	<!--Effects-->
 	<Sprite Name="Effects/Shild" X="0" Y ="0" Width="128" Height="128">../Data/Sprites/Shild.png</Sprite>
+  
 	<Creature Name="Zombie1">
 		<State Name="Idle">
 			<Animation Name="Zombie" X="0" Y="0" Width="80" Height="62" Frames="8">../Data/Sprites/Zombie1.png</Animation>
@@ -66,6 +93,23 @@
 			<Animation Name="Zombie" X="0" Y="248" Width="80" Height="62" Frames="8" Loop="1">../Data/Sprites/Zombie1.png</Animation>
 		</State>
 	</Creature>
+  <Creature Name="Creatures/Zombie1">
+    <State Name="Idle">
+      <Animation Name="Zombie" X="0" Y="0" Width="80" Height="62" Frames="8">../Data/Sprites/Zombie1.png</Animation>
+    </State>
+    <State Name="Move">
+      <Animation Name="Zombie" X="0" Y="62" Width="80" Height="62" Frames="8">../Data/Sprites/Zombie1.png</Animation>
+    </State>
+    <State Name="MoveBack">
+      <Animation Name="Zombie" X="0" Y="124" Width="80" Height="62" Frames="8">../Data/Sprites/Zombie1.png</Animation>
+    </State>
+    <State Name="Die">
+      <Animation Name="Zombie" X="0" Y="186" Width="80" Height="62" Frames="8" Loop="0">../Data/Sprites/Zombie1.png</Animation>
+    </State>
+    <State Name="Attack">
+      <Animation Name="Zombie" X="0" Y="248" Width="80" Height="62" Frames="8" Loop="1">../Data/Sprites/Zombie1.png</Animation>
+    </State>
+  </Creature>
 	<!-- Crates -->
 	<Sprite Name="Crates/Barrel" X="0" Y ="0" Width="64" Height="64">../Data/Sprites/Crates.png</Sprite>
 	<Sprite Name="Crates/Box" X="64" Y ="0" Width="64" Height="64">../Data/Sprites/Crates.png</Sprite>
@@ -85,7 +129,8 @@
 	<Sprite Name="Terrain/HalfR" X="768" Y ="256" Width="256" Height="256">../Data/Sprites/Terrain.png</Sprite>
 	<Sprite Name="Terrain/Sand" X="1024" Y ="256" Width="256" Height="256">../Data/Sprites/Terrain.png</Sprite>
 	<!-- Trees -->
-	<Sprite Name="Trees/Fence" X="0" Y="0" Width="128" Height="512">../Data/Sprites/Fence.png</Sprite>
+	<Sprite Name="Fencies/Bush" X="0" Y="0" Width="64" Height="256">../Data/Sprites/Fence.png</Sprite>
+  <Sprite Name="Fencies/Stone" X="64" Y="0" Width="64" Height="256">../Data/Sprites/Fence.png</Sprite>
 	<Sprite Name="Trees/Tree1" X="0" Y ="0" Width="256" Height="256">../Data/Sprites/Trees.png</Sprite>
 	<Sprite Name="Trees/Tree2" X="256" Y ="0" Width="256" Height="256">../Data/Sprites/Trees.png</Sprite>
 	<Sprite Name="Trees/Tree3" X="0" Y ="256" Width="256" Height="256">../Data/Sprites/Trees.png</Sprite>

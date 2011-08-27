@@ -6,6 +6,7 @@
 #include "Destroyable.h"
 #include "Engine/Inventory/Inventory.h"
 #include "Engine/Inventory/Item.h"
+#include <luabind/luabind.hpp>
 
 namespace behaviour
 {
@@ -19,6 +20,8 @@ namespace behaviour
 		float	Energy;
 		float	MaxEnergy;
 		float	EnergyRestoration;
+
+		luabind::object OnThink;
 	};
 
 	class Creature : public Destroyable
@@ -66,6 +69,8 @@ namespace behaviour
 		float	mEnergy;
 		float	mMaxEnergy;
 		float	mEnergyResoration;
+
+		luabind::object	onThink; // onThink(me, elapsedTime)
 	};
 
 };

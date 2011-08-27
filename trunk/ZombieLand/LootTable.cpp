@@ -44,6 +44,15 @@ LootTablePtr LootTable::Load(TiXmlElement* def)
 
 void	LootTable::GenerateLoot(std::list<Loot>* lootList)
 {
+	int n = mTable.size();
+	int k = rand() % n;
+	std::list<LootRecord>::iterator it = mTable.begin();
+	for (int i = 0; i < k; ++i)
+		++it;
+	Loot l;
+	l.Ammo = it->MaxAmmo;
+	l.Item = it->Item;
+	lootList->push_back(l);
 }
 
 LootManager::LootManager()
@@ -84,6 +93,8 @@ void	LootManager::Load(std::string fileName)
 		std::string name = tableElement->Attribute("Name");
 		LootTablePtr table = LootTable::Load(tableElement);
 		mLootTables[name] = table;
+
+		tableElement = tableElement->NextSiblingElement("Table");
 	}
 
 	delete document;

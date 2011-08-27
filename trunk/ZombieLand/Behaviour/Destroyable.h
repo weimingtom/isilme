@@ -19,7 +19,7 @@ namespace behaviour
 		float	MaxHealth;
 		float	Resistance;
 		std::string Blood;
-
+		std::string Loot;
 	};
 
 	class Destroyable : public Activator
@@ -56,6 +56,8 @@ namespace behaviour
 		void	SetHitSound(std::string sound);
 
 		void	SetBloodEntity(std::string blood);
+
+		LootTablePtr GetLootTable();
 	protected:
 	private:
 		float	mHealth;
@@ -65,6 +67,7 @@ namespace behaviour
 		action::DiePtr	mDieAction;
 		HEFFECT mHitSound;
 		std::string mBlood;
+		std::string mLoot;
 	};
 
 };

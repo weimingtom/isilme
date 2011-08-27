@@ -11,6 +11,7 @@
 #include "ZombieLand/Items/Weapon.h"
 #include "ZombieLand/Items/Ammo.h"
 #include "ZombieLand/Items/Spell.h"
+#include "ZombieLand/LootTable.h"
 
 ZombieLand::ZombieLand()
 {
@@ -46,6 +47,7 @@ void	ZombieLand::Init()
 	// Регистрируем поведение
 	factoryManager->RegisterBehaviour("Player", new BehaviourFactory<behaviour::PlayerDef>());
 	factoryManager->RegisterBehaviour("Zombie", new BehaviourFactory<behaviour::ZombieDef>());
+	factoryManager->RegisterBehaviour("Creature", new BehaviourFactory<behaviour::CreatureDef>());
 	factoryManager->RegisterBehaviour("Destroyable", new BehaviourFactory<behaviour::DestroyableDef>());
 	factoryManager->RegisterBehaviour("Bullet", new BehaviourFactory<behaviour::BulletDef>());
 	factoryManager->RegisterBehaviour("Item", new BehaviourFactory<behaviour::ItemDef>());
@@ -58,6 +60,8 @@ void	ZombieLand::Init()
 	factoryManager->RegisterItem("Ammo", inventory::ItemFactory<inventory::AmmoDef>::New());
 
 	factoryManager->LoadItems("../Data/Items.xml");
+
+	LootManager::GetSingleton()->Load("../Data/Loot.xml");
 	playState = StatePtr(new state::Play());
 
 	GetStateManager()->Push(playState);

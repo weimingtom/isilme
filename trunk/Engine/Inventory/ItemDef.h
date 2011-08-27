@@ -16,6 +16,7 @@ namespace inventory
 		virtual void Parse(TiXmlElement* def);
 
 		std::string Tag;
+		std::string GND;
 		int MaxAmmo;
 		int Ammo;
 		float UsingTime;
@@ -23,6 +24,7 @@ namespace inventory
 		HEFFECT UseSound;
 		gcn::Image* Icon;
 		bool Infinity;
+		bool UseMerging;
 
 	};
 };

@@ -181,6 +181,9 @@
     <None Include="..\Data\Items.xml">
       <Filter>Data</Filter>
     </None>
+    <None Include="..\Data\Loot.xml">
+      <Filter>Data</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Actions">

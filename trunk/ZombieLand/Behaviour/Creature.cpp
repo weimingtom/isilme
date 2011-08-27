@@ -27,6 +27,8 @@ namespace behaviour
 		mShotAction = action::UseItem::New(inventory::Item::Weapon, GetInventory());
 		mReloadAction = action::UseItem::New(inventory::Item::Ammo, GetInventory());
 		mSpellAction = action::UseItem::New(inventory::Item::Spell, GetInventory());
+
+		onThink = def->OnThink;
 	}
 
 	Creature::~Creature()
@@ -73,6 +75,11 @@ namespace behaviour
 		Destroyable::Think(elapsedTime);
 		if (mEnergy < mMaxEnergy)
 			mEnergy += mEnergyResoration * elapsedTime;
+
+		if (onThink)
+		{
+			onThink(GetActor()->As<Creature>(), elapsedTime);
+		}
 	}
 
 	BehaviourPtr CreatureDef::Create()
@@ -90,6 +97,11 @@ namespace behaviour
 		element->QueryFloatAttribute("Energy", &Energy);
 		element->QueryFloatAttribute("MaxEnergy", &MaxEnergy);
 		element->QueryFloatAttribute("EnergyRestoration", &EnergyRestoration);
+
+		if (element->Attribute("OnThink"))
+		{
+			OnThink = ScriptAPI::MakeFunction("me, elapsedTime", element->Attribute("OnThink"));
+		}
 	}
 
 	action::MovePtr	Creature::GetMoveAction()

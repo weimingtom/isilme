@@ -147,8 +147,29 @@
 		<Entity Name="" Type="Roads/Walk" Position="4, 37.5, 1.57" Scale="1"></Entity>
 		<Entity Name="" Type="Roads/Walk" Position="2, 37.5, 1.57" Scale="1"></Entity>
 		<Entity Name="" Type="Roads/WalkCorner" Position="15.5, 37.5, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Terrain/Grass" Position="7, 35, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Terrain/Grass" Position="3, 35, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Terrain/Grass" Position="7, 31, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Terrain/Grass" Position="3, 31, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Terrain/Grass" Position="7, 27, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Terrain/Grass" Position="3, 27, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Terrain/Grass" Position="7, 23, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Terrain/Grass" Position="3, 23, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Terrain/Grass" Position="11, 23, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Terrain/Grass" Position="3, 19, 0" Scale="1"></Entity>
 		
-
+    <!-- Здание 7-->
+    <Entity Name="" Type="Roads/WalkCorner" Position="15.5, 46.5, -1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="15.5, 48, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="15.5, 50, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="15.5, 52, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="14, 46.5, -1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="12, 46.5, -1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="10, 46.5, -1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="8, 46.5, -1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="6, 46.5, -1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="4, 46.5, -1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="2, 46.5, -1.57" Scale="1"></Entity>
 		
 		<Entity Name="" Type="Roads/Road" Position="6, 12, 0" Scale="1"></Entity>
 		<Entity Name="" Type="Roads/Road" Position="10, 12, 0" Scale="1"></Entity>
@@ -194,11 +215,6 @@
 		<Entity Name="" Type="Roads/Road" Position="10, 44, 0" Scale="1"></Entity>
 		<Entity Name="" Type="Roads/Road" Position="6, 44, 0" Scale="1"></Entity>
 		<Entity Name="" Type="Roads/Road" Position="2, 44, 0" Scale="1"></Entity>
-		<Entity Name="" Type="Roads/Road" Position="18, 48, 0" Scale="1"></Entity>
-		<Entity Name="" Type="Roads/Road" Position="14, 48, 0" Scale="1"></Entity>
-		<Entity Name="" Type="Roads/Road" Position="10, 48, 0" Scale="1"></Entity>
-		<Entity Name="" Type="Roads/Road" Position="6, 48, 0" Scale="1"></Entity>
-		<Entity Name="" Type="Roads/Road" Position="2, 48, 0" Scale="1"></Entity>
 	</Layer>
 	<Layer Name="Items">
 		<Entity Name="" Type="Items/Weapons/Gun" Position="10, 14, 1" Scale="1"></Entity>
@@ -213,12 +229,30 @@
 		<Entity Name="" Type="Zombie1" Position="5, 44, 1.0" Scale="1.0"></Entity>
 		<Entity Name="" Type="Zombie1" Position="10, 43, 1.0" Scale="1.0"></Entity>
 		<Entity Name="" Type="Zombie1" Position="9, 45, 1.0" Scale="1.0"></Entity>
-		<Entity Name="Player" Type="Player" Position="9.0, 12.0, 1.0" Scale="1.0"></Entity>
+		<Entity Name="Player" Type="Player" Position="9.0, 44, 1.0" Scale="1.0"></Entity>
+    <Entity Name="" Type="Creatures/Bandit1" Position="15.0, 44, 1.0" Scale="1.0"></Entity>
+    <Entity Name="" Type="Creatures/Bandit1" Position="32, 26, 1.0" Scale="1.0"></Entity>
+    <Entity Name="" Type="Creatures/Bandit1" Position="34, 27, 1.0" Scale="1.0"></Entity>
+    <Entity Name="" Type="Creatures/Bandit1" Position="34, 25, 1.0" Scale="1.0"></Entity>
 	</Layer>
 
 	<Layer Name="Bullets"></Layer>
 	<Layer Name="Fencies">
-		<Entity Name="" Type="Fencies/Stone" Position="5.5, 12, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Fencies/Stone" Position="4.5, 6, 0" Scale="1"></Entity>
+		<Entity Name="" Type="Fencies/Stone" Position="4.5, 10, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Fencies/Stone" Position="4.5, 14, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Fencies/Stone" Position="4.5, 18, 0" Scale="1"></Entity>
+
+    <Entity Name="" Type="Fencies/Bush" Position="0.5, 18, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Fencies/Bush" Position="3, 20, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Fencies/Bush" Position="0.5, 22, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Fencies/Bush" Position="0.5, 26, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Fencies/Bush" Position="0.5, 30, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Fencies/Bush" Position="0.5, 34, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Fencies/Stone" Position="0.5, 38, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Fencies/Stone" Position="0.5, 42, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Fencies/Stone" Position="0.5, 46, 0" Scale="1"></Entity>
+    
 		<Entity Name="" Type="Trash/Box" Position="12, 10, 0" Scale="1"></Entity>
 		<Entity Name="" Type="Trash/Box" Position="13, 10.5, 0.3" Scale="1"></Entity>
 		<Entity Name="" Type="Cars/Car2" Position="15, 11, -2" Scale="1"></Entity>
@@ -259,6 +293,12 @@
 		<Entity Name="" Type="Buildings/Old/Part2" Position="12, 28, 1.57" Scale="1"></Entity>
 		<Entity Name="" Type="Buildings/Old/Part2" Position="12, 32, 1.57" Scale="1"></Entity>
 		<Entity Name="" Type="Buildings/Old/Part1" Position="12, 35.5, -1.57" Scale="1"></Entity>
+    
+    <!-- Здание 7-->
+    <Entity Name="" Type="Buildings/New/Part1" Position="2.5, 50, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Buildings/New/Part2" Position="6, 50, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Buildings/New/Part2" Position="10, 50, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Buildings/New/Part1" Position="13.5, 50, 3.14" Scale="1"></Entity>
 	</Layer>
 	<Layer Name="Trees">
 		<Entity Name="" Type="Trees/Tree1" Position="13.5, 22, 0" Scale="1"></Entity>
@@ -266,6 +306,12 @@
 		<Entity Name="" Type="Trees/Tree1" Position="42, 24, 0" Scale="1"></Entity>
 		<Entity Name="" Type="Trees/Tree1" Position="38, 36, 0" Scale="1"></Entity>
 		<Entity Name="" Type="Trees/Tree1" Position="42, 36, 1" Scale="1"></Entity>
+
+    <Entity Name="" Type="Trees/Tree1" Position="2, 26, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Trees/Tree2" Position="7, 25, 1" Scale="1"></Entity>
+    <Entity Name="" Type="Trees/Tree2" Position="3, 30, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Trees/Tree1" Position="6, 28, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Trees/Tree1" Position="6, 32, 1" Scale="1"></Entity>
 	</Layer>
 	<World Gravity="0.0, 0.0"></World>
 	<Scripts

@@ -51,6 +51,18 @@ ItemPtr	Inventory::GetItem(int number)
 
 void	Inventory::AddItem(ItemPtr item)
 {
+	if (item->UseMerging())
+	{
+		ItemPtr myitem = GetItemByTag(item->GetTag());
+		if (myitem)
+		{
+			// Добавляем зарядов к существующему
+			myitem->SetAmmo(item->GetAmmo() + myitem->GetAmmo());
+			return;
+		}
+	}
+
+	// Добавляем предмет в инвентарь
 	mItems.push_back(item);
 	item->mInventory = shared_from_this();
 	item->OnAdd();

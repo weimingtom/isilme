@@ -1,6 +1,7 @@
 #include "ZombieLand.h"
 #include "Zombie.h"
 #include "Destroyable.h"
+#include "ZombieLand/LootTable.h"
 
 namespace behaviour
 {
@@ -10,6 +11,7 @@ namespace behaviour
 		Health = MaxHealth;
 		Blood = "";
 		Resistance = 0.0f;
+		Loot = "";
 	}
 
 	BehaviourPtr DestroyableDef::Create()
@@ -28,6 +30,9 @@ namespace behaviour
 
 		char* blood = const_cast<char*>(element->Attribute("Blood"));
 		Blood = blood ? blood : "";
+
+		if (element->Attribute("Loot"))
+			Loot = element->Attribute("Loot");
 	}
 
 	Destroyable::Destroyable(DestroyableDef* def)
@@ -37,12 +42,18 @@ namespace behaviour
 		mHealth = def->Health;
 		mResistance = def->Resistance;
 		mBlood = def->Blood;
+		mLoot = def->Loot;
 
 		mDieAction = action::DiePtr(new action::Die());
 	}
 
 	Destroyable::~Destroyable()
 	{
+	}
+
+	LootTablePtr Destroyable::GetLootTable()
+	{
+		return LootManager::GetSingleton()->GetLootTable(mLoot);
 	}
 
 	float	Destroyable::GetHealth()
