@@ -54,12 +54,13 @@
       <PrecompiledHeaderFile>Isilme.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)Isilme.pch</PrecompiledHeaderOutputFile>
       <DisableSpecificWarnings>4251;4275;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <AdditionalOptions>-Zm124 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>xinput.lib;luabind_d.lib;hge_d.lib;hgehelp_d.lib;GUIChan_d.lib;tinyxml_d.lib;box2d_d.lib;lua514_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../Luabind/lib;../Lua514/lib; ../GUIChan/lib;../HGE/lib;../TinyXML/lib;../Box2D/lib;../Engine/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../boost/lib;../Luabind/lib;../Lua514/lib; ../GUIChan/lib;../HGE/lib;../TinyXML/lib;../Box2D/lib;../Engine/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>libc.lib; libcmt.lib; libcmtd.lib</IgnoreSpecificDefaultLibraries>
       <ImportLibrary>$(ProjectDir)/lib/Engine_d.lib</ImportLibrary>
       <OutputFile>../Debug/Engine_d.dll</OutputFile>

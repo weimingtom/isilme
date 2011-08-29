@@ -40,4 +40,37 @@
 		UseMerging="1"
 		GND="Items/Ammo/AK47">
 	</Ammo>
+  <Spell
+		Tag="Shild"
+		Infinity ="0"
+		Ammo="1"
+		MaxAmmo="360"
+		UseTime="0.8"
+		UseMerging="1"
+		GND="Items/Ammo/AK47"
+    Icon="../Data/Icons/Spells/Shild.png"
+    Action="Shild">
+  </Spell>
+  <Spell
+		Tag="Wind"
+		Infinity ="0"
+		Ammo="1"
+		MaxAmmo="360"
+		UseTime="0.8"
+		UseMerging="1"
+		GND="Items/Ammo/AK47"
+    Icon="../Data/Icons/Spells/Wind.png"
+    Action="Wind">
+  </Spell>
+  <Spell
+		Tag="Heal"
+		Infinity ="0"
+		Ammo="1"
+		MaxAmmo="360"
+		UseTime="0.8"
+		UseMerging="1"
+    Icon="../Data/Icons/Spells/Heal.png"
+		GND="Items/Ammo/AK47"
+    Action="Heal">
+  </Spell>
 </Items>

@@ -94,7 +94,7 @@ namespace ScriptAPI
 				luabind::class_<Quest, QuestPtr>("Quest")
 				.def("IsActive", &Quest::IsActive)
 				.def("IsFinished", &Quest::IsFinished)
-				.def("GetStage", &Quest::GetStage)
+				.def("GetStage", (int (Quest::*)())&Quest::GetStage)
 				.def("GetText", &Quest::GetText)
 				.def("GetTitle", &Quest::GetTitle)
 				.def("SetStage", &Quest::SetStage)

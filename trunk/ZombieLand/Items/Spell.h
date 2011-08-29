@@ -7,10 +7,21 @@
 
 namespace inventory
 {
+	class SpellDef : public ItemDef
+	{
+	public:
+		SpellDef();
+		virtual ~SpellDef();
+
+		virtual ItemPtr Create();
+		virtual void Parse(TiXmlElement* def);
+		std::string Action;
+	};
+
 	class Spell : public Item
 	{
 	public:
-		Spell();
+		Spell(SpellDef* def);
 		virtual ~Spell();
 
 		void	SetAction(ActionPtr action);

@@ -32,6 +32,5 @@ namespace inventory
 		std::string mAmmoTag;
 	};
 
-	inventory::ItemPtr	CreateItem(std::string tag);
 };
 #endif

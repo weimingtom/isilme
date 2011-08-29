@@ -9,6 +9,7 @@
 #include "Engine/GUI/ProgressBar.h"
 #include "Engine/GUI/HGELabel.h"
 #include "Engine/GUI/QuestBook.h"
+#include "Engine/Quest/Quests.h"
 
 namespace state
 {
@@ -42,6 +43,7 @@ namespace state
 		}
 
 	protected:
+		void	OnSetStage(story::QuestPtr quest, int stage);
 		virtual void OnStart();
 
 		gcn::Button* mOptions;
@@ -61,6 +63,7 @@ namespace state
 
 		gcn::Icon*			mWeaponIcon;
 		gcn::HGELabel*		mWeaponAmmo;
+		gcn::HGELabel*		mSpellAmmo;
 		gcn::HGELabel*		mAmmoLabel;
 		gcn::Icon*			mSpellIcon;
 		behaviour::PlayerPtr mPlayer;

@@ -3,6 +3,15 @@
 	<Table Name="Trash">
 		<!--<Loot Item="Items/Weapons/AK47" MaxAmmo="40" MinAmmo="0"></Loot>
 		<Loot Item="Items/Weapons/Gun" MaxAmmo="40" MinAmmo="0"></Loot>-->
-		<Loot Item="Items/Ammo/AK47" MaxAmmo="40" MinAmmo="0"></Loot>
+		<Loot Item="Items/Ammo/AK47" MaxAmmo="40" MinAmmo="40"></Loot>
+    <Loot Item="Items/Spells/Wind" MaxAmmo="1" MinAmmo="1"></Loot>
+    <Loot Item="Items/Spells/Heal" MaxAmmo="1" MinAmmo="1"></Loot>
+    <Loot Item="Items/Spells/Shild" MaxAmmo="1" MinAmmo="1"></Loot>
 	</Table>
+  <Table Name="Zombie">
+    <Loot Item="Items/Ammo/AK47" MaxAmmo="40" MinAmmo="40"></Loot>
+    <Loot Item="Items/Spells/Wind" MaxAmmo="1" MinAmmo="1"></Loot>
+    <Loot Item="Items/Spells/Heal" MaxAmmo="1" MinAmmo="1"></Loot>
+    <Loot Item="Items/Spells/Shild" MaxAmmo="1" MinAmmo="1"></Loot>
+  </Table>
 </LootData>

@@ -57,6 +57,7 @@ namespace inventory
 		if (ammo == 0)
 		{
 			ammo = FactoryManager::GetSingleton()->CreateItem(mAmmoTag);
+			ammo->SetAmmo(0);
 		}
 		GetInventory()->Equip(ammo);
 	}
@@ -74,55 +75,5 @@ namespace inventory
 	void	Weapon::SetAmmoTag(std::string ammoTag)
 	{
 		mAmmoTag = ammoTag;
-	}
-
-
-	ItemPtr	CreateHealSpell()
-	{
-		Spell* s = new Spell();
-		s->SetInfinity(true);
-		s->SetAction(ActionPtr(new action::Heal()));
-		s->SetIcon("../Data/Icons/Spells/Heal.png");
-
-		return ItemPtr(s);
-	}
-
-	ItemPtr	CreateWindSpell()
-	{
-		Spell* s = new Spell();
-		s->SetInfinity(true);
-		s->SetAction(ActionPtr(new action::Wind()));
-		s->SetIcon("../Data/Icons/Spells/Wind.png");
-
-		return ItemPtr(s);
-	}
-
-	ItemPtr	CreateShildSpell()
-	{
-		Spell* s = new Spell();
-		s->SetInfinity(true);
-		s->SetAction(ActionPtr(new action::Shild()));
-		s->SetIcon("../Data/Icons/Spells/Shild.png");
-		s->SetContinuous(true);
-
-		return ItemPtr(s);
-	}
-
-	ItemPtr	CreateItem(std::string tag)
-	{
-		ItemPtr item;
-		if (tag == "HealSpell")
-			item = CreateHealSpell();
-		else if (tag == "WindSpell")
-			item = CreateWindSpell();
-		else if (tag == "ShildSpell")
-			item = CreateShildSpell();
-		else
-			item = ItemPtr();
-
-		if (item != 0)
-			item->SetTag(tag);
-
-		return item;
 	}
 };

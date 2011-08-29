@@ -13,6 +13,7 @@ namespace behaviour
 		virtual ~ItemDef();
 
 		std::string ItemType;
+		int	Ammo;
 
 		virtual void	Parse(TiXmlElement* def);
 		virtual BehaviourPtr Create();
@@ -26,9 +27,12 @@ namespace behaviour
 		virtual ~Item();
 
 		virtual void	OnUse(CreaturePtr actor);
+
+		int	GetAmmo();
+		void	SetAmmo(int ammo);
 	protected:
 		std::string	mItemTag;
-	private:
+		int mAmmo;
 	};
 };
 #endif

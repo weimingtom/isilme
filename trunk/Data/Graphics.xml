@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Graphics>
+  <!-- Items -->
 	<Sprite Name="Items/Weapons/Gun" X="0" Y="0" Width="64" Height="64">../Data/Sprites/Weapons.png</Sprite>
 	<Sprite Name="Items/Weapons/AK47" X="64" Y="0" Width="64" Height="64">../Data/Sprites/Weapons.png</Sprite>
-	<Sprite Name="Items/Ammo/AK47" X="64" Y="0" Width="64" Height="64">../Data/Icons/Ammo/AK47.png</Sprite>
-	<Sprite Name="Box" X="0" Y ="0" Width="64" Height="64">../Data/Textures/Sprites.png</Sprite>
+	<Sprite Name="Items/Ammo/AK47" X="0" Y="0" Width="32" Height="32">../Data/Icons/Ammo/AK47.png</Sprite>
+  <Sprite Name="Items/Spells/Wind" X="64" Y="0" Width="32" Height="32">../Data/Sprites/Spells.png</Sprite>
+  <Sprite Name="Items/Spells/Heal" X="32" Y="0" Width="32" Height="32">../Data/Sprites/Spells.png</Sprite>
+  <Sprite Name="Items/Spells/Shild" X="0" Y="0" Width="32" Height="32">../Data/Sprites/Spells.png</Sprite>
+  
+  <Sprite Name="Box" X="0" Y ="0" Width="64" Height="64">../Data/Textures/Sprites.png</Sprite>
+  
 	
 	<!--Buildings -->
 	<Sprite Name="Buildings/House1" X="0" Y="0" Width="652" Height="652">../Data/Sprites/House1.png</Sprite>

@@ -3,6 +3,10 @@
 	<Camera Type="Following" Player="Player"></Camera>
 	<Layer Name="Grass">
 		<Entity Name="" Type="Terrain/Grass" Position="13, 22, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Terrain/Grass" Position="39, 4, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Terrain/Grass" Position="39, 8, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Terrain/Grass" Position="43, 4, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Terrain/Grass" Position="43, 8, 0" Scale="1"></Entity>
 		<!-- Парк 1-->
 		<Entity Name="" Type="Terrain/Grass" Position="38, 24, 0" Scale="1"></Entity>
 		<Entity Name="" Type="Terrain/Grass" Position="42, 24, 0" Scale="1"></Entity>
@@ -130,6 +134,9 @@
 		<Entity Name="" Type="Roads/Walk" Position="20.5, 4, 3.14" Scale="1"></Entity>
 		<Entity Name="" Type="Roads/Walk" Position="20.5, 6, 3.14" Scale="1"></Entity>
 		<Entity Name="" Type="Roads/Walk" Position="20.5, 8, 3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="31.5, 4, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="31.5, 6, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="31.5, 8, 0" Scale="1"></Entity>
 
 		<!-- Здание 3 -->
 			<Entity Name="" Type="Roads/Walk" Position="15.5, 24, 0" Scale="1"></Entity>
@@ -171,6 +178,130 @@
     <Entity Name="" Type="Roads/Walk" Position="4, 46.5, -1.57" Scale="1"></Entity>
     <Entity Name="" Type="Roads/Walk" Position="2, 46.5, -1.57" Scale="1"></Entity>
 		
+    <!-- Здание 8-->
+    <Entity Name="" Type="Roads/WalkCorner" Position="20.5, 42.5, -3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/WalkCorner" Position="27.5, 42.5, -1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/WalkCorner" Position="27.5, 53.5, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/WalkCorner" Position="20.5, 53.5, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="20.5, 44, -3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="20.5, 46, -3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="20.5, 48, -3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="20.5, 50, -3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="20.5, 52, -3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="27.5, 44, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="27.5, 46, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="27.5, 48, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="27.5, 50, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="27.5, 52, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="22, 42.5, -1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="24, 42.5, -1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="26, 42.5, -1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="22, 53.5, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="24, 53.5, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="26, 53.5, 1.57" Scale="1"></Entity>
+    
+    <!-- Здание 14 -->
+    <Entity Name="" Type="Roads/WalkCorner" Position="36.5, 42.5, -3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/WalkCorner" Position="43.5, 42.5, -1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/WalkCorner" Position="43.5, 53.5, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/WalkCorner" Position="36.5, 53.5, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="36.5, 44, -3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="36.5, 46, -3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="36.5, 48, -3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="36.5, 50, -3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="36.5, 52, -3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="43.5, 44, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="43.5, 46, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="43.5, 48, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="43.5, 50, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="43.5, 52, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="38, 42.5, -1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="40, 42.5, -1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="42, 42.5, -1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="38, 53.5, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="40, 53.5, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="42, 53.5, 1.57" Scale="1"></Entity>
+    
+    <!-- Здание 9-10-->
+    <Entity Name="" Type="Roads/WalkCorner" Position="36.5, 2.5, -3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/WalkCorner" Position="59.5, 2.5, -1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/WalkCorner" Position="59.5, 9.5, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/WalkCorner" Position="36.5, 9.5, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="36.5, 6, -3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="36.5, 4, -3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="36.5, 8, -3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="59.5, 6, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="59.5, 8, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="59.5, 4, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="38, 9.5, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="40, 9.5, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="42, 9.5, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="44, 9.5, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="46, 9.5, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="48, 9.5, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="50, 9.5, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="52, 9.5, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="54, 9.5, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="56, 9.5, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="58, 9.5, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk2" Position="52, 6, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk2" Position="52, 8, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk2" Position="52, 4, 0" Scale="1"></Entity>
+
+    <!-- Здание 11 -->
+    <Entity Name="" Type="Roads/WalkCorner" Position="48.5, 14.5, -3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/WalkCorner" Position="59.5, 14.5, -1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/WalkCorner" Position="48.5, 21.5, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="48.5, 16, -3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="48.5, 18, -3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="48.5, 20, -3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="59.5, 16, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="59.5, 18, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="59.5, 20, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="59.5, 52, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="50, 14.5, -1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="52, 14.5, -1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="54, 14.5, -1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="56, 14.5, -1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="58, 14.5, -1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="50, 21.5, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="52, 21.5, 1.57" Scale="1"></Entity>
+    
+    <!-- Здание 12 -->
+    <Entity Name="" Type="Roads/Walk" Position="59.5, 22, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="59.5, 24, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="59.5, 26, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="59.5, 28, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="52.5, 23, 3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="52.5, 25, 3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="52.5, 27, 3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="52.5, 29, 3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk2" Position="54, 22, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk2" Position="56, 22, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk2" Position="58, 22, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk2" Position="54, 30, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk2" Position="56, 30, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk2" Position="58, 30, 0" Scale="1"></Entity>
+    
+    <!-- Здание 13 -->
+    <Entity Name="" Type="Roads/WalkCorner" Position="48.5, 30.5, -3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/WalkCorner" Position="59.5, 37.5, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/WalkCorner" Position="48.5, 37.5, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="48.5, 32, -3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="48.5, 34, -3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="48.5, 36, -3.14" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="59.5, 32, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="59.5, 34, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="59.5, 36, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="59.5, 30, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="50, 30.5, -1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="52, 30.5, -1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="50, 37.5, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="52, 37.5, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="54, 37.5, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="56, 37.5, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Walk" Position="58, 37.5, 1.57" Scale="1"></Entity>
+    
 		<Entity Name="" Type="Roads/Road" Position="6, 12, 0" Scale="1"></Entity>
 		<Entity Name="" Type="Roads/Road" Position="10, 12, 0" Scale="1"></Entity>
 		<Entity Name="" Type="Roads/Road" Position="14, 12, 0" Scale="1"></Entity>
@@ -179,9 +310,16 @@
 		<Entity Name="" Type="Roads/Road" Position="26, 12, 0" Scale="1"></Entity>
 		<Entity Name="" Type="Roads/Road" Position="30, 12, 0" Scale="1"></Entity>
 		<Entity Name="" Type="Roads/Road" Position="34, 12, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Road" Position="34, 8, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Road" Position="34, 4, 0" Scale="1"></Entity>
 		<Entity Name="" Type="Roads/Road" Position="38, 12, 0" Scale="1"></Entity>
 		<Entity Name="" Type="Roads/Road" Position="42, 12, 0" Scale="1"></Entity>
 		<Entity Name="" Type="Roads/Road" Position="46, 12, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Road" Position="50, 12, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Road" Position="54, 12, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Road" Position="58, 12, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Road" Position="50, 24, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Road" Position="50, 28, 0" Scale="1"></Entity>
 		<Entity Name="" Type="Roads/Road" Position="46, 16, 0" Scale="1"></Entity>
 		<Entity Name="" Type="Roads/Road" Position="46, 20, 0" Scale="1"></Entity>
 		<Entity Name="" Type="Roads/Road" Position="46, 24, 0" Scale="1"></Entity>
@@ -189,6 +327,9 @@
 		<Entity Name="" Type="Roads/Road" Position="46, 32, 0" Scale="1"></Entity>
 		<Entity Name="" Type="Roads/Road" Position="46, 36, 0" Scale="1"></Entity>
 		<Entity Name="" Type="Roads/Road" Position="46, 40, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Road" Position="46, 44, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Road" Position="46, 48, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Road" Position="46, 52, 0" Scale="1"></Entity>
 		<Entity Name="" Type="Roads/Road" Position="30, 28, 0" Scale="1"></Entity>
 		<Entity Name="" Type="Roads/Road" Position="34, 28, 0" Scale="1"></Entity>
 		<Entity Name="" Type="Roads/Road" Position="30, 32, 0" Scale="1"></Entity>
@@ -206,6 +347,25 @@
 		<Entity Name="" Type="Roads/Road" Position="18, 32, 0" Scale="1"></Entity>
 		<Entity Name="" Type="Roads/Road" Position="18, 36, 0" Scale="1"></Entity>
 		<Entity Name="" Type="Roads/Road" Position="18, 40, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Road" Position="18, 48, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Road" Position="18, 52, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Road" Position="22, 40, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Road" Position="26, 40, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Road" Position="30, 40, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Road" Position="34, 40, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Road" Position="38, 40, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Road" Position="42, 40, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Road" Position="46, 40, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Road" Position="50, 40, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Road" Position="54, 40, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Road" Position="58, 40, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Road" Position="30, 44, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Road" Position="34, 44, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Road" Position="30, 48, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Road" Position="34, 48, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Road" Position="30, 52, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Roads/Road" Position="34, 52, 0" Scale="1"></Entity>
+    
 		<Entity Name="" Type="Roads/Road" Position="14, 40, 0" Scale="1"></Entity>
 		<Entity Name="" Type="Roads/Road" Position="10, 40, 0" Scale="1"></Entity>
 		<Entity Name="" Type="Roads/Road" Position="6, 40, 0" Scale="1"></Entity>
@@ -229,7 +389,7 @@
 		<Entity Name="" Type="Zombie1" Position="5, 44, 1.0" Scale="1.0"></Entity>
 		<Entity Name="" Type="Zombie1" Position="10, 43, 1.0" Scale="1.0"></Entity>
 		<Entity Name="" Type="Zombie1" Position="9, 45, 1.0" Scale="1.0"></Entity>
-		<Entity Name="Player" Type="Player" Position="9.0, 44, 1.0" Scale="1.0"></Entity>
+		<Entity Name="Player" Type="Player" Position="9.0, 12, 1.0" Scale="1.0"></Entity>
     <Entity Name="" Type="Creatures/Bandit1" Position="15.0, 44, 1.0" Scale="1.0"></Entity>
     <Entity Name="" Type="Creatures/Bandit1" Position="32, 26, 1.0" Scale="1.0"></Entity>
     <Entity Name="" Type="Creatures/Bandit1" Position="34, 27, 1.0" Scale="1.0"></Entity>
@@ -299,6 +459,38 @@
     <Entity Name="" Type="Buildings/New/Part2" Position="6, 50, 0" Scale="1"></Entity>
     <Entity Name="" Type="Buildings/New/Part2" Position="10, 50, 0" Scale="1"></Entity>
     <Entity Name="" Type="Buildings/New/Part1" Position="13.5, 50, 3.14" Scale="1"></Entity>
+    
+    <!-- Здание 8-->
+    <Entity Name="" Type="Buildings/Old/Part1" Position="24, 44.5, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Buildings/Old/Part2" Position="24, 48, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Buildings/Old/Part1" Position="24, 51.5, -1.57" Scale="1"></Entity>
+
+    <!-- Здание 9-->
+    <Entity Name="" Type="Buildings/New/Part1" Position="46.5, 6, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Buildings/New/Part1" Position="49.5, 6, -3.14" Scale="1"></Entity>
+    
+    <!-- Здание 10 -->
+    <Entity Name="" Type="Buildings/Old/Part1" Position="54.5, 6, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Buildings/Old/Part1" Position="57.5, 6, -3.14" Scale="1"></Entity>
+
+    <!-- Здание 11 -->
+    <Entity Name="" Type="Buildings/Old/Part1" Position="50.5, 18, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Buildings/Old/Part2" Position="54, 18, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Buildings/Old/Part1" Position="57.5, 18, -3.14" Scale="1"></Entity>
+
+    <!-- Здание 12 -->
+    <Entity Name="" Type="Buildings/New/Part1" Position="54.5, 26, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Buildings/New/Part1" Position="57.5, 26, -3.14" Scale="1"></Entity>
+
+    <!-- Здание 13 -->
+    <Entity Name="" Type="Buildings/Old/Part1" Position="50.5, 34, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Buildings/Old/Part2" Position="54, 34, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Buildings/Old/Part1" Position="57.5, 34, -3.14" Scale="1"></Entity>
+    
+    <!-- Здание 14-->
+    <Entity Name="" Type="Buildings/Old/Part1" Position="40, 44.5, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Buildings/Old/Part2" Position="40, 48, 1.57" Scale="1"></Entity>
+    <Entity Name="" Type="Buildings/Old/Part1" Position="40, 51.5, -1.57" Scale="1"></Entity>
 	</Layer>
 	<Layer Name="Trees">
 		<Entity Name="" Type="Trees/Tree1" Position="13.5, 22, 0" Scale="1"></Entity>

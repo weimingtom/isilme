@@ -24,6 +24,7 @@ namespace story
 
 		QuestList*		GetFinishedQuests();
 
+		boost::signal<void(QuestPtr, int)>	OnSetStage;
 	protected:
 		void			OnStartQuest(QuestPtr quest);
 	private:

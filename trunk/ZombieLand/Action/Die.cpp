@@ -1,6 +1,7 @@
 #include "ZombieLand.h"
 #include "Die.h"
 #include "ZombieLand/LootTable.h"
+#include "ZombieLand/Behaviour/Item.h"
 
 namespace action
 {
@@ -29,6 +30,7 @@ namespace action
 			for (std::list<Loot>::iterator it = lootList.begin(); it != lootList.end(); ++it)
 			{
 				EntityPtr e = GetLevel()->CreateEntity(it->Item, GetActor()->GetPosition().x, GetActor()->GetPosition().y, GetActor()->GetAngle(), "");
+				e->As<behaviour::Item>()->SetAmmo(it->Ammo);
 			}
 		}
 	}

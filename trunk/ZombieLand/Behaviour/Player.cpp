@@ -7,6 +7,7 @@
 #include <LuaBind/luabind/luabind.hpp>
 
 int pw = 0;
+int ps = 0;
 
 namespace behaviour
 {
@@ -24,11 +25,11 @@ namespace behaviour
 		mCurrentWeapon = 0;
 		mCurrentSpell = 0;
 
-		inventory::ItemPtr spell = inventory::CreateItem("HealSpell");
+		inventory::ItemPtr spell = FactoryManager::GetSingleton()->CreateItem("Heal");
 		GetInventory()->AddItem(spell);
-		spell = inventory::CreateItem("WindSpell");
+		spell = FactoryManager::GetSingleton()->CreateItem("Wind");
 		GetInventory()->AddItem(spell);
-		spell = inventory::CreateItem("ShildSpell");
+		spell = FactoryManager::GetSingleton()->CreateItem("Shild");
 		GetInventory()->AddItem(spell);
 		NextSpell();
 	}
@@ -78,7 +79,7 @@ namespace behaviour
 
 	void	Player::NextSpell()
 	{
-		if (GetInventory()->GetItemsCount() == 0)
+		if (GetInventory()->GetItemsCount() == 0 || ps > GetInventory()->GetItemsCount() + 2)
 			return;
 
 		mCurrentSpell++;
@@ -88,9 +89,15 @@ namespace behaviour
 
 		inventory::ItemPtr item = GetInventory()->GetItem(mCurrentSpell);
 		if (item->GetSlot() == inventory::Item::Spell)
+		{
 			GetInventory()->Equip(item);
+			ps = 0;
+		}
 		else
+		{
+			ps++;
 			NextSpell();
+		}
 	}
 
 	void	Player::SwitchActivator()

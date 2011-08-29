@@ -58,6 +58,7 @@ void	ZombieLand::Init()
 	// Регистрируем предметы
 	factoryManager->RegisterItem("Weapon", inventory::ItemFactory<inventory::WeaponDef>::New());
 	factoryManager->RegisterItem("Ammo", inventory::ItemFactory<inventory::AmmoDef>::New());
+	factoryManager->RegisterItem("Spell", inventory::ItemFactory<inventory::SpellDef>::New());
 
 	factoryManager->LoadItems("../Data/Items.xml");
 

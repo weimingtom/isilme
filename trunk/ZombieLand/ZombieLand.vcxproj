@@ -62,10 +62,11 @@
       <DisableSpecificWarnings>4251;4275</DisableSpecificWarnings>
       <PrecompiledHeaderFile>ZombieLand.h</PrecompiledHeaderFile>
       <UseFullPaths>true</UseFullPaths>
+      <AdditionalOptions>-Zm124 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>luabind_d.lib;GUIChan_d.lib;engine_d.lib;hge_d.lib;hgehelp_d.lib;tinyxml_d.lib;box2d_d.lib;lua514_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../Luabind/lib;../Lua514/lib;../GUIChan/lib;../HGE/lib;../TinyXML/lib;../Box2D/lib;$(ProjectDir)../Engine/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../boost/lib;../Luabind/lib;../Lua514/lib;../GUIChan/lib;../HGE/lib;../TinyXML/lib;../Box2D/lib;$(ProjectDir)../Engine/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>libc.lib</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>

@@ -11,8 +11,16 @@
 #include "Engine/GUI/ProgressBar.h"
 #include "Engine/GUI/QuestBook.h"
 #include <luabind/function.hpp>
+#include "Engine/Quest/Quest.h"
+#include "Engine/Quest/Stage.h"
+
 namespace state
 {
+
+	void	Play::OnSetStage(story::QuestPtr quest, int stage)
+	{
+		mZombieLeftLabel->setCaption(quest->GetStage(stage)->GetText());
+	}
 
 Play::Play() : State()
 {	
@@ -52,6 +60,7 @@ Play::Play() : State()
 	mWeaponIcon		= new gcn::Icon();
 	mWeaponAmmo		= new gcn::HGELabel("../Data/Fonts/font1.fnt");
 	mSpellIcon		= new gcn::Icon();
+	mSpellAmmo		= new gcn::HGELabel("../Data/Fonts/font1.fnt");
 
 	mQuestBook		= new gcn::QuestBook();
 
@@ -71,6 +80,9 @@ Play::Play() : State()
 
 	// Уровень заряда
 	mWeaponAmmo->setTextColor(gcn::Color(255,255,255));
+
+	// Количество заклинаний
+	mSpellAmmo->setTextColor(gcn::Color(255,255,255));
 
 	// Количество паторнов
 	mAmmoLabel->setTextColor(gcn::Color(255, 255, 255));
@@ -144,6 +156,7 @@ Play::Play() : State()
 	top->add(mWeaponAmmo,70, 550);
 	top->add(mAmmoLabel, 70, 580);
 	top->add(mSpellIcon, 736, 536);
+	top->add(mSpellAmmo, 710, 550);
 
 	top->add(mZombieLeftLabel, 600, 8);
 	top->addMouseListener(this);
@@ -163,6 +176,8 @@ Play::Play() : State()
 	top->add(mEnergyBar, 8, 42);
 	top->add(mRespawn, 100, 100);
 	top->add(mQuestBook);
+
+	Game::GetSingleton()->GetStory()->OnSetStage.connect(boost::bind(&Play::OnSetStage, this, _1, _2));
 }
 
 void Play::mouseClicked(gcn::MouseEvent& evt)
@@ -214,7 +229,7 @@ void	Play::OnUpdate(float elapsedTime)
 		mEnergyBar->setProgress(mPlayer->GetEnergy() / mPlayer->GetMaxEnergy());
 
 		sprintf(h, "ZOMBIE LEFT: %d", behaviour::Zombie::GetZombieCount());
-		mZombieLeftLabel->setCaption(h);
+		//mZombieLeftLabel->setCaption(h);
 
 		if (health > 0.5f)
 			mHealthBar->setSelectionColor(gcn::Color(0, 255, 0));
@@ -236,7 +251,15 @@ void	Play::OnUpdate(float elapsedTime)
 		w = mPlayer->GetInventory()->GetSlot(inventory::Item::Spell);
 		if (w != 0)
 		{
+			mSpellIcon->setVisible(true);
+			mSpellAmmo->setVisible(true);
 			mSpellIcon->setImage(w->GetIcon());
+			mSpellAmmo->setCaption(itoa(w->GetAmmo(), h, 10));
+		}
+		else
+		{
+			mSpellIcon->setVisible(false);
+			mSpellAmmo->setVisible(false);
 		}
 
 		w = mPlayer->GetInventory()->GetSlot(inventory::Item::Ammo);

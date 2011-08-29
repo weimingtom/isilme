@@ -101,4 +101,16 @@ ItemPtr	Inventory::GetSlot(Item::Slot slot)
 {
 	return mSlots[slot];
 }
+
+void	Inventory::Remove(ItemPtr item)
+{
+	if (GetSlot(item->GetSlot()) == item)
+	{
+		Unequip(item->GetSlot());
+	}
+
+	ItemsList::iterator it = std::find(mItems.begin(), mItems.end(), item);
+	if (it != mItems.end())
+		mItems.erase(it);
+}
 };

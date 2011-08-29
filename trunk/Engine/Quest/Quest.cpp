@@ -42,6 +42,11 @@ namespace story
 	{
 	}
 
+	StagePtr	Quest::GetStage(int stage)
+	{
+		return mStages[stage];
+	}
+
 	void	Quest::SetStage(int id)
 	{
 		if (mStages.find(id) == mStages.end())
@@ -55,6 +60,8 @@ namespace story
 		{
 			OnStart();
 		}
+
+		mStory.lock()->OnSetStage(shared_from_this(), id);
 	}
 
 	std::string Quest::GetText()

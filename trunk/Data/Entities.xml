@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Entities>
+  <!-- Items -->
+  <Entity Graphics="Items/Spells/Shild" Type="Items/Spells/Shild" Behaviour="Item">
+    <Body Type="Static" LinearDumping="2.5" AngularDumping="2.2">
+      <Box Width="0.5" Heigh="0.5" CategoryBits="32" MaskBits="64" Restitution="0.2" Density="5" Sensor="1"></Box>
+    </Body>
+    <Behaviour ItemType="Shild">
+    </Behaviour>
+  </Entity>
+  <Entity Graphics="Items/Spells/Wind" Type="Items/Spells/Wind" Behaviour="Item">
+    <Body Type="Static" LinearDumping="2.5" AngularDumping="2.2">
+      <Box Width="0.5" Heigh="0.5" CategoryBits="32" MaskBits="64" Restitution="0.2" Density="5" Sensor="1"></Box>
+    </Body>
+    <Behaviour ItemType="Wind">
+    </Behaviour>
+  </Entity>
+  <Entity Graphics="Items/Spells/Heal" Type="Items/Spells/Heal" Behaviour="Item">
+    <Body Type="Static" LinearDumping="2.5" AngularDumping="2.2">
+      <Box Width="0.5" Heigh="0.5" CategoryBits="32" MaskBits="64" Restitution="0.2" Density="5" Sensor="1"></Box>
+    </Body>
+    <Behaviour ItemType="Heal">
+    </Behaviour>
+  </Entity>
 	<Entity Graphics="Items/Weapons/Gun" Type="Items/Weapons/Gun" Behaviour="Item">
 		<Body Type="Static" LinearDumping="2.5" AngularDumping="2.2">
 			<Box Width="0.5" Heigh="0.5" CategoryBits="32" MaskBits="64" Restitution="0.2" Density="5" Sensor="1"></Box>
@@ -37,14 +59,7 @@
 		<Behaviour Health="120" MaxHealth="130" Loot="Trash">
 		</Behaviour>
 	</Entity>
-	<Entity Type="Box" Graphics="Box" Behaviour="Destroyable">
-		<!-- Сущность описывает динамический ящик -->
-		<Body Type="Dynamic" LinearDumping="2.5" AngularDumping="2.2">
-			<Box Width="1.0" Height="1.0" CategoryBits="32" MaskBits="111" Restitution="0.2" Density="125" LinearDumping="120.5" ></Box>
-		</Body>
-		<Behaviour Health="120" MaxHealth="130">
-		</Behaviour>
-	</Entity>
+	
 	<Entity Type="Player" Graphics="Player" Behaviour="Player">
 		<Body Type="Dynamic" LinearDumping="2.5" AngularDumping="2.2">
 			<Box Width="1.0" Height="1.0" CategoryBits="96" MaskBits="111" Restitution="0.5" Density="5"></Box>
@@ -55,26 +70,27 @@
 		<Body Type="Dynamic" LinearDumping="2.5" AngularDumping="2.2">
 			<Box Width="1.0" Height="1.0" CategoryBits="32" MaskBits="111" Restitution="0.5" Density="5"></Box>
 		</Body>
-		<Behaviour  MaxHealth="40" Health="40" Resistance="0" Blood="Blood"></Behaviour>
+		<Behaviour  MaxHealth="40" Health="40" Resistance="0" Blood="Blood" Loot="Zombie"></Behaviour>
 	</Entity>
   <!-- Cratures -->
   <Entity Type="Creatures/Zombie1" Graphics="Zombie1" Behaviour="Zombie">
     <Body Type="Dynamic" LinearDumping="2.5" AngularDumping="2.2">
       <Box Width="1.0" Height="1.0" CategoryBits="32" MaskBits="111" Restitution="0.5" Density="5"></Box>
     </Body>
-    <Behaviour  MaxHealth="40" Health="40" Resistance="0" Blood="Blood"></Behaviour>
+    <Behaviour  MaxHealth="40" Health="40" Resistance="0" Blood="Blood" Loot="Zombie"></Behaviour>
   </Entity>
   <Entity Type="Creatures/Zombie2" Graphics="Zombie1" Behaviour="Zombie">
     <Body Type="Dynamic" LinearDumping="2.5" AngularDumping="2.2">
       <Box Width="1.0" Height="1.0" CategoryBits="32" MaskBits="111" Restitution="0.5" Density="5"></Box>
     </Body>
-    <Behaviour  MaxHealth="40" Health="40" Resistance="0" Blood="Blood"></Behaviour>
+    <Behaviour  MaxHealth="80" Health="80" Resistance="0.1" Blood="Blood" Loot="Zombie"></Behaviour>
   </Entity>
   <Entity Type="Creatures/Bandit1" Graphics="Creatures/Bandit1" Behaviour="Creature">
     <Body Type="Dynamic" LinearDumping="2.5" AngularDumping="2.2">
       <Box Width="1.0" Height="1.0" CategoryBits="32" MaskBits="111" Restitution="0.5" Density="5"></Box>
     </Body>
     <Behaviour  
+      Loot="Zombie"
       MaxHealth="40" 
       Health="40" 
       Resistance="0" 

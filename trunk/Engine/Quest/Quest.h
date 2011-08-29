@@ -24,6 +24,7 @@ namespace story
 
 		/// Возвращает стадию квеста
 		int				GetStage();
+		StagePtr		GetStage(int stage);
 		void			SetStage(int stage);
 
 		std::string		GetText();
