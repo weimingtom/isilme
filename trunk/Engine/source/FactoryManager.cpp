@@ -148,7 +148,7 @@ EntityPtr		FactoryManager::CreateEntity(EntityDefPtr definition, std::string nam
 	BehaviourPtr behaviour	= definition->GetBehaviourDefinition()->Create();
 
 	EntityPtr entity = EntityPtr(Entity::New(level, behaviour, body, graphics));
-
+	level->mEntities.insert(entity);
 	if (name == "")
 	{
 		std::string prefix = "GameObject_";

@@ -17,6 +17,12 @@ void		Layer::Add(EntityPtr object)
 	object->OnAddedToLayer(shared_from_this());
 }
 
+void		Layer::Remove(EntityPtr object)
+{
+	mObjects.remove(object);
+	object->mLayer = LayerPtr();
+}
+
 void		Layer::Clear()
 {
 	FactoryPtr factory = FactoryManager::GetSingleton();

@@ -63,29 +63,29 @@ void		Level::Update(float elapsedTime)
 {
 	EntitySet destroyed;
 
-	for (LayerList::iterator layerIterator = mLayers.begin(); layerIterator != mLayers.end(); ++layerIterator)
+	EntitySet::iterator it = mEntities.begin();
+	while (it != mEntities.end())
 	{
-		LayerPtr layer = *layerIterator;
-		EntityList::iterator entityIterator = layer->GetObjects()->begin(); 
-		while (entityIterator != layer->GetObjects()->end())
-		{
-			EntityPtr entity = *entityIterator;
-			entity->Update(elapsedTime);
+		EntityPtr entity = *it;
+		entity->Update(elapsedTime);
 
-			if (entity->IsRemoved())
-			{
-				entityIterator = layer->GetObjects()->erase(entityIterator);
-				destroyed.insert(entity);
-			}
-			else
-			{
-				++entityIterator;
-			}
+		if (entity->IsRemoved())
+		{
+			entity->GetLayer()->Remove(entity);
+			destroyed.insert(entity);
+			++it;
+		}
+		else
+		{
+			++it;
 		}
 	}
 
 	for (EntitySet::iterator it = destroyed.begin(); it != destroyed.end(); ++it)
+	{
 		FactoryManager::GetSingleton()->DestroyEntity(*it);
+		mEntities.erase(*it);
+	}
 
 	
 	mPhisicsTimer = elapsedTime;

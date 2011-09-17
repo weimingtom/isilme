@@ -242,7 +242,7 @@ void	Play::OnUpdate(float elapsedTime)
 		inventory::ItemPtr w = mPlayer->GetInventory()->GetSlot(inventory::Item::Weapon);
 		if (w != 0)
 		{
-			mWeaponAmmo->setCaption(itoa(w->GetAmmo(), h, 10));
+			mWeaponAmmo->setCaption(boost::lexical_cast<std::string>(w->GetAmmo()));
 			mWeaponIcon->setImage(w->GetIcon());
 		}
 		else

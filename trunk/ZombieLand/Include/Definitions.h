@@ -2,6 +2,7 @@
 #define TT_DEFINITIONS_H
 
 #include <boost/smart_ptr.hpp>
+#include <boost/lexical_cast.hpp>
 #include <list>
 #include <set>
 #include <map>

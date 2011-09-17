@@ -42,7 +42,7 @@ namespace action
 		if (mEffect != 0)
 		Engine::GetSingleton()->GetSoundSystem()->PlayEffect(mEffect);
 
-		//GetLevel()->GetLayer("Grass")->Add(GetActor());
+		GetLevel()->GetLayer("Grass")->Add(GetActor());
 	}
 
 	void	Die::SetSound(std::string sound)
