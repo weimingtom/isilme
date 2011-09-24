@@ -28,7 +28,8 @@ namespace action
 		//aabb.upperBound.Set(v.x + mDistance / 2, v.y + mDistance /2);
 
 		//GetLevel()->GetWorld()->QueryAABB(this, aabb);
-		EntityList entities = Box2DEngine::GetEntitiesAABB(GetLevel()->GetWorld(),v.x - mDistance / 2, v.y - mDistance /2,v.x + mDistance / 2, v.y + mDistance /2);
+		EntityList entities;
+		GetLevel()->AABBQuery(&entities, v.x - mDistance / 2, v.y - mDistance /2,v.x + mDistance / 2, v.y + mDistance /2);
 		for (EntityList::iterator it = entities.begin(); it != entities.end(); ++it)
 			if (*it != GetActor())
 			{

@@ -15,6 +15,16 @@
 #include "Camera.h"
 #include "Collisions.h"
 
+namespace RayCast
+{
+	enum Mode
+	{
+		Nearest = 0,
+		All = 1,
+		Any = 2
+	};
+};
+
 /// @class Level
 /// Сцена уровня.
 /// Сцена уровня содержит несколько слоев, на которых располагаются объекты и камеру.
@@ -56,6 +66,16 @@ public:
 	LayerPtr		AddLayer(std::string name);
 
 	EntityPtr		CreateEntity(std::string type, float x, float y, float angle, std::string name = "");
+
+	/// Запрос по трассировке луча
+	bool		RayCastQueryAll(EntityList* entitiesDest, float x1, float y1, float x2, float y2, int count = 0);
+
+	EntityPtr	RayCastQueryNearest(float x1, float y1, float x2, float y2);
+
+	bool		RayCastQueryAny(float x1, float y1, float x2, float y2);
+
+	/// AABB-запрос
+	bool			AABBQuery(EntityList* entitiesDest, float x1, float y1, float x2, float y2);
 private:
 	/// Таймер итераций физического мира
 	float		mPhisicsTimer;

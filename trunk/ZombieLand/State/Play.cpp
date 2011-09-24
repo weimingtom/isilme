@@ -285,6 +285,12 @@ void	Play::OnUpdate(float elapsedTime)
 	InputSystem* inputSystem = Engine::GetSingleton()->GetInputSystem();
 	lua_State* state = Engine::GetSingleton()->GetLua()->GetState();
 
+	if (inputSystem->IsKeyDown(HGEK_Z))
+	{
+		Vector2 v = mPlayer->GetActor()->GetPosition();
+		Vector2 h(v.x + cos(mPlayer->GetActor()->GetAngle()) * 5.0, v.y + sin(mPlayer->GetActor()->GetAngle()) * 5.0);
+	}
+
 	if (inputSystem->IsKeyDown(HGEK_Y))
 	{
 		if (luaL_loadstring(state, "return function(stage) local q = Story:GetQuest(\"Level1\");	q:SetStage(stage); end") == 0)

@@ -2,31 +2,6 @@
 
 Box2DEngine* Box2DEngine::mInstance = 0;
 
-/// Класс для обработки результатов AABB-запроса
-class AABBQueryCallBack : public b2QueryCallback
-{
-public:
-	AABBQueryCallBack(bool findAll = true)
-	{
-		mFindAll = findAll;
-	}
-
-	virtual ~AABBQueryCallBack()
-	{
-	}
-
-	virtual bool ReportFixture(b2Fixture* fixture)
-	{
-		EntityPtr e = ((Entity*)fixture->GetBody()->GetUserData())->GetBehaviour()->GetActor();
-		mEntities.push_back(e);
-		return mFindAll;
-	}
-
-	EntityList mEntities;
-private:
-	bool mFindAll;
-};
-
 // Box2DEngine
 Box2DEngine::Box2DEngine()
 {
@@ -36,32 +11,6 @@ Box2DEngine::Box2DEngine()
 
 Box2DEngine::~Box2DEngine()
 {
-}
-
-EntityPtr Box2DEngine::GetEntityAABB(b2World* world, float lx, float ly, float ux, float uy)
-{
-	b2AABB aabb;
-	aabb.lowerBound.Set(lx, ly);
-	aabb.upperBound.Set(ux, uy);
-
-	AABBQueryCallBack callback;
-	world->QueryAABB(&callback, aabb);
-
-	if (callback.mEntities.size() > 0)
-		return *callback.mEntities.begin();
-	else
-		return EntityPtr();
-}
-
-EntityList Box2DEngine::GetEntitiesAABB(b2World* world, float lx, float ly, float ux, float uy)
-{
-	b2AABB aabb;
-	aabb.lowerBound.Set(lx, ly);
-	aabb.upperBound.Set(ux, uy);
-
-	AABBQueryCallBack callback;
-	world->QueryAABB(&callback, aabb);
-	return callback.mEntities;
 }
 
 b2World* Box2DEngine::CreateWorld()

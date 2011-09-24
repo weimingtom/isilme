@@ -67,9 +67,13 @@
     <Compile Include="Action\DelQuest.cs" />
     <Compile Include="Action\DelStage.cs" />
     <Compile Include="Action\SetProperty.cs" />
+    <Compile Include="ItemEditor.xaml.cs">
+      <DependentUpon>ItemEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\ModelQuest.cs" />
     <Compile Include="Models\ModelStage.cs" />
     <Compile Include="Models\ModelStory.cs" />
+    <Compile Include="Proxy\ProxyItem.cs" />
     <Compile Include="Proxy\ProxyObject.cs" />
     <Compile Include="Proxy\ProxyQuest.cs" />
     <Compile Include="Proxy\ProxyStage.cs" />
@@ -88,6 +92,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ItemEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ScriptEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
