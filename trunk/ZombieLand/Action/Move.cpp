@@ -30,9 +30,14 @@ namespace action
 		return mSpeed;
 	}
 
-	void	Move::OnThink(float elapsedTime)
+	void	Move::OnForceStop()
 	{
-		EntityPtr e = GetBehaviour()->GetActor();
+		OnDone();
+	}
+
+	void	Move::OnUpdate(float elapsedTime)
+	{
+		EntityPtr e = GetEntity();
 		Vector2 v(cos(e->GetAngle()) * mSpeed , sin(e->GetAngle()) * mSpeed);
 
 		b2Body* body = ((Box2DBody*)e->GetBody())->GetBox2DBody();
@@ -62,7 +67,7 @@ namespace action
 	{
 		Engine::GetSingleton()->GetSoundSystem()->StopChannel(mChannel);
 
-		EntityPtr e = GetBehaviour()->GetActor();
+		EntityPtr e = GetEntity();
 		Vector2 v(0.0f, 0.0f);
 
 		e->GetBody()->SetLinearVelocity(v);

@@ -7,9 +7,7 @@ namespace action
 {
 	Die::Die()
 	{
-		SetEndingTime(0.0f);
-		SetBeginningTime(0.0f);
-		SetDoingTime(1.0f);
+		SetDuration(1.0f);
 		mEffect = 0;
 	}
 
@@ -21,7 +19,7 @@ namespace action
 	{
 		GetActor()->GetBehaviour()->SetActive(false);
 
-		LootTablePtr lootTable = GetBehaviour()->GetLootTable();
+		LootTablePtr lootTable = GetEntity()->As<behaviour::Destroyable>()->GetLootTable();
 		if (lootTable)
 		{
 			std::list<Loot> lootList;

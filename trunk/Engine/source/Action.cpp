@@ -4,48 +4,41 @@ Action::Action()
 {
 	/// Действие изначально не выпоняется
 	mState = action::Ready;
-
-	/// Установка временных параметров по умолчанию
-	mBeginningTime = 0.0f;
-	mDoingTime = 0.0f;
-	mEndingTime = 0.0f;
-
+	
 	/// Сброс таймера
-	mTime = 0.0f;
+	mTimer = 0.0f;
 
-	mMask = 0;
+	/// По умолчанию действие длится бесконечно долго
+	mDuration = -1.0f;
 }
 
 Action::~Action()
 {
 }
 
-void	Action::SetBeginningTime(float time)
+void	Action::SetDuration(float duration)
 {
-	mBeginningTime = time;
+	mDuration = duration;
 }
 
-void	Action::SetDoingTime(float time)
+float	Action::GetDuration()
 {
-	mDoingTime = time;
+	return mDuration;
 }
 
-void	Action::SetEndingTime(float time)
+float	Action::GetTimer()
 {
-	mEndingTime = time;
+	return mTimer;
 }
 
 void	Action::OnStart(BehaviourPtr behaviour)
 {
 	mBehaviour = behaviour;
-	mState = action::Beginning;
-	mTime = 0.0f;
-	OnStart();
-}
+	mEntity = behaviour->GetActor();
+	mState = action::Doing;
+	mTimer = 0.0f;
 
-void	Action::SetParent(ActionPtr action)
-{
-	mParent = action;
+	OnStart();
 }
 
 ActionPtr	Action::GetParent()
@@ -53,19 +46,14 @@ ActionPtr	Action::GetParent()
 	return mParent.lock();
 }
 
-bool	Action::IsEnabled()
-{
-	return true;
-}
-
 bool Action::IsActive()
 {
-	return mState != action::Done && mState != action::Ready && mState != action::Failed;
+	return mState == action::Doing;
 }
 
 void Action::Stop()
 {
-	mTime = mBeginningTime + mEndingTime + mDoingTime;
+	mState = action::Done;
 	OnForceStop();
 }
 
@@ -74,66 +62,97 @@ action::ActionState Action::GetState()
 	return mState;
 }
 
-unsigned long Action::GetMask()
-{
-	return mMask;
-}
-
 EntityPtr	Action::GetActor()
 {
 	return mBehaviour.lock()->GetActor();
 }
 
-LevelPtr Action::GetLevel()
+EntityPtr	Action::GetEntity()
 {
-	return GetActor()->GetLevel();
+	return mEntity.lock();
 }
 
-float	Action::GetDoingTime()
+LevelPtr Action::GetLevel()
 {
-	return mDoingTime;
+	return GetEntity()->GetLevel();
 }
 
 bool Action::Update(float elapsedTime)
 {
-	mTime += elapsedTime;
-
-	if (mState == action::Beginning)
-	{
-		UpdateOnBeginning(elapsedTime);
-		if (mTime > mBeginningTime)
-			mState++;
-		if (mTime > mBeginningTime + mDoingTime)
-			mState++;
-		if (mTime > mBeginningTime + mDoingTime + mEndingTime)
-			mState++;
-	}
+	mTimer += elapsedTime;
 
 	if (mState == action::Doing)
 	{
-		UpdateOnDoing(elapsedTime);
-		if (mTime > mBeginningTime + mDoingTime)
-			mState++;
-		if (mTime > mBeginningTime + mDoingTime + mEndingTime)
-			mState++;
-	}
-
-	if (mState == action::Ending)
-	{
-		UpdateOnDoing(elapsedTime);
-		if (mTime > mBeginningTime + mDoingTime + mEndingTime)
+		if (mChildActions.size() > 0)
 		{
-			mState++;
+			UpdateChildActions(elapsedTime);
+		}
+		else
+		{
+			OnUpdate(elapsedTime);
+		}
+
+		// Проверка по таймеру
+		if (mDuration != -1)
+		{
+			if (mTimer > mDuration)
+				mState = action::Done;
+		}
+
+		if (mState == action::Done)
+		{
 			OnDone();
-			mTime = 0.0f;
-			return false;
 		}
 	}
 
-	if (mState == action::Done)
-		OnDone();
+	return mState != action::Done;
+}
 
-	return mState < action::Done;
+void	Action::UpdateChildActions(float elapsedTime)
+{
+	ActionSet::iterator it = mChildActions.begin();
+
+	while (it != mChildActions.end())
+	{
+		(*it)->Update(elapsedTime);
+
+		if (!(*it)->IsActive())
+		{
+			it = mChildActions.erase(it);
+		}
+		else
+		{
+			++it;
+		}
+	}
+}
+
+void	Action::StartChildAction(ActionPtr action)
+{
+	action->mParent = shared_from_this();
+	action->OnStart(mBehaviour.lock());
+	mChildActions.insert(action);
+}
+
+void	Action::OnDone()
+{
+}
+
+void	Action::OnStart()
+{
+}
+
+void	Action::OnUpdate(float elapsedTime)
+{
+}
+
+void	Action::OnForceStop()
+{
+}
+
+bool	Action::DoneCondition()
+{
+	return false;
 }
 
 action::ActionState& operator ++(action::ActionState& var)

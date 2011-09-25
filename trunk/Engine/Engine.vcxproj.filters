@@ -148,9 +148,6 @@
     <ClInclude Include="include\Action.h">
       <Filter>Action</Filter>
     </ClInclude>
-    <ClInclude Include="Action\SpecialAction.h">
-      <Filter>Action</Filter>
-    </ClInclude>
     <ClInclude Include="Quest\QuestAPI.h">
       <Filter>Quests</Filter>
     </ClInclude>
@@ -165,15 +162,6 @@
     </ClInclude>
     <ClInclude Include="include\Definitions.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Action\Strategy.h">
-      <Filter>Action</Filter>
-    </ClInclude>
-    <ClInclude Include="Action\Tactics.h">
-      <Filter>Action</Filter>
-    </ClInclude>
-    <ClInclude Include="Action\SpecialTactics.h">
-      <Filter>Action</Filter>
     </ClInclude>
     <ClInclude Include="GUI\ProgressBar.h">
       <Filter>GUIChan</Filter>
@@ -207,9 +195,6 @@
     </ClInclude>
     <ClInclude Include="Inventory\ItemDef.h">
       <Filter>Inventory</Filter>
-    </ClInclude>
-    <ClInclude Include="Action\Seek.h">
-      <Filter>Action</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -308,9 +293,6 @@
     </ClCompile>
     <ClCompile Include="Quest\Quests.cpp">
       <Filter>Quests</Filter>
-    </ClCompile>
-    <ClCompile Include="Action\Tactics.cpp">
-      <Filter>Action</Filter>
     </ClCompile>
     <ClCompile Include="ScriptAPI.cpp">
       <Filter>Source Files</Filter>

@@ -67,7 +67,7 @@ void		Behaviour::UpdateActions(float elapsedTime)
 		else
 		{
 			// Продолжаем
-			mActionMask |= (*it)->GetMask();
+			//mActionMask |= (*it)->GetMask();
 			++it;
 		}
 	}

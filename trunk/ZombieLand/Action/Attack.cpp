@@ -11,7 +11,7 @@ namespace action
 		mSound = 0;
 		mDistance = 1.0f;
 		mWidth = 0.5f;
-		mDoingTime = 1.0f;
+		SetDuration(1.0f);
 		mDamage = 10;
 	}
 

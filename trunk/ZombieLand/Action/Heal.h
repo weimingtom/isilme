@@ -6,13 +6,13 @@
 
 namespace action
 {
-	class Heal : public SpecialAction<behaviour::Creature>
+	class Heal : public Action
 	{
 	public: 
 		Heal();
 		virtual ~Heal();
 
-		virtual void UpdateOnDoing(float elapsedTime);
+		virtual void OnUpdate(float elapsedTime);
 
 		virtual void OnStart();
 

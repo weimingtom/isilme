@@ -15,16 +15,6 @@
 #include "Camera.h"
 #include "Collisions.h"
 
-namespace RayCast
-{
-	enum Mode
-	{
-		Nearest = 0,
-		All = 1,
-		Any = 2
-	};
-};
-
 /// @class Level
 /// Сцена уровня.
 /// Сцена уровня содержит несколько слоев, на которых располагаются объекты и камеру.

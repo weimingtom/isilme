@@ -6,7 +6,7 @@
 
 namespace action
 {
-class Wind : public SpecialAction<behaviour::Creature>, public b2QueryCallback
+class Wind : public Action
 {
 	public:
 		Wind();
@@ -14,12 +14,10 @@ class Wind : public SpecialAction<behaviour::Creature>, public b2QueryCallback
 
 		virtual void OnStart();
 
-		virtual void UpdateOnDoing(float elapsedTIme);
+		virtual void OnUpdate(float elapsedTIme);
 
 		void	SetSound(std::string sound);
-
-		virtual bool ReportFixture(b2Fixture* fixture);
-
+		
 		void	SetCost(float energy);
 
 		float	GetCost();

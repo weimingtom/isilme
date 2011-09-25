@@ -7,8 +7,7 @@ namespace action
 	{
 		mSpeed = 20.0f;
 		mCost = 40.0f;
-		mDoingTime = 1.0f;
-		mEndingTime = 0.5f;
+		SetDuration(1.0f);
 	}
 
 	Heal::~Heal()
@@ -22,16 +21,11 @@ namespace action
 
 	void	Heal::OnStart()
 	{
-		if (GetBehaviour()->GetEnergy() < mCost)
-		{
-			Stop();
-			return;
-		}
-		GetBehaviour()->SetEnergy(GetBehaviour()->GetEnergy() - mCost);
+
 	}
 
-	void Heal::UpdateOnDoing(float elapsedTime)
+	void Heal::OnUpdate(float elapsedTime)
 	{
-		GetBehaviour()->SetHealth(GetBehaviour()->GetHealth() + mSpeed * elapsedTime);
+		GetEntity()->As<behaviour::Creature>()->SetHealth(GetEntity()->As<behaviour::Creature>()->GetHealth() + mSpeed * elapsedTime);
 	}
 };

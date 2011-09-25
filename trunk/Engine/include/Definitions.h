@@ -40,10 +40,10 @@ class IStrategy;
 typedef boost::shared_ptr<IStrategy> StrategyPtr;
 typedef boost::weak_ptr<IStrategy> StrategyWPtr;
 
-class IAction;
+//class IAction;
 class Action;
-typedef boost::shared_ptr<IAction> ActionPtr;
-typedef boost::weak_ptr<IAction> ActionWPtr;
+typedef boost::shared_ptr<Action> ActionPtr;
+typedef boost::weak_ptr<Action> ActionWPtr;
 typedef std::set<ActionPtr>	ActionSet;
 
 class ActionManager;

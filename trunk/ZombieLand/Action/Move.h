@@ -3,11 +3,10 @@
 
 #include <Isilme.h>
 #include "Definitions.h"
-#include <Engine/Action/SpecialTactics.h>
 
 namespace action
 {
-	class Move : public SpecialTactics<behaviour::Creature>
+	class Move : public Action
 	{
 	public:
 		Move();
@@ -17,9 +16,10 @@ namespace action
 		void	SetSpeed(float speed);
 		void	SetSound(std::string sound);
 	protected:
-		virtual void OnThink(float elapsedTime);
+		virtual void OnUpdate(float elapsedTime);
 		virtual void OnStart();
 		virtual void OnDone();
+		virtual void OnForceStop();
 	private:
 		float mSpeed;
 		HEFFECT mSound;

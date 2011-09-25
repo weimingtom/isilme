@@ -3,12 +3,11 @@
 
 #include <Isilme.h>
 #include "Definitions.h"
-#include <Engine/Action/SpecialAction.h>
 #include "ZombieLand/Behaviour/Destroyable.h"
 
 namespace action
 {
-	class Die : public action::SpecialAction<behaviour::Destroyable>
+	class Die : public Action
 	{
 	public:
 		Die();

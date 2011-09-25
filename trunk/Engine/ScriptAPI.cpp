@@ -168,11 +168,8 @@ namespace ScriptAPI
 				.enum_("constants")
 				[
 					luabind::value("Ready", action::Ready),
-					luabind::value("Beginnig", action::Beginning),
 					luabind::value("Done", action::Done),
-					luabind::value("Doing", action::Doing),
-					luabind::value("Ending", action::Ending),
-					luabind::value("Failed", action::Failed)
+					luabind::value("Doing", action::Doing)
 				]
 			];
 

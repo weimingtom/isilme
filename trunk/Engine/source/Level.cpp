@@ -1,6 +1,16 @@
 ﻿#include "Isilme.h"
 #include "Joints.h"
 
+namespace RayCast
+{
+	enum Mode
+	{
+		Nearest = 0,
+		All = 1,
+		Any = 2
+	};
+};
+
 class RayQueryImpl : public b2RayCastCallback
 {
 public:
@@ -95,6 +105,7 @@ public:
 
 	virtual ~AABBQueryImpl()
 	{
+		mEnties = 0;
 	}
 
 	bool	Execute(EntityList* entities)

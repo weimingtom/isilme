@@ -54,7 +54,7 @@ namespace inventory
 	void	Spell::SetAction(ActionPtr action)
 	{
 		mAction = action;
-		SetUsingTime(action->GetDoingTime());
+		SetUsingTime(action->GetDuration());
 		SetReloadingTime(0.0f);
 	}
 

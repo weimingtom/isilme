@@ -7,8 +7,8 @@ namespace action
 {
 	UseItem::UseItem(inventory::ItemPtr item)
 	{
-		SetDoingTime(item->GetUsingTime());
-		SetEndingTime(item->GetReloadingTime());
+		SetDuration(item->GetUsingTime() + item->GetReloadingTime());
+		//SetEndingTime(item->GetReloadingTime());
 		mItem = item;
 	}
 
@@ -39,8 +39,8 @@ namespace action
 			inventory::ItemPtr item = mInventory->GetSlot(mSlot);
 			if (item != 0)
 			{
-				SetDoingTime(item->GetUsingTime());
-				SetEndingTime(item->GetReloadingTime());
+				SetDuration(item->GetUsingTime() + item->GetReloadingTime());
+				//SetEndingTime(item->GetReloadingTime());
 				item->UseBy(GetActor());
 			}
 		}
