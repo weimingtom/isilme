@@ -38,7 +38,7 @@ void	ScriptAPI::RegisterAPI()
 	// Класс игрока
 	luabind::module(state)
 	[
-		luabind::class_<behaviour::Activator, luabind::bases<Behaviour>, BehaviourPtr>("Behaviour")
+		luabind::class_<behaviour::Activator, luabind::bases<Behaviour>, BehaviourPtr>("Activator")
 	];
 	luabind::module(state)
 	[
@@ -47,16 +47,21 @@ void	ScriptAPI::RegisterAPI()
 		.def("SetHealth", &behaviour::Destroyable::SetHealth)
 	];
 
+	// Creature
 	luabind::module(state)
 		[
 			luabind::class_<behaviour::Creature, luabind::bases<behaviour::Destroyable>, behaviour::CreaturePtr>("Creature")
 			.def("GetInventory", &behaviour::Creature::GetInventory)
+			.def("GetRank", &behaviour::Creature::GetRank)
+			.def("SetRank", &behaviour::Creature::SetRank)
 		];
-	luabind::module(state)
-		[
-			luabind::class_<behaviour::Player, luabind::bases<behaviour::Creature>, behaviour::PlayerPtr>("Player")
-			.def("GetActor", &behaviour::Player::GetActor)
-		];
+
+	//// Depricated: Player
+	//luabind::module(state)
+	//	[
+	//		luabind::class_<behaviour::Player, luabind::bases<behaviour::Creature>, behaviour::PlayerPtr>("Player")
+	//		.def("GetActor", &behaviour::Player::GetActor)
+	//	];
 	
 			// Story
 

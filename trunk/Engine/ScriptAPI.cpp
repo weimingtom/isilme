@@ -11,6 +11,7 @@
 #include "Inventory/Inventory.h"
 #include "Inventory/Item.h"
 #include <luabind/operator.hpp>
+#include "Fraction.h"
 
 namespace ScriptAPI
 {
@@ -215,6 +216,14 @@ namespace ScriptAPI
 				.def("DestroyEntity", (void(FactoryManager::*)(EntityPtr))&FactoryManager::DestroyEntity)
 				.def("DestroyEntity", (void(FactoryManager::*)(std::string))&FactoryManager::DestroyEntity)
 				.def("GetEntity", &FactoryManager::GetEntity)
+			];
+
+		// Fraction
+		luabind::module(state)
+			[
+				luabind::class_<Fraction, FractionPtr>("Fraction")
+				.def("GetID", &Fraction::GetID)
+				.def("GetName", &Fraction::GetName)
 			];
 
 		luabind::module(state)

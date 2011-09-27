@@ -5,6 +5,8 @@
 #include "ZombieLand/Action/UseItem.h"
 #include "ZombieLand/Items/Weapon.h"
 #include "Engine/Inventory/Item.h"
+#include "Engine/include/Fraction.h"
+#include "Engine/include/Rank.h"
 
 namespace behaviour
 {
@@ -155,4 +157,21 @@ namespace behaviour
 		}
 	}
 
+	int	Creature::GetRank(FractionPtr fraction)
+	{
+		std::map<FractionPtr, int>::iterator it = mFractions.find(fraction);
+		if (it == mFractions.end())
+		{
+			return 0;
+		}
+		else
+		{
+			return it->second;
+		}
+	}
+
+	void Creature::SetRank(FractionPtr fraction, int rank)
+	{
+		mFractions[fraction] = rank;
+	}
 };

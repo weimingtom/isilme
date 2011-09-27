@@ -101,6 +101,7 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Config.h" />
     <ClInclude Include="Graphics\Animation.h" />
     <ClInclude Include="Graphics\Particles.h" />
     <ClInclude Include="Graphics\SpecialGraphics.h" />
@@ -120,6 +121,7 @@
     <ClInclude Include="include\Entity.h" />
     <ClInclude Include="include\EntityDefinition.h" />
     <ClInclude Include="include\FactoryManager.h" />
+    <ClInclude Include="include\Fraction.h" />
     <ClInclude Include="include\Game.h" />
     <ClInclude Include="include\Graphics.h" />
     <ClInclude Include="include\GraphicsFactory.h" />
@@ -130,6 +132,7 @@
     <ClInclude Include="include\Level.h" />
     <ClInclude Include="include\LevelLoaders.h" />
     <ClInclude Include="include\LogoState.h" />
+    <ClInclude Include="include\Rank.h" />
     <ClInclude Include="include\Renderer.h" />
     <ClInclude Include="include\ResourceManager.h" />
     <ClInclude Include="include\Schemas.h" />
@@ -176,6 +179,7 @@
     <ClCompile Include="source\Entity.cpp" />
     <ClCompile Include="source\EntityDefinition.cpp" />
     <ClCompile Include="source\FactoryManager.cpp" />
+    <ClCompile Include="source\Fraction.cpp" />
     <ClCompile Include="source\Game.cpp" />
     <ClCompile Include="source\Graphics.cpp" />
     <ClCompile Include="source\GraphicsFactory.cpp" />
@@ -187,6 +191,7 @@
     <ClCompile Include="source\Layer.cpp" />
     <ClCompile Include="source\Level.cpp" />
     <ClCompile Include="source\LevelLoaders.cpp" />
+    <ClCompile Include="source\Rank.cpp" />
     <ClCompile Include="source\Renderer.cpp" />
     <ClCompile Include="source\ResourceManager.cpp" />
     <ClCompile Include="source\Schemas.cpp" />

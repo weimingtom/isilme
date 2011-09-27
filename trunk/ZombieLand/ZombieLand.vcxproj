@@ -154,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action\Attack.h" />
+    <ClInclude Include="Action\Control.h" />
     <ClInclude Include="Action\Die.h" />
     <ClInclude Include="Action\Heal.h" />
     <ClInclude Include="Action\Move.h" />

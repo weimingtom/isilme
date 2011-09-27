@@ -155,6 +155,9 @@
     <ClInclude Include="LootTable.h">
       <Filter>Inventory</Filter>
     </ClInclude>
+    <ClInclude Include="Action\Control.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Data\Entities.xml">

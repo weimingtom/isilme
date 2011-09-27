@@ -40,6 +40,7 @@ namespace behaviour
 		/// Перезарядка активного оружия
 		ActionPtr	GetReloadAction();
 
+		/// Использование способности
 		ActionPtr	GetSpellAction();
 
 		action::AttackPtr GetAttackAction();
@@ -48,23 +49,43 @@ namespace behaviour
 
 		void	RotateToPoint(Vector2 position);
 
+		/// Устанавливает запас энергии
 		void	SetEnergy(float energy);
 
+		/// Возвращает запас энергии
 		float	GetEnergy();
 
+		/// Устанавливает максимальный запас энергии
 		void	SetMaxEnergy(float energy);
 
+		/// Возвращает максимальный запас энергии
 		float	GetMaxEnergy();
 
+		/// Возвращает снаряжение
 		inventory::InventoryPtr	GetInventory();
+
+		/// Возвращает ранг во фракции
+		int GetRank(FractionPtr fraction);
+
+		/// Возвращает ранг во фракции 
+		//int GetRank(std::string fractionID);
+
+		/// Устанавливает ранг
+		void	SetRank(FractionPtr fraction, int rank);
+
+		/// Устанавливает ранг
+		//void	SetRank(std::string fractionID, int rank);		
 	protected:
+		std::map<FractionPtr, int>	mFractions;
 		action::MovePtr	mMoveAction;
 		action::MovePtr	mMoveBack;
 		ActionPtr	mShotAction;
 		ActionPtr	mReloadAction;
 		ActionPtr	mSpellAction;
 		action::AttackPtr mAttack;
+
 		inventory::InventoryPtr	mInventory;
+		
 
 		float	mEnergy;
 		float	mMaxEnergy;

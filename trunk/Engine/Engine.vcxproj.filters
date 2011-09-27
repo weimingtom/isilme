@@ -196,6 +196,15 @@
     <ClInclude Include="Inventory\ItemDef.h">
       <Filter>Inventory</Filter>
     </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Fraction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Rank.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Camera.cpp">
@@ -323,6 +332,12 @@
     </ClCompile>
     <ClCompile Include="Inventory\ItemDef.cpp">
       <Filter>Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Fraction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Rank.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

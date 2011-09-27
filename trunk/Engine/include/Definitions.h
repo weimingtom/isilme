@@ -145,6 +145,17 @@ namespace inventory
 	typedef boost::weak_ptr<Inventory> InventoryWPtr;
 };
 
+class Fraction;
+typedef boost::shared_ptr<Fraction> FractionPtr;
+typedef boost::weak_ptr<Fraction> FractionWptr;
+
+class Rank;
+typedef boost::shared_ptr<Rank> RankPtr;
+typedef boost::weak_ptr<Rank> RankWPtr;
+class FractionManager;
+class FractionInfo;
+typedef boost::shared_ptr<FractionInfo> FractionInfoPtr;
+
 typedef std::list<SensorPtr> SensorList;
 
 typedef std::list<std::string>					StringList;
