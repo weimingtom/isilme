@@ -71,6 +71,9 @@
     <ClCompile Include="LootTable.cpp">
       <Filter>Inventory</Filter>
     </ClCompile>
+    <ClCompile Include="Action\MoveTo.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Configuration.h" />
@@ -158,6 +161,9 @@
     <ClInclude Include="Action\Control.h">
       <Filter>Actions</Filter>
     </ClInclude>
+    <ClInclude Include="Action\MoveTo.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Data\Entities.xml">
@@ -187,6 +193,7 @@
     <None Include="..\Data\Loot.xml">
       <Filter>Data</Filter>
     </None>
+    <None Include="cd.cd" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Actions">

@@ -12,15 +12,19 @@ namespace action
 		Move();
 		virtual ~Move();
 
-		float	GetSpeed();
-		void	SetSpeed(float speed);
 		void	SetSound(std::string sound);
+
+		/// Возвращает направление движения
+		float	GetAngle();
+
+		void	SetAngle(float angle);
 	protected:
 		virtual void OnUpdate(float elapsedTime);
 		virtual void OnStart();
 		virtual void OnDone();
 		virtual void OnForceStop();
 	private:
+		float	mAngle;
 		float mSpeed;
 		HEFFECT mSound;
 		HCHANNEL mChannel;

@@ -74,8 +74,15 @@ namespace behaviour
 		void	SetRank(FractionPtr fraction, int rank);
 
 		/// Устанавливает ранг
-		//void	SetRank(std::string fractionID, int rank);		
+		//void	SetRank(std::string fractionID, int rank);	
+
+		/// Возвращает значение атрибута
+		float		GetAttribute(Attribute attr);
+
+		/// Устанваливает значение атрибута
+		void	SetAttribute(Attribute attr, float value);
 	protected:
+		std::map<Attribute, float> mAttributes;
 		std::map<FractionPtr, int>	mFractions;
 		action::MovePtr	mMoveAction;
 		action::MovePtr	mMoveBack;

@@ -56,6 +56,15 @@ namespace action
 	typedef boost::shared_ptr<Shild> ShildPtr;
 };
 
+enum Attribute
+{
+	Health = 0,
+	Speed = 1,
+	Accuracy = 2,
+	Endurance = 3,
+	Energy = 4
+};
+
 namespace state
 {
 	class Play;

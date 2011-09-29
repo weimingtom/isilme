@@ -13,10 +13,10 @@ namespace behaviour
 	Creature::Creature(CreatureDef* def) : Destroyable(def)
 	{
 		mMoveAction = action::MovePtr(new action::Move());
-		mMoveAction->SetSpeed(3.0f);
+		SetAttribute(Speed, 3);
 
 		mMoveBack = action::MovePtr(new action::Move());
-		mMoveBack->SetSpeed(-2.0f);
+		//mMoveBack->SetSpeed(-2.0f);
 
 		mAttack = action::AttackPtr(new action::Attack());
 
@@ -35,6 +35,16 @@ namespace behaviour
 
 	Creature::~Creature()
 	{
+	}
+
+	float	Creature::GetAttribute(Attribute attr)
+	{
+		return mAttributes[attr];
+	}
+
+	void	Creature::SetAttribute(Attribute attr, float value)
+	{
+		mAttributes[attr] = value;
 	}
 
 	ActionPtr	Creature::GetSpellAction()

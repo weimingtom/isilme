@@ -109,6 +109,7 @@
     <ClCompile Include="Action\Die.cpp" />
     <ClCompile Include="Action\Heal.cpp" />
     <ClCompile Include="Action\Move.cpp" />
+    <ClCompile Include="Action\MoveTo.cpp" />
     <ClCompile Include="Action\Shild.cpp" />
     <ClCompile Include="Action\UseItem.cpp" />
     <ClCompile Include="Action\Wind.cpp" />
@@ -151,6 +152,7 @@
     <None Include="..\Data\Scripts\Level1.lua" />
     <None Include="..\Data\Scripts\script.lua" />
     <None Include="..\Data\Scripts\Triggers.lua" />
+    <None Include="cd.cd" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action\Attack.h" />
@@ -158,6 +160,7 @@
     <ClInclude Include="Action\Die.h" />
     <ClInclude Include="Action\Heal.h" />
     <ClInclude Include="Action\Move.h" />
+    <ClInclude Include="Action\MoveTo.h" />
     <ClInclude Include="Action\Pursue.h" />
     <ClInclude Include="Action\Seek.h" />
     <ClInclude Include="Action\Shild.h" />

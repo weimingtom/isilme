@@ -20,25 +20,23 @@ namespace action
 		mSound = Engine::GetSingleton()->GetResourceManager()->GetEffect(sound);
 	}
 
-	void	Move::SetSpeed(float speed)
-	{
-		mSpeed = speed;
-	}
-
-	float	Move::GetSpeed()
-	{
-		return mSpeed;
-	}
-
 	void	Move::OnForceStop()
 	{
 		OnDone();
 	}
 
+	void	Move::SetAngle(float angle)
+	{
+		mAngle = angle;
+	}
+
 	void	Move::OnUpdate(float elapsedTime)
 	{
 		EntityPtr e = GetEntity();
-		Vector2 v(cos(e->GetAngle()) * mSpeed , sin(e->GetAngle()) * mSpeed);
+		float da = 0.0f;
+		float ds = 1.0f;
+
+		Vector2 v(cos(mAngle) * mSpeed * ds , sin(mAngle) * mSpeed * ds);
 
 		b2Body* body = ((Box2DBody*)e->GetBody())->GetBox2DBody();
 
@@ -61,6 +59,8 @@ namespace action
 	void	Move::OnStart()
 	{
 		mChannel = Engine::GetSingleton()->GetSoundSystem()->PlayEffect(mSound, true);
+
+		mSpeed = GetEntity()->As<behaviour::Creature>()->GetAttribute(Speed);
 	}
 
 	void	Move::OnDone()

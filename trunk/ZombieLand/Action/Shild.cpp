@@ -28,9 +28,9 @@ namespace action
 	void Shild::OnStart()
 	{
 		mOldResistance = GetEntity()->As<behaviour::Destroyable>()->GetResistance();
-		mOldSpeed = GetEntity()->As<behaviour::Creature>()->GetMoveAction()->GetSpeed();
+//		mOldSpeed = GetEntity()->As<behaviour::Creature>()->GetMoveAction()->GetSpeed();
 		GetEntity()->As<behaviour::Destroyable>()->SetResistance(1.0f);
-		GetEntity()->As<behaviour::Creature>()->GetMoveAction()->SetSpeed(mOldSpeed * 0.8f);
+	//	GetEntity()->As<behaviour::Creature>()->GetMoveAction()->SetSpeed(mOldSpeed * 0.8f);
 
 		GraphicsPtr g = FactoryManager::GetSingleton()->CreateGraphics("Effects/Shild");
 		GetEntity()->GetGraphics()->Attach("ShildEffect", g);
@@ -40,6 +40,6 @@ namespace action
 	{
 		GetEntity()->GetGraphics()->Remove("ShildEffect");
 		GetEntity()->As<behaviour::Creature>()->SetResistance(mOldResistance);
-		GetEntity()->As<behaviour::Creature>()->GetMoveAction()->SetSpeed(mOldSpeed);
+	//	GetEntity()->As<behaviour::Creature>()->GetMoveAction()->SetSpeed(mOldSpeed);
 	}
 }

@@ -15,7 +15,7 @@ namespace behaviour
 	Zombie::Zombie(ZombieDef* def) : Creature(def)
 	{
 		SetUsable(false);
-		mMoveAction->SetSpeed(1.5f);
+		SetAttribute(Speed, 1.5);
 		GetDieAction()->SetSound("../Data/Sounds/Zombie/Die.wav");
 
 		SetHitSound("../Data/Sounds/Zombie/Hit.wav");
@@ -37,6 +37,8 @@ namespace behaviour
 		Creature::Think(elapsedTime);
 
 		EntityPtr player = FactoryManager::GetSingleton()->GetEntity("Player");
+
+		GetMoveAction()->SetAngle(GetActor()->GetAngleTo(player));
 
 		Vector2 p = player->GetPosition();
 
