@@ -60,6 +60,7 @@ void	ZombieLand::Init()
 	factoryManager->RegisterItem("Ammo", inventory::ItemFactory<inventory::AmmoDef>::New());
 	factoryManager->RegisterItem("Spell", inventory::ItemFactory<inventory::SpellDef>::New());
 
+	factoryManager->LoadDataFile("../Data/Master.xml");
 	factoryManager->LoadItems("../Data/Items.xml");
 
 	LootManager::GetSingleton()->Load("../Data/Loot.xml");

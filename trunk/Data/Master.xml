@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataFile Module="Master" Version="0.3">
+  <Fractions>
+    <Fraction
+      ID="Player"
+      Name="Player">
+      <Rank
+        ID="1">
+      </Rank>
+    </Fraction>
+    <Fraction
+      ID="Zombie"
+      Name="Zombie">
+      <Rank
+        ID="1"
+        Title="Weak zombie">
+      </Rank>
+    </Fraction>
+    <Relations>
+      <Relation
+        FractionA="Player"
+        FractionB="Zombie"
+        AttitudeAB="-100"
+        AttitudeBA="-100">
+      </Relation>
+    </Relations>
+  </Fractions>
+</DataFile>

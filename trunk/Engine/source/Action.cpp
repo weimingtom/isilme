@@ -115,6 +115,7 @@ void	Action::UpdateChildActions(float elapsedTime)
 	while (it != mChildActions.end())
 	{
 		(*it)->Update(elapsedTime);
+		OnChildUpdated(*it, elapsedTime);
 
 		if (!(*it)->IsActive())
 		{
@@ -147,6 +148,10 @@ void	Action::OnUpdate(float elapsedTime)
 }
 
 void	Action::OnForceStop()
+{
+}
+
+void	Action::OnChildUpdated(ActionPtr childAction, float elapsedTime)
 {
 }
 

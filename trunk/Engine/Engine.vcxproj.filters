@@ -30,9 +30,6 @@
     <Filter Include="Quests">
       <UniqueIdentifier>{e958e960-2e7b-409c-a216-f7edd4dd0876}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game">
-      <UniqueIdentifier>{c1703a33-d638-466e-8143-79bbc37485d7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Inventory">
       <UniqueIdentifier>{244e1285-30b3-461c-97bf-06af855a3ab6}</UniqueIdentifier>
     </Filter>
@@ -203,6 +200,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Rank.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Log.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

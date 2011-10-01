@@ -131,6 +131,7 @@
     <ClInclude Include="include\Layer.h" />
     <ClInclude Include="include\Level.h" />
     <ClInclude Include="include\LevelLoaders.h" />
+    <ClInclude Include="include\Log.h" />
     <ClInclude Include="include\LogoState.h" />
     <ClInclude Include="include\Rank.h" />
     <ClInclude Include="include\Renderer.h" />

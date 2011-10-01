@@ -1,5 +1,6 @@
 ﻿#include "Isilme.h"
 #include "Engine/ScriptAPI.h"
+#include "Log.h"
 
 Engine* Engine::mInstance = 0;
 

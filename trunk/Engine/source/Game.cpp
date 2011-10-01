@@ -52,6 +52,7 @@ void	HGEGame::InitEngine()
 	Engine::GetSingleton()->SetInputSystem(new HGEInputSystem(mHGE));
 	Engine::GetSingleton()->SetResourceManager(new HGEResourceManager(mHGE));
 	Engine::GetSingleton()->SetSoundSystem(new HGESoundSystem(mHGE));
+	Engine::GetSingleton()->mHGE = mHGE;
 
 	// Инициализация менеджера состояний
 	GetStateManager()->SetRenderer(new HGERenderer(mHGE));

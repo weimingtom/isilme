@@ -6,6 +6,7 @@
 ///
 class IsilmeExport Fraction
 {
+	friend class FactoryManager;
 public:
 	Fraction();
 	virtual ~Fraction();
@@ -18,10 +19,13 @@ public:
 
 	/// Возвращает название фракции
 	std::string GetName();
+
+	/// Возвращает отношение к фракции
+	int	GetAttitudeTo(FractionPtr fraction);
+
 private:
 	std::string mID;
 	std::string mName;
 	std::map<int, RankPtr> mRanks;
 };
-
 #endif

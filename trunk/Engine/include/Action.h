@@ -13,47 +13,6 @@ namespace action
 	};
 };
 
-///// Интерфейс действия
-///// /// @depricated
-//class IAction
-//{
-//	friend class Behaviour;
-//public:
-//	/// Начало действия
-//	virtual void OnStart() = 0;
-//
-//	/// Завершение действия
-//	virtual void OnDone() = 0;
-//
-//	/// Итерация действия
-//	virtual bool Update(float elapsedTime) = 0;
-//
-//	/// Выполняется в момент начала действия
-//	virtual void Stop() = 0;
-//
-//	/// Возвращает состояние действия
-//	virtual action::ActionState GetState() = 0;
-//
-//	/// @depricated
-//	virtual unsigned long GetMask() = 0;
-//
-//	/// Проверяе активно ли действие
-//	virtual bool IsActive() = 0;
-//
-//	/// Возвращает родительское действие
-//	virtual ActionPtr	GetParent() = 0;
-//
-//	virtual void	SetParent(ActionPtr parent) = 0;
-//
-//	virtual float	GetDoingTime() = 0;
-//
-//
-//protected:
-//	/// Вызывается из Behaviour владельца
-//	virtual void	OnStart(BehaviourPtr behaviour) = 0;
-//
-//};
-
 /// @class Action
 /// Класс описывает действие, совершаемое игровым объектом
 class IsilmeExport  Action : public boost::enable_shared_from_this<Action>
@@ -68,13 +27,20 @@ public:
 	//	- false, если действие завершилось или перезаряжается
 	virtual bool		Update(float elapsedTime);
 
+	/// Вызывается каждую итерацию
 	virtual void		OnUpdate(float elapsedTime);
 
+	/// Вызывается когда действие начинае выполнение
 	virtual void		OnStart();
 
+	/// Вызывается когда действие принудительно останавливается
 	virtual void		OnForceStop();
 
+	/// Вызывается когда действие успешно заканчивается
 	virtual void		OnDone();
+
+	/// Обратная связь для дочерних дейсвтий
+	virtual void		OnChildUpdated(ActionPtr childAction, float elapsedTime);
 
 	/// Получает уровень
 	LevelPtr			GetLevel();

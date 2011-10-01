@@ -148,6 +148,7 @@ namespace inventory
 class Fraction;
 typedef boost::shared_ptr<Fraction> FractionPtr;
 typedef boost::weak_ptr<Fraction> FractionWptr;
+typedef std::map<std::string, FractionPtr> FractionMap;
 
 class Rank;
 typedef boost::shared_ptr<Rank> RankPtr;

@@ -14,6 +14,7 @@ class IsilmeExport Engine
 {
 public:
 	/// Возвращает Lua
+	/// @depricated
 	/// @return Lua* 
 	Lua*					GetLua();
 
@@ -56,11 +57,12 @@ public:
 	/// При уничтожении экзэмпляра движка, звуковая подсистема также уничтожается
 	/// @param soundSystem SoundSystem* звуковая подсистема
 	void					SetSoundSystem(SoundSystem* soundSystem);
+
+	HGE* mHGE;
 private:
 	Engine();
 	virtual ~Engine();
 
-	HGE* mHGE;
 	/// @depricated
 	State*					mLogo;
 

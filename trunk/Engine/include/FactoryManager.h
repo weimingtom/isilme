@@ -74,7 +74,17 @@ public:
 	/// Регистрирует новый тип камеры
 	void			RegisterCamera(std::string type, ICameraFactory* factory);
 
+	/// Созадет графику
 	GraphicsPtr		CreateGraphics(std::string tag);
+
+	/// Возвращает фракцию по идентификатору
+	FractionPtr		GetFraction(std::string fractionID);
+
+	/// Загружает файл данных - палитры, объекты, уровни, квесты, предметы, лут, все в одном файле
+	void			LoadDataFile(std::string fileName);
+
+	/// Загружает описание фракций
+	void			LoadFractions(TiXmlElement* element);
 protected:	
 	/// Создает сущность из определения
 	EntityPtr			CreateEntity(EntityDefPtr definition, std::string name, LevelPtr level);
@@ -106,7 +116,8 @@ private:
 	// Созданные объекты
 	EntityMap		mCreatedEntities;
 
-
+	// Фракции
+	FractionMap		mFractions;
 	//////////////////////////////////////////////////////
 
 	FactoryManager();

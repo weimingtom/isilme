@@ -74,6 +74,9 @@
     <ClCompile Include="Action\MoveTo.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="Action\Wander.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Configuration.h" />
@@ -164,6 +167,12 @@
     <ClInclude Include="Action\MoveTo.h">
       <Filter>Actions</Filter>
     </ClInclude>
+    <ClInclude Include="Action\Hunt.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\Wander.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Data\Entities.xml">
@@ -194,6 +203,9 @@
       <Filter>Data</Filter>
     </None>
     <None Include="cd.cd" />
+    <None Include="..\Data\Master.xml">
+      <Filter>Data</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Actions">

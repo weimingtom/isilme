@@ -112,6 +112,7 @@
     <ClCompile Include="Action\MoveTo.cpp" />
     <ClCompile Include="Action\Shild.cpp" />
     <ClCompile Include="Action\UseItem.cpp" />
+    <ClCompile Include="Action\Wander.cpp" />
     <ClCompile Include="Action\Wind.cpp" />
     <ClCompile Include="Behaviour\Activator.cpp" />
     <ClCompile Include="Behaviour\Bullet.cpp" />
@@ -148,6 +149,7 @@
     <None Include="..\Data\Items.xml" />
     <None Include="..\Data\Levels\Level1.xml" />
     <None Include="..\Data\Loot.xml" />
+    <None Include="..\Data\Master.xml" />
     <None Include="..\Data\Quests\Story1.xml" />
     <None Include="..\Data\Scripts\Level1.lua" />
     <None Include="..\Data\Scripts\script.lua" />
@@ -159,12 +161,14 @@
     <ClInclude Include="Action\Control.h" />
     <ClInclude Include="Action\Die.h" />
     <ClInclude Include="Action\Heal.h" />
+    <ClInclude Include="Action\Hunt.h" />
     <ClInclude Include="Action\Move.h" />
     <ClInclude Include="Action\MoveTo.h" />
     <ClInclude Include="Action\Pursue.h" />
     <ClInclude Include="Action\Seek.h" />
     <ClInclude Include="Action\Shild.h" />
     <ClInclude Include="Action\UseItem.h" />
+    <ClInclude Include="Action\Wander.h" />
     <ClInclude Include="Action\Wind.h" />
     <ClInclude Include="Behaviour\Activator.h" />
     <ClInclude Include="Behaviour\Bullet.h" />

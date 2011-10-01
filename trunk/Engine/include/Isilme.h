@@ -23,6 +23,7 @@
 #include "Graphics.h"
 #include "Level.h"
 #include "Layer.h"
+#include "Log.h"
 #include "Renderer.h"
 #include "ResourceManager.h"
 #include "Sensor.h"

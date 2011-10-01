@@ -4,6 +4,8 @@
 #include "Engine/Inventory/Item.h"
 #include "Engine/Inventory/ItemDef.h"
 #include "Engine/Inventory/ItemFactory.h"
+#include "Fraction.h"
+#include "Rank.h"
 
 
 FactoryPtr FactoryManager::mInstance;
@@ -214,6 +216,7 @@ GraphicsDefPtr FactoryManager::LoadGraphics(TiXmlElement* element)
 	else
 	{
 		// Какой-то хлам, вывести сообщение о незарегистрированном типе
+		LOG_W("Graphics type %s is not registred", type.c_str());
 	}
 
 	return def;
@@ -262,4 +265,89 @@ void			FactoryManager::LoadEntities(std::string fileName)
 void	FactoryManager::CreateJoint(JointDefPtr def)
 {
 	//return new Joint(def);
+}
+
+FractionPtr		FactoryManager::GetFraction(std::string fractionID)
+{
+	return mFractions[fractionID];
+}
+
+void			FactoryManager::LoadDataFile(std::string fileName)
+{
+	LOG_M("Loading data file %s", fileName.c_str());
+
+	// Открываем документ
+	TiXmlDocument* document = new TiXmlDocument();
+	document->LoadFile(fileName.data());
+
+	TiXmlElement* root = document->RootElement();
+
+	// Загружаем фракции
+	TiXmlElement* fractionsElement = root->FirstChildElement("Fractions");
+	if (fractionsElement)
+		LoadFractions(fractionsElement);
+
+	// Загружаем квесты
+	// Загружаем предметы
+	// Загружаем графику
+	// Загружаем поведение
+
+	// закрываем документ
+	delete document;
+}
+
+void			FactoryManager::LoadFractions(TiXmlElement* element)
+{
+	// Загружаем фракции
+	TiXmlElement* fractionElement = element->FirstChildElement("Fraction");
+
+	while (fractionElement)
+	{
+		// Читаем аттрибуты
+		const char* idAttr = fractionElement->Attribute("ID");
+		const char* nameAttr = fractionElement->Attribute("Name");
+
+		if (idAttr)
+		{
+			FractionPtr fraction(new Fraction());
+
+			// Идентификатор фракции
+			fraction->mID = idAttr;
+
+			// Название фракции
+			fraction->mName = nameAttr ? nameAttr : "";
+
+			// Ранги
+			TiXmlElement* rankElement = fractionElement->FirstChildElement("Rank");
+			while (rankElement)
+			{
+				int rankID = 0;
+				rankElement->QueryIntAttribute("ID", &rankID);
+
+				if (rankID)
+				{
+					RankPtr rank(new Rank());
+					rank->mID = rankID;
+
+					fraction->mRanks[rankID] = rank;
+				}
+				else
+				{
+					LOG_W("Rank of %s fraction has no ID", idAttr);
+				}
+				rankElement = rankElement->NextSiblingElement("Rank");
+			}
+
+			// Запоминаем фракцию
+			mFractions[fraction->mID] = fraction;
+		}
+		else
+		{
+			LOG_W("Fraction has no ID");
+		}
+
+		fractionElement = fractionElement->NextSiblingElement("Fraction");
+	}
+
+	// Загружаем отношения между фракциями
 }

@@ -5,6 +5,7 @@
 
 class IsilmeExport Rank
 {
+	friend class FactoryManager;
 public:
 	Rank();
 	virtual ~Rank();
