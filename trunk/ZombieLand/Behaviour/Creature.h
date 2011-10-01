@@ -68,19 +68,22 @@ namespace behaviour
 		int GetRank(FractionPtr fraction);
 
 		/// Возвращает ранг во фракции 
-		//int GetRank(std::string fractionID);
+		int GetRank(std::string fractionID);
 
 		/// Устанавливает ранг
 		void	SetRank(FractionPtr fraction, int rank);
 
 		/// Устанавливает ранг
-		//void	SetRank(std::string fractionID, int rank);	
+		void	SetRank(std::string fractionID, int rank);	
 
 		/// Возвращает значение атрибута
 		float		GetAttribute(Attribute attr);
 
 		/// Устанваливает значение атрибута
 		void	SetAttribute(Attribute attr, float value);
+
+		/// Возвращает отношение к другому персонажу
+		int		GetAttitudeTo(CreaturePtr creature);
 	protected:
 		std::map<Attribute, float> mAttributes;
 		std::map<FractionPtr, int>	mFractions;

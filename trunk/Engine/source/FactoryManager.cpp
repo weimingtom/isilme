@@ -298,6 +298,7 @@ void			FactoryManager::LoadDataFile(std::string fileName)
 
 void			FactoryManager::LoadFractions(TiXmlElement* element)
 {
+	std::map<std::pair<std::string, std::string>, int> relations;
 	// Загружаем фракции
 	TiXmlElement* fractionElement = element->FirstChildElement("Fraction");
 
@@ -338,6 +339,22 @@ void			FactoryManager::LoadFractions(TiXmlElement* element)
 				rankElement = rankElement->NextSiblingElement("Rank");
 			}
 
+			// Отношения
+			TiXmlElement* attitudeElement = fractionElement->FirstChildElement("Attitude");
+			while (attitudeElement)
+			{
+				const char* otherFraction = attitudeElement->Attribute("Fraction");
+				int attitude = 0;
+				attitudeElement->QueryIntAttribute("Value", &attitude);
+
+				if (otherFraction)
+				{
+					relations[std::pair<std::string, std::string>(fraction->GetID(), otherFraction)] = attitude;
+				}
+
+				attitudeElement = attitudeElement->NextSiblingElement("Attitude");
+			}
+
 			// Запоминаем фракцию
 			mFractions[fraction->mID] = fraction;
 		}
@@ -350,4 +367,18 @@ void			FactoryManager::LoadFractions(TiXmlElement* element)
 	}
 
 	// Загружаем отношения между фракциями
+	for (std::map<std::pair<std::string, std::string>, int>::iterator it = relations.begin(); it != relations.end(); ++it)
+	{
+		FractionPtr f1 = GetFraction(it->first.first);
+		FractionPtr f2 = GetFraction(it->first.second);
+
+		if (!f2)
+		{
+			LOG_W("Cannot set attitude to %s. Fraction doesn\'t exist", it->first.second.c_str());
+		}
+		else
+		{
+			f1->SetAttitudeTo(f2, it->second);
+		}
+	}
 }

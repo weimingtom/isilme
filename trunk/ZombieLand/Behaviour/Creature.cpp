@@ -180,8 +180,38 @@ namespace behaviour
 		}
 	}
 
+	int	Creature::GetRank(std::string fractionID)
+	{
+		return GetRank(FactoryManager::GetSingleton()->GetFraction(fractionID));
+	}
+
 	void Creature::SetRank(FractionPtr fraction, int rank)
 	{
 		mFractions[fraction] = rank;
+	}
+
+	void Creature::SetRank(std::string fractionID, int rank)
+	{
+		SetRank(FactoryManager::GetSingleton()->GetFraction(fractionID), rank);
+	}
+
+	int Creature::GetAttitudeTo(CreaturePtr other)
+	{
+		int attitude = 100;
+
+		for (std::map<FractionPtr, int>::iterator it1 = mFractions.begin(); it1 != mFractions.end(); ++it1)
+		{
+			for (std::map<FractionPtr, int>::iterator it2 = other->mFractions.begin(); it2 != other->mFractions.end(); ++it2)
+			{
+				int a = it1->first->GetAttitudeTo(it2->first);
+				if (a < attitude)
+					attitude = a;
+			}
+		}
+
+		if (mFractions.size() == 0)
+			attitude = 0;
+
+		return attitude;
 	}
 };

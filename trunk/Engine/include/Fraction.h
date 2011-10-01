@@ -23,9 +23,12 @@ public:
 	/// Возвращает отношение к фракции
 	int	GetAttitudeTo(FractionPtr fraction);
 
+	/// Устанавливает отношение к другой фракции
+	void SetAttitudeTo(FractionPtr fraction, int value);
 private:
 	std::string mID;
 	std::string mName;
 	std::map<int, RankPtr> mRanks;
+	std::map<FractionPtr, int> mAttitude;
 };
 #endif

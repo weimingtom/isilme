@@ -52,8 +52,10 @@ void	ScriptAPI::RegisterAPI()
 		[
 			luabind::class_<behaviour::Creature, luabind::bases<behaviour::Destroyable>, behaviour::CreaturePtr>("Creature")
 			.def("GetInventory", &behaviour::Creature::GetInventory)
-			.def("GetRank", &behaviour::Creature::GetRank)
-			.def("SetRank", &behaviour::Creature::SetRank)
+			.def("GetRank", (int (behaviour::Creature::*)(FractionPtr))&behaviour::Creature::GetRank)
+			.def("SetRank", (void (behaviour::Creature::*)(FractionPtr, int))&behaviour::Creature::SetRank)
+			.def("GetRank", (int (behaviour::Creature::*)(std::string))&behaviour::Creature::GetRank)
+			.def("SetRank", (void (behaviour::Creature::*)(std::string, int))&behaviour::Creature::SetRank)
 		];
 
 	//// Depricated: Player

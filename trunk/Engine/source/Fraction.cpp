@@ -30,3 +30,13 @@ std::string Fraction::GetName()
 {
 	return mName;
 }
+
+int	Fraction::GetAttitudeTo(FractionPtr fraction)
+{
+	return mAttitude[fraction];
+}
+
+void	Fraction::SetAttitudeTo(FractionPtr fraction, int value)
+{
+	mAttitude[fraction] = value;
+}

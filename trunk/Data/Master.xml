@@ -7,6 +7,8 @@
       <Rank
         ID="1">
       </Rank>
+      <Attitude Fraction="Zombie" Value="-100"></Attitude>
+      <Attitude Fraction="Police" Value="0"></Attitude>
     </Fraction>
     <Fraction
       ID="Zombie"
@@ -15,14 +17,7 @@
         ID="1"
         Title="Weak zombie">
       </Rank>
+      <Attitude Fraction="Player" Value="-100"></Attitude>
     </Fraction>
-    <Relations>
-      <Relation
-        FractionA="Player"
-        FractionB="Zombie"
-        AttitudeAB="-100"
-        AttitudeBA="-100">
-      </Relation>
-    </Relations>
   </Fractions>
 </DataFile>
