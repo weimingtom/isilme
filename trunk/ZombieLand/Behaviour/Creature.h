@@ -10,6 +10,13 @@
 
 namespace behaviour
 {
+	struct FractionInfo
+	{
+	public:
+		std::string id;
+		int	rank;
+	};
+
 	class CreatureDef : public DestroyableDef
 	{
 	public:
@@ -17,11 +24,18 @@ namespace behaviour
 
 		virtual void Parse(TiXmlElement* element);
 
+		/// Чтение информации о фракциях
+		void	ParseFractions(TiXmlElement* fractionsElement);
+
+		/// Чтение пактов ИИ
+		void	ParseAI(TiXmlElement* AIElement);
+
 		float	Energy;
 		float	MaxEnergy;
 		float	EnergyRestoration;
 
 		luabind::object OnThink;
+		std::list<FractionInfo> Fractions;
 	};
 
 	class Creature : public Destroyable
@@ -61,9 +75,6 @@ namespace behaviour
 		/// Возвращает максимальный запас энергии
 		float	GetMaxEnergy();
 
-		/// Возвращает снаряжение
-		inventory::InventoryPtr	GetInventory();
-
 		/// Возвращает ранг во фракции
 		int GetRank(FractionPtr fraction);
 
@@ -94,7 +105,6 @@ namespace behaviour
 		ActionPtr	mSpellAction;
 		action::AttackPtr mAttack;
 
-		inventory::InventoryPtr	mInventory;
 		
 
 		float	mEnergy;

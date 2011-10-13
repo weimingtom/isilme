@@ -8,6 +8,8 @@
 
 namespace inventory
 {
+
+/// Класс инвентаря
 class IsilmeExport Inventory : public boost::enable_shared_from_this<Inventory>
 {
 public:
@@ -48,5 +50,6 @@ private:
 	std::map<Item::Slot, ItemPtr>	mSlots;
 	ItemsList	mItems;
 };
+
 };
 #endif

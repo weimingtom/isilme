@@ -7,6 +7,14 @@
 
 namespace behaviour
 {
+	struct ItemInfo
+	{
+	public:
+		std::string tag;
+		int			ammo;
+		bool		equip;
+	};
+
 	class DestroyableDef : public BehaviourDefinition
 	{
 	public:
@@ -15,11 +23,15 @@ namespace behaviour
 		virtual BehaviourPtr Create();
 		virtual void Parse(TiXmlElement* element);
 
+		/// Чтение данных инвентаря
+		void	ParseInventory(TiXmlElement* inventoryElement);
+
 		float	Health;
 		float	MaxHealth;
 		float	Resistance;
 		std::string Blood;
 		std::string Loot;
+		std::list<ItemInfo>	Items;
 	};
 
 	class Destroyable : public Activator
@@ -55,8 +67,12 @@ namespace behaviour
 
 		void	SetHitSound(std::string sound);
 
+		/// Возвращает снаряжение
+		inventory::InventoryPtr	GetInventory();
+		
 		void	SetBloodEntity(std::string blood);
 
+		/// Таблица выпадающих предметов 
 		LootTablePtr GetLootTable();
 	protected:
 	private:
@@ -68,6 +84,7 @@ namespace behaviour
 		HEFFECT mHitSound;
 		std::string mBlood;
 		std::string mLoot;
+		inventory::InventoryPtr	mInventory;
 	};
 
 };

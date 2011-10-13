@@ -77,6 +77,9 @@
     <ClCompile Include="Action\Wander.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="Action\AttackTarget.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Configuration.h" />
@@ -161,9 +164,6 @@
     <ClInclude Include="LootTable.h">
       <Filter>Inventory</Filter>
     </ClInclude>
-    <ClInclude Include="Action\Control.h">
-      <Filter>Actions</Filter>
-    </ClInclude>
     <ClInclude Include="Action\MoveTo.h">
       <Filter>Actions</Filter>
     </ClInclude>
@@ -171,6 +171,15 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="Action\Wander.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\AttackTarget.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\ControlKeyMouse.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="ControlPad.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>

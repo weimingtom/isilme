@@ -6,7 +6,7 @@
 
 namespace action
 {
-	/// ”парвление персонажем
+	/// ”парвление персонажем посредством клаиатуры и мыши
 	class Control : public Action
 	{
 	public:

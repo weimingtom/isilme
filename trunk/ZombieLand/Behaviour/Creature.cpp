@@ -25,7 +25,6 @@ namespace behaviour
 		mMaxEnergy = def->MaxEnergy;
 		mEnergyResoration = def->EnergyRestoration;
 
-		mInventory = inventory::Inventory::New();
 		mShotAction = action::UseItem::New(inventory::Item::Weapon, GetInventory());
 		mReloadAction = action::UseItem::New(inventory::Item::Ammo, GetInventory());
 		mSpellAction = action::UseItem::New(inventory::Item::Spell, GetInventory());
@@ -55,11 +54,6 @@ namespace behaviour
 	ActionPtr	Creature::GetReloadAction()
 	{
 		return mReloadAction;
-	}
-
-	inventory::InventoryPtr	Creature::GetInventory()
-	{
-		return mInventory;
 	}
 
 	void	Creature::SetMaxEnergy(float energy)
@@ -114,6 +108,43 @@ namespace behaviour
 		{
 			OnThink = ScriptAPI::MakeFunction("me, elapsedTime", element->Attribute("OnThink"));
 		}
+
+		/// Фракции
+		TiXmlElement* fractionsElement = element->FirstChildElement("Fractions");
+		ParseFractions(fractionsElement);
+
+		/// ИИ
+		TiXmlElement* AIElement = element->FirstChildElement("AI");
+		ParseAI(AIElement);
+	}
+
+	void	CreatureDef::ParseFractions(TiXmlElement* fractionsElement)
+	{
+		if (!fractionsElement)
+			return;
+
+		TiXmlElement* fractionElement = fractionsElement->FirstChildElement("Fraction");
+		while (fractionElement)
+		{
+			const char* idAttr = fractionElement->Attribute("ID");
+			if (idAttr)
+			{
+				FractionInfo f;
+				f.id = idAttr;
+				f.rank = 1;
+				fractionElement->QueryIntAttribute("Rank", &f.rank);
+
+				Fractions.push_back(f);
+			}
+
+			fractionElement = fractionElement->NextSiblingElement("Fraction");
+		}
+	}
+
+	void	CreatureDef::ParseAI(TiXmlElement* AIElement)
+	{
+		if (!AIElement)
+			return;
 	}
 
 	action::MovePtr	Creature::GetMoveAction()

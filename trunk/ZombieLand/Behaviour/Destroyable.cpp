@@ -2,6 +2,9 @@
 #include "Zombie.h"
 #include "Destroyable.h"
 #include "ZombieLand/LootTable.h"
+#include "Engine/include/FactoryManager.h"
+#include "Engine/Inventory/Inventory.h"
+#include "Engine/Inventory/Item.h"
 
 namespace behaviour
 {
@@ -24,15 +27,49 @@ namespace behaviour
 		if (element == 0)
 			return;
 
+		/// Загружаем базовые характеристики
 		element->QueryFloatAttribute("Health", &Health);
 		element->QueryFloatAttribute("MaxHealth", &MaxHealth);
 		element->QueryFloatAttribute("Resistance", &Resistance);
 
+		///
 		char* blood = const_cast<char*>(element->Attribute("Blood"));
 		Blood = blood ? blood : "";
 
+		/// Загружаем инвентарь
+		TiXmlElement* inventoryElement = element->FirstChildElement("Inventory");
+		ParseInventory(inventoryElement);
+
+		/// Загружаем таблицу лута
 		if (element->Attribute("Loot"))
 			Loot = element->Attribute("Loot");
+	}
+
+	void	DestroyableDef::ParseInventory(TiXmlElement* inventoryELement)
+	{
+		if (!inventoryELement)
+			return;
+
+		TiXmlElement* itemElement = inventoryELement->FirstChildElement("Item");
+		while (itemElement)
+		{
+			const char* tagAttr = itemElement->Attribute("Tag");
+			if (tagAttr)
+			{
+				ItemInfo item;
+				item.tag = tagAttr;
+				item.ammo = 1;
+
+				itemElement->QueryIntAttribute("Ammo", &item.ammo);
+				int equip = 0;
+				itemElement->QueryIntAttribute("Equip", &equip);
+				item.equip = equip != 0;
+
+				Items.push_back(item);
+			}
+
+			itemElement = itemElement->NextSiblingElement("Item");
+		}
 	}
 
 	Destroyable::Destroyable(DestroyableDef* def)
@@ -45,10 +82,33 @@ namespace behaviour
 		mLoot = def->Loot;
 
 		mDieAction = action::DiePtr(new action::Die());
+
+		/// Инвентарь
+		mInventory = inventory::Inventory::New();
+		for (std::list<ItemInfo>::iterator it = def->Items.begin(); it != def->Items.end(); ++it)
+		{
+			inventory::ItemPtr item = FactoryManager::GetSingleton()->CreateItem(it->tag);
+			if (item)
+			{
+				item->SetAmmo(it->ammo);
+				mInventory->AddItem(item);
+				if (it->equip)
+					mInventory->Equip(item);
+			}
+			else
+			{
+				
+			}
+		}
 	}
 
 	Destroyable::~Destroyable()
 	{
+	}
+	
+	inventory::InventoryPtr	Destroyable::GetInventory()
+	{
+		return mInventory;
 	}
 
 	LootTablePtr Destroyable::GetLootTable()
