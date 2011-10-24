@@ -36,6 +36,7 @@ namespace behaviour
 
 		luabind::object OnThink;
 		std::list<FractionInfo> Fractions;
+		std::list<std::string> AIPackages;
 	};
 
 	class Creature : public Destroyable
@@ -95,9 +96,23 @@ namespace behaviour
 
 		/// Возвращает отношение к другому персонажу
 		int		GetAttitudeTo(CreaturePtr creature);
+
+		/// Добавляет пакет ИИ
+		void	AddAIPackage(AIPackagePtr package, int priority = 0);
+
+		/// Добавляет пакет ИИ по идентификатору
+		void	AddAIPackage(std::string packageID, int priority = 0);
+
+		/// Удаляет пакет ИИ
+		void	RemoveAIPackage(AIPackagePtr package);
 	protected:
+		/// Атрибуты персонажда
 		std::map<Attribute, float> mAttributes;
+
+		/// Фракции персонажа
 		std::map<FractionPtr, int>	mFractions;
+
+		/// Состояния
 		action::MovePtr	mMoveAction;
 		action::MovePtr	mMoveBack;
 		ActionPtr	mShotAction;
@@ -106,12 +121,17 @@ namespace behaviour
 		action::AttackPtr mAttack;
 
 		
-
+		/// Характеристи
 		float	mEnergy;
 		float	mMaxEnergy;
 		float	mEnergyResoration;
 
+		/// Скрипт итерации 
+		/// @depricated
 		luabind::object	onThink; // onThink(me, elapsedTime)
+		
+		/// Список активных пакетов ИИ
+		AIPackageList	mAIPackages;
 	};
 
 };

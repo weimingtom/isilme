@@ -1,6 +1,7 @@
-
 #include "Isilme.h"
 #include "GraphicsFactory.h"
+#include "AIPackageFactory.h"
+#include "AIPackage.h"
 #include "Engine/Inventory/Item.h"
 #include "Engine/Inventory/ItemDef.h"
 #include "Engine/Inventory/ItemFactory.h"
@@ -32,6 +33,48 @@ FactoryPtr FactoryManager::GetSingleton()
 	if (mInstance == 0)
 		mInstance = FactoryPtr(new FactoryManager());
 	return mInstance;
+}
+
+AIPackagePtr	FactoryManager::GetAIPackage(std::string id)
+{
+	return AIPackagePtr();
+}
+
+void	FactoryManager::LoadAIPackages(TiXmlElement* element)
+{
+	TiXmlElement* packageElement = element->FirstChildElement();
+	while (packageElement)
+	{
+		std::string packageType = packageElement->Value();
+
+		AIPackageFactoryPtr factory = mAIFactories[packageType];
+		if (factory)
+		{
+			const char* idAttr = packageElement->Attribute("ID");
+			if (idAttr)
+			{
+				std::string id = idAttr;
+				AIPackagePtr package = factory->CreatePackage();
+				package->Parse(packageElement);
+				mAIPackages[id] = package;
+			}
+			else
+			{
+				LOG_D("ID was not specified for AI package");
+			}
+		}
+		else
+		{
+			LOG_D("AI Package type %s not found", packageType.c_str());
+		}
+
+		packageElement = packageElement->NextSiblingElement();
+	}
+}
+
+void	FactoryManager::RegisterAIPackage(std::string type, AIPackageFactoryPtr factory)
+{
+	mAIFactories[type] = factory;
 }
 
 inventory::ItemPtr	FactoryManager::CreateItem(std::string tag)

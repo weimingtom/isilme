@@ -39,6 +39,11 @@ public:
 	/// Зарегистрировать тип предмета
 	void			RegisterItem(std::string type, inventory::ItemFactoryPtr factory);
 
+	void			RegisterAIPackage(std::string type, AIPackageFactoryPtr factory);
+
+	/// Возвращает ИИ-пакет
+	AIPackagePtr	GetAIPackage(std::string type);
+
 	/// Создать предмет
 	inventory::ItemPtr	CreateItem(std::string tag);
 
@@ -85,6 +90,9 @@ public:
 
 	/// Загружает описание фракций
 	void			LoadFractions(TiXmlElement* element);
+
+	/// Загружает пакеты AI
+	void			LoadAIPackages(TiXmlElement* element);
 protected:	
 	/// Создает сущность из определения
 	EntityPtr			CreateEntity(EntityDefPtr definition, std::string name, LevelPtr level);
@@ -118,6 +126,12 @@ private:
 
 	// Фракции
 	FractionMap		mFractions;
+
+	/// Пакеты ИИ
+	AIPackageMap	mAIPackages;
+
+	/// Фабрики пакетов ИИ отображение тип-фабрика
+	AIFactoryMap	mAIFactories;
 	//////////////////////////////////////////////////////
 
 	FactoryManager();

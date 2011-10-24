@@ -7,6 +7,7 @@
 #include "Engine/Inventory/Item.h"
 #include "Engine/include/Fraction.h"
 #include "Engine/include/Rank.h"
+#include "Engine/include/AIPackage.h"
 
 namespace behaviour
 {
@@ -30,6 +31,12 @@ namespace behaviour
 		mSpellAction = action::UseItem::New(inventory::Item::Spell, GetInventory());
 
 		onThink = def->OnThink;
+
+		// Пакеты ИИ
+		for (std::list<std::string>::iterator it = def->AIPackages.begin(); it != def->AIPackages.end(); ++it)
+		{
+			AddAIPackage(*it);
+		}
 	}
 
 	Creature::~Creature()
@@ -111,11 +118,13 @@ namespace behaviour
 
 		/// Фракции
 		TiXmlElement* fractionsElement = element->FirstChildElement("Fractions");
-		ParseFractions(fractionsElement);
+		if (fractionsElement)
+			ParseFractions(fractionsElement);
 
 		/// ИИ
 		TiXmlElement* AIElement = element->FirstChildElement("AI");
-		ParseAI(AIElement);
+		if (AIElement)
+			ParseAI(AIElement);
 	}
 
 	void	CreatureDef::ParseFractions(TiXmlElement* fractionsElement)
@@ -145,6 +154,17 @@ namespace behaviour
 	{
 		if (!AIElement)
 			return;
+
+		TiXmlElement* packageElement = AIElement->FirstChildElement("Package");
+		while (packageElement)
+		{
+			const char* idAttr = packageElement->Attribute("ID");
+
+			if (idAttr)
+				AIPackages.push_back(idAttr);
+
+			packageElement = packageElement->NextSiblingElement("Package");
+		}
 	}
 
 	action::MovePtr	Creature::GetMoveAction()
@@ -244,5 +264,23 @@ namespace behaviour
 			attitude = 0;
 
 		return attitude;
+	}
+
+	void	Creature::AddAIPackage(AIPackagePtr package, int priority)
+	{
+		mAIPackages.push_back(package);
+	}
+
+	void	Creature::AddAIPackage(std::string packageID, int priority)
+	{
+		AIPackagePtr package = FactoryManager::GetSingleton()->GetAIPackage(packageID);
+		if (package)
+		{
+			AddAIPackage(package, priority);
+		}
+		else
+		{
+			LOG_W("AI package %s not found", packageID.c_str());
+		}
 	}
 };

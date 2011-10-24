@@ -211,7 +211,6 @@
     <None Include="..\Data\Loot.xml">
       <Filter>Data</Filter>
     </None>
-    <None Include="cd.cd" />
     <None Include="..\Data\Master.xml">
       <Filter>Data</Filter>
     </None>

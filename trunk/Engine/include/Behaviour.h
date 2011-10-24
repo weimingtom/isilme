@@ -48,19 +48,54 @@ public:
 
 	/// Начать выполнениние действия
 	void			StartAction(ActionPtr action);
+
+	/// Добавляет действие как состояние конечного автомата
+	void			AddState(int stateID, ActionPtr action);
+
+	/// Возвращает состояние конечного автомата
+	bool			InState(int stateID);
+
+	/// Устанавливает возможность перехода в состояние
+	void			SetSwitchEnabled(int fromStateID, int toStateID, bool isEnabled);
+
+	/// Перевести конечный автомат в указанное состояние
+	void			SetState(int stateID);
+
+	/// Разрешить или запретить параллельное выполнение действий (например идти и стрелять)
+	void			SetParallelEnabled(int stateID, int otherStateID, bool isEnabled);
 protected:
 	Behaviour();
 
 	/// Устанавливает группу поведения
 	void			SetGroup(unsigned long group);
 private:
-	/// Группа поведения
+	typedef std::pair<int, int> StatePair;
+	typedef std::map<StatePair, bool>	StateRelationsMap;
+	typedef std::map<int, ActionPtr> StateMap;
+	typedef std::set<int> StateSet;
+	
+	/// Текущие состояния
+	StateSet	mCurrentStates;
+
+	/// Карта состояний состояние-действий
+	StateMap	mStatesMap;
+
+	/// Карта переходов
+	StateRelationsMap mSwitchMap;
+
+	/// Карта параллельных состояний
+	StateRelationsMap mParallelMap;
+
+	/// Группа поведения @depricated
 	unsigned long	mGroup;
 
 	unsigned long	mActionMask;
 
 	/// Список активных действий
 	ActionList		mActiveActions;
+
+	/// Активные пакеты ИИ
+	AIPackageList	mActivePackages;
 
 	/// Сущность
 	EntityWPtr			mActor;

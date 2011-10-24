@@ -157,6 +157,14 @@ class FractionManager;
 class FractionInfo;
 typedef boost::shared_ptr<FractionInfo> FractionInfoPtr;
 
+class AIPackage;
+typedef boost::shared_ptr<AIPackage>	AIPackagePtr;
+typedef std::list<AIPackagePtr>			AIPackageList;
+typedef std::map<std::string, AIPackagePtr> AIPackageMap;
+class IAIPackageFactory;
+typedef boost::shared_ptr<IAIPackageFactory> AIPackageFactoryPtr;
+typedef std::map<std::string, AIPackageFactoryPtr> AIFactoryMap;
+
 typedef std::list<SensorPtr> SensorList;
 
 typedef std::list<std::string>					StringList;
