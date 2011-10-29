@@ -95,7 +95,14 @@
       Health="40" 
       Resistance="0" 
       Blood="Blood"
-      OnThink="me:GetActor():SetAngle(me:GetActor():GetAngleTo(Player:GetActor()));"></Behaviour>
+      OnThink="me:GetActor():SetAngle(me:GetActor():GetAngleTo(Player:GetActor()));">
+      <Attributes>
+        
+      </Attributes>
+      <AI>
+        <Package ID="Wander"></Package>
+      </AI>
+    </Behaviour>
   </Entity>
   
 	<Entity Type="Blood" Graphics="Blood"></Entity>

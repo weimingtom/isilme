@@ -88,3 +88,26 @@ bool		Behaviour::IsActive()
 {
 	return isActive;
 }
+
+void	BehaviourDefinition::Parse(TiXmlElement* element)
+{
+	if (!element)
+		return;
+	/// Считываем аттрибуты объекта
+	TiXmlElement* attributesElement = element->FirstChildElement("Attributes");
+	if (attributesElement)
+		ParseAttributes(attributesElement);
+
+	/// Считываем пакеты ИИ
+	TiXmlElement* aiElement = element->FirstChildElement("AI");
+	if (aiElement)
+		ParseAIPackages(aiElement);
+}
+
+void	BehaviourDefinition::ParseAttributes(TiXmlElement* attributesElement)
+{
+}
+
+void	BehaviourDefinition::ParseAIPackages(TiXmlElement* aiElement)
+{
+}

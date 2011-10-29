@@ -117,7 +117,7 @@ protected:
 
 /// class BehaviourDefinition
 /// Определяет параметры поведения объекта
-class BehaviourDefinition
+class IsilmeExport BehaviourDefinition
 {
 public:
 	BehaviourDefinition()
@@ -128,7 +128,13 @@ public:
 	{
 	}
 
-	virtual void Parse(TiXmlElement* element) {}
+	virtual void Parse(TiXmlElement* element);
+
+	/// Считывает список аттрибутов
+	void	ParseAttributes(TiXmlElement* attributesElement);
+
+	/// Считывает описание ИИ
+	void	ParseAIPackages(TiXmlElement* aiElement);
 
 	virtual BehaviourPtr Create() {return Behaviour::New();}
 protected:
@@ -142,7 +148,7 @@ public:
 	virtual BehaviourDefPtr LoadDefinition(TiXmlElement* element) = 0;
 };
 
-template<class T>
+template<class T = BehaviourDefinition>
 class BehaviourFactory : public IBehaviourFactory
 {
 public:

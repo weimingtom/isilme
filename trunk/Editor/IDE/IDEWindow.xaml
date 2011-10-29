@@ -1,0 +1,60 @@
+﻿<Window x:Class="IDE.IDEWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ad="clr-namespace:AvalonDock;assembly=AvalonDock"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24" />
+            <RowDefinition Height="34*" />
+            <RowDefinition Height="229*" />
+            <RowDefinition Height="24" />
+        </Grid.RowDefinitions>
+        <ToolBarTray Grid.Row="1" Grid.RowSpan="2" Name="mToolBarTray" Margin="0,0,0,261" />
+        <Menu Margin="0,1,0,0" Name="mMainMenu" >
+            <MenuItem Header="File" Name="mFileMenu">
+                <MenuItem Header="New" Name="mFileNewMenu" Click="onNewModule_Click"></MenuItem>
+                <MenuItem Header="Open" Name="mFileOpenMenu" Click="onOpenModule_CLick"></MenuItem>
+                <MenuItem Header="Save" Name="mFileSaveMenu" Click="onSave_Click"></MenuItem>
+                <MenuItem Header="Save as" Name="mFileSaveAsMenu" Click="onSaveAs_Click"></MenuItem>
+                <MenuItem Header="Save all" Name="mFIleSaveAlMenu" Click="onSaveAll_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Edit" Name="mEditMenu">
+                <MenuItem Header="Undo" Name="mEditUndoMenu" Click="onUndo_Click"></MenuItem>
+                <MenuItem Header="Redo" Name="mEditRedoMenu" Click="onRedo_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Window" Name="mWindowMenu" ItemsSource="{Binding}">
+                <MenuItem.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Title}"/>
+                    </DataTemplate>
+                </MenuItem.ItemTemplate>
+            </MenuItem>
+            <MenuItem Header="Tools" Name="mToolsMenu">
+                <MenuItem 
+                    Header="Tools" 
+                    Name="mToolWindowsMenu" 
+                    ItemsSource="{Binding}"
+                    Click="onToolWindowsMenu_Click">
+                    <MenuItem.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Title}"/>
+                        </DataTemplate>
+                    </MenuItem.ItemTemplate>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <StatusBar Grid.Row="3" Name="mStatusBar" />
+        <ad:DockingManager Grid.Row="2" Name="mDockingManager" >
+
+        </ad:DockingManager>
+        <ToolBarTray Grid.Row="1" Name="mToolbarTray">
+            <ToolBar Name="mMainToolbar">
+                <Button Content="Save" Name="mSave" Click="onSave_Click"></Button>
+                <Button Content="SaveAll" Name="mSaveAll" Click="onSaveAll_Click"></Button>
+                <Button Content="Undo" Name="mUndo" Click="onUndo_Click"></Button>
+                <Button Content="Redo" Name="mRedo" Click="onRedo_Click"></Button>
+            </ToolBar>
+        </ToolBarTray>
+    </Grid>
+</Window>
