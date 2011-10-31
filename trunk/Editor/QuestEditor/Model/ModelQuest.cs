@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Collections.ObjectModel;
 
 namespace QuestEditor.Models
 {
@@ -11,7 +12,7 @@ namespace QuestEditor.Models
 
         public ModelQuest()
         {
-            Stages = new List<ModelStage>();
+            Stages = new ObservableCollection<ModelStage>();
         }
 
         #endregion
@@ -36,7 +37,7 @@ namespace QuestEditor.Models
             set;
         }
 
-        public List<ModelStage> Stages
+        public ObservableCollection<ModelStage> Stages
         {
             get;
             set;

@@ -101,7 +101,6 @@
     <Compile Include="Views\QuestEditorWindow.xaml.cs">
       <DependentUpon>QuestEditorWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\QuestNode.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

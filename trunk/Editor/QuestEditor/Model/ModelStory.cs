@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using System.Xml.Linq;
+using System.Collections.ObjectModel;
 
 namespace QuestEditor.Models
 {
@@ -32,7 +33,7 @@ namespace QuestEditor.Models
     {
         #region Members
 
-        List<ModelQuest> mQuests = new List<ModelQuest>();
+        ObservableCollection<ModelQuest> mQuests = new ObservableCollection<ModelQuest>();
 
         #endregion
 
@@ -46,7 +47,7 @@ namespace QuestEditor.Models
 
         #region Prperties
 
-        public List<ModelQuest> Quests
+        public ObservableCollection<ModelQuest> Quests
         {
             get
             {

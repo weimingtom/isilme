@@ -7,11 +7,33 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <TreeView Margin="6,32,12,8" Name="treeView1" />
+        <Grid.Resources>
+            <!-- Шаблон отображения истории -->
+            <HierarchicalDataTemplate
+                x:Key="StoryTemplate"
+                ItemsSource="{Binding Path=Quests}">
+                <TextBlock Text="История"></TextBlock>
+            </HierarchicalDataTemplate>
+
+            <!-- Шаблон отображения стадий -->
+            <HierarchicalDataTemplate
+                x:Key="StageTemplate">
+                <TextBlock Text="{Binding Path=ID}"></TextBlock>
+            </HierarchicalDataTemplate>
+            <!-- Шаблон отображения квеста -->
+            <HierarchicalDataTemplate
+                x:Key="QuestTemplate"
+                ItemsSource="{Binding Path=Stages}"
+                ItemTemplate="{StaticResource ResourceKey=StageTemplate}">
+                <TextBlock Text="{Binding Path=Title}"></TextBlock>
+            </HierarchicalDataTemplate>
+        </Grid.Resources>
+        <TreeView Margin="6,32,12,8" Name="mStoryTreeView" ItemsSource="{Binding Path=Quests}" ItemTemplate="{StaticResource ResourceKey=QuestTemplate}">
+        </TreeView>
         <ToolBar Height="26" Name="toolBar1" VerticalAlignment="Top" >
-            <Button Content="Quest" Name="mAddQuest"></Button>
-            <Button Content="Stage" Name="mAddStage"></Button>
-            <Button Content="Remove" Name="mRemove"></Button>
+            <Button Content="Quest" Name="mAddQuest" Click="onAddQuest"></Button>
+            <Button Content="Stage" Name="mAddStage" Click="onAddStage"></Button>
+            <Button Content="Remove" Name="mRemove" Click="onRemoveNode"></Button>
         </ToolBar>
     </Grid>
 </cm:EditorWindow>
