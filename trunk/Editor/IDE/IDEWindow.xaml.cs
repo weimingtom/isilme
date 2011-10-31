@@ -16,6 +16,9 @@ using Common;
 using Common.Views;
 using IDE.Views;
 using Microsoft.Win32;
+using System.IO;
+using System.Reflection;
+using System.Windows.Markup;
 
 namespace IDE
 {
@@ -61,6 +64,7 @@ namespace IDE
 
         public IDEWindow()
         {
+            QuestEditor.Models.ModelQuest q = new QuestEditor.Models.ModelQuest();
             InitializeComponent();
 
             mToolWindowsMenu.DataContext = mTools;
@@ -68,10 +72,22 @@ namespace IDE
 
             AddToolWindow(mPropertiesWindow);
             AddToolWindow(mModuleManager);
+            
 
             AddEditorWindow(new EditorWindow() { FileName = "1.txt"});
             AddEditorWindow(new EditorWindow() { FileName="test.txt"});
+            AddEditorWindow(new LuaEditor.Views.LuaEditorWindow() { FileName = "test.lua" });
             AddEditorWindow(new QuestEditor.Views.QuestEditorWindow() { FileName="story.txt"});
+
+            ToolBar tb = LuaEditor.Resources.getToolbar();
+            if (tb != null)
+                mToolbarTray.ToolBars.Add(tb);
+
+            Stream s = typeof(QuestEditor.Views.QuestEditorWindow).Assembly.GetManifestResourceStream("QuestEditor.Views.QuestToolbar.xaml");
+
+            tb = QuestEditor.Views.QuestEditorWindow.getToolbar();
+            if (tb != null)
+                mToolbarTray.ToolBars.Add(tb);
         }
 
         #region Methods
@@ -92,6 +108,12 @@ namespace IDE
             mOpendDocuments.Add(window);
             window.ShowAsDocument(mDockingManager);
             window.Activate();
+            window.SelectionChanged += new EditorSelectionEventHandler(onEditor_SelectionChanged);
+        }
+
+        void onEditor_SelectionChanged(object sender, EditorSelectionEventArgs args)
+        {
+            mPropertiesWindow.SelectedObject = args.SelectedObject;
         }
 
         #endregion

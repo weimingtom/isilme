@@ -128,6 +128,10 @@
       <Project>{5592A221-47A5-4489-9E70-081F66F2AD7D}</Project>
       <Name>Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LuaEditor\LuaEditor.csproj">
+      <Project>{C1A65C3D-CEEF-4F10-BEC3-AB182E7E45E3}</Project>
+      <Name>LuaEditor</Name>
+    </ProjectReference>
     <ProjectReference Include="..\QuestEditor\QuestEditor.csproj">
       <Project>{4B1BD7BB-01FF-45D7-863E-A97CC106B1CE}</Project>
       <Name>QuestEditor</Name>

@@ -4,8 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:cm="clr-namespace:Common.Views;assembly=CommonLibrary"
+                 xmlns:local="clr-namespace:QuestEditor.Views"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <cm:EditorWindow.CommandBindings>
+        <CommandBinding CanExecute="CanExecuteAddQuestCommand" Executed="ExecutedAddQuestCommand" Command="{x:Static local:QuestEditorWindow.AddQuest}"></CommandBinding>
+    </cm:EditorWindow.CommandBindings>
     <Grid>
         <Grid.Resources>
             <!-- Шаблон отображения истории -->
@@ -28,10 +32,15 @@
                 <TextBlock Text="{Binding Path=Title}"></TextBlock>
             </HierarchicalDataTemplate>
         </Grid.Resources>
-        <TreeView Margin="6,32,12,8" Name="mStoryTreeView" ItemsSource="{Binding Path=Quests}" ItemTemplate="{StaticResource ResourceKey=QuestTemplate}">
+        <TreeView 
+            Margin="6,32,12,8" 
+            Name="mStoryTreeView" 
+            ItemsSource="{Binding Path=Quests}" 
+            ItemTemplate="{StaticResource ResourceKey=QuestTemplate}"
+            SelectedItemChanged="onStoryTreeView_SelectedItemChanged">
         </TreeView>
         <ToolBar Height="26" Name="toolBar1" VerticalAlignment="Top" >
-            <Button Content="Quest" Name="mAddQuest" Click="onAddQuest"></Button>
+            
             <Button Content="Stage" Name="mAddStage" Click="onAddStage"></Button>
             <Button Content="Remove" Name="mRemove" Click="onRemoveNode"></Button>
         </ToolBar>

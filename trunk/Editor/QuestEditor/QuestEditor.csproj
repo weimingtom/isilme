@@ -101,6 +101,9 @@
     <Compile Include="Views\QuestEditorWindow.xaml.cs">
       <DependentUpon>QuestEditorWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\QuestToolbar.xaml.cs">
+      <DependentUpon>QuestToolbar.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -175,6 +178,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\QuestEditorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\QuestToolbar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

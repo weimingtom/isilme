@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AvalonDock;
 using Common.Views;
+using Common;
 
 namespace IDE.Views
 {
@@ -31,6 +32,18 @@ namespace IDE.Views
             mPropertyGrid.Dock = System.Windows.Forms.DockStyle.Fill;
 
             mWFHost.Child = mPropertyGrid;
+        }
+
+        public IProxyObject SelectedObject
+        {
+            get
+            {
+                return mPropertyGrid.SelectedObject as IProxyObject;
+            }
+            set
+            {
+                mPropertyGrid.SelectedObject = value;
+            }
         }
     }
 }
