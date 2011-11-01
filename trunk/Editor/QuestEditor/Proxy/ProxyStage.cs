@@ -21,7 +21,7 @@ namespace QuestEditor.Proxy
 
         #region Constructors
 
-        public ProxyStage(CommandManager commandManager, ModelStage stage) : base(commandManager)
+        public ProxyStage(ModelStage stage)
         {
             mStage = stage;
         }
@@ -72,7 +72,7 @@ namespace QuestEditor.Proxy
             }
             set
             {
-                ActionManager.Execute(new SetProperty(mStage, "ID", value));
+                CurrentCommand = new SetProperty(this, mStage, "ID", value);
                 RaisePropertyChanged(this);
             }
         }
@@ -87,7 +87,7 @@ namespace QuestEditor.Proxy
             }
             set
             {
-                ActionManager.Execute(new SetProperty(mStage, "Text", value));
+                CurrentCommand = new SetProperty(this, mStage, "Text", value);
                 RaisePropertyChanged(this);
             }
         }
@@ -101,7 +101,7 @@ namespace QuestEditor.Proxy
             }
             set
             {
-                ActionManager.Execute(new SetProperty(mStage, "OnUpdate", value));
+                CurrentCommand = new SetProperty(this, mStage, "OnUpdate", value);
                 RaisePropertyChanged(this);
             }
         }
@@ -115,7 +115,7 @@ namespace QuestEditor.Proxy
             }
             set
             {
-                ActionManager.Execute(new SetProperty(mStage, "OnStart", value));
+                CurrentCommand = new SetProperty(this, mStage, "OnStart", value);
                 RaisePropertyChanged(this);
             }
         }

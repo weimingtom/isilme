@@ -30,8 +30,21 @@ namespace IDE.Views
 
             mPropertyGrid = new System.Windows.Forms.PropertyGrid();
             mPropertyGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            mPropertyGrid.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(mPropertyGrid_PropertyValueChanged);
 
             mWFHost.Child = mPropertyGrid;
+        }
+
+        void mPropertyGrid_PropertyValueChanged(object s, System.Windows.Forms.PropertyValueChangedEventArgs e)
+        {
+            if (SelectedObject != null)
+            {
+                if (SelectedObject.CurrentCommand != null)
+                    CommandManager.Execute(SelectedObject.CurrentCommand);
+            }
+            //else if (SelectedObjects != null)
+            //{
+            //}
         }
 
         public IProxyObject SelectedObject
@@ -44,6 +57,12 @@ namespace IDE.Views
             {
                 mPropertyGrid.SelectedObject = value;
             }
+        }
+
+        public Common.CommandManager CommandManager
+        {
+            get;
+            set;
         }
     }
 }

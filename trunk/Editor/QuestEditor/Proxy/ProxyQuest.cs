@@ -41,7 +41,7 @@ namespace QuestEditor.Proxy
             }
         }
 
-        public ProxyQuest(CommandManager commandManager, ModelQuest quest) : base(commandManager)
+        public ProxyQuest(ModelQuest quest)
         {
             Stages = new ObservableCollection<ProxyStage>();
             mQuest = quest;
@@ -51,7 +51,7 @@ namespace QuestEditor.Proxy
 
         public ProxyStage CreateNewStage()
         {
-            return new ProxyStage(ActionManager, new ModelStage() { ID = 0 });
+            return new ProxyStage(new ModelStage() { ID = 0 });
         }
 
         public void AddStage(ProxyStage stage)
@@ -85,7 +85,7 @@ namespace QuestEditor.Proxy
             }
             set
             {
-                ActionManager.Execute(new SetProperty(mQuest, "Title", value));
+                CurrentCommand = new SetProperty(this, mQuest, "Title", value);
                 RaisePropertyChanged(this);
             }
         }
@@ -98,7 +98,7 @@ namespace QuestEditor.Proxy
             }
             set
             {
-                ActionManager.Execute(new SetProperty(mQuest, "ID", value));
+                CurrentCommand = new SetProperty(this, mQuest, "ID", value);
                 RaisePropertyChanged(this);
             }
         }
@@ -111,7 +111,7 @@ namespace QuestEditor.Proxy
             }
             set
             {
-                ActionManager.Execute(new SetProperty(mQuest, "OnStart", value));
+                CurrentCommand = new SetProperty(this, mQuest, "OnStart", value);
                 RaisePropertyChanged(this);
             }
         }
@@ -124,7 +124,7 @@ namespace QuestEditor.Proxy
             }
             set
             {
-                ActionManager.Execute(new SetProperty(mQuest, "OnUpdate", value));
+                CurrentCommand = new SetProperty(this, mQuest, "OnUpdate", value);
                 RaisePropertyChanged(this);
             }
         }
@@ -137,7 +137,7 @@ namespace QuestEditor.Proxy
             }
             set
             {
-                ActionManager.Execute(new SetProperty(mQuest, "OnFinish", value));
+                CurrentCommand = new SetProperty(this, mQuest, "OnFinish", value);
                 RaisePropertyChanged(this);
             }
         }

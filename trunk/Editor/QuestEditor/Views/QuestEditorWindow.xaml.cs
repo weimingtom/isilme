@@ -134,7 +134,7 @@ namespace QuestEditor.Views
             InitializeComponent();
 
             ModelQuest q = new ModelQuest() { Title = "Test quest", ID = "test" };
-            Proxy.ProxyStory s = new Proxy.ProxyStory(CommandManager, mStory);
+            Proxy.ProxyStory s = new Proxy.ProxyStory(mStory);
             s.AddQuest(s.CreateNewQuest());
             s.AddQuest(s.CreateNewQuest());
             s.AddQuest(s.CreateNewQuest());

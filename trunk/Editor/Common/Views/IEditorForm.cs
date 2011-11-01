@@ -13,7 +13,7 @@ namespace Common.Views
 	{
 		#region Properties
 
-        CommandManager ActionManager
+        CommandManager CommandManager
         {
             get;
         }
@@ -35,70 +35,24 @@ namespace Common.Views
         {
             get;
         }
-		/// <summary>
-		/// Редактируемый файл был изменен
-		/// </summary>
-		bool IsChanged
-		{
-			get;
-		}
-
-		bool UndoEnabled
-		{
-			get;
-		}
-
-		bool RedoEnabled
-		{
-			get;
-		}
-
-		bool PrintEnabled
-		{
-			get;
-		}
-
-		bool PreviewEnabled
-		{
-			get;
-		}
-
-		bool CutEnabled
-		{
-			get;
-		}
-
-		bool CopyEnabled
-		{
-			get;
-		}
-
-		bool PasteEnabled
-		{
-			get;
-		}
 
 		#endregion
 
 		#region File
 
-		/// <summary>
-		/// Загружает инфорамцию из файла
-		/// </summary>
-		/// <param name="fileName"></param>
-		void Open(String fileName);
+        void Load();
 
 		/// <summary>
 		/// Сохранить как
 		/// </summary>
 		/// <param name="fileName"></param>
-		bool SaveAs();
+		void  SaveAs(String fileName);
 
 		/// <summary>
 		/// Сохранить
 		/// </summary>
 		/// <returns></returns>
-		bool Save();
+		void Save();
 
 		#endregion
 
@@ -114,24 +68,8 @@ namespace Common.Views
 		/// </summary>
 		void Redo();
 
-		void Copy();
-
-		void Cut();
-
-		void Paste();
-
-		void SelectAll();
-
-		void Deselect();
-
-		void Print();
-
-		void Preview();
-
 		#endregion
-
-		event EventHandler DocumentChanged;
-
+        
 		event EditorSelectionEventHandler SelectionChanged;
 	}
 }

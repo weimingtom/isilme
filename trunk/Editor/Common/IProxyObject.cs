@@ -7,17 +7,12 @@ namespace Common
 {
     public interface IProxyObject
     {
-        CommandManager ActionManager
+        ICommand CurrentCommand
         {
             get;
-            set;
         }
 
-        Object SelectedObject
-        {
-            get;
-            set;
-        }
+        void RaisePropertyChanged(object sender, string property = "");
     };
 
 }

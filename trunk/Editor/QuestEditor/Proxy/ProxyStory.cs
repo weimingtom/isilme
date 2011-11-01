@@ -17,7 +17,7 @@ namespace QuestEditor.Proxy
             get { return mStory; }
         }
 
-        public ProxyStory(CommandManager cm, ModelStory story) : base(cm)
+        public ProxyStory(ModelStory story)
         {
             mStory = story;
             Quests = new ObservableCollection<ProxyQuest>();
@@ -54,7 +54,7 @@ namespace QuestEditor.Proxy
 
         public ProxyQuest CreateNewQuest()
         {
-            return new ProxyQuest(ActionManager, new ModelQuest() { Title = "Test" });
+            return new ProxyQuest(new ModelQuest() { Title = "Test" });
         }
     }
 }

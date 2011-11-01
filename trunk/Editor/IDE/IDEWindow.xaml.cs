@@ -114,6 +114,7 @@ namespace IDE
         void onEditor_SelectionChanged(object sender, EditorSelectionEventArgs args)
         {
             mPropertiesWindow.SelectedObject = args.SelectedObject;
+            mPropertiesWindow.CommandManager = args.Editor.CommandManager;
         }
 
         #endregion

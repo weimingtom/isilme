@@ -16,6 +16,7 @@ namespace Common
         protected Object mObject;
         protected Object mOldValue;
         protected Object mNewValue;
+        protected IProxyObject mProxy;
 
         /// <summary>
         /// Конструктор создает действие изменение свойства
@@ -23,8 +24,9 @@ namespace Common
         /// <param name="obj">Объект-владелец свойства</param>
         /// <param name="property">Имя свойства</param>
         /// <param name="value">Новое значение свойства</param>
-        public SetProperty(Object obj, String property, Object value)
+        public SetProperty(IProxyObject proxy, Object obj, String property, Object value)
         {
+            mProxy = proxy;
             mProperty = property;
             mObject = obj;
             mNewValue = value;
@@ -47,8 +49,9 @@ namespace Common
         /// <param name="property"></param>
         /// <param name="value"></param>
         /// <param name="oldValue"></param>
-        public SetProperty(Object obj, String property, Object value, Object oldValue)
+        public SetProperty(IProxyObject proxy, Object obj, String property, Object value, Object oldValue)
         {
+            mProxy = proxy;
             mProperty = property;
             mObject = obj;
             mNewValue = value;
@@ -70,6 +73,7 @@ namespace Common
                 mObject,
                 new Object[] { mNewValue }
             );
+            mProxy.RaisePropertyChanged(mProxy, mProperty);
         }
 
         /// <summary>
@@ -87,6 +91,8 @@ namespace Common
                     mObject,
                     new Object[] { mOldValue }
                 );
+
+            mProxy.RaisePropertyChanged(mProxy, mProperty);
         }
     }
 }

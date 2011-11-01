@@ -5,26 +5,27 @@ using System.Text;
 using System.ComponentModel;
 using Common;
 
-namespace QuestEditor.Proxy
+namespace Common
 {
     public class ProxyObject : IProxyObject, INotifyPropertyChanged
     {
-        public ProxyObject(CommandManager commandManager)
+        private ICommand mCommand;
+
+        public ProxyObject()
         {
-            ActionManager = commandManager;
         }
 
         [Browsable(false)]
-        public CommandManager ActionManager
+        public ICommand CurrentCommand
         {
-            get;
-            set;
-        }
-
-        public Object SelectedObject
-        {
-            get;
-            set;
+            get
+            {
+                return mCommand;
+            }
+            set
+            {
+                mCommand = value;
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

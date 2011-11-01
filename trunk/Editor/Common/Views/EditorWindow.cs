@@ -19,7 +19,7 @@ namespace Common.Views
     /// <summary>
     /// Interaction logic for ToolWindow.xaml
     /// </summary>
-    public class EditorWindow : DockableContent
+    public class EditorWindow : DockableContent, IEditorWindow
     {
         #region Commands
 
@@ -158,6 +158,7 @@ namespace Common.Views
             {
                 EditorSelectionEventArgs e = new EditorSelectionEventArgs();
                 e.SelectedObject = SelectedObject;
+                e.Editor = this;
                 
                 SelectionChanged(this, e);
             }
