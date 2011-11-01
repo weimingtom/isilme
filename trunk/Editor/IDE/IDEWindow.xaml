@@ -51,10 +51,26 @@
         </ad:DockingManager>
         <ToolBarTray Grid.Row="1" Name="mToolbarTray">
             <ToolBar Name="mMainToolbar">
-                <Button Content="Save" Name="mSave" Click="onSave_Click"></Button>
-                <Button Content="SaveAll" Name="mSaveAll" Click="onSaveAll_Click"></Button>
-                <Button Content="Undo" Name="mUndo" Command="Undo"></Button>
-                <Button Content="Redo" Name="mRedo" Command="Redo"></Button>
+                <Button Name="mSave" Command="Save">
+                    <Button.Content>
+                        <Image Source="/IDE;component/Resources/Save.png"></Image>
+                    </Button.Content>
+                </Button>
+                <Button Name="mSaveAll" Command="Save">
+                    <Button.Content>
+                        <Image Source="/IDE;component/Resources/SaveAll.png"></Image>
+                    </Button.Content>
+                </Button>
+                <Button Name="mUndo" Command="Undo">
+                    <Button.Content>
+                        <Image Source="/IDE;component/Resources/Undo.png"></Image>
+                    </Button.Content>
+                </Button>
+                <Button Name="mRedo" Command="Redo">
+                    <Button.Content>
+                        <Image Source="/IDE;component/Resources/Redo.png"></Image>
+                    </Button.Content>
+                </Button>
             </ToolBar>
         </ToolBarTray>
     </Grid>

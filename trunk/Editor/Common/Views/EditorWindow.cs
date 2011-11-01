@@ -23,12 +23,12 @@ namespace Common.Views
     {
         #region Commands
 
-        protected virtual void ExecutedUndoCommand(object sender, ExecutedRoutedEventArgs e)
+        protected virtual void ExecutedUndo(object sender, ExecutedRoutedEventArgs e)
         {
             Undo();
         }
 
-        protected virtual void CanExecuteUndoCommand(object sender, CanExecuteRoutedEventArgs e)
+        protected virtual void CanExecuteUndo(object sender, CanExecuteRoutedEventArgs e)
         {
             EditorWindow target = sender as EditorWindow;
 
@@ -42,12 +42,12 @@ namespace Common.Views
             }
         }
 
-        protected virtual void ExecutedRedoCommand(object sender, ExecutedRoutedEventArgs e)
+        protected virtual void ExecutedRedo(object sender, ExecutedRoutedEventArgs e)
         {
             Redo();
         }
 
-        protected virtual void CanExecuteRedoCommand(object sender, CanExecuteRoutedEventArgs e)
+        protected virtual void CanExecuteRedo(object sender, CanExecuteRoutedEventArgs e)
         {
             EditorWindow target = sender as EditorWindow;
 
@@ -61,6 +61,25 @@ namespace Common.Views
             }
         }
 
+        protected virtual void ExecutedSave(object sender, ExecutedRoutedEventArgs e)
+        {
+            Save();
+            CommandManager.IsChanged = false;
+        }
+
+        protected virtual void CanExecuteSave(object sender, CanExecuteRoutedEventArgs e)
+        {
+            EditorWindow target = sender as EditorWindow;
+
+            if (target != null)
+            {
+                e.CanExecute = CommandManager.IsChanged;
+            }
+            else
+            {
+                e.CanExecute = false;
+            }
+        }
 
         #endregion
 
@@ -83,8 +102,9 @@ namespace Common.Views
 
         public EditorWindow()
         {
-            CommandBindings.Add(new CommandBinding(ApplicationCommands.Undo, ExecutedUndoCommand, CanExecuteUndoCommand));
-            CommandBindings.Add(new CommandBinding(ApplicationCommands.Redo, ExecutedRedoCommand, CanExecuteRedoCommand));
+            CommandBindings.Add(new CommandBinding(ApplicationCommands.Undo, ExecutedUndo, CanExecuteUndo));
+            CommandBindings.Add(new CommandBinding(ApplicationCommands.Redo, ExecutedRedo, CanExecuteRedo));
+            CommandBindings.Add(new CommandBinding(ApplicationCommands.Save, ExecutedSave, CanExecuteSave));
         }
 
         #region Methods

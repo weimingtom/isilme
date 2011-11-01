@@ -12,7 +12,7 @@ namespace QuestEditor.Models
 
         public ModelQuest()
         {
-            Stages = new ObservableCollection<ModelStage>();
+            Stages = new List<ModelStage>();
         }
 
         #endregion
@@ -37,7 +37,7 @@ namespace QuestEditor.Models
             set;
         }
 
-        public ObservableCollection<ModelStage> Stages
+        public List<ModelStage> Stages
         {
             get;
             set;

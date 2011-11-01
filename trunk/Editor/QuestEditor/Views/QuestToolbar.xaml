@@ -6,7 +6,19 @@
              xmlns:wpf="clr-namespace:System.Windows.Controls;assembly=PresentationFramework"
              xmlns:local="clr-namespace:QuestEditor.Views"
              mc:Ignorable="d">
-    <Button Content="AddQuest" Command="local:QuestEditorWindow.AddQuest"></Button>
-    <Button Content="AddStage"></Button>
-    <Button Content="Remove"></Button>
+    <Button Command="local:QuestEditorWindow.AddQuest">
+        <Button.Content>
+            <Image Source="/QuestEditor;component/Resources/quest_add.png"></Image>        
+        </Button.Content>
+    </Button>
+    <Button Command="local:QuestEditorWindow.AddStage">
+        <Button.Content>
+            <Image Source="/QuestEditor;component/Resources/stage_add.png"></Image>
+        </Button.Content>
+    </Button>
+    <Button Command="local:QuestEditorWindow.Remove">
+        <Button.Content>
+            <Image Source="/QuestEditor;component/Resources/remove.png"></Image>
+        </Button.Content>
+    </Button>
 </wpf:ToolBar>

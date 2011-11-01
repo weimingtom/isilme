@@ -5,15 +5,21 @@ using System.Text;
 using System.ComponentModel;
 using Common;
 using QuestEditor.Models;
+using System.Collections.ObjectModel;
 
 namespace QuestEditor.Proxy
 {
     public class ProxyQuest : ProxyObject
     {
+        #region Members
+
         ModelQuest mQuest;
+        ProxyStory mParent;
+
+        #endregion
 
         [Browsable(false)]
-        public ModelQuest Quest
+        public ModelQuest Value
         {
             get
             {
@@ -21,9 +27,54 @@ namespace QuestEditor.Proxy
             }
         }
 
+        [Browsable(false)]
+        public ProxyStory Parent
+        {
+            get
+            {
+                return mParent;
+            }
+            set
+            {
+                mParent = value;
+                mQuest.Story = value == null ? null : value.Value;
+            }
+        }
+
         public ProxyQuest(CommandManager commandManager, ModelQuest quest) : base(commandManager)
         {
+            Stages = new ObservableCollection<ProxyStage>();
             mQuest = quest;
+        }
+
+        #region Methods
+
+        public ProxyStage CreateNewStage()
+        {
+            return new ProxyStage(ActionManager, new ModelStage() { ID = 0 });
+        }
+
+        public void AddStage(ProxyStage stage)
+        {
+            Stages.Add(stage);
+            Value.Stages.Add(stage.Value);
+            stage.Parent = this;
+        }
+
+        public void RemoveStage(ProxyStage stage)
+        {
+            Stages.Remove(stage);
+            Value.Stages.Remove(stage.Value);
+            stage.Parent = null;
+        }
+
+        #endregion
+
+        [Browsable(false)]
+        public ObservableCollection<ProxyStage> Stages
+        {
+            get;
+            set;
         }
 
         public String Title

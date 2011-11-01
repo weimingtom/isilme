@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Common;
 using QuestEditor.Models;
+using QuestEditor.Proxy;
 
 namespace QuestEditor.Commands
 {
@@ -11,15 +12,15 @@ namespace QuestEditor.Commands
     {
         #region Members
 
-        ModelStory mStory;
-        ModelQuest mQuest;
+        ProxyStory mStory;
+        ProxyQuest mQuest;
         int mIndex;
 
         #endregion
 
         #region Constructors
 
-        public DelQuest(ModelStory story, ModelQuest quest)
+        public DelQuest(ProxyStory story, ProxyQuest quest)
         {
             mStory = story;
             mQuest = quest;

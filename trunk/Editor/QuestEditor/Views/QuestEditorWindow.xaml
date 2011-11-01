@@ -9,6 +9,8 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <cm:EditorWindow.CommandBindings>
         <CommandBinding CanExecute="CanExecuteAddQuestCommand" Executed="ExecutedAddQuestCommand" Command="{x:Static local:QuestEditorWindow.AddQuest}"></CommandBinding>
+        <CommandBinding CanExecute="CanExecuteAddStage" Executed="ExecutedAddStage" Command="{x:Static local:QuestEditorWindow.AddStage}"></CommandBinding>
+        <CommandBinding CanExecute="CanExecuteRemove" Executed="ExecutedRemove" Command="{x:Static local:QuestEditorWindow.Remove}"></CommandBinding>
     </cm:EditorWindow.CommandBindings>
     <Grid>
         <Grid.Resources>
@@ -33,16 +35,11 @@
             </HierarchicalDataTemplate>
         </Grid.Resources>
         <TreeView 
-            Margin="6,32,12,8" 
+            Margin="6,12,12,8" 
             Name="mStoryTreeView" 
             ItemsSource="{Binding Path=Quests}" 
             ItemTemplate="{StaticResource ResourceKey=QuestTemplate}"
             SelectedItemChanged="onStoryTreeView_SelectedItemChanged">
         </TreeView>
-        <ToolBar Height="26" Name="toolBar1" VerticalAlignment="Top" >
-            
-            <Button Content="Stage" Name="mAddStage" Click="onAddStage"></Button>
-            <Button Content="Remove" Name="mRemove" Click="onRemoveNode"></Button>
-        </ToolBar>
     </Grid>
 </cm:EditorWindow>

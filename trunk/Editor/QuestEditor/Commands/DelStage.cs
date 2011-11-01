@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using QuestEditor.Models;
+using QuestEditor.Proxy;
 
 namespace QuestEditor.Commands
 {
     public class DelStage : Common.ICommand
     {
-        ModelQuest mQuest;
-        ModelStage mStage;
+        ProxyQuest mQuest;
+        ProxyStage mStage;
 
-        public DelStage(ModelQuest quest, ModelStage stage)
+        public DelStage(ProxyQuest quest, ProxyStage stage)
         {
             mQuest = quest;
             mStage = stage;
@@ -19,12 +20,12 @@ namespace QuestEditor.Commands
 
         public virtual void Execute()
         {
-            mQuest.Story.RemoveStage(mQuest, mStage);
+            mQuest.RemoveStage(mStage);
         }
 
         public virtual void Unexecute()
         {
-            mQuest.Story.AddStage(mQuest, mStage);
+            mQuest.AddStage(mStage);
         }
 
         public Boolean IsReversible

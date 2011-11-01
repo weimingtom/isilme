@@ -20,6 +20,7 @@ using System.Reflection;
 using System.Resources;
 using System.Windows.Markup;
 using System.IO;
+using QuestEditor.Proxy;
 
 namespace QuestEditor.Views
 {
@@ -36,8 +37,8 @@ namespace QuestEditor.Views
 
         private void ExecutedAddQuestCommand(object sender, ExecutedRoutedEventArgs e)
         {
-            ModelQuest q = new ModelQuest() { Title = "Created by command" };
-            CommandManager.Execute(new AddQuest(mStory, q));
+            ProxyQuest q = mProxyStory.CreateNewQuest();
+            CommandManager.Execute(new AddQuest(mProxyStory, q));
         }
 
         private void CanExecuteAddQuestCommand(object sender, CanExecuteRoutedEventArgs e)
@@ -54,17 +55,67 @@ namespace QuestEditor.Views
             }
         }
 
+        private void ExecutedAddStage(object sender, ExecutedRoutedEventArgs e)
+        {
+            ProxyQuest quest = mStoryTreeView.SelectedItem as ProxyQuest;
+            ProxyStage stage;
+
+            if (quest == null)
+            {
+                quest = (mStoryTreeView.SelectedItem as ProxyStage).Parent;
+                stage = quest.CreateNewStage();
+                CommandManager.Execute(new AddStage(quest, stage));
+            }
+            else
+            {
+                stage = quest.CreateNewStage();
+                CommandManager.Execute(new AddStage(quest, stage));
+            }
+        }
+
+        private void CanExecuteAddStage(object sender, CanExecuteRoutedEventArgs e)
+        {
+            Control target = e.Source as Control;
+
+            if (target != null)
+            {
+                e.CanExecute = true;
+            }
+            else
+            {
+                e.CanExecute = false;
+            }
+        }
+
+        private void ExecutedRemove(object sender, ExecutedRoutedEventArgs e)
+        {
+            ProxyQuest quest = mStoryTreeView.SelectedItem as ProxyQuest;
+            ProxyStage stage = mStoryTreeView.SelectedItem as ProxyStage;
+            if (quest != null)
+            {
+                CommandManager.Execute(new DelQuest(mProxyStory, quest));
+            }
+            else if (stage != null)
+            {
+                CommandManager.Execute(new DelStage(stage.Parent, stage));
+            }
+        }
+
+        private void CanExecuteRemove(object sender, CanExecuteRoutedEventArgs e)
+        {
+            Control target = e.Source as Control;
+
+            if (target != null)
+            {
+                e.CanExecute = true;
+            }
+            else
+            {
+                e.CanExecute = false;
+            }
+        }
 
         #endregion
-
-        public static Stream OpenStream(string name)
-        {
-            Stream s = typeof(QuestEditorWindow).Assembly.GetManifestResourceStream("QuestEditor.Views.QuestToolbar.xaml");
-
-            if (s == null)
-                throw new FileNotFoundException("The resource file '" + name + "' was not found.");
-            return s;
-        }
 
         public static ToolBar getToolbar()
         {
@@ -74,6 +125,7 @@ namespace QuestEditor.Views
         #region Members
 
         ModelStory mStory = new ModelStory();
+        ProxyStory mProxyStory;
 
         #endregion
 
@@ -82,16 +134,14 @@ namespace QuestEditor.Views
             InitializeComponent();
 
             ModelQuest q = new ModelQuest() { Title = "Test quest", ID = "test" };
-            
-            mStory.AddQuest(q);
-            mStory.AddQuest(new ModelQuest() { Title = "Test quest 2", ID = "test2" });
-            mStory.AddQuest(new ModelQuest() { Title = "Test quest 3", ID = "test3" });
-            mStory.AddQuest(new ModelQuest() { Title = "Test quest 4", ID = "test4" });
+            Proxy.ProxyStory s = new Proxy.ProxyStory(CommandManager, mStory);
+            s.AddQuest(s.CreateNewQuest());
+            s.AddQuest(s.CreateNewQuest());
+            s.AddQuest(s.CreateNewQuest());
+            s.AddQuest(s.CreateNewQuest());
 
-            mStory.AddStage(q, new ModelStage() {ID=10 });
-            mStory.AddStage(q, new ModelStage() { ID = 20 });
-            mStory.AddStage(q, new ModelStage() { ID = 30 });
-            mStoryTreeView.DataContext = mStory;
+            mStoryTreeView.DataContext = s;
+            mProxyStory = s;
 
            // CommandBindings.Add(new CommandBinding(QuestEditorWindow.AddQuest, ExecutedAddQuestCommand, CanExecuteAddQuestCommand));
         }
@@ -109,64 +159,9 @@ namespace QuestEditor.Views
             document.Save(FileName);
         }
 
-        /// <summary>
-        /// Создает новое задание
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void onAddQuest(Object sender, RoutedEventArgs e)
-        {
-            ModelQuest q = new ModelQuest() { Title="Created by command"};
-            CommandManager.Execute(new AddQuest(mStory, q));
-        }
-
-        /// <summary>
-        /// Создает новыу стадию текущего задания
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void onAddStage(Object sender, RoutedEventArgs e)
-        {
-            ModelQuest quest = mStoryTreeView.SelectedItem as ModelQuest;
-            ModelStage stage = new ModelStage();
-
-            if (quest == null)
-            {
-                quest = (mStoryTreeView.SelectedItem as ModelStage).Quest;
-                CommandManager.Execute(new AddStage(quest, stage));
-            }
-            else
-            {
-                CommandManager.Execute(new AddStage(quest, stage));
-            }
-        }
-
-        void onRemoveNode(Object sender, RoutedEventArgs e)
-        {
-            ModelQuest quest = mStoryTreeView.SelectedItem as ModelQuest;
-            ModelStage stage = mStoryTreeView.SelectedItem as ModelStage;
-            if (quest != null)
-            {
-                CommandManager.Execute(new DelQuest(mStory, quest));
-            }
-            else if (stage != null)
-            {
-                CommandManager.Execute(new DelStage(stage.Quest, stage));
-            }
-        }
-
         private void onStoryTreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            ModelQuest quest = mStoryTreeView.SelectedItem as ModelQuest;
-            ModelStage stage = mStoryTreeView.SelectedItem as ModelStage;
-            if (quest != null)
-            {
-                SelectedObject = new Proxy.ProxyQuest(CommandManager, quest);
-            }
-            else if (stage != null)
-            {
-                SelectedObject = new Proxy.ProxyStage(CommandManager, stage);
-            }
+            SelectedObject = mStoryTreeView.SelectedItem as Common.IProxyObject;
         }
     }
 }

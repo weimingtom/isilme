@@ -60,13 +60,6 @@ namespace QuestEditor.Properties {
             }
         }
         
-        public static System.Drawing.Bitmap delete {
-            get {
-                object obj = ResourceManager.GetObject("delete", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         public static System.Drawing.Bitmap ending {
             get {
                 object obj = ResourceManager.GetObject("ending", resourceCulture);
@@ -109,16 +102,23 @@ namespace QuestEditor.Properties {
             }
         }
         
-        public static System.Drawing.Bitmap task {
+        public static System.Drawing.Bitmap remove {
             get {
-                object obj = ResourceManager.GetObject("task", resourceCulture);
+                object obj = ResourceManager.GetObject("remove", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        public static System.Drawing.Bitmap task_add {
+        public static System.Drawing.Bitmap stage_add {
             get {
-                object obj = ResourceManager.GetObject("task_add", resourceCulture);
+                object obj = ResourceManager.GetObject("stage_add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap task {
+            get {
+                object obj = ResourceManager.GetObject("task", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

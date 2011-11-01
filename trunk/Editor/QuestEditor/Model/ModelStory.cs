@@ -33,7 +33,7 @@ namespace QuestEditor.Models
     {
         #region Members
 
-        ObservableCollection<ModelQuest> mQuests = new ObservableCollection<ModelQuest>();
+        List<ModelQuest> mQuests = new List<ModelQuest>();
 
         #endregion
 
@@ -47,7 +47,7 @@ namespace QuestEditor.Models
 
         #region Prperties
 
-        public ObservableCollection<ModelQuest> Quests
+        public List<ModelQuest> Quests
         {
             get
             {

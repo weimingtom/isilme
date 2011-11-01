@@ -15,6 +15,7 @@ namespace QuestEditor.Proxy
         #region Members
 
         ModelStage mStage;
+        ProxyQuest mParent;
 
         #endregion
 
@@ -28,6 +29,29 @@ namespace QuestEditor.Proxy
         #endregion
 
         #region Properties
+
+        [Browsable(false)]
+        public ModelStage Value
+        {
+            get
+            {
+                return mStage;
+            }
+        }
+
+        [Browsable(false)]
+        public ProxyQuest Parent
+        {
+            get
+            {
+                return mParent;
+            }
+            set
+            {
+                mParent = value;
+                mStage.Quest = value == null ? null : mParent.Value;
+            }
+        }
 
         [Browsable(false)]
         public ModelStage Stage
