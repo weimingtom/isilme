@@ -129,11 +129,11 @@
     <Resource Include="Resources\ending.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\quest.png" />
+    <Resource Include="Resources\Quest.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\DataSources\Task.datasource" />
-    <Resource Include="Resources\task.png" />
+    <Resource Include="Resources\Stage.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\check.png" />

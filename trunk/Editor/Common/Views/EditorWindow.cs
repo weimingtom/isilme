@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AvalonDock;
 using Common;
+using Microsoft.Win32;
 
 namespace Common.Views
 {
@@ -81,6 +82,20 @@ namespace Common.Views
             }
         }
 
+        protected virtual void CanExecuteSaveAs(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        protected virtual void ExecutedSaveAs(object sender, ExecutedRoutedEventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog();
+            if (dialog.ShowDialog() == true)
+            {
+                SaveAs(dialog.FileName);
+            }
+        }
+
         #endregion
 
         #region Members
@@ -105,6 +120,7 @@ namespace Common.Views
             CommandBindings.Add(new CommandBinding(ApplicationCommands.Undo, ExecutedUndo, CanExecuteUndo));
             CommandBindings.Add(new CommandBinding(ApplicationCommands.Redo, ExecutedRedo, CanExecuteRedo));
             CommandBindings.Add(new CommandBinding(ApplicationCommands.Save, ExecutedSave, CanExecuteSave));
+            CommandBindings.Add(new CommandBinding(ApplicationCommands.SaveAs, ExecutedSaveAs, CanExecuteSaveAs));
         }
 
         #region Methods

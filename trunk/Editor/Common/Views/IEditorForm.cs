@@ -21,10 +21,11 @@ namespace Common.Views
 		/// <summary>
 		/// Полное имя файла
 		/// </summary>
-		string FileName
-		{
-			get;
-		}
+        string FileName
+        {
+            get;
+            set;
+        }
 
         IProxyObject SelectedObject
         {

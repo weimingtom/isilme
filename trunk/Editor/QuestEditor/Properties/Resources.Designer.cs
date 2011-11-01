@@ -109,16 +109,16 @@ namespace QuestEditor.Properties {
             }
         }
         
-        public static System.Drawing.Bitmap stage_add {
+        public static System.Drawing.Bitmap Stage {
             get {
-                object obj = ResourceManager.GetObject("stage_add", resourceCulture);
+                object obj = ResourceManager.GetObject("Stage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        public static System.Drawing.Bitmap task {
+        public static System.Drawing.Bitmap stage_add {
             get {
-                object obj = ResourceManager.GetObject("task", resourceCulture);
+                object obj = ResourceManager.GetObject("stage_add", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

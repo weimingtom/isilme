@@ -27,6 +27,51 @@ namespace IDE
     /// </summary>
     public partial class IDEWindow : Window
     {
+        #region Commands
+
+        public static RoutedCommand SaveAll = new RoutedCommand();
+
+        void CanExecuteNew(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        void ExecutedNew(object sender, ExecutedRoutedEventArgs e)
+        {
+        }
+
+        void CanExecuteOpen(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        void ExecutedOpen(object sender, ExecutedRoutedEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            if (dialog.ShowDialog() == true)
+            {
+                String filename = dialog.FileName;
+                IEditorAssotioation assotiation =  ExtensionManager.GetEditorForFile(filename);
+                EditorWindow editor = assotiation.CreateEditor();
+                editor.FileName = filename;
+                editor.Load();
+                AddEditorWindow(editor);
+            }
+        }
+
+        void CanExecuteSaveAll(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        void ExecutedSaveAll(object sender, ExecutedRoutedEventArgs e)
+        {
+            foreach (EditorWindow editor in mOpendDocuments)
+                editor.Save();
+        }
+
+        #endregion
+
         #region Members
 
         /// <summary>
@@ -37,7 +82,7 @@ namespace IDE
         /// <summary>
         /// Все открытые документы
         /// </summary>
-        List<EditorWindow> mOpendDocuments = new List<EditorWindow>();
+        List<IEditorWindow> mOpendDocuments = new List<IEditorWindow>();
 
         /// <summary>
         /// Окно свойств
@@ -49,10 +94,14 @@ namespace IDE
         /// </summary>
         ModuleManager mModuleManager = new ModuleManager();
 
+        ExtensionManager mExtensionManager = new ExtensionManager();
         #endregion
 
         #region Prpperties
 
+        /// <summary>
+        /// Возвращает активный редактор
+        /// </summary>
         public EditorWindow ActiveEditor
         {
             get
@@ -60,12 +109,31 @@ namespace IDE
                 return mDockingManager.ActiveDocument as EditorWindow;
             }
         }
+
+        /// <summary>
+        /// Возвращает менеджер расширений
+        /// </summary>
+        public ExtensionManager ExtensionManager
+        {
+            get
+            {
+                return mExtensionManager;
+            }
+        }
+
         #endregion
 
         public IDEWindow()
         {
-            QuestEditor.Models.ModelQuest q = new QuestEditor.Models.ModelQuest();
             InitializeComponent();
+
+            // Регистрируем комманды
+            CommandBindings.Add(new CommandBinding(ApplicationCommands.New, ExecutedNew, CanExecuteNew));
+            CommandBindings.Add(new CommandBinding(ApplicationCommands.Open, ExecutedOpen, CanExecuteOpen));
+            CommandBindings.Add(new CommandBinding(SaveAll, ExecutedSaveAll, CanExecuteSaveAll));
+
+            // Регистрируем расширения
+            ExtensionManager.RegisterExtension<TextEditorWindow>(".txt");
 
             mToolWindowsMenu.DataContext = mTools;
             mWindowMenu.DataContext = mOpendDocuments;
@@ -138,26 +206,6 @@ namespace IDE
         }
 
         /// <summary>
-        /// Отменяет последнее действие в активном окне
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void onUndo_Click(object sender, RoutedEventArgs e)
-        {
-            ActiveEditor.Undo();
-        }
-
-        /// <summary>
-        /// Повторяет ранее отмененное действие
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void onRedo_Click(object sender, RoutedEventArgs e)
-        {
-            ActiveEditor.Redo();
-        }
-
-        /// <summary>
         /// Создает новый модуль
         /// </summary>
         /// <param name="sender"></param>
@@ -176,16 +224,6 @@ namespace IDE
         }
 
         /// <summary>
-        /// Сохранить текущий документ
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void onSave_Click(object sender, RoutedEventArgs e)
-        {
-            ActiveEditor.Save();
-        }
-
-        /// <summary>
         /// Сохраняет документ с заданным именем
         /// </summary>
         /// <param name="sender"></param>
@@ -197,17 +235,6 @@ namespace IDE
             {
                 ActiveEditor.SaveAs(dialog.FileName);
             }
-        }
-
-        /// <summary>
-        /// Сохранить все открытые документы
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void onSaveAll_Click(object sender, RoutedEventArgs e)
-        {
-            foreach (EditorWindow editor in mOpendDocuments)
-                editor.Save();
         }
     }
 }

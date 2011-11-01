@@ -24,14 +24,20 @@
             <!-- Шаблон отображения стадий -->
             <HierarchicalDataTemplate
                 x:Key="StageTemplate">
-                <TextBlock Text="{Binding Path=ID}"></TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/QuestEditor;component/Resources/Stage.png"></Image>
+                    <TextBlock Text="{Binding Path=ID}"></TextBlock>
+                </StackPanel>
             </HierarchicalDataTemplate>
             <!-- Шаблон отображения квеста -->
             <HierarchicalDataTemplate
                 x:Key="QuestTemplate"
                 ItemsSource="{Binding Path=Stages}"
                 ItemTemplate="{StaticResource ResourceKey=StageTemplate}">
-                <TextBlock Text="{Binding Path=Title}"></TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/QuestEditor;component/Resources/quest.png"></Image>
+                    <TextBlock Text="{Binding Path=Title}"></TextBlock>
+                </StackPanel>
             </HierarchicalDataTemplate>
         </Grid.Resources>
         <TreeView 

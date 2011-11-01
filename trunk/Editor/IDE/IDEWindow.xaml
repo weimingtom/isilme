@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:ad="clr-namespace:AvalonDock;assembly=AvalonDock"
         xmlns:cv="clr-namespace:Common.Views;assembly=CommonLibrary"
+        xmlns:local="clr-namespace:IDE"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <Grid.RowDefinitions>
@@ -14,15 +15,15 @@
         <ToolBarTray Grid.Row="1" Grid.RowSpan="2" Name="mToolBarTray" Margin="0,0,0,261" />
         <Menu Margin="0,1,0,0" Name="mMainMenu" >
             <MenuItem Header="File" Name="mFileMenu">
-                <MenuItem Header="New" Name="mFileNewMenu" Click="onNewModule_Click"></MenuItem>
-                <MenuItem Header="Open" Name="mFileOpenMenu" Click="onOpenModule_CLick"></MenuItem>
-                <MenuItem Header="Save" Name="mFileSaveMenu" Click="onSave_Click"></MenuItem>
-                <MenuItem Header="Save as" Name="mFileSaveAsMenu" Click="onSaveAs_Click"></MenuItem>
-                <MenuItem Header="Save all" Name="mFIleSaveAlMenu" Click="onSaveAll_Click"></MenuItem>
+                <MenuItem Header="New" Name="mFileNewMenu" Command="New"></MenuItem>
+                <MenuItem Header="Open" Name="mFileOpenMenu" Command="Open"></MenuItem>
+                <MenuItem Header="Save" Name="mFileSaveMenu" Command="Save"></MenuItem>
+                <MenuItem Header="Save as" Name="mFileSaveAsMenu" Command="SaveAs"></MenuItem>
+                <MenuItem Header="Save all" Name="mFIleSaveAlMenu" Command="{x:Static local:IDEWindow.SaveAll}"></MenuItem>
             </MenuItem>
             <MenuItem Header="Edit" Name="mEditMenu">
-                <MenuItem Header="Undo" Name="mEditUndoMenu" Click="onUndo_Click"></MenuItem>
-                <MenuItem Header="Redo" Name="mEditRedoMenu" Click="onRedo_Click"></MenuItem>
+                <MenuItem Header="Undo" Name="mEditUndoMenu" Command="Undo"></MenuItem>
+                <MenuItem Header="Redo" Name="mEditRedoMenu" Command="Redo"></MenuItem>
             </MenuItem>
             <MenuItem Header="Window" Name="mWindowMenu" ItemsSource="{Binding}">
                 <MenuItem.ItemTemplate>

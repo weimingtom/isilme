@@ -60,7 +60,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="EditorAssotiation.cs" />
+    <Compile Include="ExtensionManager.cs" />
     <Compile Include="IEditorAssotioation.cs" />
+    <Compile Include="Model\ModelDirectory.cs" />
+    <Compile Include="Model\ModelFile.cs" />
+    <Compile Include="Model\ModelNode.cs" />
+    <Compile Include="Model\ModelProject.cs" />
     <Compile Include="Views\ModuleManager.xaml.cs">
       <DependentUpon>ModuleManager.xaml</DependentUpon>
     </Compile>
