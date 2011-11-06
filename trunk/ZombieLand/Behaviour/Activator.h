@@ -13,7 +13,7 @@ namespace behaviour
 		/// Возвращает активатор, который может использовать объект
 		static ActivatorPtr	GetActivatorFor(EntityPtr entity);
 
-		Activator();
+		Activator(BehaviourDefinition* def);
 		virtual ~Activator();
 
 		void	UseBy(CreaturePtr creature);

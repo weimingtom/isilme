@@ -6,14 +6,14 @@
              xmlns:cm="clr-namespace:Common.Views;assembly=CommonLibrary"
                  xmlns:local="clr-namespace:QuestEditor.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <cm:EditorWindow.CommandBindings>
-        <CommandBinding CanExecute="CanExecuteAddQuestCommand" Executed="ExecutedAddQuestCommand" Command="{x:Static local:QuestEditorWindow.AddQuest}"></CommandBinding>
-        <CommandBinding CanExecute="CanExecuteAddStage" Executed="ExecutedAddStage" Command="{x:Static local:QuestEditorWindow.AddStage}"></CommandBinding>
-        <CommandBinding CanExecute="CanExecuteRemove" Executed="ExecutedRemove" Command="{x:Static local:QuestEditorWindow.Remove}"></CommandBinding>
-    </cm:EditorWindow.CommandBindings>
+             d:DesignHeight="300" d:DesignWidth="300" xmlns:my="clr-namespace:System.ComponentModel;assembly=WindowsBase">
     <Grid>
         <Grid.Resources>
+            <CollectionViewSource x:Key="SortedStages" Source="{Binding Path=Stages}">
+                <CollectionViewSource.SortDescriptions>
+                    <my:SortDescription PropertyName="ID" />
+                </CollectionViewSource.SortDescriptions>
+            </CollectionViewSource>
             <!-- Шаблон отображения истории -->
             <HierarchicalDataTemplate
                 x:Key="StoryTemplate"
@@ -27,16 +27,27 @@
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/QuestEditor;component/Resources/Stage.png"></Image>
                     <TextBlock Text="{Binding Path=ID}"></TextBlock>
+                    <StackPanel.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Remove" Command="Delete"></MenuItem>
+                        </ContextMenu>
+                    </StackPanel.ContextMenu>
                 </StackPanel>
             </HierarchicalDataTemplate>
             <!-- Шаблон отображения квеста -->
             <HierarchicalDataTemplate
-                x:Key="QuestTemplate"
+                x:Key="QuestTemplate" 
                 ItemsSource="{Binding Path=Stages}"
                 ItemTemplate="{StaticResource ResourceKey=StageTemplate}">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/QuestEditor;component/Resources/quest.png"></Image>
                     <TextBlock Text="{Binding Path=Title}"></TextBlock>
+                    <StackPanel.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Add stage" Command="{x:Static local:QuestEditorWindow.AddStage}"></MenuItem>
+                            <MenuItem Header="Remove" Command="Delete"></MenuItem>
+                        </ContextMenu>
+                    </StackPanel.ContextMenu>
                 </StackPanel>
             </HierarchicalDataTemplate>
         </Grid.Resources>
@@ -45,6 +56,7 @@
             Name="mStoryTreeView" 
             ItemsSource="{Binding Path=Quests}" 
             ItemTemplate="{StaticResource ResourceKey=QuestTemplate}"
+            MouseRightButtonDown="onStoryTreeView_MouseRightButtonDown"
             SelectedItemChanged="onStoryTreeView_SelectedItemChanged">
         </TreeView>
     </Grid>

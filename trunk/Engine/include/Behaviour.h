@@ -63,8 +63,18 @@ public:
 
 	/// Разрешить или запретить параллельное выполнение действий (например идти и стрелять)
 	void			SetParallelEnabled(int stateID, int otherStateID, bool isEnabled);
+
+	/// Устанавливает значение аттрибута
+	void			SetAttribute(std::string ID, float value);
+
+	/// Возвращает значение аттрибута
+	float			GetAttribute(std::string);
+
+	void			AddAIPackage(AIPackagePtr package, int priority = 0);
+
+	void			AddAIPackage(std::string packageID, int priority = 0);
 protected:
-	Behaviour();
+	Behaviour(BehaviourDefinition* def);
 
 	/// Устанавливает группу поведения
 	void			SetGroup(unsigned long group);
@@ -73,6 +83,10 @@ private:
 	typedef std::map<StatePair, bool>	StateRelationsMap;
 	typedef std::map<int, ActionPtr> StateMap;
 	typedef std::set<int> StateSet;
+	typedef std::map<std::string, float> FloatMap;
+
+	/// Атрибуты агента
+	FloatMap	mAttributes;
 	
 	/// Текущие состояния
 	StateSet	mCurrentStates;
@@ -137,6 +151,8 @@ public:
 	void	ParseAIPackages(TiXmlElement* aiElement);
 
 	virtual BehaviourPtr Create() {return Behaviour::New();}
+
+	StringList AIPackages;
 protected:
 	std::string mType;
 };

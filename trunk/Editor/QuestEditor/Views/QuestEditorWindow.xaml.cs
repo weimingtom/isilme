@@ -33,7 +33,6 @@ namespace QuestEditor.Views
 
         public static RoutedCommand AddQuest = new RoutedCommand();
         public static RoutedCommand AddStage = new RoutedCommand();
-        public static RoutedCommand Remove = new RoutedCommand();
 
         private void ExecutedAddQuestCommand(object sender, ExecutedRoutedEventArgs e)
         {
@@ -43,16 +42,7 @@ namespace QuestEditor.Views
 
         private void CanExecuteAddQuestCommand(object sender, CanExecuteRoutedEventArgs e)
         {
-            Control target = e.Source as Control;
-
-            if (target != null)
-            {
-                e.CanExecute = true;
-            }
-            else
-            {
-                e.CanExecute = false;
-            }
+            e.CanExecute = true;
         }
 
         private void ExecutedAddStage(object sender, ExecutedRoutedEventArgs e)
@@ -75,22 +65,17 @@ namespace QuestEditor.Views
 
         private void CanExecuteAddStage(object sender, CanExecuteRoutedEventArgs e)
         {
-            Control target = e.Source as Control;
-
-            if (target != null)
-            {
-                e.CanExecute = true;
-            }
-            else
-            {
-                e.CanExecute = false;
-            }
+            e.CanExecute = mStoryTreeView.SelectedItem is ProxyQuest;
         }
 
-        private void ExecutedRemove(object sender, ExecutedRoutedEventArgs e)
+        private void ExecutedDelete(object sender, ExecutedRoutedEventArgs e)
         {
-            ProxyQuest quest = mStoryTreeView.SelectedItem as ProxyQuest;
-            ProxyStage stage = mStoryTreeView.SelectedItem as ProxyStage;
+            
+            ProxyQuest quest = sender as ProxyQuest;
+            ProxyStage stage = sender as ProxyStage;
+
+            if (quest == null) quest = mStoryTreeView.SelectedItem as ProxyQuest;
+            if (stage == null) stage = mStoryTreeView.SelectedItem as ProxyStage;
             if (quest != null)
             {
                 CommandManager.Execute(new DelQuest(mProxyStory, quest));
@@ -101,18 +86,9 @@ namespace QuestEditor.Views
             }
         }
 
-        private void CanExecuteRemove(object sender, CanExecuteRoutedEventArgs e)
+        private void CanExecuteDelete(object sender, CanExecuteRoutedEventArgs e)
         {
-            Control target = e.Source as Control;
-
-            if (target != null)
-            {
-                e.CanExecute = true;
-            }
-            else
-            {
-                e.CanExecute = false;
-            }
+            e.CanExecute = mStoryTreeView.SelectedItem != null || sender is Common.ProxyObject;
         }
 
         #endregion
@@ -132,6 +108,10 @@ namespace QuestEditor.Views
         public QuestEditorWindow()
         {
             InitializeComponent();
+
+            CommandBindings.Add(new CommandBinding(ApplicationCommands.Delete, ExecutedDelete, CanExecuteDelete));
+            CommandBindings.Add(new CommandBinding(AddStage, ExecutedAddStage, CanExecuteAddStage));
+            CommandBindings.Add(new CommandBinding(AddQuest, ExecutedAddQuestCommand, CanExecuteAddQuestCommand));
 
             ModelQuest q = new ModelQuest() { Title = "Test quest", ID = "test" };
             Proxy.ProxyStory s = new Proxy.ProxyStory(mStory);
@@ -162,6 +142,30 @@ namespace QuestEditor.Views
         private void onStoryTreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
             SelectedObject = mStoryTreeView.SelectedItem as Common.IProxyObject;
+        }
+
+        private void onStoryTreeView_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            TreeView tv = (TreeView)sender;
+            IInputElement element = tv.InputHitTest(e.GetPosition(tv));
+            while (!((element is TreeView) || element == null))
+            {
+                if (element is TreeViewItem)
+                    break;
+
+                if (element is FrameworkElement)
+                {
+                    FrameworkElement fe = (FrameworkElement)element;
+                    element = (IInputElement)(fe.Parent ?? fe.TemplatedParent);
+                }
+                else
+                    break;
+            }
+            if (element is TreeViewItem)
+            {
+                element.Focus();
+                e.Handled = true;
+            }
         }
     }
 }

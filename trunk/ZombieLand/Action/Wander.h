@@ -23,6 +23,8 @@ namespace action
 	protected:
 		MoveToPtr	mMoveAction;
 		Vector2		mTarget;
+		float mTimer;
+		action::MovePtr mAction;
 	};
 };
 

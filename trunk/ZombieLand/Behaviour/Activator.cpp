@@ -6,7 +6,7 @@
 
 namespace behaviour
 {
-	Activator::Activator()
+	Activator::Activator(BehaviourDefinition* def) : Behaviour(def)
 	{
 		isUsable = true;
 	}

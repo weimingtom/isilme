@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:cm="clr-namespace:Common.Views;assembly=CommonLibrary"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" Title="Properties">
+             d:DesignHeight="300" d:DesignWidth="300" Title="Properties" Icon="/IDE;component/Resources/Properties.png">
     <Grid>
         <WindowsFormsHost Name="mWFHost" />
     </Grid>

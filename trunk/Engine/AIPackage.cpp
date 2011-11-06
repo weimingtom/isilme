@@ -49,3 +49,20 @@ ActionPtr	AIPackage::CreateAction()
 {
 	return ActionPtr();
 }
+
+bool AIPackage::CheckCondition(BehaviourPtr behaviour)
+{
+	if (mCondition)
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+
+luabind::object AIPackage::GetCondition()
+{
+	return mCondition;
+}

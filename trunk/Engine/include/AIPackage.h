@@ -21,6 +21,11 @@ public:
 	
 	/// Условие выполнения пакета
 	luabind::object	GetCondition();
+
+	/// Проверяет выполняется ли условие для агента
+	bool CheckCondition(BehaviourPtr behaviour);
+private:
+	luabind::object mCondition;
 };
 
 #endif

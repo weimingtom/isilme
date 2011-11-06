@@ -54,7 +54,9 @@
       <PrecompiledHeaderFile>Isilme.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)Isilme.pch</PrecompiledHeaderOutputFile>
       <DisableSpecificWarnings>4251;4275;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <AdditionalOptions>-Zm124 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-Zm144 %(AdditionalOptions)</AdditionalOptions>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -64,6 +66,7 @@
       <IgnoreSpecificDefaultLibraries>libc.lib; libcmt.lib; libcmtd.lib</IgnoreSpecificDefaultLibraries>
       <ImportLibrary>$(ProjectDir)/lib/Engine_d.lib</ImportLibrary>
       <OutputFile>../Debug/Engine_d.dll</OutputFile>
+      <Profile>true</Profile>
     </Link>
     <Lib>
       <AdditionalDependencies>GUIChan.lib; hge.lib; hgehelp.lib</AdditionalDependencies>

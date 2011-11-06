@@ -15,7 +15,7 @@ namespace behaviour
 	Zombie::Zombie(ZombieDef* def) : Creature(def)
 	{
 		SetUsable(false);
-		SetAttribute(Speed, 1.5);
+		SetAttribute("Speed", 1.5);
 		GetDieAction()->SetSound("../Data/Sounds/Zombie/Die.wav");
 
 		SetHitSound("../Data/Sounds/Zombie/Hit.wav");

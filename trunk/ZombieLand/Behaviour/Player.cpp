@@ -20,7 +20,7 @@ namespace behaviour
 		//SetHealth(25);
 		GetMoveAction()->SetSound("../Data/Sounds/Walk.wav");
 		GetMoveBackAction()->SetSound("../Data/Sounds/Walk.wav");
-
+		SetAttribute("Speed", 3);
 		isReloading = false;
 		mCurrentWeapon = 0;
 		mCurrentSpell = 0;

@@ -24,6 +24,7 @@ namespace behaviour
 
 	void	DestroyableDef::Parse(TiXmlElement* element)
 	{
+		BehaviourDefinition::Parse(element);
 		if (element == 0)
 			return;
 
@@ -72,7 +73,7 @@ namespace behaviour
 		}
 	}
 
-	Destroyable::Destroyable(DestroyableDef* def)
+	Destroyable::Destroyable(DestroyableDef* def) : Activator(def)
 	{
 		mHitSound = 0;
 		mMaxHealth = def->MaxHealth;

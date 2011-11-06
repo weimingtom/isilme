@@ -1,4 +1,8 @@
 #include "Isilme.h"
+#include "Behaviour.h"
+#include "Action.h"
+#include "AIPackage.h"
+#include "AIPackageFactory.h"
 
 unsigned long Behaviour::GetGroup()
 {
@@ -7,13 +11,19 @@ unsigned long Behaviour::GetGroup()
 
 BehaviourPtr Behaviour::New()
 {
-	return BehaviourPtr(new Behaviour());
+	return BehaviourPtr(new Behaviour(0));
 }
 
-Behaviour::Behaviour()
+Behaviour::Behaviour(BehaviourDefinition* def)
 {
 	mGroup = 0;
 	isActive = true;
+
+	if (def)
+	{
+	for (StringList::iterator it = def->AIPackages.begin(); it != def->AIPackages.end(); ++it)
+		AddAIPackage(*it);
+	}
 }
 
 Behaviour::~Behaviour()
@@ -49,6 +59,19 @@ void		Behaviour::Update(float elapsedTime)
 
 	Think(elapsedTime);
 	UpdateActions(elapsedTime);
+
+	/// Если агент бездействует активизируем пакет ИИ
+	if (mActiveActions.size() == 0)
+	{
+		for (AIPackageList::iterator it = mActivePackages.begin(); it != mActivePackages.end(); ++it)
+		{
+			AIPackagePtr package = *it;
+			if (package->CheckCondition(shared_from_this()))
+			{
+				StartAction(package->CreateAction());
+			}
+		}
+	}
 }
 
 void		Behaviour::UpdateActions(float elapsedTime)
@@ -110,4 +133,48 @@ void	BehaviourDefinition::ParseAttributes(TiXmlElement* attributesElement)
 
 void	BehaviourDefinition::ParseAIPackages(TiXmlElement* aiElement)
 {
+	TiXmlElement* packageElement = aiElement->FirstChildElement("Package");
+	while (packageElement)
+	{
+		const char* idAttr = packageElement->Attribute("ID");
+		
+		if (idAttr)
+		{
+			AIPackages.push_back(idAttr);
+		}
+		else
+		{
+			LOG_W("Incorrect package element");
+		}
+
+		packageElement = packageElement->NextSiblingElement("Package");
+	}
+}
+
+void	Behaviour::AddAIPackage(AIPackagePtr package, int priority)
+{
+	mActivePackages.push_back(package);
+}
+
+void	Behaviour::AddAIPackage(std::string packageID, int priority)
+{
+	AIPackagePtr package = FactoryManager::GetSingleton()->GetAIPackage(packageID);
+	if (package)
+	{
+		AddAIPackage(package, priority);
+	}
+	else
+	{
+		LOG_W("AI package %s not found", packageID.c_str());
+	}
+}
+
+float Behaviour::GetAttribute(std::string ID)
+{
+	return mAttributes[ID];
+}
+
+void Behaviour::SetAttribute(std::string ID, float value)
+{
+	mAttributes[ID] = value;
 }

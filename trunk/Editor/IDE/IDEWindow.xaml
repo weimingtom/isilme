@@ -5,6 +5,16 @@
         xmlns:cv="clr-namespace:Common.Views;assembly=CommonLibrary"
         xmlns:local="clr-namespace:IDE"
         Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <Style TargetType="{x:Type Image}" x:Key="ToolImageStyle">
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="0.25"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Image x:Key="UndoImage" Source="/IDE;component/Resources/Undo.png" Style="{StaticResource ResourceKey=ToolImageStyle}"></Image>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="24" />
@@ -12,18 +22,69 @@
             <RowDefinition Height="229*" />
             <RowDefinition Height="24" />
         </Grid.RowDefinitions>
-        <ToolBarTray Grid.Row="1" Grid.RowSpan="2" Name="mToolBarTray" Margin="0,0,0,261" />
         <Menu Margin="0,1,0,0" Name="mMainMenu" >
             <MenuItem Header="File" Name="mFileMenu">
-                <MenuItem Header="New" Name="mFileNewMenu" Command="New"></MenuItem>
-                <MenuItem Header="Open" Name="mFileOpenMenu" Command="Open"></MenuItem>
-                <MenuItem Header="Save" Name="mFileSaveMenu" Command="Save"></MenuItem>
-                <MenuItem Header="Save as" Name="mFileSaveAsMenu" Command="SaveAs"></MenuItem>
-                <MenuItem Header="Save all" Name="mFIleSaveAlMenu" Command="{x:Static local:IDEWindow.SaveAll}"></MenuItem>
+                <MenuItem Header="New" Name="mFileNewMenu" Command="New">
+                    <MenuItem.Icon>
+                        <Image Source="/IDE;component/Resources/New.png" Style="{StaticResource ResourceKey=ToolImageStyle}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Open" Name="mFileOpenMenu" Command="Open">
+                    <MenuItem.Icon>
+                        <Image Source="/IDE;component/Resources/Open.png" Style="{StaticResource ResourceKey=ToolImageStyle}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Save" Name="mFileSaveMenu" Command="Save">
+                    <MenuItem.Icon>
+                        <Image Source="/IDE;component/Resources/Save.png" Style="{StaticResource ResourceKey=ToolImageStyle}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Save as" Name="mFileSaveAsMenu" Command="SaveAs">
+                </MenuItem>
+                <MenuItem Header="Save all" Name="mFIleSaveAlMenu" Command="{x:Static local:IDEWindow.SaveAll}">
+                    <MenuItem.Icon>
+                        <Image Source="/IDE;component/Resources/SaveAll.png" Style="{StaticResource ResourceKey=ToolImageStyle}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator></Separator>
+                <MenuItem Header="Print" Command="Print">
+                    <MenuItem.Icon>
+                        <Image Source="/IDE;component/Resources/Print.png" Style="{StaticResource ResourceKey=ToolImageStyle}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
             <MenuItem Header="Edit" Name="mEditMenu">
-                <MenuItem Header="Undo" Name="mEditUndoMenu" Command="Undo"></MenuItem>
-                <MenuItem Header="Redo" Name="mEditRedoMenu" Command="Redo"></MenuItem>
+                <MenuItem Command="Cut">
+                    <MenuItem.Icon>
+                        <Image Source="/IDE;component/Resources/Cut.png" Style="{StaticResource ResourceKey=ToolImageStyle}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Command="Copy">
+                    <MenuItem.Icon>
+                        <Image Source="/IDE;component/Resources/Copy.png" Style="{StaticResource ResourceKey=ToolImageStyle}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Command="Paste">
+                    <MenuItem.Icon>
+                        <Image Source="/IDE;component/Resources/Paste.png" Style="{StaticResource ResourceKey=ToolImageStyle}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Command="Delete">
+                    <MenuItem.Icon>
+                        <Image Source="/IDE;component/Resources/Delete.png" Style="{StaticResource ResourceKey=ToolImageStyle}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator ></Separator>
+                <MenuItem Header="Undo" Name="mEditUndoMenu" Command="Undo">
+                    <MenuItem.Icon>
+                        <Image Source="/IDE;component/Resources/Undo.png" Style="{StaticResource ResourceKey=ToolImageStyle}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Redo" Name="mEditRedoMenu" Command="Redo">
+                    <MenuItem.Icon>
+                        <Image Source="/IDE;component/Resources/Redo.png" Style="{StaticResource ResourceKey=ToolImageStyle}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
             <MenuItem Header="Window" Name="mWindowMenu" ItemsSource="{Binding}">
                 <MenuItem.ItemTemplate>
@@ -52,9 +113,19 @@
         </ad:DockingManager>
         <ToolBarTray Grid.Row="1" Name="mToolbarTray">
             <ToolBar Name="mMainToolbar">
+                <Button Command="New">
+                    <Button.Content>
+                        <Image Source="/IDE;component/Resources/New.png" Style="{StaticResource ResourceKey=ToolImageStyle}"></Image>
+                    </Button.Content>
+                </Button>
+                <Button Command="Open">
+                    <Button.Content>
+                        <Image Source="/IDE;component/Resources/Open.png" Style="{StaticResource ResourceKey=ToolImageStyle}"></Image>
+                    </Button.Content>
+                </Button>
                 <Button Name="mSave" Command="Save">
                     <Button.Content>
-                        <Image Source="/IDE;component/Resources/Save.png"></Image>
+                        <Image Source="/IDE;component/Resources/Save.png" Style="{StaticResource ResourceKey=ToolImageStyle}"></Image>
                     </Button.Content>
                 </Button>
                 <Button Name="mSaveAll" Command="Save">
@@ -62,16 +133,34 @@
                         <Image Source="/IDE;component/Resources/SaveAll.png"></Image>
                     </Button.Content>
                 </Button>
+                <Separator></Separator>
+                <Button Command="Cut">
+                    <Button.Content>
+                        <Image Source="/IDE;component/Resources/Cut.png" Style="{StaticResource ResourceKey=ToolImageStyle}"></Image>
+                    </Button.Content>
+                </Button>
+                <Button Command="Copy">
+                    <Button.Content>
+                        <Image Source="/IDE;component/Resources/Copy.png" Style="{StaticResource ResourceKey=ToolImageStyle}"></Image>
+                    </Button.Content>
+                </Button>
+                <Button Command="Paste">
+                    <Button.Content>
+                        <Image Source="/IDE;component/Resources/Paste.png" Style="{StaticResource ResourceKey=ToolImageStyle}"></Image>
+                    </Button.Content>
+                </Button>
+                <Separator></Separator>
                 <Button Name="mUndo" Command="Undo">
                     <Button.Content>
-                        <Image Source="/IDE;component/Resources/Undo.png"></Image>
+                        <Image Source="/IDE;component/Resources/Undo.png" Style="{StaticResource ResourceKey=ToolImageStyle}"></Image>
                     </Button.Content>
                 </Button>
                 <Button Name="mRedo" Command="Redo">
                     <Button.Content>
-                        <Image Source="/IDE;component/Resources/Redo.png"></Image>
+                        <Image Source="/IDE;component/Resources/Redo.png" Style="{StaticResource ResourceKey=ToolImageStyle}"></Image>
                     </Button.Content>
                 </Button>
+                <Separator></Separator>
             </ToolBar>
         </ToolBarTray>
     </Grid>

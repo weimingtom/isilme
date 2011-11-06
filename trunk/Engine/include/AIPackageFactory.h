@@ -22,7 +22,7 @@ public:
 
 	virtual AIPackagePtr CreatePackage()
 	{
-		T package = new T();
+		T* package = new T();
 		return AIPackagePtr(package);
 	}
 

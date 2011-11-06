@@ -12,6 +12,8 @@
 #include "ZombieLand/Items/Ammo.h"
 #include "ZombieLand/Items/Spell.h"
 #include "ZombieLand/LootTable.h"
+#include <Engine/include/AIPackageFactory.h>
+#include <ZombieLand/WanderPackage.h>
 
 ZombieLand::ZombieLand()
 {
@@ -59,6 +61,9 @@ void	ZombieLand::Init()
 	factoryManager->RegisterItem("Weapon", inventory::ItemFactory<inventory::WeaponDef>::New());
 	factoryManager->RegisterItem("Ammo", inventory::ItemFactory<inventory::AmmoDef>::New());
 	factoryManager->RegisterItem("Spell", inventory::ItemFactory<inventory::SpellDef>::New());
+
+	// Регистрируем пакеты ИИ
+	factoryManager->RegisterAIPackage("Wander", AIPackageFactory<WanderPackage>::New());
 
 	factoryManager->LoadDataFile("../Data/Master.xml");
 	factoryManager->LoadItems("../Data/Items.xml");

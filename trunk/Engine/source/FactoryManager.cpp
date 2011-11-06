@@ -37,7 +37,7 @@ FactoryPtr FactoryManager::GetSingleton()
 
 AIPackagePtr	FactoryManager::GetAIPackage(std::string id)
 {
-	return AIPackagePtr();
+	return mAIPackages[id];
 }
 
 void	FactoryManager::LoadAIPackages(TiXmlElement* element)
@@ -329,6 +329,11 @@ void			FactoryManager::LoadDataFile(std::string fileName)
 	TiXmlElement* fractionsElement = root->FirstChildElement("Fractions");
 	if (fractionsElement)
 		LoadFractions(fractionsElement);
+
+	// Загружаем пакеты ИИ
+	TiXmlElement* aiPackagesElement = root->FirstChildElement("AIPackages");
+	if (aiPackagesElement)
+		LoadAIPackages(aiPackagesElement);
 
 	// Загружаем квесты
 	// Загружаем предметы

@@ -25,7 +25,7 @@ BehaviourPtr ItemDef::Create()
 	Item* item = new Item(this);
 	return BehaviourPtr(item);
 }
-Item::Item(ItemDef* def)
+Item::Item(ItemDef* def) : Activator(def)
 {
 	mItemTag = def->ItemType;
 	mAmmo = def->Ammo;

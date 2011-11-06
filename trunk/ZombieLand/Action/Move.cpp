@@ -58,14 +58,16 @@ namespace action
 
 	void	Move::OnStart()
 	{
-		mChannel = Engine::GetSingleton()->GetSoundSystem()->PlayEffect(mSound, true);
+		if (mSound)
+			mChannel = Engine::GetSingleton()->GetSoundSystem()->PlayEffect(mSound, true);
 
-		mSpeed = GetEntity()->As<behaviour::Creature>()->GetAttribute(Speed);
+		mSpeed = 3;// GetEntity()->As<behaviour::Creature>()->GetAttribute("Speed");
 	}
 
 	void	Move::OnDone()
 	{
-		Engine::GetSingleton()->GetSoundSystem()->StopChannel(mChannel);
+		if (mChannel)
+			Engine::GetSingleton()->GetSoundSystem()->StopChannel(mChannel);
 
 		EntityPtr e = GetEntity();
 		Vector2 v(0.0f, 0.0f);

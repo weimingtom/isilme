@@ -19,6 +19,8 @@ using Microsoft.Win32;
 using System.IO;
 using System.Reflection;
 using System.Windows.Markup;
+using LuaEditor.Views;
+using QuestEditor.Views;
 
 namespace IDE
 {
@@ -95,6 +97,7 @@ namespace IDE
         ModuleManager mModuleManager = new ModuleManager();
 
         ExtensionManager mExtensionManager = new ExtensionManager();
+
         #endregion
 
         #region Prpperties
@@ -134,10 +137,13 @@ namespace IDE
 
             // Регистрируем расширения
             ExtensionManager.RegisterExtension<TextEditorWindow>(".txt");
+            ExtensionManager.RegisterExtension<LuaEditorWindow>(".lua");
+            ExtensionManager.RegisterExtension<QuestEditorWindow>(".story");
 
             mToolWindowsMenu.DataContext = mTools;
             mWindowMenu.DataContext = mOpendDocuments;
 
+            // Регистрируем панели инструментов
             AddToolWindow(mPropertiesWindow);
             AddToolWindow(mModuleManager);
             
@@ -203,38 +209,6 @@ namespace IDE
             }
 
             selectedContent.Activate();
-        }
-
-        /// <summary>
-        /// Создает новый модуль
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void onNewModule_Click(object sender, RoutedEventArgs e)
-        {
-        }
-
-        /// <summary>
-        /// Открывает существующий модуль
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void onOpenModule_CLick(object sender, RoutedEventArgs e)
-        {
-        }
-
-        /// <summary>
-        /// Сохраняет документ с заданным именем
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void onSaveAs_Click(object sender, RoutedEventArgs e)
-        {
-            SaveFileDialog dialog = new SaveFileDialog();
-            if (dialog.ShowDialog() == true)
-            {
-                ActiveEditor.SaveAs(dialog.FileName);
-            }
         }
     }
 }

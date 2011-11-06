@@ -3,7 +3,7 @@
 
 namespace behaviour
 {
-	Bullet::Bullet(BulletDef* def)
+	Bullet::Bullet(BulletDef* def) : Behaviour(def)
 	{
 		mSpeed = 10.0f;
 		mDamage = 25.0f;

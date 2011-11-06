@@ -2,7 +2,7 @@
 #include <luabind/luabind.hpp>
 #include <luabind/lua_include.hpp>
 
-Trigger::Trigger(TriggerDefinition* def)
+Trigger::Trigger(TriggerDefinition* def) : Behaviour(def)
 {
 	isActivated = false;
 	mTimer = -1.0f;

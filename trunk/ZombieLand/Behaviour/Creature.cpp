@@ -8,13 +8,15 @@
 #include "Engine/include/Fraction.h"
 #include "Engine/include/Rank.h"
 #include "Engine/include/AIPackage.h"
+#include "ZombieLand/Action/Wander.h"
 
 namespace behaviour
 {
 	Creature::Creature(CreatureDef* def) : Destroyable(def)
 	{
 		mMoveAction = action::MovePtr(new action::Move());
-		SetAttribute(Speed, 3);
+		mWanderAction = ActionPtr(new action::Wander());
+		SetAttribute("Speed", 2);
 
 		mMoveBack = action::MovePtr(new action::Move());
 		//mMoveBack->SetSpeed(-2.0f);
@@ -41,16 +43,6 @@ namespace behaviour
 
 	Creature::~Creature()
 	{
-	}
-
-	float	Creature::GetAttribute(Attribute attr)
-	{
-		return mAttributes[attr];
-	}
-
-	void	Creature::SetAttribute(Attribute attr, float value)
-	{
-		mAttributes[attr] = value;
 	}
 
 	ActionPtr	Creature::GetSpellAction()
@@ -264,23 +256,5 @@ namespace behaviour
 			attitude = 0;
 
 		return attitude;
-	}
-
-	void	Creature::AddAIPackage(AIPackagePtr package, int priority)
-	{
-		mAIPackages.push_back(package);
-	}
-
-	void	Creature::AddAIPackage(std::string packageID, int priority)
-	{
-		AIPackagePtr package = FactoryManager::GetSingleton()->GetAIPackage(packageID);
-		if (package)
-		{
-			AddAIPackage(package, priority);
-		}
-		else
-		{
-			LOG_W("AI package %s not found", packageID.c_str());
-		}
 	}
 };

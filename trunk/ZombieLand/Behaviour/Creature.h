@@ -88,26 +88,11 @@ namespace behaviour
 		/// Устанавливает ранг
 		void	SetRank(std::string fractionID, int rank);	
 
-		/// Возвращает значение атрибута
-		float		GetAttribute(Attribute attr);
-
-		/// Устанваливает значение атрибута
-		void	SetAttribute(Attribute attr, float value);
-
 		/// Возвращает отношение к другому персонажу
 		int		GetAttitudeTo(CreaturePtr creature);
 
-		/// Добавляет пакет ИИ
-		void	AddAIPackage(AIPackagePtr package, int priority = 0);
-
-		/// Добавляет пакет ИИ по идентификатору
-		void	AddAIPackage(std::string packageID, int priority = 0);
-
-		/// Удаляет пакет ИИ
-		void	RemoveAIPackage(AIPackagePtr package);
+		ActionPtr mWanderAction;
 	protected:
-		/// Атрибуты персонажда
-		std::map<Attribute, float> mAttributes;
 
 		/// Фракции персонажа
 		std::map<FractionPtr, int>	mFractions;
@@ -115,6 +100,7 @@ namespace behaviour
 		/// Состояния
 		action::MovePtr	mMoveAction;
 		action::MovePtr	mMoveBack;
+		
 		ActionPtr	mShotAction;
 		ActionPtr	mReloadAction;
 		ActionPtr	mSpellAction;
@@ -129,10 +115,7 @@ namespace behaviour
 		/// Скрипт итерации 
 		/// @depricated
 		luabind::object	onThink; // onThink(me, elapsedTime)
-		
-		/// Список активных пакетов ИИ
-		AIPackageList	mAIPackages;
-	};
+};
 
 };
 #endif

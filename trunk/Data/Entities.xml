@@ -73,11 +73,15 @@
 		<Behaviour  MaxHealth="40" Health="40" Resistance="0" Blood="Blood" Loot="Zombie"></Behaviour>
 	</Entity>
   <!-- Cratures -->
-  <Entity Type="Creatures/Zombie1" Graphics="Zombie1" Behaviour="Zombie">
+  <Entity Type="Creatures/Zombie1" Graphics="Zombie1" Behaviour="Creature">
     <Body Type="Dynamic" LinearDumping="2.5" AngularDumping="2.2">
       <Box Width="1.0" Height="1.0" CategoryBits="32" MaskBits="111" Restitution="0.5" Density="5"></Box>
     </Body>
-    <Behaviour  MaxHealth="40" Health="40" Resistance="0" Blood="Blood" Loot="Zombie"></Behaviour>
+    <Behaviour  MaxHealth="40" Health="40" Resistance="0" Blood="Blood" Loot="Zombie">
+      <AI>
+        <Package ID="Wander"></Package>
+      </AI>
+    </Behaviour>
   </Entity>
   <Entity Type="Creatures/Zombie2" Graphics="Zombie1" Behaviour="Zombie">
     <Body Type="Dynamic" LinearDumping="2.5" AngularDumping="2.2">
@@ -87,15 +91,14 @@
   </Entity>
   <Entity Type="Creatures/Bandit1" Graphics="Creatures/Bandit1" Behaviour="Creature">
     <Body Type="Dynamic" LinearDumping="2.5" AngularDumping="2.2">
-      <Box Width="1.0" Height="1.0" CategoryBits="32" MaskBits="111" Restitution="0.5" Density="5"></Box>
+      <Box Width="1.0" Height="1.0" CategoryBits="96" MaskBits="111" Restitution="0.5" Density="5"></Box>
     </Body>
     <Behaviour  
       Loot="Zombie"
       MaxHealth="40" 
       Health="40" 
       Resistance="0" 
-      Blood="Blood"
-      OnThink="me:GetActor():SetAngle(me:GetActor():GetAngleTo(Player:GetActor()));">
+      Blood="Blood">
       <Attributes>
         
       </Attributes>

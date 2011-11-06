@@ -23,9 +23,6 @@
     <ClCompile Include="Graphics\Creature.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Behaviour\Creature.cpp">
-      <Filter>Behaviour</Filter>
-    </ClCompile>
     <ClCompile Include="Behaviour\Player.cpp">
       <Filter>Behaviour</Filter>
     </ClCompile>
@@ -79,6 +76,12 @@
     </ClCompile>
     <ClCompile Include="Action\AttackTarget.cpp">
       <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="WanderPackage.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Behaviour\Creature.cpp">
+      <Filter>Behaviour</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -182,6 +185,9 @@
     <ClInclude Include="ControlPad.h">
       <Filter>Actions</Filter>
     </ClInclude>
+    <ClInclude Include="WanderPackage.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Data\Entities.xml">
@@ -212,6 +218,9 @@
       <Filter>Data</Filter>
     </None>
     <None Include="..\Data\Master.xml">
+      <Filter>Data</Filter>
+    </None>
+    <None Include="..\Data\Packages.xml">
       <Filter>Data</Filter>
     </None>
   </ItemGroup>
