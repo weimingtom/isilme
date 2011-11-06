@@ -24,12 +24,6 @@ namespace behaviour
 
 	class Creature;
 	typedef boost::shared_ptr<Creature> CreaturePtr;
-
-	class Zombie;
-	typedef boost::shared_ptr<Zombie> ZombiePtr;
-
-	class Player;
-	typedef boost::shared_ptr<Player> PlayerPtr;
 };
 
 namespace action

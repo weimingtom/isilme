@@ -169,6 +169,7 @@ typedef std::list<SensorPtr> SensorList;
 
 typedef std::list<std::string>					StringList;
 typedef std::map<std::string, std::string>		StringMap;
+typedef std::map<std::string, float>			AttributeMap;
 typedef std::set<EntityPtr>						EntitySet;
 typedef std::map<std::string, EntityPtr>		EntityMap;
 typedef std::list<EntityPtr>					EntityList;

@@ -1,5 +1,4 @@
 #include "ZombieLand.h"
-#include "Zombie.h"
 #include "Destroyable.h"
 #include "ZombieLand/LootTable.h"
 #include "Engine/include/FactoryManager.h"

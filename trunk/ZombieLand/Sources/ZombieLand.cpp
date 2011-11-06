@@ -1,11 +1,8 @@
 #include "ZombieLand.h"
 #include "ZombieLand/State/Play.h"
 #include "ZombieLand/Graphics/Creature.h"
-#include "ZombieLand/Graphics/Player.h"
 #include "ZombieLand/Behaviour/Creature.h"
-#include "ZombieLand/Behaviour/Player.h"
 #include "ZombieLand/Behaviour/Bullet.h"
-#include "ZombieLand/Behaviour/Zombie.h"
 #include "ZombieLand/Behaviour/Item.h"
 
 #include "ZombieLand/Items/Weapon.h"
@@ -14,6 +11,8 @@
 #include "ZombieLand/LootTable.h"
 #include <Engine/include/AIPackageFactory.h>
 #include <ZombieLand/WanderPackage.h>
+#include <ZombieLand/Action/AgressionPackage.h>
+#include <ZombieLand/Action/ControlPackage.h>
 
 ZombieLand::ZombieLand()
 {
@@ -44,11 +43,8 @@ void	ZombieLand::Init()
 
 	// Регистрируем графику
 	factoryManager->RegisterGraphics("Creature", GraphicsFactory<graphics::CreatureDef>::New());
-	factoryManager->RegisterGraphics("Player", GraphicsFactory<graphics::PlayerDef>::New());
 
 	// Регистрируем поведение
-	factoryManager->RegisterBehaviour("Player", new BehaviourFactory<behaviour::PlayerDef>());
-	factoryManager->RegisterBehaviour("Zombie", new BehaviourFactory<behaviour::ZombieDef>());
 	factoryManager->RegisterBehaviour("Creature", new BehaviourFactory<behaviour::CreatureDef>());
 	factoryManager->RegisterBehaviour("Destroyable", new BehaviourFactory<behaviour::DestroyableDef>());
 	factoryManager->RegisterBehaviour("Bullet", new BehaviourFactory<behaviour::BulletDef>());
@@ -64,6 +60,8 @@ void	ZombieLand::Init()
 
 	// Регистрируем пакеты ИИ
 	factoryManager->RegisterAIPackage("Wander", AIPackageFactory<WanderPackage>::New());
+	factoryManager->RegisterAIPackage("Control", AIPackageFactory<ControlPackage>::New());
+	factoryManager->RegisterAIPackage("Agression", AIPackageFactory<AgressionPackage>::New());
 
 	factoryManager->LoadDataFile("../Data/Master.xml");
 	factoryManager->LoadItems("../Data/Items.xml");

@@ -23,13 +23,7 @@
     <ClCompile Include="Graphics\Creature.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Behaviour\Player.cpp">
-      <Filter>Behaviour</Filter>
-    </ClCompile>
     <ClCompile Include="Behaviour\Bullet.cpp">
-      <Filter>Behaviour</Filter>
-    </ClCompile>
-    <ClCompile Include="Behaviour\Zombie.cpp">
       <Filter>Behaviour</Filter>
     </ClCompile>
     <ClCompile Include="Action\Attack.cpp">
@@ -43,9 +37,6 @@
     </ClCompile>
     <ClCompile Include="Action\Shild.cpp">
       <Filter>Actions</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Player.cpp">
-      <Filter>Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Items\Weapon.cpp">
       <Filter>Inventory</Filter>
@@ -83,6 +74,15 @@
     <ClCompile Include="Behaviour\Creature.cpp">
       <Filter>Behaviour</Filter>
     </ClCompile>
+    <ClCompile Include="Action\AgressionPackage.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Action\ControlPackage.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Action\Control.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Configuration.h" />
@@ -107,9 +107,6 @@
     <ClInclude Include="Behaviour\Destroyable.h">
       <Filter>Behaviour</Filter>
     </ClInclude>
-    <ClInclude Include="Behaviour\Zombie.h">
-      <Filter>Behaviour</Filter>
-    </ClInclude>
     <ClInclude Include="Behaviour\Bullet.h">
       <Filter>Behaviour</Filter>
     </ClInclude>
@@ -118,9 +115,6 @@
     </ClInclude>
     <ClInclude Include="Action\Move.h">
       <Filter>Actions</Filter>
-    </ClInclude>
-    <ClInclude Include="Behaviour\Player.h">
-      <Filter>Behaviour</Filter>
     </ClInclude>
     <ClInclude Include="Action\Attack.h">
       <Filter>Actions</Filter>
@@ -133,9 +127,6 @@
     </ClInclude>
     <ClInclude Include="Action\Shild.h">
       <Filter>Actions</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Player.h">
-      <Filter>Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Items\Weapon.h">
       <Filter>Inventory</Filter>
@@ -154,9 +145,6 @@
     </ClInclude>
     <ClInclude Include="Items\Spell.h">
       <Filter>Inventory</Filter>
-    </ClInclude>
-    <ClInclude Include="Behaviour\NPC.h">
-      <Filter>Behaviour</Filter>
     </ClInclude>
     <ClInclude Include="Action\Seek.h">
       <Filter>Actions</Filter>
@@ -186,6 +174,15 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="WanderPackage.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\AgressionPackage.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\ControlPackage.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\Control.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>
@@ -218,9 +215,6 @@
       <Filter>Data</Filter>
     </None>
     <None Include="..\Data\Master.xml">
-      <Filter>Data</Filter>
-    </None>
-    <None Include="..\Data\Packages.xml">
       <Filter>Data</Filter>
     </None>
   </ItemGroup>

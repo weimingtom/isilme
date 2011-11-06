@@ -1,25 +1,22 @@
 #if !defined( __libPerstStat_link_h__ )
 #define __libPerstStat_link_h__
 
+#if defined (_MSC_VER) && defined (_LIB)
+#	if defined(_DEBUG)
+#		pragma message ("Using library: " "../Box2D/lib/box2d_d.lib")
+#		pragma comment (lib, "../Box2D/lib/box2d_d.lib")
+#	else
+#	endif
+#endif
+
 #if defined (_MSC_VER) && !defined (_LIB)
 
-#if !defined( __ProjectRootDirectory__ )
-  #include <@host.h>
-#endif  // __ProjectRootDirectory__
 
 #if _MSC_VER >= 1100
 
 #ifdef _DEBUG
-#   if defined( _DLL )
-#     pragma message ("Using library: " __ProjectRootDirectory__ "lib/libPerstStat_dmd.lib")
-#     pragma comment(lib, __ProjectRootDirectory__ "lib/libPerstStat_dmd.lib")
-#   elif defined( _MT )
-#     pragma message ("Using library: " __ProjectRootDirectory__ "lib/libPerstStat_smd.lib")
-#     pragma comment(lib, __ProjectRootDirectory__ "lib/libPerstStat_smd.lib")
-#   else
-#     pragma message ("Using library: " __ProjectRootDirectory__ "lib/libPerstStat_ssd.lib")
-#     pragma comment(lib, __ProjectRootDirectory__ "lib/libPerstStat_ssd.lib")
-#   endif
+#   pragma message ("Using library: " "../Box2D/lib/box2d_d.lib")
+#	pragma comment (lib, "../Box2D/lib/box2d_d.lib")
 #else
 #   if defined( _DLL )
 #     pragma message ("Using library: " __ProjectRootDirectory__ "lib/libPerstStat_dmr.lib")

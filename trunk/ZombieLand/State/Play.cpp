@@ -6,8 +6,7 @@
 #include <string>
 #include <guichan.hpp>
 #include "Play.h"
-#include "ZombieLand/Behaviour/Player.h"
-#include "ZombieLand/Behaviour/Zombie.h"
+#include "ZombieLand/Behaviour/Creature.h"
 #include "Engine/GUI/ProgressBar.h"
 #include "Engine/GUI/QuestBook.h"
 #include <luabind/function.hpp>
@@ -212,7 +211,7 @@ void	Play::OnUpdate(float elapsedTime)
 	char h[100];
 	if (mPlayer == 0)
 	{
-		mPlayer = boost::shared_dynamic_cast<behaviour::Player>(FactoryManager::GetSingleton()->GetEntity("Player")->GetBehaviour());
+		mPlayer = boost::shared_dynamic_cast<behaviour::Creature>(FactoryManager::GetSingleton()->GetEntity("Player")->GetBehaviour());
 	}
 
 	if (mPlayer != 0)
@@ -228,7 +227,7 @@ void	Play::OnUpdate(float elapsedTime)
 		mHealthBar->setProgress(health);
 		mEnergyBar->setProgress(mPlayer->GetEnergy() / mPlayer->GetMaxEnergy());
 
-		sprintf(h, "ZOMBIE LEFT: %d", behaviour::Zombie::GetZombieCount());
+		//sprintf(h, "ZOMBIE LEFT: %d", behaviour::Zombie::GetZombieCount());
 		//mZombieLeftLabel->setCaption(h);
 
 		if (health > 0.5f)
@@ -394,7 +393,7 @@ void Play::OnStart()
 
 	EntityPtr player = FactoryManager::GetSingleton()->GetEntity("Player");
 	luabind::globals(Engine::GetSingleton()->GetLua()->GetState())["Player"] = boost::shared_dynamic_cast<behaviour::Creature>(player->GetBehaviour());
-	boost::shared_dynamic_cast<behaviour::Player>(player->GetBehaviour())->SavePoint();
+	boost::shared_dynamic_cast<behaviour::Creature>(player->GetBehaviour())->SavePoint();
 
 	mMenu->setVisible(false);
 	SetPaused(false);

@@ -15,8 +15,6 @@ namespace behaviour
 	Creature::Creature(CreatureDef* def) : Destroyable(def)
 	{
 		mMoveAction = action::MovePtr(new action::Move());
-		mWanderAction = ActionPtr(new action::Wander());
-		SetAttribute("Speed", 2);
 
 		mMoveBack = action::MovePtr(new action::Move());
 		//mMoveBack->SetSpeed(-2.0f);
@@ -39,6 +37,11 @@ namespace behaviour
 		{
 			AddAIPackage(*it);
 		}
+		pw = 0;
+		ps = 0;
+		isReloading = false;
+		mCurrentWeapon = 0;
+		mCurrentSpell = 0;
 	}
 
 	Creature::~Creature()
@@ -257,4 +260,108 @@ namespace behaviour
 
 		return attitude;
 	}
+
+	
+	void	Creature::SavePoint()
+	{
+		mCheckPoint = GetActor()->GetPosition();
+	}
+
+	void	Creature::Respawn()
+	{
+		SetActive(true);
+		SetHealth(GetMaxHealth());
+		GetActor()->SetPosition(mCheckPoint.x, mCheckPoint.y);
+		GetActor()->GetBody()->SetActive(true);
+	}
+
+	void	Creature::NextWeapon()
+	{
+		if (GetInventory()->GetItemsCount() == 0)
+			return;
+
+		mCurrentWeapon++;
+		
+		if (mCurrentWeapon >= GetInventory()->GetItemsCount())
+			mCurrentWeapon = 0;
+
+		inventory::ItemPtr item = GetInventory()->GetItem(mCurrentWeapon);
+		if (item->GetSlot() == inventory::Item::Weapon)
+		{
+			GetInventory()->Equip(item);
+			pw = 0;
+		}
+		else
+		{
+			if (pw < GetInventory()->GetItemsCount() + 3)
+			{
+				pw++;
+				NextWeapon();
+			}
+		}
+	}
+
+	void	Creature::NextSpell()
+	{
+		if (GetInventory()->GetItemsCount() == 0 || ps > GetInventory()->GetItemsCount() + 2)
+			return;
+
+		mCurrentSpell++;
+		
+		if (mCurrentSpell >= GetInventory()->GetItemsCount())
+			mCurrentSpell = 0;
+
+		inventory::ItemPtr item = GetInventory()->GetItem(mCurrentSpell);
+		if (item->GetSlot() == inventory::Item::Spell)
+		{
+			GetInventory()->Equip(item);
+			ps = 0;
+		}
+		else
+		{
+			ps++;
+			NextSpell();
+		}
+	}
+
+	void	Creature::SwitchActivator()
+	{
+		ActivatorPtr a = Activator::GetActivatorFor(GetActor());
+		if (a == 0)
+			return;
+		a->UseBy(boost::shared_dynamic_cast<Creature>(GetActor()->GetBehaviour()));
+	}
+
+	void	Creature::ClearTarget()
+	{
+		mTarget.reset();
+	}
+
+	void	Creature::SetTarget()
+	{
+		if (mTarget != 0)
+		{
+			if (mTarget->GetBehaviour()->IsActive())
+			return;
+		}
+
+		float min = 1000;
+		LayerPtr layer = GetActor()->GetLevel()->GetLayer("Zombies");
+		for (EntityList::iterator it = layer->GetObjects()->begin(); it != layer->GetObjects()->end(); ++it)
+		{
+			if ((*it)->GetBehaviour()->IsActive() && GetActor()->GetDistanceTo(*it) < 4.0f && (*it) != GetActor())
+			{
+				float f = GetActor()->GetAngleTo(*it);
+				if (abs(f - GetActor()->GetAngle()) < min)
+				{
+					min = abs(GetActor()->GetAngleTo(*it) - GetActor()->GetAngle());
+					mTarget = *it;
+				}
+			}
+		}
+
+		if (mTarget != 0)
+		GetActor()->SetAngle(GetActor()->GetAngleTo(mTarget));
+	}
+
 };

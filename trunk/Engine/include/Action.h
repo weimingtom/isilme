@@ -19,6 +19,7 @@ class IsilmeExport  Action : public boost::enable_shared_from_this<Action>
 {
 	friend class Behaviour;
 public:
+	static const int InfiniteDuration = -1;
 	Action();
 	virtual ~Action();
 

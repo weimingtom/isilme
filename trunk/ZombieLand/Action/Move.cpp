@@ -61,7 +61,7 @@ namespace action
 		if (mSound)
 			mChannel = Engine::GetSingleton()->GetSoundSystem()->PlayEffect(mSound, true);
 
-		mSpeed = 3;// GetEntity()->As<behaviour::Creature>()->GetAttribute("Speed");
+		mSpeed =  GetEntity()->As<behaviour::Creature>()->GetAttribute("Speed");
 	}
 
 	void	Move::OnDone()

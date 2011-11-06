@@ -153,6 +153,8 @@ public:
 	virtual BehaviourPtr Create() {return Behaviour::New();}
 
 	StringList AIPackages;
+
+	AttributeMap Attributes;
 protected:
 	std::string mType;
 };

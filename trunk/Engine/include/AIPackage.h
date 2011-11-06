@@ -23,7 +23,7 @@ public:
 	luabind::object	GetCondition();
 
 	/// ѕровер€ет выполн€етс€ ли условие дл€ агента
-	bool CheckCondition(BehaviourPtr behaviour);
+	virtual bool CheckCondition(BehaviourPtr behaviour);
 private:
 	luabind::object mCondition;
 };

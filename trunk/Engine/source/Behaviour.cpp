@@ -21,8 +21,17 @@ Behaviour::Behaviour(BehaviourDefinition* def)
 
 	if (def)
 	{
-	for (StringList::iterator it = def->AIPackages.begin(); it != def->AIPackages.end(); ++it)
-		AddAIPackage(*it);
+		// Читаем атрибуты
+		for (AttributeMap::iterator it = def->Attributes.begin(); it != def->Attributes.end(); ++it)
+		{
+			SetAttribute(it->first, it->second);
+		}
+
+		// Читаем пакеты ИИ
+		for (StringList::iterator it = def->AIPackages.begin(); it != def->AIPackages.end(); ++it)
+		{
+			AddAIPackage(*it);
+		}
 	}
 }
 
@@ -129,6 +138,19 @@ void	BehaviourDefinition::Parse(TiXmlElement* element)
 
 void	BehaviourDefinition::ParseAttributes(TiXmlElement* attributesElement)
 {
+	TiXmlElement* attributeElement = attributesElement->FirstChildElement("Attribute");
+	while (attributeElement)
+	{
+		const char* idAttr = attributeElement->Attribute("ID");
+		float value = 0.0f;
+		attributeElement->QueryFloatAttribute("Value", &value);
+
+		if (idAttr)
+		{
+			Attributes[idAttr] = value;
+		}
+		attributeElement = attributeElement->NextSiblingElement("Attribute");
+	}
 }
 
 void	BehaviourDefinition::ParseAIPackages(TiXmlElement* aiElement)

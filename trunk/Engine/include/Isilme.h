@@ -13,6 +13,7 @@
 #include "Camera.h"
 #include "Collisions.h"
 #include "Engine.h"
+#include "Engine/Config.h"
 #include "Entity.h"
 #include "FactoryManager.h"
 #include "Game.h"

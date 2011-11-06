@@ -66,7 +66,7 @@ namespace state
 		gcn::HGELabel*		mSpellAmmo;
 		gcn::HGELabel*		mAmmoLabel;
 		gcn::Icon*			mSpellIcon;
-		behaviour::PlayerPtr mPlayer;
+		behaviour::CreaturePtr mPlayer;
 		
 		gcn::Container* top;
 		gcn::Window* mRespawn;

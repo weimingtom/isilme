@@ -91,8 +91,33 @@ namespace behaviour
 		/// Возвращает отношение к другому персонажу
 		int		GetAttitudeTo(CreaturePtr creature);
 
-		ActionPtr mWanderAction;
+		/// Переключение оружия
+		void	NextWeapon();
+
+		/// Переключение способности
+		void	NextSpell();
+
+		/// Включить активатор
+		void	SwitchActivator();
+
+		/// Сохранить координаты игрока
+		void	SavePoint();
+
+		/// Оживить игрока
+		void	Respawn();
 	protected:
+		EntityPtr	mTarget;
+
+		void	SetTarget();
+		void	ClearTarget();
+
+		bool	isReloading;
+
+		int		mCurrentWeapon;
+		int		mCurrentSpell;
+		int pw, ps;
+	
+		Vector2	mCheckPoint;
 
 		/// Фракции персонажа
 		std::map<FractionPtr, int>	mFractions;

@@ -106,8 +106,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Action\AgressionPackage.cpp" />
     <ClCompile Include="Action\Attack.cpp" />
     <ClCompile Include="Action\AttackTarget.cpp" />
+    <ClCompile Include="Action\Control.cpp" />
+    <ClCompile Include="Action\ControlPackage.cpp" />
+    <ClInclude Include="Action\Control.h" />
+    <ClInclude Include="Action\ControlPackage.h">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClInclude>
     <ClCompile Include="Action\Die.cpp" />
     <ClCompile Include="Action\Heal.cpp" />
     <ClCompile Include="Action\Move.cpp" />
@@ -121,15 +128,9 @@
     <ClCompile Include="Behaviour\Creature.cpp" />
     <ClCompile Include="Behaviour\Destroyable.cpp" />
     <ClCompile Include="Behaviour\Item.cpp" />
-    <ClCompile Include="Behaviour\Player.cpp" />
-    <ClCompile Include="Behaviour\Zombie.cpp" />
     <ClCompile Include="Graphics\Creature.cpp">
       <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\Graphics\</ObjectFileName>
       <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)\Graphics</ObjectFileName>
-    </ClCompile>
-    <ClCompile Include="Graphics\Player.cpp">
-      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\Graphics</ObjectFileName>
-      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)\Graphics\Player</ObjectFileName>
     </ClCompile>
     <ClCompile Include="Items\Ammo.cpp" />
     <ClCompile Include="Items\Spell.cpp" />
@@ -153,13 +154,13 @@
     <None Include="..\Data\Levels\Level1.xml" />
     <None Include="..\Data\Loot.xml" />
     <None Include="..\Data\Master.xml" />
-    <None Include="..\Data\Packages.xml" />
     <None Include="..\Data\Quests\Story1.xml" />
     <None Include="..\Data\Scripts\Level1.lua" />
     <None Include="..\Data\Scripts\script.lua" />
     <None Include="..\Data\Scripts\Triggers.lua" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Action\AgressionPackage.h" />
     <ClInclude Include="Action\Attack.h" />
     <ClInclude Include="Action\AttackTarget.h" />
     <ClInclude Include="Action\ControlKeyMouse.h" />
@@ -179,13 +180,9 @@
     <ClInclude Include="Behaviour\Creature.h" />
     <ClInclude Include="Behaviour\Destroyable.h" />
     <ClInclude Include="Behaviour\Item.h" />
-    <ClInclude Include="Behaviour\NPC.h" />
-    <ClInclude Include="Behaviour\Player.h" />
-    <ClInclude Include="Behaviour\Zombie.h" />
     <ClInclude Include="ControlPad.h" />
     <ClInclude Include="Graphics\Creature.h" />
     <ClInclude Include="Graphics\Destroyable.h" />
-    <ClInclude Include="Graphics\Player.h" />
     <ClInclude Include="Include\Cameras.h" />
     <ClInclude Include="include\Configuration.h" />
     <ClInclude Include="include\Definitions.h" />

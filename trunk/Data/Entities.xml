@@ -60,17 +60,21 @@
 		</Behaviour>
 	</Entity>
 	
-	<Entity Type="Player" Graphics="Player" Behaviour="Player">
+	<Entity Type="Player" Graphics="Player" Behaviour="Creature">
 		<Body Type="Dynamic" LinearDumping="2.5" AngularDumping="2.2">
 			<Box Width="1.0" Height="1.0" CategoryBits="96" MaskBits="111" Restitution="0.5" Density="5"></Box>
 		</Body>
-		<Behaviour  MaxHealth="100" Health="100" Resistance="0" Blood="Blood"></Behaviour>
-	</Entity>
-	<Entity Type="Zombie1" Graphics="Zombie1" Behaviour="Zombie">
-		<Body Type="Dynamic" LinearDumping="2.5" AngularDumping="2.2">
-			<Box Width="1.0" Height="1.0" CategoryBits="32" MaskBits="111" Restitution="0.5" Density="5"></Box>
-		</Body>
-		<Behaviour  MaxHealth="40" Health="40" Resistance="0" Blood="Blood" Loot="Zombie"></Behaviour>
+		<Behaviour  MaxHealth="100" Health="100" Resistance="0" Blood="Blood">
+      <Attributes>
+        <Attribute ID="Speed" Value="4"></Attribute>
+      </Attributes>
+      <AI>
+        <Package ID="Control"></Package>
+      </AI>
+      <Fractions>
+        <Fraction ID="Player" Rank="1"></Fraction>
+      </Fractions>
+    </Behaviour>
 	</Entity>
   <!-- Cratures -->
   <Entity Type="Creatures/Zombie1" Graphics="Zombie1" Behaviour="Creature">
@@ -79,11 +83,18 @@
     </Body>
     <Behaviour  MaxHealth="40" Health="40" Resistance="0" Blood="Blood" Loot="Zombie">
       <AI>
+        <Package ID="Agression"></Package>
         <Package ID="Wander"></Package>
       </AI>
+      <Attributes>
+        <Attribute ID="Speed" Value="1.0" Type="Float"></Attribute>
+      </Attributes>
+      <Fractions>
+        <Fraction ID="Zombie" Rank="1"></Fraction>
+      </Fractions>
     </Behaviour>
   </Entity>
-  <Entity Type="Creatures/Zombie2" Graphics="Zombie1" Behaviour="Zombie">
+  <Entity Type="Creatures/Zombie2" Graphics="Zombie1" Behaviour="Creature">
     <Body Type="Dynamic" LinearDumping="2.5" AngularDumping="2.2">
       <Box Width="1.0" Height="1.0" CategoryBits="32" MaskBits="111" Restitution="0.5" Density="5"></Box>
     </Body>
@@ -100,11 +111,15 @@
       Resistance="0" 
       Blood="Blood">
       <Attributes>
-        
+        <Attribute ID="Speed" Value="1.5" Type="Float"></Attribute>
       </Attributes>
       <AI>
+        <Package ID="Agression"></Package>
         <Package ID="Wander"></Package>
       </AI>
+      <Fractions>
+        <Fraction ID="Bandit" Rank="1"></Fraction>
+      </Fractions>
     </Behaviour>
   </Entity>
   

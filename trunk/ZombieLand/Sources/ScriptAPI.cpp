@@ -1,5 +1,4 @@
 #include "ZombieLand.h"
-#include "ZombieLand/Behaviour/Player.h"
 #include "ZombieLand/Behaviour/Creature.h"
 #include "Engine/Inventory/Inventory.h"
 #include "Engine/Inventory/Item.h"

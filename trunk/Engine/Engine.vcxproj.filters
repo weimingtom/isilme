@@ -24,9 +24,6 @@
     <Filter Include="System">
       <UniqueIdentifier>{932c450a-f66d-48da-82f6-99e82b9c7c14}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Action">
-      <UniqueIdentifier>{a01ea63a-e344-4cef-83c5-7d9764c7c60c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Quests">
       <UniqueIdentifier>{e958e960-2e7b-409c-a216-f7edd4dd0876}</UniqueIdentifier>
     </Filter>
@@ -142,9 +139,6 @@
     <ClInclude Include="Graphics\SpecialGraphics.h">
       <Filter>Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="include\Action.h">
-      <Filter>Action</Filter>
-    </ClInclude>
     <ClInclude Include="Quest\QuestAPI.h">
       <Filter>Quests</Filter>
     </ClInclude>
@@ -209,6 +203,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\AIPackageFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Action.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -297,9 +294,6 @@
     <ClCompile Include="source\Schemas.cpp">
       <Filter>Loading</Filter>
     </ClCompile>
-    <ClCompile Include="source\Action.cpp">
-      <Filter>Action</Filter>
-    </ClCompile>
     <ClCompile Include="Quest\Story.cpp">
       <Filter>Quests</Filter>
     </ClCompile>
@@ -346,6 +340,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AIPackage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Action.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

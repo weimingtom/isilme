@@ -21,6 +21,11 @@
     </Fraction>
   </Fractions>
   <AIPackages>
+    <!-- Агент блуждает в окрестностях текущей точки-->
     <Wander ID="Wander"></Wander>
+    <!-- Агент нападает на других агентов -->
+    <Agression ID="Agression"></Agression>
+    <!-- Агент управляется игроком -->
+    <Control ID="Control"></Control>
   </AIPackages>
 </DataFile>
