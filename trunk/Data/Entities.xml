@@ -87,7 +87,8 @@
         <Package ID="Wander"></Package>
       </AI>
       <Attributes>
-        <Attribute ID="Speed" Value="1.0" Type="Float"></Attribute>
+        <Attribute ID="Speed" Value="1.0"></Attribute>
+        <Attribute ID="Strength" Value="30"></Attribute>
       </Attributes>
       <Fractions>
         <Fraction ID="Zombie" Rank="1"></Fraction>

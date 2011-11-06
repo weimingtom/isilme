@@ -8,7 +8,8 @@
         ID="1">
       </Rank>
       <Attitude Fraction="Zombie" Value="-100"></Attitude>
-      <Attitude Fraction="Police" Value="0"></Attitude>
+      <Attitude Fraction="Police" Value="10"></Attitude>
+      <Attitude Fraction="Bandit" Value="-10"></Attitude>
     </Fraction>
     <Fraction
       ID="Zombie"
@@ -18,6 +19,16 @@
         Title="Weak zombie">
       </Rank>
       <Attitude Fraction="Player" Value="-100"></Attitude>
+      <Attitude Fraction="Bandit" Value="-100"></Attitude>
+    </Fraction>
+    <Fraction
+     ID="Bandit"
+     Name="Bandit">
+      <Rank
+        ID="1">
+      </Rank>
+      <Attitude Fraction="Zombie" Value="-100"></Attitude>
+      <Attitude Fraction="Player" Value="-10"></Attitude>
     </Fraction>
   </Fractions>
   <AIPackages>

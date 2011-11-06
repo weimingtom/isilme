@@ -37,6 +37,13 @@ namespace behaviour
 		{
 			AddAIPackage(*it);
 		}
+
+		// Фракции
+		for (std::list<FractionInfo>::iterator it = def->Fractions.begin(); it != def->Fractions.end(); ++it)
+		{
+			SetRank(it->id, it->rank);
+		}
+
 		pw = 0;
 		ps = 0;
 		isReloading = false;
@@ -249,9 +256,13 @@ namespace behaviour
 		{
 			for (std::map<FractionPtr, int>::iterator it2 = other->mFractions.begin(); it2 != other->mFractions.end(); ++it2)
 			{
-				int a = it1->first->GetAttitudeTo(it2->first);
+				int a;
+				if ((*it1).first != 0 && (*it2).first != 0)
+				{
+					a = it1->first->GetAttitudeTo(it2->first);
 				if (a < attitude)
 					attitude = a;
+				}
 			}
 		}
 
@@ -341,27 +352,37 @@ namespace behaviour
 	{
 		if (mTarget != 0)
 		{
-			if (mTarget->GetBehaviour()->IsActive())
-			return;
+			float distance = GetActor()->GetDistanceTo(mTarget);
+			if (mTarget->GetBehaviour()->IsActive() && distance <= 4.0f)
+				return;
+			else
+				mTarget.reset();
 		}
 
 		float min = 1000;
-		LayerPtr layer = GetActor()->GetLevel()->GetLayer("Zombies");
-		for (EntityList::iterator it = layer->GetObjects()->begin(); it != layer->GetObjects()->end(); ++it)
+		EntityList targets;
+		Vector2 v = GetActor()->GetPosition();
+		GetLevel()->AABBQuery(&targets, v.x - 4, v.y - 4, v.x + 4, v.y + 4);
+
+
+		for (EntityList::iterator it = targets.begin(); it != targets.end(); ++it)
 		{
-			if ((*it)->GetBehaviour()->IsActive() && GetActor()->GetDistanceTo(*it) < 4.0f && (*it) != GetActor())
+			CreaturePtr c = (*it)->As<Creature>();
+			if (c)
 			{
-				float f = GetActor()->GetAngleTo(*it);
-				if (abs(f - GetActor()->GetAngle()) < min)
+				
+				int attitude = GetAttitudeTo(c);
+				if (attitude < 0)
 				{
-					min = abs(GetActor()->GetAngleTo(*it) - GetActor()->GetAngle());
 					mTarget = *it;
 				}
 			}
 		}
 
-		if (mTarget != 0)
-		GetActor()->SetAngle(GetActor()->GetAngleTo(mTarget));
 	}
 
+	EntityPtr Creature::GetTarget()
+	{
+		return mTarget;
+	}
 };

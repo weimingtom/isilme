@@ -105,12 +105,14 @@ namespace behaviour
 
 		/// ќживить игрока
 		void	Respawn();
-	protected:
-		EntityPtr	mTarget;
 
 		void	SetTarget();
 		void	ClearTarget();
 
+		EntityPtr GetTarget();
+		
+	protected:
+		EntityPtr	mTarget;
 		bool	isReloading;
 
 		int		mCurrentWeapon;

@@ -14,11 +14,14 @@ AgressionPackage::~AgressionPackage()
 ActionPtr AgressionPackage::CreateAction()
 {
 	action::AttackTarget* a = new action::AttackTarget();
+	a->SetDuration(2.0f);
 
 	return ActionPtr(a);
 }
 
 bool AgressionPackage::CheckCondition(BehaviourPtr behaviour)
 {
-	return false;
+	behaviour::CreaturePtr c = boost::shared_dynamic_cast<behaviour::Creature>(behaviour);
+	c->SetTarget();
+	return c->GetTarget() != 0;
 }

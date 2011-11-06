@@ -26,6 +26,7 @@ namespace action
 	protected:
 		behaviour::DestroyablePtr mTarget;
 		behaviour::CreaturePtr mCreature;
+		action::MovePtr mAction;
 	};
 };
 
