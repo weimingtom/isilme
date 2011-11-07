@@ -111,7 +111,13 @@ namespace behaviour
 
 		EntityPtr GetTarget();
 		
+		/// Возвращает врага из списка ближайших врагов
+		CreaturePtr GetEnemy(int index);
+
+		/// Возвращает количество врагов
+		int GetEnemiesCount();
 	protected:
+		void UpdateEnemiesList();
 		EntityPtr	mTarget;
 		bool	isReloading;
 
@@ -142,6 +148,9 @@ namespace behaviour
 		/// Скрипт итерации 
 		/// @depricated
 		luabind::object	onThink; // onThink(me, elapsedTime)
+
+		/// Список ближайших врагов
+		std::vector<CreaturePtr> mEnemies;
 };
 
 };

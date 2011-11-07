@@ -3,7 +3,8 @@
   <Fractions>
     <Fraction
       ID="Player"
-      Name="Player">
+      Name="Player"
+      Agression="0">
       <Rank
         ID="1">
       </Rank>
@@ -13,22 +14,31 @@
     </Fraction>
     <Fraction
       ID="Zombie"
-      Name="Zombie">
+      Name="Zombie"
+      Agression="100">
       <Rank
         ID="1"
         Title="Weak zombie">
       </Rank>
+      <Rank ID="2" Title="Normal zombie"></Rank>
+      <Rank ID="3" Title="Savage zombie"></Rank>
       <Attitude Fraction="Player" Value="-100"></Attitude>
-      <Attitude Fraction="Bandit" Value="-100"></Attitude>
+      <Attitude Fraction="Bandits" Value="-100"></Attitude>
     </Fraction>
     <Fraction
      ID="Bandit"
-     Name="Bandit">
+     Name="Bandits"
+     Agression="50">
       <Rank
         ID="1">
       </Rank>
       <Attitude Fraction="Zombie" Value="-100"></Attitude>
       <Attitude Fraction="Player" Value="-10"></Attitude>
+    </Fraction>
+    <Fraction ID="Civilian" Name="Civilians" Agression="0">
+      <Rank ID="1" Title="Civilian"></Rank>
+      <Rank ID="2" Title=""></Rank>
+      <Rank ID="3" Title=""></Rank>
     </Fraction>
   </Fractions>
   <AIPackages>
@@ -38,5 +48,7 @@
     <Agression ID="Agression"></Agression>
     <!-- Агент управляется игроком -->
     <Control ID="Control"></Control>
+    <!-- Агент убегает от превосходящего по численности противника -->
+    <Avoid ID="Avoid"></Avoid>
   </AIPackages>
 </DataFile>

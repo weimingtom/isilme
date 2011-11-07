@@ -74,6 +74,10 @@
       <Fractions>
         <Fraction ID="Player" Rank="1"></Fraction>
       </Fractions>
+      <Inventory>
+        <Item Tag="Pistol"></Item>
+        <Item Tag="Heal" Ammo="2"></Item>
+      </Inventory>
     </Behaviour>
 	</Entity>
   <!-- Cratures -->
@@ -113,18 +117,47 @@
       Blood="Blood">
       <Attributes>
         <Attribute ID="Speed" Value="1.5" Type="Float"></Attribute>
+        <Attribute ID="Brave" Value="10"></Attribute>
       </Attributes>
       <AI>
+        <Package ID="Avoid"></Package>
         <Package ID="Agression"></Package>
         <Package ID="Wander"></Package>
       </AI>
       <Fractions>
         <Fraction ID="Bandit" Rank="1"></Fraction>
       </Fractions>
+      <Inventory>
+        <Item Tag="Pistol" Equip="1" Ammo="2"></Item>
+      </Inventory>
     </Behaviour>
   </Entity>
-  
-	<Entity Type="Blood" Graphics="Blood"></Entity>
+  <Entity Type="Creatures/Civilian1" Graphics="Creatures/Civilian1" Behaviour="Creature">
+    <Body Type="Dynamic" LinearDumping="2.5" AngularDumping="2.2">
+      <Box Width="1.0" Height="1.0" CategoryBits="96" MaskBits="111" Restitution="0.5" Density="5"></Box>
+    </Body>
+    <Behaviour
+      Loot="Zombie"
+      MaxHealth="40"
+      Health="40"
+      Resistance="0"
+      Blood="Blood">
+      <Attributes>
+        <Attribute ID="Speed" Value="1.5" Type="Float"></Attribute>
+      </Attributes>
+      <AI>
+        <Package ID="Avoid"></Package>
+        <Package ID="Wander"></Package>
+      </AI>
+      <Fractions>
+        <Fraction ID="Civilian" Rank="1"></Fraction>
+      </Fractions>
+      <Inventory>
+      </Inventory>
+    </Behaviour>
+  </Entity>
+
+  <Entity Type="Blood" Graphics="Blood"></Entity>
 	<Entity Type="Splinters" Graphics="Splinters"></Entity>
 	<Entity Type="Bullet" Graphics="Bullets/Normal" Behaviour="Bullet">
 		<!-- Сущность описывает динамический ящик -->

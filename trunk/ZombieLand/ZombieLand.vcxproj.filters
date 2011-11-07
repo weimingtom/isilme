@@ -83,6 +83,12 @@
     <ClCompile Include="Action\Control.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="Action\Avoid.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Action\AvoidPackage.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Configuration.h" />
@@ -183,6 +189,12 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="Action\Control.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\Avoid.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\AvoidPackage.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>

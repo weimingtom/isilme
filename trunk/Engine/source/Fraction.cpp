@@ -33,10 +33,20 @@ std::string Fraction::GetName()
 
 int	Fraction::GetAttitudeTo(FractionPtr fraction)
 {
-	return mAttitude[fraction];
+	if (mAttitude.find(fraction) != mAttitude.end())
+		return mAttitude[fraction];// - mAgression;
+	else if (fraction.get() == this)
+		return 100;
+	else
+		return -GetAgression();
 }
 
 void	Fraction::SetAttitudeTo(FractionPtr fraction, int value)
 {
 	mAttitude[fraction] = value;
+}
+
+int		Fraction::GetAgression()
+{
+	return mAgression;
 }

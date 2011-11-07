@@ -56,6 +56,29 @@
       <Sprite Name="Shild" X="0" Y ="0" Width="128" Height="128">../Data/Sprites/Shild.png</Sprite>
     </State>
   </Creature>
+  <Creature Name="Creatures/Civilian1">
+    <State Name="Idle">
+      <Animation Name="Player" X="0" Y="0" Width="150" Height="112" Frames="8">../Data/Sprites/Civilian1.png</Animation>
+    </State>
+    <State Name="Move">
+      <Animation Name="Player" X="0" Y="112" Width="150" Height="112" Frames="8">../Data/Sprites/Civilian1.png</Animation>
+    </State>
+    <State Name="Die">
+      <Animation Name="Player" X="0" Y="336" Width="150" Height="112" Frames="8" Loop="0">../Data/Sprites/Civilian1.png</Animation>
+    </State>
+    <State Name="Shot">
+      <Animation Name="Player" X="0" Y="448" Width="150" Height="112" Frames="5" FPS="12">../Data/Sprites/Civilian1.png</Animation>
+    </State>
+    <State Name="Reload">
+      <Animation Name="Player" X="0" Y="672" Width="150" Height="112" Frames="5" FPS="5">../Data/Sprites/Civilian1.png</Animation>
+    </State>
+    <State Name="MoveBack">
+      <Animation Name="Player" X="0" Y="224" Width="150" Height="112" Frames="8">../Data/Sprites/Civilian1.png</Animation>
+    </State>
+    <State Name="Shild">
+      <Sprite Name="Shild" X="0" Y ="0" Width="128" Height="128">../Data/Sprites/Shild.png</Sprite>
+    </State>
+  </Creature>
   <Creature Name="Player">
     <State Name="Idle">
       <Animation Name="Player" X="0" Y="0" Width="150" Height="112" Frames="8">../Data/Sprites/Player.png</Animation>

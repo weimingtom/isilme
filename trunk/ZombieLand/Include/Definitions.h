@@ -52,6 +52,10 @@ namespace action
 	class MoveTo;
 	typedef boost::shared_ptr<MoveTo> MoveToPtr;
 	typedef boost::weak_ptr<MoveTo> MoveToWPtr;
+
+	class Avoid;
+	typedef boost::shared_ptr<Avoid> AvoidPtr;
+	typedef boost::weak_ptr<Avoid> AvoidWPtr;
 };
 
 enum Attribute

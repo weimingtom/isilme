@@ -78,6 +78,7 @@ void		Behaviour::Update(float elapsedTime)
 			if (package->CheckCondition(shared_from_this()))
 			{
 				StartAction(package->CreateAction());
+				break;
 			}
 		}
 	}

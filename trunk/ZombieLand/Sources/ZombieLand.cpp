@@ -13,6 +13,7 @@
 #include <ZombieLand/WanderPackage.h>
 #include <ZombieLand/Action/AgressionPackage.h>
 #include <ZombieLand/Action/ControlPackage.h>
+#include <ZombieLand/Action/AvoidPackage.h>
 
 ZombieLand::ZombieLand()
 {
@@ -62,6 +63,7 @@ void	ZombieLand::Init()
 	factoryManager->RegisterAIPackage("Wander", AIPackageFactory<WanderPackage>::New());
 	factoryManager->RegisterAIPackage("Control", AIPackageFactory<ControlPackage>::New());
 	factoryManager->RegisterAIPackage("Agression", AIPackageFactory<AgressionPackage>::New());
+	factoryManager->RegisterAIPackage("Avoid", AIPackageFactory<AvoidPackage>::New());
 
 	factoryManager->LoadDataFile("../Data/Master.xml");
 	factoryManager->LoadItems("../Data/Items.xml");

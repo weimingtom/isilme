@@ -390,6 +390,7 @@
 		<Entity Name="" Type="Creatures/Zombie1" Position="10, 43, 1.0" Scale="1.0"></Entity>
 		<Entity Name="" Type="Creatures/Zombie1" Position="9, 45, 1.0" Scale="1.0"></Entity>
 		<Entity Name="Player" Type="Player" Position="9.0, 12, 1.0" Scale="1.0"></Entity>
+    <Entity Name="" Type="Creatures/Civilian1" Position="12, 12, 1.0" Scale="1.0"></Entity>
     <Entity Name="" Type="Creatures/Bandit1" Position="15.0, 44, 1.0" Scale="1.0"></Entity>
     <Entity Name="" Type="Creatures/Bandit1" Position="32, 26, 1.0" Scale="1.0"></Entity>
     <Entity Name="" Type="Creatures/Bandit1" Position="34, 27, 1.0" Scale="1.0"></Entity>
@@ -397,6 +398,14 @@
 	</Layer>
 
 	<Layer Name="Bullets"></Layer>
+  <Layer Name="Containers">
+    <Entity Name="" Type="Trash/Box" Position="12, 10, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Trash/Box" Position="13, 10.5, 0.3" Scale="1"></Entity>
+    <Entity Name="" Type="Trash/Box" Position="11.2, 48, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Trash/Box" Position="11.5, 47, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Trash/Box" Position="10, 48, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Trash/Box" Position="10, 46, 0.4" Scale="1"></Entity>
+  </Layer>
 	<Layer Name="Fencies">
     <Entity Name="" Type="Fencies/Stone" Position="4.5, 6, 0" Scale="1"></Entity>
 		<Entity Name="" Type="Fencies/Stone" Position="4.5, 10, 0" Scale="1"></Entity>
@@ -413,8 +422,6 @@
     <Entity Name="" Type="Fencies/Stone" Position="0.5, 42, 0" Scale="1"></Entity>
     <Entity Name="" Type="Fencies/Stone" Position="0.5, 46, 0" Scale="1"></Entity>
     
-		<Entity Name="" Type="Trash/Box" Position="12, 10, 0" Scale="1"></Entity>
-		<Entity Name="" Type="Trash/Box" Position="13, 10.5, 0.3" Scale="1"></Entity>
 		<Entity Name="" Type="Cars/Car2" Position="15, 11, -2" Scale="1"></Entity>
 		<Entity Name="" Type="Cars/Car1" Position="15.5, 22, -1.8" Scale="1"></Entity>
 		<Entity Name="" Type="Cars/Car1" Position="3, 39, -1.57" Scale="1"></Entity>
@@ -504,6 +511,10 @@
     <Entity Name="" Type="Trees/Tree2" Position="3, 30, 0" Scale="1"></Entity>
     <Entity Name="" Type="Trees/Tree1" Position="6, 28, 0" Scale="1"></Entity>
     <Entity Name="" Type="Trees/Tree1" Position="6, 32, 1" Scale="1"></Entity>
+    
+    <Entity Name="" Type="Trees/Tree1" Position="38.3, 4, 1" Scale="1"></Entity>
+    <Entity Name="" Type="Trees/Tree1" Position="43, 6, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Trees/Tree1" Position="39, 8, 1.2" Scale="1"></Entity>
 	</Layer>
 	<World Gravity="0.0, 0.0"></World>
 	<Scripts

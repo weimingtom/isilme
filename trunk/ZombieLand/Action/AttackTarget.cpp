@@ -4,6 +4,7 @@
 #include "ZombieLand/Behaviour/Destroyable.h"
 #include "ZombieLand/Behaviour/Creature.h"
 #include "ZombieLand/Action/Move.h"
+#include "ZombieLand/Items/Weapon.h"
 
 namespace action
 {
@@ -54,8 +55,23 @@ namespace action
 		mAction->SetAngle(angle);
 		GetEntity()->SetAngle(angle);
 
-		if (GetEntity()->GetDistanceTo(mCreature->GetTarget()) < 1.2f)
+		inventory::ItemPtr weapon = mCreature->GetInventory()->GetSlot(inventory::Item::Weapon);
+		if (weapon)
 		{
+			//Перезараядка
+			if (weapon->GetAmmo() == 0)
+				StartChildAction(mCreature->GetReloadAction());
+
+			// Стрельба
+			ActionPtr attackAction = mCreature->GetShotAction();
+			if (!attackAction->IsActive())
+			{
+				mCreature->StartAction(attackAction);
+			}
+		}
+		else if (GetEntity()->GetDistanceTo(mCreature->GetTarget()) < 1.2f)
+		{
+			// Рукопашная атака
 			ActionPtr attackAction = mCreature->GetAttackAction();
 			if (!attackAction->IsActive())
 			{

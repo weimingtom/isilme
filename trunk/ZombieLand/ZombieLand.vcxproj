@@ -109,8 +109,12 @@
     <ClCompile Include="Action\AgressionPackage.cpp" />
     <ClCompile Include="Action\Attack.cpp" />
     <ClCompile Include="Action\AttackTarget.cpp" />
+    <ClCompile Include="Action\Avoid.cpp" />
+    <ClCompile Include="Action\AvoidPackage.cpp" />
     <ClCompile Include="Action\Control.cpp" />
     <ClCompile Include="Action\ControlPackage.cpp" />
+    <ClInclude Include="Action\Avoid.h" />
+    <ClInclude Include="Action\AvoidPackage.h" />
     <ClInclude Include="Action\Control.h" />
     <ClInclude Include="Action\ControlPackage.h">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>

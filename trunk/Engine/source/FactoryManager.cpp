@@ -366,6 +366,10 @@ void			FactoryManager::LoadFractions(TiXmlElement* element)
 			// Название фракции
 			fraction->mName = nameAttr ? nameAttr : "";
 
+			// Агрессивность
+			fraction->mAgression = 0;
+			fractionElement->QueryIntAttribute("Agression", &(fraction->mAgression));
+
 			// Ранги
 			TiXmlElement* rankElement = fractionElement->FirstChildElement("Rank");
 			while (rankElement)

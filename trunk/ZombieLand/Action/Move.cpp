@@ -9,6 +9,7 @@ namespace action
 		mSpeed = 0.0f;
 		mSound = 0;
 		mChannel = 0;
+		mAngle = 0;
 	}
 
 	Move::~Move()
@@ -72,6 +73,7 @@ namespace action
 		EntityPtr e = GetEntity();
 		Vector2 v(0.0f, 0.0f);
 
-		e->GetBody()->SetLinearVelocity(v);
+		if (e != 0)
+			e->GetBody()->SetLinearVelocity(v);
 	}
 };

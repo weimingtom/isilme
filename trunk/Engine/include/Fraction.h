@@ -25,7 +25,14 @@ public:
 
 	/// Устанавливает отношение к другой фракции
 	void SetAttitudeTo(FractionPtr fraction, int value);
+
+	/// Возвращает общую агрессивность фракции
+	int GetAgression();
+
+	/// Установить общую агрессивность
+	void SetAgression(int value);
 private:
+	int mAgression;
 	std::string mID;
 	std::string mName;
 	std::map<int, RankPtr> mRanks;

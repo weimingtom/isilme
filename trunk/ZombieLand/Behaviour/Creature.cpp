@@ -88,6 +88,7 @@ namespace behaviour
 	void	Creature::Think(float elapsedTime)
 	{
 		Destroyable::Think(elapsedTime);
+		UpdateEnemiesList();
 		if (mEnergy < mMaxEnergy)
 			mEnergy += mEnergyResoration * elapsedTime;
 
@@ -250,24 +251,23 @@ namespace behaviour
 
 	int Creature::GetAttitudeTo(CreaturePtr other)
 	{
-		int attitude = 100;
+		int attitude = 0;
+		int count = 0;
 
 		for (std::map<FractionPtr, int>::iterator it1 = mFractions.begin(); it1 != mFractions.end(); ++it1)
 		{
 			for (std::map<FractionPtr, int>::iterator it2 = other->mFractions.begin(); it2 != other->mFractions.end(); ++it2)
 			{
-				int a;
+				count++;
 				if ((*it1).first != 0 && (*it2).first != 0)
 				{
-					a = it1->first->GetAttitudeTo(it2->first);
-				if (a < attitude)
-					attitude = a;
+					attitude += it1->first->GetAttitudeTo(it2->first);
 				}
 			}
 		}
 
-		if (mFractions.size() == 0)
-			attitude = 0;
+		if (count != 0)
+			attitude /= count;
 
 		return attitude;
 	}
@@ -368,7 +368,7 @@ namespace behaviour
 		for (EntityList::iterator it = targets.begin(); it != targets.end(); ++it)
 		{
 			CreaturePtr c = (*it)->As<Creature>();
-			if (c)
+			if (c && c != shared_from_this())
 			{
 				
 				int attitude = GetAttitudeTo(c);
@@ -384,5 +384,31 @@ namespace behaviour
 	EntityPtr Creature::GetTarget()
 	{
 		return mTarget;
+	}
+
+	void	Creature::UpdateEnemiesList()
+	{
+		mEnemies.clear();
+		EntityList dummy;
+		Vector2 v = GetActor()->GetPosition();
+		GetLevel()->AABBQuery(&dummy, v.x - 4, v.y - 4, v.x + 4, v.y + 4);
+
+		for (EntityList::iterator it = dummy.begin(); it != dummy.end(); ++it)
+		{
+			CreaturePtr c = (*it)->As<Creature>();
+			if (c)
+				if (c != shared_from_this() && (GetAttitudeTo(c) < 0))
+					mEnemies.push_back(c);
+		}
+	}
+
+	CreaturePtr Creature::GetEnemy(int index)
+	{
+		return mEnemies.at(index);
+	}
+
+	int	Creature::GetEnemiesCount()
+	{
+		return mEnemies.size();
 	}
 };
