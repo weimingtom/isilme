@@ -148,6 +148,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ZombieLand.h</PrecompiledHeaderFile>
     </ClCompile>
+    <ClCompile Include="State\Editor.cpp" />
     <ClCompile Include="State\Play.cpp" />
     <ClCompile Include="WanderPackage.cpp" />
   </ItemGroup>
@@ -196,6 +197,7 @@
     <ClInclude Include="Items\Spell.h" />
     <ClInclude Include="Items\Weapon.h" />
     <ClInclude Include="LootTable.h" />
+    <ClInclude Include="State\Editor.h" />
     <ClInclude Include="State\Play.h" />
     <ClInclude Include="WanderPackage.h" />
   </ItemGroup>

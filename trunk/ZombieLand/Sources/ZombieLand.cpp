@@ -1,5 +1,6 @@
 #include "ZombieLand.h"
 #include "ZombieLand/State/Play.h"
+#include "ZombieLand/State/Editor.h"
 #include "ZombieLand/Graphics/Creature.h"
 #include "ZombieLand/Behaviour/Creature.h"
 #include "ZombieLand/Behaviour/Bullet.h"
@@ -70,8 +71,10 @@ void	ZombieLand::Init()
 
 	LootManager::GetSingleton()->Load("../Data/Loot.xml");
 	playState = StatePtr(new state::Play());
+	StatePtr editorState = StatePtr(new state::Editor());
 
-	GetStateManager()->Push(playState);
+	//GetStateManager()->Push(playState);
+	GetStateManager()->Push(editorState);
 
 	Engine::GetSingleton()->GetLua()->DoFile("../Data/Scripts/script.lua");
 }

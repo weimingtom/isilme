@@ -90,6 +90,8 @@
     <Compile Include="Commands\DelQuest.cs" />
     <Compile Include="Commands\DelStage.cs" />
     <Compile Include="LuaSerializer.cs" />
+    <Compile Include="Model\ModelFraction.cs" />
+    <Compile Include="Model\ModelFractionTable.cs" />
     <Compile Include="Model\ModelQuest.cs" />
     <Compile Include="Model\ModelStage.cs" />
     <Compile Include="Model\ModelStory.cs" />

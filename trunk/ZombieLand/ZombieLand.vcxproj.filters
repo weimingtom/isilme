@@ -89,6 +89,9 @@
     <ClCompile Include="Action\AvoidPackage.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="State\Editor.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Configuration.h" />
@@ -196,6 +199,9 @@
     </ClInclude>
     <ClInclude Include="Action\AvoidPackage.h">
       <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="State\Editor.h">
+      <Filter>States</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
