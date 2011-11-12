@@ -6,7 +6,7 @@
 namespace editor
 {
 	/// Интерфейс команды
-	class Command
+	class IsilmeExport Command
 	{
 	public:
 		/// Отменяет выполнение команды

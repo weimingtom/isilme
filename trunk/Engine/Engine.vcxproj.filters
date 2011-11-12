@@ -390,5 +390,8 @@
     <ClCompile Include="Editor\SelectorTool.cpp">
       <Filter>Editor</Filter>
     </ClCompile>
+    <ClCompile Include="Editor\AddEntityCommand.cpp">
+      <Filter>Editor</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

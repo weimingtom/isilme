@@ -240,6 +240,7 @@ LayerPtr	Level::AddLayer(std::string name)
 	{
 		LayerPtr layer(new Layer());
 		mLayers.push_back(layer);
+		layer->mLevel = shared_from_this();
 		mLayerNames[name] = layer;
 
 		return layer;

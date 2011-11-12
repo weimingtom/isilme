@@ -7,6 +7,7 @@ namespace action
 {
 	Avoid::Avoid()
 	{
+		SetDuration(1.0f);
 	}
 
 	Avoid::~Avoid()
@@ -15,7 +16,6 @@ namespace action
 
 	void Avoid::OnStart()
 	{
-		SetDuration(2.0f);
 		mCreature = GetEntity()->As<behaviour::Creature>();
 		mAction = mCreature->GetMoveAction();
 		mAction->SetAngle(GetEntity()->GetAngle());
@@ -40,8 +40,9 @@ namespace action
 
 		v = p + v;
 		
+		float oldAngle = GetEntity()->GetAngle();
 		float angle = GetEntity()->GetAngleTo(v);
-		if (!(angle >= -6.28 && angle < 6.28))
+		if (!(angle >= -16.28 && angle < 16.28))
 			return;
 		mAction->SetAngle(angle);
 		GetEntity()->SetAngle(angle);

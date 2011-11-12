@@ -93,7 +93,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>../Luabind/lib;../Lua514/lib; ../GUIChan/lib;../HGE/lib;../TinyXML/lib;../Box2D/lib;../Engine/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../boost/lib;../Luabind/lib;../Lua514/lib; ../GUIChan/lib;../HGE/lib;../TinyXML/lib;../Box2D/lib;../Engine/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>xinput.lib;luabind.lib;hge.lib;hgehelp.lib;GUIChan.lib;tinyxml.lib;box2d.lib;lua514.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>$(ProjectDir)/lib/Engine.lib</ImportLibrary>
       <OutputFile>../Release/Engine.dll</OutputFile>
@@ -172,6 +172,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AIPackage.cpp" />
+    <ClCompile Include="Editor\AddEntityCommand.cpp" />
     <ClCompile Include="Editor\CommandManager.cpp" />
     <ClCompile Include="Editor\EntityBrushTool.cpp" />
     <ClCompile Include="Editor\SelectorTool.cpp" />

@@ -95,7 +95,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>luabind.lib;GUIChan.lib; engine.lib; hge.lib;hgehelp.lib;tinyxml.lib;box2d.lib;lua514.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../Luabind/lib;../Lua514/lib;../GUIChan/lib;../HGE/lib;../TinyXML/lib;../Box2D/lib;$(ProjectDir)../Engine/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../boost/lib;../Luabind/lib;../Lua514/lib;../GUIChan/lib;../HGE/lib;../TinyXML/lib;../Box2D/lib;$(ProjectDir)../Engine/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>

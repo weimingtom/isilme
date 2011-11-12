@@ -6,7 +6,7 @@
 
 namespace editor
 {
-	class AddLayerCommand : public Command
+	class IsilmeExport AddLayerCommand : public Command
 	{
 	public:
 		AddLayerCommand(LevelPtr level, LayerPtr layer);

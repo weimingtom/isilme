@@ -12,6 +12,7 @@
 #include <luabind/function.hpp>
 #include "Engine/Quest/Quest.h"
 #include "Engine/Quest/Stage.h"
+#include "Engine/Editor/EntityBrushTool.h"
 
 namespace state
 {
@@ -177,6 +178,13 @@ Editor::Editor() : State()
 	top->add(mQuestBook);
 
 	Game::GetSingleton()->GetStory()->OnSetStage.connect(boost::bind(&Editor::OnSetStage, this, _1, _2));
+
+	// Инициализируем кисть объектов
+	mEntityBrush.reset(new editor::EntityBrushTool());
+	mEntityBrush->SetEntityTypeID("Trash/Box");
+
+	// Кисть по умолчанию - расстановка объектов
+	SelectEntityBrushTool();
 }
 
 void Editor::mouseClicked(gcn::MouseEvent& evt)
@@ -398,4 +406,20 @@ void Editor::OnStart()
 	mMenu->setVisible(false);
 	SetPaused(false);
 }
+
+void Editor::mousePressed(gcn::MouseEvent& mouseEvent)
+{
+	mCurrentTool->OnMouseDown(LayerPtr(), mouseEvent.getX(), mouseEvent.getY(), mouseEvent.getButton());
+}
+   
+void Editor::mouseReleased(gcn::MouseEvent& mouseEvent)
+{
+	mCurrentTool->OnMouseUp(LayerPtr(), mouseEvent.getX(), mouseEvent.getY(), mouseEvent.getButton());
+}
+
+void Editor::SelectEntityBrushTool()
+{
+	//mCurrentTool = mEntityBrush;
+}
+
 };

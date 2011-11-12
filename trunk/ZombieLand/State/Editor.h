@@ -27,9 +27,9 @@ namespace state
 		/// Установить текущий инструмент - выбор объектов
 		void	SelectSelectorTool();
 
-		void mousePressed(gcn::MouseEvent& mouseEvent){}
+		void mousePressed(gcn::MouseEvent& mouseEvent);
    
-		void mouseReleased(gcn::MouseEvent& mouseEvent){}
+		void mouseReleased(gcn::MouseEvent& mouseEvent);
 
 		void mouseClicked(gcn::MouseEvent& mouseEvent);
 

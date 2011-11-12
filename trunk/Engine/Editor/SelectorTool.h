@@ -6,7 +6,7 @@
 
 namespace editor
 {
-	class SelectorTool : public Tool
+	class IsilmeExport SelectorTool : public Tool
 	{
 	public:
 	private:

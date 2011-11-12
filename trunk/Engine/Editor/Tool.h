@@ -7,7 +7,7 @@
 namespace editor
 {
 /// Базовый класс инструментов
-class Tool
+class IsilmeExport Tool
 {
 public:
 	Tool();

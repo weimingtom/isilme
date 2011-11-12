@@ -13,6 +13,17 @@
       <Attitude Fraction="Bandit" Value="-10"></Attitude>
     </Fraction>
     <Fraction
+      ID="Police"
+      Name="Police"
+      Agression="0">
+      <Rank
+        ID="1">
+      </Rank>
+      <Attitude Fraction="Zombie" Value="-100"></Attitude>
+      <Attitude Fraction="Police" Value="10"></Attitude>
+      <Attitude Fraction="Bandit" Value="-10"></Attitude>
+    </Fraction>
+    <Fraction
       ID="Zombie"
       Name="Zombie"
       Agression="100">
@@ -39,6 +50,9 @@
       <Rank ID="1" Title="Civilian"></Rank>
       <Rank ID="2" Title=""></Rank>
       <Rank ID="3" Title=""></Rank>
+      <Attitude Fraction="Zombie" Value="-100"></Attitude>
+      <Attitude Fraction="Police" Value="100"></Attitude>
+      <Attitude Fraction="Bandit" Value="-100"></Attitude>
     </Fraction>
   </Fractions>
   <AIPackages>

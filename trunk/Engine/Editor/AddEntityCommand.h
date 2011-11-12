@@ -6,7 +6,7 @@
 
 namespace editor
 {
-	class AddEntityCommand : public Command
+	class IsilmeExport AddEntityCommand : public Command
 	{
 	public:
 		AddEntityCommand(LayerPtr layer, EntityPtr entity);
@@ -16,7 +16,7 @@ namespace editor
 		virtual void Unexecute();
 	private:
 		LayerPtr mLayer;
-		EntiryPtr mEntity;
+		EntityPtr mEntity;
 	};
 };
 

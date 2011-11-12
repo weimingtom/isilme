@@ -50,3 +50,8 @@ EntityList* Layer::GetObjects()
 Layer::~Layer()
 {
 }
+
+LevelPtr	Layer::GetLevel()
+{
+	return mLevel.lock();
+}

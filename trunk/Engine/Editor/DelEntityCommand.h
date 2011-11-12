@@ -6,7 +6,7 @@
 
 namespace editor
 {
-	class DelEntityCommand
+	class IsilmeExport DelEntityCommand
 	{
 	public:
 		virtual ~DelEntityCommand();
