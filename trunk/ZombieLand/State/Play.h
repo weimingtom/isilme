@@ -9,7 +9,9 @@
 #include "Engine/GUI/ProgressBar.h"
 #include "Engine/GUI/HGELabel.h"
 #include "Engine/GUI/QuestBook.h"
-#include "Engine/Quest/Quests.h"
+#include "Engine/GUI/InventoryWindow.h"
+#include "Engine/GUI/ConversationWindow.h"
+#include "Engine/Quest/Quests.h"1
 
 namespace state
 {
@@ -74,6 +76,8 @@ namespace state
 		gcn::Button* mRRespawn;
 		gcn::Button* mRMenu;
 		gcn::QuestBook* mQuestBook;
+		gcn::ConversationWindow* mConversationWindow;
+		gcn::InventoryWindow* mInventoryWindow;
 
 		virtual void OnUpdate(float elapsedTime);
 

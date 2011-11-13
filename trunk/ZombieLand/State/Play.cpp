@@ -12,6 +12,7 @@
 #include <luabind/function.hpp>
 #include "Engine/Quest/Quest.h"
 #include "Engine/Quest/Stage.h"
+#include "Engine/Quest/Conversation.h"
 
 namespace state
 {
@@ -62,6 +63,7 @@ Play::Play() : State()
 	mSpellAmmo		= new gcn::HGELabel("../Data/Fonts/font1.fnt");
 
 	mQuestBook		= new gcn::QuestBook();
+	mConversationWindow = new gcn::ConversationWindow();
 
 	mQuestBook->setVisible(false);
 
@@ -176,7 +178,12 @@ Play::Play() : State()
 	top->add(mRespawn, 100, 100);
 	top->add(mQuestBook);
 
+	mConversationWindow->Show(top);
+
 	Game::GetSingleton()->GetStory()->OnSetStage.connect(boost::bind(&Play::OnSetStage, this, _1, _2));
+
+	story::ConversationPtr c = FactoryManager::GetSingleton()->GetConversation("tutorial");
+	mConversationWindow->SetConversation(c);
 }
 
 void Play::mouseClicked(gcn::MouseEvent& evt)

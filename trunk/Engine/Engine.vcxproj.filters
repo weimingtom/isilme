@@ -24,9 +24,6 @@
     <Filter Include="System">
       <UniqueIdentifier>{932c450a-f66d-48da-82f6-99e82b9c7c14}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Quests">
-      <UniqueIdentifier>{e958e960-2e7b-409c-a216-f7edd4dd0876}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Inventory">
       <UniqueIdentifier>{244e1285-30b3-461c-97bf-06af855a3ab6}</UniqueIdentifier>
     </Filter>
@@ -39,6 +36,9 @@
     </Filter>
     <Filter Include="Editor">
       <UniqueIdentifier>{a1d12196-be5a-46df-ad77-a95dad46a5f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Story">
+      <UniqueIdentifier>{e958e960-2e7b-409c-a216-f7edd4dd0876}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -143,13 +143,13 @@
       <Filter>Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Quest\QuestAPI.h">
-      <Filter>Quests</Filter>
+      <Filter>Story</Filter>
     </ClInclude>
     <ClInclude Include="Quest\Quests.h">
-      <Filter>Quests</Filter>
+      <Filter>Story</Filter>
     </ClInclude>
     <ClInclude Include="Quest\Story.h">
-      <Filter>Quests</Filter>
+      <Filter>Story</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\StateGraphics.h">
       <Filter>Graphics</Filter>
@@ -167,13 +167,13 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Quest\Quest.h">
-      <Filter>Quests</Filter>
+      <Filter>Story</Filter>
     </ClInclude>
     <ClInclude Include="System\ActionManager.h">
       <Filter>System</Filter>
     </ClInclude>
     <ClInclude Include="Quest\Stage.h">
-      <Filter>Quests</Filter>
+      <Filter>Story</Filter>
     </ClInclude>
     <ClInclude Include="GUI\QuestBook.h">
       <Filter>GUIChan</Filter>
@@ -240,6 +240,21 @@
     </ClInclude>
     <ClInclude Include="Editor\SelectorTool.h">
       <Filter>Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Quest\Conversation.h">
+      <Filter>Story</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\ConversationWindow.h">
+      <Filter>GUIChan</Filter>
+    </ClInclude>
+    <ClInclude Include="Quest\Phrase.h">
+      <Filter>Story</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\InventoryWindow.h">
+      <Filter>GUIChan</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\ModalDialog.h">
+      <Filter>GUIChan</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -328,19 +343,19 @@
       <Filter>Loading</Filter>
     </ClCompile>
     <ClCompile Include="Quest\Story.cpp">
-      <Filter>Quests</Filter>
+      <Filter>Story</Filter>
     </ClCompile>
     <ClCompile Include="Quest\QuestAPI.cpp">
-      <Filter>Quests</Filter>
+      <Filter>Story</Filter>
     </ClCompile>
     <ClCompile Include="Quest\Quests.cpp">
-      <Filter>Quests</Filter>
+      <Filter>Story</Filter>
     </ClCompile>
     <ClCompile Include="ScriptAPI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Quest\Quest.cpp">
-      <Filter>Quests</Filter>
+      <Filter>Story</Filter>
     </ClCompile>
     <ClCompile Include="System\ActionManager.cpp">
       <Filter>System</Filter>
@@ -349,7 +364,7 @@
       <Filter>Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Quest\Stage.cpp">
-      <Filter>Quests</Filter>
+      <Filter>Story</Filter>
     </ClCompile>
     <ClCompile Include="GUI\QuestBook.cpp">
       <Filter>GUIChan</Filter>
@@ -392,6 +407,21 @@
     </ClCompile>
     <ClCompile Include="Editor\AddEntityCommand.cpp">
       <Filter>Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\ConversationWindow.cpp">
+      <Filter>GUIChan</Filter>
+    </ClCompile>
+    <ClCompile Include="Quest\Phrase.cpp">
+      <Filter>Story</Filter>
+    </ClCompile>
+    <ClCompile Include="Quest\Conversation.cpp">
+      <Filter>Story</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\InventoryWindow.cpp">
+      <Filter>GUIChan</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\ModalDialog.cpp">
+      <Filter>GUIChan</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -7,6 +7,7 @@
 #include "Engine/Inventory/ItemFactory.h"
 #include "Fraction.h"
 #include "Rank.h"
+#include "Engine/Quest/Conversation.h"
 
 
 FactoryPtr FactoryManager::mInstance;
@@ -433,4 +434,36 @@ void			FactoryManager::LoadFractions(TiXmlElement* element)
 			f1->SetAttitudeTo(f2, it->second);
 		}
 	}
+}
+
+void	FactoryManager::LoadConversations(TiXmlElement* element)
+{
+	TiXmlElement* convElement = element->FirstChildElement("Conversation");
+	while (convElement)
+	{
+		story::ConversationPtr conversation = story::Conversation::Load(convElement);
+		if (conversation)
+		{
+			mConversations[conversation->GetID()] = conversation;
+		}
+
+		convElement = convElement->NextSiblingElement("Conversation");
+	}
+}
+
+void	FactoryManager::LoadConversations(std::string fileName)
+{
+	TiXmlDocument* document = new TiXmlDocument();
+	document->LoadFile(fileName.data());
+
+	TiXmlElement* root = document->RootElement();
+
+	LoadConversations(root);
+
+	delete document;
+}
+
+story::ConversationPtr	FactoryManager::GetConversation(std::string id)
+{
+	return mConversations[id];
 }

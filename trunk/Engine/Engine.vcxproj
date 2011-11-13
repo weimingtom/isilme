@@ -121,7 +121,10 @@
     <ClInclude Include="Graphics\Sprite.h" />
     <ClInclude Include="Graphics\StateGraphics.h" />
     <ClInclude Include="Graphics\TriggerGraphics.h" />
+    <ClInclude Include="GUI\ConversationWindow.h" />
     <ClInclude Include="GUI\HGELabel.h" />
+    <ClInclude Include="GUI\InventoryWindow.h" />
+    <ClInclude Include="GUI\ModalDialog.h" />
     <ClInclude Include="GUI\ProgressBar.h" />
     <ClInclude Include="GUI\QuestBook.h" />
     <ClInclude Include="include\Action.h" />
@@ -162,6 +165,8 @@
     <ClInclude Include="Inventory\Inventory.h" />
     <ClInclude Include="Inventory\Item.h" />
     <ClInclude Include="Loading\GraphicsDefinition.h" />
+    <ClInclude Include="Quest\Conversation.h" />
+    <ClInclude Include="Quest\Phrase.h" />
     <ClInclude Include="Quest\Quest.h" />
     <ClInclude Include="Quest\QuestAPI.h" />
     <ClInclude Include="Quest\Quests.h" />
@@ -181,11 +186,16 @@
     <ClCompile Include="Graphics\Particles.cpp" />
     <ClCompile Include="Graphics\Sprite.cpp" />
     <ClCompile Include="Graphics\TriggerGraphics.cpp" />
+    <ClCompile Include="GUI\ConversationWindow.cpp" />
+    <ClCompile Include="GUI\InventoryWindow.cpp" />
+    <ClCompile Include="GUI\ModalDialog.cpp" />
     <ClCompile Include="GUI\QuestBook.cpp" />
     <ClCompile Include="Inventory\Inventory.cpp" />
     <ClCompile Include="Inventory\Item.cpp" />
     <ClCompile Include="Inventory\ItemDef.cpp" />
     <ClCompile Include="Inventory\ItemFactory.cpp" />
+    <ClCompile Include="Quest\Conversation.cpp" />
+    <ClCompile Include="Quest\Phrase.cpp" />
     <ClCompile Include="Quest\Quest.cpp" />
     <ClCompile Include="Quest\QuestAPI.cpp" />
     <ClCompile Include="Quest\Quests.cpp" />

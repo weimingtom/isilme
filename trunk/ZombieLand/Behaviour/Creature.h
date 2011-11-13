@@ -6,6 +6,7 @@
 #include "Destroyable.h"
 #include "Engine/Inventory/Inventory.h"
 #include "Engine/Inventory/Item.h"
+#include "Engine/Quest/Conversation.h"
 #include <luabind/luabind.hpp>
 
 namespace behaviour
@@ -117,6 +118,9 @@ namespace behaviour
 		/// Возвращает количество врагов
 		int GetEnemiesCount();
 	protected:
+		/// Диалог с персонажем
+		story::ConversationPtr mConversation;
+
 		void UpdateEnemiesList();
 		EntityPtr	mTarget;
 		bool	isReloading;

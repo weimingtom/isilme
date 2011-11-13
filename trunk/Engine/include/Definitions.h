@@ -31,14 +31,9 @@
 #include <luabind/lua_include.hpp>
 #include <luabind/luabind.hpp>
 
-class ISensor;
+#include <GUIChan/gui.hpp>
 
-template <class T> class Sensor;
-typedef boost::shared_ptr<ISensor> SensorPtr;
-
-class IStrategy;
-typedef boost::shared_ptr<IStrategy> StrategyPtr;
-typedef boost::weak_ptr<IStrategy> StrategyWPtr;
+#include <hge.h>
 
 //class IAction;
 class Action;
@@ -164,8 +159,6 @@ typedef std::map<std::string, AIPackagePtr> AIPackageMap;
 class IAIPackageFactory;
 typedef boost::shared_ptr<IAIPackageFactory> AIPackageFactoryPtr;
 typedef std::map<std::string, AIPackageFactoryPtr> AIFactoryMap;
-
-typedef std::list<SensorPtr> SensorList;
 
 typedef std::list<std::string>					StringList;
 typedef std::map<std::string, std::string>		StringMap;

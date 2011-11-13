@@ -5,19 +5,6 @@
 
 namespace story
 {
-
-	class Ending;
-	typedef boost::shared_ptr<Ending>		EndingPtr;
-	typedef std::map<std::string,			EndingPtr> EndingMap;
-	typedef std::list<EndingPtr>			EndingList;
-
-	class Task;
-	typedef boost::shared_ptr<Task>			TaskPtr;
-	typedef	boost::weak_ptr<Task>			TaskWPtr;
-	typedef std::map<std::string, TaskPtr>	TaskMap;
-	typedef std::set<TaskPtr>				TaskSet;
-	typedef std::list<TaskPtr>				TaskList;
-
 	class Quest;
 	typedef boost::shared_ptr<Quest>		QuestPtr;
 	typedef	boost::weak_ptr<Quest>			QuestWPtr;
@@ -30,13 +17,18 @@ namespace story
 	typedef boost::weak_ptr<Stage>			StageWPtr;
 	typedef std::map<int, StagePtr>			StageMap;
 
-	class Solution;
-	typedef boost::shared_ptr<Solution>		SolutionPtr;
-	typedef std::list<SolutionPtr>			SolutionList;
-
 	class Story;
 	typedef boost::shared_ptr<Story> StoryPtr;
 	typedef boost::weak_ptr<Story> StoryWPtr;
+
+
+	class Conversation;
+	typedef boost::shared_ptr<Conversation> ConversationPtr;
+	typedef boost::weak_ptr<Conversation> ConversationWPtr;
+
+	class Phrase;
+	typedef boost::shared_ptr<Phrase> PhrasePtr;
+	typedef boost::weak_ptr<Phrase> PhraseWPtr;
 };
 
 

@@ -235,6 +235,9 @@
     <None Include="..\Data\Master.xml">
       <Filter>Data</Filter>
     </None>
+    <None Include="..\Data\Conversations.xml">
+      <Filter>Data</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Actions">

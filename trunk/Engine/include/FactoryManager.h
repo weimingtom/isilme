@@ -93,6 +93,15 @@ public:
 
 	/// Загружает пакеты AI
 	void			LoadAIPackages(TiXmlElement* element);
+
+	/// Загружает диалоги
+	void			LoadConversations(TiXmlElement* element);
+
+	/// Загружает диалоги из файла
+	void			LoadConversations(std::string fileName);
+
+	/// Возвращает диалог по имени
+	story::ConversationPtr GetConversation(std::string id);
 protected:	
 	/// Создает сущность из определения
 	EntityPtr			CreateEntity(EntityDefPtr definition, std::string name, LevelPtr level);
@@ -111,6 +120,9 @@ private:
 	/// Фабрики предметов
 	inventory::ItemFactoryMap mItemFactories;
 	std::map<std::string, ICameraFactory*>	mCameraFactories;
+
+	/// Диалоги
+	std::map<std::string, story::ConversationPtr> mConversations;
 
 	/// Графическая палитра
 	GraphicsPalette			mGraphicsDefinitions;

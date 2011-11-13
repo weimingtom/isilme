@@ -153,6 +153,7 @@
     <ClCompile Include="WanderPackage.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Data\Conversations.xml" />
     <None Include="..\Data\Entities.xml" />
     <None Include="..\Data\Graphics.xml" />
     <None Include="..\Data\Items.xml" />
