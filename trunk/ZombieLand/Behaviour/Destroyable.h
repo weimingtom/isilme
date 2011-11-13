@@ -15,7 +15,7 @@ namespace behaviour
 		bool		equip;
 	};
 
-	class DestroyableDef : public BehaviourDefinition
+	class DestroyableDef : public ActivatorDef
 	{
 	public:
 		DestroyableDef();

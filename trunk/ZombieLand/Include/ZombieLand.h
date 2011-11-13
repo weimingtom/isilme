@@ -35,7 +35,7 @@ public:
 	virtual void Init();
 
 	/// Состояние "Игра"
-	StatePtr		playState;
+	state::PlayPtr		playState;
 
 	/// Возвращает конфигурацию игры
 	Configuration* GetConfguration();
@@ -43,6 +43,7 @@ public:
 	/// Применяет к игре измененные настройки
 	void			ApplyConfiguration();
 
+	static ZombieLand*		GetSingleton();
 private:
 	/// Настройки игры
 	Configuration* mConfiguration;

@@ -16,6 +16,10 @@
 #include <ZombieLand/Action/ControlPackage.h>
 #include <ZombieLand/Action/AvoidPackage.h>
 
+ZombieLand* ZombieLand::GetSingleton()
+{
+	return (ZombieLand*)Game::GetSingleton();
+}
 ZombieLand::ZombieLand()
 {
 
@@ -71,7 +75,7 @@ void	ZombieLand::Init()
 	factoryManager->LoadConversations("../Data/Conversations.xml");
 
 	LootManager::GetSingleton()->Load("../Data/Loot.xml");
-	playState = StatePtr(new state::Play());
+	playState.reset(new state::Play());
 	//StatePtr editorState = StatePtr(new state::Editor());
 
 	GetStateManager()->Push(playState);

@@ -6,7 +6,7 @@
 
 namespace behaviour
 {
-	class ItemDef : public BehaviourDefinition
+	class ItemDef : public ActivatorDef
 	{
 	public:
 		ItemDef();

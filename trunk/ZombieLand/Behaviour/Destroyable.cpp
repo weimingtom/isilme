@@ -23,7 +23,7 @@ namespace behaviour
 
 	void	DestroyableDef::Parse(TiXmlElement* element)
 	{
-		BehaviourDefinition::Parse(element);
+		ActivatorDef::Parse(element);
 		if (element == 0)
 			return;
 

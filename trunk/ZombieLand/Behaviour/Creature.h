@@ -38,6 +38,7 @@ namespace behaviour
 		luabind::object OnThink;
 		std::list<FractionInfo> Fractions;
 		std::list<std::string> AIPackages;
+		story::ConversationPtr Conversation;
 	};
 
 	class Creature : public Destroyable
@@ -117,6 +118,12 @@ namespace behaviour
 
 		/// Возвращает количество врагов
 		int GetEnemiesCount();
+
+		/// Возвращает true, если с персонажем можно взаимодействовать
+		virtual bool IsUsable();
+
+		/// Запускает диалог с персонажем
+		virtual void	OnUse(CreaturePtr creature);
 	protected:
 		/// Диалог с персонажем
 		story::ConversationPtr mConversation;

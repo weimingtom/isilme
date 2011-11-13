@@ -6,6 +6,18 @@
 
 namespace behaviour
 {
+	
+	class ActivatorDef : public BehaviourDefinition
+	{
+	public:
+		ActivatorDef();
+		virtual ~ActivatorDef();
+		virtual BehaviourPtr Create();
+		virtual void Parse(TiXmlElement* element);
+
+		std::string Name;
+	};
+
 	/// Поведение активатора. Персонажи могут использовать активаторы, и сами-по себе тоже являются активаторами
 	class Activator : public Behaviour
 	{
@@ -13,19 +25,25 @@ namespace behaviour
 		/// Возвращает активатор, который может использовать объект
 		static ActivatorPtr	GetActivatorFor(EntityPtr entity);
 
-		Activator(BehaviourDefinition* def);
+		Activator(ActivatorDef* def);
 		virtual ~Activator();
 
 		void	UseBy(CreaturePtr creature);
 
-		bool	IsUsable();
+		virtual bool	IsUsable();
 		
 		void	SetUsable(bool flag);
+
+		/// Возвращает игровое имя активатора
+		std::string GetName();
 	protected:
 		virtual void	OnUse(CreaturePtr creature);
 
 	private:
 		bool	isUsable;
+
+		/// Имя активатора
+		std::string mName;
 	};
 };
 #endif

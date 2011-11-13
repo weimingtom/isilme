@@ -36,7 +36,7 @@ Play::Play() : State()
 	top->setBackgroundColor(gcn::Color(0,0,0,0));
 	top->setBaseColor(gcn::Color(0,0,0,0));
 	top->setFocusable(true);
-	gcn::Font* font = new gcn::HGEImageFont("../Data/Fonts/font1.fnt");//new gcn::ImageFont("../Data/Fonts/fixedfont.bmp", " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
+	gcn::Font* font = new gcn::HGEImageFont("../Data/Fonts/font2.fnt");//new gcn::ImageFont("../Data/Fonts/fixedfont.bmp", " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
 	gcn::Widget::setGlobalFont(font);
     // Finally we pass the top widget to the Gui object.
     GetGUI()->setTop(top);
@@ -178,13 +178,9 @@ Play::Play() : State()
 	top->add(mRespawn, 100, 100);
 	top->add(mQuestBook);
 
-	mConversationWindow->Show(top);
-
 	Game::GetSingleton()->GetStory()->OnSetStage.connect(boost::bind(&Play::OnSetStage, this, _1, _2));
-
-	story::ConversationPtr c = FactoryManager::GetSingleton()->GetConversation("tutorial");
-	mConversationWindow->SetConversation(c);
 }
+
 
 void Play::mouseClicked(gcn::MouseEvent& evt)
 {

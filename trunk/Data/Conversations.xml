@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="Windows-1251"?>
 <Conversations>
   <Conversation ID="tutorial">
     <Phrase>
-      <Text>Hello</Text>
+      <Text>Привет</Text>
       <Answers>
         <Phrase>
-          <Text>Nice to meet you</Text>
+          <Text>Рад видеть тебя</Text>
           <Answers>
             <Phrase>
               <Text>Who are you?</Text>
@@ -26,6 +26,39 @@
         <Phrase>
           <Text></Text>
           
+        </Phrase>
+      </Answers>
+    </Phrase>
+    <Phrase>
+      <Text>Nice to meet you again</Text>
+    </Phrase>
+  </Conversation>
+  <Conversation ID="Civilian1">
+    <Phrase>
+      <Text>Привет</Text>
+      <Answers>
+        <Phrase>
+          <Text>И тебе того же</Text>
+          <Answers>
+            <Phrase>
+              <Text>Ты кто будешь?</Text>
+              <Answers>
+                <Phrase>
+                  <Text>Я новый житель</Text>
+                </Phrase>
+                <Phrase>
+                  <Text>Какая тебе разница?</Text>
+                </Phrase>
+              </Answers>
+            </Phrase>
+          </Answers>
+        </Phrase>
+        <Phrase>
+          <Text>Good by</Text>
+        </Phrase>
+        <Phrase>
+          <Text></Text>
+
         </Phrase>
       </Answers>
     </Phrase>

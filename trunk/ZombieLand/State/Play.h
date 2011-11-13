@@ -43,7 +43,6 @@ namespace state
 		virtual ~Play()
 		{
 		}
-
 	protected:
 		void	OnSetStage(story::QuestPtr quest, int stage);
 		virtual void OnStart();

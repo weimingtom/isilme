@@ -9,11 +9,14 @@
 #include "Engine/include/Rank.h"
 #include "Engine/include/AIPackage.h"
 #include "ZombieLand/Action/Wander.h"
+#include "Engine/GUI/ConversationWindow.h"
+#include "ZombieLand/State/Play.h"
 
 namespace behaviour
 {
 	Creature::Creature(CreatureDef* def) : Destroyable(def)
 	{
+		mConversation = def->Conversation;
 		mMoveAction = action::MovePtr(new action::Move());
 
 		mMoveBack = action::MovePtr(new action::Move());
@@ -128,6 +131,13 @@ namespace behaviour
 		TiXmlElement* AIElement = element->FirstChildElement("AI");
 		if (AIElement)
 			ParseAI(AIElement);
+
+		// Разговор
+		const char* convAttr = element->Attribute("Conversation");
+		if (convAttr)
+		{
+			Conversation = FactoryManager::GetSingleton()->GetConversation(convAttr);
+		}
 	}
 
 	void	CreatureDef::ParseFractions(TiXmlElement* fractionsElement)
@@ -410,5 +420,22 @@ namespace behaviour
 	int	Creature::GetEnemiesCount()
 	{
 		return mEnemies.size();
+	}
+
+	bool Creature::IsUsable()
+	{
+		return mConversation != 0;
+	}
+
+	void Creature::OnUse(CreaturePtr other)
+	{
+		if (mConversation)
+		{
+			gcn::Container* w = (gcn::Container*)(ZombieLand::GetSingleton()->playState->GetGUI()->getTop());
+			gcn::ConversationWindow* cw = new gcn::ConversationWindow();
+			cw->Show(w);
+			cw->SetConversation(mConversation);
+			cw->setCaption(GetName());
+		}
 	}
 };
