@@ -2,6 +2,7 @@
 #include "ConversationWindow.h"
 #include "Engine/Quest/Conversation.h"
 #include "Engine/Quest/Phrase.h"
+#include "Entity.h"
 
 namespace gcn
 {
@@ -26,15 +27,17 @@ namespace gcn
 		if (b)
 		{
 			story::PhrasePtr answer = mAnswers[b];
-			SetCurrentPhrase(answer->AutoChooseAnswer());
+			answer->RunAction(mSpeaker);
+			SetCurrentPhrase(answer->AutoChooseAnswer(mSpeaker));
 		}
 	}
 
-	void ConversationWindow::SetConversation(story::ConversationPtr conversation)
+	void ConversationWindow::SetConversation(story::ConversationPtr conversation, EntityPtr speaker)
 	{
+		mSpeaker = speaker;
 		mConversation = conversation;
 
-		SetCurrentPhrase(mConversation->AutoChoosePhrase());
+		SetCurrentPhrase(mConversation->AutoChoosePhrase(mSpeaker));
 	}
 
 	void ConversationWindow::SetCurrentPhrase(story::PhrasePtr phrase)
@@ -49,20 +52,24 @@ namespace gcn
 			Close();
 			return;
 		}
-
+		
+		phrase->RunAction(mSpeaker);
 		mCurrentPhrase = phrase;
 		mText->setText(phrase->GetText());
 
 
 		mAnswers.clear();
 
+		int pos = 0;
 		for (int i = 0; i < phrase->GetAnswersCount(); ++i)
-		{
-			Button* button = new Button();
-			button->setCaption(phrase->GetAnswer(i)->GetText());
-			button->adjustSize();
-			add(button, 0, 100 * (i+1));
-			mAnswers[button] = phrase->GetAnswer(i);
-		}
+			if (phrase->GetAnswer(i)->CheckCondition(mSpeaker))
+			{
+				pos++;
+				Button* button = new Button();
+				button->setCaption(phrase->GetAnswer(i)->GetText());
+				button->adjustSize();
+				add(button, 0, 100 * pos);
+				mAnswers[button] = phrase->GetAnswer(i);
+			}
 	}
 };

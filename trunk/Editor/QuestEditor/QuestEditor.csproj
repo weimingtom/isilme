@@ -85,22 +85,30 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\AddPhrase.cs" />
     <Compile Include="Commands\AddQuest.cs" />
     <Compile Include="Commands\AddStage.cs" />
     <Compile Include="Commands\DelQuest.cs" />
     <Compile Include="Commands\DelStage.cs" />
     <Compile Include="LuaSerializer.cs" />
+    <Compile Include="Model\ModelConversation.cs" />
     <Compile Include="Model\ModelFraction.cs" />
     <Compile Include="Model\ModelFractionTable.cs" />
+    <Compile Include="Model\ModelPhrase.cs" />
     <Compile Include="Model\ModelQuest.cs" />
     <Compile Include="Model\ModelStage.cs" />
     <Compile Include="Model\ModelStory.cs" />
     <Compile Include="ParamsConverter.cs" />
+    <Compile Include="Proxy\ProxyConversation.cs" />
     <Compile Include="Proxy\ProxyItem.cs" />
+    <Compile Include="Proxy\ProxyPhrase.cs" />
     <Compile Include="Proxy\ProxyQuest.cs" />
     <Compile Include="Proxy\ProxyStage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Proxy\ProxyStory.cs" />
+    <Compile Include="Views\ConversationEditorWindow.xaml.cs">
+      <DependentUpon>ConversationEditorWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\QuestEditorWindow.xaml.cs">
       <DependentUpon>QuestEditorWindow.xaml</DependentUpon>
     </Compile>
@@ -180,6 +188,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\ConversationEditorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\QuestEditorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

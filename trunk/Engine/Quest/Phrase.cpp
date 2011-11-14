@@ -1,5 +1,6 @@
 #include "Isilme.h"
 #include "Phrase.h"
+#include "Entity.h"
 
 namespace story
 {
@@ -21,12 +22,28 @@ namespace story
 		return mChildren.at(index);
 	}
 
-	void Phrase::RunAction()
+	void Phrase::RunAction(EntityPtr speaker)
 	{
+		if (mAction)
+		{
+			mAction(speaker);
+		}
 	}
 
-	bool Phrase::CheckCondition()
+	bool Phrase::CheckCondition(EntityPtr speaker)
 	{
+		// Проверяем скрипт-условие
+		if (mCondition)
+		{
+			return luabind::call_function<bool>(mCondition, speaker);
+		}
+
+		if (mChance != 100)
+		{
+			int val = rand() % 100;
+			return val >= mChance;
+		}
+
 		return true;
 	}
 
@@ -57,6 +74,23 @@ namespace story
 			phrase->SetText(text ? text : "");
 		}
 
+		// Читаем вероятность фразы
+		phrase->mChance = 100;
+		phraseElement->QueryIntAttribute("Chance", &(phrase->mChance));
+
+		// Читаем скрипты
+		const char* conditionAttr = phraseElement->Attribute("Condition");
+		if (conditionAttr)
+		{
+			phrase->mCondition = ScriptAPI::MakeFunction("speaker", conditionAttr);
+		}
+
+		const char* actionAttr = phraseElement->Attribute("Action");
+		if (actionAttr)
+		{
+			phrase->mAction = ScriptAPI::MakeFunction("Speaker", actionAttr);
+		}
+
 		// Читаем ответы
 		TiXmlElement* answersElement = phraseElement->FirstChildElement("Answers");
 		if (answersElement)
@@ -72,12 +106,12 @@ namespace story
 		return phrase;
 	}
 
-	PhrasePtr Phrase::AutoChooseAnswer()
+	PhrasePtr Phrase::AutoChooseAnswer(EntityPtr speaker)
 	{
 		for (int i = 0; i < GetAnswersCount(); ++i)
 		{
 			PhrasePtr p = GetAnswer(i);
-			if (p->CheckCondition())
+			if (p->CheckCondition(speaker))
 				return p;
 		}
 

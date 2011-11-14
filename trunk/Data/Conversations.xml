@@ -34,7 +34,7 @@
     </Phrase>
   </Conversation>
   <Conversation ID="Civilian1">
-    <Phrase>
+    <Phrase Chance="50" Condition="return test_check == nil;" Action="test_check=1">
       <Text>Привет</Text>
       <Answers>
         <Phrase>
@@ -56,14 +56,18 @@
         <Phrase>
           <Text>Good by</Text>
         </Phrase>
-        <Phrase>
-          <Text></Text>
-
-        </Phrase>
       </Answers>
     </Phrase>
-    <Phrase>
+    <Phrase Condition="return test_check!=nil;">
       <Text>Nice to meet you again</Text>
+      <Answers>
+        <Phrase Condition="return test_check==2;">
+          <Text>Farewell</Text>
+        </Phrase>
+        <Phrase Action="test_check=2;">
+          <Text>Good by</Text>
+        </Phrase>
+      </Answers>
     </Phrase>
   </Conversation>
 </Conversations>

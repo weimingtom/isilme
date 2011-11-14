@@ -56,12 +56,12 @@ namespace story
 		return mID;
 	}
 
-	PhrasePtr Conversation::AutoChoosePhrase()
+	PhrasePtr Conversation::AutoChoosePhrase(EntityPtr speaker)
 	{
 		for (int i = 0; i < GetPhrasesCount(); ++i)
 		{
 			PhrasePtr p = GetPhrase(i);
-			if (p->CheckCondition())
+			if (p->CheckCondition(speaker))
 				return p;
 		}
 

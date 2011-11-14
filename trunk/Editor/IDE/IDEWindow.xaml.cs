@@ -139,6 +139,7 @@ namespace IDE
             ExtensionManager.RegisterExtension<TextEditorWindow>(".txt");
             ExtensionManager.RegisterExtension<LuaEditorWindow>(".lua");
             ExtensionManager.RegisterExtension<QuestEditorWindow>(".story");
+            ExtensionManager.RegisterExtension<ConversationEditorWindow>(".conv");
 
             mToolWindowsMenu.DataContext = mTools;
             mWindowMenu.DataContext = mOpendDocuments;
@@ -152,7 +153,7 @@ namespace IDE
             AddEditorWindow(new EditorWindow() { FileName="test.txt"});
             AddEditorWindow(new LuaEditor.Views.LuaEditorWindow() { FileName = "test.lua" });
             AddEditorWindow(new QuestEditor.Views.QuestEditorWindow() { FileName="story.txt"});
-
+            AddEditorWindow(new QuestEditor.Views.ConversationEditorWindow() { FileName="test.conv"});
             ToolBar tb = LuaEditor.Resources.getToolbar();
             if (tb != null)
                 mToolbarTray.ToolBars.Add(tb);

@@ -434,7 +434,7 @@ namespace behaviour
 			gcn::Container* w = (gcn::Container*)(ZombieLand::GetSingleton()->playState->GetGUI()->getTop());
 			gcn::ConversationWindow* cw = new gcn::ConversationWindow();
 			cw->Show(w);
-			cw->SetConversation(mConversation);
+			cw->SetConversation(mConversation, GetActor());
 			cw->setCaption(GetName());
 		}
 	}

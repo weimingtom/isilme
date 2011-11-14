@@ -16,10 +16,11 @@ namespace gcn
 		virtual void mouseClicked(gcn::MouseEvent& evt);
 
 		/// Устанвоить диалог
-		void SetConversation(story::ConversationPtr conversation);
+		void SetConversation(story::ConversationPtr conversation, EntityPtr speaker);
 
 		void SetCurrentPhrase(story::PhrasePtr phrase);
 	private:
+		EntityPtr mSpeaker;
 		TextBox* mText;
 		story::ConversationPtr mConversation;
 		story::PhrasePtr mCurrentPhrase;

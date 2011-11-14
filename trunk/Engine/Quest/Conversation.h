@@ -29,7 +29,7 @@ namespace story
 		PhrasePtr GetPhrase(int index);
 
 		/// Возвращает фразу, первую в диалоге
-		PhrasePtr AutoChoosePhrase();
+		PhrasePtr AutoChoosePhrase(EntityPtr speaker);
 	private:
 		std::string mID;
 		std::vector<PhrasePtr> mPhrases;

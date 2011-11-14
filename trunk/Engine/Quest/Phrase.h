@@ -13,7 +13,7 @@ namespace story
 		virtual ~Phrase();
 
 		/// Проверяет, выполняется ли условие фразы
-		bool CheckCondition();
+		bool CheckCondition(EntityPtr speaker);
 
 		/// Возвращает текст фразы
 		std::string GetText();
@@ -25,7 +25,7 @@ namespace story
 		PhrasePtr GetAnswer(int index);
 
 		/// Запускае сценарий действия
-		void RunAction();
+		void RunAction(EntityPtr speaker);
 
 		/// Добавить ответ
 		void AddAnswer(PhrasePtr phrase);
@@ -37,7 +37,7 @@ namespace story
 		static PhrasePtr Load(TiXmlElement* phraseElement);
 
 		/// Выбрать ответ
-		PhrasePtr AutoChooseAnswer();
+		PhrasePtr AutoChooseAnswer(EntityPtr speaker);
 	private:
 		std::string mText;
 
@@ -49,6 +49,9 @@ namespace story
 
 		/// Дочерние фразы
 		std::vector<PhrasePtr> mChildren;
+
+		/// Вероятность появления фразы от 0 до 100
+		int mChance;
 	};
 };
 
