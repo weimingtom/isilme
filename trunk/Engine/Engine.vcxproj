@@ -148,13 +148,11 @@
     <ClInclude Include="include\Joints.h" />
     <ClInclude Include="include\Layer.h" />
     <ClInclude Include="include\Level.h" />
-    <ClInclude Include="include\LevelLoaders.h" />
     <ClInclude Include="include\Log.h" />
     <ClInclude Include="include\LogoState.h" />
     <ClInclude Include="include\Rank.h" />
     <ClInclude Include="include\Renderer.h" />
     <ClInclude Include="include\ResourceManager.h" />
-    <ClInclude Include="include\Schemas.h" />
     <ClInclude Include="include\Sensor.h" />
     <ClInclude Include="include\SoundSystem.h" />
     <ClInclude Include="include\State.h" />
@@ -222,11 +220,9 @@
     <ClCompile Include="source\Joints.cpp" />
     <ClCompile Include="source\Layer.cpp" />
     <ClCompile Include="source\Level.cpp" />
-    <ClCompile Include="source\LevelLoaders.cpp" />
     <ClCompile Include="source\Rank.cpp" />
     <ClCompile Include="source\Renderer.cpp" />
     <ClCompile Include="source\ResourceManager.cpp" />
-    <ClCompile Include="source\Schemas.cpp" />
     <ClCompile Include="source\Sensor.cpp" />
     <ClCompile Include="source\SoundSystem.cpp" />
     <ClCompile Include="source\State.cpp" />

@@ -146,25 +146,23 @@ Box2DBody::Box2DBody(BodyDef* def)
 {
 	// Указываем тип
 	mType = BodyDef::Box2DBody;
-
-	// Создаем Box2D-тело
-	mBody = def->World->CreateBody(&(def->B2DBodyDef));
-	
-	for (FixtureDefList::iterator it = def->B2DFixtures.begin(); it != def->B2DFixtures.end(); ++it)
-	{
-		mBody->CreateFixture(*it);
-	}
+	mBody = 0;
+	mEntity = 0;
+	mBodyDefinition = def;
 }
 
 Box2DBody::~Box2DBody()
 {
 	// Уничтожаем Box2D-тело
-	mBody->GetWorld()->DestroyBody(mBody);
+	if (mBody)
+	{
+		mBody->GetWorld()->DestroyBody(mBody);
+	}
 }
 
 void		Box2DBody::SetEntity(Entity* entity)
 {
-	mBody->SetUserData((void*)entity);
+	mEntity = entity;
 }
 
 Entity*		Box2DBody::GetEntity()
@@ -238,6 +236,43 @@ void	Box2DBody::DestroyFixture(Fixture* fixture)
 	mFixtures.erase(name);
 }
 
+void	Box2DBody::AttachToLevel(LevelPtr level)
+{
+	b2World* world;
+
+	// Отвязываем от старого мира
+	if (mBody)
+	{
+		if (level)
+		{
+			if (mBody->GetWorld() == level->GetWorld())
+			{
+				// Если привязка осуществляется к тому же самому уровню, пропускаем ее
+				return;
+			}
+		}
+
+		world = mBody->GetWorld();
+		world->DestroyBody(mBody);
+		mBody = 0;
+	}
+
+	// Привязываем к новому уровню
+	if (level)
+	{
+		world = level->GetWorld();
+		mBody = world->CreateBody(&(mBodyDefinition->B2DBodyDef));
+		
+		for (FixtureDefList::iterator it = mBodyDefinition->B2DFixtures.begin(); it != mBodyDefinition->B2DFixtures.end(); ++it)
+		{
+			mBody->CreateFixture(*it);
+		}
+
+		mBody->SetUserData((void*)mEntity);
+	}
+	
+}
+
 // SimpleBody
 
 SimpleBody::SimpleBody() :
@@ -294,4 +329,8 @@ Vector2 SimpleBody::GetLinearVelocity()
 Fixture*	SimpleBody::GetFixture(std::string& fixture)
 {
 	return 0;
+}
+
+void	SimpleBody::AttachToLevel(LevelPtr level)
+{
 }

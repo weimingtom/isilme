@@ -39,8 +39,11 @@ namespace action
 		GetEntity()->GetBehaviour()->StartAction(mAction);
 
 		float angle = GetEntity()->GetAngleTo(mCreature->GetTarget());
-		mAction->SetAngle(angle);
-		GetEntity()->SetAngle(angle);
+		if (angle > -10 && angle < 10)
+		{
+			mAction->SetAngle(angle);
+			GetEntity()->SetAngle(angle);
+		}
 	}
 
 	void	AttackTarget::OnUpdate(float elapsedTime)
@@ -52,8 +55,11 @@ namespace action
 			return;
 		}
 		float angle = GetEntity()->GetAngleTo(mCreature->GetTarget());
-		mAction->SetAngle(angle);
-		GetEntity()->SetAngle(angle);
+		if (angle > -10 && angle < 10)
+		{
+			mAction->SetAngle(angle);
+			GetEntity()->SetAngle(angle);
+		}
 
 		inventory::ItemPtr weapon = mCreature->GetInventory()->GetSlot(inventory::Item::Weapon);
 		if (weapon)

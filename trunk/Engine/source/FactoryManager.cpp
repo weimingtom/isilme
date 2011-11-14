@@ -179,22 +179,27 @@ void			FactoryManager::RegisterGraphics(std::string type, GraphicsFactoryPtr fac
 	mGraphicsFactories[type] = factory;
 }
 
-EntityPtr		FactoryManager::CreateEntity(std::string type, std::string name, LevelPtr level)
+EntityPtr		FactoryManager::CreateEntity(std::string type, std::string name)
 {
 	EntityDefPtr def = mEntityDefinitions[type];
-	return CreateEntity(def, name, level);
+	return CreateEntity(def, name);
 }
 
-EntityPtr		FactoryManager::CreateEntity(EntityDefPtr definition, std::string name, LevelPtr level)
+EntityPtr		FactoryManager::CreateEntity(EntityDefPtr definition, std::string name)
 {
-	definition->GetBodyDefinition()->World = level->GetWorld();
-
 	Body* body				= CreateBody(definition->GetBodyDefinition());
 	GraphicsPtr graphics	= definition->GetGraphicsDefinition()->Create();
 	BehaviourPtr behaviour	= definition->GetBehaviourDefinition()->Create();
 
-	EntityPtr entity = EntityPtr(Entity::New(level, behaviour, body, graphics));
-	level->mEntities.insert(entity);
+	EntityPtr entity(new Entity());
+	entity->mGraphics = graphics;
+	entity->mBehaviour = behaviour;
+	entity->mBody = body;
+
+	graphics->mEntity = entity;
+	behaviour->mActor = entity;
+	body->SetEntity(entity.get());
+
 	if (name == "")
 	{
 		std::string prefix = "GameObject_";
@@ -466,4 +471,19 @@ void	FactoryManager::LoadConversations(std::string fileName)
 story::ConversationPtr	FactoryManager::GetConversation(std::string id)
 {
 	return mConversations[id];
+}
+
+LevelPtr FactoryManager::GetLevel(std::string id)
+{
+	std::map<std::string, LevelPtr>::iterator it = mLevels.find(id);
+	if (it != mLevels.end())
+	{
+		return it->second;
+	}
+	else
+	{
+		LOG_W("Level %s not found", id.c_str());
+
+		return LevelPtr();
+	}
 }

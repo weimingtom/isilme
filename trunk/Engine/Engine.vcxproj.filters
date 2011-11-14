@@ -97,12 +97,6 @@
     <ClInclude Include="include\Joints.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\LevelLoaders.h">
-      <Filter>Loading</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Schemas.h">
-      <Filter>Loading</Filter>
-    </ClInclude>
     <ClInclude Include="include\FactoryManager.h">
       <Filter>Loading</Filter>
     </ClInclude>
@@ -334,12 +328,6 @@
       <Filter>Loading</Filter>
     </ClCompile>
     <ClCompile Include="source\GraphicsFactory.cpp">
-      <Filter>Loading</Filter>
-    </ClCompile>
-    <ClCompile Include="source\LevelLoaders.cpp">
-      <Filter>Loading</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Schemas.cpp">
       <Filter>Loading</Filter>
     </ClCompile>
     <ClCompile Include="Quest\Story.cpp">

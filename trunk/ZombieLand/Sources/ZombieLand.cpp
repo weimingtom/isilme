@@ -69,12 +69,14 @@ void	ZombieLand::Init()
 	factoryManager->RegisterAIPackage("Control", AIPackageFactory<ControlPackage>::New());
 	factoryManager->RegisterAIPackage("Agression", AIPackageFactory<AgressionPackage>::New());
 	factoryManager->RegisterAIPackage("Avoid", AIPackageFactory<AvoidPackage>::New());
-
+	
+	FactoryManager::GetSingleton()->LoadGraphics("../Data/Graphics.xml");
+	factoryManager->LoadConversations("../Data/Conversations.xml");
 	factoryManager->LoadDataFile("../Data/Master.xml");
 	factoryManager->LoadItems("../Data/Items.xml");
-	factoryManager->LoadConversations("../Data/Conversations.xml");
-
 	LootManager::GetSingleton()->Load("../Data/Loot.xml");
+	FactoryManager::GetSingleton()->LoadEntities("../Data/Entities.xml");
+
 	playState.reset(new state::Play());
 	//StatePtr editorState = StatePtr(new state::Editor());
 

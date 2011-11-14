@@ -194,11 +194,11 @@ namespace ScriptAPI
 		luabind::module(state)
 			[
 				luabind::class_<Level, LevelPtr>("Level")
-				.def("GetLayer", &Level::GetLayer)
-				.def("AddLayer", &Level::AddLayer)
+			//	.def("GetLayer", &Level::GetLayer)
+			//	.def("AddLayer", &Level::AddLayer)
 				.def("Clear", &Level::Clear)
 				.def("CreateEntity", &Level::CreateEntity)
-				.def("Load", &Level::Load)
+//				.def("Load", &Level::Load)
 			];
 
 		// State

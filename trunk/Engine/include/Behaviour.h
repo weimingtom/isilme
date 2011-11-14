@@ -16,7 +16,7 @@
 class IsilmeExport Behaviour : public boost::enable_shared_from_this<Behaviour>
 {
 	friend class Entity;
-	friend class Tactics;
+	friend class FactoryManager;
 public:
 	static BehaviourPtr New();
 

@@ -155,10 +155,15 @@ namespace behaviour
 
 		if (mBlood != "")
 		{
-			EntityPtr blood = FactoryManager::GetSingleton()->CreateEntity(mBlood, "", GetLevel());
+			// Создаем кровь
+			EntityPtr blood = FactoryManager::GetSingleton()->CreateEntity(mBlood, "");
+
+			// Помещаем кровь на уровень травы
+			GetLevel()->GetLayer("Grass")->Add(blood);
+
+			// Устанавливаем позицию крови
 			blood->SetPosition(GetActor()->GetPosition().x, GetActor()->GetPosition().y);
 			blood->SetAngle(GetActor()->GetAngle());
-			GetLevel()->GetLayer("Grass")->Add(blood);
 		}
 	}
 

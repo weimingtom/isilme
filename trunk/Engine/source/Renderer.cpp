@@ -53,22 +53,21 @@ void	HGERenderer::ApplyCamera(Camera* camera)
 
 void	HGERenderer::Draw(LevelPtr level)
 {
-
-	LayerList*	layers = level->GetLayers();
 	Camera*		camera = level->GetCamera();
 
-	for (LayerList::iterator it = layers->begin(); it != layers->end(); ++it)
+	for (int i = 0 ; i <  level->GetLayersCount(); ++i)
 	{
-		LayerPtr layer = *it;
+		LayerPtr layer = level->GetLayer(i);
 		ApplyCamera(camera);
 			
-		for (EntityList::iterator i = layer->GetObjects()->begin(); i != layer->GetObjects()->end(); ++i)
+		for (int j = 0; j < layer->Size(); ++j)	
 		{
-			GraphicsPtr graphics = (*i)->GetGraphics();
+			EntityPtr entity = layer->GetEntity(j);
+			GraphicsPtr graphics = entity->GetGraphics();
 
-			float x = MeterToPixel((*i)->GetPosition().x);
-			float y = MeterToPixel((*i)->GetPosition().y);
-			float angle = (*i)->GetAngle();
+			float x = MeterToPixel(entity->GetPosition().x);
+			float y = MeterToPixel(entity->GetPosition().y);
+			float angle = entity->GetAngle();
 
 			graphics->Render(x, y, angle);
 		}

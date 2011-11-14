@@ -8,8 +8,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZombieLand", "ZombieLand\Zo
 		{A110B53D-FF13-4B46-BE40-DF3377753D29} = {A110B53D-FF13-4B46-BE40-DF3377753D29}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tinyxml", "TinyXML\tinyxml_lib.vcxproj", "{C406DAEC-0886-4771-8DEA-9D7329B46CC1}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -66,26 +64,6 @@ Global
 		{335ADDE9-3CDA-4414-8379-46408E2D98BE}.RelWithDebInfo|Win32.ActiveCfg = Release|Win32
 		{335ADDE9-3CDA-4414-8379-46408E2D98BE}.RelWithDebInfo|Win32.Build.0 = Release|Win32
 		{335ADDE9-3CDA-4414-8379-46408E2D98BE}.RelWithDebInfo|x86.ActiveCfg = Release|Win32
-		{C406DAEC-0886-4771-8DEA-9D7329B46CC1}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
-		{C406DAEC-0886-4771-8DEA-9D7329B46CC1}.Debug|Mixed Platforms.Build.0 = Debug|Win32
-		{C406DAEC-0886-4771-8DEA-9D7329B46CC1}.Debug|Win32.ActiveCfg = Debug|Win32
-		{C406DAEC-0886-4771-8DEA-9D7329B46CC1}.Debug|Win32.Build.0 = Debug|Win32
-		{C406DAEC-0886-4771-8DEA-9D7329B46CC1}.Debug|x86.ActiveCfg = Debug|Win32
-		{C406DAEC-0886-4771-8DEA-9D7329B46CC1}.MinSizeRel|Mixed Platforms.ActiveCfg = Release|Win32
-		{C406DAEC-0886-4771-8DEA-9D7329B46CC1}.MinSizeRel|Mixed Platforms.Build.0 = Release|Win32
-		{C406DAEC-0886-4771-8DEA-9D7329B46CC1}.MinSizeRel|Win32.ActiveCfg = Release|Win32
-		{C406DAEC-0886-4771-8DEA-9D7329B46CC1}.MinSizeRel|Win32.Build.0 = Release|Win32
-		{C406DAEC-0886-4771-8DEA-9D7329B46CC1}.MinSizeRel|x86.ActiveCfg = Release|Win32
-		{C406DAEC-0886-4771-8DEA-9D7329B46CC1}.Release|Mixed Platforms.ActiveCfg = Release|Win32
-		{C406DAEC-0886-4771-8DEA-9D7329B46CC1}.Release|Mixed Platforms.Build.0 = Release|Win32
-		{C406DAEC-0886-4771-8DEA-9D7329B46CC1}.Release|Win32.ActiveCfg = Release|Win32
-		{C406DAEC-0886-4771-8DEA-9D7329B46CC1}.Release|Win32.Build.0 = Release|Win32
-		{C406DAEC-0886-4771-8DEA-9D7329B46CC1}.Release|x86.ActiveCfg = Release|Win32
-		{C406DAEC-0886-4771-8DEA-9D7329B46CC1}.RelWithDebInfo|Mixed Platforms.ActiveCfg = Release|Win32
-		{C406DAEC-0886-4771-8DEA-9D7329B46CC1}.RelWithDebInfo|Mixed Platforms.Build.0 = Release|Win32
-		{C406DAEC-0886-4771-8DEA-9D7329B46CC1}.RelWithDebInfo|Win32.ActiveCfg = Release|Win32
-		{C406DAEC-0886-4771-8DEA-9D7329B46CC1}.RelWithDebInfo|Win32.Build.0 = Release|Win32
-		{C406DAEC-0886-4771-8DEA-9D7329B46CC1}.RelWithDebInfo|x86.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

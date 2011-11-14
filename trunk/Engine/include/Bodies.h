@@ -55,6 +55,7 @@ public:
 	virtual Vector2		GetLinearVelocity() = 0;
 	virtual Fixture*	GetFixture(std::string& fixture) = 0;
 
+	virtual void		AttachToLevel(LevelPtr level) = 0;
 	virtual ~Body();
 protected:
 	BodyDef::BodyType	mType;
@@ -79,13 +80,23 @@ public:
 	virtual void		SetLinearVelocity(Vector2& velocity);
 	virtual Vector2		GetLinearVelocity();
 	virtual Fixture*	GetFixture(std::string& name);
+	virtual void		AttachToLevel(LevelPtr level);
 protected:
 	virtual Fixture*	CreateFixture(std::string& name, b2FixtureDef* fixtureDef);
 	virtual void		DestroyFixture(std::string& name);
 	virtual void		DestroyFixture(Fixture* fixture);
 
+	/// Тело Box2D
 	b2Body*				mBody;
+
+	/// @depricated
 	FixtureMap			mFixtures;
+
+	/// Определение тела Box2D
+	BodyDef*			mBodyDefinition;
+
+	/// Сущность, к которойпривязано тело
+	Entity*		mEntity;
 };
 
 /// @class SimpleBody
@@ -105,6 +116,7 @@ public:
 	virtual void		SetLinearVelocity(Vector2& velocity);
 	virtual Vector2		GetLinearVelocity();
 	virtual Fixture*	GetFixture(std::string& fixture);
+	virtual void		AttachToLevel(LevelPtr level);
 protected:
 	Vector2				mPosition;
 	float				mAngle;

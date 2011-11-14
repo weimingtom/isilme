@@ -39,6 +39,7 @@ public:
 	/// Зарегистрировать тип предмета
 	void			RegisterItem(std::string type, inventory::ItemFactoryPtr factory);
 
+	/// Регистрирует тип пакетов ИИ
 	void			RegisterAIPackage(std::string type, AIPackageFactoryPtr factory);
 
 	/// Возвращает ИИ-пакет
@@ -48,7 +49,7 @@ public:
 	inventory::ItemPtr	CreateItem(std::string tag);
 
 	/// Создать сущность
-	EntityPtr			CreateEntity(std::string type, std::string name, LevelPtr level);
+	EntityPtr			CreateEntity(std::string type, std::string name);
 
 	/// Возвращает сущность по имени
 	EntityPtr			GetEntity(std::string name);
@@ -102,9 +103,13 @@ public:
 
 	/// Возвращает диалог по имени
 	story::ConversationPtr GetConversation(std::string id);
+
+	/// Возвращает уровень по иднтификатору
+	LevelPtr		GetLevel(std::string id);
 protected:	
+
 	/// Создает сущность из определения
-	EntityPtr			CreateEntity(EntityDefPtr definition, std::string name, LevelPtr level);
+	EntityPtr			CreateEntity(EntityDefPtr definition, std::string name);
 
 	inventory::ItemDefPtr LoadItem(TiXmlElement* def);
 
@@ -123,6 +128,9 @@ private:
 
 	/// Диалоги
 	std::map<std::string, story::ConversationPtr> mConversations;
+
+	/// Уровни
+	std::map<std::string, LevelPtr> mLevels;
 
 	/// Графическая палитра
 	GraphicsPalette			mGraphicsDefinitions;
@@ -145,6 +153,7 @@ private:
 	/// Фабрики пакетов ИИ отображение тип-фабрика
 	AIFactoryMap	mAIFactories;
 	//////////////////////////////////////////////////////
+
 
 	FactoryManager();
 

@@ -131,6 +131,11 @@ private:
 	EntityList* mEnties;
 };
 
+std::string Level::GetName()
+{
+	return mName;
+}
+
 Level::Level()
 {
 		
@@ -143,17 +148,48 @@ Level::~Level()
 {
 }
 
-LayerList*	Level::GetLayers()
+LayerPtr	Level::GetLayer(int index)
 {
-	return &mLayers;
+	return mLayers.at(index);
+}
+
+int	Level::GetLayersCount()
+{
+	return mLayers.size();
+}
+
+void	Level::AddLayer(LayerPtr layer)
+{
+	mLayers.push_back(layer);
+	mLayerNames[layer->GetName()] = layer;
+}
+
+void	Level::RemoveLayer(LayerPtr layer)
+{
+	std::vector<LayerPtr>::iterator it = std::find(mLayers.begin(), mLayers.end(), layer);
+	if (it != mLayers.end())
+	{
+		mLayers.erase(it);
+		mLayerNames.erase(layer->GetName());
+	}
+	else
+	{
+		LOG_W("Trying to remove layer from level which doesn't contain it");
+	}
 }
 
 EntityPtr	Level::CreateEntity(std::string type, float x, float y, float angle, std::string name)
 {
-	EntityPtr entity = FactoryManager::GetSingleton()->CreateEntity(type, name, shared_from_this());
+	// Создаем сущность
+	EntityPtr entity = FactoryManager::GetSingleton()->CreateEntity(type, name);
+
+	// Помещаем сущность на слой
+	mLayers.back()->Add(entity);
+
+	// Устанавливаем координаты тела
 	entity->SetPosition(x, y);
 	entity->SetAngle(angle);
-	mLayers.back()->Add(entity);
+
 	return entity;
 }
 
@@ -213,7 +249,7 @@ void		Level::Update(float elapsedTime)
 
 	for (EntitySet::iterator it = destroyed.begin(); it != destroyed.end(); ++it)
 	{
-		FactoryManager::GetSingleton()->DestroyEntity(*it);
+//		FactoryManager::GetSingleton()->DestroyEntity(*it);
 		mEntities.erase(*it);
 	}
 
@@ -227,13 +263,6 @@ void		Level::Update(float elapsedTime)
 	mCamera->Update(elapsedTime);
 }
 
-void		Level::Load(std::string fileName)
-{
-	Clear();
-
-	LevelLoader::GetSingleton()->LoadLevel(shared_from_this(), fileName);
-}
-
 LayerPtr	Level::AddLayer(std::string name)
 {
 	if (mLayerNames.find(name) == mLayerNames.end())
@@ -241,6 +270,7 @@ LayerPtr	Level::AddLayer(std::string name)
 		LayerPtr layer(new Layer());
 		mLayers.push_back(layer);
 		layer->mLevel = shared_from_this();
+		layer->mName = name;
 		mLayerNames[name] = layer;
 
 		return layer;
@@ -273,4 +303,168 @@ bool		Level::AABBQuery(EntityList* dest, float x1, float y1, float x2, float y2)
 {
 	AABBQueryImpl query(GetWorld(), x1, y1, x2, y2);
 	return query.Execute(dest);
+}
+
+void	ParseWorld(LevelPtr level, TiXmlElement* rootElement)
+{
+	TiXmlElement*	worldElement = rootElement->FirstChildElement("World");
+
+	if (!worldElement)
+		return;
+
+	Vector2 gravity(0.0f, 9.8f);
+
+	const char* str = worldElement->Attribute("Gravity");
+	if (str)
+	{
+		sscanf_s(str, "%f, %f", &gravity.x, &gravity.y);
+	}
+
+	level->GetWorld()->SetGravity(gravity);
+}
+
+void	ParseCamera(LevelPtr level, TiXmlElement* rootElement)
+{
+	TiXmlElement* cameraElement = rootElement->FirstChildElement("Camera");
+
+	const char* attr = cameraElement ? cameraElement->Attribute("Type") : 0;
+	std::string type = attr ? attr : "Default";
+
+	ICameraFactory* factory = FactoryManager::GetSingleton()->GetCameraFactory(type);
+
+	Camera* camera = factory->LoadDefinition(cameraElement)->Create();
+	level->SetCamera(camera);
+
+}
+
+void	ParseEntity(LayerPtr layer, TiXmlElement* entityElement)
+{
+	// Читаем тип сущности и ее имя
+	const char* typeAttr = entityElement->Attribute("Type");
+	const char* nameAttr = entityElement->Attribute("Name");
+
+	// Если не указан тип сущности, пропускаем эелемент
+	if (!typeAttr)
+	{
+		LOG_E("Entity XML element doesn't contain entity type");
+		return;
+	}
+
+	// Создаем сущность
+	EntityPtr entity = FactoryManager::GetSingleton()->CreateEntity(typeAttr, nameAttr ? nameAttr : "");
+
+	// Помещаем сущность на слой
+	layer->Add(entity);
+
+	//Читаем координаты сущности
+	const char* positionAttr = entityElement->Attribute("Position");
+	float x = 0.0f;
+	float y = 0.0f;
+	float angle = 0.0f;
+
+	if (positionAttr)
+	{
+		sscanf(positionAttr, "%f, %f, %f", &x, &y, &angle);
+	}
+	
+	entity->SetPosition(x, y);
+	entity->SetAngle(angle);
+}
+
+void ParseLayers(LevelPtr level, TiXmlElement* rootElement)
+{
+	TiXmlElement* layerElement = rootElement->FirstChildElement("Layer");
+
+	while (layerElement)
+	{
+		std::string name = layerElement->Attribute("Name");
+		LayerPtr layer = level->AddLayer(name);
+
+		TiXmlElement* element = layerElement->FirstChildElement();
+		while (element)
+		{
+			std::string category = element->Value();
+
+			if (category == "Entity")
+			{
+				ParseEntity(layer, element);
+			}
+			else
+			{
+				LOG_W("Layer XML element contains ivalid child element");
+			}
+
+			element = element->NextSiblingElement();
+		}
+		layerElement = layerElement->NextSiblingElement("Layer");
+	}
+}
+
+void ParseScripts(LevelPtr level, TiXmlElement* rootElement)
+{
+	TiXmlElement* scriptsElement = rootElement->FirstChildElement("Scripts");
+	if (scriptsElement == 0)
+		return;
+
+	// Читаем и выполняем Lua-сценарии
+	Lua* lua = Engine::GetSingleton()->GetLua();
+
+	TiXmlElement* luaElement = scriptsElement->FirstChildElement("Lua");
+	while (luaElement)
+	{
+		lua->DoFile(luaElement->GetText());
+		luaElement = luaElement->NextSiblingElement("Lua");
+	}
+
+	if (scriptsElement->Attribute("StartScript"))
+	{
+		const char* sc = scriptsElement->Attribute("StartScript");
+		luaL_dostring(lua->GetState(), sc);
+	}
+
+}
+
+void ParseJoints(LevelPtr level, TiXmlElement* rootElement)
+{
+	FactoryPtr factory = FactoryManager::GetSingleton();
+
+	TiXmlElement* jointElement = rootElement->FirstChildElement("Joint");
+
+	while( jointElement)
+	{
+		JointDefPtr def(new JointDefinition());
+		def->Parse(jointElement);
+		def->world = level->GetWorld();
+
+		factory->CreateJoint(def);
+
+		jointElement = jointElement->NextSiblingElement("Joint");
+	}
+}
+
+LevelPtr	Level::Load(TiXmlElement* levelElement)
+{
+	LevelPtr level(new Level());
+
+	ParseWorld(level, levelElement);
+	ParseCamera(level, levelElement);
+	ParseLayers(level, levelElement);
+	ParseScripts(level, levelElement);
+	ParseJoints(level, levelElement);
+
+	return level;
+}
+
+LevelPtr	Level::Load(std::string fileName)
+{
+	TiXmlDocument* document = new TiXmlDocument();
+	document->LoadFile(fileName.data());
+
+	TiXmlElement* root = document->RootElement();
+
+	LevelPtr level = Level::Load(root);
+
+	delete document;
+
+	return level;
 }

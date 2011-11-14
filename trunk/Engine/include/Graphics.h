@@ -25,6 +25,7 @@ protected:
 class IsilmeExport Graphics
 {
 	friend class Entity;
+	friend class FactoryManager;
 public:
 	Graphics();
 	virtual ~Graphics();

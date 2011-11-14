@@ -21,6 +21,11 @@ State::State()
 	mGUI->setInput(input);
 }
 
+void	State::SetLevel(LevelPtr level)
+{
+	mLevel = level;
+}
+
 bool	State::IsPaused()
 {
 	return isPaused;

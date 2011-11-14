@@ -391,7 +391,7 @@ void	Play::OnUpdate(float elapsedTime)
 void Play::OnStart()
 {
 	Game::GetSingleton()->GetStory()->Load("../Data/Quests/Story1.xml");
-	GetLevel()->Load("../Data/Levels/Level1.xml");
+	SetLevel(Level::Load("../Data/Levels/Level1.xml"));
 	//Engine::GetSingleton()->GetLua()->DoFile("../Data/Scripts/Triggers.lua");
 
 	EntityPtr player = FactoryManager::GetSingleton()->GetEntity("Player");

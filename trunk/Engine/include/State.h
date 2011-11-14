@@ -42,6 +42,8 @@ public:
 
 	/// Уровень состояния
 	LevelPtr GetLevel();
+
+	void	SetLevel(LevelPtr level);
 protected:
 	virtual void OnUpdate(float elapsedTime);
 	virtual void OnStart();

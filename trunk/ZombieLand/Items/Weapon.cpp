@@ -64,12 +64,18 @@ namespace inventory
 
 	void	Weapon::OnUse(EntityPtr actor)
 	{
-		EntityPtr bullet = FactoryManager::GetSingleton()->CreateEntity("Bullet", "", actor->GetLevel());
+		// Создаем снаряд
+		EntityPtr bullet = FactoryManager::GetSingleton()->CreateEntity("Bullet", "");
+
+		// Помещаем снаряд на слой
+		actor->GetLevel()->GetLayer("Bullets")->Add(bullet);
+
+		// Устанавливаем угол и координаты снаряда
 		bullet->SetAngle(actor->GetAngle());
 		bullet->SetPosition(actor->GetPosition().x, actor->GetPosition().y);
 
+		// Настраиваем владельца снаряда
 		(boost::shared_dynamic_cast<behaviour::Bullet, Behaviour>(bullet->GetBehaviour()))->SetGunslinger(actor->GetBehaviour());
-		actor->GetLevel()->GetLayer("Bullets")->Add(bullet);
 	}
 
 	void	Weapon::SetAmmoTag(std::string ammoTag)
