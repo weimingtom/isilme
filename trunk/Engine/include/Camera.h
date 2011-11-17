@@ -1,7 +1,7 @@
 ﻿#ifndef CAMERA_H
 #define CAMERA_H
 
-#include <tinyxml.h>
+#include "Definitions.h"
 
 class IsilmeExport Camera
 {
@@ -28,7 +28,7 @@ public:
 	CameraDefinition();
 	virtual ~CameraDefinition();
 
-	virtual	Camera* Create();
+	virtual	CameraPtr Create();
 	virtual void	Parse(TiXmlElement* def);
 };
 
@@ -36,11 +36,11 @@ class IsilmeExport ICameraFactory
 {
 public:
 	virtual ~ICameraFactory() {}
-	virtual CameraDefinition* LoadDefinition(TiXmlElement* element) = 0;
+	virtual CameraDefPtr LoadDefinition(TiXmlElement* element) = 0;
 };
 
 // Шаблон для регистрации новых типов поведения
-template <class CameraType>
+template <typename CameraType>
 class CameraFactory : public ICameraFactory
 {
 public:
@@ -51,9 +51,9 @@ public:
 	{
 	}
 
-	virtual CameraDefinition* LoadDefinition(TiXmlElement* element)
+	virtual CameraDefPtr LoadDefinition(TiXmlElement* element)
 	{
-		CameraType* def = new CameraType();
+		boost::shared_ptr<CameraType> def(new CameraType());
 		def->Parse(element);
 		return def;
 	}

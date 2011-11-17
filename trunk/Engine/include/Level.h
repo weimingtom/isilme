@@ -22,67 +22,145 @@
 /// Каждый уровень пользуется своей моделью физического мира.
 class IsilmeExport Level : public boost::enable_shared_from_this<Level>
 {
+	///< The layer
 	friend class Layer;
+	///< Manager for factory
 	friend class FactoryManager;
 public:
+	/// Default constructor.
 	Level();
+	/// Destructor.
 	virtual ~Level();
 
-	/// Загружает уровень из XML
+	/// Loads.
+	///
+	/// @param [in,out]	levelElement	If non-null, the TiXmlElement* to load.
+	///
+	/// @return	.
 	static LevelPtr Load(TiXmlElement* levelElement);
 
+	/// Loads the given file.
+	///
+	/// @param	fileName	The std::string to load.
+	///
+	/// @return	.
 	static LevelPtr Load(std::string fileName);
 
-	/// Возвращает имя уровня
+	/// Gets the name.
+	///
+	/// @return	The name.
 	std::string		GetName();
 
-	/// Возвращает используемую в уровне камеру
-	Camera*			GetCamera();
+	/// Gets the active camera.
+	///
+	/// @return	The active camera.
+	CameraPtr	GetActiveCamera();
 
-	/// Устанавливает камеру
-	void			SetCamera(Camera* camera);
+	/// Sets an active camera.
+	///
+	/// @param	camera	The camera.
+	void	SetActiveCamera(CameraPtr camera);
 
-	/// Возвращает физическую модель уровня
+	/// Gets the world.
+	///
+	/// @return	null if it fails, else the world.
 	b2World*		GetWorld();
 
-	/// Возвращает слой по индексу
+	/// Gets a layer.
+	///
+	/// @param	index	Zero-based index of the.
+	///
+	/// @return	The layer.
 	LayerPtr		GetLayer(int index);
 
-	/// Возвращает количество слоев
+	/// Gets the layers count.
+	///
+	/// @return	The layers count.
 	int				GetLayersCount();
 
-	/// Обновляет уровень
+	/// Updates the given elapsedTime.
+	///
+	/// @param	elapsedTime	Time of the elapsed.
 	virtual void	Update(float elapsedTime);
 
-	/// Очищает уровень
+	/// Clears this object to its blank/initial state.
 	void			Clear();
 
-	/// Возвращает слой по имени
-	/// Если слой не найден, создается новый слой
+	/// Gets a layer.
+	///
+	/// @param	name	The name.
+	///
+	/// @return	The layer.
 	LayerPtr		GetLayer(std::string name);
 
-	/// Создает новый слой
+	/// Adds a layer.
+	///
+	/// @param	name	The name.
+	///
+	/// @return	.
 	LayerPtr		AddLayer(std::string name);
 
-	/// Добавляет слой на уровень
+	/// Adds a layer.
+	///
+	/// @param	layer	The layer.
 	void			AddLayer(LayerPtr layer);
 
-	/// Удалить слой из уровня
+	/// Removes the layer described by layer.
+	///
+	/// @param	layer	The layer.
 	void			RemoveLayer(LayerPtr layer);
 
-	/// Создает сущность на уровне
+	/// Creates an entity.
+	///
+	/// @param	type 	The type.
+	/// @param	x	 	The x coordinate.
+	/// @param	y	 	The y coordinate.
+	/// @param	angle	The angle.
+	/// @param	name 	(optional) the name.
+	///
+	/// @return	.
 	EntityPtr		CreateEntity(std::string type, float x, float y, float angle, std::string name = "");
 
-	/// Запрос по трассировке луча
-	bool		RayCastQueryAll(EntityList* entitiesDest, float x1, float y1, float x2, float y2, int count = 0);
+	/// Ray cast query all.
+	///
+	/// @param	x1   	The first x value.
+	/// @param	y1   	The first y value.
+	/// @param	x2   	The second x value.
+	/// @param	y2   	The second y value.
+	/// @param	count	(optional) number of.
+	///
+	/// @return	.
+	QueryPtr RayCastQueryAll(float x1, float y1, float x2, float y2, int count = 0);
 
-
+	/// Ray cast query nearest.
+	///
+	/// @param	x1	The first x value.
+	/// @param	y1	The first y value.
+	/// @param	x2	The second x value.
+	/// @param	y2	The second y value.
+	///
+	/// @return	.
 	EntityPtr	RayCastQueryNearest(float x1, float y1, float x2, float y2);
 
+	/// Ray cast query any.
+	///
+	/// @param	x1	The first x value.
+	/// @param	y1	The first y value.
+	/// @param	x2	The second x value.
+	/// @param	y2	The second y value.
+	///
+	/// @return	true if it succeeds, false if it fails.
 	bool		RayCastQueryAny(float x1, float y1, float x2, float y2);
 
-	/// AABB-запрос
-	bool			AABBQuery(EntityList* entitiesDest, float x1, float y1, float x2, float y2);
+	/// Aabb query.
+	///
+	/// @param	x1	The first x value.
+	/// @param	y1	The first y value.
+	/// @param	x2	The second x value.
+	/// @param	y2	The second y value.
+	///
+	/// @return	.
+	QueryPtr	AABBQuery(float x1, float y1, float x2, float y2);
 private:
 	/// Таймер итераций физического мира
 	float		mPhisicsTimer;
@@ -93,10 +171,11 @@ private:
 	/// Поименованные слои
 	LayerMap	mLayerNames;
 
+	///< The entities
 	EntitySet	mEntities;
 
 	/// Текущая камера
-	Camera*		mCamera;
+	CameraPtr		mCamera;
 
 	/// Физическая модель игрового мира
 	b2World*	mWorld;

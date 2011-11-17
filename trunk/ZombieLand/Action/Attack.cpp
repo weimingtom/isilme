@@ -3,6 +3,7 @@
 #include "Attack.h"
 #include "ZombieLand/Behaviour/Destroyable.h"
 #include "ZombieLand/Behaviour/Creature.h"
+#include "Query.h"
 
 namespace action
 {
@@ -28,12 +29,11 @@ namespace action
 		//aabb.upperBound.Set(v.x + mDistance / 2, v.y + mDistance /2);
 
 		//GetLevel()->GetWorld()->QueryAABB(this, aabb);
-		EntityList entities;
-		GetLevel()->AABBQuery(&entities, v.x - mDistance / 2, v.y - mDistance /2,v.x + mDistance / 2, v.y + mDistance /2);
-		for (EntityList::iterator it = entities.begin(); it != entities.end(); ++it)
-			if (*it != GetActor())
+		QueryPtr entities = GetLevel()->AABBQuery( v.x - mDistance / 2, v.y - mDistance /2,v.x + mDistance / 2, v.y + mDistance /2);
+		for (int i = 0; i < entities->GetEntitiesCount(); ++i)
+			if (entities->GetEntity(i) != GetActor())
 			{
-				behaviour::DestroyablePtr d = (*it)->As<behaviour::Destroyable>();
+				behaviour::DestroyablePtr d = entities->GetEntity(i)->As<behaviour::Destroyable>();
 				if (d)
 				{
 					d->Damage(mDamage);

@@ -3,9 +3,9 @@
 
 namespace camera
 {
-	Camera* FollowingCameraDef::Create()
+	CameraPtr FollowingCameraDef::Create()
 	{
-		return new FollowingCamera(this);
+		return CameraPtr(new FollowingCamera(this));
 	}
 
 	void FollowingCameraDef::Parse(TiXmlElement* element)

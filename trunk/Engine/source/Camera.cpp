@@ -1,4 +1,5 @@
 #include "Isilme.h"
+#include "Camera.h"
 
 Camera::Camera()
 {
@@ -40,7 +41,7 @@ void	CameraDefinition::Parse(TiXmlElement* def)
 {
 }
 
-Camera* CameraDefinition::Create()
+CameraPtr CameraDefinition::Create()
 {
-	return new Camera(this);
+	return CameraPtr(new Camera(this));
 }

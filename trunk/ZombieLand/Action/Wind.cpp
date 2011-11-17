@@ -1,5 +1,6 @@
 #include "ZombieLand.h"
 #include "ZombieLand/Action/Wind.h"
+#include "Query.h"
 
 namespace action
 {
@@ -31,19 +32,18 @@ namespace action
 	{
 		Vector2 v = GetActor()->GetPosition();
 		
-		EntityList targets;
-		GetLevel()->AABBQuery(&targets, v.x - mDistance, v.y - mDistance, v.x + mDistance, v.y + mDistance);
+		QueryPtr targets = GetLevel()->AABBQuery( v.x - mDistance, v.y - mDistance, v.x + mDistance, v.y + mDistance);
 		
-		for (EntityList::iterator it = targets.begin(); it != targets.end(); ++it)
-			if (*it != GetEntity())
+		for (int i = 0; i < targets->GetEntitiesCount(); ++i)
+			if (targets->GetEntity(i) != GetEntity())
 		{
-			float l = (*it)->GetDistanceTo(v);
-			Vector2 d = (*it)->GetPosition() - v;
+			float l = targets->GetEntity(i)->GetDistanceTo(v);
+			Vector2 d = targets->GetEntity(i)->GetPosition() - v;
 			d.Normalize();
 			d *= mForce / (l * l);
-			if ((*it)->GetBody()->GetType() == BodyDef::Box2DBody)
+			if (targets->GetEntity(i)->GetBody()->GetType() == BodyDef::Box2DBody)
 			{
-				b2Body* b = ((Box2DBody*)(*it)->GetBody())->GetBox2DBody();
+				b2Body* b = ((Box2DBody*)targets->GetEntity(i)->GetBody())->GetBox2DBody();
 				b->ApplyLinearImpulse(d, b->GetPosition());
 			}
 		}

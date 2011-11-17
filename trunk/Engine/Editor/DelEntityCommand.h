@@ -9,11 +9,14 @@ namespace editor
 	class IsilmeExport DelEntityCommand
 	{
 	public:
+		DelEntityCommand(LayerPtr layer, EntityPtr entity);
 		virtual ~DelEntityCommand();
 		virtual void Execute();
 		virtual void Unexecute();
 	protected:
 	private:
+		EntityPtr mEntity;
+		LayerPtr mLayer;
 	};
 };
 

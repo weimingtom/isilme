@@ -23,73 +23,152 @@ class IsilmeExport Entity
 	friend class Layer;
 	friend class Level;
 public:
+	
+	
+	/// News.
+	///
+	/// @param	level			The level.
+	/// @param	behaviour   	The behaviour.
+	/// @param [in,out]	body	If non-null, the body.
+	/// @param	graphics		The graphics.
+	///
+	/// @return	.
 	static EntityPtr New(LevelPtr level, BehaviourPtr behaviour, Body* body, GraphicsPtr graphics);
-
-	/// Деструктор сущности
+	
+	/// Destructor.
 	virtual ~Entity();
-
-	/// Возвращает имя сущности
+	
+	/// Gets the name.
+	///
+	/// @return	The name.
 	std::string		GetName();
-
-	/// Удалена ли сущность
+	
+	/// Query if this object is removed.
+	///
+	/// @return	true if removed, false if not.
 	bool			IsRemoved();
-
-	/// Удаляет сущность
+	
+	/// Removes this object.
 	void			Remove();
 
-	/// Возвращает поворот сущности
+	/// Gets the angle.
+	///
+	/// @return	The angle.
 	float			GetAngle();
 
-	/// Возвращает координаты сущности
+	/// Gets the position.
+	///
+	/// @return	The position.
 	Vector2&		GetPosition();
 
-	/// Возвращает графику сущности
+	/// Gets the graphics.
+	///
+	/// @return	The graphics.
 	GraphicsPtr		GetGraphics();
 	
-	/// Возвоащает поведение сущности
+	/// Gets the behaviour.
+	///
+	/// @return	The behaviour.
 	BehaviourPtr		GetBehaviour();
 
-	/// Обновляет сущность
+	/// Updates the given ElapsedTime.
+	///
+	/// @param	ElapsedTime	Time of the elapsed.
 	virtual void	Update(float ElapsedTime);
-
-	/// Задает координаты сущности
+	
+	/// Sets a position.
+	///
+	/// @param	x	The x coordinate.
+	/// @param	y	The y coordinate.
 	void			SetPosition(float x, float y);
 
-	/// Задает угол поворота сущности
-	void			SetAngle(float angle);
+	/// Sets a position.
+	///
+	/// @param	pos	The position.
+	void			SetPosition(Vector2 pos);
 
-	/// Удаляет тело сущности
+	/// Sets an angle.
+	///
+	/// @param	angle	The angle.
+	void			SetAngle(float angle);
+	
+	/// Removes the body.
 	void			RemoveBody();
 
-	/// Возвращает тело сущности
+	/// Gets the body.
+	///
+	/// @return	null if it fails, else the body.
 	Body*			GetBody();
 	
-	/// Возвращает уровень
+	/// Gets the level.
+	///
+	/// @return	The level.
 	LevelPtr		GetLevel();
 
-	/// Возвращает слой, на котором расположена сущность
+	/// Gets the layer.
+	///
+	/// @return	The layer.
 	LayerPtr		GetLayer();
 	
-	/// Удалить все физические связи
+	/// Removes the joints.
 	void			RemoveJoints();
+	
+	/// Gets the scale.
+	///
+	/// @return	The scale.
+	float			GetScale();
 
+	/// Sets a scale.
+	///
+	/// @param	value	The value.
+	void			SetScale(float value);
+	
+	/// Gets an angle to.
+	///
+	/// @param	entity	The entity.
+	///
+	/// @return	The angle to.
 	float		GetAngleTo(EntityPtr entity);
-
+	
+	/// Gets an angle to.
+	///
+	/// @param	point	The point.
+	///
+	/// @return	The angle to.
 	float		GetAngleTo(Vector2 point);
 
+	/// Gets a distance to.
+	///
+	/// @param	entity	The entity.
+	///
+	/// @return	The distance to.
 	float		GetDistanceTo(EntityPtr entity);
-
+	
+	/// Gets a distance to.
+	///
+	/// @param	point	The point.
+	///
+	/// @return	The distance to.
 	float		GetDistanceTo(Vector2 point);
-
+	
+	/// Is this object.
+	///
+	/// @return	true if it succeeds, false if it fails.
 	template<class T>
 	bool Is();
 
+	/// Gets as.
+	///
+	/// @return	.
 	template <class T>
 	boost::shared_ptr<T> As();
-protected:
-	/// Создает сущность
+protected:	
+	/// Default constructor.
 	Entity();
-
+	
+	/// Executes the added to layer action.
+	///
+	/// @param	layer	The layer.
 	void	OnAddedToLayer(LayerPtr layer);
 private:
 	/// Флаг удаления связей
@@ -118,6 +197,9 @@ private:
 
 	/// 
 	Body*			mBody;
+
+	/// Масштаб сущности
+	float			mScale;
 };
 
 template<class T>

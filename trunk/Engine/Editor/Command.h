@@ -5,14 +5,30 @@
 
 namespace editor
 {
-	/// Интерфейс команды
+	/// @class	Command
+	///
+	/// @brief	Интерфейс команды
+	///
+	/// @author	Velorth
+	/// @date	17.11.2011
 	class IsilmeExport Command
 	{
 	public:
-		/// Отменяет выполнение команды
+
+		/// @fn	virtual void Command::Unexecute() = 0;
+		///
+		/// @brief	Отменяет выполнение команды
+		///
+		/// @author	Velorth
+		/// @date	17.11.2011
 		virtual void Unexecute() = 0;
 
-		/// Выполняет комманду
+		/// @fn	virtual void Command::Execute() = 0;
+		///
+		/// @brief	Выполняет комманду
+		///
+		/// @author	Velorth
+		/// @date	17.11.2011
 		virtual void Execute() = 0;
 	};
 };

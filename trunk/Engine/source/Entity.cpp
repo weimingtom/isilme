@@ -35,6 +35,25 @@ Entity::~Entity()
 	delete mBody;
 }
 
+float	Entity::GetScale()
+{
+	return mScale;
+}
+
+void	Entity::SetScale(float value)
+{
+	ASSERT(value != 0);
+
+	//GetGraphics()->Scale(value / mScale);
+	//GetBody()->Scale(value / mScale);
+	mScale = value;
+}
+
+void	Entity::SetPosition(Vector2 pos)
+{
+	SetPosition(pos.x, pos.y);
+}
+
 float	Entity::GetAngleTo(EntityPtr entity)
 {
 	return GetAngleTo(entity->GetPosition());
@@ -129,6 +148,7 @@ GraphicsPtr		Entity::GetGraphics()
 
 Vector2&		Entity::GetPosition()
 {
+	ASSERT(mBody);
 	return mBody->GetPosition();
 }
 

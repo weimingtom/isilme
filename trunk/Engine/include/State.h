@@ -5,68 +5,127 @@
 #include <guichan.hpp>
 #include <guichan/hge.hpp>
 
-/// @class State
-/// @brief Состояние игры
-/// Состояние игры представляет собой сцену уровня и графический интерфейс уровня
+
+
+/// Состояние игры.
+///  Состояние игры представляет собой сцену уровня и графический интерфейс
+/// уровня.
 class IsilmeExport State
 {
-public:
+public:	
+	/// Default constructor.
 	State();
-	virtual ~State();
-
-	/// Возвращает графический интерфейс состояния
-	gcn::Gui* GetGUI();
-
-	/// Установить графический интерфейс состояния
-	void	SetGUI(gcn::Gui* gui);
-
-	/// 
-	bool IsPaused();
-	void SetPaused(bool pause);
-	void Start();
-
-	/// Закрывает состояние
-	void Close();
-
-	/// Обновляет состояние
-	bool Update(float elapsedTime);
-
-	/// Рисует состояние
-	virtual bool Draw(float elapsedTime);
-
 	
-	bool IsTransporate();
+	/// Destructor.
+	virtual ~State();
+	
+	/// Gets the graphical user interface.
+	///
+	/// @return	null if it fails, else the graphical user interface.
+	gcn::Gui* GetGUI();
+	
+	/// Sets a graphical user interface.
+	///
+	/// @param [in,out]	gui	If non-null, the graphical user interface.
+	void	SetGUI(gcn::Gui* gui);
+	
+	/// Query if this object is paused.
+	///
+	/// @return	true if paused, false if not.
+	bool IsPaused();
+	
+	/// Sets a paused.
+	///
+	/// @param	pause	true to pause.
+	void SetPaused(bool pause);
+	
+	/// Starts this object.
+	void Start();
+	
+	/// Closes this object.
+	void Close();
+	
+	/// Updates the given elapsedTime.
+	///
+	/// @param	elapsedTime	Time of the elapsed.
+	///
+	/// @return	true if it succeeds, false if it fails.
+	bool Update(float elapsedTime);
+	
+	/// Draws.
+	///
+	/// @param	elapsedTime	Time of the elapsed.
+	///
+	/// @return	true if it succeeds, false if it fails.
+	virtual bool Draw(float elapsedTime);	
+	
+	/// Query if this object is transporate.
+	///
+	/// @return	true if transporate, false if not.
+	bool IsTransporate();	
+	
+	/// Sets a transporate.
+	///
+	/// @param	value	true to value.
 	void SetTransporate(bool value);
+	
+	/// Gets the previous item.
+	///
+	/// @return	true if it succeeds, false if it fails.
 	bool GetPausePrev();
+	
+	/// Sets a pause previous.
+	///
+	/// @param	value	true to value.
 	void SetPausePrev(bool value);
-
-	/// Уровень состояния
-	LevelPtr GetLevel();
-
+	
+	/// Gets the level.
+	///
+	/// @return	The level.
+	LevelPtr GetLevel();	
+	
+	/// Sets a level.
+	///
+	/// @param	level	The level.
 	void	SetLevel(LevelPtr level);
 protected:
+	
+	/// Executes the update action.
+	///
+	/// @param	elapsedTime	Time of the elapsed.
 	virtual void OnUpdate(float elapsedTime);
-	virtual void OnStart();
+	
+	/// Executes the start action.
+	virtual void OnStart();	
+	
+	/// Executes the resume action.
 	virtual void OnResume();
+	
+	/// Executes the draw action.
 	virtual void OnDraw();
 	
 private:
-	/// Графический интерфейс
+	///< Графический интерфейс
 	gcn::Gui*	mGUI;
 
+	///< true to pause previous
 	bool mPausePrev;
+	///< true if this object is paused
 	bool isPaused;
+	///< true if this object is transporate
 	bool isTransporate;
 
-	/// Флаг закрытия состояния
+	///< Флаг закрытия состояния
 	bool isClosed;
 
-	/// Уровень состояния
+	///< Уровень состояния
 	LevelPtr mLevel;
 
-	// Special for GUi
+    ///< The graphics
     gcn::HGEGraphics* graphics;
+    ///< The input
     gcn::HGEInput* input;
+    ///< The image loader
     gcn::HGEImageLoader* imageLoader;
 };
 

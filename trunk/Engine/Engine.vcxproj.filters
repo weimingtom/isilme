@@ -43,7 +43,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
-    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Camera.h">
@@ -250,6 +249,12 @@
     <ClInclude Include="GUI\ModalDialog.h">
       <Filter>GUIChan</Filter>
     </ClInclude>
+    <ClInclude Include="include\Debug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Query.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Camera.cpp">
@@ -410,6 +415,18 @@
     </ClCompile>
     <ClCompile Include="GUI\ModalDialog.cpp">
       <Filter>GUIChan</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor\AddLayerCommand.cpp">
+      <Filter>Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor\DelEntityCommand.cpp">
+      <Filter>Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor\DelLayerCommand.cpp">
+      <Filter>Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Query.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

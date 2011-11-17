@@ -137,7 +137,8 @@ namespace ScriptAPI
 			[
 				luabind::class_<Entity, EntityPtr>("Entity")
 				.def("GetPosition", &Entity::GetPosition)
-				.def("SetPosition", &Entity::SetPosition)
+				.def("SetPosition", (void (Entity::*)(float, float))&Entity::SetPosition)
+				//.def("SetPosition", (void (Entity::*)(Vector2))&Entity::SetPosition)
 				.def("GetAngle", &Entity::GetAngle)
 				.def("SetAngle", &Entity::SetAngle)
 				.def("Remove", &Entity::Remove)

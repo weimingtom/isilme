@@ -100,7 +100,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -134,6 +133,7 @@
     <ClInclude Include="include\Bodies.h" />
     <ClInclude Include="include\Camera.h" />
     <ClInclude Include="include\Collisions.h" />
+    <ClInclude Include="include\Debug.h" />
     <ClInclude Include="include\Definitions.h" />
     <ClInclude Include="include\Engine.h" />
     <ClInclude Include="include\Entity.h" />
@@ -150,6 +150,7 @@
     <ClInclude Include="include\Level.h" />
     <ClInclude Include="include\Log.h" />
     <ClInclude Include="include\LogoState.h" />
+    <ClInclude Include="include\Query.h" />
     <ClInclude Include="include\Rank.h" />
     <ClInclude Include="include\Renderer.h" />
     <ClInclude Include="include\ResourceManager.h" />
@@ -176,7 +177,10 @@
   <ItemGroup>
     <ClCompile Include="AIPackage.cpp" />
     <ClCompile Include="Editor\AddEntityCommand.cpp" />
+    <ClCompile Include="Editor\AddLayerCommand.cpp" />
     <ClCompile Include="Editor\CommandManager.cpp" />
+    <ClCompile Include="Editor\DelEntityCommand.cpp" />
+    <ClCompile Include="Editor\DelLayerCommand.cpp" />
     <ClCompile Include="Editor\EntityBrushTool.cpp" />
     <ClCompile Include="Editor\SelectorTool.cpp" />
     <ClCompile Include="Editor\Tool.cpp" />
@@ -192,6 +196,7 @@
     <ClCompile Include="Inventory\Item.cpp" />
     <ClCompile Include="Inventory\ItemDef.cpp" />
     <ClCompile Include="Inventory\ItemFactory.cpp" />
+    <ClCompile Include="Query.cpp" />
     <ClCompile Include="Quest\Conversation.cpp" />
     <ClCompile Include="Quest\Phrase.cpp" />
     <ClCompile Include="Quest\Quest.cpp" />

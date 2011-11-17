@@ -92,6 +92,9 @@
     <ClCompile Include="State\Editor.cpp">
       <Filter>States</Filter>
     </ClCompile>
+    <ClCompile Include="Behaviour\Door.cpp">
+      <Filter>Behaviour</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Configuration.h" />
@@ -202,6 +205,9 @@
     </ClInclude>
     <ClInclude Include="State\Editor.h">
       <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="Behaviour\Door.h">
+      <Filter>Behaviour</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

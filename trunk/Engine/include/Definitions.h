@@ -35,6 +35,8 @@
 
 #include <hge.h>
 
+#include "Debug.h"
+
 //class IAction;
 class Action;
 typedef boost::shared_ptr<Action> ActionPtr;
@@ -106,6 +108,9 @@ class Graphics;
 typedef boost::shared_ptr<Graphics> GraphicsPtr;
 typedef boost::weak_ptr<Graphics> GraphicsWPtr;
 typedef std::map<std::string, GraphicsPtr> GraphicsMap;
+
+class Query;
+typedef boost::shared_ptr<Query> QueryPtr;
 
 /// @namespace graphics
 /// Графические модели, используемые для визуализации сущностей

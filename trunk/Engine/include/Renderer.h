@@ -27,7 +27,7 @@ public:
 
 	virtual void	EndScene() = 0;
 
-	virtual void	ApplyCamera(Camera* camera) = 0;
+	virtual void	ApplyCamera(CameraPtr camera) = 0;
 
 	/// Установить количество пикселей на один метр
 	void			SetMeterToPixelRatio(float ratio);
@@ -56,7 +56,7 @@ public:
 	virtual bool	IsWindowed();
 	virtual void	BeginScene();
 	virtual void	EndScene();
-	virtual void	ApplyCamera(Camera* camera);
+	virtual void	ApplyCamera(CameraPtr camera);
 protected:
 	HGE*			mHGE;
 };

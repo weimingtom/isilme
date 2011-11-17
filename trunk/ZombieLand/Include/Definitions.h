@@ -24,6 +24,9 @@ namespace behaviour
 
 	class Creature;
 	typedef boost::shared_ptr<Creature> CreaturePtr;
+
+	class Door;
+	typedef boost::shared_ptr<Door> DoorPtr;
 };
 
 namespace action

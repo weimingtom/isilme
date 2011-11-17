@@ -11,6 +11,7 @@
 #include "ZombieLand/Action/Wander.h"
 #include "Engine/GUI/ConversationWindow.h"
 #include "ZombieLand/State/Play.h"
+#include "Query.h"
 
 namespace behaviour
 {
@@ -370,21 +371,20 @@ namespace behaviour
 		}
 
 		float min = 1000;
-		EntityList targets;
 		Vector2 v = GetActor()->GetPosition();
-		GetLevel()->AABBQuery(&targets, v.x - 4, v.y - 4, v.x + 4, v.y + 4);
+		QueryPtr targets = GetLevel()->AABBQuery(v.x - 4, v.y - 4, v.x + 4, v.y + 4);
 
 
-		for (EntityList::iterator it = targets.begin(); it != targets.end(); ++it)
+		for (int i = 0; i < targets->GetEntitiesCount(); ++i)
 		{
-			CreaturePtr c = (*it)->As<Creature>();
+			CreaturePtr c = targets->GetEntity(i)->As<Creature>();
 			if (c && c != shared_from_this())
 			{
 				
 				int attitude = GetAttitudeTo(c);
 				if (attitude < 0)
 				{
-					mTarget = *it;
+					mTarget = targets->GetEntity(i);
 				}
 			}
 		}
@@ -399,13 +399,12 @@ namespace behaviour
 	void	Creature::UpdateEnemiesList()
 	{
 		mEnemies.clear();
-		EntityList dummy;
 		Vector2 v = GetActor()->GetPosition();
-		GetLevel()->AABBQuery(&dummy, v.x - 4, v.y - 4, v.x + 4, v.y + 4);
+		QueryPtr targets = GetLevel()->AABBQuery(v.x - 4, v.y - 4, v.x + 4, v.y + 4);
 
-		for (EntityList::iterator it = dummy.begin(); it != dummy.end(); ++it)
+		for (int i = 0; i < targets->GetEntitiesCount(); ++i)
 		{
-			CreaturePtr c = (*it)->As<Creature>();
+			CreaturePtr c = targets->GetEntity(i)->As<Creature>();
 			if (c)
 				if (c != shared_from_this() && (GetAttitudeTo(c) < 0))
 					mEnemies.push_back(c);

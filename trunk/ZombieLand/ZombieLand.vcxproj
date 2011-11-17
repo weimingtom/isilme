@@ -131,6 +131,7 @@
     <ClCompile Include="Behaviour\Bullet.cpp" />
     <ClCompile Include="Behaviour\Creature.cpp" />
     <ClCompile Include="Behaviour\Destroyable.cpp" />
+    <ClCompile Include="Behaviour\Door.cpp" />
     <ClCompile Include="Behaviour\Item.cpp" />
     <ClCompile Include="Graphics\Creature.cpp">
       <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\Graphics\</ObjectFileName>
@@ -185,6 +186,7 @@
     <ClInclude Include="Behaviour\Bullet.h" />
     <ClInclude Include="Behaviour\Creature.h" />
     <ClInclude Include="Behaviour\Destroyable.h" />
+    <ClInclude Include="Behaviour\Door.h" />
     <ClInclude Include="Behaviour\Item.h" />
     <ClInclude Include="ControlPad.h" />
     <ClInclude Include="Graphics\Creature.h" />

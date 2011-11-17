@@ -5,6 +5,7 @@
 #include "ZombieLand/Behaviour/Creature.h"
 #include "ZombieLand/Behaviour/Bullet.h"
 #include "ZombieLand/Behaviour/Item.h"
+#include "ZombieLand/Behaviour/Door.h"
 
 #include "ZombieLand/Items/Weapon.h"
 #include "ZombieLand/Items/Ammo.h"
@@ -55,6 +56,7 @@ void	ZombieLand::Init()
 	factoryManager->RegisterBehaviour("Destroyable", new BehaviourFactory<behaviour::DestroyableDef>());
 	factoryManager->RegisterBehaviour("Bullet", new BehaviourFactory<behaviour::BulletDef>());
 	factoryManager->RegisterBehaviour("Item", new BehaviourFactory<behaviour::ItemDef>());
+	factoryManager->RegisterBehaviour("Door", new BehaviourFactory<behaviour::DoorDef>());
 
 	// Регистрируем камеру
 	factoryManager->RegisterCamera("Following", new CameraFactory<camera::FollowingCameraDef>());

@@ -42,8 +42,8 @@ void Control::OnUpdate(float elapsedTime)
 	// поворот за мышью
 	Vector2 mouse = inputSystem->GetMousePosition();
 	mouse *= 1.0f / 64.0f;
-	mouse.x += GetLevel()->GetCamera()->x;
-	mouse.y += GetLevel()->GetCamera()->y;
+	mouse.x += GetLevel()->GetActiveCamera()->x;
+	mouse.y += GetLevel()->GetActiveCamera()->y;
 
 	float angleToMouse = GetActor()->GetAngleTo(mouse);
 	GetActor()->SetAngle(angleToMouse);

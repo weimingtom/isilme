@@ -46,14 +46,14 @@ void	HGERenderer::EndScene()
 	mHGE->Gfx_EndScene();
 }
 
-void	HGERenderer::ApplyCamera(Camera* camera)
+void	HGERenderer::ApplyCamera(CameraPtr camera)
 {
 	mHGE->Gfx_SetTransform(0.0f ,0.0f, -MeterToPixel(camera->x), -MeterToPixel(camera->y), 0.0f, 1.0f, 1.0f);
 }
 
 void	HGERenderer::Draw(LevelPtr level)
 {
-	Camera*		camera = level->GetCamera();
+	CameraPtr	camera = level->GetActiveCamera();
 
 	for (int i = 0 ; i <  level->GetLayersCount(); ++i)
 	{

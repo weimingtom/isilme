@@ -1,5 +1,9 @@
 ﻿#include "Isilme.h"
 #include "Joints.h"
+#include "Layer.h"
+#include "Level.h"
+#include "Entity.h"
+#include "Query.h"
 
 namespace RayCast
 {
@@ -11,60 +15,37 @@ namespace RayCast
 	};
 };
 
-class RayQueryImpl : public b2RayCastCallback
+class RayQueryImpl : public Query, public b2RayCastCallback
 {
 public:
-	RayQueryImpl(b2World* world, float x1, float y1, float x2, float y2)
+	RayQueryImpl(b2World* world, float x1, float y1, float x2, float y2, RayCast::Mode mode = RayCast::All)
 	{
 		mWorld = world;
 		mPoint1.Set(x1, y1);
 		mPoint2.Set(x2, y2);
+		mMode = mode;
 	}
 
 	virtual ~RayQueryImpl()
 	{
 	}
 
-	bool ExecuteAll(EntityList* entities)
+	virtual bool Execute()
 	{
-		mEnties = entities;
-		mMode = RayCast::All;
-
 		mWorld->RayCast(this, mPoint1, mPoint2);
-
-		return mEnties->size() > 0;
+		return GetEntitiesCount() > 0;
 	}
-
-	EntityPtr	ExecuteNearest()
-	{
-		mEntity.reset();
-		mMode = RayCast::Nearest;
-
-		mWorld->RayCast(this, mPoint1, mPoint2);
-
-		return mEntity;
-	}
-
-	bool	ExecuteAny()
-	{
-		mEntity.reset();
-		mMode = RayCast::Any;
-
-		mWorld->RayCast(this, mPoint1, mPoint2);
-
-		return mEntity != 0;
-	}
-
+protected:
 	virtual float32 ReportFixture(b2Fixture* fixture, const Vector2& point, const Vector2& normal, float32 fraction)
 	{
 		if (mMode == RayCast::Nearest)
 		{
-			if (minFraction > fraction || mEntity == 0)
+			if (minFraction > fraction || GetEntitiesCount() == 0)
 			{
 				minFraction = fraction;
 				Entity* e = (Entity*)(fixture->GetBody()->GetUserData());
 				BehaviourPtr b = e->GetBehaviour();
-				mEntity = b->GetActor();
+				PushEntity(b->GetActor());
 			}
 
 			return fraction;
@@ -72,12 +53,12 @@ public:
 		else if (mMode == RayCast::All)
 		{
 			EntityPtr entity = ((Entity*)(fixture->GetBody()->GetUserData()))->GetBehaviour()->GetActor();
-			mEnties->push_back(entity);
+			PushEntity(entity);
 			return 1;
 		}
 		else if (mMode ==RayCast::Any)
 		{
-			mEntity = ((Entity*)(fixture->GetBody()->GetUserData()))->GetBehaviour()->GetActor();
+			PushEntity((((Entity*)(fixture->GetBody()->GetUserData()))->GetBehaviour())->GetActor());
 			return 0;
 		}
 	}
@@ -85,14 +66,12 @@ public:
 private:
 	b2World* mWorld;
 	float32 minFraction;
-	EntityList* mEnties;
-	EntityPtr mEntity;
 	Vector2 mPoint1;
 	Vector2 mPoint2;
 	RayCast::Mode mMode;
 };
 
-class AABBQueryImpl : public b2QueryCallback
+class AABBQueryImpl : public Query, public b2QueryCallback
 {
 public:
 	AABBQueryImpl(b2World* world, float x1, float y1, float x2, float y2)
@@ -105,30 +84,24 @@ public:
 
 	virtual ~AABBQueryImpl()
 	{
-		mEnties = 0;
 	}
 
-	bool	Execute(EntityList* entities)
+	virtual bool	Execute()
 	{
-		mEnties = entities;
-
-		mEnties->clear();
-
 		mWorld->QueryAABB(this, mAABB);
 
-		return mEnties->size() > 0;
+		return GetEntitiesCount() != 0;
 	}
 
 	bool ReportFixture(b2Fixture* fixture)
 	{
 		EntityPtr entity = ((Entity*)(fixture->GetBody()->GetUserData()))->GetBehaviour()->GetActor();
-		mEnties->push_back(entity);
+		PushEntity(entity);
 		return true;
 	}
 private:
 	b2World* mWorld;
 	b2AABB mAABB;
-	EntityList* mEnties;
 };
 
 std::string Level::GetName()
@@ -140,7 +113,7 @@ Level::Level()
 {
 		
 	mPhisicsTimer = 1.0f / 30.0f;
-	mCamera = new Camera();
+	mCamera.reset(new Camera());
 	mWorld = Box2DEngine::GetSingleton()->CreateWorld();
 }
 
@@ -210,12 +183,12 @@ LayerPtr		Level::GetLayer(std::string name)
 	}
 }
 
-Camera*		Level::GetCamera()
+CameraPtr		Level::GetActiveCamera()
 {
 	return mCamera;
 }
 
-void		Level::SetCamera(Camera* camera)
+void		Level::SetActiveCamera(CameraPtr camera)
 {
 	mCamera = camera;
 }
@@ -281,28 +254,31 @@ LayerPtr	Level::AddLayer(std::string name)
 	}
 }
 
-bool	Level::RayCastQueryAll(EntityList* dest, float x1, float y1, float x2, float y2, int count)
+QueryPtr	Level::RayCastQueryAll(float x1, float y1, float x2, float y2, int count)
 {
-	RayQueryImpl query(GetWorld(), x1, y1, x2, y2);
-	return query.ExecuteAll(dest);
+	QueryPtr result(new RayQueryImpl(GetWorld(), x1, y1, x2, y2, RayCast::All));
+	result->Execute();
+	return result;
 }
 
 EntityPtr	Level::RayCastQueryNearest(float x1, float y1, float x2, float y2)
 {
-	RayQueryImpl query(GetWorld(), x1, y1, x2, y2);
-	return query.ExecuteNearest();
+	RayQueryImpl query(GetWorld(), x1, y1, x2, y2,  RayCast::Nearest);
+	query.Execute();
+	return query.GetEntity(0);
 }
 
 bool	Level::RayCastQueryAny(float x1, float y1, float x2, float y2)
 {
-	RayQueryImpl query(GetWorld(), x1, y1, x2, y2);
-	return query.ExecuteAny();
+	RayQueryImpl query(GetWorld(), x1, y1, x2, y2,  RayCast::Any);
+	return query.Execute();
 }
 
-bool		Level::AABBQuery(EntityList* dest, float x1, float y1, float x2, float y2)
+QueryPtr Level::AABBQuery(float x1, float y1, float x2, float y2)
 {
-	AABBQueryImpl query(GetWorld(), x1, y1, x2, y2);
-	return query.Execute(dest);
+	QueryPtr result(new AABBQueryImpl(GetWorld(), x1, y1, x2, y2));
+	result->Execute();
+	return result;
 }
 
 void	ParseWorld(LevelPtr level, TiXmlElement* rootElement)
@@ -332,8 +308,8 @@ void	ParseCamera(LevelPtr level, TiXmlElement* rootElement)
 
 	ICameraFactory* factory = FactoryManager::GetSingleton()->GetCameraFactory(type);
 
-	Camera* camera = factory->LoadDefinition(cameraElement)->Create();
-	level->SetCamera(camera);
+	CameraPtr camera = factory->LoadDefinition(cameraElement)->Create();
+	level->SetActiveCamera(camera);
 
 }
 

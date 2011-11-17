@@ -13,7 +13,7 @@ namespace camera
 	public:
 		std::string entityName;
 
-		virtual Camera* Create();
+		virtual CameraPtr Create();
 		virtual void Parse(TiXmlElement* element);
 	};
 
