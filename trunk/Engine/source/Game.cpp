@@ -1,5 +1,11 @@
-#include "Isilme.h"
+#include "IsilmePCH.h"
 #include "Engine/Quest/Story.h"
+#include "Game.h"
+#include "StateManager.h"
+#include "InputSystem.h"
+#include "SoundSystem.h"
+#include "Renderer.h"
+#include "ResourceManager.h"
 
 // Game
 

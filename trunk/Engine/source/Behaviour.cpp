@@ -1,13 +1,9 @@
-#include "Isilme.h"
+#include "IsilmePCH.h"
 #include "Behaviour.h"
 #include "Action.h"
 #include "AIPackage.h"
 #include "AIPackageFactory.h"
-
-unsigned long Behaviour::GetGroup()
-{
-	return mGroup;
-}
+#include "FactoryManager.h"
 
 BehaviourPtr Behaviour::New()
 {
@@ -16,7 +12,6 @@ BehaviourPtr Behaviour::New()
 
 Behaviour::Behaviour(BehaviourDefinition* def)
 {
-	mGroup = 0;
 	isActive = true;
 
 	if (def)
@@ -37,11 +32,6 @@ Behaviour::Behaviour(BehaviourDefinition* def)
 
 Behaviour::~Behaviour()
 {
-}
-
-void		Behaviour::SetGroup(unsigned long group)
-{
-	mGroup = group;
 }
 
 void		Behaviour::SetActor(EntityPtr actor)
@@ -86,8 +76,6 @@ void		Behaviour::Update(float elapsedTime)
 
 void		Behaviour::UpdateActions(float elapsedTime)
 {
-	mActionMask = 0;
-
 	ActionList::iterator it = mActiveActions.begin(); 
 	while (it != mActiveActions.end())
 	{
@@ -200,4 +188,9 @@ float Behaviour::GetAttribute(std::string ID)
 void Behaviour::SetAttribute(std::string ID, float value)
 {
 	mAttributes[ID] = value;
+}
+
+void Behaviour::Customize(TiXmlElement* element)
+{
+
 }

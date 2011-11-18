@@ -244,6 +244,9 @@
     <None Include="..\Data\Conversations.xml">
       <Filter>Data</Filter>
     </None>
+    <None Include="..\Data\Levels\Level2.xml">
+      <Filter>Data</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Actions">

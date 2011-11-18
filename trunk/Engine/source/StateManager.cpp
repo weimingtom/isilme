@@ -1,4 +1,8 @@
-﻿#include "Isilme.h"
+﻿#include "IsilmePCH.h"
+#include "StateManager.h"
+#include "State.h"
+#include "Level.h"
+#include "Renderer.h"
 
 StateManager::StateManager() :
 	mRenderer(0),

@@ -159,6 +159,7 @@
     <None Include="..\Data\Graphics.xml" />
     <None Include="..\Data\Items.xml" />
     <None Include="..\Data\Levels\Level1.xml" />
+    <None Include="..\Data\Levels\Level2.xml" />
     <None Include="..\Data\Loot.xml" />
     <None Include="..\Data\Master.xml" />
     <None Include="..\Data\Quests\Story1.xml" />

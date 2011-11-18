@@ -3,6 +3,7 @@
 
 #include "Definitions.h"
 #include "SpecialGraphics.h"
+#include "FactoryManager.h"
 
 namespace graphics
 {

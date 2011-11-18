@@ -1,5 +1,5 @@
-#include "Isilme.h"
-
+#include "IsilmePCH.h"
+#include "ResourceManager.h"
 // ResourceManager
 
 ResourceManager::~ResourceManager()

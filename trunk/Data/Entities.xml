@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="Windows-1251"?>
 <Entities>
+  <Entity Graphics="Box" Type="Doors/Simple" Behaviour="Door">
+    <Body Type="Static" LinearDumping="2.5" AngularDumping="2.2">
+      <Box Width="1" Heigh="1" CategoryBits="32" MaskBits="64" Restitution="0.2" Density="5" Sensor="1"></Box>
+    </Body>
+    <Behaviour>
+    </Behaviour>
+  </Entity>
   <!-- Items -->
   <Entity Graphics="Items/Spells/Shild" Type="Items/Spells/Shild" Behaviour="Item">
     <Body Type="Static" LinearDumping="2.5" AngularDumping="2.2">

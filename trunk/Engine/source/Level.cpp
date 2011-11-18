@@ -1,9 +1,10 @@
-﻿#include "Isilme.h"
+﻿#include "IsilmePCH.h"
 #include "Joints.h"
 #include "Layer.h"
 #include "Level.h"
 #include "Entity.h"
 #include "Query.h"
+#include "FactoryManager.h"
 
 namespace RayCast
 {
@@ -345,6 +346,13 @@ void	ParseEntity(LayerPtr layer, TiXmlElement* entityElement)
 	
 	entity->SetPosition(x, y);
 	entity->SetAngle(angle);
+
+	// Читаем уточнение поведения
+	TiXmlElement* behaviourElement = entityElement->FirstChildElement("Behaviour");
+	if (behaviourElement)
+	{
+		entity->GetBehaviour()->Customize(behaviourElement);
+	}
 }
 
 void ParseLayers(LevelPtr level, TiXmlElement* rootElement)
@@ -421,6 +429,11 @@ void ParseJoints(LevelPtr level, TiXmlElement* rootElement)
 LevelPtr	Level::Load(TiXmlElement* levelElement)
 {
 	LevelPtr level(new Level());
+
+	// Имя уровня
+	const char* nameAttr = levelElement->Attribute("Name");
+	if (nameAttr)
+		level->mName = nameAttr;
 
 	ParseWorld(level, levelElement);
 	ParseCamera(level, levelElement);

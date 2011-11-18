@@ -1,6 +1,7 @@
-#include "Isilme.h"
+#include "IsilmePCH.h"
 #include "Phrase.h"
 #include "Entity.h"
+#include "ScriptAPI.h"
 
 namespace story
 {

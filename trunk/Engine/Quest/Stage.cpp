@@ -1,7 +1,7 @@
-#include "Isilme.h"
+#include "IsilmePCH.h"
 #include "Quest.h"
 #include "Stage.h"
-#include <tinyxml.h>
+#include "ScriptAPI.h"
 
 namespace story
 {

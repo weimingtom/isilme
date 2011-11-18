@@ -1,6 +1,7 @@
-#include "Isilme.h"
+#include "IsilmePCH.h"
 #include "ItemDef.h"
 #include "Item.h"
+#include "ResourceManager.h"
 
 namespace inventory
 {

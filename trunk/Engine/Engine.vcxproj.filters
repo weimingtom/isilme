@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="GUIChan">
       <UniqueIdentifier>{a664d52d-ae8c-4368-990c-2811acfbc9f0}</UniqueIdentifier>
     </Filter>
@@ -21,18 +13,8 @@
     <Filter Include="Loading">
       <UniqueIdentifier>{8091cdb5-0e35-47be-8686-66edfe7ef484}</UniqueIdentifier>
     </Filter>
-    <Filter Include="System">
-      <UniqueIdentifier>{932c450a-f66d-48da-82f6-99e82b9c7c14}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Inventory">
       <UniqueIdentifier>{244e1285-30b3-461c-97bf-06af855a3ab6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Conversations">
-      <UniqueIdentifier>{5a03916d-8e10-4718-9852-f9f9e7c48a11}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
     <Filter Include="Editor">
       <UniqueIdentifier>{a1d12196-be5a-46df-ad77-a95dad46a5f7}</UniqueIdentifier>
@@ -40,74 +22,17 @@
     <Filter Include="Story">
       <UniqueIdentifier>{e958e960-2e7b-409c-a216-f7edd4dd0876}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{c5127496-ae56-4451-956c-289e9c5e1369}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Query">
+      <UniqueIdentifier>{24bae409-4c54-4273-9694-a42be3253503}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\Camera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Collisions.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Engine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Entity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Layer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Level.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\LogoState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\State.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\StateManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Isilme.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Bodies.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Renderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\InputSystem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\ResourceManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SoundSystem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Joints.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\FactoryManager.h">
-      <Filter>Loading</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Sensor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\GraphicsFactory.h">
-      <Filter>Loading</Filter>
-    </ClInclude>
-    <ClInclude Include="include\EntityDefinition.h">
-      <Filter>Loading</Filter>
-    </ClInclude>
     <ClInclude Include="Graphics\Sprite.h">
       <Filter>Graphics</Filter>
     </ClInclude>
@@ -119,9 +44,6 @@
     </ClInclude>
     <ClInclude Include="Graphics\Particles.h">
       <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Loading\GraphicsDefinition.h">
-      <Filter>Loading</Filter>
     </ClInclude>
     <ClInclude Include="include\Graphics.h">
       <Filter>Graphics</Filter>
@@ -147,23 +69,14 @@
     <ClInclude Include="Graphics\StateGraphics.h">
       <Filter>Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="include\Definitions.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GUI\ProgressBar.h">
       <Filter>GUIChan</Filter>
     </ClInclude>
     <ClInclude Include="GUI\HGELabel.h">
       <Filter>GUIChan</Filter>
     </ClInclude>
-    <ClInclude Include="ScriptAPI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Quest\Quest.h">
       <Filter>Story</Filter>
-    </ClInclude>
-    <ClInclude Include="System\ActionManager.h">
-      <Filter>System</Filter>
     </ClInclude>
     <ClInclude Include="Quest\Stage.h">
       <Filter>Story</Filter>
@@ -182,27 +95,6 @@
     </ClInclude>
     <ClInclude Include="Inventory\ItemDef.h">
       <Filter>Inventory</Filter>
-    </ClInclude>
-    <ClInclude Include="Config.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Fraction.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Rank.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Log.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\AIPackage.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\AIPackageFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Action.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Editor\AddEntityCommand.h">
       <Filter>Editor</Filter>
@@ -249,65 +141,93 @@
     <ClInclude Include="GUI\ModalDialog.h">
       <Filter>GUIChan</Filter>
     </ClInclude>
-    <ClInclude Include="include\Debug.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="include\Action.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\AIPackage.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Camera.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Entity.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Layer.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Level.h">
+      <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="include\Query.h">
-      <Filter>Header Files</Filter>
+      <Filter>Core</Filter>
     </ClInclude>
+    <ClInclude Include="include\AIPackageFactory.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateManager.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Bodies.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Collisions.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Engine.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Fraction.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Game.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\InputSystem.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Joints.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Rank.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Renderer.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ResourceManager.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptAPI.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SoundSystem.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\State.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GraphicsFactory.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\EntityDefinition.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FactoryManager.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Loading\GraphicsDefinition.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h" />
+    <ClInclude Include="include\LogoState.h" />
+    <ClInclude Include="include\Debug.h" />
+    <ClInclude Include="include\Definitions.h" />
+    <ClInclude Include="include\Isilme.h" />
+    <ClInclude Include="include\Log.h" />
+    <ClInclude Include="IsilmePCH.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\Camera.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Collisions.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Engine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Entity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Level.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\State.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\StateManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Layer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Isilme.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Bodies.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Renderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\InputSystem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\ResourceManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\SoundSystem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Joints.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Sensor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Graphics\Sprite.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
@@ -326,15 +246,6 @@
     <ClCompile Include="source\Trigger.cpp">
       <Filter>Behaviour</Filter>
     </ClCompile>
-    <ClCompile Include="source\EntityDefinition.cpp">
-      <Filter>Loading</Filter>
-    </ClCompile>
-    <ClCompile Include="source\FactoryManager.cpp">
-      <Filter>Loading</Filter>
-    </ClCompile>
-    <ClCompile Include="source\GraphicsFactory.cpp">
-      <Filter>Loading</Filter>
-    </ClCompile>
     <ClCompile Include="Quest\Story.cpp">
       <Filter>Story</Filter>
     </ClCompile>
@@ -344,14 +255,8 @@
     <ClCompile Include="Quest\Quests.cpp">
       <Filter>Story</Filter>
     </ClCompile>
-    <ClCompile Include="ScriptAPI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Quest\Quest.cpp">
       <Filter>Story</Filter>
-    </ClCompile>
-    <ClCompile Include="System\ActionManager.cpp">
-      <Filter>System</Filter>
     </ClCompile>
     <ClCompile Include="source\Graphics.cpp">
       <Filter>Graphics</Filter>
@@ -373,18 +278,6 @@
     </ClCompile>
     <ClCompile Include="Inventory\ItemDef.cpp">
       <Filter>Inventory</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Fraction.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Rank.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AIPackage.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Action.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Editor\CommandManager.cpp">
       <Filter>Editor</Filter>
@@ -425,8 +318,78 @@
     <ClCompile Include="Editor\DelLayerCommand.cpp">
       <Filter>Editor</Filter>
     </ClCompile>
-    <ClCompile Include="Query.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="source\Action.cpp">
+      <Filter>Core</Filter>
     </ClCompile>
+    <ClCompile Include="AIPackage.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Camera.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Entity.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Layer.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Level.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Query.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\StateManager.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Bodies.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Collisions.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Engine.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Fraction.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Game.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\InputSystem.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Joints.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Rank.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Renderer.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ResourceManager.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptAPI.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SoundSystem.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\State.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\EntityDefinition.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\FactoryManager.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GraphicsFactory.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Isilme.cpp" />
   </ItemGroup>
 </Project>

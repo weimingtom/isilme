@@ -1,4 +1,4 @@
-#include "Isilme.h"
+#include "IsilmePCH.h"
 #include "ScriptAPI.h"
 #include <LuaBind/luabind/lua_include.hpp>
 #include <LuaBind/luabind/luabind.hpp>
@@ -12,6 +12,13 @@
 #include "Inventory/Item.h"
 #include <luabind/operator.hpp>
 #include "Fraction.h"
+#include "Game.h"
+#include "Entity.h"
+#include "Level.h"
+#include "Layer.h"
+#include "Behaviour.h"
+#include "State.h"
+#include "StateManager.h"
 
 namespace ScriptAPI
 {

@@ -1,10 +1,8 @@
 ﻿#ifndef FACTORYMANAGER_H
 #define FACTORYMANAGER_H
 
-#include <map>
-#include <string>
-#include <list>
-#include <set>
+#include "Definitions.h"
+#include "Engine/Quest/Quests.h"
 #include "Graphics.h"
 #include "Entity.h"
 #include "Behaviour.h"
@@ -12,7 +10,6 @@
 #include "Joints.h"
 #include "Camera.h"
 #include "GraphicsFactory.h"
-#include "Definitions.h"
 #include "EntityDefinition.h"
 #include "GraphicsFactory.h"
 #include "Engine/Inventory/ItemFactory.h"
@@ -100,6 +97,11 @@ public:
 
 	/// Загружает диалоги из файла
 	void			LoadConversations(std::string fileName);
+
+	/// Loads a level.
+	///
+	/// @param	fileName	Filename of the file.
+	void			LoadLevel(std::string fileName);
 
 	/// Возвращает диалог по имени
 	story::ConversationPtr GetConversation(std::string id);

@@ -1,6 +1,8 @@
 ﻿#ifndef ISILME_GRAPHICS_ANIMATION_H
 #define ISILME_GRAPHICS_ANIMATION_H
 
+#include "Definitions.h"
+
 namespace graphics
 {
 

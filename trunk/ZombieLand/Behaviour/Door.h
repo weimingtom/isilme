@@ -26,6 +26,8 @@ namespace behaviour
 		virtual bool	IsUsable();
 
 		virtual void	OnUse(CreaturePtr creature);
+
+		virtual void	Customize(TiXmlElement* element);
 	private:
 		/// Открыта ли дверь
 		bool isOpen;

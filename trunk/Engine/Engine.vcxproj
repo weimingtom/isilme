@@ -50,8 +50,8 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>LUABIND_DYNAMIC_LINK;WIN32;ISILME_DLL;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)../Luabind;$(ProjectDir)../;$(ProjectDir)../GUIChan/include/;$(ProjectDir)../HGE/include;$(ProjectDir)/include;$(ProjectDir)../TinyXML/include;$(ProjectDir)../Box2D/;$(ProjectDir)../Lua514/include</AdditionalIncludeDirectories>
-      <PrecompiledHeaderFile>Isilme.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir)/;$(ProjectDir)../Luabind;$(ProjectDir)../;$(ProjectDir)../GUIChan/include/;$(ProjectDir)../HGE/include;$(ProjectDir)/include;$(ProjectDir)../TinyXML/include;$(ProjectDir)../Box2D/;$(ProjectDir)../Lua514/include</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>IsilmePCH.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)Isilme.pch</PrecompiledHeaderOutputFile>
       <DisableSpecificWarnings>4251;4275;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <AdditionalOptions>-Zm144 %(AdditionalOptions)</AdditionalOptions>
@@ -154,7 +154,6 @@
     <ClInclude Include="include\Rank.h" />
     <ClInclude Include="include\Renderer.h" />
     <ClInclude Include="include\ResourceManager.h" />
-    <ClInclude Include="include\Sensor.h" />
     <ClInclude Include="include\SoundSystem.h" />
     <ClInclude Include="include\State.h" />
     <ClInclude Include="include\StateManager.h" />
@@ -163,6 +162,7 @@
     <ClInclude Include="Inventory\ItemFactory.h" />
     <ClInclude Include="Inventory\Inventory.h" />
     <ClInclude Include="Inventory\Item.h" />
+    <ClInclude Include="IsilmePCH.h" />
     <ClInclude Include="Loading\GraphicsDefinition.h" />
     <ClInclude Include="Quest\Conversation.h" />
     <ClInclude Include="Quest\Phrase.h" />
@@ -172,7 +172,6 @@
     <ClInclude Include="Quest\Stage.h" />
     <ClInclude Include="Quest\Story.h" />
     <ClInclude Include="ScriptAPI.h" />
-    <ClInclude Include="System\ActionManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AIPackage.cpp" />
@@ -228,12 +227,10 @@
     <ClCompile Include="source\Rank.cpp" />
     <ClCompile Include="source\Renderer.cpp" />
     <ClCompile Include="source\ResourceManager.cpp" />
-    <ClCompile Include="source\Sensor.cpp" />
     <ClCompile Include="source\SoundSystem.cpp" />
     <ClCompile Include="source\State.cpp" />
     <ClCompile Include="source\StateManager.cpp" />
     <ClCompile Include="source\Trigger.cpp" />
-    <ClCompile Include="System\ActionManager.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

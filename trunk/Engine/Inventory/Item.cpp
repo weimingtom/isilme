@@ -1,6 +1,9 @@
-#include "Isilme.h"
+#include "IsilmePCH.h"
 #include "Item.h"
 #include "Inventory.h"
+#include "ItemDef.h"
+#include "SoundSystem.h"
+#include "ResourceManager.h"
 
 namespace inventory
 {

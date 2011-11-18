@@ -219,6 +219,9 @@ void	Play::OnUpdate(float elapsedTime)
 
 	if (mPlayer != 0)
 	{
+		if (mPlayer->GetLevel() != GetLevel())
+			SetLevel(mPlayer->GetLevel());
+
 		if (!(mPlayer->IsActive()) && !IsPaused())
 		{
 			//GetLevel()->GetLayer("Grass")->Add(mPlayer->GetActor());
@@ -391,7 +394,7 @@ void	Play::OnUpdate(float elapsedTime)
 void Play::OnStart()
 {
 	Game::GetSingleton()->GetStory()->Load("../Data/Quests/Story1.xml");
-	SetLevel(Level::Load("../Data/Levels/Level1.xml"));
+	SetLevel(FactoryManager::GetSingleton()->GetLevel("Level1"));
 	//Engine::GetSingleton()->GetLua()->DoFile("../Data/Scripts/Triggers.lua");
 
 	EntityPtr player = FactoryManager::GetSingleton()->GetEntity("Player");

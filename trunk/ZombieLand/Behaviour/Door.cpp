@@ -48,5 +48,10 @@ namespace behaviour
 	}
 
 
-
+	void Door::Customize(TiXmlElement* element)
+	{
+		const char* destAttr = element->Attribute("Destination");
+		if (destAttr)
+			mDoorID = destAttr;
+	}
 };

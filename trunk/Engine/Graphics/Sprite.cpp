@@ -1,4 +1,6 @@
-﻿#include "Isilme.h"
+﻿#include "IsilmePCH.h"
+#include "Sprite.h"
+#include "ResourceManager.h"
 
 namespace graphics
 {

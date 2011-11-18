@@ -1,4 +1,5 @@
-#include "Isilme.h"
+#include "IsilmePCH.h"
+#include "Renderer.h"
 
 Renderer::Renderer() :
 	mMeterToPixelRatio(64.0f)

@@ -1,11 +1,6 @@
 ﻿#ifndef GRAPHICS_H
 #define GRAPHICS_H
 
-#include <hgesprite.h>
-#include <hgeanim.h>
-#include <tinyXML.h>
-#include <string>
-#include <map>
 #include "Definitions.h"
 #include "Engine/Loading/GraphicsDefinition.h"
 

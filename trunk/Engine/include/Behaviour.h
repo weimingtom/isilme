@@ -6,10 +6,6 @@
 #include "Definitions.h"
 #include "Collisions.h"
 #include "Entity.h"
-#include "Engine/System/ActionManager.h"
-
-#define BEHAVIOUR_GROUP_COMMON 0
-
 
 /// class Behaviour
 /// Класс описывает поведение игрового объекта,
@@ -21,9 +17,6 @@ public:
 	static BehaviourPtr New();
 
 	virtual ~Behaviour();
-
-	/// Маска поведения. Используется для определения типа поведения
-	unsigned long	GetGroup();
 
 	/// Возвращает сущность, которой управляет поведение
 	EntityPtr			GetActor();
@@ -73,11 +66,13 @@ public:
 	void			AddAIPackage(AIPackagePtr package, int priority = 0);
 
 	void			AddAIPackage(std::string packageID, int priority = 0);
+
+	/// Customizes.
+	/// 
+	/// @param [in]	element	If non-null, the element.
+	virtual void	Customize(TiXmlElement* element);
 protected:
 	Behaviour(BehaviourDefinition* def);
-
-	/// Устанавливает группу поведения
-	void			SetGroup(unsigned long group);
 private:
 	typedef std::pair<int, int> StatePair;
 	typedef std::map<StatePair, bool>	StateRelationsMap;
@@ -99,12 +94,7 @@ private:
 
 	/// Карта параллельных состояний
 	StateRelationsMap mParallelMap;
-
-	/// Группа поведения @depricated
-	unsigned long	mGroup;
-
-	unsigned long	mActionMask;
-
+	
 	/// Список активных действий
 	ActionList		mActiveActions;
 
@@ -173,7 +163,8 @@ public:
 	virtual BehaviourDefPtr LoadDefinition(TiXmlElement* element)
 	{
 		T* def = new T();
-		def->Parse(element);
+		if (element)
+			def->Parse(element);
 
 		return BehaviourDefPtr(def);
 	}

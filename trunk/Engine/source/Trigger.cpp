@@ -1,6 +1,8 @@
-﻿#include "Isilme.h"
-#include <luabind/luabind.hpp>
-#include <luabind/lua_include.hpp>
+﻿#include "IsilmePCH.h"
+#include "Trigger.h"
+#include "ScriptAPI.h"
+#include "LuaCPP.h"
+#include "Engine.h"
 
 Trigger::Trigger(TriggerDefinition* def) : Behaviour(def)
 {

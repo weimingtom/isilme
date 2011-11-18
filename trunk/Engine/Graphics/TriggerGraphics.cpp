@@ -1,4 +1,5 @@
-﻿#include "Isilme.h"
+﻿#include "IsilmePCH.h"
+#include "TriggerGraphics.h"
 
 namespace graphics
 {

@@ -1,4 +1,5 @@
-#include "Isilme.h"
+#include "IsilmePCH.h"
+#include "FactoryManager.h"
 #include "GraphicsFactory.h"
 #include "AIPackageFactory.h"
 #include "AIPackage.h"
@@ -8,6 +9,12 @@
 #include "Fraction.h"
 #include "Rank.h"
 #include "Engine/Quest/Conversation.h"
+#include "Engine/include/Trigger.h"
+#include "Behaviour.h"
+#include "Graphics/Animation.h"
+#include "Graphics/Sprite.h"
+#include "Graphics/Particles.h"
+#include "Graphics/TriggerGraphics.h"
 
 
 FactoryPtr FactoryManager::mInstance;
@@ -486,4 +493,10 @@ LevelPtr FactoryManager::GetLevel(std::string id)
 
 		return LevelPtr();
 	}
+}
+
+void FactoryManager::LoadLevel(std::string fileName)
+{
+	LevelPtr level = Level::Load(fileName);
+	mLevels[level->GetName()] = level;
 }

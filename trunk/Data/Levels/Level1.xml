@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Level>
+<Level Name="Level1">
 	<Camera Type="Following" Player="Player"></Camera>
 	<Layer Name="Grass">
 		<Entity Name="" Type="Terrain/Grass" Position="13, 22, 0" Scale="1"></Entity>
@@ -389,6 +389,9 @@
 		<Entity Name="" Type="Creatures/Bandit1" Position="12, 44, 1.0" Scale="1.0"></Entity>
 		<Entity Name="" Type="Creatures/Civilian1" Position="10, 43, 1.0" Scale="1.0"></Entity>
 		<Entity Name="" Type="Creatures/Civilian1" Position="9, 45, 1.0" Scale="1.0"></Entity>
+    <Entity Name="doorA" Type="Doors/Simple" Position="7, 12, 0" Scale="1">
+      <Behaviour Destination="doorB"></Behaviour>
+    </Entity>
 		<Entity Name="Player" Type="Player" Position="9.0, 12, 1.0" Scale="1.0"></Entity>
     <Entity Name="" Type="Creatures/Civilian1" Position="12, 12, 1.0" Scale="1.0"></Entity>
     <Entity Name="" Type="Creatures/Bandit1" Position="15.0, 44, 1.0" Scale="1.0"></Entity>

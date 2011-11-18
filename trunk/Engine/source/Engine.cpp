@@ -1,6 +1,10 @@
-﻿#include "Isilme.h"
+﻿#include "IsilmePCH.h"
 #include "Engine/ScriptAPI.h"
-#include "Log.h"
+#include "InputSystem.h"
+#include "Renderer.h"
+#include "ResourceManager.h"
+#include "State.h"
+#include "StateManager.h"
 
 Engine* Engine::mInstance = 0;
 

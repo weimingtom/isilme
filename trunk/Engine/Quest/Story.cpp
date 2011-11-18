@@ -1,7 +1,8 @@
-#include "Isilme.h"
+#include "IsilmePCH.h"
 #include "Story.h"
 #include "Quest.h"
 #include "Stage.h"
+#include "Game.h"
 
 namespace story
 {

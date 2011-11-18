@@ -2,8 +2,6 @@
 #define ZOMBIELAND_ITEM_H
 
 #include "Definitions.h"
-#include "Isilme.h"
-#include <guichan.hpp>
 
 namespace inventory
 {

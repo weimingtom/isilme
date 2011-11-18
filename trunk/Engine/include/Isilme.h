@@ -27,7 +27,6 @@
 #include "Log.h"
 #include "Renderer.h"
 #include "ResourceManager.h"
-#include "Sensor.h"
 #include "State.h"
 #include "Engine/ScriptAPI.h"
 #include "StateManager.h"

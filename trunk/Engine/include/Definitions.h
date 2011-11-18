@@ -34,6 +34,7 @@
 #include <GUIChan/gui.hpp>
 
 #include <hge.h>
+#include <hgeanim.h>
 
 #include "Debug.h"
 
@@ -182,5 +183,7 @@ typedef std::map<std::string, Fixture*>			FixtureMap;
 
 /// Математические макросы
 #define sqr(a) ((a)*(a))
+
+#include "Log.h"
 
 #endif
