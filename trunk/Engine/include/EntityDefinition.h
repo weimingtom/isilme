@@ -10,6 +10,7 @@
 /// Создаются при загрузке XML-файла определений
 class IsilmeExport EntityDefinition
 {
+	friend class FactoryManager;
 public:
 	EntityDefinition(BodyDef* body, GraphicsDefPtr graphics, BehaviourDefPtr behaviour);
 	virtual ~EntityDefinition();
@@ -22,10 +23,16 @@ public:
 
 	/// Возвращает определение для поведения сущности
 	BehaviourDefPtr	GetBehaviourDefinition();
+
+	/// Gets the type.
+	///
+	/// @return	The type.
+	std::string		GetType();
 private:
 	BodyDef*			mBody;
 	GraphicsDefPtr		mGraphics;
 	BehaviourDefPtr		mBehaviour;
+	std::string			mType;
 };
 
 typedef std::map<std::string, EntityDefPtr> EntityPalette;

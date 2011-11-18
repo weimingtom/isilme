@@ -162,6 +162,11 @@ public:
 	/// @return	.
 	template <class T>
 	boost::shared_ptr<T> As();
+	
+	/// Gets the type.
+	///
+	/// @return	The type.
+	std::string GetType();
 protected:	
 	/// Default constructor.
 	Entity();
@@ -200,6 +205,8 @@ private:
 
 	/// Масштаб сущности
 	float			mScale;
+
+	std::string	mType;
 };
 
 template<class T>

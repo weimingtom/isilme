@@ -181,3 +181,8 @@ void			Entity::RemoveBody()
 {
 	isBodyRemoved = true;
 }
+
+std::string Entity::GetType()
+{
+	return mType;
+}

@@ -218,6 +218,7 @@ EntityPtr		FactoryManager::CreateEntity(EntityDefPtr definition, std::string nam
 	}
 
 	entity->mName = name;
+	entity->mType = definition->GetType();
 
 	mCreatedEntities[name] = entity;
 
@@ -310,6 +311,7 @@ void			FactoryManager::LoadEntities(std::string fileName)
 
 		/// Создаем определение
 		def = EntityDefPtr(new EntityDefinition(body, graphics, behaviour));
+		def->mType = type;
 
 		mEntityDefinitions[type] = def;
 

@@ -28,6 +28,9 @@
     <Filter Include="Query">
       <UniqueIdentifier>{24bae409-4c54-4273-9694-a42be3253503}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Serialisation">
+      <UniqueIdentifier>{799d08cc-13be-4432-9067-c6b889c3d783}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -226,6 +229,9 @@
     <ClInclude Include="include\Isilme.h" />
     <ClInclude Include="include\Log.h" />
     <ClInclude Include="IsilmePCH.h" />
+    <ClInclude Include="Core\Serialisation\StaticLevelSerialiser.h">
+      <Filter>Core\Serialisation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Graphics\Sprite.cpp">
@@ -391,5 +397,8 @@
       <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="source\Isilme.cpp" />
+    <ClCompile Include="Core\Serialisation\StaticLevelSerialiser.cpp">
+      <Filter>Core\Serialisation</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

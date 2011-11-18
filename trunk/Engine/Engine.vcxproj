@@ -106,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config.h" />
+    <ClInclude Include="Core\Serialisation\StaticLevelSerialiser.h" />
     <ClInclude Include="Editor\AddEntityCommand.h" />
     <ClInclude Include="Editor\AddLayerCommand.h" />
     <ClInclude Include="Editor\Command.h" />
@@ -177,6 +178,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AIPackage.cpp" />
+    <ClCompile Include="Core\Serialisation\StaticLevelSerialiser.cpp" />
     <ClCompile Include="Editor\AddEntityCommand.cpp" />
     <ClCompile Include="Editor\AddLayerCommand.cpp" />
     <ClCompile Include="Editor\CommandManager.cpp" />

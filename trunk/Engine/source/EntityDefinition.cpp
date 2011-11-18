@@ -26,3 +26,8 @@ BehaviourDefPtr EntityDefinition::GetBehaviourDefinition()
 {
 	return mBehaviour;
 }
+
+std::string EntityDefinition::GetType()
+{
+	return mType;
+}

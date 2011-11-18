@@ -14,7 +14,7 @@
 #include "Engine/Quest/Stage.h"
 #include "Engine/Editor/EntityBrushTool.h"
 #include "Engine/Editor/CommandManager.h"
-
+#include "Engine/Core/Serialisation/StaticLevelSerialiser.h"
 namespace state
 {
 
@@ -308,6 +308,11 @@ void	Editor::OnUpdate(float elapsedTime)
 		{
 			GetCommandManager()->Redo();
 		}
+	}
+	if (inputSystem->IsKeyUp(HGEK_S) && inputSystem->GetKeyState(HGEK_CTRL))
+	{
+		serialisation::XMLStaticLevelSerialiser serialiser;
+		serialiser.Serialise(GetLevel(), "../Data/Test/Level.xml");
 	}
 
 	if (Engine::GetSingleton()->GetInputSystem()->IsKeyDown(HGEK_ESCAPE))
