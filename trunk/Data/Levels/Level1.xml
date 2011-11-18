@@ -412,7 +412,7 @@
 
 	<Layer Name="Bullets"></Layer>
   <Layer Name="Containers">
-    <Entity Name="" Type="Trash/Box" Position="12, 10, 0" Scale="1"></Entity>
+    <Entity Name="" Type="Trash/Box" Position="12, 10, 0" Scale="1.5"></Entity>
     <Entity Name="" Type="Trash/Box" Position="13, 10.5, 0.3" Scale="1"></Entity>
     <Entity Name="" Type="Trash/Box" Position="11.2, 48, 0" Scale="1"></Entity>
     <Entity Name="" Type="Trash/Box" Position="11.5, 47, 0" Scale="1"></Entity>

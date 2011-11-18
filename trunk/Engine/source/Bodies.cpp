@@ -131,6 +131,33 @@ Body::~Body()
 {
 }
 
+float Body::GetScale()
+{
+	return mScale;
+}
+
+void Body::SetScale(float value)
+{
+	float oldScale = mScale;
+	mScale = value;
+	OnScale(oldScale, mScale);
+}
+
+void Body::Scale(float value)
+{
+	SetScale(mScale * value);
+}
+
+void Body::OnScale(float oldScale, float scale)
+{
+
+}
+
+Body::Body()
+{
+	mScale = 1.0f;
+}
+
 BodyDef::BodyType Body::GetType()
 {
 	return mType;
@@ -160,6 +187,55 @@ Box2DBody::~Box2DBody()
 	{
 		mBody->GetWorld()->DestroyBody(mBody);
 	}
+}
+
+void	Box2DBody::OnScale(float oldScale, float scale)
+{
+	if (mBody == 0)
+		return;
+
+	float k = scale / oldScale;
+
+	int n = mBody->GetFixtureCount();
+	b2Fixture** oldFixtures = (b2Fixture**)malloc(sizeof(b2Fixture*) * (n+5));
+	for (int i = 0; i < n; ++i)
+		oldFixtures[i] = mBody->GetFixtureList() + i;
+
+	for (int i = 0; i < n; ++i)
+	{
+		b2Fixture* fixture = oldFixtures[i];
+		b2FixtureDef def;
+		def.filter = fixture->GetFilterData();
+		def.friction = fixture->GetFriction();
+		def.isSensor = fixture->IsSensor();
+		def.restitution = fixture->GetRestitution();
+		def.density = fixture->GetDensity();
+
+		if (fixture->GetType() == b2Shape::e_circle)
+		{
+			b2CircleShape s;
+			s.m_radius = fixture->GetShape()->m_radius * k;
+			s.m_p = k * ((b2CircleShape*)fixture->GetShape())->m_p;
+			def.shape = &s;
+			mBody->CreateFixture(&def);
+		}
+		else if (fixture->GetType() == b2Shape::e_polygon)
+		{
+			b2PolygonShape s;
+			s.m_centroid = k * ((b2PolygonShape*)fixture->GetShape())->m_centroid;
+			s.m_vertexCount = ((b2PolygonShape*)fixture->GetShape())->m_vertexCount;
+			for (int j = 0; j < s.m_vertexCount; ++j)
+			{
+				s.m_vertices[j] = k * ((b2PolygonShape*)fixture->GetShape())->m_vertices[j];
+				s.m_normals[j] = ((b2PolygonShape*)fixture->GetShape())->m_normals[j];
+			}
+
+			def.shape = &s;
+			mBody->CreateFixture(&def);
+		}
+		mBody->DestroyFixture(fixture);
+	}
+	free(oldFixtures);
 }
 
 void		Box2DBody::SetEntity(Entity* entity)

@@ -167,6 +167,11 @@ public:
 	///
 	/// @return	The type.
 	std::string GetType();
+
+	/// Scales.
+	///
+	/// @param	def	The def.
+	void Scale(float def);
 protected:	
 	/// Default constructor.
 	Entity();

@@ -39,7 +39,23 @@ public:
 
 	/// Сущность
 	EntityPtr	GetEntity();
+
+	/// Sets a scale.
+	///
+	/// @param	value	The value.
+	void SetScale(float value);
+
+	/// Gets the scale.
+	///
+	/// @return	The scale.
+	float GetScale();
+
+	/// Scales.
+	///
+	/// @param	scale	The scale.
+	void Scale(float scale);
 protected:
+	float mScale;
 	EntityWPtr mEntity;
 	GraphicsMap mAttached;
 };

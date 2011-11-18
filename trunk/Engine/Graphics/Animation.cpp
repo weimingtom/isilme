@@ -24,12 +24,12 @@ namespace graphics
 
 	void Animation::Render(float x, float y, float angle)
 	{
-		float width = mAnimation->GetWidth() / 2.0f;
-		float height = mAnimation->GetHeight() / 2.0f;
+		float width = mAnimation->GetWidth() * GetScale() / 2.0f;
+		float height = mAnimation->GetHeight() * GetScale() / 2.0f;
 		x -= (width*cos(angle) - height*sin(angle));
 		y -= (width*sin(angle) + height*cos(angle));
 
-		mAnimation->RenderEx(x, y, angle);
+		mAnimation->RenderEx(x, y, angle, GetScale(), GetScale());
 	}
 
 	void Animation::Update(float elapsedTime)

@@ -353,6 +353,14 @@ void	ParseEntity(LayerPtr layer, TiXmlElement* entityElement)
 	{
 		entity->GetBehaviour()->Customize(behaviourElement);
 	}
+
+	// Масштабируем объект
+	float scale = 1.0f;
+	entityElement->QueryFloatAttribute("Scale", &scale);
+	if (scale > 0.0f)
+	{
+		entity->SetScale(scale);
+	}
 }
 
 void ParseLayers(LevelPtr level, TiXmlElement* rootElement)

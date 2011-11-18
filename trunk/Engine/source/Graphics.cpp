@@ -2,6 +2,7 @@
 
 Graphics::Graphics()
 {
+	mScale = 1.0f;
 }
 
 Graphics::~Graphics()
@@ -35,4 +36,19 @@ void Graphics::Remove(std::string tag)
 	GraphicsMap::iterator it = mAttached.find(tag);
 	if (it != mAttached.end())
 		mAttached.erase(it);
+}
+
+void Graphics::SetScale(float value)
+{
+	mScale = value;
+}
+
+float Graphics::GetScale()
+{
+	return mScale;
+}
+
+void Graphics::Scale(float value)
+{
+	SetScale(mScale * value);
 }

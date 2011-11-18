@@ -83,6 +83,7 @@ namespace graphics
 		if (it != mGraphics.end())
 		{
 			mCurrentGraphics = it->second;
+			mCurrentGraphics->SetScale(GetScale());
 		}
 	}
 

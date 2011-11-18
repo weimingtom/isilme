@@ -44,12 +44,12 @@ namespace graphics
 
 	void  Sprite::Render(float x, float y, float angle)
 	{
-		float width = mSprite->GetWidth() / 2.0f;
-		float height = mSprite->GetHeight() / 2.0f;
+		float width = mSprite->GetWidth() * GetScale() / 2.0f;
+		float height = mSprite->GetHeight() * GetScale() / 2.0f;
 		x -= (width*cos(angle) - height*sin(angle));
 		y -= (width*sin(angle) + height*cos(angle));
 
-		mSprite->RenderEx(x, y, angle);
+		mSprite->RenderEx(x, y, angle, GetScale(), GetScale());
 	}
 
 	void	Sprite::Update(float elapsedTime)

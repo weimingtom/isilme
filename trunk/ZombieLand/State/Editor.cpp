@@ -315,6 +315,11 @@ void	Editor::OnUpdate(float elapsedTime)
 		serialiser.Serialise(GetLevel(), "../Data/Test/Level.xml");
 	}
 
+	if (inputSystem->IsKeyUp(HGEK_ADD))
+	{
+		mPlayer->GetActor()->Scale(2.1f);
+	}
+
 	if (Engine::GetSingleton()->GetInputSystem()->IsKeyDown(HGEK_ESCAPE))
 	{
 		mMenu->setVisible(!(mMenu->isVisible()));

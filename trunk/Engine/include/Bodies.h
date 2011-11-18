@@ -43,6 +43,7 @@ protected:
 class IsilmeExport Body
 {
 public:
+	Body();
 	virtual Vector2&	GetPosition() = 0;
 	virtual void		SetPosition(Vector2& position) = 0;
 	virtual float		GetAngle() = 0;
@@ -56,9 +57,15 @@ public:
 	virtual Fixture*	GetFixture(std::string& fixture) = 0;
 
 	virtual void		AttachToLevel(LevelPtr level) = 0;
+	float GetScale();
+	void SetScale(float value);
+	void Scale(float value);
 	virtual ~Body();
 protected:
 	BodyDef::BodyType	mType;
+	virtual void OnScale(float oldScale, float scale);
+private:
+	float mScale;
 };
 
 /// @class Box2dBody
@@ -85,7 +92,7 @@ protected:
 	virtual Fixture*	CreateFixture(std::string& name, b2FixtureDef* fixtureDef);
 	virtual void		DestroyFixture(std::string& name);
 	virtual void		DestroyFixture(Fixture* fixture);
-
+	virtual void		OnScale(float oldScale, float scale);
 	/// Тело Box2D
 	b2Body*				mBody;
 

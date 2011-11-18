@@ -27,7 +27,7 @@ Entity::Entity() :
 	isBodyRemoved(false),
 	removeJoints(false)
 {
-	
+	mScale = 1.0f;
 }
 
 Entity::~Entity()
@@ -44,9 +44,14 @@ void	Entity::SetScale(float value)
 {
 	ASSERT(value != 0);
 
-	//GetGraphics()->Scale(value / mScale);
-	//GetBody()->Scale(value / mScale);
+	GetGraphics()->SetScale(value);
+	GetBody()->SetScale(value);
 	mScale = value;
+}
+
+void Entity::Scale(float value)
+{
+	SetScale(mScale * value);
 }
 
 void	Entity::SetPosition(Vector2 pos)
