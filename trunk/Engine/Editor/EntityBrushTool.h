@@ -6,7 +6,7 @@
 
 namespace editor
 {
-	class IsilmeExport EntityBrushTool
+	class IsilmeExport EntityBrushTool : public Tool
 	{
 	public:
 		EntityBrushTool();

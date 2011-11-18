@@ -144,6 +144,8 @@ void	Body::SetActive(bool flag)
 
 Box2DBody::Box2DBody(BodyDef* def) 
 {
+	mOfflineAngle = 0.0f;
+	mOfflinePosition.Set(0.0f, 0.0f);
 	// ”казываем тип
 	mType = BodyDef::Box2DBody;
 	mBody = 0;
@@ -177,22 +179,34 @@ b2Body*	Box2DBody::GetBox2DBody()
 
 Vector2& Box2DBody::GetPosition()
 {
-	return (Vector2&)(mBody->GetPosition());
+	if (mBody)
+		return (Vector2&)(mBody->GetPosition());
+	else
+		return mOfflinePosition;
 }
 
 void Box2DBody::SetPosition(Vector2& position)
 {
-	mBody->SetTransform(position, mBody->GetAngle());
+	if (mBody)
+		mBody->SetTransform(position, mBody->GetAngle());
+	else
+		mOfflinePosition = position;
 }
 
 float Box2DBody::GetAngle()
 {
-	return mBody->GetAngle();
+	if (mBody)
+		return mBody->GetAngle();
+	else
+		return mOfflineAngle;
 }
 
 void Box2DBody::SetAngle(float angle)
 {
-	mBody->SetTransform(mBody->GetPosition(), angle);
+	if (mBody)
+		mBody->SetTransform(mBody->GetPosition(), angle);
+	else
+		mOfflineAngle = angle;
 }
 
 void Box2DBody::SetActive(bool flag)
@@ -252,6 +266,10 @@ void	Box2DBody::AttachToLevel(LevelPtr level)
 			}
 		}
 
+		// запоминаем Offline-координаты
+		mOfflinePosition = GetPosition();
+		mOfflineAngle = GetAngle();
+
 		world = mBody->GetWorld();
 		world->DestroyBody(mBody);
 		mBody = 0;
@@ -269,6 +287,10 @@ void	Box2DBody::AttachToLevel(LevelPtr level)
 		}
 
 		mBody->SetUserData((void*)mEntity);
+
+		// ”станваливаем координаты у нового тела
+		SetPosition(mOfflinePosition);
+		SetAngle(mOfflineAngle);
 	}
 	
 }

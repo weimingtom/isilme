@@ -49,6 +49,7 @@ namespace state
 		{
 		}
 
+		editor::CommandManagerPtr GetCommandManager();
 	protected:
 		void	OnSetStage(story::QuestPtr quest, int stage);
 		virtual void OnStart();
@@ -104,6 +105,7 @@ namespace state
 		/// Выбранный слой
 		LayerPtr mSelectedLayer;
 
+		editor::CommandManagerPtr mCommandManager;
 	};
 };
 

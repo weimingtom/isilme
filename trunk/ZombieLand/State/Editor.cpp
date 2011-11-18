@@ -13,6 +13,7 @@
 #include "Engine/Quest/Quest.h"
 #include "Engine/Quest/Stage.h"
 #include "Engine/Editor/EntityBrushTool.h"
+#include "Engine/Editor/CommandManager.h"
 
 namespace state
 {
@@ -24,6 +25,7 @@ namespace state
 
 Editor::Editor() : State()
 {	
+	mCommandManager.reset(new editor::CommandManager());
 	isReloading = false;
 	isChangingWeapon = false;
 	isChangingSpell = false;
@@ -182,6 +184,7 @@ Editor::Editor() : State()
 	// Инициализируем кисть объектов
 	mEntityBrush.reset(new editor::EntityBrushTool());
 	mEntityBrush->SetEntityTypeID("Trash/Box");
+	mEntityBrush->SetCommandManager(GetCommandManager());
 
 	// Кисть по умолчанию - расстановка объектов
 	SelectEntityBrushTool();
@@ -215,7 +218,7 @@ void Editor::mouseClicked(gcn::MouseEvent& evt)
 
 void	Editor::OnUpdate(float elapsedTime)
 {
-
+	
 	char h[100];
 	if (mPlayer == 0)
 	{
@@ -292,21 +295,21 @@ void	Editor::OnUpdate(float elapsedTime)
 	InputSystem* inputSystem = Engine::GetSingleton()->GetInputSystem();
 	lua_State* state = Engine::GetSingleton()->GetLua()->GetState();
 
-	if (inputSystem->IsKeyDown(HGEK_Z))
+	if (inputSystem->IsKeyUp(HGEK_Z) && inputSystem->GetKeyState(HGEK_CTRL))
 	{
-		Vector2 v = mPlayer->GetActor()->GetPosition();
-		Vector2 h(v.x + cos(mPlayer->GetActor()->GetAngle()) * 5.0, v.y + sin(mPlayer->GetActor()->GetAngle()) * 5.0);
-	}
-
-	if (inputSystem->IsKeyDown(HGEK_Y))
-	{
-		if (luaL_loadstring(state, "return function(stage) local q = Story:GetQuest(\"Level1\");	q:SetStage(stage); end") == 0)
+		if (GetCommandManager()->IsUndoPossible())
 		{
-			luabind::object f = luabind::object(luabind::from_stack(state, lua_gettop(state)));
-			luabind::object t = f();
-			t(20);
+			GetCommandManager()->Undo();
 		}
 	}
+	if (inputSystem->IsKeyUp(HGEK_Y) && inputSystem->GetKeyState(HGEK_CTRL))
+	{
+		if (GetCommandManager()->IsRedoPossible())
+		{
+			GetCommandManager()->Redo();
+		}
+	}
+
 	if (Engine::GetSingleton()->GetInputSystem()->IsKeyDown(HGEK_ESCAPE))
 	{
 		mMenu->setVisible(!(mMenu->isVisible()));
@@ -396,7 +399,7 @@ void	Editor::OnUpdate(float elapsedTime)
 void Editor::OnStart()
 {
 	Game::GetSingleton()->GetStory()->Load("../Data/Quests/Story1.xml");
-	GetLevel()->Load("../Data/Levels/Level1.xml");
+	SetLevel(FactoryManager::GetSingleton()->GetLevel("Level1"));
 	//Engine::GetSingleton()->GetLua()->DoFile("../Data/Scripts/Triggers.lua");
 
 	EntityPtr player = FactoryManager::GetSingleton()->GetEntity("Player");
@@ -409,17 +412,21 @@ void Editor::OnStart()
 
 void Editor::mousePressed(gcn::MouseEvent& mouseEvent)
 {
-	mCurrentTool->OnMouseDown(LayerPtr(), mouseEvent.getX(), mouseEvent.getY(), mouseEvent.getButton());
+	mCurrentTool->OnMouseDown(GetLevel()->GetLayer("Grass"), mouseEvent.getX(), mouseEvent.getY(), mouseEvent.getButton());
 }
    
 void Editor::mouseReleased(gcn::MouseEvent& mouseEvent)
 {
-	mCurrentTool->OnMouseUp(LayerPtr(), mouseEvent.getX(), mouseEvent.getY(), mouseEvent.getButton());
+	mCurrentTool->OnMouseUp(GetLevel()->GetLayer("Grass"), mouseEvent.getX(), mouseEvent.getY(), mouseEvent.getButton());
 }
 
 void Editor::SelectEntityBrushTool()
 {
-	//mCurrentTool = mEntityBrush;
+	mCurrentTool = mEntityBrush;
 }
 
+editor::CommandManagerPtr Editor::GetCommandManager()
+{
+	return mCommandManager;
+}
 };

@@ -79,13 +79,13 @@ void	ZombieLand::Init()
 	LootManager::GetSingleton()->Load("../Data/Loot.xml");
 	FactoryManager::GetSingleton()->LoadEntities("../Data/Entities.xml");
 
-	playState.reset(new state::Play());
-	//StatePtr editorState = StatePtr(new state::Editor());
+	//playState.reset(new state::Play());
+	StatePtr editorState = StatePtr(new state::Editor());
 	FactoryManager::GetSingleton()->LoadLevel("../Data/Levels/Level1.xml");
 	FactoryManager::GetSingleton()->LoadLevel("../Data/Levels/Level2.xml");
 
-	GetStateManager()->Push(playState);
-	//GetStateManager()->Push(editorState);
+	//GetStateManager()->Push(playState);
+	GetStateManager()->Push(editorState);
 
 	Engine::GetSingleton()->GetLua()->DoFile("../Data/Scripts/script.lua");
 }

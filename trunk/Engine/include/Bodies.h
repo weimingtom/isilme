@@ -97,6 +97,12 @@ protected:
 
 	/// Сущность, к которойпривязано тело
 	Entity*		mEntity;
+
+	///< The offline position
+	Vector2 mOfflinePosition;
+
+	///< The offline angle
+	float mOfflineAngle;
 };
 
 /// @class SimpleBody
