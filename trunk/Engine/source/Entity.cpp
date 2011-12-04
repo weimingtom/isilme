@@ -191,3 +191,9 @@ std::string Entity::GetType()
 {
 	return mType;
 }
+
+bool Entity::IsSerialisable()
+{
+	// TODO: Сделать декорации несериализуемыми
+	return true;
+}

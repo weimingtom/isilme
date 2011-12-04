@@ -2,26 +2,16 @@
 #define ISILME_SERIALISATION_STATICLEVELSERIALISER_H
 
 #include "Definitions.h"
+#include "LevelSerialiser.h"
 
 namespace serialisation
 {
 	/// Serialiser for static level data.
-	class IsilmeExport StaticLevelSerialiser
+	class IsilmeExport StaticLevelSerialiser : public LevelSerialiser
 	{
 	public:
-		/// Serialises and writes to file
-		///
-		/// @param	level   	The level.
-		/// @param	fileName	Filename of the file.
-		virtual void Serialise(LevelPtr level, std::string fileName) = 0;
-	};
-
-	/// Serialiser for static level data.
-	class IsilmeExport XMLStaticLevelSerialiser : public StaticLevelSerialiser
-	{
-	public:
-		XMLStaticLevelSerialiser();
-		virtual ~XMLStaticLevelSerialiser();
+		StaticLevelSerialiser();
+		virtual ~StaticLevelSerialiser();
 
 		/// Serialise layer.
 		///

@@ -311,7 +311,7 @@ void	Editor::OnUpdate(float elapsedTime)
 	}
 	if (inputSystem->IsKeyUp(HGEK_S) && inputSystem->GetKeyState(HGEK_CTRL))
 	{
-		serialisation::XMLStaticLevelSerialiser serialiser;
+		serialisation::StaticLevelSerialiser serialiser;
 		serialiser.Serialise(GetLevel(), "../Data/Test/Level.xml");
 	}
 

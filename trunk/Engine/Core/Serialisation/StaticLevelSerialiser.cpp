@@ -7,17 +7,17 @@
 
 namespace serialisation
 {
-	XMLStaticLevelSerialiser::XMLStaticLevelSerialiser()
+	StaticLevelSerialiser::StaticLevelSerialiser()
 	{
 
 	}
 
-	XMLStaticLevelSerialiser::~XMLStaticLevelSerialiser()
+	StaticLevelSerialiser::~StaticLevelSerialiser()
 	{
 	
 	}
 
-	TiXmlElement* XMLStaticLevelSerialiser::SerialiseEntity(EntityPtr entity)
+	TiXmlElement* StaticLevelSerialiser::SerialiseEntity(EntityPtr entity)
 	{
 		TiXmlElement* entityElement = new TiXmlElement("Entity");
 
@@ -31,7 +31,7 @@ namespace serialisation
 		return entityElement;
 	}
 
-	TiXmlElement* XMLStaticLevelSerialiser::SerialiseLayer(LayerPtr layer)
+	TiXmlElement* StaticLevelSerialiser::SerialiseLayer(LayerPtr layer)
 	{
 		TiXmlElement* layerElement = new TiXmlElement("Layer");
 
@@ -44,7 +44,7 @@ namespace serialisation
 		return layerElement;
 	}
 
-	TiXmlElement* XMLStaticLevelSerialiser::Serialise(LevelPtr level)
+	TiXmlElement* StaticLevelSerialiser::Serialise(LevelPtr level)
 	{
 		TiXmlElement* levelElement = new TiXmlElement("Level");
 
@@ -64,7 +64,7 @@ namespace serialisation
 		return levelElement;
 	}
 
-	void XMLStaticLevelSerialiser::Serialise(LevelPtr level, std::string fileName)
+	void StaticLevelSerialiser::Serialise(LevelPtr level, std::string fileName)
 	{
 		TiXmlElement* root = Serialise(level);
 		TiXmlDocument* document = new TiXmlDocument(fileName.c_str());

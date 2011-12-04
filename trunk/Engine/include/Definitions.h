@@ -146,6 +146,26 @@ namespace inventory
 	typedef boost::weak_ptr<Inventory> InventoryWPtr;
 };
 
+namespace ai
+{
+	class Attribute;
+	typedef boost::shared_ptr<Attribute> AttributePtr;
+
+	class AttributeDef;
+	typedef boost::shared_ptr<AttributeDef> AttributeDefPtr;
+};
+
+namespace serialisation
+{
+	class DynamicLevelSerialiser;
+
+	class SaveData;
+	typedef boost::shared_ptr<SaveData> SaveDataPtr;
+	
+	class SaveManager;
+	typedef boost::shared_ptr<SaveManager> SaveManagerPtr;
+};
+
 class Fraction;
 typedef boost::shared_ptr<Fraction> FractionPtr;
 typedef boost::weak_ptr<Fraction> FractionWptr;

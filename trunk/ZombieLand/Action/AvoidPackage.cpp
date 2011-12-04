@@ -21,7 +21,7 @@ bool AvoidPackage::CheckCondition(BehaviourPtr b)
 {
 	behaviour::CreaturePtr c = boost::shared_dynamic_cast<behaviour::Creature>(b);
 
-	float brave = c->GetAttribute("Brave");
+	float brave = c->GetAttributeValue("Brave");
 	int enemiesCount = c->GetEnemiesCount();
 	return brave < enemiesCount;
 }

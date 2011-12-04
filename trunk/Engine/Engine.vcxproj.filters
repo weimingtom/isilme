@@ -31,6 +31,9 @@
     <Filter Include="Core\Serialisation">
       <UniqueIdentifier>{799d08cc-13be-4432-9067-c6b889c3d783}</UniqueIdentifier>
     </Filter>
+    <Filter Include="AI">
+      <UniqueIdentifier>{865f155f-e7fa-4d2c-8f31-ee381241d9e2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -232,6 +235,24 @@
     <ClInclude Include="Core\Serialisation\StaticLevelSerialiser.h">
       <Filter>Core\Serialisation</Filter>
     </ClInclude>
+    <ClInclude Include="AI\Attribute.h">
+      <Filter>AI</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\AttributeDef.h">
+      <Filter>AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Serialisation\DynamicLevelSerialiser.h">
+      <Filter>Core\Serialisation</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Serialisation\LevelSerialiser.h">
+      <Filter>Core\Serialisation</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Serialisation\SaveManager.h">
+      <Filter>Core\Serialisation</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Serialisation\SaveData.h">
+      <Filter>Core\Serialisation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Graphics\Sprite.cpp">
@@ -398,6 +419,21 @@
     </ClCompile>
     <ClCompile Include="source\Isilme.cpp" />
     <ClCompile Include="Core\Serialisation\StaticLevelSerialiser.cpp">
+      <Filter>Core\Serialisation</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\Attribute.cpp">
+      <Filter>AI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\AttributeDef.cpp">
+      <Filter>AI</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Serialisation\DynamicLevelSerialiser.cpp">
+      <Filter>Core\Serialisation</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Serialisation\SaveData.cpp">
+      <Filter>Core\Serialisation</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Serialisation\SaveManager.cpp">
       <Filter>Core\Serialisation</Filter>
     </ClCompile>
   </ItemGroup>

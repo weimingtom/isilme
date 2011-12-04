@@ -1,8 +1,6 @@
 ﻿#ifndef BEHAVIOUR_H
 #define BEHAVIOUR_H
 
-#include <string>
-#include <tinyxml.h>
 #include "Definitions.h"
 #include "Collisions.h"
 #include "Entity.h"
@@ -58,13 +56,28 @@ public:
 	void			SetParallelEnabled(int stateID, int otherStateID, bool isEnabled);
 
 	/// Устанавливает значение аттрибута
-	void			SetAttribute(std::string ID, float value);
+	void			SetAttributeValue(std::string ID, float value);
 
 	/// Возвращает значение аттрибута
-	float			GetAttribute(std::string);
+	float			GetAttributeValue(std::string);
 
+	/// Gets an attribute.
+	///
+	/// @param	id	The identifier.
+	///
+	/// @return	The attribute.
+	ai::AttributePtr	GetAttribute(std::string id);
+
+	/// Добавляет пакет ИИ 
+	///
+	/// @param	package 	The package.
+	/// @param	priority	(optional) the priority.
 	void			AddAIPackage(AIPackagePtr package, int priority = 0);
 
+	/// Добавляет пакет ИИ 
+	///
+	/// @param	packageID	Идентификатор пакета
+	/// @param	priority 	(optional) the priority.
 	void			AddAIPackage(std::string packageID, int priority = 0);
 
 	/// Customizes.
@@ -78,10 +91,10 @@ private:
 	typedef std::map<StatePair, bool>	StateRelationsMap;
 	typedef std::map<int, ActionPtr> StateMap;
 	typedef std::set<int> StateSet;
-	typedef std::map<std::string, float> FloatMap;
+	typedef std::map<std::string, ai::AttributePtr> AttributeMap;
 
 	/// Атрибуты агента
-	FloatMap	mAttributes;
+	AttributeMap	mAttributes;
 	
 	/// Текущие состояния
 	StateSet	mCurrentStates;
@@ -144,9 +157,23 @@ public:
 
 	StringList AIPackages;
 
-	AttributeMap Attributes;
+	/// Gets the attributes count.
+	///
+	/// @return	The attributes count.
+	int		GetAttributesCount();
+
+	/// Gets an attribute definition.
+	///
+	/// @param	index	Zero-based index of the.
+	///
+	/// @return	The attribute definition.
+	ai::AttributeDefPtr	GetAttribute(int index);
 protected:
+	///< Behaviour type
 	std::string mType;
+
+	///< Definitions of attributes
+	std::vector<ai::AttributeDefPtr>	mAttributes;
 };
 
 /// Интерфейс фабрики поведений

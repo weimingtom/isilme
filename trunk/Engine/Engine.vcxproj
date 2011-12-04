@@ -105,7 +105,13 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AI\Attribute.h" />
+    <ClInclude Include="AI\AttributeDef.h" />
     <ClInclude Include="Config.h" />
+    <ClInclude Include="Core\Serialisation\DynamicLevelSerialiser.h" />
+    <ClInclude Include="Core\Serialisation\LevelSerialiser.h" />
+    <ClInclude Include="Core\Serialisation\SaveData.h" />
+    <ClInclude Include="Core\Serialisation\SaveManager.h" />
     <ClInclude Include="Core\Serialisation\StaticLevelSerialiser.h" />
     <ClInclude Include="Editor\AddEntityCommand.h" />
     <ClInclude Include="Editor\AddLayerCommand.h" />
@@ -178,6 +184,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AIPackage.cpp" />
+    <ClCompile Include="AI\Attribute.cpp" />
+    <ClCompile Include="AI\AttributeDef.cpp" />
+    <ClCompile Include="Core\Serialisation\DynamicLevelSerialiser.cpp" />
+    <ClCompile Include="Core\Serialisation\SaveData.cpp" />
+    <ClCompile Include="Core\Serialisation\SaveManager.cpp" />
     <ClCompile Include="Core\Serialisation\StaticLevelSerialiser.cpp" />
     <ClCompile Include="Editor\AddEntityCommand.cpp" />
     <ClCompile Include="Editor\AddLayerCommand.cpp" />

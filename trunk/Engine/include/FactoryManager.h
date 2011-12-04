@@ -18,6 +18,7 @@
 /// Управляет созданием всех объектов игры, графических моделей, поведений
 class IsilmeExport FactoryManager
 {
+	friend class serialisation::DynamicLevelSerialiser;
 public:
 	virtual ~FactoryManager();
 
@@ -108,6 +109,16 @@ public:
 
 	/// Возвращает уровень по иднтификатору
 	LevelPtr		GetLevel(std::string id);
+
+	/// Сохраняет все данные в файл сохранения
+	///
+	/// @param		The serialisation::SaveDataPtr to save.
+	void			SaveGame(serialisation::SaveDataPtr save);
+
+	/// Загружает все данные из файла сохранения
+	///
+	/// @param	save	The save.
+	void			LoadGame(serialisation::SaveDataPtr save);
 protected:	
 
 	/// Создает сущность из определения

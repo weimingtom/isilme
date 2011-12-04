@@ -172,6 +172,11 @@ public:
 	///
 	/// @param	def	The def.
 	void Scale(float def);
+
+	/// Query if this object is serialisable.
+	///
+	/// @return	true if serialisable, false if not.
+	bool IsSerialisable();
 protected:	
 	/// Default constructor.
 	Entity();

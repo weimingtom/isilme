@@ -4,6 +4,8 @@
 #include "AIPackage.h"
 #include "AIPackageFactory.h"
 #include "FactoryManager.h"
+#include "AI/Attribute.h"
+#include "AI/AttributeDef.h"
 
 BehaviourPtr Behaviour::New()
 {
@@ -17,9 +19,10 @@ Behaviour::Behaviour(BehaviourDefinition* def)
 	if (def)
 	{
 		// Читаем атрибуты
-		for (AttributeMap::iterator it = def->Attributes.begin(); it != def->Attributes.end(); ++it)
+		for (int i = 0; i < def->GetAttributesCount(); ++i)
 		{
-			SetAttribute(it->first, it->second);
+			ai::AttributePtr a = def->GetAttribute(i)->Create();
+			mAttributes[a->GetID()] = a;
 		}
 
 		// Читаем пакеты ИИ
@@ -130,16 +133,21 @@ void	BehaviourDefinition::ParseAttributes(TiXmlElement* attributesElement)
 	TiXmlElement* attributeElement = attributesElement->FirstChildElement("Attribute");
 	while (attributeElement)
 	{
-		const char* idAttr = attributeElement->Attribute("ID");
-		float value = 0.0f;
-		attributeElement->QueryFloatAttribute("Value", &value);
-
-		if (idAttr)
-		{
-			Attributes[idAttr] = value;
-		}
+		ai::AttributeDefPtr attrDef(new ai::AttributeDef());
+		attrDef->Parse(attributeElement);
+		mAttributes.push_back(attrDef);
 		attributeElement = attributeElement->NextSiblingElement("Attribute");
 	}
+}
+
+int BehaviourDefinition::GetAttributesCount()
+{
+	return mAttributes.size();
+}
+
+ai::AttributeDefPtr BehaviourDefinition::GetAttribute(int index)
+{
+	return mAttributes.at(index);
 }
 
 void	BehaviourDefinition::ParseAIPackages(TiXmlElement* aiElement)
@@ -180,17 +188,38 @@ void	Behaviour::AddAIPackage(std::string packageID, int priority)
 	}
 }
 
-float Behaviour::GetAttribute(std::string ID)
+float Behaviour::GetAttributeValue(std::string ID)
 {
-	return mAttributes[ID];
+	ai::AttributePtr attr = mAttributes[ID];
+	if (!attr)
+	{
+		SetAttributeValue(ID, 0);
+		return GetAttributeValue(ID);
+	}
+	else
+	{
+		return attr->GetValue();
+	}
 }
 
-void Behaviour::SetAttribute(std::string ID, float value)
+void Behaviour::SetAttributeValue(std::string ID, float value)
 {
-	mAttributes[ID] = value;
+	ai::AttributePtr attr = GetAttribute(ID);
+	if (!attr)
+	{
+		attr.reset(new ai::Attribute(ID, value));
+		mAttributes[ID] = attr;
+	}
+	else
+		attr->SetValue(value);
 }
 
 void Behaviour::Customize(TiXmlElement* element)
 {
 
+}
+
+ai::AttributePtr Behaviour::GetAttribute(std::string id)
+{
+	return mAttributes[id];
 }

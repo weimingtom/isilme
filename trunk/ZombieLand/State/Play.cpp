@@ -393,7 +393,6 @@ void	Play::OnUpdate(float elapsedTime)
 
 void Play::OnStart()
 {
-	Game::GetSingleton()->GetStory()->Load("../Data/Quests/Story1.xml");
 	SetLevel(FactoryManager::GetSingleton()->GetLevel("Level1"));
 	//Engine::GetSingleton()->GetLua()->DoFile("../Data/Scripts/Triggers.lua");
 

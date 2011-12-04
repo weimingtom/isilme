@@ -15,6 +15,8 @@
 #include "Graphics/Sprite.h"
 #include "Graphics/Particles.h"
 #include "Graphics/TriggerGraphics.h"
+#include "Core/Serialisation/SaveData.h"
+#include "Core/Serialisation/DynamicLevelSerialiser.h"
 
 
 FactoryPtr FactoryManager::mInstance;
@@ -501,4 +503,26 @@ void FactoryManager::LoadLevel(std::string fileName)
 {
 	LevelPtr level = Level::Load(fileName);
 	mLevels[level->GetName()] = level;
+}
+
+void FactoryManager::SaveGame( serialisation::SaveDataPtr save )
+{
+	serialisation::DynamicLevelSerialiser* serialiser = new serialisation::DynamicLevelSerialiser();
+
+	TiXmlElement* saveElement = new TiXmlElement("Save");
+	for (std::map<std::string, LevelPtr>::iterator it = mLevels.begin(); it != mLevels.end(); ++it)
+	{
+		saveElement->InsertEndChild(*(serialiser->Serialise(it->second)));
+	}
+
+	TiXmlDocument* document = new TiXmlDocument(save->GetFullPath().c_str());
+	document->InsertEndChild(*saveElement);
+	document->SaveFile();
+	delete document;
+	delete serialiser;
+}
+
+void FactoryManager::LoadGame( serialisation::SaveDataPtr save )
+{
+
 }
