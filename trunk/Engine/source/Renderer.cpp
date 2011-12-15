@@ -1,9 +1,13 @@
 #include "IsilmePCH.h"
 #include "Renderer.h"
+#include "Engine.h"
+#include "ResourceManager.h"
+
 
 Renderer::Renderer() :
 	mMeterToPixelRatio(64.0f)
 {
+	//test = new hgeSprite(Engine::GetSingleton()->GetResourceManager()->GetTexture("../Data/Textures/Sprites.png"), 0, 0, 512, 512);
 }
 
 Renderer::~Renderer()
@@ -73,7 +77,7 @@ void	HGERenderer::Draw(LevelPtr level)
 			graphics->Render(x, y, angle);
 		}
 	}
-
+//	test->Render(0, 0);
 }
 
 void	HGERenderer::Resize(int width, int height)

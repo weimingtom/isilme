@@ -1,66 +1,19 @@
-#include "IsilmePCH.h"
-#include "Engine/Quest/Story.h"
-#include "Game.h"
-#include "StateManager.h"
-#include "InputSystem.h"
-#include "SoundSystem.h"
-#include "Renderer.h"
-#include "ResourceManager.h"
+#include "Stdafx.h"
+#include "HGEProxyGame.h"
 
-// Game
 
-Game::Game()
+HGEProxyGame::HGEProxyGame()
 {
-	mStory = story::StoryPtr(new story::Story());
-	mStateManager = new StateManager();
-	Game::mInstance = this;
-}
-
-Game::~Game()
-{
-	delete mStateManager;
-}
-
-Game* Game::GetSingleton()
-{
-	return mInstance;
-}
-
-StateManager*	Game::GetStateManager()
-{
-	return mStateManager;
-}
-
-story::StoryPtr	Game::GetStory()
-{
-	return mStory;
-}
-
-// HGEGame
-
-Game*	Game::mInstance = 0;
-
-HGEGame::HGEGame(HGE* hge)
-{
-	mHGE = hge;
-	mHGE->System_SetState(HGE_FRAMEFUNC, FrameFunction);	// Функция во время кадра (Не знаю как перевести)
-	mHGE->System_SetState(HGE_RENDERFUNC, RenderFunction);	// Функция рисования сцены
-
-	mHGE->System_Initiate();
 	InitEngine();
 }
-HGEGame::HGEGame()
+
+HGEProxyGame::~HGEProxyGame()
+{
+}
+
+void	HGEProxyGame::InitEngine()
 {
 	SetupHGE();
-	InitEngine();
-}
-
-HGEGame::~HGEGame()
-{
-}
-
-void	HGEGame::InitEngine()
-{
 	SetupGUI();
 
 	// Инициализация компонентов движка
@@ -73,11 +26,11 @@ void	HGEGame::InitEngine()
 	GetStateManager()->SetRenderer(new HGERenderer(mHGE));
 }
 
-void	HGEGame::SetupGUI()
+void	HGEProxyGame::SetupGUI()
 {
 }
 
-void	HGEGame::SetupHGE()
+void	HGEProxyGame::SetupHGE()
 {
 	// Создаем HGE
 	if (!(mHGE = hgeCreate(HGE_VERSION)))
@@ -121,20 +74,20 @@ void	HGEGame::SetupHGE()
 
 }
 
-void	HGEGame::Start()
+void	HGEProxyGame::Start()
 {
 	mHGE->System_Start();
 }
 
-bool	HGEGame::FrameFunction()
+bool	HGEProxyGame::FrameFunction()
 {
-	HGE* hge = ((HGEGame*)mInstance)->mHGE;
+	HGE* hge = ((HGEGame*)Game::GetSingleton())->GetHGE();
 	return mInstance->GetStateManager()->Update(hge->Timer_GetDelta());
 }
 
-bool	HGEGame::RenderFunction()
+bool	HGEProxyGame::RenderFunction()
 {
-	HGE* hge = ((HGEGame*)mInstance)->mHGE;
+	HGE* hge = ((HGEGame*)Game::GetSingleton())->GetHGE();
 	HGEGame::mInstance->GetStateManager()->Draw(hge->Timer_GetDelta());
 	return true;
 }

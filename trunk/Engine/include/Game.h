@@ -28,6 +28,8 @@ private:
 class IsilmeExport HGEGame : public Game
 {
 public:
+	HGEGame(HGE* hge);
+
 	/// Default constructor.
 	HGEGame();
 	/// Destructor.
@@ -37,6 +39,8 @@ public:
 	virtual void		Init() = 0;
 	/// Starts this object.
 	void				Start();
+
+	HGE*				GetHGE() {return mHGE;};
 protected:
 	/// Initialises the engine.
 	virtual void		InitEngine();
@@ -48,6 +52,7 @@ private:
 	void				SetupHGE();
 	/// Sets up the graphical user interface.
 	void				SetupGUI();
+public:
 	/// Renders the function.
 	///
 	/// @return	true if it succeeds, false if it fails.
