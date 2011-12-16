@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Level Name="Level2">
+	<Layer Name="Trees">
+	
+		<Entity Name="" Type="Cars/Car1" Position="0, 1, 0" Scale="1"/>
+		<Entity Name="" Type="Cars/Car1" Position="2, 1, 0" Scale="1"/>
+		<Entity Name="" Type="Cars/Car1" Position="2, 5, 0" Scale="1"/>
+	</Layer>
+	<World Gravity="0.0, 0.0"></World>
+</Level>
+

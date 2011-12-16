@@ -21,7 +21,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -132,6 +132,10 @@
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{5592A221-47A5-4489-9E70-081F66F2AD7D}</Project>
       <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LevelEditor\LevelEditor.vcxproj">
+      <Project>{A96DB6FA-DA44-469B-B0DA-E96F7B0E28DA}</Project>
+      <Name>LevelEditor</Name>
     </ProjectReference>
     <ProjectReference Include="..\LuaEditor\LuaEditor.csproj">
       <Project>{C1A65C3D-CEEF-4F10-BEC3-AB182E7E45E3}</Project>

@@ -106,6 +106,7 @@
                     </MenuItem.ItemTemplate>
                 </MenuItem>
             </MenuItem>
+            <MenuItem Header="Level" Click="MenuItem_Click"></MenuItem>
         </Menu>
         <StatusBar Grid.Row="3" Name="mStatusBar" />
         <ad:DockingManager Grid.Row="2" Name="mDockingManager" >

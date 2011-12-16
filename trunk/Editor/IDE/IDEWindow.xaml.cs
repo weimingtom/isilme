@@ -21,6 +21,7 @@ using System.Reflection;
 using System.Windows.Markup;
 using LuaEditor.Views;
 using QuestEditor.Views;
+using LevelEditor.Views;
 
 namespace IDE
 {
@@ -140,6 +141,7 @@ namespace IDE
             ExtensionManager.RegisterExtension<LuaEditorWindow>(".lua");
             ExtensionManager.RegisterExtension<QuestEditorWindow>(".story");
             ExtensionManager.RegisterExtension<ConversationEditorWindow>(".conv");
+            ExtensionManager.RegisterExtension<LevelEditorWindow>(".lvl");
 
             mToolWindowsMenu.DataContext = mTools;
             mWindowMenu.DataContext = mOpendDocuments;
@@ -148,7 +150,7 @@ namespace IDE
             AddToolWindow(mPropertiesWindow);
             AddToolWindow(mModuleManager);
             
-
+            AddEditorWindow(new LevelEditorWindow() {FileName = "TestLevel.lvl"});
             AddEditorWindow(new EditorWindow() { FileName = "1.txt"});
             AddEditorWindow(new EditorWindow() { FileName="test.txt"});
             AddEditorWindow(new LuaEditor.Views.LuaEditorWindow() { FileName = "test.lua" });
@@ -210,6 +212,11 @@ namespace IDE
             }
 
             selectedContent.Activate();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            AddEditorWindow(new LevelEditorWindow() { FileName = "1.lvl" });
         }
     }
 }

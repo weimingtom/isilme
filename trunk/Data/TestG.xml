@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Graphics>
+  <!-- Items -->
+	<Sprite Name="Items/Weapons/Gun" X="0" Y="0" Width="64" Height="64">../Data/Sprites/Weapons.png</Sprite>
+	<Sprite Name="Items/Weapons/AK47" X="64" Y="0" Width="64" Height="64">../Data/Sprites/Weapons.png</Sprite>
+	<Sprite Name="Items/Ammo/AK47" X="0" Y="0" Width="32" Height="32">../Data/Icons/Ammo/AK47.png</Sprite>
+  <Sprite Name="Items/Spells/Wind" X="64" Y="0" Width="32" Height="32">../Data/Sprites/Spells.png</Sprite>
+  <Sprite Name="Items/Spells/Heal" X="32" Y="0" Width="32" Height="32">../Data/Sprites/Spells.png</Sprite>
+  <Sprite Name="Items/Spells/Shild" X="0" Y="0" Width="32" Height="32">../Data/Sprites/Spells.png</Sprite>
+  
+  <Sprite Name="Box" X="0" Y ="0" Width="64" Height="64">../Data/Textures/Sprites.png</Sprite>
+  
+	
+	<!--Buildings -->
+	<Sprite Name="Buildings/House1" X="0" Y="0" Width="652" Height="652">../Data/Sprites/House1.png</Sprite>
+	<Sprite Name="Buildings/Trash1" X="0" Y="0" Height="100" Width="100">../Data/Sprites/Trash1.png</Sprite>
+	<Sprite Name="Buildings/Old/Part1" X="64" Y="0" Width="192" Height="512">../Data/Sprites/BuildingsOld.png</Sprite>
+	<Sprite Name="Buildings/Old/Part2" X="256" Y="0" Width="256" Height="512">../Data/Sprites/BuildingsOld.png</Sprite>
+  <Sprite Name="Buildings/New/Part1" X="64" Y="0" Width="192" Height="512">../Data/Sprites/BuildingsNew.png</Sprite>
+  <Sprite Name="Buildings/New/Part2" X="256" Y="0" Width="256" Height="512">../Data/Sprites/BuildingsNew.png</Sprite>
+	<!-- Roads -->
+	<Sprite Name="Roads/Road" X="128" Y="0" Width="256" Height="256">../Data/Sprites/Roads.png</Sprite>
+	<Sprite Name="Roads/Walk" X="0" Y="0" Width="64" Height="128">../Data/Sprites/Roads.png</Sprite>
+	<Sprite Name="Roads/Walk2" X="384" Y="0" Width="128" Height="128">../Data/Sprites/Roads.png</Sprite>
+	<Sprite Name="Roads/WalkCorner" X="64" Y="0" Width="64" Height="64">../Data/Sprites/Roads.png</Sprite>
+	
+
+	<!--Effects-->
+	<Sprite Name="Effects/Shild" X="0" Y ="0" Width="128" Height="128">../Data/Sprites/Shild.png</Sprite>
+  
+
+ 
+	<!-- Crates -->
+	<Sprite Name="Crates/Barrel" X="0" Y ="0" Width="64" Height="64">../Data/Sprites/Crates.png</Sprite>
+	<Sprite Name="Crates/Box" X="64" Y ="0" Width="64" Height="64">../Data/Sprites/Crates.png</Sprite>
+	<!-- Terrain -->
+	<Sprite Name="Terrain/Grass" X="0" Y ="0" Width="256" Height="256">../Data/Sprites/Terrain.png</Sprite>
+	<Sprite Name="Terrain/Corner2" X="256" Y ="0" Width="256" Height="256">../Data/Sprites/Terrain.png</Sprite>
+	<Sprite Name="Terrain/Corner3" X="512" Y ="0" Width="256" Height="256">../Data/Sprites/Terrain.png</Sprite>
+	<Sprite Name="Terrain/Corner4" X="768" Y ="0" Width="256" Height="256">../Data/Sprites/Terrain.png</Sprite>
+	<Sprite Name="Terrain/Corner1" X="1024" Y ="0" Width="256" Height="256">../Data/Sprites/Terrain.png</Sprite>
+	<Sprite Name="Terrain/Corner5" X="0" Y ="512" Width="256" Height="256">../Data/Sprites/Terrain.png</Sprite>
+	<Sprite Name="Terrain/Corner6" X="256" Y ="512" Width="256" Height="256">../Data/Sprites/Terrain.png</Sprite>
+	<Sprite Name="Terrain/Corner7" X="512" Y ="512" Width="256" Height="256">../Data/Sprites/Terrain.png</Sprite>
+	<Sprite Name="Terrain/Corner8" X="768" Y ="512" Width="256" Height="256">../Data/Sprites/Terrain.png</Sprite>
+	<Sprite Name="Terrain/HalfD" X="0" Y ="256" Width="256" Height="256">../Data/Sprites/Terrain.png</Sprite>
+	<Sprite Name="Terrain/HalfL" X="256" Y ="256" Width="256" Height="256">../Data/Sprites/Terrain.png</Sprite>
+	<Sprite Name="Terrain/HalfU" X="512" Y ="256" Width="256" Height="256">../Data/Sprites/Terrain.png</Sprite>
+	<Sprite Name="Terrain/HalfR" X="768" Y ="256" Width="256" Height="256">../Data/Sprites/Terrain.png</Sprite>
+	<Sprite Name="Terrain/Sand" X="1024" Y ="256" Width="256" Height="256">../Data/Sprites/Terrain.png</Sprite>
+	<!-- Trees -->
+	<Sprite Name="Fencies/Bush" X="0" Y="0" Width="64" Height="256">../Data/Sprites/Fence.png</Sprite>
+  <Sprite Name="Fencies/Stone" X="64" Y="0" Width="64" Height="256">../Data/Sprites/Fence.png</Sprite>
+	<Sprite Name="Trees/Tree1" X="0" Y ="0" Width="256" Height="256">../Data/Sprites/Trees.png</Sprite>
+	<Sprite Name="Trees/Tree2" X="256" Y ="0" Width="256" Height="256">../Data/Sprites/Trees.png</Sprite>
+	<Sprite Name="Trees/Tree3" X="0" Y ="256" Width="256" Height="256">../Data/Sprites/Trees.png</Sprite>
+	<Sprite Name="Trees/Tree4" X="256" Y ="256" Width="256" Height="256">../Data/Sprites/Trees.png</Sprite>
+	<!-- Cars -->
+	<Sprite Name="Cars/Car1" X="0" Y ="0" Width="256" Height="135">../Data/Sprites/Cars.png</Sprite>
+	<Sprite Name="Cars/Car2" X="0" Y ="135" Width="256" Height="120">../Data/Sprites/Cars.png</Sprite>
+	<Sprite Name="Cars/Car3" X="0" Y ="255" Width="256" Height="135">../Data/Sprites/Cars.png</Sprite>
+	
+
+	
+	<Sprite Name="Bullets/Normal" X="0" Y ="0" Width="16" Height="2">../Data/Sprites/Bullets.png</Sprite>
+	<Animation Name="Blood" X="0" Y="0" Width="40" Height="50" Frames="8" Loop="0">../Data/Sprites/Blood.png</Animation>
+	<Animation Name="Splinters" X="0" Y="50" Width="40" Height="50" Frames="8" Loop="0">../Data/Sprites/Blood.png</Animation>
+</Graphics>
+	
