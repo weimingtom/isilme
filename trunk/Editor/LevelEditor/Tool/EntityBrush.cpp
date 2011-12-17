@@ -1,12 +1,13 @@
 #include "Stdafx.h"
 #include "EntityBrush.h"
 #include "..\Commands\AddEntity.h"
+#include "..\Proxy\EntityProxy.h"
 
  using namespace Runtime::InteropServices;
 
 namespace LevelEditor
 {
-	namespace Brush
+	namespace Tool
 	{
 		EntityBrush::EntityBrush(CommandManager^ commandManager)
 		{
@@ -18,16 +19,20 @@ namespace LevelEditor
 
 		}
 
-		void EntityBrush::OnMouseUp( int x, int y )
+		void EntityBrush::OnMouseUp( MouseData^ mouse )
 		{
-			Vector2 position(x, y);
+			if (mouse->button != MouseKey::LeftButton)
+				return;
+
+			Vector2 position(mouse->x, mouse->y);
 
 			position.x /= 64;
 			position.y /= 64;
 
-			LayerPtr layer = FactoryManager::GetSingleton()->GetLevel("Level2")->GetLayer("Trees");
-			EntityPtr entity = FactoryManager::GetSingleton()->CreateEntity("Cars/Car1", "");
-			entity->SetPosition(position);
+			LayerProxy^ layer = Layer;
+
+			EntityProxy^ entity = gcnew EntityProxy(FactoryManager::GetSingleton()->CreateEntity("Cars/Car1", ""));
+			entity->mEntity->Value->SetPosition(position);
 
 			Commands::AddEntity^ command = gcnew Commands::AddEntity(layer, entity);
 
@@ -36,12 +41,13 @@ namespace LevelEditor
 			mCommandManager->Execute(command);
 		}
 
-		void EntityBrush::OnMouseDown( int x, int y )
+		void EntityBrush::OnMouseDown( MouseData^ mouse )
 		{
-
+			if (mouse->button != MouseKey::LeftButton)
+				return;
 		}
 
-		void EntityBrush::OnMouseMove( int x, int y )
+		void EntityBrush::OnMouseMove( MouseData^ mouse )
 		{
 
 		}

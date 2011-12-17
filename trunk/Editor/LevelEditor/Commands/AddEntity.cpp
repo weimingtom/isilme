@@ -1,24 +1,26 @@
 #include "StdAfx.h"
 #include "AddEntity.h"
+#include "../Proxy/EntityProxy.h"
+#include "../Proxy/LayerProxy.h"
 
 namespace LevelEditor
 {
 	namespace Commands
 	{
-		AddEntity::AddEntity( LayerPtr layer, EntityPtr entity )
+		AddEntity::AddEntity( LayerProxy^ layer, EntityProxy^ entity )
 		{
-			mLayer = new SharedCLIPtr<Layer>(layer);
-			mEntity = new SharedCLIPtr<Entity>(entity);
+			mLayer = layer;
+			mEntity = entity;
 		}
 
 		void AddEntity::Execute()
 		{
-			mLayer->Value->Add(mEntity->Value);
+			mLayer->AddEntity(mEntity);
 		}
 
 		void AddEntity::Unexecute()
 		{
-			mLayer->Value->Remove(mEntity->Value);
+			mLayer->RemoveEntity(mEntity);
 		}
 
 		AddEntity::~AddEntity()

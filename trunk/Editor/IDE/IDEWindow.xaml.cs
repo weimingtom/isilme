@@ -21,7 +21,7 @@ using System.Reflection;
 using System.Windows.Markup;
 using LuaEditor.Views;
 using QuestEditor.Views;
-using LevelEditor.Views;
+using LevelEditor.View;
 
 namespace IDE
 {
@@ -69,6 +69,8 @@ namespace IDE
 
         void ExecutedSaveAll(object sender, ExecutedRoutedEventArgs e)
         {
+            mModuleManager.treeView1.DataContext = ObjectManager.Instance.Editor.Level.Layers;
+
             foreach (EditorWindow editor in mOpendDocuments)
                 editor.Save();
         }
@@ -149,6 +151,7 @@ namespace IDE
             // Регистрируем панели инструментов
             AddToolWindow(mPropertiesWindow);
             AddToolWindow(mModuleManager);
+            AddToolWindow(LevelEditor.View.ObjectManager.Instance);
             
             AddEditorWindow(new LevelEditorWindow() {FileName = "TestLevel.lvl"});
             AddEditorWindow(new EditorWindow() { FileName = "1.txt"});
@@ -165,6 +168,9 @@ namespace IDE
             tb = QuestEditor.Views.QuestEditorWindow.getToolbar();
             if (tb != null)
                 mToolbarTray.ToolBars.Add(tb);
+
+            tb = new LevelEditor.View.LevelEditorToolBar();
+            mToolbarTray.ToolBars.Add(tb);
         }
 
         #region Methods

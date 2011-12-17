@@ -4,6 +4,7 @@
 #include "Engine/Editor/AddEntityCommand.h"
 
 using namespace Common;
+using namespace LevelEditor::Proxy;
 
 namespace LevelEditor
 {
@@ -15,11 +16,11 @@ namespace LevelEditor
 			virtual void Execute();
 			virtual void Unexecute();
 
-			AddEntity(LayerPtr layer, EntityPtr entity);
+			AddEntity(LayerProxy^ layer, EntityProxy^ entity);
 			virtual ~AddEntity();
 		private:
-			SharedCLIPtr<Entity>* mEntity;
-			SharedCLIPtr<Layer>* mLayer;
+			EntityProxy^ mEntity;
+			LayerProxy^ mLayer;
 
 		};
 	}

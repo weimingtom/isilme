@@ -6,19 +6,37 @@
     <ClCompile Include="IsilmeControl.cpp" />
     <ClCompile Include="IsilmeProxy.cpp" />
     <ClCompile Include="Stdafx.cpp" />
-    <ClCompile Include="Views\LevelEditorWindow.cpp">
-      <Filter>Views</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\AddEntity.cpp">
-      <Filter>Commands</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\NativeCommand.cpp">
-      <Filter>Commands</Filter>
-    </ClCompile>
     <ClCompile Include="Proxy\EntityProxy.cpp">
       <Filter>Proxy</Filter>
     </ClCompile>
-    <ClCompile Include="Brush\EntityBrush.cpp" />
+    <ClCompile Include="Proxy\LayerProxy.cpp">
+      <Filter>Proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="Tool\EntityBrush.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Tool\SelectorTool.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Tool\Tool.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="View\LevelEditorToolbar.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="View\LevelEditorWindow.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="View\ObjectManager.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="Proxy\LevelProxy.cpp">
+      <Filter>Proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\AddEntity.cpp" />
+    <ClCompile Include="Commands\AddLayer.cpp" />
+    <ClCompile Include="Commands\NativeCommand.cpp" />
+    <ClCompile Include="Commands\RemoveEntity.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HGEProxyGame.h" />
@@ -26,21 +44,44 @@
     <ClInclude Include="IsilmeProxy.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Stdafx.h" />
-    <ClInclude Include="Views\LevelEditorWindow.h">
-      <Filter>Views</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\AddEntity.h">
-      <Filter>Commands</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\NativeCommand.h">
-      <Filter>Commands</Filter>
-    </ClInclude>
     <ClInclude Include="SharedCLIPtr.h" />
     <ClInclude Include="Proxy\EntityProxy.h">
       <Filter>Proxy</Filter>
     </ClInclude>
-    <ClInclude Include="Brush\IBrush.h" />
-    <ClInclude Include="Brush\EntityBrush.h" />
+    <ClInclude Include="Proxy\LayerProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool\EntityBrush.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool\ITool.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool\SelectorTool.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool\Tool.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="View\LevelEditorToolbar.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="View\LevelEditorWindow.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool\MouseData.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="View\ObjectManager.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\LevelProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\AddLayer.h" />
+    <ClInclude Include="Commands\AddEntity.h" />
+    <ClInclude Include="Commands\NativeCommand.h" />
+    <ClInclude Include="Commands\RemoveEntity.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
@@ -53,14 +94,14 @@
     <Filter Include="Proxy">
       <UniqueIdentifier>{c285a808-6295-45bc-b3d9-32fc9d495fe7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Views">
-      <UniqueIdentifier>{6ed9d0c4-0283-465d-931b-87932d4f252b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Commands">
       <UniqueIdentifier>{d1101306-4de9-4341-b931-64676b351601}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Brush">
-      <UniqueIdentifier>{d594c3ec-7e0e-484d-af03-c3d35d29c2fd}</UniqueIdentifier>
+    <Filter Include="Tool">
+      <UniqueIdentifier>{957a2b91-b718-4db9-a680-9725d06171df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View">
+      <UniqueIdentifier>{3358363c-7534-45a8-b8e4-51ab8cda89be}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -4,6 +4,8 @@ using namespace Common;
 #include "../Stdafx.h"
 #include "../SharedCLIPtr.h"
 
+using namespace System;
+
 namespace LevelEditor
 {
 	namespace Proxy
@@ -13,6 +15,17 @@ namespace LevelEditor
 		public:
 			EntityProxy(EntityPtr entity);
 			virtual ~EntityProxy();
+
+			property LayerProxy^ Layer
+			{
+				LayerProxy^ get();
+				void set(LayerProxy^ value);
+			}
+
+			property System::String^ Name
+			{
+				System::String^ get();
+			}
 
 			property float PositionX
 			{
@@ -26,8 +39,11 @@ namespace LevelEditor
 					mEntity->Value->SetPosition(value, y);
 				}
 			}
-		private:
+		internal:
 			SharedCLIPtr<Entity>* mEntity;
+
+			///< Прокси-слой, содержащий сущность
+			LayerProxy^ mLayer;
 		};
 	}
 }
