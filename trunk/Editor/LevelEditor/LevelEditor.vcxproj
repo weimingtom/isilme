@@ -86,6 +86,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Brush\EntityBrush.h" />
+    <ClInclude Include="Brush\IBrush.h" />
     <ClInclude Include="Commands\AddEntity.h">
       <FileType>CppHeader</FileType>
     </ClInclude>
@@ -100,6 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="Brush\EntityBrush.cpp" />
     <ClCompile Include="Commands\AddEntity.cpp" />
     <ClCompile Include="Commands\NativeCommand.cpp" />
     <ClCompile Include="HGEProxyGame.cpp" />

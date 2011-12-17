@@ -18,6 +18,7 @@
     <ClCompile Include="Proxy\EntityProxy.cpp">
       <Filter>Proxy</Filter>
     </ClCompile>
+    <ClCompile Include="Brush\EntityBrush.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HGEProxyGame.h" />
@@ -38,6 +39,8 @@
     <ClInclude Include="Proxy\EntityProxy.h">
       <Filter>Proxy</Filter>
     </ClInclude>
+    <ClInclude Include="Brush\IBrush.h" />
+    <ClInclude Include="Brush\EntityBrush.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
@@ -55,6 +58,9 @@
     </Filter>
     <Filter Include="Commands">
       <UniqueIdentifier>{d1101306-4de9-4341-b931-64676b351601}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Brush">
+      <UniqueIdentifier>{d594c3ec-7e0e-484d-af03-c3d35d29c2fd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

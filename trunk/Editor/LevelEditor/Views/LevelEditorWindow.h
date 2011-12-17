@@ -1,9 +1,13 @@
 ﻿#pragma  once
+
+#include "../Brush/EntityBrush.h"
+
 using namespace System;
 using namespace System::Windows;
 using namespace System::Windows::Input;
 using namespace Common;
 using namespace Common::Views;
+using namespace LevelEditor::Brush;
 
 namespace LevelEditor
 {
@@ -24,6 +28,13 @@ namespace LevelEditor
 			IntPtr^ mHandle;
 
 			void OnFrameUpdate(float elapsedTime);
+
+			///< Текущий инструмент
+			IBrush^ mCurrentBrush;
+
+			///< Кисть объектов
+			EntityBrush^ mEntityBrush;
+
 		};
 	}
 }

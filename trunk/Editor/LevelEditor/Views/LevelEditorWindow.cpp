@@ -26,6 +26,12 @@ namespace LevelEditor
 			this->MouseLeftButtonDown += gcnew MouseButtonEventHandler(this, &LevelEditorWindow::OnMouseDown);
 			this->MouseLeftButtonUp += gcnew MouseButtonEventHandler(this, &LevelEditorWindow::OnMouseUp);
 
+			// Создаем инструменты
+			mEntityBrush = gcnew EntityBrush(CommandManager);
+
+			mEntityBrush->EntityType = "Cars/Car1";
+
+			mCurrentBrush = mEntityBrush;
 		}
 
 		void LevelEditorWindow::OnMouseDown( Object^ sender, MouseButtonEventArgs^ e )
@@ -73,23 +79,28 @@ namespace LevelEditor
 
 		void LevelEditorWindow::OnFrameUpdate( float elapsedTime )
 		{
+			Vector2 mousePosition = Engine::GetSingleton()->GetInputSystem()->GetMousePosition();
 			//Focus();
+			if(Engine::GetSingleton()->GetInputSystem()->IsKeyDown(HGEK_LBUTTON))
+			{
+				mCurrentBrush->OnMouseDown(mousePosition.x, mousePosition.y);
+			}
 			if (Engine::GetSingleton()->GetInputSystem()->IsKeyUp(HGEK_LBUTTON))
 			{
+				mCurrentBrush->OnMouseUp(mousePosition.x, mousePosition.y);
+				//Vector2 position = Engine::GetSingleton()->GetInputSystem()->GetMousePosition();
+				//position.x /= 64;
+				//position.y /= 64;
 
-				Vector2 position = Engine::GetSingleton()->GetInputSystem()->GetMousePosition();
-				position.x /= 64;
-				position.y /= 64;
+				//LayerPtr layer = FactoryManager::GetSingleton()->GetLevel("Level2")->GetLayer("Trees");
+				//EntityPtr entity = FactoryManager::GetSingleton()->CreateEntity("Cars/Car1", "");
+				//entity->SetPosition(position);
 
-				LayerPtr layer = FactoryManager::GetSingleton()->GetLevel("Level2")->GetLayer("Trees");
-				EntityPtr entity = FactoryManager::GetSingleton()->CreateEntity("Cars/Car1", "");
-				entity->SetPosition(position);
+				//Commands::AddEntity^ command = gcnew Commands::AddEntity(layer, entity);
 
-				Commands::AddEntity^ command = gcnew Commands::AddEntity(layer, entity);
-
-				SelectedObject = gcnew Proxy::EntityProxy(entity);
-				//command->Execute();
-				CommandManager->Execute(command);
+				//SelectedObject = gcnew Proxy::EntityProxy(entity);
+				////command->Execute();
+				//CommandManager->Execute(command);
 
 			}
 		}
