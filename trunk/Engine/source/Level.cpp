@@ -309,6 +309,9 @@ void	ParseCamera(LevelPtr level, TiXmlElement* rootElement)
 
 	ICameraFactory* factory = FactoryManager::GetSingleton()->GetCameraFactory(type);
 
+	if (!factory)
+		factory = FactoryManager::GetSingleton()->GetCameraFactory("Default");
+
 	CameraPtr camera = factory->LoadDefinition(cameraElement)->Create();
 	level->SetActiveCamera(camera);
 

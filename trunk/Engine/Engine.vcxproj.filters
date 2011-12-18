@@ -34,6 +34,9 @@
     <Filter Include="AI">
       <UniqueIdentifier>{865f155f-e7fa-4d2c-8f31-ee381241d9e2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Palette">
+      <UniqueIdentifier>{9d0b35fe-e8a4-41dd-9b6a-88bf246f82bc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -253,6 +256,7 @@
     <ClInclude Include="Core\Serialisation\SaveData.h">
       <Filter>Core\Serialisation</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Palette\EntityPalette.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Graphics\Sprite.cpp">
@@ -436,5 +440,6 @@
     <ClCompile Include="Core\Serialisation\SaveManager.cpp">
       <Filter>Core\Serialisation</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Palette\EntityPalette.cpp" />
   </ItemGroup>
 </Project>

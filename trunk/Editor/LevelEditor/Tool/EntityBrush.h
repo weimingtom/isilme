@@ -26,7 +26,15 @@ namespace LevelEditor
 			{
 				void set(String^ value);
 			}
+
+			property bool UseGrid
+			{
+				bool get();
+				void set(bool value);
+			}
 		private:
+			bool mUseGrid;
+			float mDefaultAngle;
 			char* mEntityType;
 			Common::CommandManager^ mCommandManager;
 		};

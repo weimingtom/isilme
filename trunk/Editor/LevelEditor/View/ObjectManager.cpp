@@ -29,6 +29,11 @@ namespace LevelEditor
 		{
 			if (Editor != nullptr)
 				Editor->SelectedObject = (IProxyObject^)(mObjectsTree->SelectedItem);
+			if (dynamic_cast<LayerProxy^>(mObjectsTree->SelectedItem) != nullptr )
+			{
+				LayerProxy^ layer = dynamic_cast<LayerProxy^>(mObjectsTree->SelectedItem);
+				LevelEditorWindow::Instance->Layer = layer;
+			}
 		}
 
 		void ObjectManager::ExecutedRemove( Object^ sender, ExecutedRoutedEventArgs^ e )
@@ -42,7 +47,7 @@ namespace LevelEditor
 			}
 			else if (dynamic_cast<LayerProxy^>(mObjectsTree->SelectedItem) != nullptr )
 			{
-				
+
 			}
 		}
 

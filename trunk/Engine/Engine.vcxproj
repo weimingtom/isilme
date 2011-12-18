@@ -108,6 +108,7 @@
     <ClInclude Include="AI\Attribute.h" />
     <ClInclude Include="AI\AttributeDef.h" />
     <ClInclude Include="Config.h" />
+    <ClInclude Include="Core\Palette\EntityPalette.h" />
     <ClInclude Include="Core\Serialisation\DynamicLevelSerialiser.h" />
     <ClInclude Include="Core\Serialisation\LevelSerialiser.h" />
     <ClInclude Include="Core\Serialisation\SaveData.h" />
@@ -186,6 +187,7 @@
     <ClCompile Include="AIPackage.cpp" />
     <ClCompile Include="AI\Attribute.cpp" />
     <ClCompile Include="AI\AttributeDef.cpp" />
+    <ClCompile Include="Core\Palette\EntityPalette.cpp" />
     <ClCompile Include="Core\Serialisation\DynamicLevelSerialiser.cpp" />
     <ClCompile Include="Core\Serialisation\SaveData.cpp" />
     <ClCompile Include="Core\Serialisation\SaveManager.cpp" />

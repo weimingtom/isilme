@@ -10,6 +10,14 @@ namespace LevelEditor
 		{
 			mLayer = new SharedCLIPtr<Layer>(layer);
 			mEntities = gcnew ObservableCollection<EntityProxy^>();
+			mGrid = gcnew GridProxy();
+
+			for (int i = 0; i < layer->Size(); ++i)
+			{
+				EntityProxy^ entity = gcnew EntityProxy(layer->GetEntity(i));
+				mEntities->Add(entity);
+				entity->Layer = this;
+			}
 		}
 
 		void LayerProxy::AddEntity( EntityProxy^ entity )
@@ -50,6 +58,16 @@ namespace LevelEditor
 		LevelProxy^ LayerProxy::Level::get()
 		{
 			return mLevel;
+		}
+
+		GridProxy^ LayerProxy::Grid::get()
+		{
+			return mGrid;
+		}
+
+		void LayerProxy::Grid::set(GridProxy^ value)
+		{
+			mGrid = value;
 		}
 	}
 }

@@ -39,3 +39,4 @@
 #include "../Engine/Graphics/Animation.h"
 #include "../Engine/Graphics/Particles.h"
 #include "../Engine/Graphics/TriggerGraphics.h"
+#include "../Engine/Core/Palette/EntityPalette.h"

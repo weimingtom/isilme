@@ -15,13 +15,14 @@
 #include "Graphics/Sprite.h"
 #include "Graphics/Particles.h"
 #include "Graphics/TriggerGraphics.h"
+#include "Graphics/StateGraphics.h"
 #include "Core/Serialisation/SaveData.h"
 #include "Core/Serialisation/DynamicLevelSerialiser.h"
-
-
+#include "Core/Palette/EntityPalette.h"
 FactoryPtr FactoryManager::mInstance;
 
-FactoryManager::FactoryManager()
+FactoryManager::FactoryManager() : 
+	mEntityDefinitions(new EntityPalette())
 {
 	RegisterBehaviour("Default", new BehaviourFactory<BehaviourDefinition>());
 	RegisterBehaviour("Trigger", new BehaviourFactory<TriggerDefinition>());
@@ -190,7 +191,7 @@ void			FactoryManager::RegisterGraphics(std::string type, GraphicsFactoryPtr fac
 
 EntityPtr		FactoryManager::CreateEntity(std::string type, std::string name)
 {
-	EntityDefPtr def = mEntityDefinitions[type];
+	EntityDefPtr def = mEntityDefinitions->Get(type);
 	return CreateEntity(def, name);
 }
 
@@ -262,6 +263,7 @@ void			FactoryManager::LoadGraphics(std::string fileName)
 
 GraphicsDefPtr FactoryManager::LoadGraphics(TiXmlElement* element)
 {
+	
 	GraphicsDefPtr def;
 	std::string name = element->Attribute("Name");
 	std::string type = element->Value();
@@ -274,6 +276,10 @@ GraphicsDefPtr FactoryManager::LoadGraphics(TiXmlElement* element)
 	}
 	else
 	{
+		RegisterGraphics(type, GraphicsFactory<graphics::StateGraphicsDef<Behaviour> >::New());
+		it = mGraphicsFactories.find(type);
+		def = it->second->LoadDefinition(element);
+		mGraphicsDefinitions[name] = def;
 		// Какой-то хлам, вывести сообщение о незарегистрированном типе
 		LOG_W("Graphics type %s is not registred", type.c_str());
 	}
@@ -304,7 +310,10 @@ void			FactoryManager::LoadEntities(std::string fileName)
 		attr = (char*)(defElement->Attribute("Behaviour"));
 		if (!attr)
 			attr = "Default";
-		BehaviourDefPtr behaviour = mBehaviourFactories[attr]->LoadDefinition(bElement);
+		IBehaviourFactory* bf = mBehaviourFactories[attr];
+		if (bf == 0)
+			bf = mBehaviourFactories["Default"];
+		BehaviourDefPtr behaviour = bf->LoadDefinition(bElement);
 
 		/// Читаем физику
 		BodyDef* body = new BodyDef();
@@ -315,7 +324,7 @@ void			FactoryManager::LoadEntities(std::string fileName)
 		def = EntityDefPtr(new EntityDefinition(body, graphics, behaviour));
 		def->mType = type;
 
-		mEntityDefinitions[type] = def;
+		mEntityDefinitions->Add(def);
 
 		defElement = defElement->NextSiblingElement("Entity");
 	}
@@ -499,10 +508,11 @@ LevelPtr FactoryManager::GetLevel(std::string id)
 	}
 }
 
-void FactoryManager::LoadLevel(std::string fileName)
+LevelPtr FactoryManager::LoadLevel(std::string fileName)
 {
 	LevelPtr level = Level::Load(fileName);
 	mLevels[level->GetName()] = level;
+	return level;
 }
 
 void FactoryManager::SaveGame( serialisation::SaveDataPtr save )
@@ -525,4 +535,9 @@ void FactoryManager::SaveGame( serialisation::SaveDataPtr save )
 void FactoryManager::LoadGame( serialisation::SaveDataPtr save )
 {
 
+}
+
+EntityPalettePtr FactoryManager::GetEntityPalette()
+{
+	return mEntityDefinitions;
 }

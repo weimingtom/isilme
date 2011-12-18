@@ -102,7 +102,7 @@ public:
 	/// Loads a level.
 	///
 	/// @param	fileName	Filename of the file.
-	void			LoadLevel(std::string fileName);
+	LevelPtr			LoadLevel(std::string fileName);
 
 	/// Возвращает диалог по имени
 	story::ConversationPtr GetConversation(std::string id);
@@ -119,6 +119,11 @@ public:
 	///
 	/// @param	save	The save.
 	void			LoadGame(serialisation::SaveDataPtr save);
+
+	/// Gets the entity palette.
+	///
+	/// @return	The entity palette.
+	EntityPalettePtr	GetEntityPalette();
 protected:	
 
 	/// Создает сущность из определения
@@ -149,7 +154,7 @@ private:
 	GraphicsPalette			mGraphicsDefinitions;
 
 	/// Палитра объектов
-	EntityPalette			mEntityDefinitions;
+	EntityPalettePtr			mEntityDefinitions;
 
 	/// Палитра предметов
 	inventory::ItemsPalette mItemsPalette;

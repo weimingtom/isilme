@@ -35,5 +35,4 @@ private:
 	std::string			mType;
 };
 
-typedef std::map<std::string, EntityDefPtr> EntityPalette;
 #endif

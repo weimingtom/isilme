@@ -14,6 +14,33 @@ namespace LevelEditor
 
 		ref class EntityProxy;
 
+		public ref class GridProxy
+		{
+		public:
+			GridProxy()
+			{
+				Step = 1.0f;
+			}
+			GridProxy(float step)
+			{
+				Step = step;
+			}
+
+			property float Step
+			{
+				float get()
+				{
+					return mStep;
+				}
+				void set(float value)
+				{
+					mStep = value;
+				}
+			}
+		private:
+			float mStep;
+		};
+
 		public ref class LayerProxy : ProxyObject
 		{
 		public:
@@ -49,8 +76,15 @@ namespace LevelEditor
 				LevelProxy^ get();
 			}
 
+			property GridProxy^ Grid
+			{
+				GridProxy^ get();
+				void set(GridProxy^ value);
+			}
 		internal:
 			LevelProxy^ mLevel;
+
+			GridProxy^ mGrid;
 		
 			SharedCLIPtr<Layer>* mLayer;
 		private:

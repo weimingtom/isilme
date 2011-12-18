@@ -89,12 +89,16 @@
   <ItemGroup>
     <ClInclude Include="Commands\AddEntity.h" />
     <ClInclude Include="Commands\AddLayer.h" />
+    <ClInclude Include="Commands\MoveEntity.h" />
     <ClInclude Include="Commands\NativeCommand.h" />
     <ClInclude Include="Commands\RemoveEntity.h" />
+    <ClInclude Include="Commands\RotateEntity.h" />
     <ClInclude Include="HGEProxyGame.h" />
     <ClInclude Include="IsilmeControl.h" />
     <ClInclude Include="IsilmeProxy.h" />
+    <ClInclude Include="Proxy\EntityPaletteProxy.h" />
     <ClInclude Include="Proxy\EntityProxy.h" />
+    <ClInclude Include="Proxy\FolderProxy.h" />
     <ClInclude Include="Proxy\LayerProxy.h" />
     <ClInclude Include="Proxy\LevelProxy.h" />
     <ClInclude Include="resource.h" />
@@ -102,8 +106,11 @@
     <ClInclude Include="Tool\EntityBrush.h" />
     <ClInclude Include="Tool\ITool.h" />
     <ClInclude Include="Tool\MouseData.h" />
+    <ClInclude Include="Tool\ScrollerTool.h" />
     <ClInclude Include="Tool\SelectorTool.h" />
     <ClInclude Include="Tool\Tool.h" />
+    <ClInclude Include="View\EntityPalette.h" />
+    <ClInclude Include="View\EntityPaletteTool.h" />
     <ClInclude Include="View\LevelEditorToolbar.h" />
     <ClInclude Include="View\LevelEditorWindow.h" />
     <ClInclude Include="View\ObjectManager.h" />
@@ -112,12 +119,18 @@
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Commands\AddEntity.cpp" />
     <ClCompile Include="Commands\AddLayer.cpp" />
+    <ClCompile Include="Commands\MoveEntity.cpp" />
     <ClCompile Include="Commands\NativeCommand.cpp" />
     <ClCompile Include="Commands\RemoveEntity.cpp" />
+    <ClCompile Include="Commands\RotateEntity.cpp" />
     <ClCompile Include="HGEProxyGame.cpp" />
     <ClCompile Include="IsilmeControl.cpp" />
     <ClCompile Include="IsilmeProxy.cpp" />
+    <ClCompile Include="Proxy\EntityPaletteProxy.cpp" />
+    <ClCompile Include="Proxy\FolderProxy.cpp" />
     <ClCompile Include="Proxy\LevelProxy.cpp" />
+    <ClCompile Include="Tool\ScrollerTool.cpp" />
+    <ClCompile Include="View\EntityPaletteTool.cpp" />
     <ClCompile Include="View\LevelEditorToolbar.cpp" />
     <ClCompile Include="View\LevelEditorWindow.cpp" />
     <ClCompile Include="View\ObjectManager.cpp" />

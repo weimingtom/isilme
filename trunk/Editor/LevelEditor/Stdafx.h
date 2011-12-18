@@ -10,11 +10,18 @@ namespace LevelEditor
 {
 	namespace Tool
 	{
-		
+		ref class ScrollerTool;
+		ref class SelectorTool;
+		ref class EntityBrush;
 	}
 
 	namespace Proxy
 	{
+		value class Point;
+		interface class IHierarchicalProxy;
+		ref class FolderProxy;
+		ref class PaletteItemProxy;
+		ref class EntityPaletteProxy;
 		ref class LayerProxy;
 		ref class EntityProxy;
 		ref class LevelProxy;

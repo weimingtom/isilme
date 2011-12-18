@@ -166,6 +166,9 @@ namespace serialisation
 	typedef boost::shared_ptr<SaveManager> SaveManagerPtr;
 };
 
+class EntityPalette;
+typedef boost::shared_ptr<EntityPalette> EntityPalettePtr;
+
 class Fraction;
 typedef boost::shared_ptr<Fraction> FractionPtr;
 typedef boost::weak_ptr<Fraction> FractionWptr;

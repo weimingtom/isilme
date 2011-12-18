@@ -34,6 +34,7 @@ namespace serialisation
 	TiXmlElement* StaticLevelSerialiser::SerialiseLayer(LayerPtr layer)
 	{
 		TiXmlElement* layerElement = new TiXmlElement("Layer");
+		layerElement->SetAttribute("Name", layer->GetName().c_str());
 
 		for (int i = 0; i < layer->Size(); ++i)
 		{
@@ -47,9 +48,16 @@ namespace serialisation
 	TiXmlElement* StaticLevelSerialiser::Serialise(LevelPtr level)
 	{
 		TiXmlElement* levelElement = new TiXmlElement("Level");
+		TiXmlElement* worldElement = new TiXmlElement("World");
+		char buf[256];
+		sprintf(buf, "%f, %f", level->GetWorld()->GetGravity().x, level->GetWorld()->GetGravity().y);
+
+		worldElement->SetAttribute("Gravity", buf);
+		levelElement->InsertEndChild(*worldElement);
 
 		// Записываем имя уровня
 		levelElement->SetAttribute("Name", level->GetName().c_str());
+
 
 		// Записываем камеру
 		// Записываем физику

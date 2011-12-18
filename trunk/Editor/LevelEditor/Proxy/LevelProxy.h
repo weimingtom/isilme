@@ -25,7 +25,7 @@ namespace LevelEditor
 			void RemoveLayer(LayerProxy^ layer);
 		private:
 			ObservableCollection<LayerProxy^>^ mLayers;
-
+		internal:
 			SharedCLIPtr<Level>* mLevel;
 		};
 	}

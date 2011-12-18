@@ -18,9 +18,15 @@ namespace LevelEditor
 			mAddLayerBtn->Content = "Layer";
 			mAddLayerBtn->Command = LevelEditorWindow::AddLayerCommand;
 
+			// Включить сетку
+			System::Windows::Controls::CheckBox^ mActivateGridBtn = gcnew CheckBox();
+			mActivateGridBtn->Content = "Grid";
+			mActivateGridBtn->Command = LevelEditorWindow::ActivateGrid;
+
 			// Добавляем кнопки
 			AddChild(mBrushToolBtn);
 			AddChild(mAddLayerBtn);
+			AddChild(mActivateGridBtn);
 		}
 
 	}

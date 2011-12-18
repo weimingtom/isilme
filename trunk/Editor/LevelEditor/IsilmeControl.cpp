@@ -7,6 +7,9 @@
 #include "../Editor/AddEntityCommand.h"
 #include <vcclr.h>
 #include "Commands/NativeCommand.h"
+#include "View/EntityPaletteTool.h"
+#include "Proxy/EntityPaletteProxy.h"
+#include "View/LevelEditorWindow.h"
 
 using namespace System::Threading;
 
@@ -46,19 +49,21 @@ namespace LevelEditor
 		{
 			EditorState* estate = new EditorState();
 			StatePtr state(estate);
-			FactoryManager::GetSingleton()->LoadGraphics("../Data/TestG.xml");
-			FactoryManager::GetSingleton()->LoadEntities("../Data/TestE.xml");
+			FactoryManager::GetSingleton()->LoadGraphics("../Data/Graphics.xml");
+			FactoryManager::GetSingleton()->LoadEntities("../Data/Entities.xml");
 
-			FactoryManager::GetSingleton()->LoadLevel("../Data/TestL.xml");
-			LevelPtr level = FactoryManager::GetSingleton()->GetLevel("Level2");//new Level());
-			CameraPtr camera(new Camera());
-			camera->x = 0.0f;
-			camera->y = 0.0f;
-			//level->Load("../Data/TestL.xml");
-			level->SetActiveCamera(camera);
-			state->SetLevel(level);
+			LevelEditor::View::EntityPaletteTool::Instance->Palette = gcnew EntityPaletteProxy(FactoryManager::GetSingleton()->GetEntityPalette());
+			//FactoryManager::GetSingleton()->LoadLevel("../Data/TestL.xml");
+			//LevelPtr level = FactoryManager::GetSingleton()->GetLevel("Level2");//new Level());
+			//CameraPtr camera(new Camera());
+			//camera->x = 0.0f;
+			//camera->y = 0.0f;
+			////level->Load("../Data/TestL.xml");
+			//level->SetActiveCamera(camera);
+			//state->SetLevel(level);
 			
 			GetStateManager()->Push(state);
+			LevelEditor::View::LevelEditorWindow::Instance->Load();
 		}
 	};
 	IsilmeHost::IsilmeHost()

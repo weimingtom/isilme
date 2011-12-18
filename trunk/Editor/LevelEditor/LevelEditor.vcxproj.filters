@@ -37,6 +37,24 @@
     <ClCompile Include="Commands\AddLayer.cpp" />
     <ClCompile Include="Commands\NativeCommand.cpp" />
     <ClCompile Include="Commands\RemoveEntity.cpp" />
+    <ClCompile Include="View\EntityPaletteTool.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="Proxy\EntityPaletteProxy.cpp">
+      <Filter>Proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="Proxy\FolderProxy.cpp">
+      <Filter>Proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="Tool\ScrollerTool.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\MoveEntity.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\RotateEntity.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HGEProxyGame.h" />
@@ -82,6 +100,23 @@
     <ClInclude Include="Commands\AddEntity.h" />
     <ClInclude Include="Commands\NativeCommand.h" />
     <ClInclude Include="Commands\RemoveEntity.h" />
+    <ClInclude Include="View\EntityPalette.h" />
+    <ClInclude Include="View\EntityPaletteTool.h" />
+    <ClInclude Include="Proxy\EntityPaletteProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\FolderProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool\ScrollerTool.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\MoveEntity.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\RotateEntity.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
