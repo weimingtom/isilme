@@ -18,7 +18,7 @@ namespace LevelEditor
 		public:
 			LevelEditorWindow();
 
-			static RoutedCommand^ SelectEntityBrush = gcnew RoutedCommand();
+			static Common::DelegateCommand^ SelectEntityBrush = gcnew Common::DelegateCommand();
 			static RoutedCommand^ SelectSelectorTool = gcnew RoutedCommand();
 			static RoutedCommand^ AddLayerCommand = gcnew RoutedCommand();
 			static RoutedCommand^ SelectPaletteItem = gcnew RoutedCommand();
@@ -75,6 +75,8 @@ namespace LevelEditor
 			int mOldMouseY;
 			void ExecutedSelectEntityBrush(Object^ sender, ExecutedRoutedEventArgs^ e);
 			void CanExecuteSelectEntityBrush(System::Object^ sender, System::Windows::Input::CanExecuteRoutedEventArgs^ e);
+			void ExecutedSelectEntityBrush(Object^ param);
+			bool CanExecuteSelectEntityBrush();
 
 			void ExecutedAddLayer(Object^ sender, ExecutedRoutedEventArgs^ e);
 			void CanExecuteAddLayer(System::Object^ sender, System::Windows::Input::CanExecuteRoutedEventArgs^ e);

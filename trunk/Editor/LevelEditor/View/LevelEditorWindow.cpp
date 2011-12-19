@@ -58,6 +58,9 @@ namespace LevelEditor
 				gcnew ExecutedRoutedEventHandler(this, &LevelEditorWindow::ExecutedSelectEntityBrush), 
 				gcnew CanExecuteRoutedEventHandler(this, &LevelEditorWindow::CanExecuteSelectEntityBrush)));
 
+			SelectEntityBrush->CanExecuteTargets += gcnew Func<bool>(this, &LevelEditorWindow::CanExecuteSelectEntityBrush);
+			SelectEntityBrush->ExecuteTargets += gcnew System::Action<Object^>(this, &LevelEditorWindow::ExecutedSelectEntityBrush);
+
 			CommandBindings->Add(
 				gcnew CommandBinding(AddLayerCommand, 
 				gcnew ExecutedRoutedEventHandler(this, &LevelEditorWindow::ExecutedAddLayer), 
@@ -195,9 +198,25 @@ namespace LevelEditor
 			mCurrentBrush = mEntityBrush;
 		}
 
+		void LevelEditorWindow::ExecutedSelectEntityBrush( Object^ param )
+		{
+			if (Layer == nullptr)
+			{
+				Layer = Level->Layers[0];
+			}
+
+			mEntityBrush->Layer = Layer;
+			mCurrentBrush = mEntityBrush;
+		}
+
 		void LevelEditorWindow::CanExecuteSelectEntityBrush( Object^ sender, CanExecuteRoutedEventArgs^ e )
 		{
 			 e->CanExecute = true;
+		}
+
+		bool LevelEditorWindow::CanExecuteSelectEntityBrush()
+		{
+			return true;
 		}
 
 		void LevelEditorWindow::ExecutedAddLayer( Object^ sender, ExecutedRoutedEventArgs^ e )
