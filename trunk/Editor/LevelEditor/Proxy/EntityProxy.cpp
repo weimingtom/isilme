@@ -9,7 +9,11 @@ namespace LevelEditor
 	{
 		EntityProxy::EntityProxy( EntityPtr entity )
 		{
+			p = gcnew Point();
 			mEntity = new SharedCLIPtr<Entity>(entity);
+			p->X = mEntity->Value->GetPosition().x;
+			p->Y = mEntity->Value->GetPosition().y;
+
 		}
 
 		EntityProxy::~EntityProxy()
@@ -34,9 +38,6 @@ namespace LevelEditor
 
 		Point^ EntityProxy::Position::get()
 		{
-			Point^ p = gcnew Point();
-			p->X = mEntity->Value->GetPosition().x;
-			p->Y = mEntity->Value->GetPosition().y;
 			return p;
 		}
 

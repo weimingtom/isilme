@@ -71,12 +71,18 @@ namespace LevelEditor
 			///< Скроллер уровня
 			ScrollerTool^ mScrollTool;
 
+			///< Выделение объектов
+			SelectorTool^ mObjectsSelector;
+
 			int mOldMouseX;
 			int mOldMouseY;
 			void ExecutedSelectEntityBrush(Object^ sender, ExecutedRoutedEventArgs^ e);
 			void CanExecuteSelectEntityBrush(System::Object^ sender, System::Windows::Input::CanExecuteRoutedEventArgs^ e);
 			void ExecutedSelectEntityBrush(Object^ param);
 			bool CanExecuteSelectEntityBrush();
+
+			void ExecutedSelectObjectsSelector(Object^ param);
+			bool CanExecuteSelectObjectsSelector();
 
 			void ExecutedAddLayer(Object^ sender, ExecutedRoutedEventArgs^ e);
 			void CanExecuteAddLayer(System::Object^ sender, System::Windows::Input::CanExecuteRoutedEventArgs^ e);

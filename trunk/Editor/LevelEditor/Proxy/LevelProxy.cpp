@@ -22,6 +22,7 @@ namespace LevelEditor
 			{
 				LayerProxy^ layer = gcnew LayerProxy(level->GetLayer(i));
 				mLayers->Add(layer);
+				layer->mLevel = this;
 			}
 		}
 

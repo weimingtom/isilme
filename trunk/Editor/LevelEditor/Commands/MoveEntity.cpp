@@ -10,6 +10,7 @@ namespace LevelEditor
 
 		MoveEntity::MoveEntity( EntityProxy^ entity, Point^ position )
 		{
+			mEntity = entity;
 			mOldPosition = entity->Position;
 			mNewPosition = position;
 		}

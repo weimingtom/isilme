@@ -15,7 +15,7 @@ namespace LevelEditor
 		public ref class SelectorTool : public LayerTool
 		{
 		public:
-			SelectorTool(CommandManager^ commandManager);
+			SelectorTool(Common::CommandManager^ commandManager);
 
 			virtual ~SelectorTool();
 
@@ -26,7 +26,9 @@ namespace LevelEditor
 			virtual void OnMouseMove(MouseData^ mouse) override;
 
 		private:
-			CommandManager^ mCommandManager;
+			EntityProxy^ GetEntity(MouseData^ mouse);
+			bool isMoving;
+			Common::CommandManager^ mCommandManager;
 
 			LayerProxy^ mLayer;
 		};

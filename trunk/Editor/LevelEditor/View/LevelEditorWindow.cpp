@@ -14,7 +14,9 @@
 #include "../Proxy/FolderProxy.h"
 #include "../Tool/ScrollerTool.h"
 #include "../Tool/Tool.h"
+#include "../Tool/SelectorTool.h"
 #include "Engine/Core/Serialisation/StaticLevelSerialiser.h"
+#include "../LevelEditorCommands.h"
 
 namespace LevelEditor
 {
@@ -46,6 +48,8 @@ namespace LevelEditor
 
 			// Создаем инструменты
 			mEntityBrush = gcnew EntityBrush(CommandManager);
+			mObjectsSelector = gcnew SelectorTool(CommandManager);
+
 			mScrollTool = gcnew ScrollerTool();
 			
 			mEntityBrush->EntityType = "Cars/Car1";
@@ -60,6 +64,9 @@ namespace LevelEditor
 
 			SelectEntityBrush->CanExecuteTargets += gcnew Func<bool>(this, &LevelEditorWindow::CanExecuteSelectEntityBrush);
 			SelectEntityBrush->ExecuteTargets += gcnew System::Action<Object^>(this, &LevelEditorWindow::ExecutedSelectEntityBrush);
+
+			LevelEditorCommands::SelectObjectsSelector->CanExecuteTargets += gcnew Func<bool>(this, &LevelEditorWindow::CanExecuteSelectObjectsSelector);
+			LevelEditorCommands::SelectObjectsSelector->ExecuteTargets += gcnew System::Action<Object^>(this, &LevelEditorWindow::ExecutedSelectObjectsSelector);
 
 			CommandBindings->Add(
 				gcnew CommandBinding(AddLayerCommand, 
@@ -284,6 +291,22 @@ namespace LevelEditor
 		{
 			serialisation::StaticLevelSerialiser* serialiser = new serialisation::StaticLevelSerialiser();
 			serialiser->Serialise(Level->mLevel->Value, (char*)(Marshal::StringToHGlobalAnsi(FileName).ToPointer()));
+		}
+
+		void LevelEditorWindow::ExecutedSelectObjectsSelector( Object^ param )
+		{
+			if (Layer == nullptr)
+			{
+				Layer = Level->Layers[0];
+			}
+
+			mObjectsSelector->Layer = Layer;
+			mCurrentBrush = mObjectsSelector;
+		}
+
+		bool LevelEditorWindow::CanExecuteSelectObjectsSelector()
+		{
+			return true;
 		}
 
 		LevelProxy^ LevelEditorWindow::Level::get()

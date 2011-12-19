@@ -96,6 +96,7 @@
     <ClInclude Include="HGEProxyGame.h" />
     <ClInclude Include="IsilmeControl.h" />
     <ClInclude Include="IsilmeProxy.h" />
+    <ClInclude Include="LevelEditorCommands.h" />
     <ClInclude Include="Proxy\EntityPaletteProxy.h" />
     <ClInclude Include="Proxy\EntityProxy.h" />
     <ClInclude Include="Proxy\FolderProxy.h" />

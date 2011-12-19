@@ -12,26 +12,19 @@ namespace LevelEditor
 {
 	namespace Proxy
 	{
-		public ref class MyExpandableObjectConverter : ExpandableObjectConverter
-		{
-		public:
-			virtual bool CanConvertFrom(ITypeDescriptorContext^ context, Type^ sourceType) override
-			{
-				if (sourceType == String::typeid) 
-					return true;
-				else 
-					return ExpandableObjectConverter::CanConvertFrom(context, sourceType);
-			}
-		};
+		ref class PointTypeConvertor;
 
+		[System::ComponentModel::TypeConverter(PointTypeConvertor::typeid)]
 		public value class Point
 		{
 		public:
+			[NotifyParentProperty(true)]
 			property float X
 			{
 				float get () { return mX;}
 				void set (float value) {mX = value;}
 			}
+			[NotifyParentProperty(true)]
 			property float Y
 			{
 				float get () { return mY;}
@@ -39,6 +32,50 @@ namespace LevelEditor
 			}
 		private:
 			float mX, mY;
+		};
+
+		public ref class PointTypeConvertor : public ExpandableObjectConverter
+		{
+		public:
+			virtual bool CanConvertTo(ITypeDescriptorContext^ context, System::Type^ destinationType) override
+			{
+				if (destinationType == Point::typeid) return true;
+				else return ExpandableObjectConverter::CanConvertTo(context, destinationType);
+			}
+
+			virtual Object^ ConvertTo(ITypeDescriptorContext^ context, System::Globalization::CultureInfo^ culture, Object^ value, System::Type^ destinationType) override
+			{
+				if (destinationType == String::typeid && dynamic_cast<Point^>(value))
+				{
+					Point^ vec = (Point^)value;
+					return String::Format("{0}, {1}", vec->X, vec->Y);
+				}
+				else return ExpandableObjectConverter::ConvertTo(context, culture, value, destinationType);
+			}
+
+			virtual bool CanConvertFrom(ITypeDescriptorContext^ context, System::Type^ sourceType) override
+			{
+				if (sourceType == String::typeid) 
+					return true;
+				else 
+					return ExpandableObjectConverter::CanConvertFrom(context, sourceType);
+			}
+
+			virtual Object^ ConvertFrom(ITypeDescriptorContext^ context, System::Globalization::CultureInfo^ culture, Object^ value) override
+			{
+				if (dynamic_cast<String^>(value) != nullptr)
+				{
+						String^ strVal = dynamic_cast<String^>(value);
+						array<String^>^ parts = strVal->Split(',');
+						float x = float::Parse(parts[0]);
+						float y = float::Parse(parts[1]);
+						Point^ p = gcnew Point();
+						p->X = x;
+						p->Y = y;
+						return p;
+				}
+				else return ExpandableObjectConverter::ConvertFrom(context, culture, value);
+			}
 		};
 
 		public ref class EntityProxy : public ProxyObject
@@ -77,17 +114,21 @@ namespace LevelEditor
 				void set(float value);
 			}
 
-			[System::ComponentModel::TypeConverter(MyExpandableObjectConverter::typeid)]
-			property Point^ Position
+			[System::ComponentModel::TypeConverter(PointTypeConvertor::typeid)]
+			[NotifyParentProperty(true)]
+			property Proxy::Point^ Position
 			{
-				Point^ get();
-				void set(Point^ value);
+				Proxy::Point^ get();
+				void set(Proxy::Point^ value);
 			}
 		internal:
 			SharedCLIPtr<Entity>* mEntity;
 
 			///< Прокси-слой, содержащий сущность
 			LayerProxy^ mLayer;
+
+
+			Point^ p;
 		};
 	}
 }

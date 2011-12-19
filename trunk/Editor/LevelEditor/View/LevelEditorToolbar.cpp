@@ -1,6 +1,7 @@
 #include "Stdafx.h"
 #include "LevelEditorToolbar.h"
 #include "LevelEditorWindow.h"
+#include "../LevelEditorCommands.h"
 
 namespace LevelEditor
 {
@@ -23,8 +24,14 @@ namespace LevelEditor
 			mActivateGridBtn->Content = "Grid";
 			mActivateGridBtn->Command = LevelEditorWindow::ActivateGrid;
 
+			// Выбор объектов
+			System::Windows::Controls::Button^ mSelectorBtn = gcnew Button();
+			mSelectorBtn->Content = "Select";
+			mSelectorBtn->Command = LevelEditorCommands::SelectObjectsSelector;
+
 			// Добавляем кнопки
 			AddChild(mBrushToolBtn);
+			AddChild(mSelectorBtn);
 			AddChild(mAddLayerBtn);
 			AddChild(mActivateGridBtn);
 		}

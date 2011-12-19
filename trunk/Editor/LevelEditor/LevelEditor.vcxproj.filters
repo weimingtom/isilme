@@ -117,6 +117,7 @@
     <ClInclude Include="Commands\RotateEntity.h">
       <Filter>Commands</Filter>
     </ClInclude>
+    <ClInclude Include="LevelEditorCommands.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
