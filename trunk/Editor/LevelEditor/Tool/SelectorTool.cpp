@@ -4,6 +4,8 @@
 #include "../Proxy/LayerProxy.h"
 #include "../Proxy/LevelProxy.h"
 #include "../View/LevelEditorWindow.h"
+#include "../LevelEditorCommands.h"
+#include "../Commands/MoveEntity.h"
 
 using namespace System;
 using namespace Common;
@@ -34,7 +36,11 @@ namespace LevelEditor
 				float dy = Layer->Level->mLevel->Value->GetActiveCamera()->y;
 
 				EntityProxy^ e = dynamic_cast<EntityProxy^>(View::LevelEditorWindow::Instance->SelectedObject);
-				e->mEntity->Value->SetPosition(mouse->x / 64.0f + dx, mouse->y / 64.0f + dy);
+				e->mEntity->Value->SetPosition(mOldX, mOldY);
+
+				Proxy::Point^ p = ProcessToLevelCoords(mouse);
+
+				View::LevelEditorWindow::Instance->CommandManager->Execute(gcnew LevelEditor::Commands::MoveEntity(e, p));
 			}
 			else
 			{
@@ -50,38 +56,40 @@ namespace LevelEditor
 			isMoving = false;
 			EntityProxy^ e = GetEntity(mouse);
 			if (e != nullptr && e == View::LevelEditorWindow::Instance->SelectedObject)
+			{
 				isMoving = true;
+				mOldX = e->Position->X;
+				mOldY = e->Position->Y;
+			}
 		}
 
 		void SelectorTool::OnMouseMove( MouseData^ mouse )
 		{
 			if (isMoving)
 			{
-				float dx = Layer->Level->mLevel->Value->GetActiveCamera()->x;
-				float dy = Layer->Level->mLevel->Value->GetActiveCamera()->y;
+				Proxy::Point^ p = ProcessToLevelCoords(mouse);
 
 				EntityProxy^ e = dynamic_cast<EntityProxy^>(View::LevelEditorWindow::Instance->SelectedObject);
-				e->mEntity->Value->SetPosition(mouse->x / 64.0f + dx, mouse->y / 64.0f + dy);
+				e->mEntity->Value->SetPosition(p->X, p->Y);
 			}
 
 		}
 
 		EntityProxy^ SelectorTool::GetEntity( MouseData^ mouse )
 		{
-			
+
+			Proxy::Point^ p = ProcessToLevelCoordsNoGrid(mouse);
 			if (Layer != nullptr)
 			{
 				EntityProxy^ e;
-				float dx = Layer->Level->mLevel->Value->GetActiveCamera()->x;
-				float dy = Layer->Level->mLevel->Value->GetActiveCamera()->y;
+
 				for each (EntityProxy^ entity in Layer->Entities)
 				{
-					if (abs(entity->Position->X - mouse->x / 64.0f - dx) < 1 && abs(entity->Position->Y - mouse->y / 64.0f - dy) < 1)
+					if (abs(entity->Position->X - p->X) < 1 && abs(entity->Position->Y - p->Y) < 1)
 						return entity;
 				}
 			}
 			return nullptr;
 		}
-
 	}
 }

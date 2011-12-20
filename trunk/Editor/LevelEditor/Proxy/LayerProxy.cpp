@@ -52,7 +52,7 @@ namespace LevelEditor
 
 		String^ LayerProxy::Name::get()
 		{
-			return gcnew String(mLayer->Value->GetName().c_str()) + "[??]";
+			return gcnew String(mLayer->Value->GetName().c_str());
 		}
 
 		LevelProxy^ LayerProxy::Level::get()

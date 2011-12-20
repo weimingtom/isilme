@@ -15,6 +15,7 @@ namespace LevelEditor
 	{
 	private:
 		HWND dialog;
+		static HGE* _hge = 0;
 	public:
 		IsilmeHost();
 
@@ -33,6 +34,8 @@ namespace LevelEditor
 
 		void OnUpdate(float elapsedTime);
 
+		void Resize(int width, int height);
+		static void LoadGameData();
 		UpdateFrameHandler^ UpdateFrame;
 	};
 };

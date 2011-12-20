@@ -21,6 +21,7 @@ namespace IDE
 
         public ExtensionManager()
         {
+            mExtensions[".lvl"] = new LevelEditorAssociation();
         }
 
         /// <summary>

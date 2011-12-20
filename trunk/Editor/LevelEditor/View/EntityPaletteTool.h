@@ -14,6 +14,8 @@ namespace LevelEditor
 		public ref class EntityPaletteTool : public Common::Views::ToolWindow//, public ICommandSource
 		{
 		public:
+			static System::Windows::HierarchicalDataTemplate^ itemTemplate;
+			static System::Windows::HierarchicalDataTemplate^ folderTemplate;
 			//static DependencyProperty^ CommandProperty =
 			//	DependencyProperty::Register(
 			//	"Command",

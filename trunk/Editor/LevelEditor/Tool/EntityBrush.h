@@ -2,6 +2,8 @@
 
 #include "ITool.h"
 #include "Tool.h"
+#include "../SharedCLIPtr.h"
+
 using namespace System;
 using namespace Common;
 
@@ -27,13 +29,15 @@ namespace LevelEditor
 				void set(String^ value);
 			}
 
-			property bool UseGrid
+
+
+			property float Angle
 			{
-				bool get();
-				void set(bool value);
+				float get();
+				void set(float value);
 			}
 		private:
-			bool mUseGrid;
+			SharedCLIPtr<Entity>* mTempEntity;
 			float mDefaultAngle;
 			char* mEntityType;
 			Common::CommandManager^ mCommandManager;

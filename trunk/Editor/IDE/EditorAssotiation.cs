@@ -18,4 +18,16 @@ namespace IDE
             return editor;
         }
     }
+
+
+    public class LevelEditorAssociation : IEditorAssotioation
+    {
+        public EditorWindow CreateEditor()
+        {
+            if (LevelEditor.View.LevelEditorWindow.Instance == null)
+                new LevelEditor.View.LevelEditorWindow();
+
+            return LevelEditor.View.LevelEditorWindow.Instance;
+        }
+    }
 }

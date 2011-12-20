@@ -10,7 +10,7 @@ namespace LevelEditor
 		LevelEditorToolBar::LevelEditorToolBar()
 		{
 			// Кисть объектов
-			System::Windows::Controls::Button^ mBrushToolBtn = gcnew Button();
+			System::Windows::Controls::RadioButton^ mBrushToolBtn = gcnew RadioButton();
 			mBrushToolBtn->Content = "Brush";
 			mBrushToolBtn->Command = LevelEditorWindow::SelectEntityBrush;
 
@@ -22,10 +22,10 @@ namespace LevelEditor
 			// Включить сетку
 			System::Windows::Controls::CheckBox^ mActivateGridBtn = gcnew CheckBox();
 			mActivateGridBtn->Content = "Grid";
-			mActivateGridBtn->Command = LevelEditorWindow::ActivateGrid;
+			mActivateGridBtn->Command = LevelEditorCommands::ActivateGrid;
 
 			// Выбор объектов
-			System::Windows::Controls::Button^ mSelectorBtn = gcnew Button();
+			System::Windows::Controls::RadioButton^ mSelectorBtn = gcnew RadioButton();
 			mSelectorBtn->Content = "Select";
 			mSelectorBtn->Command = LevelEditorCommands::SelectObjectsSelector;
 

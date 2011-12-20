@@ -8,9 +8,11 @@ using namespace System::Windows::Input;
 using namespace Common;
 using namespace Common::Views;
 using namespace LevelEditor::Tool;
+using namespace System::Collections::Generic;
 
 namespace LevelEditor
 {
+	ref class IsilmeHost;
 	namespace View
 	{
 		public ref class LevelEditorWindow : public EditorWindow
@@ -43,7 +45,12 @@ namespace LevelEditor
 			virtual void Load() override;
 
 			virtual void Save() override;
+
+			virtual void OnClosing(System::ComponentModel::CancelEventArgs^ e) override;
 		private:
+
+			Dictionary<String^, LevelProxy^>^ mLoadedLevels;
+
 			bool mNeedToLoad;
 			static LevelEditorWindow^ mInstance;
 
@@ -76,6 +83,8 @@ namespace LevelEditor
 
 			int mOldMouseX;
 			int mOldMouseY;
+			LevelEditor::IsilmeHost^ host;
+			System::Windows::Controls::Border^ mBorder;
 			void ExecutedSelectEntityBrush(Object^ sender, ExecutedRoutedEventArgs^ e);
 			void CanExecuteSelectEntityBrush(System::Object^ sender, System::Windows::Input::CanExecuteRoutedEventArgs^ e);
 			void ExecutedSelectEntityBrush(Object^ param);

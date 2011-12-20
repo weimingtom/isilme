@@ -10,14 +10,14 @@ namespace LevelEditor
 		public ref class MoveEntity : public Common::ICommand
 		{
 		public:
-			MoveEntity(EntityProxy^ entity, Point^ position);
+			MoveEntity(EntityProxy^ entity, Proxy::Point^ position);
 
 			virtual void Execute();
 			virtual void Unexecute();
 		private:
 			EntityProxy^ mEntity;
-			Point^ mOldPosition;
-			Point^ mNewPosition;
+			Proxy::Point^ mOldPosition;
+			Proxy::Point^ mNewPosition;
 		};
 	}
 }

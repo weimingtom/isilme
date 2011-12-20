@@ -12,6 +12,7 @@ namespace LevelEditor
 		public ref class LayerTool : public ITool
 		{
 		public:
+			LayerTool();
 
 			virtual void OnMouseUp(MouseData^ mouse);
 
@@ -19,13 +20,28 @@ namespace LevelEditor
 
 			virtual void OnMouseMove(MouseData^ mouse);
 
+			Proxy::Point^ ProcessToLevelCoords(MouseData^ position);
+
+			Proxy::Point^ ProcessToLevelCoordsNoGrid(MouseData^ position);
+
 			property LayerProxy^ Layer
 			{
 				LayerProxy^ get();
 				void set(LayerProxy^ value);
 			}
+
+			property bool UseGrid
+			{
+				bool get();
+				void set(bool value);
+			}
 		private:
+
+			bool CanExecuteActivateGrid();
+			void ExecutedActivateGrid(Object^ param);
+
 			LayerProxy^ mLayer;
+			bool mUseGrid;
 		};
 	}
 }

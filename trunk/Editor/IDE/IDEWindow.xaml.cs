@@ -143,7 +143,7 @@ namespace IDE
             ExtensionManager.RegisterExtension<LuaEditorWindow>(".lua");
             ExtensionManager.RegisterExtension<QuestEditorWindow>(".story");
             ExtensionManager.RegisterExtension<ConversationEditorWindow>(".conv");
-            ExtensionManager.RegisterExtension<LevelEditorWindow>(".lvl");
+          //  ExtensionManager.RegisterExtension<LevelEditorWindow>(".lvl");
 
             mToolWindowsMenu.DataContext = mTools;
             mWindowMenu.DataContext = mOpendDocuments;

@@ -29,8 +29,10 @@ namespace LevelEditor
 			EntityProxy^ GetEntity(MouseData^ mouse);
 			bool isMoving;
 			Common::CommandManager^ mCommandManager;
+						
+			float mOldX;
+			float mOldY;
 
-			LayerProxy^ mLayer;
 		};
 	}
 }

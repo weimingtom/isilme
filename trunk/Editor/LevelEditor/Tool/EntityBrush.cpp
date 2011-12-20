@@ -5,6 +5,7 @@
 #include "../Proxy/FolderProxy.h"
 #include "../Proxy/LayerProxy.h"
 #include "..\View\EntityPaletteTool.h"
+#include "..\LevelEditorCommands.h"
 
  using namespace Runtime::InteropServices;
 
@@ -14,8 +15,8 @@ namespace LevelEditor
 	{
 		EntityBrush::EntityBrush(Common::CommandManager^ commandManager)
 		{
+			mTempEntity = new SharedCLIPtr<Entity>(EntityPtr());
 			mCommandManager = commandManager;
-			mUseGrid = false;
 		}
 
 		EntityBrush::~EntityBrush()
@@ -25,43 +26,27 @@ namespace LevelEditor
 
 		void EntityBrush::OnMouseUp( MouseData^ mouse )
 		{
+			if ((Engine::GetSingleton()->GetInputSystem()->IsKeyUp(HGEK_RBUTTON)) ||(mouse->button == MouseKey::RightButton))
+			{
+				Angle += 1.57f / 2.0f;
+				return;
+			}
+
 			if (mouse->button != MouseKey::LeftButton)
 				return;
 
-			Vector2 position(mouse->x, mouse->y);
-
-			position.x /= 64;
-			position.y /= 64;
-
-			LayerProxy^ layer = Layer;
-			SharedCLIPtr<::Layer>* lp = layer->mLayer;
-			LayerPtr nativeLayer = lp->Value;
-			LevelPtr nativeLevel = nativeLayer->GetLevel();
-
-			position.x += layer->mLayer->Value->GetLevel()->GetActiveCamera()->x;
-			position.y += layer->mLayer->Value->GetLevel()->GetActiveCamera()->y;
-
-			if (UseGrid)
-			{
-				int n = position.x / Layer->Grid->Step;
-				float x = n * Layer->Grid->Step;
-
-				n = position.y / Layer->Grid->Step;
-				float y = n * Layer->Grid->Step;
-
-				position.Set(x,y);
-			}
-
-			PaletteItemProxy^ paletteItem = LevelEditor::View::EntityPaletteTool::Instance->SelectedItem;
-			if (paletteItem == nullptr)
+			if (!mTempEntity->Value)
 				return;
 
-			EntityType = paletteItem->FullName;
+			Proxy::Point^ p = ProcessToLevelCoords(mouse);
 
-			EntityProxy^ entity = gcnew EntityProxy(FactoryManager::GetSingleton()->CreateEntity(mEntityType, ""));
-			entity->mEntity->Value->SetPosition(position);
+			EntityProxy^ entity = gcnew EntityProxy(mTempEntity->Value);
+			entity->mEntity->Value->SetPosition(p->X, p->Y);
+			entity->mEntity->Value->SetAngle(mDefaultAngle);
+			Layer->mLayer->Value->Remove(mTempEntity->Value);
+			mTempEntity->Value.reset();
 
-			Commands::AddEntity^ command = gcnew Commands::AddEntity(layer, entity);
+			Commands::AddEntity^ command = gcnew Commands::AddEntity(Layer, entity);
 
 		//	SelectedObject = gcnew Proxy::EntityProxy(entity);
 			//command->Execute();
@@ -70,29 +55,57 @@ namespace LevelEditor
 
 		void EntityBrush::OnMouseDown( MouseData^ mouse )
 		{
+
 			if (mouse->button != MouseKey::LeftButton)
 				return;
+			if (mouse->button == MouseKey::RightButton)
+				return;
+
+			PaletteItemProxy^ paletteItem = LevelEditor::View::EntityPaletteTool::Instance->SelectedItem;
+			if (paletteItem == nullptr)
+				return;
+
+			EntityType = paletteItem->FullName;
+
+			mTempEntity->Value = FactoryManager::GetSingleton()->CreateEntity(mEntityType, "");
+
+			Proxy::Point^ p = ProcessToLevelCoords(mouse);
+
+			mTempEntity->Value->SetPosition(p->X, p->Y);
+			mTempEntity->Value->SetAngle(mDefaultAngle);
+			Layer->mLayer->Value->Add(mTempEntity->Value);
 		}
 
 		void EntityBrush::OnMouseMove( MouseData^ mouse )
 		{
+			if (!mTempEntity->Value)
+				return;
 
+			Proxy::Point^ p = ProcessToLevelCoords(mouse);
+
+			mTempEntity->Value->SetPosition(p->X, p->Y);
+			mTempEntity->Value->SetAngle(mDefaultAngle);
 		}
-
+		
 		void EntityBrush::EntityType::set(String^ value)
 		{
-			IntPtr p = Marshal::StringToHGlobalAnsi(value);
-			mEntityType = static_cast<char*>(p.ToPointer());
+			mEntityType = (char*)(Marshal::StringToHGlobalAnsi(value).ToPointer());
 		}
 
-		bool EntityBrush::UseGrid::get()
+		float EntityBrush::Angle::get()
 		{
-			return mUseGrid;
+			return mDefaultAngle;
 		}
 
-		void EntityBrush::UseGrid::set(bool value)
+		void EntityBrush::Angle::set(float value)
 		{
-			mUseGrid = value;
+		
+			mDefaultAngle = value;
+			if (mTempEntity->Value)
+			{
+			
+				mTempEntity->Value->SetAngle(mDefaultAngle);
+			}
 		}
 	}
 }

@@ -45,13 +45,18 @@ namespace LevelEditor
 		
 		}
 
+		void PreInit()
+		{
+		
+		}
 		virtual void Init()
 		{
+			mHGE->System_Initiate();
 			EditorState* estate = new EditorState();
 			StatePtr state(estate);
+
 			FactoryManager::GetSingleton()->LoadGraphics("../Data/Graphics.xml");
 			FactoryManager::GetSingleton()->LoadEntities("../Data/Entities.xml");
-
 			LevelEditor::View::EntityPaletteTool::Instance->Palette = gcnew EntityPaletteProxy(FactoryManager::GetSingleton()->GetEntityPalette());
 			//FactoryManager::GetSingleton()->LoadLevel("../Data/TestL.xml");
 			//LevelPtr level = FactoryManager::GetSingleton()->GetLevel("Level2");//new Level());
@@ -90,7 +95,7 @@ namespace LevelEditor
 			0); // lparam
 
 
-		HGE* _hge = hgeCreate(HGE_VERSION);
+		_hge = hgeCreate(HGE_VERSION);
 
 
 		_hge->System_SetState(HGE_SCREENWIDTH, 640);
@@ -121,9 +126,10 @@ namespace LevelEditor
 
 	System::IntPtr IsilmeHost::WndProc( IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, bool handled )
 	{
-		HGEGame::RenderFunction();
-		HGEGame::FrameFunction();
-
+		if (msg == WM_COMMAND)
+		{
+		
+		}
 		return IntPtr::Zero;
 	}
 
@@ -140,6 +146,42 @@ namespace LevelEditor
 		{
 			UpdateFrame(elapsedTime)	;
 		}
+	}
+
+	void IsilmeHost::LoadGameData()
+	{
+		if (_hge)
+			return;
+
+		_hge = hgeCreate(HGE_VERSION);
+
+
+		_hge->System_SetState(HGE_SCREENWIDTH, 640);
+		_hge->System_SetState(HGE_SCREENHEIGHT, 480);
+		_hge->System_SetState(HGE_SCREENBPP, 32);
+		_hge->System_SetState(HGE_FPS, 60);
+		_hge->System_SetState(HGE_WINDOWED, true);
+		_hge->System_SetState(HGE_DONTSUSPEND, true);
+		_hge->System_SetState(HGE_SHOWSPLASH, false);
+		_hge->System_SetState(HGE_USESOUND, false);
+		//_hge->System_SetState(HGE_HWNDPARENT, handle);
+
+		new EditorGame(_hge);
+		FactoryManager::GetSingleton()->LoadGraphics("../Data/Graphics.xml");
+		FactoryManager::GetSingleton()->LoadEntities("../Data/Entities.xml");
+
+		LevelEditor::View::EntityPaletteTool::Instance->Palette = gcnew EntityPaletteProxy(FactoryManager::GetSingleton()->GetEntityPalette());
+	}
+
+	void IsilmeHost::Resize( int width, int height )
+	{
+	//	_hge->System_SetState(HGE_SCREENWIDTH, width);
+	//	_hge->System_SetState(HGE_SCREENHEIGHT, height);
+
+		MoveWindow(_hge->System_GetState(HGE_HWND),
+			0, 0, width, height, true);
+		Width = width;
+		Height = height;
 	}
 
 };

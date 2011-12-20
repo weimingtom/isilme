@@ -9,7 +9,7 @@ namespace LevelEditor
 			NoButton = 0,
 			LeftButton = 1,
 			MiddleButton = 2,
-			RightButton = 3
+			RightButton = 4
 		};
 	public ref class MouseData
 	{

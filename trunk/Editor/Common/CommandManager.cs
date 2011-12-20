@@ -54,13 +54,13 @@ namespace Common
         public void Clear()
         {
             mUndoStack.Clear();
-            mUndoStack.Push(null);
+          //  mUndoStack.Push(null);
 
             if (OnUndoSetStatus != null)
                 OnUndoSetStatus(false);
 
             mRedoStack.Clear();
-            mRedoStack.Push(null);
+           // mRedoStack.Push(null);
 
             if (OnRedoSetStatus != null)
                 OnRedoSetStatus(false);

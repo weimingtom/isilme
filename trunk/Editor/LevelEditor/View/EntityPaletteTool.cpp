@@ -2,11 +2,32 @@
 #include "EntityPaletteTool.h"
 #include "LevelEditorWindow.h"
 #include "..\Proxy\FolderProxy.h"
+#include "..\IsilmeControl.h"
 
 namespace LevelEditor
 {
 	namespace View
 	{
+		public ref class PaletteDataTemplateSelector : public System::Windows::Controls::DataTemplateSelector
+		{
+		public:
+			PaletteDataTemplateSelector()
+			{
+
+			}
+			virtual System::Windows::DataTemplate^ SelectTemplate(Object^ item, DependencyObject^ container) override
+			{
+				FrameworkElement^ element = (FrameworkElement^)container;
+
+				if (element != nullptr && item != nullptr && dynamic_cast<Proxy::PaletteItemProxy^>(item) != nullptr)
+					return EntityPaletteTool::itemTemplate;
+				else
+					return EntityPaletteTool::folderTemplate;
+
+				return nullptr;
+			}
+		};
+
 		EntityPaletteTool::EntityPaletteTool()
 		{
 			mPaletteTree = gcnew TreeView();
@@ -19,6 +40,8 @@ namespace LevelEditor
 		{
 			if (mInstance == nullptr)
 				mInstance = gcnew EntityPaletteTool();
+
+		//	IsilmeHost::LoadGameData();
 
 			return mInstance;
 		}
@@ -122,22 +145,23 @@ namespace LevelEditor
 
 
 			// Шаблон для элемента палитры
-			System::Windows::HierarchicalDataTemplate^ itemTemplate = gcnew HierarchicalDataTemplate(PaletteItemProxy::typeid);
+			itemTemplate = gcnew HierarchicalDataTemplate(PaletteItemProxy::typeid);
 			FrameworkElementFactory^ itemElementFactory = gcnew FrameworkElementFactory(TextBlock::typeid);
 			itemElementFactory->SetBinding(TextBlock::TextProperty, gcnew System::Windows::Data::Binding("Name"));
 			itemTemplate->VisualTree = itemElementFactory;
 			
+			
 
 			// Шаблон каталога
-			System::Windows::HierarchicalDataTemplate^ folderTemplate = gcnew HierarchicalDataTemplate(FolderProxy::typeid);
+			folderTemplate = gcnew HierarchicalDataTemplate(FolderProxy::typeid);
 			FrameworkElementFactory^ folderElementFactory = gcnew FrameworkElementFactory(TextBlock::typeid);
 			folderElementFactory->SetBinding(TextBlock::TextProperty, gcnew System::Windows::Data::Binding("Name"));
 			folderTemplate->VisualTree = folderElementFactory;
 			folderTemplate->ItemsSource = gcnew System::Windows::Data::Binding("Items");
-			folderTemplate->ItemTemplate = itemTemplate;
+			folderTemplate->ItemTemplateSelector = gcnew PaletteDataTemplateSelector();
 
 			// Устанавливаем шаблон
-			mPaletteTree->ItemTemplate = folderTemplate;
+			mPaletteTree->ItemTemplateSelector = folderTemplate->ItemTemplateSelector;
 		}
 
 		//Object^ EntityPaletteTool::CommandParameter::get()

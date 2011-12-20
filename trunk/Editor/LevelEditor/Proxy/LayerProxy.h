@@ -14,6 +14,7 @@ namespace LevelEditor
 
 		ref class EntityProxy;
 
+		[System::ComponentModel::TypeConverter(System::ComponentModel::ExpandableObjectConverter::typeid)]
 		public ref class GridProxy
 		{
 		public:
@@ -76,6 +77,7 @@ namespace LevelEditor
 				LevelProxy^ get();
 			}
 
+			[System::ComponentModel::TypeConverter(System::ComponentModel::ExpandableObjectConverter::typeid)]
 			property GridProxy^ Grid
 			{
 				GridProxy^ get();

@@ -46,7 +46,7 @@ HGEGame::HGEGame(HGE* hge)
 	mHGE->System_SetState(HGE_FRAMEFUNC, FrameFunction);	// Функция во время кадра (Не знаю как перевести)
 	mHGE->System_SetState(HGE_RENDERFUNC, RenderFunction);	// Функция рисования сцены
 
-	mHGE->System_Initiate();
+	
 	InitEngine();
 }
 HGEGame::HGEGame()

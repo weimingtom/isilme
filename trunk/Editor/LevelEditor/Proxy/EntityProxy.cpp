@@ -38,6 +38,8 @@ namespace LevelEditor
 
 		Point^ EntityProxy::Position::get()
 		{
+			p->X = mEntity->Value->GetPosition().x;
+			p->Y = mEntity->Value->GetPosition().y;
 			return p;
 		}
 

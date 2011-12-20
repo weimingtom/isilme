@@ -29,14 +29,15 @@ namespace LevelEditor
 
 		LevelEditorWindow::LevelEditorWindow()
 		{
+			mLoadedLevels = gcnew Dictionary<String^, LevelProxy^>();
 			mOldMouseX = -1;
 			mOldMouseY = -1;
 			mNeedToLoad = false;
 			mInstance = this;
-			System::Windows::Controls::Border^ mBorder;
+			
 			mBorder = gcnew System::Windows::Controls::Border();
 			this->AddChild(mBorder);
-			LevelEditor::IsilmeHost^ host = gcnew LevelEditor::IsilmeHost();
+			host = gcnew LevelEditor::IsilmeHost();
 			mBorder->Child = host;
 			mHandle = host->Handle;
 			host->UpdateFrame += gcnew UpdateFrameHandler(this, &LevelEditorWindow::OnFrameUpdate);
@@ -105,8 +106,18 @@ namespace LevelEditor
 
 		System::IntPtr LevelEditorWindow:: ControlMsgFilter(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, bool% handled)
 		{
+			INT nWidth, nHeight;
+			if (msg == WM_COMMAND)
+			{
+			
+			}
 			switch (msg) 
 			{
+			case WM_SIZE:
+				nWidth = LOWORD(lParam.ToPointer());
+				nHeight = HIWORD(lParam.ToPointer());
+				host->Resize(nWidth, nHeight);
+				break;
 			case WM_MOUSEMOVE:
 				//wmMouseMove(hwnd, wp, lp); // wp & lp store the co-ordinates here
 				break;
@@ -130,6 +141,12 @@ namespace LevelEditor
 
 		void LevelEditorWindow::OnFrameUpdate( float elapsedTime )
 		{
+			static int oldHeight, oldWidth;
+			if ((int)mBorder->ActualHeight != oldHeight && mBorder->ActualWidth != oldWidth)
+				host->Resize(mBorder->ActualWidth, mBorder->ActualHeight);
+			oldHeight = mBorder->ActualHeight;
+			oldWidth = mBorder->ActualWidth;
+
 			InputSystem* inputSystem = Engine::GetSingleton()->GetInputSystem();
 			Vector2 mousePosition = Engine::GetSingleton()->GetInputSystem()->GetMousePosition();
 
@@ -251,14 +268,25 @@ namespace LevelEditor
 
 		void LevelEditorWindow::Load()
 		{
+
 			if (!mNeedToLoad)
 			{
 				mNeedToLoad = true;
+				return;
 			}
-			else
-			{
-			
 
+			//if (mLoadedLevels->ContainsKey(FileName))
+			//{
+			//	mLevel = mLoadedLevels[FileName];
+			//	//mEntityBrush->Layer = mLevel->Layers[0];
+
+			//	mScrollTool->Level = Level;
+			//	ObjectManager::Instance->Editor = this;
+			//	HGEGame::GetSingleton()->GetStateManager()->GetState()->SetLevel(Level->mLevel->Value);
+			//}
+			//else
+			//{
+				CommandManager->Clear();
 				LevelPtr level = FactoryManager::GetSingleton()->LoadLevel(static_cast<char*>(Marshal::StringToHGlobalAnsi(FileName).ToPointer()));
 				//LevelPtr level = FactoryManager::GetSingleton()->GetLevel("Level2");//new Level());
 				mLevel = gcnew property LevelProxy(level);
@@ -270,11 +298,14 @@ namespace LevelEditor
 				HGEGame::GetSingleton()->GetStateManager()->GetState()->SetLevel(level);
 
 				ObjectManager::Instance->Editor = this;
-				EntityPaletteTool::Instance->Palette = gcnew EntityPaletteProxy(FactoryManager::GetSingleton()->GetEntityPalette());
+				
 				mEntityBrush->Layer = mLevel->Layers[0];
 
 				mScrollTool->Level = Level;
-			}
+
+				Show();
+			//	mLoadedLevels[FileName] = Level;
+			//}
 		}
 
 		void LevelEditorWindow::ExecutedActivateGrid( Object^ sender, ExecutedRoutedEventArgs^ e )
@@ -307,6 +338,12 @@ namespace LevelEditor
 		bool LevelEditorWindow::CanExecuteSelectObjectsSelector()
 		{
 			return true;
+		}
+
+		void LevelEditorWindow::OnClosing( System::ComponentModel::CancelEventArgs^ e )
+		{
+			e->Cancel = true;
+			Hide();
 		}
 
 		LevelProxy^ LevelEditorWindow::Level::get()
