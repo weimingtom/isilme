@@ -21,6 +21,12 @@ namespace QuestEditor.Proxy
         {
             mStory = story;
             Quests = new ObservableCollection<ProxyQuest>();
+
+            foreach (ModelQuest quest in mStory.Quests)
+            {
+                ProxyQuest pq = new ProxyQuest(quest);
+                Quests.Add(pq);
+            }
         }
 
 

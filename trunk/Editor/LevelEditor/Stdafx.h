@@ -5,6 +5,11 @@
 #pragma once
 
 #include <Isilme.h>
+#include "Engine/Quest/Story.h"
+#include "Engine/Quest/Quest.h"
+#include "Engine/Quest/Stage.h"
+#include "Engine/Quest/Conversation.h"
+#include "Engine/Quest/Phrase.h"
 
 namespace LevelEditor
 {
@@ -25,6 +30,11 @@ namespace LevelEditor
 		ref class LayerProxy;
 		ref class EntityProxy;
 		ref class LevelProxy;
+		ref class ConversationProxy;
+		ref class PhraseProxy;
+		ref class StoryProxy;
+		ref class QuestProxy;
+		ref class StageProxy;
 	}
 
 	namespace Commands

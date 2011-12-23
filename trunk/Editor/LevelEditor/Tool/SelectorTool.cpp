@@ -58,8 +58,8 @@ namespace LevelEditor
 			if (e != nullptr && e == View::LevelEditorWindow::Instance->SelectedObject)
 			{
 				isMoving = true;
-				mOldX = e->Position->X;
-				mOldY = e->Position->Y;
+				mOldX = e->Position.X;
+				mOldY = e->Position.Y;
 			}
 		}
 
@@ -85,7 +85,7 @@ namespace LevelEditor
 
 				for each (EntityProxy^ entity in Layer->Entities)
 				{
-					if (abs(entity->Position->X - p->X) < 1 && abs(entity->Position->Y - p->Y) < 1)
+					if (abs(entity->Position.X - p->X) < 1 && abs(entity->Position.Y - p->Y) < 1)
 						return entity;
 				}
 			}

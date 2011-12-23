@@ -14,8 +14,26 @@ namespace LevelEditor
 	{
 		ObjectManager::ObjectManager()
 		{
+			System::Windows::Controls::Grid^ mStackPanel = gcnew System::Windows::Controls::Grid();
+			System::Windows::Controls::ToolBar^ mToolBar = gcnew System::Windows::Controls::ToolBar();
+			System::Windows::Controls::Button^ mLayerUpBtn = gcnew System::Windows::Controls::Button();
+			System::Windows::Controls::Button^ mLayerDownBtn = gcnew System::Windows::Controls::Button();
 			mObjectsTree = gcnew TreeView();
-			AddChild(mObjectsTree);
+
+			// Слой вверх
+			mLayerUpBtn->Content = "Up";
+
+			// Слой вниз
+			mLayerDownBtn->Content = "Down";
+
+			mToolBar->Items->Add(mLayerUpBtn);
+			mToolBar->Items->Add(mLayerDownBtn);
+
+			mStackPanel->Children->Add(mToolBar);
+			mStackPanel->Children->Add(mObjectsTree);
+			mObjectsTree->Margin = System::Windows::Thickness(0, 36, 0, 0);
+
+			AddChild(mStackPanel);
 
 			CommandBindings->Add(
 				gcnew CommandBinding(System::Windows::Input::ApplicationCommands::Delete, 

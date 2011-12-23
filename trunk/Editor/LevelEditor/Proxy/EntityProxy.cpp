@@ -3,16 +3,18 @@
 #include "LayerProxy.h"
 #include "../Commands/MoveEntity.h"
 #include "../Commands/RotateEntity.h"
+#include "../Commands/ScaleEntity.h"
 namespace LevelEditor
 {
 	namespace Proxy
 	{
 		EntityProxy::EntityProxy( EntityPtr entity )
 		{
-			p = gcnew Point();
+			mType = gcnew String(entity->GetType().c_str());
+			p = Point();
 			mEntity = new SharedCLIPtr<Entity>(entity);
-			p->X = mEntity->Value->GetPosition().x;
-			p->Y = mEntity->Value->GetPosition().y;
+			p.X = mEntity->Value->GetPosition().x;
+			p.Y = mEntity->Value->GetPosition().y;
 
 		}
 
@@ -36,14 +38,14 @@ namespace LevelEditor
 			return gcnew String(mEntity->Value->GetName().c_str());
 		}
 
-		Point^ EntityProxy::Position::get()
+		Point EntityProxy::Position::get()
 		{
-			p->X = mEntity->Value->GetPosition().x;
-			p->Y = mEntity->Value->GetPosition().y;
+			p.X = mEntity->Value->GetPosition().x;
+			p.Y = mEntity->Value->GetPosition().y;
 			return p;
 		}
 
-		void EntityProxy::Position::set(Point^ value)
+		void EntityProxy::Position::set(Point value)
 		{
 			CurrentCommand = gcnew Commands::MoveEntity(this, value) ;//new SetProperty(this, mQuest, "Title", value);
 			
@@ -62,6 +64,23 @@ namespace LevelEditor
 
 			RaisePropertyChanged(this, "Angle");
 			//mEntity->Value->SetAngle(value);
+		}
+
+		float EntityProxy::Scale::get()
+		{
+			return mEntity->Value->GetScale();
+		}
+
+		void EntityProxy::Scale::set(float value)
+		{
+			CurrentCommand = gcnew Commands::ScaleEntity(this, value);
+
+			RaisePropertyChanged(this, "Scale");
+		}
+
+		String^ EntityProxy::Type::get()
+		{
+			return mType;
 		}
 	}
 }

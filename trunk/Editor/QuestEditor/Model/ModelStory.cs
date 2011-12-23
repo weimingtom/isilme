@@ -78,9 +78,13 @@ namespace QuestEditor.Models
 
                 quest.ID = nameAttr.Value;
                 quest.Title = titleAttr.Value;
-                quest.OnStart = startScriptAttr.Value;
-                quest.OnFinish = finishScriptAttr.Value;
-                quest.OnUpdate = updateScriptAttr.Value;
+                if (startScriptAttr != null)
+                    quest.OnStart = startScriptAttr.Value;
+                if (finishScriptAttr != null)
+                    quest.OnFinish = finishScriptAttr.Value;
+
+                if (updateScriptAttr != null)
+                    quest.OnUpdate = updateScriptAttr.Value;
 
                 foreach (XElement stageElement in questElement.Elements("Stage"))
                 {
@@ -92,10 +96,12 @@ namespace QuestEditor.Models
                     XAttribute stageStartScriptAttr = stageElement.Attribute("StartScript");
                     XAttribute stageUpdateScriptAttr = stageElement.Attribute("UpdateScript");
 
-                    stage.ID = int.Parse(idAttr.ToString());
+                    stage.ID = int.Parse(idAttr.Value.ToString());
                     stage.Text = textAttr.Value;
-                    stage.OnStart = stageStartScriptAttr.Value;
-                    stage.OnUpdate = stageUpdateScriptAttr.Value;
+                    if (stageStartScriptAttr != null)
+                       stage.OnStart = stageStartScriptAttr.Value;
+                    if (stageUpdateScriptAttr != null)
+                       stage.OnUpdate = stageUpdateScriptAttr.Value;
                 }
             }
         }

@@ -1,4 +1,4 @@
-#ifndef ISILME_STORY_QUEST_H
+п»ї#ifndef ISILME_STORY_QUEST_H
 #define ISILME_STORY_QUEST_H
 
 #include "Quests.h"
@@ -14,15 +14,15 @@ namespace story
 		Quest();
 		virtual ~Quest();
 
-		/// Возвращает имя квеста
+		/// Р’РѕР·РІСЂР°С‰Р°РµС‚ РёРјСЏ РєРІРµСЃС‚Р°
 		std::string		GetName();
 		void			SetName(std::string name);
 
-		/// Возвращает заголовок квеста
+		/// Р’РѕР·РІСЂР°С‰Р°РµС‚ Р·Р°РіРѕР»РѕРІРѕРє РєРІРµСЃС‚Р°
 		std::string		GetTitle();
 		void			SetTitle(std::string title);
 
-		/// Возвращает стадию квеста
+		/// Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃС‚Р°РґРёСЋ РєРІРµСЃС‚Р°
 		int				GetStage();
 		StagePtr		GetStage(int stage);
 		void			SetStage(int stage);
@@ -38,7 +38,7 @@ namespace story
 
 		bool			IsFinished();
 
-		/// Выполняется в начале квеста
+		/// Р’С‹РїРѕР»РЅСЏРµС‚СЃСЏ РІ РЅР°С‡Р°Р»Рµ РєРІРµСЃС‚Р°
 		void			OnStart();
 		void			OnFinished();
 	protected:

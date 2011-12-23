@@ -28,7 +28,7 @@ namespace LevelEditor
 		{
 			if ((Engine::GetSingleton()->GetInputSystem()->IsKeyUp(HGEK_RBUTTON)) ||(mouse->button == MouseKey::RightButton))
 			{
-				Angle += 1.57f / 2.0f;
+				Angle += 3.14159265f / 4.0f;
 				return;
 			}
 
@@ -101,6 +101,9 @@ namespace LevelEditor
 		{
 		
 			mDefaultAngle = value;
+			if (mDefaultAngle >= 2.0f * 3.14159265f)
+				mDefaultAngle = 0;
+
 			if (mTempEntity->Value)
 			{
 			

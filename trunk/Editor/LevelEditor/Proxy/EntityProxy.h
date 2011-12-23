@@ -84,6 +84,7 @@ namespace LevelEditor
 			EntityProxy(EntityPtr entity);
 			virtual ~EntityProxy();
 
+			[System::ComponentModel::Browsable(false)]
 			property LayerProxy^ Layer
 			{
 				LayerProxy^ get();
@@ -95,17 +96,10 @@ namespace LevelEditor
 				System::String^ get();
 			}
 
-			property float PositionX
+			property float Scale
 			{
-				float get()
-				{
-					return mEntity->Value->GetPosition().x;
-				}
-				void set(float value)
-				{
-					float y = mEntity->Value->GetPosition().y;
-					mEntity->Value->SetPosition(value, y);
-				}
+				float get();
+				void set(float value);
 			}
 
 			property float Angle
@@ -116,10 +110,15 @@ namespace LevelEditor
 
 			[System::ComponentModel::TypeConverter(PointTypeConvertor::typeid)]
 			[NotifyParentProperty(true)]
-			property Proxy::Point^ Position
+			property Proxy::Point Position
 			{
-				Proxy::Point^ get();
-				void set(Proxy::Point^ value);
+				Proxy::Point get();
+				void set(Proxy::Point value);
+			}
+
+			property String^ Type
+			{
+				String^ get();
 			}
 		internal:
 			SharedCLIPtr<Entity>* mEntity;
@@ -127,8 +126,8 @@ namespace LevelEditor
 			///< Прокси-слой, содержащий сущность
 			LayerProxy^ mLayer;
 
-
-			Point^ p;
+			Point p;
+			String^ mType;
 		};
 	}
 }

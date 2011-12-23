@@ -4,7 +4,6 @@
         <Entity Name="GameObject_0" Type="Terrain/Grass" Position="13.000000, 22.000000, 0.000000" Scale="1" />
         <Entity Name="GameObject_1" Type="Terrain/Grass" Position="39.000000, 4.000000, 0.000000" Scale="1" />
         <Entity Name="GameObject_2" Type="Terrain/Grass" Position="39.000000, 8.000000, 0.000000" Scale="1" />
-        <Entity Name="GameObject_3" Type="Terrain/Grass" Position="43.000000, 4.000000, 0.000000" Scale="1" />
         <Entity Name="GameObject_4" Type="Terrain/Grass" Position="43.000000, 8.000000, 0.000000" Scale="1" />
         <Entity Name="GameObject_5" Type="Terrain/Grass" Position="38.000000, 24.000000, 0.000000" Scale="1" />
         <Entity Name="GameObject_6" Type="Terrain/Grass" Position="42.000000, 24.000000, 0.000000" Scale="1" />
@@ -201,7 +200,6 @@
         <Entity Name="GameObject_c5" Type="Roads/Walk" Position="38.000000, 53.500000, 1.570000" Scale="1" />
         <Entity Name="GameObject_c6" Type="Roads/Walk" Position="40.000000, 53.500000, 1.570000" Scale="1" />
         <Entity Name="GameObject_c7" Type="Roads/Walk" Position="42.000000, 53.500000, 1.570000" Scale="1" />
-        <Entity Name="GameObject_c8" Type="Roads/WalkCorner" Position="36.500000, 2.500000, -3.140000" Scale="1" />
         <Entity Name="GameObject_c9" Type="Roads/WalkCorner" Position="59.500000, 2.500000, -1.570000" Scale="1" />
         <Entity Name="GameObject_ca" Type="Roads/WalkCorner" Position="59.500000, 9.500000, 0.000000" Scale="1" />
         <Entity Name="GameObject_cb" Type="Roads/WalkCorner" Position="36.500000, 9.500000, 1.570000" Scale="1" />
@@ -345,14 +343,84 @@
         <Entity Name="GameObject_155" Type="Roads/Road" Position="2.000000, 44.000000, 0.000000" Scale="1" />
         <Entity Name="GameObject_1c5" Type="Terrain/Grass" Position="2.000000, 15.000000, 0.000000" Scale="1" />
         <Entity Name="GameObject_1c7" Type="Terrain/Grass" Position="2.000000, 11.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_1ca" Type="Roads/Walk2" Position="14.000000, 2.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_1cb" Type="Roads/Walk2" Position="12.000000, 2.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_1cc" Type="Roads/Walk2" Position="10.000000, 2.000000, 1.570000" Scale="1" />
+        <Entity Name="GameObject_1cd" Type="Roads/Walk2" Position="8.000000, 2.000000, 3.140000" Scale="1" />
+        <Entity Name="GameObject_1ce" Type="Roads/Walk2" Position="6.000000, 2.000000, 3.140000" Scale="1" />
+        <Entity Name="GameObject_1d0" Type="Roads/Walk" Position="6.000000, 0.500000, 4.710000" Scale="1" />
+        <Entity Name="GameObject_1d1" Type="Roads/Walk" Position="8.000000, 0.500000, 4.710000" Scale="1" />
+        <Entity Name="GameObject_1d2" Type="Roads/Walk" Position="10.000000, 0.500000, 4.710000" Scale="1" />
+        <Entity Name="GameObject_1d5" Type="Roads/Walk" Position="12.000000, 0.500000, 4.710000" Scale="1" />
+        <Entity Name="GameObject_1d6" Type="Roads/Walk" Position="14.000000, 0.500000, 4.710000" Scale="1" />
+        <Entity Name="GameObject_1d7" Type="Roads/Walk" Position="15.500000, 2.000000, 6.280000" Scale="1" />
+        <Entity Name="GameObject_1d8" Type="Roads/WalkCorner" Position="15.500000, 0.500000, 10.989999" Scale="1" />
+        <Entity Name="GameObject_1dc" Type="Roads/Road" Position="6.000000, -2.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_1dd" Type="Roads/Road" Position="14.000000, -2.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_1df" Type="Roads/Road" Position="10.000000, -2.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_1c6" Type="Roads/Road" Position="18.000000, 0.000000, 6.283185" Scale="1" />
+        <Entity Name="GameObject_1e6" Type="Roads/Road" Position="18.000000, -4.000000, 1.570796" Scale="1" />
+        <Entity Name="GameObject_1ee" Type="Roads/Walk" Position="20.500000, 2.000000, 3.141593" Scale="1" />
+        <Entity Name="GameObject_1ef" Type="Roads/Walk" Position="20.500000, 0.000000, 3.141593" Scale="1" />
+        <Entity Name="GameObject_1f0" Type="Roads/Walk" Position="20.500000, -2.000000, 3.141593" Scale="1" />
+        <Entity Name="GameObject_1f1" Type="Roads/Walk" Position="20.500000, -4.000000, 3.141593" Scale="1" />
+        <Entity Name="GameObject_1f4" Type="Terrain/Corner1" Position="23.000000, 1.000000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_1f5" Type="Terrain/Corner2" Position="23.000000, -3.000000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_1f6" Type="Terrain/Corner2" Position="27.000000, 1.000000, 1.570796" Scale="1" />
+        <Entity Name="GameObject_1f8" Type="Terrain/Corner4" Position="27.000000, -3.000000, 3.141593" Scale="1" />
+        <Entity Name="GameObject_20a" Type="Roads/Walk" Position="31.500000, 2.000000, 6.283185" Scale="1" />
+        <Entity Name="GameObject_20b" Type="Roads/Walk" Position="31.500000, 0.000000, 6.283185" Scale="1" />
+        <Entity Name="GameObject_20c" Type="Roads/Walk" Position="31.500000, -2.000000, 6.283185" Scale="1" />
+        <Entity Name="GameObject_20f" Type="Roads/Road" Position="34.000000, 0.000000, 1.570796" Scale="1" />
+        <Entity Name="GameObject_210" Type="Roads/Road" Position="34.000000, -4.000000, 1.570796" Scale="1" />
+        <Entity Name="GameObject_212" Type="Terrain/Corner1" Position="39.000000, 0.000000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_214" Type="Terrain/Corner8" Position="43.000000, 0.000000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_215" Type="Terrain/Corner1" Position="43.000000, 4.000000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_218" Type="Terrain/Sand" Position="47.000000, 0.000000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_219" Type="Terrain/Sand" Position="51.000000, 0.000000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_21a" Type="Roads/Walk" Position="50.000000, 2.500000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_21b" Type="Roads/Walk" Position="48.000000, 2.500000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_21c" Type="Roads/Walk" Position="46.000000, 2.500000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_21d" Type="Roads/Walk" Position="52.000000, 2.500000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_21e" Type="Roads/Walk" Position="36.500000, 2.000000, 3.141593" Scale="1" />
+        <Entity Name="GameObject_21f" Type="Roads/Walk" Position="36.500000, 0.000000, 3.141593" Scale="1" />
+        <Entity Name="GameObject_220" Type="Roads/Walk" Position="36.500000, -2.000000, 3.141593" Scale="1" />
+        <Entity Name="GameObject_227" Type="Terrain/Corner1" Position="39.000000, -4.000000, 6.283185" Scale="1" />
+        <Entity Name="GameObject_229" Type="Terrain/HalfU" Position="43.000000, -4.000000, 6.283185" Scale="1" />
+        <Entity Name="GameObject_22a" Type="Terrain/HalfU" Position="47.000000, -4.000000, 6.283185" Scale="1" />
+        <Entity Name="GameObject_22b" Type="Terrain/HalfU" Position="51.000000, -4.000000, 6.283185" Scale="1" />
+        <Entity Name="GameObject_22f" Type="Roads/WalkCorner" Position="31.500000, -3.500000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_230" Type="Roads/WalkCorner" Position="36.500000, -3.500000, 3.141593" Scale="1" />
+        <Entity Name="GameObject_23c" Type="Blood" Position="39.000000, -0.500000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_23d" Type="Blood" Position="39.500000, -1.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_23e" Type="Items/Weapons/Gun" Position="39.500000, -3.500000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_24a" Type="Roads/Walk" Position="54.000000, 2.500000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_24b" Type="Roads/Walk" Position="56.000000, 2.500000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_24c" Type="Roads/Walk" Position="58.000000, 2.500000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_24d" Type="Terrain/Corner1" Position="57.000000, 0.000000, 3.141593" Scale="1" />
+        <Entity Name="GameObject_24e" Type="Terrain/Corner8" Position="53.000000, 0.000000, 3.141593" Scale="1" />
+        <Entity Name="GameObject_250" Type="Terrain/Corner2" Position="57.000000, -4.000000, 6.283185" Scale="1" />
+        <Entity Name="GameObject_251" Type="Terrain/HalfL" Position="53.000000, -4.000000, 1.570796" Scale="1" />
     </Layer>
     <Layer Name="Items">
         <Entity Name="GameObject_156" Type="Items/Weapons/Gun" Position="10.000000, 14.000000, 1.000000" Scale="1" />
         <Entity Name="GameObject_157" Type="Items/Weapons/AK47" Position="18.000000, 5.000000, 1.000000" Scale="1" />
         <Entity Name="GameObject_158" Type="Items/Weapons/AK47" Position="5.000000, 43.000000, 1.000000" Scale="1" />
-        <Entity Name="GameObject_1c2" Type="Trash/Box" Position="5.514091, 14.155662, 0.000304" Scale="1" />
-        <Entity Name="GameObject_1c3" Type="Trash/Box" Position="6.527593, 14.078367, 0.001173" Scale="1" />
-        <Entity Name="GameObject_1c4" Type="Trash/Box" Position="7.541449, 14.219047, 0.001901" Scale="1" />
+        <Entity Name="GameObject_1c2" Type="Trash/Box" Position="5.514761, 14.155662, 0.000089" Scale="1" />
+        <Entity Name="GameObject_1c3" Type="Trash/Box" Position="6.529371, 14.078367, 0.000338" Scale="1" />
+        <Entity Name="GameObject_1c4" Type="Trash/Box" Position="7.544065, 14.219047, 0.000542" Scale="1" />
+        <Entity Name="GameObject_1e9" Type="Trash/Box" Position="5.513126, 2.484671, 3.141679" Scale="1" />
+        <Entity Name="GameObject_1ea" Type="Trash/Box" Position="6.524475, 2.484832, 3.141825" Scale="1" />
+        <Entity Name="GameObject_1eb" Type="Trash/Box" Position="7.537233, 2.484851, 3.141901" Scale="1" />
+        <Entity Name="GameObject_231" Type="Items/Ammo/AK47" Position="45.500000, 2.500000, 3.141593" Scale="1" />
+        <Entity Name="GameObject_232" Type="Items/Ammo/AK47" Position="45.500000, 2.000000, 3.141593" Scale="1" />
+        <Entity Name="GameObject_235" Type="Trash/Box" Position="44.508221, 2.493622, 3.123929" Scale="1" />
+        <Entity Name="GameObject_236" Type="Trash/Box" Position="44.510887, 1.477481, 3.125872" Scale="1" />
+        <Entity Name="GameObject_237" Type="Trash/Box" Position="43.488770, 1.489046, 3.120127" Scale="1" />
+        <Entity Name="GameObject_238" Type="Trash/Box" Position="43.491783, 2.504605, 3.120938" Scale="1" />
+        <Entity Name="GameObject_239" Type="Trash/Box" Position="38.516129, -3.490386, 3.141133" Scale="1" />
+        <Entity Name="GameObject_23a" Type="Trash/Box" Position="38.518360, -2.484442, 3.140253" Scale="1" />
+        <Entity Name="GameObject_23b" Type="Buildings/Trash1" Position="38.500000, -1.000000, 0.000000" Scale="1" />
     </Layer>
     <Layer Name="Zombies">
         <Entity Name="GameObject_159" Type="Creatures/Civilian1" Position="19.968130, 3.945524, 1.095089" Scale="1" />
@@ -360,7 +428,7 @@
         <Entity Name="GameObject_15b" Type="Creatures/Civilian1" Position="6.000000, 43.000000, 1.000000" Scale="1" />
         <Entity Name="GameObject_15c" Type="Creatures/Bandit1" Position="12.000000, 44.000000, 1.000000" Scale="1" />
         <Entity Name="GameObject_15d" Type="Creatures/Civilian1" Position="10.000000, 43.000000, 1.000000" Scale="1" />
-        <Entity Name="GameObject_15e" Type="Creatures/Civilian1" Position="9.150149, 45.370140, 0.826517" Scale="1" />
+        <Entity Name="GameObject_15e" Type="Creatures/Civilian1" Position="9.149614, 45.369549, 0.828518" Scale="1" />
         <Entity Name="doorA" Type="Doors/Simple" Position="7.000000, 12.000000, 0.000000" Scale="1" />
         <Entity Name="Player" Type="Player" Position="9.000000, 12.000000, 1.000000" Scale="1" />
         <Entity Name="GameObject_15f" Type="Creatures/Civilian1" Position="12.000000, 12.000000, 1.000000" Scale="1" />
@@ -368,24 +436,27 @@
         <Entity Name="GameObject_161" Type="Creatures/Bandit1" Position="32.000000, 26.000000, 1.000000" Scale="1" />
         <Entity Name="GameObject_162" Type="Creatures/Bandit1" Position="34.000000, 27.000000, 1.000000" Scale="1" />
         <Entity Name="GameObject_163" Type="Creatures/Police1" Position="8.000000, 43.000000, 1.000000" Scale="1" />
-        <Entity Name="GameObject_164" Type="Creatures/Police1" Position="8.635242, 44.464375, 0.825583" Scale="1" />
-        <Entity Name="GameObject_165" Type="Creatures/Police1" Position="34.261303, 30.435106, 1.015787" Scale="1" />
-        <Entity Name="GameObject_166" Type="Creatures/Police1" Position="33.738697, 29.564894, 1.015787" Scale="1" />
+        <Entity Name="GameObject_164" Type="Creatures/Police1" Position="8.634792, 44.463890, 0.827580" Scale="1" />
+        <Entity Name="GameObject_165" Type="Creatures/Police1" Position="34.261303, 30.435106, 1.015788" Scale="1" />
+        <Entity Name="GameObject_166" Type="Creatures/Police1" Position="33.738697, 29.564894, 1.015788" Scale="1" />
         <Entity Name="GameObject_167" Type="Creatures/Civilian1" Position="40.000000, 25.000000, 1.000000" Scale="1" />
         <Entity Name="GameObject_168" Type="Creatures/Civilian1" Position="40.000000, 27.000000, 1.000000" Scale="1" />
         <Entity Name="GameObject_169" Type="Creatures/Bandit1" Position="33.968124, 9.945529, 1.095093" Scale="1" />
         <Entity Name="GameObject_16a" Type="Creatures/Bandit1" Position="34.031876, 11.054471, 1.095293" Scale="1" />
         <Entity Name="GameObject_16b" Type="Creatures/Police1" Position="40.000000, 12.000000, 1.000000" Scale="1" />
         <Entity Name="GameObject_16c" Type="Creatures/Police1" Position="40.000000, 9.000000, 1.000000" Scale="1" />
+        <Entity Name="GameObject_1ec" Type="Creatures/Police1" Position="7.984375, 0.937500, -1.000000" Scale="1" />
+        <Entity Name="GameObject_1ed" Type="Creatures/Police1" Position="12.000000, 1.000000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_23f" Type="Creatures/Bandit1" Position="45.999802, 1.002704, 0.073389" Scale="1" />
     </Layer>
     <Layer Name="Bullets" />
     <Layer Name="Containers">
         <Entity Name="GameObject_16d" Type="Trash/Box" Position="11.898697, 9.975270, 0.139321" Scale="1" />
         <Entity Name="GameObject_16e" Type="Trash/Box" Position="13.101303, 10.524730, 0.145425" Scale="1" />
-        <Entity Name="GameObject_16f" Type="Trash/Box" Position="12.048862, 47.984791, 0.025449" Scale="1" />
+        <Entity Name="GameObject_16f" Type="Trash/Box" Position="12.048875, 48.002415, 0.025448" Scale="1" />
         <Entity Name="GameObject_170" Type="Trash/Box" Position="11.480884, 46.485020, 0.000002" Scale="1" />
-        <Entity Name="GameObject_171" Type="Trash/Box" Position="9.740063, 46.486366, 0.001603" Scale="1" />
-        <Entity Name="GameObject_172" Type="Trash/Box" Position="10.364749, 45.489716, 0.220164" Scale="1" />
+        <Entity Name="GameObject_171" Type="Trash/Box" Position="9.740179, 46.485176, 0.000166" Scale="1" />
+        <Entity Name="GameObject_172" Type="Trash/Box" Position="10.365618, 45.485851, 0.220466" Scale="1" />
     </Layer>
     <Layer Name="Fencies">
         <Entity Name="GameObject_173" Type="Fencies/Stone" Position="4.500000, 6.000000, 0.000000" Scale="1" />
@@ -401,7 +472,6 @@
         <Entity Name="GameObject_17d" Type="Fencies/Stone" Position="0.500000, 38.000000, 0.000000" Scale="1" />
         <Entity Name="GameObject_17e" Type="Fencies/Stone" Position="0.500000, 42.000000, 0.000000" Scale="1" />
         <Entity Name="GameObject_17f" Type="Fencies/Stone" Position="0.500000, 46.000000, 0.000000" Scale="1" />
-        <Entity Name="GameObject_180" Type="Cars/Car2" Position="15.000000, 11.000000, -2.000000" Scale="1" />
         <Entity Name="GameObject_181" Type="Cars/Car1" Position="15.500000, 22.000000, -1.800000" Scale="1" />
         <Entity Name="GameObject_182" Type="Cars/Car1" Position="3.000000, 39.000000, -1.570000" Scale="1" />
         <Entity Name="GameObject_183" Type="Cars/Car3" Position="5.200000, 38.500000, -1.600000" Scale="1" />
@@ -409,6 +479,35 @@
         <Entity Name="GameObject_185" Type="Cars/Car1" Position="4.000000, 45.000000, -3.100000" Scale="1" />
         <Entity Name="GameObject_186" Type="Cars/Car2" Position="29.000000, 28.000000, -2.500000" Scale="1" />
         <Entity Name="GameObject_187" Type="Cars/Car2" Position="29.299999, 30.400000, -2.400000" Scale="1" />
+        <Entity Name="GameObject_180" Type="Cars/Car2" Position="15.203125, 11.203125, -2.000000" Scale="1" />
+        <Entity Name="GameObject_1c8" Type="Fencies/Stone" Position="4.500000, 2.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_1c9" Type="Fencies/Stone" Position="4.500000, -2.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_1e1" Type="Fencies/Stone" Position="7.000000, -4.500000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_1e2" Type="Fencies/Stone" Position="11.000000, -4.500000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_1e3" Type="Fencies/Stone" Position="15.000000, -4.500000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_1e4" Type="Fencies/Stone" Position="19.000000, -4.500000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_1e5" Type="Fencies/Stone" Position="23.000000, -4.500000, 1.570796" Scale="1" />
+        <Entity Name="GameObject_1e7" Type="Cars/Car3" Position="7.000000, -3.000000, 3.141593" Scale="1" />
+        <Entity Name="GameObject_1e8" Type="Cars/Car2" Position="11.000000, -3.000000, 3.141593" Scale="1" />
+        <Entity Name="GameObject_1fd" Type="Fencies/Bush" Position="29.500000, 1.000000, 3.141593" Scale="1" />
+        <Entity Name="GameObject_1fe" Type="Fencies/Bush" Position="29.500000, -2.000000, 3.141593" Scale="1" />
+        <Entity Name="GameObject_1ff" Type="Fencies/Stone" Position="27.000000, -4.500000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_202" Type="Fencies/Stone" Position="31.000000, -4.500000, 1.570796" Scale="1" />
+        <Entity Name="GameObject_203" Type="Fencies/Stone" Position="30.500000, -2.000000, 3.141593" Scale="1" />
+        <Entity Name="GameObject_204" Type="Fencies/Stone" Position="30.500000, 2.000000, 3.141593" Scale="1" />
+        <Entity Name="GameObject_222" Type="Fencies/Stone" Position="35.000000, -4.500000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_223" Type="Fencies/Stone" Position="39.000000, -4.500000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_224" Type="Fencies/Stone" Position="43.000000, -4.500000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_225" Type="Fencies/Stone" Position="47.000000, -4.500000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_226" Type="Fencies/Stone" Position="51.000000, -4.500000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_22c" Type="Fencies/Bush" Position="37.500000, -2.000000, 6.283185" Scale="1" />
+        <Entity Name="GameObject_22d" Type="Fencies/Bush" Position="37.500000, 2.000000, 6.283185" Scale="1" />
+        <Entity Name="GameObject_22e" Type="Cars/Car1" Position="36.000000, -2.000000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_245" Type="Fencies/Bush" Position="43.000000, 8.500000, 1.570796" Scale="1" />
+        <Entity Name="GameObject_246" Type="Fencies/Bush" Position="58.500000, 1.000000, 3.141593" Scale="1" />
+        <Entity Name="GameObject_247" Type="Fencies/Bush" Position="58.500000, -2.000000, 3.141593" Scale="1" />
+        <Entity Name="GameObject_248" Type="Fencies/Stone" Position="55.000000, -4.500000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_249" Type="Fencies/Stone" Position="59.000000, -4.500000, 4.712389" Scale="1" />
     </Layer>
     <Layer Name="Buildings">
         <Entity Name="GameObject_188" Type="Buildings/Old/Part1" Position="6.500000, 6.000000, 0.000000" Scale="1" />
@@ -468,8 +567,14 @@
         <Entity Name="GameObject_1bc" Type="Trees/Tree2" Position="3.000000, 30.000000, 0.000000" Scale="1" />
         <Entity Name="GameObject_1bd" Type="Trees/Tree1" Position="6.000000, 28.000000, 0.000000" Scale="1" />
         <Entity Name="GameObject_1be" Type="Trees/Tree1" Position="6.000000, 32.000000, 1.000000" Scale="1" />
-        <Entity Name="GameObject_1bf" Type="Trees/Tree1" Position="38.299999, 4.000000, 1.000000" Scale="1" />
-        <Entity Name="GameObject_1c0" Type="Trees/Tree1" Position="43.000000, 6.000000, 0.000000" Scale="1" />
-        <Entity Name="GameObject_1c1" Type="Trees/Tree1" Position="39.000000, 8.000000, 1.200000" Scale="1" />
+        <Entity Name="GameObject_1bf" Type="Trees/Tree1" Position="38.500000, 3.000000, 1.000000" Scale="1" />
+        <Entity Name="GameObject_1c0" Type="Trees/Tree1" Position="43.500000, 7.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_1c1" Type="Trees/Tree1" Position="38.500000, 7.000000, 1.200000" Scale="1" />
+        <Entity Name="GameObject_1f9" Type="Trees/Tree2" Position="22.000000, -3.000000, 3.141593" Scale="1" />
+        <Entity Name="GameObject_206" Type="Trees/Tree1" Position="28.000000, -3.000000, 3.141593" Scale="1" />
+        <Entity Name="GameObject_207" Type="Trees/Tree3" Position="28.000000, 2.000000, 5.497787" Scale="1" />
+        <Entity Name="GameObject_208" Type="Trees/Tree3" Position="25.500000, 2.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_209" Type="Trees/Tree3" Position="23.000000, 2.000000, 1.570796" Scale="1" />
+        <Entity Name="GameObject_252" Type="Trees/Tree3" Position="55.000000, 1.000000, 1.570796" Scale="1" />
     </Layer>
 </Level>

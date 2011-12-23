@@ -45,6 +45,12 @@ namespace QuestEditor.Proxy
         {
             Stages = new ObservableCollection<ProxyStage>();
             mQuest = quest;
+
+            foreach (ModelStage stage in mQuest.Stages)
+            {
+                ProxyStage ps = new ProxyStage(stage);
+                Stages.Add(ps);
+            }
         }
 
         #region Methods

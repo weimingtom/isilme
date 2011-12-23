@@ -131,6 +131,9 @@ namespace QuestEditor.Views
             XDocument document = XDocument.Load(FileName);
 
             mStory.Load(document.Root);
+
+            mProxyStory = new ProxyStory(mStory);
+            mStoryTreeView.DataContext = mProxyStory;
         }
 
         public override void Save()

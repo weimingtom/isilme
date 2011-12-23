@@ -99,8 +99,9 @@ namespace LevelEditor
 			void ExecutedSelectPaletteItem(Object^ sender, ExecutedRoutedEventArgs^ e);
 			void CanExecuteSelectPaletteItem(System::Object^ sender, System::Windows::Input::CanExecuteRoutedEventArgs^ e);
 
-			void ExecutedActivateGrid(Object^ sender, ExecutedRoutedEventArgs^ e);
-			void CanExecuteActivateGrid(System::Object^ sender, System::Windows::Input::CanExecuteRoutedEventArgs^ e);
+			void ExecutedRemoveEntity(Object^ sender, ExecutedRoutedEventArgs^ e);
+			void CanExecuteRemoveEntity(System::Object^ sender, System::Windows::Input::CanExecuteRoutedEventArgs^ e);
+
 		};
 	}
 }

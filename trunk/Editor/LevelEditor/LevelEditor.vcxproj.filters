@@ -33,10 +33,7 @@
     <ClCompile Include="Proxy\LevelProxy.cpp">
       <Filter>Proxy</Filter>
     </ClCompile>
-    <ClCompile Include="Commands\AddEntity.cpp" />
-    <ClCompile Include="Commands\AddLayer.cpp" />
     <ClCompile Include="Commands\NativeCommand.cpp" />
-    <ClCompile Include="Commands\RemoveEntity.cpp" />
     <ClCompile Include="View\EntityPaletteTool.cpp">
       <Filter>View</Filter>
     </ClCompile>
@@ -54,6 +51,33 @@
     </ClCompile>
     <ClCompile Include="Commands\RotateEntity.cpp">
       <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\AddEntity.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\AddLayer.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\RemoveEntity.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\ScaleEntity.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Proxy\StageProxy.cpp">
+      <Filter>Proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="Proxy\QuestProxy.cpp">
+      <Filter>Proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="Proxy\StoryProxy.cpp">
+      <Filter>Proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="Proxy\ConversationProxy.cpp">
+      <Filter>Proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="Proxy\PhraseProxy.cpp">
+      <Filter>Proxy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -96,12 +120,7 @@
     <ClInclude Include="Proxy\LevelProxy.h">
       <Filter>Proxy</Filter>
     </ClInclude>
-    <ClInclude Include="Commands\AddLayer.h" />
-    <ClInclude Include="Commands\AddEntity.h" />
     <ClInclude Include="Commands\NativeCommand.h" />
-    <ClInclude Include="Commands\RemoveEntity.h" />
-    <ClInclude Include="View\EntityPalette.h" />
-    <ClInclude Include="View\EntityPaletteTool.h" />
     <ClInclude Include="Proxy\EntityPaletteProxy.h">
       <Filter>Proxy</Filter>
     </ClInclude>
@@ -118,6 +137,36 @@
       <Filter>Commands</Filter>
     </ClInclude>
     <ClInclude Include="LevelEditorCommands.h" />
+    <ClInclude Include="Commands\AddLayer.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\AddEntity.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="View\EntityPaletteTool.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\RemoveEntity.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\ScaleEntity.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\ConversationProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\PhraseProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\StoryProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\QuestProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\StageProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />

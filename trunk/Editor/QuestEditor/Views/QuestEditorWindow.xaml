@@ -26,7 +26,7 @@
                 x:Key="StageTemplate">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/QuestEditor;component/Resources/Stage.png"></Image>
-                    <TextBlock Text="{Binding Path=ID}"></TextBlock>
+                    <TextBlock Text="{Binding Path=Text}"></TextBlock>
                     <StackPanel.ContextMenu>
                         <ContextMenu>
                             <MenuItem Header="Remove" Command="Delete"></MenuItem>

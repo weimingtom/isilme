@@ -17,6 +17,7 @@
 #include "../Tool/SelectorTool.h"
 #include "Engine/Core/Serialisation/StaticLevelSerialiser.h"
 #include "../LevelEditorCommands.h"
+#include "../Commands/RemoveEntity.h"
 
 namespace LevelEditor
 {
@@ -80,9 +81,9 @@ namespace LevelEditor
 				gcnew CanExecuteRoutedEventHandler(this, &LevelEditorWindow::CanExecuteSelectPaletteItem)));
 
 			CommandBindings->Add(
-				gcnew CommandBinding(ActivateGrid, 
-				gcnew ExecutedRoutedEventHandler(this, &LevelEditorWindow::ExecutedActivateGrid), 
-				gcnew CanExecuteRoutedEventHandler(this, &LevelEditorWindow::CanExecuteActivateGrid)));
+				gcnew CommandBinding(System::Windows::Input::ApplicationCommands::Delete, 
+				gcnew ExecutedRoutedEventHandler(this, &LevelEditorWindow::ExecutedRemoveEntity), 
+				gcnew CanExecuteRoutedEventHandler(this, &LevelEditorWindow::CanExecuteRemoveEntity)));
 		}
 
 		void LevelEditorWindow::OnMouseDown( Object^ sender, MouseButtonEventArgs^ e )
@@ -308,14 +309,20 @@ namespace LevelEditor
 			//}
 		}
 
-		void LevelEditorWindow::ExecutedActivateGrid( Object^ sender, ExecutedRoutedEventArgs^ e )
+		void LevelEditorWindow::ExecutedRemoveEntity( Object^ sender, ExecutedRoutedEventArgs^ e )
 		{
-			mEntityBrush->UseGrid = !mEntityBrush->UseGrid;
+			EntityProxy^ entity = dynamic_cast<EntityProxy^>(SelectedObject);
+			if (entity != nullptr)
+			{
+				LayerProxy^ layer = entity->Layer;
+				SelectedObject = nullptr;
+				CommandManager->Execute(gcnew Commands::RemoveEntity(layer, entity));
+			}
 		}
 
-		void LevelEditorWindow::CanExecuteActivateGrid( System::Object^ sender, System::Windows::Input::CanExecuteRoutedEventArgs^ e )
+		void LevelEditorWindow::CanExecuteRemoveEntity( System::Object^ sender, System::Windows::Input::CanExecuteRoutedEventArgs^ e )
 		{
-			e->CanExecute = true;
+			e->CanExecute = (dynamic_cast<EntityProxy^>(SelectedObject) != nullptr);
 		}
 
 		void LevelEditorWindow::Save()
