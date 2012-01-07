@@ -70,6 +70,12 @@ namespace LevelEditor
 			LevelEditorCommands::SelectObjectsSelector->CanExecuteTargets += gcnew Func<bool>(this, &LevelEditorWindow::CanExecuteSelectObjectsSelector);
 			LevelEditorCommands::SelectObjectsSelector->ExecuteTargets += gcnew System::Action<Object^>(this, &LevelEditorWindow::ExecutedSelectObjectsSelector);
 
+			LevelEditorCommands::DrawPhisics->CanExecuteTargets += gcnew Func<bool>(this, &LevelEditorWindow::CanExecuteDrawPhisics);
+			LevelEditorCommands::DrawPhisics->ExecuteTargets += gcnew System::Action<Object^>(this, &LevelEditorWindow::ExecutedDrawPhisics);
+
+			LevelEditorCommands::ActivatePhisics->CanExecuteTargets += gcnew Func<bool>(this, &LevelEditorWindow::CanExecuteActivatePhisics);
+			LevelEditorCommands::ActivatePhisics->ExecuteTargets += gcnew System::Action<Object^>(this, &LevelEditorWindow::ExecutedActivatePhisics);
+
 			CommandBindings->Add(
 				gcnew CommandBinding(AddLayerCommand, 
 				gcnew ExecutedRoutedEventHandler(this, &LevelEditorWindow::ExecutedAddLayer), 
@@ -84,6 +90,16 @@ namespace LevelEditor
 				gcnew CommandBinding(System::Windows::Input::ApplicationCommands::Delete, 
 				gcnew ExecutedRoutedEventHandler(this, &LevelEditorWindow::ExecutedRemoveEntity), 
 				gcnew CanExecuteRoutedEventHandler(this, &LevelEditorWindow::CanExecuteRemoveEntity)));
+
+			CommandBindings->Add(
+				gcnew CommandBinding(System::Windows::Input::ApplicationCommands::Copy, 
+				gcnew ExecutedRoutedEventHandler(this, &LevelEditorWindow::ExecutedCopyEntity), 
+				gcnew CanExecuteRoutedEventHandler(this, &LevelEditorWindow::CanExecuteCopyEntity)));
+
+			CommandBindings->Add(
+				gcnew CommandBinding(System::Windows::Input::ApplicationCommands::Paste, 
+				gcnew ExecutedRoutedEventHandler(this, &LevelEditorWindow::ExecutedPasteEntity), 
+				gcnew CanExecuteRoutedEventHandler(this, &LevelEditorWindow::CanExecutePasteEntity)));
 		}
 
 		void LevelEditorWindow::OnMouseDown( Object^ sender, MouseButtonEventArgs^ e )
@@ -351,6 +367,49 @@ namespace LevelEditor
 		{
 			e->Cancel = true;
 			Hide();
+		}
+
+		void LevelEditorWindow::CanExecuteCopyEntity( System::Object^ sender, System::Windows::Input::CanExecuteRoutedEventArgs^ e )
+		{
+			e->CanExecute = dynamic_cast<EntityProxy^>(SelectedObject) != nullptr;
+		}
+
+		void LevelEditorWindow::ExecutedCopyEntity( Object^ sender, ExecutedRoutedEventArgs^ e )
+		{
+			EntityProxy^ entity = dynamic_cast<EntityProxy^>(SelectedObject);
+			EntityCopyData^ data = entity->MakeCopy();
+
+			System::Windows::Clipboard::SetData("EntityData", data);
+		}
+
+		void LevelEditorWindow::ExecutedPasteEntity( Object^ sender, ExecutedRoutedEventArgs^ e )
+		{
+			Object^ objData = System::Windows::Clipboard::GetData("EntityData");
+		}
+
+		void LevelEditorWindow::CanExecutePasteEntity( System::Object^ sender, System::Windows::Input::CanExecuteRoutedEventArgs^ e )
+		{
+			e->CanExecute = System::Windows::Clipboard::ContainsData("EntityData");
+		}
+
+		void LevelEditorWindow::ExecutedActivatePhisics( Object^ param )
+		{
+			Game::GetSingleton()->SetUsePhisics(!Game::GetSingleton()->GetUsePhisics());
+		}
+
+		bool LevelEditorWindow::CanExecuteActivatePhisics()
+		{
+			return true;
+		}
+
+		void LevelEditorWindow::ExecutedDrawPhisics( Object^ param )
+		{
+			Game::GetSingleton()->GetStateManager()->GetRenderer()->SetDrawPhisics(!Game::GetSingleton()->GetStateManager()->GetRenderer()->GetDrawPhisics());
+		}
+
+		bool LevelEditorWindow::CanExecuteDrawPhisics()
+		{
+			return true;
 		}
 
 		LevelProxy^ LevelEditorWindow::Level::get()

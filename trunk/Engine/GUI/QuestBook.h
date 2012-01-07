@@ -7,7 +7,7 @@
 
 namespace gcn
 {
-	class IsilmeExport QuestBook : public Window
+	class ISILME_API QuestBook : public Window
 	{
 	public:
 		QuestBook();

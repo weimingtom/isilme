@@ -15,7 +15,7 @@ namespace action
 
 /// @class Action
 /// Класс описывает действие, совершаемое игровым объектом
-class IsilmeExport  Action : public boost::enable_shared_from_this<Action>
+class ISILME_API  Action : public boost::enable_shared_from_this<Action>
 {
 	friend class Behaviour;
 public:

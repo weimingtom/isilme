@@ -6,7 +6,7 @@
 
 namespace serialisation
 {
-	class IsilmeExport SaveData
+	class ISILME_API SaveData
 	{
 	public:
 		SaveData();

@@ -5,6 +5,7 @@
 #include "Entity.h"
 #include "Query.h"
 #include "FactoryManager.h"
+#include "Game.h"
 
 namespace RayCast
 {
@@ -230,8 +231,11 @@ void		Level::Update(float elapsedTime)
 	
 	mPhisicsTimer = elapsedTime;
 
-	mWorld->Step(elapsedTime, 6, 2);
-	mWorld->ClearForces();
+	if (Game::GetSingleton()->GetUsePhisics())
+	{
+		mWorld->Step(elapsedTime, 6, 2);
+		mWorld->ClearForces();
+	}
 	
 
 	mCamera->Update(elapsedTime);
@@ -467,4 +471,16 @@ LevelPtr	Level::Load(std::string fileName)
 	delete document;
 
 	return level;
+}
+
+void Level::RenameLayer( std::string oldName, std::string name )
+{
+	LayerMap::iterator it = mLayerNames.find(oldName);
+	if (it == mLayerNames.end())
+		return;
+	LayerPtr layer = it->second;
+	layer->mName = name;
+
+	mLayerNames.erase(it);
+	mLayerNames[name] = layer;
 }

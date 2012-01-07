@@ -6,7 +6,7 @@
 namespace ai
 {
 	/// Attribute.
-	class IsilmeExport Attribute
+	class ISILME_API Attribute
 	{
 	public:
 		/// Constructor.

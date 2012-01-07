@@ -6,7 +6,7 @@
 
 /// @class ResourceManager
 /// Менеджер ресурсов, интерфейс
-class IsilmeExport ResourceManager
+class ISILME_API ResourceManager
 {
 public:
 	virtual ~ResourceManager();
@@ -26,7 +26,7 @@ protected:
 
 /// @class HGEResourceManager
 /// Реализация менеджера ресурсов, использующая HGE
-class IsilmeExport HGEResourceManager : public ResourceManager
+class ISILME_API HGEResourceManager : public ResourceManager
 {
 public:
 	HGEResourceManager(HGE* hge);

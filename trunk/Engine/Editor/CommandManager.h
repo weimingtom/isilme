@@ -6,7 +6,7 @@
 namespace editor
 {
 	/// Менеджер команд
-	class IsilmeExport CommandManager
+	class ISILME_API CommandManager
 	{
 	public:
 		CommandManager();

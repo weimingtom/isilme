@@ -3,7 +3,7 @@
 
 #include "Definitions.h"
 
-class IsilmeExport Camera
+class ISILME_API Camera
 {
 public:
 	float x;
@@ -22,7 +22,7 @@ public:
 	void	Apply();
 };
 
-class IsilmeExport CameraDefinition
+class ISILME_API CameraDefinition
 {
 public:
 	CameraDefinition();
@@ -32,7 +32,7 @@ public:
 	virtual void	Parse(TiXmlElement* def);
 };
 
-class IsilmeExport ICameraFactory
+class ISILME_API ICameraFactory
 {
 public:
 	virtual ~ICameraFactory() {}

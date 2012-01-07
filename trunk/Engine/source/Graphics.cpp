@@ -1,8 +1,13 @@
 #include "IsilmePCH.h"
 
-Graphics::Graphics()
+Graphics::Graphics(GraphicsDefinition* def) 
 {
-	mScale = 1.0f;
+	mAnchor.Set(0.0f, 0.0f);
+	if (def)
+	{
+		mAnchor = def->Anchor;
+		mScale = 1.0f;
+	}
 }
 
 Graphics::~Graphics()
@@ -14,7 +19,7 @@ EntityPtr Graphics::GetEntity()
 	return mEntity.lock();
 }
 
-void Graphics::Render(float x, float y, float angle)
+void Graphics::Render( float x, float y, float angle)
 {
 	for (GraphicsMap::iterator it = mAttached.begin(); it != mAttached.end(); ++it)
 		it->second->Render(x, y, angle);
@@ -51,4 +56,26 @@ float Graphics::GetScale()
 void Graphics::Scale(float value)
 {
 	SetScale(mScale * value);
+}
+
+void Graphics::SetAnchor( Vector2 point )
+{
+	mAnchor = point;
+}
+
+Vector2 Graphics::GetAnchor()
+{
+	return mAnchor;
+}
+
+void GraphicsDefinition::Parse( TiXmlElement* defElement )
+{
+	if (!defElement)
+		return;
+
+	if (defElement->Attribute("Anchor"))
+	{
+		char buf[100];
+		sscanf(buf, "%f, %f", &Anchor.x, &Anchor.y);
+	}
 }

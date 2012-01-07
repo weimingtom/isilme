@@ -5,24 +5,26 @@
 #include "Engine/Loading/GraphicsDefinition.h"
 
 // Описание графической модели
-class IsilmeExport GraphicsDefinition 
+class ISILME_API GraphicsDefinition 
 {
 public:
 	virtual ~GraphicsDefinition() {}
 
-	virtual void Parse(TiXmlElement* defElement) = 0;
+	virtual void Parse(TiXmlElement* defElement);
 	virtual GraphicsPtr Create() = 0;
+
+	Vector2 Anchor;
 protected:
 	std::string mType;
 };
 
 // Класс описывает графику сущности
-class IsilmeExport Graphics
+class ISILME_API Graphics
 {
 	friend class Entity;
 	friend class FactoryManager;
 public:
-	Graphics();
+	Graphics(GraphicsDefinition* def = 0);
 	virtual ~Graphics();
 
 	/// Обновить графику
@@ -54,10 +56,19 @@ public:
 	///
 	/// @param	scale	The scale.
 	void Scale(float scale);
+
+	/// Возвращает точку привязки графики к телу сущности
+	Vector2	GetAnchor();
+
+	/// Устанавливает точку привязки графики к телу
+	void SetAnchor(Vector2 point);
 protected:
 	float mScale;
 	EntityWPtr mEntity;
 	GraphicsMap mAttached;
+private:
+	/// Точка привязки
+	Vector2 mAnchor;
 };
 
 #endif

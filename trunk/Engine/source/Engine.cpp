@@ -96,3 +96,14 @@ void			Engine::SetSoundSystem(SoundSystem* soundSystem)
 {
 	mSoundSystem = soundSystem;
 }
+
+std::string Engine::GetWorkingDirectory()
+{
+	/// TODO: Сделать нормальное получение текущей директории и директории ресурсов
+	return "";
+}
+
+std::string Engine::GetResourceDirectory()
+{
+	return "../Data";
+}

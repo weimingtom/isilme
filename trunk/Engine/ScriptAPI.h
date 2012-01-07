@@ -8,8 +8,8 @@
 
 namespace ScriptAPI
 {
-	void IsilmeExport RegisterEngineAPI();
+	void ISILME_API RegisterEngineAPI();
 
-	luabind::object		IsilmeExport MakeFunction(std::string params, std::string body);
+	luabind::object		ISILME_API MakeFunction(std::string params, std::string body);
 };
 #endif

@@ -12,30 +12,6 @@ namespace story
 	{
 	}
 
-	ConversationPtr Conversation::Load(TiXmlElement* convElement)
-	{
-		ConversationPtr conversation(new Conversation());
-
-		// Читаем идентификатор
-		const char* idAttr = convElement->Attribute("ID");
-		if (idAttr)
-		{
-			conversation->mID = idAttr;
-		}
-
-		// Читаем фразы
-		TiXmlElement* phraseElement = convElement->FirstChildElement("Phrase");
-		while (phraseElement)
-		{
-			PhrasePtr phrase = Phrase::Load(phraseElement);
-			conversation->AddPhrase(phrase);
-
-			phraseElement = phraseElement->NextSiblingElement("Phrase");
-		}
-
-		return conversation;
-	}
-
 	void Conversation::AddPhrase(PhrasePtr phrase)
 	{
 		mPhrases.push_back(phrase);

@@ -10,7 +10,7 @@
 /// Состояние игры.
 ///  Состояние игры представляет собой сцену уровня и графический интерфейс
 /// уровня.
-class IsilmeExport State
+class ISILME_API State
 {
 public:	
 	/// Default constructor.

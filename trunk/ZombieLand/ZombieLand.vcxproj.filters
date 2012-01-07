@@ -209,6 +209,9 @@
     <ClInclude Include="Behaviour\Door.h">
       <Filter>Behaviour</Filter>
     </ClInclude>
+    <ClInclude Include="Actions\KeepHealthPackage.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Data\Entities.xml">
@@ -245,6 +248,9 @@
       <Filter>Data</Filter>
     </None>
     <None Include="..\Data\Levels\Level2.xml">
+      <Filter>Data</Filter>
+    </None>
+    <None Include="..\Data\Master.imf">
       <Filter>Data</Filter>
     </None>
   </ItemGroup>

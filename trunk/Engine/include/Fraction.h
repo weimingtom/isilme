@@ -4,7 +4,7 @@
 #include "Definitions.h"
 
 ///
-class IsilmeExport Fraction
+class ISILME_API Fraction
 {
 	friend class FactoryManager;
 public:

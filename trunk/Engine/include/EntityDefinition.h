@@ -8,7 +8,7 @@
 /// Класс определения сущности
 /// Фабрика использует эти определения для создания сущностей.
 /// Создаются при загрузке XML-файла определений
-class IsilmeExport EntityDefinition
+class ISILME_API EntityDefinition
 {
 	friend class FactoryManager;
 public:

@@ -14,7 +14,7 @@ namespace graphics
 	};
 
 	/// @class TriggerGraphics
-	class IsilmeExport TriggerGraphics : public StateGraphics<Trigger>
+	class ISILME_API TriggerGraphics : public StateGraphics<Trigger>
 	{
 	public:
 		TriggerGraphics(TriggerDef* def) : 

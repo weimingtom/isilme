@@ -7,6 +7,22 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-            
+        <Grid.Resources>
+            <HierarchicalDataTemplate x:Key="PhraseTemplate" ItemsSource="{Binding Path=Answers}">
+                <StackPanel>
+                    <TextBlock Text="{Binding Path= Text}"></TextBlock>
+                </StackPanel>
+            </HierarchicalDataTemplate>
+            <HierarchicalDataTemplate x:Key="ConversationTemplate" ItemsSource="{Binding Path=Phrases}" ItemTemplate="{StaticResource ResourceKey=PhraseTemplate}">
+                <StackPanel>
+                    <TextBlock Text="Диалог"></TextBlock>
+                </StackPanel>
+            </HierarchicalDataTemplate>
+        </Grid.Resources>
+        <TreeView Name="mConvesationTree">
+            <TreeView.Items>
+                <TreeViewItem Name="mConvItem" Header="Dialog" ItemTemplate="{StaticResource ResourceKey=PhraseTemplate}" ItemsSource="{Binding Path=Phrases}"></TreeViewItem>
+            </TreeView.Items>
+        </TreeView>
     </Grid>
 </cm:EditorWindow>

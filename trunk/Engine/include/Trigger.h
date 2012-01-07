@@ -5,7 +5,7 @@
 #include "Behaviour.h"
 
 
-class IsilmeExport TriggerDefinition : public BehaviourDefinition
+class ISILME_API TriggerDefinition : public BehaviourDefinition
 {
 public:
 	float ReacticvateTime;
@@ -20,7 +20,7 @@ public:
 /// @class Trigger
 /// Триггеры используются для реализации бонусов, ловушек, дверей и переключателей
 /// @see TriggerGraphics
-class IsilmeExport Trigger : public Behaviour
+class ISILME_API Trigger : public Behaviour
 {
 public:
 	Trigger(TriggerDefinition* def);

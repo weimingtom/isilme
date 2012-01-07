@@ -3,7 +3,7 @@
 
 #include "Definitions.h"
 
-class IsilmeExport Rank
+class ISILME_API Rank
 {
 	friend class FactoryManager;
 public:

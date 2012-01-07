@@ -10,7 +10,7 @@ namespace inventory
 {
 
 /// Класс инвентаря
-class IsilmeExport Inventory : public boost::enable_shared_from_this<Inventory>
+class ISILME_API Inventory : public boost::enable_shared_from_this<Inventory>
 {
 public:
 	static InventoryPtr New();

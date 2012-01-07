@@ -4,7 +4,7 @@
 #include "Definitions.h"
 #include <luabind/luabind.hpp>
 
-class IsilmeExport AIPackage
+class ISILME_API AIPackage
 {
 public:
 	AIPackage();

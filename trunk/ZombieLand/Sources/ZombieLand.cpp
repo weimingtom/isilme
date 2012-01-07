@@ -74,12 +74,12 @@ void	ZombieLand::Init()
 	factoryManager->RegisterAIPackage("Agression", AIPackageFactory<AgressionPackage>::New());
 	factoryManager->RegisterAIPackage("Avoid", AIPackageFactory<AvoidPackage>::New());
 	
-	FactoryManager::GetSingleton()->LoadGraphics("../Data/Graphics.xml");
-	factoryManager->LoadConversations("../Data/Conversations.xml");
+	FactoryManager::GetSingleton()->LoadMasterFile("../Data/Master.imf");
+//	factoryManager->LoadConversations("../Data/Conversations.xml");
 	factoryManager->LoadDataFile("../Data/Master.xml");
-	factoryManager->LoadItems("../Data/Items.xml");
+//	factoryManager->LoadItems("../Data/Items.xml");
 	LootManager::GetSingleton()->Load("../Data/Loot.xml");
-	FactoryManager::GetSingleton()->LoadEntities("../Data/Entities.xml");
+	//FactoryManager::GetSingleton()->LoadEntities("../Data/Entities.xml");
 
 	playState.reset(new state::Play());
 	Game::GetSingleton()->GetStory()->Load("../Data/Quests/Story1.xml");

@@ -4,7 +4,8 @@
 
 namespace graphics
 {	
-	Animation::Animation(AnimationDefinition* def)
+	Animation::Animation(AnimationDefinition* def) : 
+		Graphics(def)
 	{
 		mAnimation = new hgeAnimation(def->texture, def->frames, def->fps, def->x, def->y, def->width, def->height);
 		mAnimation->Play();
@@ -39,6 +40,8 @@ namespace graphics
 
 	void AnimationDefinition::Parse(TiXmlElement* defElement)
 	{
+		GraphicsDefinition::Parse(defElement);
+
 		const char* textureFile = defElement->GetText();
 		texture = Engine::GetSingleton()->GetResourceManager()->GetTexture(textureFile);
 		x = 0.0f;

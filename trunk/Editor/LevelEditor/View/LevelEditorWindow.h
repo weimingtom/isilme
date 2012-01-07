@@ -93,6 +93,12 @@ namespace LevelEditor
 			void ExecutedSelectObjectsSelector(Object^ param);
 			bool CanExecuteSelectObjectsSelector();
 
+			void ExecutedActivatePhisics(Object^ param);
+			bool CanExecuteActivatePhisics();
+
+			void ExecutedDrawPhisics(Object^ param);
+			bool CanExecuteDrawPhisics();
+
 			void ExecutedAddLayer(Object^ sender, ExecutedRoutedEventArgs^ e);
 			void CanExecuteAddLayer(System::Object^ sender, System::Windows::Input::CanExecuteRoutedEventArgs^ e);
 
@@ -102,6 +108,11 @@ namespace LevelEditor
 			void ExecutedRemoveEntity(Object^ sender, ExecutedRoutedEventArgs^ e);
 			void CanExecuteRemoveEntity(System::Object^ sender, System::Windows::Input::CanExecuteRoutedEventArgs^ e);
 
+			void ExecutedCopyEntity(Object^ sender, ExecutedRoutedEventArgs^ e);
+			void CanExecuteCopyEntity(System::Object^ sender, System::Windows::Input::CanExecuteRoutedEventArgs^ e);
+
+			void ExecutedPasteEntity(Object^ sender, ExecutedRoutedEventArgs^ e);
+			void CanExecutePasteEntity(System::Object^ sender, System::Windows::Input::CanExecuteRoutedEventArgs^ e);
 		};
 	}
 }

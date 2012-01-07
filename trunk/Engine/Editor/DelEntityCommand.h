@@ -6,7 +6,7 @@
 
 namespace editor
 {
-	class IsilmeExport DelEntityCommand
+	class ISILME_API DelEntityCommand
 	{
 	public:
 		DelEntityCommand(LayerPtr layer, EntityPtr entity);

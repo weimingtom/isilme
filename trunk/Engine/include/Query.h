@@ -6,7 +6,7 @@
 
 
 /// Query result.
-class IsilmeExport Query
+class ISILME_API Query
 {
 public:
 

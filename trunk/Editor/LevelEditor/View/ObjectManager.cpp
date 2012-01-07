@@ -5,6 +5,7 @@
 #include "../Proxy/LayerProxy.h"
 #include "../Proxy/EntityProxy.h"
 #include "../Commands/RemoveEntity.h"
+#include "../Commands/RemoveLayer.h"
 
 using namespace LevelEditor::Commands;
 
@@ -41,6 +42,8 @@ namespace LevelEditor
 				gcnew CanExecuteRoutedEventHandler(this, &ObjectManager::CanExecuteRemove)));
 
 			mObjectsTree->MouseUp += gcnew MouseButtonEventHandler(this, &ObjectManager::OnObjectSelected);
+
+			Title = "Objects";
 		}
 
 		void ObjectManager::OnObjectSelected(Object^ sender, MouseButtonEventArgs^ e)
@@ -65,7 +68,10 @@ namespace LevelEditor
 			}
 			else if (dynamic_cast<LayerProxy^>(mObjectsTree->SelectedItem) != nullptr )
 			{
+				LayerProxy^ layer = dynamic_cast<LayerProxy^>(mObjectsTree->SelectedItem);
+				LevelProxy^ level = layer->Level;
 
+				Editor->CommandManager->Execute(gcnew RemoveLayer(level, layer));
 			}
 		}
 

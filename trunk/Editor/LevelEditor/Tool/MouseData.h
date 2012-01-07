@@ -4,7 +4,7 @@ namespace LevelEditor
 {
 	namespace Tool
 	{
-		public enum MouseKey
+		public enum class MouseKey
 		{
 			NoButton = 0,
 			LeftButton = 1,

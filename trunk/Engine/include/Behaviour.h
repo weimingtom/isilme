@@ -7,7 +7,7 @@
 
 /// class Behaviour
 /// Класс описывает поведение игрового объекта,
-class IsilmeExport Behaviour : public boost::enable_shared_from_this<Behaviour>
+class ISILME_API Behaviour : public boost::enable_shared_from_this<Behaviour>
 {
 	friend class Entity;
 	friend class FactoryManager;
@@ -134,7 +134,7 @@ protected:
 
 /// class BehaviourDefinition
 /// Определяет параметры поведения объекта
-class IsilmeExport BehaviourDefinition
+class ISILME_API BehaviourDefinition
 {
 public:
 	BehaviourDefinition()

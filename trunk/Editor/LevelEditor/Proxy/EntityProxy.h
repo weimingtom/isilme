@@ -78,6 +78,15 @@ namespace LevelEditor
 			}
 		};
 
+		[Serializable]
+		public ref class EntityCopyData
+		{
+		public:
+			String^ Type;
+			float Angle;
+			float Scale;
+		};
+
 		public ref class EntityProxy : public ProxyObject
 		{
 		public:
@@ -120,6 +129,8 @@ namespace LevelEditor
 			{
 				String^ get();
 			}
+
+			EntityCopyData^ MakeCopy();
 		internal:
 			SharedCLIPtr<Entity>* mEntity;
 

@@ -1,4 +1,4 @@
-#ifndef ISILME_STORY_PHRASE_H
+п»ї#ifndef ISILME_STORY_PHRASE_H
 #define ISILME_STORY_PHRASE_H
 
 #include "Quests.h"
@@ -6,51 +6,72 @@
 
 namespace story
 {
-	class IsilmeExport Phrase
+	class ISILME_API Phrase
 	{
 	public:
+		Phrase(PhrasePtr refPhrase);
 		Phrase();
 		virtual ~Phrase();
 
-		/// Проверяет, выполняется ли условие фразы
+		/// РџСЂРѕРІРµСЂСЏРµС‚, РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ Р»Рё СѓСЃР»РѕРІРёРµ С„СЂР°Р·С‹
 		bool CheckCondition(EntityPtr speaker);
 
-		/// Возвращает текст фразы
+		/// Р’РѕР·РІСЂР°С‰Р°РµС‚ С‚РµРєСЃС‚ С„СЂР°Р·С‹
 		std::string GetText();
 
-		/// Возвращает количество ответов
+		/// Р’РѕР·РІСЂР°С‰Р°РµС‚ РєРѕР»РёС‡РµСЃС‚РІРѕ РѕС‚РІРµС‚РѕРІ
 		int	GetAnswersCount();
 
-		/// Возвращает ответ по идексу
+		/// Р’РѕР·РІСЂР°С‰Р°РµС‚ РѕС‚РІРµС‚ РїРѕ РёРґРµРєСЃСѓ
 		PhrasePtr GetAnswer(int index);
 
-		/// Запускае сценарий действия
+		/// Р—Р°РїСѓСЃРєР°Рµ СЃС†РµРЅР°СЂРёР№ РґРµР№СЃС‚РІРёСЏ
 		void RunAction(EntityPtr speaker);
 
-		/// Добавить ответ
+		/// Р”РѕР±Р°РІРёС‚СЊ РѕС‚РІРµС‚
 		void AddAnswer(PhrasePtr phrase);
 
-		/// Установить текст
+		/// РЈСЃС‚Р°РЅРѕРІРёС‚СЊ С‚РµРєСЃС‚
 		void SetText(std::string text);
 
-		/// Загружает фразу из XML
-		static PhrasePtr Load(TiXmlElement* phraseElement);
-
-		/// Выбрать ответ
+		/// Р’С‹Р±СЂР°С‚СЊ РѕС‚РІРµС‚
 		PhrasePtr AutoChooseAnswer(EntityPtr speaker);
+
+		void SetCondition( std::string attrCondition );
+
+		std::string GetConditionSource();
+		
+		std::string GetActionSource();
+
+		void SetAction( std::string atttrAction );
+		
+		void SetChance( int attrChance );
+
+		int GetChance();
+
+		bool IsReference();
 	private:
+		PhrasePtr mReference;
+
+		///< РўРµРєСЃС‚ СЃС†РµРЅР°СЂРёСЏ-СѓСЃР»РѕРІРёСЏ
+		std::string mConditionSource;
+
+		///< РўРµРєСЃС‚ СЃС†РµРЅР°СЂРёСЏ-РґРµР№СЃС‚РІРёСЏ
+		std::string mActionSource;
+
+		///< РўРµРєСЃС‚ С„СЂР°Р·С‹
 		std::string mText;
 
-		/// Условие фразы
+		/// РЈСЃР»РѕРІРёРµ С„СЂР°Р·С‹
 		luabind::object mCondition;
 
-		/// Действие фразы
+		/// Р”РµР№СЃС‚РІРёРµ С„СЂР°Р·С‹
 		luabind::object mAction;
 
-		/// Дочерние фразы
+		/// Р”РѕС‡РµСЂРЅРёРµ С„СЂР°Р·С‹
 		std::vector<PhrasePtr> mChildren;
 
-		/// Вероятность появления фразы от 0 до 100
+		/// Р’РµСЂРѕСЏС‚РЅРѕСЃС‚СЊ РїРѕСЏРІР»РµРЅРёСЏ С„СЂР°Р·С‹ РѕС‚ 0 РґРѕ 100
 		int mChance;
 	};
 };

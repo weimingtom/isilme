@@ -7,7 +7,7 @@
 namespace editor
 {
 /// Базовый класс инструментов
-class IsilmeExport Tool
+class ISILME_API Tool
 {
 public:
 	Tool();

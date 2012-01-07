@@ -9,22 +9,44 @@ namespace story
 	{
 	}
 
+	Phrase::Phrase( PhrasePtr refPhrase )
+	{
+		mReference = refPhrase;
+	}
+
 	Phrase::~Phrase()
 	{
 	}
 
+	bool Phrase::IsReference()
+	{
+		return mReference != 0;
+	}
+
 	int Phrase::GetAnswersCount()
 	{
+		if (mReference)
+			return mReference->mChildren.size();
+
 		return mChildren.size();
 	}
 
 	PhrasePtr Phrase::GetAnswer(int index)
 	{
+		if (mReference)
+			return mReference->mChildren.at(index);
+
 		return mChildren.at(index);
 	}
 
 	void Phrase::RunAction(EntityPtr speaker)
 	{
+		if (mReference)
+		{
+			mReference->RunAction(speaker);
+			return;
+		}
+
 		if (mAction)
 		{
 			mAction(speaker);
@@ -33,6 +55,9 @@ namespace story
 
 	bool Phrase::CheckCondition(EntityPtr speaker)
 	{
+		if (mReference)
+			return mReference->CheckCondition(speaker);
+
 		// Проверяем скрипт-условие
 		if (mCondition)
 		{
@@ -50,6 +75,9 @@ namespace story
 
 	std::string Phrase::GetText()
 	{
+		if (mReference)
+			return mReference->GetText();
+
 		return mText;
 	}
 
@@ -63,52 +91,13 @@ namespace story
 		mChildren.push_back(phrase);
 	}
 
-	PhrasePtr Phrase::Load(TiXmlElement* phraseElement)
-	{
-		PhrasePtr phrase(new Phrase());
-
-		// Читаем текст
-		TiXmlElement* textElement = phraseElement->FirstChildElement("Text");
-		if (textElement)
-		{
-			const char* text = textElement->GetText();
-			phrase->SetText(text ? text : "");
-		}
-
-		// Читаем вероятность фразы
-		phrase->mChance = 100;
-		phraseElement->QueryIntAttribute("Chance", &(phrase->mChance));
-
-		// Читаем скрипты
-		const char* conditionAttr = phraseElement->Attribute("Condition");
-		if (conditionAttr)
-		{
-			phrase->mCondition = ScriptAPI::MakeFunction("speaker", conditionAttr);
-		}
-
-		const char* actionAttr = phraseElement->Attribute("Action");
-		if (actionAttr)
-		{
-			phrase->mAction = ScriptAPI::MakeFunction("Speaker", actionAttr);
-		}
-
-		// Читаем ответы
-		TiXmlElement* answersElement = phraseElement->FirstChildElement("Answers");
-		if (answersElement)
-		{
-			TiXmlElement* childElement = answersElement->FirstChildElement("Phrase");
-			while (childElement)
-			{
-				PhrasePtr child = Phrase::Load(childElement);
-				phrase->AddAnswer(child);
-				childElement = childElement->NextSiblingElement("Phrase");
-			}
-		}
-		return phrase;
-	}
-
 	PhrasePtr Phrase::AutoChooseAnswer(EntityPtr speaker)
 	{
+		if (mReference)
+		{
+			return mReference->AutoChooseAnswer(speaker);
+		}
+
 		for (int i = 0; i < GetAnswersCount(); ++i)
 		{
 			PhrasePtr p = GetAnswer(i);
@@ -118,4 +107,45 @@ namespace story
 
 		return PhrasePtr();
 	}
+
+	void Phrase::SetCondition( std::string attrCondition )
+	{
+		mConditionSource = attrCondition;
+		mCondition = ScriptAPI::MakeFunction("", attrCondition);
+	}
+
+	void Phrase::SetAction( std::string atttrAction )
+	{
+		mActionSource = atttrAction;
+		mAction = ScriptAPI::MakeFunction("", atttrAction);
+	}
+
+	void Phrase::SetChance( int attrChance )
+	{
+		mChance = attrChance;
+	}
+
+	std::string Phrase::GetConditionSource()
+	{
+		if (mReference)
+			return mReference->mConditionSource;
+
+		return mConditionSource;
+	}
+
+	std::string Phrase::GetActionSource()
+	{
+		if (mReference)
+			return mReference->mActionSource;
+
+		return mActionSource;
+	}
+
+	int Phrase::GetChance()
+	{
+		if (mReference)
+			return mChance;
+		return mChance;
+	}
+
 };

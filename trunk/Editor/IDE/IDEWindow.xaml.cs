@@ -154,11 +154,7 @@ namespace IDE
             AddToolWindow(LevelEditor.View.ObjectManager.Instance);
             AddToolWindow(LevelEditor.View.EntityPaletteTool.Instance);
             
-            AddEditorWindow(new EditorWindow() { FileName = "1.txt"});
-            AddEditorWindow(new EditorWindow() { FileName="test.txt"});
-            AddEditorWindow(new LuaEditor.Views.LuaEditorWindow() { FileName = "test.lua" });
-            AddEditorWindow(new QuestEditor.Views.QuestEditorWindow() { FileName="story.txt"});
-            AddEditorWindow(new QuestEditor.Views.ConversationEditorWindow() { FileName = "test.conv" });
+            AddEditorWindow(new LevelEditor.View.LevelEditorWindow());
       //      AddEditorWindow(new LevelEditorWindow() { FileName = "../Data/Levels/Level1.xml" });
             ToolBar tb = LuaEditor.Resources.getToolbar();
             if (tb != null)
@@ -166,11 +162,13 @@ namespace IDE
 
             Stream s = typeof(QuestEditor.Views.QuestEditorWindow).Assembly.GetManifestResourceStream("QuestEditor.Views.QuestToolbar.xaml");
 
-            tb = QuestEditor.Views.QuestEditorWindow.getToolbar();
-            if (tb != null)
-                mToolbarTray.ToolBars.Add(tb);
+            tb = QuestEditor.Views.QuestToolbar.Instance;
+            mToolbarTray.ToolBars.Add(tb);
 
             tb = new LevelEditor.View.LevelEditorToolBar();
+            mToolbarTray.ToolBars.Add(tb);
+
+            tb = QuestEditor.Views.ConversationToolbar.Instance;
             mToolbarTray.ToolBars.Add(tb);
         }
 

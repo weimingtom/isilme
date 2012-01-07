@@ -34,6 +34,8 @@ namespace LevelEditor
 			mPaletteTree->MouseUp += gcnew System::Windows::Input::MouseButtonEventHandler(this, &EntityPaletteTool::OnItemSelected);
 			AddChild(mPaletteTree);
 		//	Command = LevelEditorWindow::SelectPaletteItem;
+
+			Title = "Palette";
 		}
 
 		EntityPaletteTool^ EntityPaletteTool::Instance::get()

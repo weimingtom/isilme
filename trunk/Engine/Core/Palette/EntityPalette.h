@@ -2,7 +2,7 @@
 #define ISILME_PALETTE_ENTITYPALETTE_H
 
 #include "Definitions.h"
-class IsilmeExport EntityPalette
+class ISILME_API EntityPalette
 {
 public:
 	typedef std::map<std::string, EntityDefPtr> EntityDefMap;

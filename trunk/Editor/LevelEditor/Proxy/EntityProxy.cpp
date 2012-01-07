@@ -23,6 +23,16 @@ namespace LevelEditor
 			delete mEntity;
 		}
 
+		EntityCopyData^ EntityProxy::MakeCopy()
+		{
+			EntityCopyData^ data = gcnew EntityCopyData();
+			data->Angle = Angle;
+			data->Scale = Scale;
+			data->Type = Type;
+
+			return data;
+		}
+
 		LayerProxy^	EntityProxy::Layer::get()
 		{
 			return mLayer;

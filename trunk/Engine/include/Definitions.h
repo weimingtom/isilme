@@ -6,9 +6,9 @@
 #define MY_TASK_COLOUR 0xff4b5b0b
 
 #ifdef ISILME_DLL
-#define IsilmeExport __declspec(dllexport)
+#define ISILME_API __declspec(dllexport)
 #else
-#define IsilmeExport __declspec(dllimport)
+#define ISILME_API __declspec(dllimport)
 #endif
 
 #include <map>

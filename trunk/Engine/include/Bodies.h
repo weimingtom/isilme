@@ -9,7 +9,7 @@
 /// @class BodyDef
 /// Определение тела. 
 /// Определяет тип тела и свойства
-class IsilmeExport BodyDef
+class ISILME_API BodyDef
 {
 public:
 	enum BodyType
@@ -40,7 +40,7 @@ protected:
 
 /// @interface Body
 /// Физическая модель объекта описывает расположение объекта в пространстве игрового мира.
-class IsilmeExport Body
+class ISILME_API Body
 {
 public:
 	Body();
@@ -71,7 +71,7 @@ private:
 /// @class Box2dBody
 /// Физическая модель, основанная на движке Box2D. Объекты с данной физической моделью
 /// могут сталкиваться между собой, обладают массой
-class IsilmeExport Box2DBody : public Body
+class ISILME_API Box2DBody : public Body
 {
 public:
 	Box2DBody(BodyDef* def);
@@ -115,7 +115,7 @@ protected:
 /// @class SimpleBody
 /// Физическая модель тело-точка. Объекты обладают только координатами и углом поворота, 
 /// не могут сталкиваться между собой и не обладают массой
-class IsilmeExport SimpleBody : public Body
+class ISILME_API SimpleBody : public Body
 {
 public:
 	SimpleBody();

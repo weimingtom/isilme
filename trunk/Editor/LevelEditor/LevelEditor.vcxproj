@@ -57,7 +57,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>luabind_d.lib;GUIChan_d.lib;engine_d.lib;hge_d.lib;hgehelp_d.lib;tinyxml_d.lib;box2d_d.lib;lua514_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>engine_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(BOOST_LIB);$(ISILME_LIB)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -89,9 +89,15 @@
   <ItemGroup>
     <ClInclude Include="Commands\AddEntity.h" />
     <ClInclude Include="Commands\AddLayer.h" />
+    <ClInclude Include="Commands\AddPhrase.h" />
+    <ClInclude Include="Commands\AddQuest.h" />
+    <ClInclude Include="Commands\AddStage.h" />
     <ClInclude Include="Commands\MoveEntity.h" />
     <ClInclude Include="Commands\NativeCommand.h" />
     <ClInclude Include="Commands\RemoveEntity.h" />
+    <ClInclude Include="Commands\RemoveLayer.h" />
+    <ClInclude Include="Commands\RemoveQuest.h" />
+    <ClInclude Include="Commands\RemoveStage.h" />
     <ClInclude Include="Commands\RotateEntity.h" />
     <ClInclude Include="Commands\ScaleEntity.h" />
     <ClInclude Include="HGEProxyGame.h" />
@@ -104,6 +110,7 @@
     <ClInclude Include="Proxy\FolderProxy.h" />
     <ClInclude Include="Proxy\LayerProxy.h" />
     <ClInclude Include="Proxy\LevelProxy.h" />
+    <ClInclude Include="Proxy\ModuleProxy.h" />
     <ClInclude Include="Proxy\PhraseProxy.h" />
     <ClInclude Include="Proxy\QuestProxy.h" />
     <ClInclude Include="Proxy\StageProxy.h" />
@@ -125,9 +132,15 @@
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Commands\AddEntity.cpp" />
     <ClCompile Include="Commands\AddLayer.cpp" />
+    <ClCompile Include="Commands\AddPhrase.cpp" />
+    <ClCompile Include="Commands\AddQuest.cpp" />
+    <ClCompile Include="Commands\AddStage.cpp" />
     <ClCompile Include="Commands\MoveEntity.cpp" />
     <ClCompile Include="Commands\NativeCommand.cpp" />
     <ClCompile Include="Commands\RemoveEntity.cpp" />
+    <ClCompile Include="Commands\RemoveLayer.cpp" />
+    <ClCompile Include="Commands\RemoveQuest.cpp" />
+    <ClCompile Include="Commands\RemoveStage.cpp" />
     <ClCompile Include="Commands\RotateEntity.cpp" />
     <ClCompile Include="Commands\ScaleEntity.cpp" />
     <ClCompile Include="HGEProxyGame.cpp" />
@@ -137,6 +150,7 @@
     <ClCompile Include="Proxy\EntityPaletteProxy.cpp" />
     <ClCompile Include="Proxy\FolderProxy.cpp" />
     <ClCompile Include="Proxy\LevelProxy.cpp" />
+    <ClCompile Include="Proxy\ModuleProxy.cpp" />
     <ClCompile Include="Proxy\PhraseProxy.cpp" />
     <ClCompile Include="Proxy\QuestProxy.cpp" />
     <ClCompile Include="Proxy\StageProxy.cpp" />
@@ -167,6 +181,9 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Engine\Engine.vcxproj">
+      <Project>{a110b53d-ff13-4b46-be40-df3377753d29}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\AvalonDock\AvalonDock.csproj">
       <Project>{87e61430-4243-45f2-b74e-0a4c096cebf3}</Project>
     </ProjectReference>

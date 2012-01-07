@@ -10,7 +10,7 @@
 /// @class StateManager
 /// Менеджер состояний игры
 /// В любой момент времени активно ТОЛЬКО ОДНО состояние
-class IsilmeExport StateManager
+class ISILME_API StateManager
 {
 public:
 	StateManager();

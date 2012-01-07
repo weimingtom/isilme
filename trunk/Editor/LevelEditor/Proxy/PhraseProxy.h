@@ -11,6 +11,7 @@ namespace LevelEditor
 		public ref class PhraseProxy : public Common::ProxyObject
 		{
 		public:
+			PhraseProxy();
 			PhraseProxy(story::PhrasePtr phrase);
 			virtual ~PhraseProxy();
 
@@ -46,9 +47,10 @@ namespace LevelEditor
 				ConversationProxy^ get();
 			}
 		private:
-			SharedCLIPtr<story::Phrase>* mPhrase;
 			ObservableCollection<PhraseProxy^>^ mAnswers;
+			bool isReference;
 		internal:
+			SharedCLIPtr<story::Phrase>* mPhrase;
 			ConversationProxy^ mConversation; // ?
 		};
 	}

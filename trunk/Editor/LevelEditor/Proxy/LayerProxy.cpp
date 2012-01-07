@@ -2,6 +2,8 @@
 #include "LayerProxy.h"
 #include "EntityProxy.h"
 
+using namespace System::Runtime::InteropServices;
+
 namespace LevelEditor
 {
 	namespace Proxy
@@ -68,6 +70,23 @@ namespace LevelEditor
 		void LayerProxy::Grid::set(GridProxy^ value)
 		{
 			mGrid = value;
+		}
+
+		void LayerProxy::Name::set(String^ value)
+		{
+			mLayer->Value->SetName((char*)(Marshal::StringToHGlobalAnsi(value).ToPointer()));
+			RaisePropertyChanged(this, "Name");
+		}
+
+		bool LayerProxy::Visible::get()
+		{
+			return mLayer->Value->IsVisible();
+		}
+
+		void LayerProxy::Visible::set(bool value)
+		{
+			mLayer->Value->SetVisible(value);
+			RaisePropertyChanged(this, "Visible");
 		}
 	}
 }

@@ -70,6 +70,13 @@ namespace LevelEditor
 			property String^ Name
 			{
 				String^ get();
+				void set(String^ value);
+			}
+
+			property bool Visible
+			{
+				bool get();
+				void set(bool value);
 			}
 
 			property LevelProxy^ Level

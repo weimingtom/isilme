@@ -8,7 +8,7 @@ namespace serialisation
 {
 	/// Dynamic level serialiser.
 	/// Writes dynamic data into file
-	class IsilmeExport DynamicLevelSerialiser : public LevelSerialiser
+	class ISILME_API DynamicLevelSerialiser : public LevelSerialiser
 	{
 	public:
 		DynamicLevelSerialiser();

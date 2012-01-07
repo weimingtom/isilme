@@ -14,6 +14,7 @@ Game::Game()
 	mStory = story::StoryPtr(new story::Story());
 	mStateManager = new StateManager();
 	Game::mInstance = this;
+	mUsePhisics = true;
 }
 
 Game::~Game()
@@ -34,6 +35,16 @@ StateManager*	Game::GetStateManager()
 story::StoryPtr	Game::GetStory()
 {
 	return mStory;
+}
+
+bool Game::GetUsePhisics()
+{
+	return mUsePhisics;
+}
+
+void Game::SetUsePhisics( bool value )
+{
+	mUsePhisics = value;
 }
 
 // HGEGame

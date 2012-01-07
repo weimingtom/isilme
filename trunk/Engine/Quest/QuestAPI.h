@@ -6,9 +6,9 @@
 
 namespace QuestAPI
 {
-	void	IsilmeExport RegisterAPI();
+	void	ISILME_API RegisterAPI();
 
-	bool	IsilmeExport StartQuest(std::string questName);
+	bool	ISILME_API StartQuest(std::string questName);
 };
 
 #endif

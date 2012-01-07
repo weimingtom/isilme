@@ -6,7 +6,7 @@
 
 namespace editor
 {
-	class IsilmeExport AddEntityCommand : public Command
+	class ISILME_API AddEntityCommand : public Command
 	{
 	public:
 		AddEntityCommand(LayerPtr layer, EntityPtr entity);

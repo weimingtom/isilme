@@ -28,7 +28,7 @@ namespace gamepad
 
 /// @class InputEvent
 /// Структура с описанием базового события
-class IsilmeExport InputEvent
+class ISILME_API InputEvent
 {
 public:
 	enum	EventType
@@ -46,7 +46,7 @@ public:
 
 /// @class KeyEvent
 /// Структура с описанием события от клавиатуры
-class IsilmeExport KeyEvent : public InputEvent
+class ISILME_API KeyEvent : public InputEvent
 {
 public:
 	KeyEvent();
@@ -58,7 +58,7 @@ public:
 
 /// @class MouseEvent
 /// Структура описания события от мыши
-class IsilmeExport MouseEvent : public InputEvent
+class ISILME_API MouseEvent : public InputEvent
 {
 public:
 	MouseEvent();
@@ -73,7 +73,7 @@ public:
 /// Для обеспечения кроссплатформенности, модифицируемости 
 /// игра должна пользоваться только этим интерфейсом, а не его реализацией
 /// Реализация создается один раз при инициализации движка.
-class IsilmeExport InputSystem
+class ISILME_API InputSystem
 {
 public:
 	virtual ~InputSystem();
@@ -104,7 +104,7 @@ protected:
 /// Подсистема ввода использующая HGE.
 /// По факту, класс дублирует HGE_Input_XXX функции и 
 /// реализует интерфейс InputSystem.
-class IsilmeExport HGEInputSystem : public InputSystem
+class ISILME_API HGEInputSystem : public InputSystem
 {
 public:
 	HGEInputSystem(HGE* hge);

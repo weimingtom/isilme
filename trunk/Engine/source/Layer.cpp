@@ -6,7 +6,7 @@
 
 Layer::Layer()
 {
-		
+	isVisible = true;
 };
 
 std::string Layer::GetName()
@@ -89,4 +89,27 @@ Layer::~Layer()
 LevelPtr	Layer::GetLevel()
 {
 	return mLevel.lock();
+}
+
+void Layer::SetName( std::string name )
+{
+	LevelPtr level = mLevel.lock();
+	if (level)
+	{
+		level->RenameLayer(mName, name);
+	}
+	else
+	{
+		mName = name;
+	}
+}
+
+bool Layer::IsVisible()
+{
+	return isVisible;
+}
+
+void Layer::SetVisible( bool value )
+{
+	isVisible = value;
 }

@@ -31,7 +31,7 @@ namespace graphics
 	{
 	}
 
-	void	Particles::Render(float x, float y, float angle)
+	void	Particles::Render(float x, float y, float angle, float ratio)
 	{
 		mSystem->MoveTo(x, y, true);
 		mSystem->Render();

@@ -7,7 +7,7 @@
 namespace serialisation
 {
 	/// Serialiser for static level data.
-	class IsilmeExport StaticLevelSerialiser : public LevelSerialiser
+	class ISILME_API StaticLevelSerialiser : public LevelSerialiser
 	{
 	public:
 		StaticLevelSerialiser();

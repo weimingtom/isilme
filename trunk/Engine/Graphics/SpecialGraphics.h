@@ -8,7 +8,7 @@ namespace graphics
 	class SpecialGraphics : public Graphics
 	{
 	public:
-		SpecialGraphics(){}
+		SpecialGraphics(GraphicsDefinition* def = 0) : Graphics(def) {}
 
 		virtual ~SpecialGraphics() {}
 

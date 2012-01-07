@@ -5,7 +5,7 @@
 
 namespace gcn
 {
-	class IsilmeExport ModalDialog : public Window
+	class ISILME_API ModalDialog : public Window
 	{
 	public:
 		ModalDialog();

@@ -63,7 +63,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>xinput.lib;luabind_d.lib;hge_d.lib;hgehelp_d.lib;GUIChan_d.lib;tinyxml_d.lib;box2d_d.lib;lua514_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(BOOST_LIB);../Luabind/lib;../Lua514/lib;../GUIChan/lib;../HGE/lib;../TinyXML/lib;../Box2D/lib;../Engine/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>libc.lib; libcmt.lib; libcmtd.lib</IgnoreSpecificDefaultLibraries>
       <ImportLibrary>$(ProjectDir)/lib/Engine_d.lib</ImportLibrary>
@@ -96,7 +96,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>../boost/lib;../Luabind/lib;../Lua514/lib; ../GUIChan/lib;../HGE/lib;../TinyXML/lib;../Box2D/lib;../Engine/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>xinput.lib;luabind.lib;hge.lib;hgehelp.lib;GUIChan.lib;tinyxml.lib;box2d.lib;lua514.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>$(ProjectDir)/lib/Engine.lib</ImportLibrary>
       <OutputFile>../Release/Engine.dll</OutputFile>
     </Link>
@@ -107,13 +107,18 @@
   <ItemGroup>
     <ClInclude Include="AI\Attribute.h" />
     <ClInclude Include="AI\AttributeDef.h" />
+    <ClInclude Include="AI\ScriptAIPackage.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="Core\Palette\EntityPalette.h" />
+    <ClInclude Include="Core\Serialisation\ConversationLoader.h" />
+    <ClInclude Include="Core\Serialisation\ConversationSerialiser.h" />
     <ClInclude Include="Core\Serialisation\DynamicLevelSerialiser.h" />
     <ClInclude Include="Core\Serialisation\LevelSerialiser.h" />
     <ClInclude Include="Core\Serialisation\SaveData.h" />
     <ClInclude Include="Core\Serialisation\SaveManager.h" />
     <ClInclude Include="Core\Serialisation\StaticLevelSerialiser.h" />
+    <ClInclude Include="Core\Serialisation\StoryLoader.h" />
+    <ClInclude Include="Core\Serialisation\StorySerialiser.h" />
     <ClInclude Include="Editor\AddEntityCommand.h" />
     <ClInclude Include="Editor\AddLayerCommand.h" />
     <ClInclude Include="Editor\Command.h" />
@@ -125,6 +130,7 @@
     <ClInclude Include="Editor\SelectorTool.h" />
     <ClInclude Include="Editor\Tool.h" />
     <ClInclude Include="Graphics\Animation.h" />
+    <ClInclude Include="Graphics\Line.h" />
     <ClInclude Include="Graphics\Particles.h" />
     <ClInclude Include="Graphics\SpecialGraphics.h" />
     <ClInclude Include="Graphics\Sprite.h" />
@@ -188,10 +194,13 @@
     <ClCompile Include="AI\Attribute.cpp" />
     <ClCompile Include="AI\AttributeDef.cpp" />
     <ClCompile Include="Core\Palette\EntityPalette.cpp" />
+    <ClCompile Include="Core\Serialisation\ConversationLoader.cpp" />
+    <ClCompile Include="Core\Serialisation\ConversationSerialiser.cpp" />
     <ClCompile Include="Core\Serialisation\DynamicLevelSerialiser.cpp" />
     <ClCompile Include="Core\Serialisation\SaveData.cpp" />
     <ClCompile Include="Core\Serialisation\SaveManager.cpp" />
     <ClCompile Include="Core\Serialisation\StaticLevelSerialiser.cpp" />
+    <ClCompile Include="Core\Serialisation\StoryLoader.cpp" />
     <ClCompile Include="Editor\AddEntityCommand.cpp" />
     <ClCompile Include="Editor\AddLayerCommand.cpp" />
     <ClCompile Include="Editor\CommandManager.cpp" />
@@ -201,6 +210,7 @@
     <ClCompile Include="Editor\SelectorTool.cpp" />
     <ClCompile Include="Editor\Tool.cpp" />
     <ClCompile Include="Graphics\Animation.cpp" />
+    <ClCompile Include="Graphics\Line.cpp" />
     <ClCompile Include="Graphics\Particles.cpp" />
     <ClCompile Include="Graphics\Sprite.cpp" />
     <ClCompile Include="Graphics\TriggerGraphics.cpp" />

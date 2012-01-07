@@ -11,7 +11,7 @@ namespace editor
 	///
 	/// @author	Velorth
 	/// @date	17.11.2011
-	class IsilmeExport Command
+	class ISILME_API Command
 	{
 	public:
 

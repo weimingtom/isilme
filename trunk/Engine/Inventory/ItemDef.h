@@ -6,7 +6,7 @@
 
 namespace inventory
 {
-	class IsilmeExport ItemDef
+	class ISILME_API ItemDef
 	{
 	public:
 		ItemDef();

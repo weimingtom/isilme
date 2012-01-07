@@ -10,7 +10,7 @@
 /// В программе может существовать только один экзэмпляр игрового движка.
 /// Все подсистемы необходимо инициализировать, либо использовать уже существующую реализацию
 /// игры и компонентов, например HGEGame
-class IsilmeExport Engine
+class ISILME_API Engine
 {
 public:
 	/// Возвращает Lua
@@ -57,6 +57,12 @@ public:
 	/// При уничтожении экзэмпляра движка, звуковая подсистема также уничтожается
 	/// @param soundSystem SoundSystem* звуковая подсистема
 	void					SetSoundSystem(SoundSystem* soundSystem);
+
+	/// Возвращает рабочую директорию
+	std::string				GetWorkingDirectory();
+
+	/// Возвращает директорию ресурсов
+	std::string				GetResourceDirectory();
 
 	HGE* mHGE;
 private:

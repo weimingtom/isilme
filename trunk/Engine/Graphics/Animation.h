@@ -7,7 +7,7 @@ namespace graphics
 {
 
 	// Описание анимации
-	class IsilmeExport AnimationDefinition : public GraphicsDefinition
+	class ISILME_API AnimationDefinition : public GraphicsDefinition
 	{
 	public:
 		HTEXTURE texture;
@@ -26,7 +26,7 @@ namespace graphics
 	
 	/// @class Animation
 	/// Анимированная модель сущности
-	class IsilmeExport Animation : public Graphics
+	class ISILME_API Animation : public Graphics
 	{
 	public:
 		Animation(AnimationDefinition* def);

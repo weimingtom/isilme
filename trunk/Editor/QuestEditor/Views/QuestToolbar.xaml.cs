@@ -19,9 +19,18 @@ namespace QuestEditor.Views
     /// </summary>
     public partial class QuestToolbar : ToolBar
     {
+        static QuestToolbar mInstance = new QuestToolbar();
+
+        public static QuestToolbar Instance
+        {
+            get { return mInstance; }
+        }
+
         public QuestToolbar()
         {
+            mInstance = this;
             InitializeComponent();
+            
         }
     }
 }

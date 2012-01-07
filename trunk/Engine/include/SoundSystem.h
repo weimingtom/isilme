@@ -6,7 +6,7 @@
 /// @class SoundSystem
 /// Звуковая подсистема.
 /// Звуковая подсистема позволяет использовать в игре звуковые файлы
-class IsilmeExport SoundSystem
+class ISILME_API SoundSystem
 {
 public:
 	virtual ~SoundSystem();
@@ -36,7 +36,7 @@ public:
 
 /// @class IsilmeExport
 /// Реализация звуковой подсистемы для HGE
-class IsilmeExport HGESoundSystem : public SoundSystem
+class ISILME_API HGESoundSystem : public SoundSystem
 {
 public:
 	HGESoundSystem(HGE* hge);

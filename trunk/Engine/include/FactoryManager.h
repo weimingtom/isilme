@@ -16,7 +16,7 @@
 
 /// class FactoryManager
 /// Управляет созданием всех объектов игры, графических моделей, поведений
-class IsilmeExport FactoryManager
+class ISILME_API FactoryManager
 {
 	friend class serialisation::DynamicLevelSerialiser;
 public:
@@ -87,14 +87,14 @@ public:
 	/// Загружает файл данных - палитры, объекты, уровни, квесты, предметы, лут, все в одном файле
 	void			LoadDataFile(std::string fileName);
 
+	/// Загружает imf-файл, в котором находятся ссылки на все файлы, которые необходимо загрузить
+	void			LoadMasterFile(std::string fileName);
+
 	/// Загружает описание фракций
 	void			LoadFractions(TiXmlElement* element);
 
 	/// Загружает пакеты AI
 	void			LoadAIPackages(TiXmlElement* element);
-
-	/// Загружает диалоги
-	void			LoadConversations(TiXmlElement* element);
 
 	/// Загружает диалоги из файла
 	void			LoadConversations(std::string fileName);

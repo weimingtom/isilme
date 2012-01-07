@@ -3,7 +3,7 @@
 
 #include "State.h"
 
-class IsilmeExport LogoState : public State
+class ISILME_API LogoState : public State
 {
 public:
 	LogoState(hgeSprite* sprite)

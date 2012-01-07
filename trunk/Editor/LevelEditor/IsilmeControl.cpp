@@ -55,8 +55,9 @@ namespace LevelEditor
 			EditorState* estate = new EditorState();
 			StatePtr state(estate);
 
-			FactoryManager::GetSingleton()->LoadGraphics("../Data/Graphics.xml");
-			FactoryManager::GetSingleton()->LoadEntities("../Data/Entities.xml");
+			FactoryManager::GetSingleton()->LoadMasterFile("../Data/Master.imf");
+			//FactoryManager::GetSingleton()->LoadGraphics("../Data/Graphics.xml");
+			//FactoryManager::GetSingleton()->LoadEntities("../Data/Entities.xml");
 			LevelEditor::View::EntityPaletteTool::Instance->Palette = gcnew EntityPaletteProxy(FactoryManager::GetSingleton()->GetEntityPalette());
 			//FactoryManager::GetSingleton()->LoadLevel("../Data/TestL.xml");
 			//LevelPtr level = FactoryManager::GetSingleton()->GetLevel("Level2");//new Level());
@@ -69,6 +70,7 @@ namespace LevelEditor
 			
 			GetStateManager()->Push(state);
 			LevelEditor::View::LevelEditorWindow::Instance->Load();
+			SetUsePhisics(false);
 		}
 	};
 	IsilmeHost::IsilmeHost()

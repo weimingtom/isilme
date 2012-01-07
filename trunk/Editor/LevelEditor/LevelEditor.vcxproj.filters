@@ -46,24 +46,6 @@
     <ClCompile Include="Tool\ScrollerTool.cpp">
       <Filter>Tool</Filter>
     </ClCompile>
-    <ClCompile Include="Commands\MoveEntity.cpp">
-      <Filter>Commands</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\RotateEntity.cpp">
-      <Filter>Commands</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\AddEntity.cpp">
-      <Filter>Commands</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\AddLayer.cpp">
-      <Filter>Commands</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\RemoveEntity.cpp">
-      <Filter>Commands</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\ScaleEntity.cpp">
-      <Filter>Commands</Filter>
-    </ClCompile>
     <ClCompile Include="Proxy\StageProxy.cpp">
       <Filter>Proxy</Filter>
     </ClCompile>
@@ -78,6 +60,45 @@
     </ClCompile>
     <ClCompile Include="Proxy\PhraseProxy.cpp">
       <Filter>Proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\AddEntity.cpp">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\AddLayer.cpp">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\MoveEntity.cpp">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\RemoveEntity.cpp">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\RotateEntity.cpp">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\ScaleEntity.cpp">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\AddPhrase.cpp">
+      <Filter>Commands\ConversationEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\AddQuest.cpp">
+      <Filter>Commands\QuestEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\AddStage.cpp">
+      <Filter>Commands\QuestEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\RemoveQuest.cpp">
+      <Filter>Commands\QuestEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\RemoveStage.cpp">
+      <Filter>Commands\QuestEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="Proxy\ModuleProxy.cpp">
+      <Filter>Proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\RemoveLayer.cpp">
+      <Filter>Commands\LevelEditor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -130,27 +151,9 @@
     <ClInclude Include="Tool\ScrollerTool.h">
       <Filter>Tool</Filter>
     </ClInclude>
-    <ClInclude Include="Commands\MoveEntity.h">
-      <Filter>Commands</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\RotateEntity.h">
-      <Filter>Commands</Filter>
-    </ClInclude>
     <ClInclude Include="LevelEditorCommands.h" />
-    <ClInclude Include="Commands\AddLayer.h">
-      <Filter>Commands</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\AddEntity.h">
-      <Filter>Commands</Filter>
-    </ClInclude>
     <ClInclude Include="View\EntityPaletteTool.h">
       <Filter>View</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\RemoveEntity.h">
-      <Filter>Commands</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\ScaleEntity.h">
-      <Filter>Commands</Filter>
     </ClInclude>
     <ClInclude Include="Proxy\ConversationProxy.h">
       <Filter>Proxy</Filter>
@@ -166,6 +169,45 @@
     </ClInclude>
     <ClInclude Include="Proxy\StageProxy.h">
       <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\ScaleEntity.h">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\AddEntity.h">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\AddLayer.h">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\MoveEntity.h">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\RemoveEntity.h">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\RotateEntity.h">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\AddPhrase.h">
+      <Filter>Commands\ConversationEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\AddQuest.h">
+      <Filter>Commands\QuestEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\AddStage.h">
+      <Filter>Commands\QuestEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\RemoveQuest.h">
+      <Filter>Commands\QuestEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\RemoveStage.h">
+      <Filter>Commands\QuestEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\ModuleProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\RemoveLayer.h">
+      <Filter>Commands\LevelEditor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -187,6 +229,15 @@
     </Filter>
     <Filter Include="View">
       <UniqueIdentifier>{3358363c-7534-45a8-b8e4-51ab8cda89be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\LevelEditor">
+      <UniqueIdentifier>{edead689-bb65-44e3-8012-68a83bfcb119}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\ConversationEditor">
+      <UniqueIdentifier>{3885f891-77f8-4ec0-bf17-048273a2d836}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\QuestEditor">
+      <UniqueIdentifier>{7163e742-bb4d-45d2-b6f6-9ff6fff457b2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

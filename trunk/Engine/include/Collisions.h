@@ -5,7 +5,7 @@
 #include <string>
 #include <map>
 
-class IsilmeExport DestructionListener : public b2DestructionListener
+class ISILME_API DestructionListener : public b2DestructionListener
 {
 public:
 	DestructionListener();
@@ -15,7 +15,7 @@ public:
 protected:
 };
 
-class IsilmeExport ContactListener : public b2ContactListener
+class ISILME_API ContactListener : public b2ContactListener
 {
 public:
 	ContactListener();
@@ -24,7 +24,7 @@ public:
 protected:
 };
 
-class IsilmeExport ContactFilter : public b2ContactFilter
+class ISILME_API ContactFilter : public b2ContactFilter
 {
 public:
 	ContactFilter();
@@ -34,7 +34,7 @@ protected:
 };
 
 // Класс физического движка
-class IsilmeExport Box2DEngine
+class ISILME_API Box2DEngine
 {
 public:
 	b2World* CreateWorld();

@@ -5,7 +5,7 @@
 
 namespace story
 {
-	class IsilmeExport Stage
+	class ISILME_API Stage
 	{
 		friend class Quest;
 		friend class Story;

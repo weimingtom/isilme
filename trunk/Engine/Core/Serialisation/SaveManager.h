@@ -5,7 +5,7 @@
 
 namespace serialisation
 {
-	class IsilmeExport SaveManager
+	class ISILME_API SaveManager
 	{
 	public:
 		SaveManager();

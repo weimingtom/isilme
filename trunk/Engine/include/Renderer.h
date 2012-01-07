@@ -4,7 +4,7 @@
 #include "Definitions.h"
 #include <hge.h>
 
-class IsilmeExport Renderer
+class ISILME_API Renderer
 {
 public:
 	Renderer();
@@ -20,6 +20,12 @@ public:
 	virtual void	Resize(int width, int height) = 0;
 
 	virtual void	SetWindowed(bool windowed) = 0;
+
+	/// Возвращает, рисуются ли физ. тела
+	bool	GetDrawPhisics();
+
+	/// Устанавить прорисовку физики
+	void	SetDrawPhisics(bool value);
 
 	virtual bool	IsWindowed() = 0;
 
@@ -40,11 +46,16 @@ public:
 protected:
 	/// Количество пикселей в одном метре
 	float			mMeterToPixelRatio;
+
+	/// Коэффициент увеличения
+	float			mZoom;
+private:
+	bool mDrawPhisics;
 };
 
 /// @class HGERenderer
 /// Рендерер использующий HGE
-class IsilmeExport HGERenderer : public Renderer
+class ISILME_API HGERenderer : public Renderer
 {
 public:
 	HGERenderer(HGE* hge);
@@ -57,6 +68,7 @@ public:
 	virtual void	BeginScene();
 	virtual void	EndScene();
 	virtual void	ApplyCamera(CameraPtr camera);
+	void DrawBox2DBody(float x, float y, float angle, Box2DBody* body );
 protected:
 	HGE*			mHGE;
 };

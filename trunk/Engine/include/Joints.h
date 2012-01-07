@@ -5,7 +5,7 @@
 #include <string>
 #include "Collisions.h"
 
-class IsilmeExport JointDefinition
+class ISILME_API JointDefinition
 {
 public:
 	std::string	entityA;

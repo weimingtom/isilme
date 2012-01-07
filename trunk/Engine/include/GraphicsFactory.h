@@ -9,7 +9,7 @@
 
 /// class IGraphicsFactory
 /// Интерфейс загрузчика графических моделей из XML файлов
-class IsilmeExport IGraphicsFactory
+class ISILME_API IGraphicsFactory
 {
 public:
 	virtual GraphicsDefPtr	LoadDefinition(TiXmlElement* graphicsElement) = 0;

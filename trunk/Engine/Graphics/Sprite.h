@@ -8,7 +8,7 @@
 namespace graphics
 {
 	/// Описание спрайта
-	class IsilmeExport SpriteDefinition : public GraphicsDefinition
+	class ISILME_API SpriteDefinition : public GraphicsDefinition
 	{
 	public:
 		HTEXTURE texture;
@@ -16,6 +16,7 @@ namespace graphics
 		float y;
 		float height;
 		float width;
+		Vector2 MetricSize;
 
 		SpriteDefinition();
 
@@ -28,7 +29,7 @@ namespace graphics
 
 	/// @class Sprite
 	/// Спрайтовая модель сущности
-	class IsilmeExport Sprite : public Graphics
+	class ISILME_API Sprite : public Graphics
 	{
 	public:
 		Sprite(SpriteDefinition* definition);
@@ -40,9 +41,21 @@ namespace graphics
 		virtual void Update(float elapsedTime);
 
 		virtual void Reset();
+
+		/// Возвращает ширину спрайта в метрах
+		float GetMetricWidth();
+
+		/// Возвращает высоту спрайта в метрах
+		float GetMetricHeight();
 	private:
 		/// HGE-спрайт
 		hgeSprite* mSprite;
+
+		/// Высота спрайта в метрах
+		float mHeight;
+
+		/// Ширина спрайта в метрах
+		float mWidth;
 	};
 };
 #endif

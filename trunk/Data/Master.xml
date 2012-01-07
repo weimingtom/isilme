@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DataFile Module="Master" Version="0.3">
+	<Levels>
+		<File>levels/testlevel.lvl</File>
+		<File>levels/testlevel2.lvl</File>
+	</Levels>
+	<Conversations>
+		<File>conversations/test.conv</File>
+	</Conversations>
+	<Graphics>
+		<File>Graphics.XML</File>
+	</Graphics>
+	<Entities>
+		<File>Entities.xml</File>
+	</Entities>
   <Fractions>
     <Fraction
       ID="Player"

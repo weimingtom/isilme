@@ -99,15 +99,16 @@
     <Compile Include="Model\ModelStage.cs" />
     <Compile Include="Model\ModelStory.cs" />
     <Compile Include="ParamsConverter.cs" />
-    <Compile Include="Proxy\ProxyConversation.cs" />
     <Compile Include="Proxy\ProxyItem.cs" />
-    <Compile Include="Proxy\ProxyPhrase.cs" />
     <Compile Include="Proxy\ProxyQuest.cs" />
     <Compile Include="Proxy\ProxyStage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Proxy\ProxyStory.cs" />
     <Compile Include="Views\ConversationEditorWindow.xaml.cs">
       <DependentUpon>ConversationEditorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConversationToolbar.xaml.cs">
+      <DependentUpon>ConversationToolbar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\QuestEditorWindow.xaml.cs">
       <DependentUpon>QuestEditorWindow.xaml</DependentUpon>
@@ -169,6 +170,10 @@
       <Project>{5592A221-47A5-4489-9E70-081F66F2AD7D}</Project>
       <Name>Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LevelEditor\LevelEditor.vcxproj">
+      <Project>{A96DB6FA-DA44-469B-B0DA-E96F7B0E28DA}</Project>
+      <Name>LevelEditor</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -189,6 +194,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\ConversationEditorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ConversationToolbar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

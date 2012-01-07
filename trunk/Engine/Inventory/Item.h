@@ -5,7 +5,7 @@
 
 namespace inventory
 {
-class IsilmeExport Item : public boost::enable_shared_from_this<Item>
+class ISILME_API Item : public boost::enable_shared_from_this<Item>
 {
 	friend class Inventory;
 public:

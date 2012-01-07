@@ -6,7 +6,7 @@
 
 namespace story
 {
-	class IsilmeExport Quest : public boost::enable_shared_from_this<Quest>
+	class ISILME_API Quest : public boost::enable_shared_from_this<Quest>
 	{
 		friend class Story;
 	public:

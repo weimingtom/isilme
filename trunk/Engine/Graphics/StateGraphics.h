@@ -49,7 +49,8 @@ namespace graphics
 	/// IMPLEMENTATION
 
 	template<class T>
-	StateGraphics<T>::StateGraphics(StateGraphicsDef<T>* def)
+	StateGraphics<T>::StateGraphics(StateGraphicsDef<T>* def) :
+		SpecialGraphics<T>(def)
 	{
 		// Создаем графику каждого состояния
 		for (GraphicsPalette::iterator it = def->Palette.begin(); it != def->Palette.end(); ++it)
@@ -124,6 +125,8 @@ namespace graphics
 	template<class T>
 	void StateGraphicsDef<T>::Parse(TiXmlElement* element)
 	{
+		GraphicsDefinition::Parse(element);
+
 		TiXmlElement* stateElement = element->FirstChildElement("State");
 		char* state = const_cast<char*>(element->Attribute("State"));
 

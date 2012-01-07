@@ -7,15 +7,12 @@
 namespace story
 {
 	/// Класс описывает диалог
-	class IsilmeExport Conversation
+	class ISILME_API Conversation
 	{
 	public:
 		Conversation();
 		virtual ~Conversation();
-
-		/// Загружает диалог ил XML-элемента
-		static ConversationPtr Load(TiXmlElement* convElement);
-
+		
 		/// Возвращает идентификатор диалога
 		std::string GetID();
 

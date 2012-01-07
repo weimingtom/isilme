@@ -12,12 +12,23 @@ namespace LevelEditor
 		public ref class ConversationProxy
 		{
 		public:
+			static ConversationProxy^ Load(String^ fileName);
+
+			void SaveToFile(String^ fileName);
+
+			ConversationProxy();
 			ConversationProxy(story::ConversationPtr conversation);
 			virtual ~ConversationProxy();
 
 			property ObservableCollection<PhraseProxy^>^ Phrases
 			{
 				ObservableCollection<PhraseProxy^>^ get();
+			}
+
+			property String^ ID
+			{
+				String^ get();
+				void set(String^ value);
 			}
 
 			void AddPhrase(PhraseProxy^ phrase);

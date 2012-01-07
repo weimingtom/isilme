@@ -20,7 +20,7 @@
 /// Сцена уровня содержит несколько слоев, на которых располагаются объекты и камеру.
 /// Уровень поддерживает различные реализации камеры.
 /// Каждый уровень пользуется своей моделью физического мира.
-class IsilmeExport Level : public boost::enable_shared_from_this<Level>
+class ISILME_API Level : public boost::enable_shared_from_this<Level>
 {
 	///< The layer
 	friend class Layer;
@@ -161,6 +161,7 @@ public:
 	///
 	/// @return	.
 	QueryPtr	AABBQuery(float x1, float y1, float x2, float y2);
+void RenameLayer( std::string oldName, std::string name );
 private:
 	/// Таймер итераций физического мира
 	float		mPhisicsTimer;

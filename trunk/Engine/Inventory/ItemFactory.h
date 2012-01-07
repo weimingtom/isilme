@@ -7,7 +7,7 @@
 
 namespace inventory
 {
-	class IsilmeExport IItemFactory
+	class ISILME_API IItemFactory
 	{
 	public:
 		virtual ItemDefPtr	LoadDefinition(TiXmlElement* graphicsElement) = 0;

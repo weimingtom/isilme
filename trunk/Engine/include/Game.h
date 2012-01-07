@@ -5,7 +5,7 @@
 #include "Definitions.h"
 #include "Engine/Quest/Quests.h"
 
-class IsilmeExport Game
+class ISILME_API Game
 {
 public:
 	Game();
@@ -16,16 +16,19 @@ public:
 	StateManager*		GetStateManager();
 	story::StoryPtr		GetStory();
 	static Game*		GetSingleton();
+	bool GetUsePhisics();
+	void SetUsePhisics(bool value);
 protected:
 	virtual void		InitEngine() = 0;
 	story::StoryPtr		mStory;
 	static	Game*		mInstance;
 private:
 	StateManager*		mStateManager;
+	bool mUsePhisics;
 };
 
 /// Hge game.
-class IsilmeExport HGEGame : public Game
+class ISILME_API HGEGame : public Game
 {
 public:
 	HGEGame(HGE* hge);

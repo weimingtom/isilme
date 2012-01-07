@@ -19,6 +19,10 @@
 #include "Core/Serialisation/SaveData.h"
 #include "Core/Serialisation/DynamicLevelSerialiser.h"
 #include "Core/Palette/EntityPalette.h"
+#include "Core/Serialisation/ConversationLoader.h"
+#include "Game.h"
+#include "Quest/Story.h"
+
 FactoryPtr FactoryManager::mInstance;
 
 FactoryManager::FactoryManager() : 
@@ -461,21 +465,6 @@ void			FactoryManager::LoadFractions(TiXmlElement* element)
 	}
 }
 
-void	FactoryManager::LoadConversations(TiXmlElement* element)
-{
-	TiXmlElement* convElement = element->FirstChildElement("Conversation");
-	while (convElement)
-	{
-		story::ConversationPtr conversation = story::Conversation::Load(convElement);
-		if (conversation)
-		{
-			mConversations[conversation->GetID()] = conversation;
-		}
-
-		convElement = convElement->NextSiblingElement("Conversation");
-	}
-}
-
 void	FactoryManager::LoadConversations(std::string fileName)
 {
 	TiXmlDocument* document = new TiXmlDocument();
@@ -483,7 +472,7 @@ void	FactoryManager::LoadConversations(std::string fileName)
 
 	TiXmlElement* root = document->RootElement();
 
-	LoadConversations(root);
+//	LoadConversations(root);
 
 	delete document;
 }
@@ -540,4 +529,155 @@ void FactoryManager::LoadGame( serialisation::SaveDataPtr save )
 EntityPalettePtr FactoryManager::GetEntityPalette()
 {
 	return mEntityDefinitions;
+}
+
+void FactoryManager::LoadMasterFile( std::string fileName )
+{
+	LOG_M("LoadMasterFile: %s", fileName.c_str());
+
+	TiXmlDocument document(fileName.c_str());
+	document.LoadFile();
+
+	if (document.Error())
+	{
+		LOG_W("File not found");
+	}
+
+	TiXmlElement* rootElement = document.FirstChildElement();
+
+	// Загружаем графическую палиру
+	TiXmlElement* graphicsElement = rootElement->FirstChildElement("Graphics");
+	if (graphicsElement)
+	{
+		std::string dirName = Engine::GetSingleton()->GetResourceDirectory() + "/";
+		TiXmlElement* fileElement = graphicsElement->FirstChildElement("File");
+		while (fileElement)
+		{
+			if (fileElement->GetText())
+			{
+				std::string fileName = dirName + fileElement->GetText();
+				LoadGraphics(fileName.c_str());
+			}
+			else
+			{
+				LOG_W("File element contains no file");
+			}
+
+			fileElement = fileElement->NextSiblingElement("File");
+		}
+	}
+
+	// Загружаем палитру объектов
+	TiXmlElement* entitiesElement = rootElement->FirstChildElement("Entities");
+	if (entitiesElement)
+	{
+		std::string dirName = Engine::GetSingleton()->GetResourceDirectory() + "/";
+		TiXmlElement* fileElement = entitiesElement->FirstChildElement("File");
+		while (fileElement)
+		{
+			if (fileElement->GetText())
+			{
+				std::string fileName = dirName + fileElement->GetText();
+				LoadEntities(fileName.c_str());
+			}
+			else
+			{
+				LOG_W("File element contains no file");
+			}
+
+			fileElement = fileElement->NextSiblingElement("File");
+		}
+	}
+
+	// Загружаем уровни
+	TiXmlElement* levelsElement = rootElement->FirstChildElement("Levels");
+	if (levelsElement)
+	{
+		std::string dirName = Engine::GetSingleton()->GetResourceDirectory() + "/Levels/";
+		TiXmlElement* fileElement = levelsElement->FirstChildElement("File");
+		while (fileElement)
+		{
+			if (fileElement->GetText())
+			{
+				std::string fileName = dirName + fileElement->GetText();
+				LoadLevel(fileName.c_str());
+			}
+			else
+			{
+				LOG_W("File element contains no file");
+			}
+
+			fileElement = fileElement->NextSiblingElement("File");
+		}
+	}
+
+	// Загружаем квесты
+	TiXmlElement* questsElement = rootElement->FirstChildElement("Quests");
+	if (questsElement)
+	{
+		std::string dirName = Engine::GetSingleton()->GetResourceDirectory() + "/Quests/";
+		TiXmlElement* fileElement = questsElement->FirstChildElement("File");
+		while (fileElement)
+		{
+			if (fileElement->GetText())
+			{
+				std::string fileName = dirName + fileElement->GetText();
+				Game::GetSingleton()->GetStory()->Load(fileName);
+			}
+			else
+			{
+				LOG_W("File element contains no file");
+			}
+
+			fileElement = fileElement->NextSiblingElement("File");
+		}
+	}
+
+	// Загружаем диалоги
+	TiXmlElement* conversationsElement = rootElement->FirstChildElement("Conversations");
+	if (conversationsElement)
+	{
+		std::string dirName = Engine::GetSingleton()->GetResourceDirectory() + "/Conversations/";
+		TiXmlElement* fileElement = conversationsElement->FirstChildElement("File");
+		while (fileElement)
+		{
+			if (fileElement->GetText())
+			{
+				std::string fileName = dirName + fileElement->GetText();
+				serialisation::XMLConversationLoader loader;
+				story::ConversationPtr conversation = loader.LoadConversation(conversationsElement);
+				mConversations[conversation->GetID()] = conversation;
+			}
+			else
+			{
+				LOG_W("File element contains no file");
+			}
+
+			fileElement = fileElement->NextSiblingElement("File");
+		}
+	}
+
+	// Загружаем предметы
+	TiXmlElement* itemsElement = rootElement->FirstChildElement("Items");
+	if (itemsElement)
+	{
+		std::string dirName = Engine::GetSingleton()->GetResourceDirectory() + "/";
+		TiXmlElement* fileElement = itemsElement->FirstChildElement("File");
+		while (fileElement)
+		{
+			if (fileElement->GetText())
+			{
+				std::string fileName = dirName + fileElement->GetText();
+				LoadItems(fileName);
+			}
+			else
+			{
+				LOG_W("File element contains no file");
+			}
+
+			fileElement = fileElement->NextSiblingElement("File");
+		}
+	}
+
+	LOG_M("Success");
 }

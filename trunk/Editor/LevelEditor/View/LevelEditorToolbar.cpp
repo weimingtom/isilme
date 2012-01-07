@@ -29,11 +29,22 @@ namespace LevelEditor
 			mSelectorBtn->Content = "Select";
 			mSelectorBtn->Command = LevelEditorCommands::SelectObjectsSelector;
 
+			// Включение физики
+			CheckBox^ mTurnPhisics = gcnew CheckBox();
+			mTurnPhisics->Content = "Phisics";
+			mTurnPhisics->Command = LevelEditorCommands::ActivatePhisics;
+
+			CheckBox^ mDrawPhisics = gcnew CheckBox();
+			mDrawPhisics->Content = "Draw Phisics";
+			mDrawPhisics->Command = LevelEditorCommands::DrawPhisics;
+
 			// Добавляем кнопки
 			AddChild(mBrushToolBtn);
 			AddChild(mSelectorBtn);
 			AddChild(mAddLayerBtn);
 			AddChild(mActivateGridBtn);
+			AddChild(mTurnPhisics);
+			AddChild(mDrawPhisics);
 		}
 
 	}
