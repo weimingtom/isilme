@@ -275,6 +275,9 @@
     <ClInclude Include="Graphics\Line.h">
       <Filter>Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="Core\ActionWrapper.h">
+      <Filter>Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Graphics\Sprite.cpp">
@@ -470,6 +473,9 @@
     </ClCompile>
     <ClCompile Include="Graphics\Line.cpp">
       <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\ActionWrapper.cpp">
+      <Filter>Core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

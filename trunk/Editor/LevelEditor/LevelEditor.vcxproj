@@ -93,6 +93,7 @@
     <ClInclude Include="Commands\AddQuest.h" />
     <ClInclude Include="Commands\AddStage.h" />
     <ClInclude Include="Commands\MoveEntity.h" />
+    <ClInclude Include="Commands\MoveLayer.h" />
     <ClInclude Include="Commands\NativeCommand.h" />
     <ClInclude Include="Commands\RemoveEntity.h" />
     <ClInclude Include="Commands\RemoveLayer.h" />
@@ -136,6 +137,7 @@
     <ClCompile Include="Commands\AddQuest.cpp" />
     <ClCompile Include="Commands\AddStage.cpp" />
     <ClCompile Include="Commands\MoveEntity.cpp" />
+    <ClCompile Include="Commands\MoveLayer.cpp" />
     <ClCompile Include="Commands\NativeCommand.cpp" />
     <ClCompile Include="Commands\RemoveEntity.cpp" />
     <ClCompile Include="Commands\RemoveLayer.cpp" />

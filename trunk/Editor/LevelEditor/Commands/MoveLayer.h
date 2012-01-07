@@ -11,9 +11,12 @@ namespace LevelEditor
 		{
 		public:
 			MoveLayer(LayerProxy^ layer, int position);
+
+			virtual void Execute();
+			virtual void Unexecute();
 		private:
-			LevelProxy^ mLayer;
-			LayerProxy^ mLevel;
+			LayerProxy^ mLayer;
+			LevelProxy^ mLevel;
 			int mOldPosition;
 			int mNewPosition;
 		};

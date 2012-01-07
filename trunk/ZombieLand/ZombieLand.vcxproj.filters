@@ -220,16 +220,7 @@
     <None Include="..\Data\Graphics.xml">
       <Filter>Data</Filter>
     </None>
-    <None Include="..\Data\Scripts\Level1.lua">
-      <Filter>Data</Filter>
-    </None>
     <None Include="..\Data\Levels\Level1.xml">
-      <Filter>Data</Filter>
-    </None>
-    <None Include="..\Data\Scripts\Triggers.lua">
-      <Filter>Data</Filter>
-    </None>
-    <None Include="..\Data\Scripts\script.lua">
       <Filter>Data</Filter>
     </None>
     <None Include="..\Data\Quests\Story1.xml">
@@ -253,6 +244,18 @@
     <None Include="..\Data\Master.imf">
       <Filter>Data</Filter>
     </None>
+    <None Include="..\Data\Scripts\Level1.lua">
+      <Filter>Data\Scripts</Filter>
+    </None>
+    <None Include="..\Data\Scripts\script.lua">
+      <Filter>Data\Scripts</Filter>
+    </None>
+    <None Include="..\Data\Scripts\Triggers.lua">
+      <Filter>Data\Scripts</Filter>
+    </None>
+    <None Include="..\Data\Scripts\KeepHealthPackage.lua">
+      <Filter>Data\Scripts</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Actions">
@@ -275,6 +278,9 @@
     </Filter>
     <Filter Include="Inventory">
       <UniqueIdentifier>{f8b106b0-58d4-4dcf-95fa-9ab29ba9d457}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\Scripts">
+      <UniqueIdentifier>{feac5ea1-3c77-417d-9c6b-9016d6e030ce}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

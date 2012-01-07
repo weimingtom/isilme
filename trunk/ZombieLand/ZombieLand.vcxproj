@@ -162,9 +162,12 @@
     <None Include="..\Data\Levels\Level1.xml" />
     <None Include="..\Data\Levels\Level2.xml" />
     <None Include="..\Data\Loot.xml" />
-    <None Include="..\Data\Master.imf" />
+    <None Include="..\Data\Master.imf">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="..\Data\Master.xml" />
     <None Include="..\Data\Quests\Story1.xml" />
+    <None Include="..\Data\Scripts\KeepHealthPackage.lua" />
     <None Include="..\Data\Scripts\Level1.lua" />
     <None Include="..\Data\Scripts\script.lua" />
     <None Include="..\Data\Scripts\Triggers.lua" />

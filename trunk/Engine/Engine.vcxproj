@@ -109,6 +109,7 @@
     <ClInclude Include="AI\AttributeDef.h" />
     <ClInclude Include="AI\ScriptAIPackage.h" />
     <ClInclude Include="Config.h" />
+    <ClInclude Include="Core\ActionWrapper.h" />
     <ClInclude Include="Core\Palette\EntityPalette.h" />
     <ClInclude Include="Core\Serialisation\ConversationLoader.h" />
     <ClInclude Include="Core\Serialisation\ConversationSerialiser.h" />
@@ -193,6 +194,7 @@
     <ClCompile Include="AIPackage.cpp" />
     <ClCompile Include="AI\Attribute.cpp" />
     <ClCompile Include="AI\AttributeDef.cpp" />
+    <ClCompile Include="Core\ActionWrapper.cpp" />
     <ClCompile Include="Core\Palette\EntityPalette.cpp" />
     <ClCompile Include="Core\Serialisation\ConversationLoader.cpp" />
     <ClCompile Include="Core\Serialisation\ConversationSerialiser.cpp" />

@@ -3,6 +3,8 @@
 
 #include <luabind/lua_include.hpp>
 #include <luabind/luabind.hpp>
+#include <luabind/function.hpp>
+#include <LuaBind/class.hpp>
 
 #include <vector>
 #include <list>

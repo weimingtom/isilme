@@ -100,6 +100,9 @@
     <ClCompile Include="Commands\RemoveLayer.cpp">
       <Filter>Commands\LevelEditor</Filter>
     </ClCompile>
+    <ClCompile Include="Commands\MoveLayer.cpp">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HGEProxyGame.h" />
@@ -207,6 +210,9 @@
       <Filter>Proxy</Filter>
     </ClInclude>
     <ClInclude Include="Commands\RemoveLayer.h">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\MoveLayer.h">
       <Filter>Commands\LevelEditor</Filter>
     </ClInclude>
   </ItemGroup>

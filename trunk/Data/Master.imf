@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DataFile Module="Master" Version="0.3">
+  <Scripts>
+    <File>KeepHealthPackage.lua</File>
+  </Scripts>
 	<Levels>
 		<File>testlevel.lvl</File>
 		<File>testlevel2.lvl</File>

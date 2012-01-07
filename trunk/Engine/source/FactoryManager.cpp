@@ -545,6 +545,29 @@ void FactoryManager::LoadMasterFile( std::string fileName )
 
 	TiXmlElement* rootElement = document.FirstChildElement();
 
+	// Загружаем скрипты
+	TiXmlElement* scriptsElement = rootElement->FirstChildElement("Scripts");
+	if (scriptsElement)
+	{
+		std::string dirName = Engine::GetSingleton()->GetResourceDirectory() + "/Scripts/";
+		TiXmlElement* fileElement = scriptsElement->FirstChildElement("File");
+		while (fileElement)
+		{
+			if (fileElement->GetText())
+			{
+				std::string fileName = dirName + fileElement->GetText();
+				lua_State* state = Engine::GetSingleton()->GetLua()->GetState();
+				luaL_dofile(state, fileName.c_str());
+			}
+			else
+			{
+				LOG_W("File element contains no file");
+			}
+
+			fileElement = fileElement->NextSiblingElement("File");
+		}
+	}
+
 	// Загружаем графическую палиру
 	TiXmlElement* graphicsElement = rootElement->FirstChildElement("Graphics");
 	if (graphicsElement)

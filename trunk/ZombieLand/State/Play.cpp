@@ -298,12 +298,7 @@ void	Play::OnUpdate(float elapsedTime)
 
 	if (inputSystem->IsKeyDown(HGEK_Y))
 	{
-		if (luaL_loadstring(state, "return function(stage) local q = Story:GetQuest(\"Level1\");	q:SetStage(stage); end") == 0)
-		{
-			luabind::object f = luabind::object(luabind::from_stack(state, lua_gettop(state)));
-			luabind::object t = f();
-			t(20);
-		}
+		luaL_dostring(state, "tstAction = TestAction(); Player:StartAction(tstAction);");
 	}
 	if (Engine::GetSingleton()->GetInputSystem()->IsKeyDown(HGEK_ESCAPE))
 	{

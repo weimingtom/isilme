@@ -320,6 +320,10 @@ namespace LevelEditor
 
 				mScrollTool->Level = Level;
 
+				//// Тестируем создаение слоя
+				//lua_State* state = Engine::GetSingleton()->GetLua()->GetState();
+				//luaL_dostring(state, "testLayer = Layer(); testLayer:SetName(\"LuaLayer\"); Factory:GetLevel(\"Level2\"):AddLayer(testLayer); ");
+				//// end
 				Show();
 			//	mLoadedLevels[FileName] = Level;
 			//}

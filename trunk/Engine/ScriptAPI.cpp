@@ -19,6 +19,7 @@
 #include "Behaviour.h"
 #include "State.h"
 #include "StateManager.h"
+#include "Core/ActionWrapper.h"
 
 namespace ScriptAPI
 {
@@ -165,6 +166,7 @@ namespace ScriptAPI
 			[
 				luabind::class_<Behaviour, BehaviourPtr>("Behaviour")
 				.def("GetActor", &Behaviour::GetActor)
+				.def("GetEntity", &Behaviour::GetActor)
 				.def("StartAction", &Behaviour::StartAction)
 				.def("IsActive", &Behaviour::IsActive)
 				.def("SetActive", &Behaviour::SetActive)
@@ -185,16 +187,34 @@ namespace ScriptAPI
 		// Action
 		luabind::module(state)
 			[
-				luabind::class_<Action, ActionPtr>("Action")
+				luabind::class_<Action, ActionPtr, ActionWrapper>("Action")
+				.def(luabind::constructor<>())
 				.def("GetActor", &Action::GetActor)
+				.def("GetEntity", &Action::GetEntity)
 				.def("GetState", &Action::GetState)
 				.def("Stop", &Action::Stop)
+				.def("OnDone", &Action::OnDone, &ActionWrapper::defaultOnDone)
+				.def("OnStart", (void (Action::*)())&Action::OnStart, &ActionWrapper::defaultOnStart)
+				.def("OnUpdate", &Action::OnUpdate, &ActionWrapper::defaultOnUpdate)
+				.def("SetDuration", &Action::SetDuration)
+				.def("GetDuration", &Action::GetDuration)
+				.def("OnForceStop", &Action::OnForceStop, &ActionWrapper::defaultOnForceStop)
 			];
 
 		// Layer
 		luabind::module(state)
 			[
 				luabind::class_<Layer, LayerPtr>("Layer")
+				.def(luabind::constructor<>())
+				.def("GetName", &Layer::GetName)
+				.def("SetName", &Layer::SetName)
+				.def("Size", &Layer::Size)
+				.def("GetEntity", &Layer::GetEntity)
+				.def("Clear", &Layer::Clear)
+				.def("Remove", &Layer::Remove)
+				.def("GetLevel", &Layer::GetLevel)
+				.def("IsVisible", &Layer::IsVisible)
+				.def("SetVisible", &Layer::SetVisible)
 				.def("Add", &Layer::Add)
 			];
 
@@ -206,6 +226,8 @@ namespace ScriptAPI
 			//	.def("AddLayer", &Level::AddLayer)
 				.def("Clear", &Level::Clear)
 				.def("CreateEntity", &Level::CreateEntity)
+				.def("AddLayer", (void (Level::*)(LayerPtr))&Level::AddLayer)
+				.def("RemoveLayer", &Level::RemoveLayer)
 //				.def("Load", &Level::Load)
 			];
 
