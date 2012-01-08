@@ -1,5 +1,6 @@
 #include "IsilmePCH.h"
 #include "ConversationLoader.h"
+#include "FactoryManager.h"
 
 namespace serialisation
 {
@@ -29,7 +30,16 @@ namespace serialisation
 	story::ConversationPtr XMLConversationLoader::LoadConversation( TiXmlElement* element )
 	{
 		mPhraseMap.clear();
-		story::ConversationPtr conversation(new story::Conversation());
+
+		const char* idAttr = element->Attribute("ID");
+		if (!idAttr)
+		{
+			LOG_W("Conversation has no ID!");
+			return story::ConversationPtr();
+		}
+
+		story::ConversationPtr conversation(new story::Conversation(idAttr));
+	//	FactoryManager::GetSingleton()->AddConversation(conversation);
 
 		TiXmlElement* phraseElement = element->FirstChildElement("Phrase");
 		while (phraseElement)

@@ -10,7 +10,7 @@ namespace story
 	class ISILME_API Conversation
 	{
 	public:
-		Conversation();
+		Conversation(std::string id);
 		virtual ~Conversation();
 		
 		/// Возвращает идентификатор диалога

@@ -668,8 +668,15 @@ void FactoryManager::LoadMasterFile( std::string fileName )
 			{
 				std::string fileName = dirName + fileElement->GetText();
 				serialisation::XMLConversationLoader loader;
-				story::ConversationPtr conversation = loader.LoadConversation(conversationsElement);
-				mConversations[conversation->GetID()] = conversation;
+				story::ConversationPtr conversation = loader.LoadConversation(fileName);
+				if (conversation)
+				{
+					mConversations[conversation->GetID()] = conversation;
+				}
+				else
+				{
+					// Диалог загружен с ошибкой
+				}
 			}
 			else
 			{
@@ -704,3 +711,8 @@ void FactoryManager::LoadMasterFile( std::string fileName )
 
 	LOG_M("Success");
 }
+
+//void FactoryManager::AddConversation( story::ConversationPtr conversation )
+//{
+//	mConversations[conversation->GetID()] = conversation;
+//}

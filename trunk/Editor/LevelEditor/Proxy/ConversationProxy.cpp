@@ -16,7 +16,7 @@ namespace LevelEditor
 			mPhrases = gcnew ObservableCollection<PhraseProxy^>();
 
 			if (!mConversation->Value)
-				mConversation->Value.reset(new story::Conversation());
+				mConversation->Value.reset(new story::Conversation(""));
 
 			for (int i = 0; i < mConversation->Value->GetPhrasesCount(); ++i)
 			{
@@ -29,7 +29,7 @@ namespace LevelEditor
 
 		ConversationProxy::ConversationProxy()
 		{
-			mConversation = new SharedCLIPtr<story::Conversation>(story::ConversationPtr(new story::Conversation()));
+			mConversation = new SharedCLIPtr<story::Conversation>(story::ConversationPtr(new story::Conversation("")));
 			mPhrases = gcnew ObservableCollection<PhraseProxy^>();
 		}
 

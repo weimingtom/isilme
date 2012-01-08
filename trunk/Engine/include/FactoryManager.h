@@ -124,6 +124,9 @@ public:
 	///
 	/// @return	The entity palette.
 	EntityPalettePtr	GetEntityPalette();
+
+	/// Добавить диалог
+	//void AddConversation(story::ConversationPtr conversation);
 protected:	
 
 	/// Создает сущность из определения

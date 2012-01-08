@@ -17,7 +17,7 @@ namespace behaviour
 {
 	Creature::Creature(CreatureDef* def) : Destroyable(def)
 	{
-		mConversation = def->Conversation;
+		mConversationID = def->Conversation;
 		mMoveAction = action::MovePtr(new action::Move());
 
 		mMoveBack = action::MovePtr(new action::Move());
@@ -137,7 +137,7 @@ namespace behaviour
 		const char* convAttr = element->Attribute("Conversation");
 		if (convAttr)
 		{
-			Conversation = FactoryManager::GetSingleton()->GetConversation(convAttr);
+			Conversation = convAttr;
 		}
 	}
 
@@ -423,17 +423,18 @@ namespace behaviour
 
 	bool Creature::IsUsable()
 	{
-		return mConversation != 0;
+		return FactoryManager::GetSingleton()->GetConversation(mConversationID) != nullptr;
 	}
 
 	void Creature::OnUse(CreaturePtr other)
 	{
-		if (mConversation)
+		story::ConversationPtr conversation = FactoryManager::GetSingleton()->GetConversation(mConversationID);
+		if (conversation)
 		{
 			gcn::Container* w = (gcn::Container*)(ZombieLand::GetSingleton()->playState->GetGUI()->getTop());
 			gcn::ConversationWindow* cw = new gcn::ConversationWindow();
 			cw->Show(w);
-			cw->SetConversation(mConversation, GetActor());
+			cw->SetConversation(conversation, GetActor());
 			cw->setCaption(GetName());
 		}
 	}

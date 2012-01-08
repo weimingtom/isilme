@@ -4,8 +4,9 @@
 
 namespace story
 {
-	Conversation::Conversation()
+	Conversation::Conversation(std::string id)
 	{
+		mID = id;
 	}
 
 	Conversation::~Conversation()

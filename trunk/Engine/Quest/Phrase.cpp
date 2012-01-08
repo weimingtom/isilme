@@ -111,7 +111,10 @@ namespace story
 	void Phrase::SetCondition( std::string attrCondition )
 	{
 		mConditionSource = attrCondition;
-		mCondition = ScriptAPI::MakeFunction("", attrCondition);
+		if (mConditionSource != "")
+			mCondition = ScriptAPI::MakeFunction("", attrCondition);
+		else
+			mCondition = luabind::object();
 	}
 
 	void Phrase::SetAction( std::string atttrAction )
