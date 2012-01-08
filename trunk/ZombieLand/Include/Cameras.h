@@ -24,7 +24,7 @@ namespace camera
 		virtual ~FollowingCamera();
 
 		void	SetPlayer(EntityPtr Player);
-		virtual void Update(float elapsedTime);
+		virtual void OnUpdate(float elapsedTime);
 	protected:
 		EntityWPtr mPlayer;
 		std::string mName;

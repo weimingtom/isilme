@@ -109,7 +109,6 @@
     <ClInclude Include="AI\AttributeDef.h" />
     <ClInclude Include="AI\ScriptAIPackage.h" />
     <ClInclude Include="Config.h" />
-    <ClInclude Include="Core\ActionWrapper.h" />
     <ClInclude Include="Core\Palette\EntityPalette.h" />
     <ClInclude Include="Core\Serialisation\ConversationLoader.h" />
     <ClInclude Include="Core\Serialisation\ConversationSerialiser.h" />
@@ -120,6 +119,11 @@
     <ClInclude Include="Core\Serialisation\StaticLevelSerialiser.h" />
     <ClInclude Include="Core\Serialisation\StoryLoader.h" />
     <ClInclude Include="Core\Serialisation\StorySerialiser.h" />
+    <ClInclude Include="Core\Wrappers\ActionWrapper.h" />
+    <ClInclude Include="Core\Wrappers\AIPackageWrapper.h" />
+    <ClInclude Include="Core\Wrappers\BehaviourWrapper.h" />
+    <ClInclude Include="Core\Wrappers\CameraWrapper.h" />
+    <ClInclude Include="Core\Wrappers\StateWrapper.h" />
     <ClInclude Include="Editor\AddEntityCommand.h" />
     <ClInclude Include="Editor\AddLayerCommand.h" />
     <ClInclude Include="Editor\Command.h" />
@@ -194,7 +198,6 @@
     <ClCompile Include="AIPackage.cpp" />
     <ClCompile Include="AI\Attribute.cpp" />
     <ClCompile Include="AI\AttributeDef.cpp" />
-    <ClCompile Include="Core\ActionWrapper.cpp" />
     <ClCompile Include="Core\Palette\EntityPalette.cpp" />
     <ClCompile Include="Core\Serialisation\ConversationLoader.cpp" />
     <ClCompile Include="Core\Serialisation\ConversationSerialiser.cpp" />
@@ -203,6 +206,11 @@
     <ClCompile Include="Core\Serialisation\SaveManager.cpp" />
     <ClCompile Include="Core\Serialisation\StaticLevelSerialiser.cpp" />
     <ClCompile Include="Core\Serialisation\StoryLoader.cpp" />
+    <ClCompile Include="Core\Wrappers\ActionWrapper.cpp" />
+    <ClCompile Include="Core\Wrappers\AIPackageWrapper.cpp" />
+    <ClCompile Include="Core\Wrappers\BehaviourWrapper.cpp" />
+    <ClCompile Include="Core\Wrappers\CameraWrapper.cpp" />
+    <ClCompile Include="Core\Wrappers\StateWrapper.cpp" />
     <ClCompile Include="Editor\AddEntityCommand.cpp" />
     <ClCompile Include="Editor\AddLayerCommand.cpp" />
     <ClCompile Include="Editor\CommandManager.cpp" />

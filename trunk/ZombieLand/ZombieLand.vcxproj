@@ -156,6 +156,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Data\Conversations.xml" />
+    <None Include="..\Data\Conversations\Civilian1.conv" />
+    <None Include="..\Data\Conversations\tutorial.conv" />
     <None Include="..\Data\Entities.xml" />
     <None Include="..\Data\Graphics.xml" />
     <None Include="..\Data\Items.xml" />

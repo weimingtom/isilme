@@ -32,9 +32,9 @@ namespace serialisation
 		/// @return	The full path.
 		std::string GetFullPath();
 	private:
-		///< Время сохранения
+		/// Время сохранения
 		time_t mTime;
-		///< Имя сохранения
+		/// Имя сохранения
 		std::string mName;
 	};
 };

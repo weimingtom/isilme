@@ -8,7 +8,8 @@
 		<File>testlevel2.lvl</File>
 	</Levels>
 	<Conversations>
-		<File>test.conv</File>
+		<File>tutorial.conv</File>
+    <File>Civilian1.conv</File>
 	</Conversations>
 	<Graphics>
 		<File>Graphics.XML</File>

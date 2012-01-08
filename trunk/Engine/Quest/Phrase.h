@@ -53,13 +53,13 @@ namespace story
 	private:
 		PhrasePtr mReference;
 
-		///< Текст сценария-условия
+		/// Текст сценария-условия
 		std::string mConditionSource;
 
-		///< Текст сценария-действия
+		/// Текст сценария-действия
 		std::string mActionSource;
 
-		///< Текст фразы
+		/// Текст фразы
 		std::string mText;
 
 		/// Условие фразы

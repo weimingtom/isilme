@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="Windows-1251"?>
+<Conversation ID="Civilian1">
+<Phrase Chance="50" Condition="return test_check == nil;" Action="test_check=1">
+  <Text>Привет</Text>
+  <Answers>
+	<Phrase>
+	  <Text>И тебе того же</Text>
+	  <Answers>
+		<Phrase>
+		  <Text>Ты кто будешь?</Text>
+		  <Answers>
+			<Phrase>
+			  <Text>Я новый житель</Text>
+			</Phrase>
+			<Phrase>
+			  <Text>Какая тебе разница?</Text>
+			</Phrase>
+		  </Answers>
+		</Phrase>
+	  </Answers>
+	</Phrase>
+	<Phrase>
+	  <Text>Good by</Text>
+	</Phrase>
+  </Answers>
+</Phrase>
+<Phrase Condition="return test_check!=nil;">
+  <Text>Nice to meet you again</Text>
+  <Answers>
+	<Phrase Condition="return test_check==2;">
+	  <Text>Farewell</Text>
+	</Phrase>
+	<Phrase Action="test_check=2;">
+	  <Text>Good by</Text>
+	</Phrase>
+  </Answers>
+</Phrase>
+</Conversation>

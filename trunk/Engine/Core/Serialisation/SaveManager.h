@@ -44,19 +44,19 @@ namespace serialisation
 		SaveDataPtr GetQuickSave();
 		std::string GetSaveFolder();
 	private:
-		///< Путь к файлам сохранений
+		/// Путь к файлам сохранений
 		std::string mSaveFolder;
 
-		///< Экземпляр менеджера сохранений
+		/// Экземпляр менеджера сохранений
 		static SaveManagerPtr mInstance;
 
-		///< Массив сохранений
+		/// Массив сохранений
 		std::vector<SaveDataPtr> mSaves;
 
-		///< Файл автосохранения
+		/// Файл автосохранения
 		SaveDataPtr mAutoSave;
 
-		///< Файл быстрого сохранения
+		/// Файл быстрого сохранения
 		SaveDataPtr mQuickSave;
 	};
 };

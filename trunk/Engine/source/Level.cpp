@@ -106,7 +106,7 @@ private:
 	b2AABB mAABB;
 };
 
-std::string Level::GetName()
+std::string Level::GetID()
 {
 	return mName;
 }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="Windows-1251"?>
+<Conversation ID="tutorial">
+<Phrase>
+  <Text>Привет</Text>
+  <Answers>
+	<Phrase>
+	  <Text>Рад видеть тебя</Text>
+	  <Answers>
+		<Phrase>
+		  <Text>Who are you?</Text>
+		  <Answers>
+			<Phrase>
+			  <Text>I am new player</Text>
+			</Phrase>
+			<Phrase>
+			  <Text>I'm new player in this game</Text>
+			</Phrase>
+		  </Answers>
+		</Phrase>
+	  </Answers>
+	</Phrase>
+	<Phrase>
+	  <Text>Good by</Text>
+	</Phrase>
+	<Phrase>
+	  <Text></Text>
+	  
+	</Phrase>
+  </Answers>
+</Phrase>
+<Phrase>
+  <Text>Nice to meet you again</Text>
+</Phrase>
+</Conversation>

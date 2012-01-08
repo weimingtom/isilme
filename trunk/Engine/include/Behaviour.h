@@ -169,10 +169,10 @@ public:
 	/// @return	The attribute definition.
 	ai::AttributeDefPtr	GetAttribute(int index);
 protected:
-	///< Behaviour type
+	/// Behaviour type
 	std::string mType;
 
-	///< Definitions of attributes
+	/// Definitions of attributes
 	std::vector<ai::AttributeDefPtr>	mAttributes;
 };
 

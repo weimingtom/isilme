@@ -500,7 +500,7 @@ LevelPtr FactoryManager::GetLevel(std::string id)
 LevelPtr FactoryManager::LoadLevel(std::string fileName)
 {
 	LevelPtr level = Level::Load(fileName);
-	mLevels[level->GetName()] = level;
+	mLevels[level->GetID()] = level;
 	return level;
 }
 

@@ -33,10 +33,10 @@ namespace ai
 		/// @return	The identifier.
 		std::string GetID();
 	private:
-		///< The value of the attribute
+		/// The value of the attribute
 		float mValue;
 
-		///< The identifier of attribute
+		/// The identifier of attribute
 		std::string mID;
 	};
 };

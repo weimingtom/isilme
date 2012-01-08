@@ -17,7 +17,9 @@ public:
 
 	virtual ~Camera();
 
-	virtual void Update(float elapsedTime);
+	void Update(float elapsedTime);
+
+	virtual void OnUpdate(float elapsedTime);
 	
 	void	Apply();
 };

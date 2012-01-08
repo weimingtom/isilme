@@ -37,6 +37,9 @@
     <Filter Include="Serialisation">
       <UniqueIdentifier>{799d08cc-13be-4432-9067-c6b889c3d783}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Wrappers">
+      <UniqueIdentifier>{f4616126-12e5-442f-b5b1-468c8144cd8e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -53,9 +56,6 @@
     </ClInclude>
     <ClInclude Include="Graphics\Particles.h">
       <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Behaviour.h">
-      <Filter>Behaviour</Filter>
     </ClInclude>
     <ClInclude Include="include\Trigger.h">
       <Filter>Behaviour</Filter>
@@ -275,8 +275,23 @@
     <ClInclude Include="Graphics\Line.h">
       <Filter>Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Core\ActionWrapper.h">
+    <ClInclude Include="Core\Wrappers\ActionWrapper.h">
+      <Filter>Core\Wrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Wrappers\StateWrapper.h">
+      <Filter>Core\Wrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Behaviour.h">
       <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Wrappers\BehaviourWrapper.h">
+      <Filter>Core\Wrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Wrappers\AIPackageWrapper.h">
+      <Filter>Core\Wrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Wrappers\CameraWrapper.h">
+      <Filter>Core\Wrappers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -291,9 +306,6 @@
     </ClCompile>
     <ClCompile Include="Graphics\Particles.cpp">
       <Filter>Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Behaviour.cpp">
-      <Filter>Behaviour</Filter>
     </ClCompile>
     <ClCompile Include="source\Trigger.cpp">
       <Filter>Behaviour</Filter>
@@ -474,8 +486,23 @@
     <ClCompile Include="Graphics\Line.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Core\ActionWrapper.cpp">
+    <ClCompile Include="Core\Wrappers\ActionWrapper.cpp">
+      <Filter>Core\Wrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Wrappers\StateWrapper.cpp">
+      <Filter>Core\Wrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Behaviour.cpp">
       <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Wrappers\BehaviourWrapper.cpp">
+      <Filter>Core\Wrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Wrappers\AIPackageWrapper.cpp">
+      <Filter>Core\Wrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Wrappers\CameraWrapper.cpp">
+      <Filter>Core\Wrappers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

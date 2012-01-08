@@ -56,7 +56,7 @@ namespace serialisation
 		levelElement->InsertEndChild(*worldElement);
 
 		// Записываем имя уровня
-		levelElement->SetAttribute("Name", level->GetName().c_str());
+		levelElement->SetAttribute("Name", level->GetID().c_str());
 
 
 		// Записываем камеру

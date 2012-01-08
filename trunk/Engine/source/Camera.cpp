@@ -22,11 +22,17 @@ Camera::~Camera()
 
 void	Camera::Update(float elapsedTime)
 {
+	OnUpdate(elapsedTime);
 }
 
 void Camera::Apply()
 {
 	//mHGE->Gfx_SetTransform(0.0f ,0.0f, -x, -y, 0.0f, 1.0f, 1.0f);
+}
+
+void Camera::OnUpdate( float elapsedTime )
+{
+
 }
 
 CameraDefinition::CameraDefinition()

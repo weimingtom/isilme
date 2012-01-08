@@ -88,8 +88,7 @@ public:
 	///
 	/// @param	level	The level.
 	void	SetLevel(LevelPtr level);
-protected:
-	
+
 	/// Executes the update action.
 	///
 	/// @param	elapsedTime	Time of the elapsed.
@@ -105,27 +104,27 @@ protected:
 	virtual void OnDraw();
 	
 private:
-	///< Графический интерфейс
+	/// Графический интерфейс
 	gcn::Gui*	mGUI;
 
-	///< true to pause previous
+	/// true to pause previous
 	bool mPausePrev;
-	///< true if this object is paused
+	/// true if this object is paused
 	bool isPaused;
-	///< true if this object is transporate
+	/// true if this object is transporate
 	bool isTransporate;
 
-	///< Флаг закрытия состояния
+	/// Флаг закрытия состояния
 	bool isClosed;
 
-	///< Уровень состояния
+	/// Уровень состояния
 	LevelPtr mLevel;
 
-    ///< The graphics
+    /// The graphics
     gcn::HGEGraphics* graphics;
-    ///< The input
+    /// The input
     gcn::HGEInput* input;
-    ///< The image loader
+    /// The image loader
     gcn::HGEImageLoader* imageLoader;
 };
 

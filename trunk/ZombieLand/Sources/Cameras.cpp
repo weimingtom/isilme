@@ -35,7 +35,7 @@ namespace camera
 		Update(0.0f);
 	}
 
-	void FollowingCamera::Update(float elapsedTime)
+	void FollowingCamera::OnUpdate(float elapsedTime)
 	{
 		if (mPlayer.lock() == 0)
 		{

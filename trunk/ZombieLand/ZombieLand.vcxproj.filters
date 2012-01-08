@@ -256,6 +256,12 @@
     <None Include="..\Data\Scripts\KeepHealthPackage.lua">
       <Filter>Data\Scripts</Filter>
     </None>
+    <None Include="..\Data\Conversations\Civilian1.conv">
+      <Filter>Data\Conversations</Filter>
+    </None>
+    <None Include="..\Data\Conversations\tutorial.conv">
+      <Filter>Data\Conversations</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Actions">
@@ -281,6 +287,9 @@
     </Filter>
     <Filter Include="Data\Scripts">
       <UniqueIdentifier>{feac5ea1-3c77-417d-9c6b-9016d6e030ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\Conversations">
+      <UniqueIdentifier>{f87f543a-66d0-4834-ba15-1e1a2af458f8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

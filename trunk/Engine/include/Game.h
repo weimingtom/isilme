@@ -47,7 +47,7 @@ public:
 protected:
 	/// Initialises the engine.
 	virtual void		InitEngine();
-	///< The hge
+	/// The hge
 	HGE*				mHGE;
 
 private:

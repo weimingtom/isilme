@@ -19,7 +19,11 @@
 #include "Behaviour.h"
 #include "State.h"
 #include "StateManager.h"
-#include "Core/ActionWrapper.h"
+#include "Core/Wrappers/ActionWrapper.h"
+#include "Core/Wrappers/StateWrapper.h"
+#include "Core/Wrappers/BehaviourWrapper.h"
+#include "Core/Wrappers/AIPackageWrapper.h"
+#include "Core/Wrappers/CameraWrapper.h"
 
 namespace ScriptAPI
 {
@@ -164,12 +168,24 @@ namespace ScriptAPI
 		// Behaviour
 		luabind::module(state)
 			[
-				luabind::class_<Behaviour, BehaviourPtr>("Behaviour")
+				luabind::class_<Behaviour, BehaviourPtr, BehaviourWrapper>("Behaviour")
 				.def("GetActor", &Behaviour::GetActor)
 				.def("GetEntity", &Behaviour::GetActor)
+				.def("GetLevel", &Behaviour::GetLevel)
+				.def("Think", &Behaviour::Think, &BehaviourWrapper::defaultThink)
 				.def("StartAction", &Behaviour::StartAction)
 				.def("IsActive", &Behaviour::IsActive)
 				.def("SetActive", &Behaviour::SetActive)
+				.def("StartAction", &Behaviour::StartAction)
+				.def("AddAIPackage", (void (Behaviour::*)(AIPackagePtr, int))&Behaviour::AddAIPackage)
+			];
+
+		// AIPackage
+		luabind::module(state)
+			[
+				luabind::class_<AIPackage, AIPackagePtr, AIPackageWrapper>("AIPackage")
+				.def("CheckCondition", &AIPackage::CheckCondition, &AIPackageWrapper::defaultCheckCondition)
+				.def("CreateAction", &AIPackage::CreateAction, &AIPackageWrapper::defaultCreateAction)
 			];
 
 		// ActionState
@@ -228,15 +244,37 @@ namespace ScriptAPI
 				.def("CreateEntity", &Level::CreateEntity)
 				.def("AddLayer", (void (Level::*)(LayerPtr))&Level::AddLayer)
 				.def("RemoveLayer", &Level::RemoveLayer)
+				.def("GetActiveCamera", &Level::GetActiveCamera)
+				.def("SetActiveCamera", &Level::SetActiveCamera)
+				.def("Clear", &Level::Clear)
+				.def("GetLayer", (LayerPtr (Level::*)(int))&Level::GetLayer)
+				.def("GetLayersCount", &Level::GetLayersCount)
+				.def("GetID", &Level::GetID)
 //				.def("Load", &Level::Load)
+			];
+
+		// Camera
+		luabind::module(state)
+			[
+				luabind::class_<Camera, CameraPtr, CameraWrapper>("Camera")
+				.def(luabind::constructor<>())
+				.def("OnUpdate", &Camera::OnUpdate, &CameraWrapper::defaultOnUpdate)
+				.def_readwrite("x", &Camera::x)
+				.def_readwrite("y", &Camera::y)
 			];
 
 		// State
 		luabind::module(state)
 			[
-				luabind::class_<State, StatePtr>("State")
+				luabind::class_<State, StatePtr, StateWrapper>("State")
+				.def(luabind::constructor<>())
 				.def("Close", &State::Close)
 				.def("GetLevel", &State::GetLevel)
+				.def("SetLevel", &State::SetLevel)
+				.def("SetPaused", &State::SetPaused)
+				.def("OnUpdate", &State::OnUpdate, &StateWrapper::defaultOnUpdate)
+				.def("OnStart", &State::OnStart, &StateWrapper::defaultOnStart)
+				.def("OnResume", &State::OnResume, &StateWrapper::defaultOnResume)
 			];
 
 		// Factory

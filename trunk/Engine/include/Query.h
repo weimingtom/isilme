@@ -39,7 +39,7 @@ protected:
 	/// Clears this object to its blank/initial state.
 	void Clear();
 private:
-	///< The entities
+	/// The entities
 	std::vector<EntityPtr> mEntities;
 };
 

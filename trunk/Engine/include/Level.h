@@ -22,9 +22,9 @@
 /// Каждый уровень пользуется своей моделью физического мира.
 class ISILME_API Level : public boost::enable_shared_from_this<Level>
 {
-	///< The layer
+	/// The layer
 	friend class Layer;
-	///< Manager for factory
+	/// Manager for factory
 	friend class FactoryManager;
 public:
 	/// Default constructor.
@@ -49,7 +49,7 @@ public:
 	/// Gets the name.
 	///
 	/// @return	The name.
-	std::string		GetName();
+	std::string		GetID();
 
 	/// Gets the active camera.
 	///
@@ -172,7 +172,7 @@ private:
 	/// Поименованные слои
 	LayerMap	mLayerNames;
 
-	///< The entities
+	/// The entities
 	EntitySet	mEntities;
 
 	/// Текущая камера
