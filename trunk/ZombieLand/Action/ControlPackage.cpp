@@ -10,7 +10,7 @@ ControlPackage::~ControlPackage()
 {
 }
 
-bool ControlPackage::CheckCondition(BehaviourPtr behaviour)
+bool ControlPackage::CheckCondition()
 {
 	return true;
 }
@@ -19,4 +19,9 @@ ActionPtr ControlPackage::CreateAction()
 {
 	action::Control* a = new action::Control();
 	return ActionPtr(a);
+}
+
+AIPackagePtr ControlPackageDef::CreatePackage()
+{
+	return AIPackagePtr(new ControlPackage());
 }

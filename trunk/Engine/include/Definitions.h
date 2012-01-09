@@ -169,6 +169,9 @@ namespace serialisation
 class EntityPalette;
 typedef boost::shared_ptr<EntityPalette> EntityPalettePtr;
 
+class AIPalette;
+typedef boost::shared_ptr<AIPalette> AIPalettePtr;
+
 class Fraction;
 typedef boost::shared_ptr<Fraction> FractionPtr;
 typedef boost::weak_ptr<Fraction> FractionWptr;
@@ -185,6 +188,10 @@ class AIPackage;
 typedef boost::shared_ptr<AIPackage>	AIPackagePtr;
 typedef std::list<AIPackagePtr>			AIPackageList;
 typedef std::map<std::string, AIPackagePtr> AIPackageMap;
+
+class AIPackageDef;
+typedef boost::shared_ptr<AIPackageDef> AIPackageDefPtr;
+
 class IAIPackageFactory;
 typedef boost::shared_ptr<IAIPackageFactory> AIPackageFactoryPtr;
 typedef std::map<std::string, AIPackageFactoryPtr> AIFactoryMap;

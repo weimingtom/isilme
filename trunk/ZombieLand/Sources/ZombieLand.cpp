@@ -69,10 +69,10 @@ void	ZombieLand::Init()
 	factoryManager->RegisterItem("Spell", inventory::ItemFactory<inventory::SpellDef>::New());
 
 	// Регистрируем пакеты ИИ
-	factoryManager->RegisterAIPackage("Wander", AIPackageFactory<WanderPackage>::New());
-	factoryManager->RegisterAIPackage("Control", AIPackageFactory<ControlPackage>::New());
-	factoryManager->RegisterAIPackage("Agression", AIPackageFactory<AgressionPackage>::New());
-	factoryManager->RegisterAIPackage("Avoid", AIPackageFactory<AvoidPackage>::New());
+	factoryManager->RegisterAIPackage("Wander", AIPackageFactory<WanderPackageDef>::New());
+	factoryManager->RegisterAIPackage("Control", AIPackageFactory<ControlPackageDef>::New());
+	factoryManager->RegisterAIPackage("Agression", AIPackageFactory<AgressionPackageDef>::New());
+	factoryManager->RegisterAIPackage("Avoid", AIPackageFactory<AvoidPackageDef>::New());
 	
 	FactoryManager::GetSingleton()->LoadMasterFile("../Data/Master.imf");
 //	factoryManager->LoadConversations("../Data/Conversations.xml");

@@ -146,7 +146,7 @@
     <Behaviour
       Loot="Zombie"
       MaxHealth="40"
-      Health="40"
+      Health="140"
       Resistance="0"
       Blood="Blood"
       Conversation="Civilian1"
@@ -155,6 +155,7 @@
         <Attribute ID="Speed" Value="1.5" Type="Float"></Attribute>
       </Attributes>
       <AI>
+       <!-- <Package ID="KeepHealth"></Package> -->
         <Package ID="Avoid"></Package>
         <Package ID="Wander"></Package>
       </AI>

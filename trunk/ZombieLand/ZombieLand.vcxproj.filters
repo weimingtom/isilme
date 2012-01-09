@@ -262,6 +262,9 @@
     <None Include="..\Data\Conversations\tutorial.conv">
       <Filter>Data\Conversations</Filter>
     </None>
+    <None Include="..\Data\AIPackages.aip">
+      <Filter>Data</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Actions">

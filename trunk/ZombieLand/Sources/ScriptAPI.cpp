@@ -9,6 +9,11 @@
 #include <luabind/lua_include.hpp>
 #include <luabind/luabind.hpp>
 
+behaviour::CreaturePtr ToCreature(EntityPtr e)
+{
+	behaviour::CreaturePtr c = e->As<behaviour::Creature>();
+	return c;
+}
 
 void	ScriptAPI::RegisterAPI()
 {
@@ -43,6 +48,7 @@ void	ScriptAPI::RegisterAPI()
 	[
 		luabind::class_<behaviour::Destroyable, luabind::bases<behaviour::Activator>, BehaviourPtr>("Destroyable")
 		.def("GetHealth", &behaviour::Destroyable::GetHealth)
+		.def("GetMaxHealth", &behaviour::Destroyable::GetMaxHealth)
 		.def("SetHealth", &behaviour::Destroyable::SetHealth)
 	];
 
@@ -57,6 +63,10 @@ void	ScriptAPI::RegisterAPI()
 			.def("SetRank", (void (behaviour::Creature::*)(std::string, int))&behaviour::Creature::SetRank)
 		];
 
+	luabind::module(state)
+		[
+			luabind::def("ToCreature", &ToCreature)
+		];
 	//// Depricated: Player
 	//luabind::module(state)
 	//	[

@@ -22,11 +22,14 @@
 #include "Core/Serialisation/ConversationLoader.h"
 #include "Game.h"
 #include "Quest/Story.h"
+#include "Core/Palette/AIPalette.h"
+#include "AI/ScriptAIPackageDef.h"
 
 FactoryPtr FactoryManager::mInstance;
 
 FactoryManager::FactoryManager() : 
-	mEntityDefinitions(new EntityPalette())
+	mEntityDefinitions(new EntityPalette()),
+	mAIPalette(new AIPalette())
 {
 	RegisterBehaviour("Default", new BehaviourFactory<BehaviourDefinition>());
 	RegisterBehaviour("Trigger", new BehaviourFactory<TriggerDefinition>());
@@ -36,6 +39,7 @@ FactoryManager::FactoryManager() :
 	RegisterGraphics("Particles", GraphicsFactory<graphics::ParticlesDefinition>::New());
 	RegisterGraphics("Trigger", GraphicsFactory<graphics::TriggerDef>::New());
 
+	RegisterAIPackage("Script", AIPackageFactory<ScriptAIPackageDef>::New());
 	RegisterCamera("Default", new CameraFactory<CameraDefinition>());
 }
 
@@ -52,44 +56,13 @@ FactoryPtr FactoryManager::GetSingleton()
 
 AIPackagePtr	FactoryManager::GetAIPackage(std::string id)
 {
-	return mAIPackages[id];
+	return mAIPalette->CreateAIPackage(id);
 }
 
-void	FactoryManager::LoadAIPackages(TiXmlElement* element)
-{
-	TiXmlElement* packageElement = element->FirstChildElement();
-	while (packageElement)
-	{
-		std::string packageType = packageElement->Value();
-
-		AIPackageFactoryPtr factory = mAIFactories[packageType];
-		if (factory)
-		{
-			const char* idAttr = packageElement->Attribute("ID");
-			if (idAttr)
-			{
-				std::string id = idAttr;
-				AIPackagePtr package = factory->CreatePackage();
-				package->Parse(packageElement);
-				mAIPackages[id] = package;
-			}
-			else
-			{
-				LOG_D("ID was not specified for AI package");
-			}
-		}
-		else
-		{
-			LOG_D("AI Package type %s not found", packageType.c_str());
-		}
-
-		packageElement = packageElement->NextSiblingElement();
-	}
-}
 
 void	FactoryManager::RegisterAIPackage(std::string type, AIPackageFactoryPtr factory)
 {
-	mAIFactories[type] = factory;
+	mAIPalette->RegisterAIType(type, factory);
 }
 
 inventory::ItemPtr	FactoryManager::CreateItem(std::string tag)
@@ -360,11 +333,6 @@ void			FactoryManager::LoadDataFile(std::string fileName)
 	if (fractionsElement)
 		LoadFractions(fractionsElement);
 
-	// Загружаем пакеты ИИ
-	TiXmlElement* aiPackagesElement = root->FirstChildElement("AIPackages");
-	if (aiPackagesElement)
-		LoadAIPackages(aiPackagesElement);
-
 	// Загружаем квесты
 	// Загружаем предметы
 	// Загружаем графику
@@ -567,6 +535,29 @@ void FactoryManager::LoadMasterFile( std::string fileName )
 			fileElement = fileElement->NextSiblingElement("File");
 		}
 	}
+
+	// Загружаем пакеты ИИ
+	TiXmlElement* aipackagesElement = rootElement->FirstChildElement("AIPackages");
+	if (aipackagesElement)
+	{
+		std::string dirName = Engine::GetSingleton()->GetResourceDirectory() + "/";
+		TiXmlElement* fileElement = aipackagesElement->FirstChildElement("File");
+		while (fileElement)
+		{
+			if (fileElement->GetText())
+			{
+				std::string fileName = dirName + fileElement->GetText();
+				mAIPalette->Load(fileName);
+			}
+			else
+			{
+				LOG_W("File element contains no file");
+			}
+
+			fileElement = fileElement->NextSiblingElement("File");
+		}
+	}
+
 
 	// Загружаем графическую палиру
 	TiXmlElement* graphicsElement = rootElement->FirstChildElement("Graphics");

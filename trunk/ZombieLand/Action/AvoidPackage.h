@@ -3,6 +3,8 @@
 
 #include <Isilme.h>
 #include <Engine/include/AIPackage.h>
+#include <Engine/Core/AIPackageDef.h>
+
 #include "ZombieLand/Include/Definitions.h"
 
 class AvoidPackage : public AIPackage
@@ -12,12 +14,18 @@ public:
 	virtual ~AvoidPackage();
 
 	/// Проверяем, есть ли поблизости враждебно настроенные агенты
-	virtual bool CheckCondition(BehaviourPtr behaviour);
+	virtual bool CheckCondition();
 
 	/// Создает и настраивает действие атаки цели
 	virtual ActionPtr CreateAction();
 protected:
 private:
+};
+
+class AvoidPackageDef : public AIPackageDef
+{
+public:
+	virtual AIPackagePtr CreatePackage();
 };
 
 #endif

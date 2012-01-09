@@ -17,11 +17,16 @@ ActionPtr AvoidPackage::CreateAction()
 	return ActionPtr(a);
 }
 
-bool AvoidPackage::CheckCondition(BehaviourPtr b)
+bool AvoidPackage::CheckCondition()
 {
-	behaviour::CreaturePtr c = boost::shared_dynamic_cast<behaviour::Creature>(b);
+	behaviour::CreaturePtr c = GetEntity()->As<behaviour::Creature>();
 
 	float brave = c->GetAttributeValue("Brave");
 	int enemiesCount = c->GetEnemiesCount();
 	return brave < enemiesCount;
+}
+
+AIPackagePtr AvoidPackageDef::CreatePackage()
+{
+	return AIPackagePtr(new AvoidPackage());
 }

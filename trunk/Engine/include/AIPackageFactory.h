@@ -1,4 +1,4 @@
-#ifndef ISILME_AI_AIPACKAGE_FACTORY_H
+﻿#ifndef ISILME_AI_AIPACKAGE_FACTORY_H
 #define ISILME_AI_AIPACKAGE_FACTORY_H
 
 #include "Definitions.h"
@@ -6,7 +6,7 @@
 class IAIPackageFactory
 {
 public:
-	virtual AIPackagePtr	CreatePackage() = 0;
+	virtual AIPackageDefPtr CreateDef() = 0;
 };
 
 template <class T>
@@ -20,10 +20,10 @@ public:
 	{
 	}
 
-	virtual AIPackagePtr CreatePackage()
+	virtual AIPackageDefPtr CreateDef()
 	{
 		T* package = new T();
-		return AIPackagePtr(package);
+		return AIPackageDefPtr(package);
 	}
 
 	static AIPackageFactoryPtr New()

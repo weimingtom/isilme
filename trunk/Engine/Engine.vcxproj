@@ -107,9 +107,13 @@
   <ItemGroup>
     <ClInclude Include="AI\Attribute.h" />
     <ClInclude Include="AI\AttributeDef.h" />
+    <ClInclude Include="AI\ScriptAIPackageDef.h" />
     <ClInclude Include="AI\ScriptAIPackage.h" />
     <ClInclude Include="Config.h" />
+    <ClInclude Include="Core\AIPackageDef.h" />
+    <ClInclude Include="Core\Palette\AIPalette.h" />
     <ClInclude Include="Core\Palette\EntityPalette.h" />
+    <ClInclude Include="Core\Palette\Palette.h" />
     <ClInclude Include="Core\Serialisation\ConversationLoader.h" />
     <ClInclude Include="Core\Serialisation\ConversationSerialiser.h" />
     <ClInclude Include="Core\Serialisation\DynamicLevelSerialiser.h" />
@@ -198,6 +202,9 @@
     <ClCompile Include="AIPackage.cpp" />
     <ClCompile Include="AI\Attribute.cpp" />
     <ClCompile Include="AI\AttributeDef.cpp" />
+    <ClCompile Include="AI\ScriptAIPackageDef.cpp" />
+    <ClCompile Include="Core\AIPackageDef.cpp" />
+    <ClCompile Include="Core\Palette\AIPalette.cpp" />
     <ClCompile Include="Core\Palette\EntityPalette.cpp" />
     <ClCompile Include="Core\Serialisation\ConversationLoader.cpp" />
     <ClCompile Include="Core\Serialisation\ConversationSerialiser.cpp" />

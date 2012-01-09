@@ -4,15 +4,13 @@
 #include "Definitions.h"
 #include "AIPackage.h"
 
-class ISILME_API AIPackageWrapper : public AIPackage, luabind::wrap_base
+class ISILME_API AIPackageWrapper : public AIPackage, public luabind::wrap_base
 {
 public:
-	AIPackageWrapper();
-	virtual ~AIPackageWrapper();
-	virtual bool CheckCondition(BehaviourPtr behaviour);
+	virtual bool CheckCondition();
 	virtual ActionPtr CreateAction();
 
-	static bool defaultCheckCondition(AIPackage* base, BehaviourPtr behaviour);
+	static bool defaultCheckCondition(AIPackage* base);
 	static ActionPtr defaultCreateAction(AIPackage* base);
 
 };

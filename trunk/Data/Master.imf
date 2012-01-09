@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DataFile Module="Master" Version="0.3">
+  <AIPackages>
+    <File>AIPackages.aip</File>
+  </AIPackages>
   <Scripts>
     <File>KeepHealthPackage.lua</File>
   </Scripts>

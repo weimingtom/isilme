@@ -68,7 +68,9 @@ void		Behaviour::Update(float elapsedTime)
 		for (AIPackageList::iterator it = mActivePackages.begin(); it != mActivePackages.end(); ++it)
 		{
 			AIPackagePtr package = *it;
-			if (package->CheckCondition(shared_from_this()))
+			if (package->GetBehaviour() == nullptr)
+				package->mBehaviour = shared_from_this();
+			if (package->CheckCondition())
 			{
 				StartAction(package->CreateAction());
 				break;

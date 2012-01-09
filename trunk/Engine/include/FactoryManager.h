@@ -93,9 +93,6 @@ public:
 	/// Загружает описание фракций
 	void			LoadFractions(TiXmlElement* element);
 
-	/// Загружает пакеты AI
-	void			LoadAIPackages(TiXmlElement* element);
-
 	/// Загружает диалоги из файла
 	void			LoadConversations(std::string fileName);
 
@@ -168,13 +165,8 @@ private:
 	// Фракции
 	FractionMap		mFractions;
 
-	/// Пакеты ИИ
-	AIPackageMap	mAIPackages;
-
-	/// Фабрики пакетов ИИ отображение тип-фабрика
-	AIFactoryMap	mAIFactories;
-	//////////////////////////////////////////////////////
-
+	// Палитра ИИ
+	AIPalettePtr	mAIPalette;
 
 	FactoryManager();
 

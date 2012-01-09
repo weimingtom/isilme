@@ -15,3 +15,8 @@ ActionPtr WanderPackage::CreateAction()
 {
 	return ActionPtr(new action::Wander());
 }
+
+AIPackagePtr WanderPackageDef::CreatePackage()
+{
+	return AIPackagePtr(new WanderPackage());
+}

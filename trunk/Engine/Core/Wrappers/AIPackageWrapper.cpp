@@ -1,18 +1,9 @@
 ﻿#include "IsilmePCH.h"
 #include "AIPackageWrapper.h"
 
-AIPackageWrapper::AIPackageWrapper()
+bool AIPackageWrapper::CheckCondition()
 {
-}
-
-AIPackageWrapper::~AIPackageWrapper()
-{
-
-}
-
-bool AIPackageWrapper::CheckCondition( BehaviourPtr behaviour )
-{
-	bool result = luabind::call_member<bool, BehaviourPtr>(this, "CheckCondition", behaviour);
+	bool result = luabind::call_member<bool>(this, "CheckCondition");
 	return result;
 }
 
@@ -22,9 +13,9 @@ ActionPtr AIPackageWrapper::CreateAction()
 	return result;
 }
 
-bool AIPackageWrapper::defaultCheckCondition(AIPackage* base, BehaviourPtr behaviour )
+bool AIPackageWrapper::defaultCheckCondition(AIPackage* base)
 {
-	return base->AIPackage::CheckCondition(behaviour);
+	return base->AIPackage::CheckCondition();
 }
 
 ActionPtr AIPackageWrapper::defaultCreateAction(AIPackage* base)

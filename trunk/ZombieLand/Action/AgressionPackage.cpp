@@ -19,9 +19,14 @@ ActionPtr AgressionPackage::CreateAction()
 	return ActionPtr(a);
 }
 
-bool AgressionPackage::CheckCondition(BehaviourPtr behaviour)
+bool AgressionPackage::CheckCondition()
 {
-	behaviour::CreaturePtr c = boost::shared_dynamic_cast<behaviour::Creature>(behaviour);
+	behaviour::CreaturePtr c = GetEntity()->As<behaviour::Creature>();
 	c->SetTarget();
 	return c->GetTarget() != 0;
+}
+
+AIPackagePtr AgressionPackageDef::CreatePackage()
+{
+	return AIPackagePtr(new AgressionPackage());
 }

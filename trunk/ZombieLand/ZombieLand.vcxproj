@@ -155,6 +155,7 @@
     <ClCompile Include="WanderPackage.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Data\AIPackages.aip" />
     <None Include="..\Data\Conversations.xml" />
     <None Include="..\Data\Conversations\Civilian1.conv" />
     <None Include="..\Data\Conversations\tutorial.conv" />

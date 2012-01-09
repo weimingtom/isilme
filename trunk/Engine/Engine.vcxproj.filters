@@ -31,14 +31,14 @@
     <Filter Include="AI">
       <UniqueIdentifier>{865f155f-e7fa-4d2c-8f31-ee381241d9e2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Palette">
-      <UniqueIdentifier>{9d0b35fe-e8a4-41dd-9b6a-88bf246f82bc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Serialisation">
-      <UniqueIdentifier>{799d08cc-13be-4432-9067-c6b889c3d783}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Wrappers">
       <UniqueIdentifier>{f4616126-12e5-442f-b5b1-468c8144cd8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Palette">
+      <UniqueIdentifier>{9d0b35fe-e8a4-41dd-9b6a-88bf246f82bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Serialisation">
+      <UniqueIdentifier>{799d08cc-13be-4432-9067-c6b889c3d783}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -233,7 +233,7 @@
     <ClInclude Include="include\Log.h" />
     <ClInclude Include="IsilmePCH.h" />
     <ClInclude Include="Core\Serialisation\StaticLevelSerialiser.h">
-      <Filter>Serialisation</Filter>
+      <Filter>Core\Serialisation</Filter>
     </ClInclude>
     <ClInclude Include="AI\Attribute.h">
       <Filter>AI</Filter>
@@ -242,29 +242,28 @@
       <Filter>AI</Filter>
     </ClInclude>
     <ClInclude Include="Core\Serialisation\DynamicLevelSerialiser.h">
-      <Filter>Serialisation</Filter>
+      <Filter>Core\Serialisation</Filter>
     </ClInclude>
     <ClInclude Include="Core\Serialisation\LevelSerialiser.h">
-      <Filter>Serialisation</Filter>
+      <Filter>Core\Serialisation</Filter>
     </ClInclude>
     <ClInclude Include="Core\Serialisation\SaveManager.h">
-      <Filter>Serialisation</Filter>
+      <Filter>Core\Serialisation</Filter>
     </ClInclude>
     <ClInclude Include="Core\Serialisation\SaveData.h">
-      <Filter>Serialisation</Filter>
+      <Filter>Core\Serialisation</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Palette\EntityPalette.h" />
     <ClInclude Include="Core\Serialisation\StorySerialiser.h">
-      <Filter>Serialisation</Filter>
+      <Filter>Core\Serialisation</Filter>
     </ClInclude>
     <ClInclude Include="Core\Serialisation\StoryLoader.h">
-      <Filter>Serialisation</Filter>
+      <Filter>Core\Serialisation</Filter>
     </ClInclude>
     <ClInclude Include="Core\Serialisation\ConversationSerialiser.h">
-      <Filter>Serialisation</Filter>
+      <Filter>Core\Serialisation</Filter>
     </ClInclude>
     <ClInclude Include="Core\Serialisation\ConversationLoader.h">
-      <Filter>Serialisation</Filter>
+      <Filter>Core\Serialisation</Filter>
     </ClInclude>
     <ClInclude Include="AI\ScriptAIPackage.h">
       <Filter>AI</Filter>
@@ -292,6 +291,21 @@
     </ClInclude>
     <ClInclude Include="Core\Wrappers\CameraWrapper.h">
       <Filter>Core\Wrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\AIPackageDef.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\ScriptAIPackageDef.h">
+      <Filter>AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Palette\EntityPalette.h">
+      <Filter>Core\Palette</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Palette\AIPalette.h">
+      <Filter>Core\Palette</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Palette\Palette.h">
+      <Filter>Core\Palette</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -453,7 +467,7 @@
     </ClCompile>
     <ClCompile Include="source\Isilme.cpp" />
     <ClCompile Include="Core\Serialisation\StaticLevelSerialiser.cpp">
-      <Filter>Serialisation</Filter>
+      <Filter>Core\Serialisation</Filter>
     </ClCompile>
     <ClCompile Include="AI\Attribute.cpp">
       <Filter>AI</Filter>
@@ -462,23 +476,22 @@
       <Filter>AI</Filter>
     </ClCompile>
     <ClCompile Include="Core\Serialisation\DynamicLevelSerialiser.cpp">
-      <Filter>Serialisation</Filter>
+      <Filter>Core\Serialisation</Filter>
     </ClCompile>
     <ClCompile Include="Core\Serialisation\SaveData.cpp">
-      <Filter>Serialisation</Filter>
+      <Filter>Core\Serialisation</Filter>
     </ClCompile>
     <ClCompile Include="Core\Serialisation\SaveManager.cpp">
-      <Filter>Serialisation</Filter>
+      <Filter>Core\Serialisation</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Palette\EntityPalette.cpp" />
     <ClCompile Include="Core\Serialisation\StoryLoader.cpp">
-      <Filter>Serialisation</Filter>
+      <Filter>Core\Serialisation</Filter>
     </ClCompile>
     <ClCompile Include="Core\Serialisation\ConversationSerialiser.cpp">
-      <Filter>Serialisation</Filter>
+      <Filter>Core\Serialisation</Filter>
     </ClCompile>
     <ClCompile Include="Core\Serialisation\ConversationLoader.cpp">
-      <Filter>Serialisation</Filter>
+      <Filter>Core\Serialisation</Filter>
     </ClCompile>
     <ClCompile Include="source\Graphics.cpp">
       <Filter>Core</Filter>
@@ -503,6 +516,18 @@
     </ClCompile>
     <ClCompile Include="Core\Wrappers\CameraWrapper.cpp">
       <Filter>Core\Wrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\ScriptAIPackageDef.cpp">
+      <Filter>AI</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Palette\EntityPalette.cpp">
+      <Filter>Core\Palette</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Palette\AIPalette.cpp">
+      <Filter>Core\Palette</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\AIPackageDef.cpp">
+      <Filter>Core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -4,6 +4,7 @@
 #include <Isilme.h>
 #include "Definitions.h"
 #include <Engine/include/AIPackage.h>
+#include "../Core/AIPackageDef.h"
 
 class WanderPackage : public AIPackage
 {
@@ -15,5 +16,8 @@ public:
 	virtual ActionPtr	CreateAction();
 };
 
-
+class WanderPackageDef : public AIPackageDef
+{
+	virtual AIPackagePtr CreatePackage();
+};
 #endif
