@@ -1,10 +1,10 @@
 ﻿#include "IsilmePCH.h"
-#include "Engine/ScriptAPI.h"
 #include "InputSystem.h"
 #include "Renderer.h"
 #include "ResourceManager.h"
 #include "State.h"
 #include "StateManager.h"
+#include "ScriptAPI.h"
 
 Engine* Engine::mInstance = 0;
 
@@ -14,7 +14,8 @@ Engine::Engine() :
 	mLua(0)
 {
 	// Инициализируем Lua
-	mLua = new Lua();
+	mLua = luaL_newstate();
+	luaL_openlibs(mLua);
 	
 	// Инициализируем подсистему ввода
 	SetInputSystem(new HGEInputSystem(mHGE));
@@ -31,6 +32,7 @@ Engine::Engine() :
 
 Engine::~Engine()
 {
+	lua_close(mLua);
 	if (mHGE)
 	{
 		mHGE->Release();
@@ -54,7 +56,7 @@ void	Engine::SetInputSystem(InputSystem* inputSystem)
 	mInputSystem = inputSystem;
 }
 
-Lua*	Engine::GetLua()
+lua_State*	Engine::GetLua()
 {
 	return mLua;
 }

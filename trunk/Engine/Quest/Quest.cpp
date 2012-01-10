@@ -8,7 +8,7 @@ namespace story
 {
 	QuestPtr Quest::Load(TiXmlElement* element)
 	{
-		lua_State* state = Engine::GetSingleton()->GetLua()->GetState();
+		lua_State* state = Engine::GetSingleton()->GetLua();
 		Quest* quest = new Quest();
 		QuestPtr q = QuestPtr(quest);
 		TiXmlElement* stageElement = element->FirstChildElement("Stage");

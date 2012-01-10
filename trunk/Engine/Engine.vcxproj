@@ -50,7 +50,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>LUABIND_DYNAMIC_LINK;WIN32;ISILME_DLL;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(BOOST_INCLUDE);$(ProjectDir)/;$(ProjectDir)../Luabind;$(ProjectDir)../;$(ProjectDir)../GUIChan/include/;$(ProjectDir)../HGE/include;$(ProjectDir)/include;$(ProjectDir)../TinyXML/include;$(ProjectDir)../Box2D/;$(ProjectDir)../Lua514/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(BOOST_INCLUDE);$(ProjectDir)/;$(ProjectDir)../Luabind;$(ProjectDir)../;$(ProjectDir)../GUIChan/include/;$(ProjectDir)../HGE/include;$(ProjectDir)/include;$(ProjectDir)../TinyXML/include;$(ProjectDir)../Box2D/;$(ISILME_INCLUDE)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>IsilmePCH.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)Isilme.pch</PrecompiledHeaderOutputFile>
       <DisableSpecificWarnings>4251;4275;%(DisableSpecificWarnings)</DisableSpecificWarnings>
@@ -63,8 +63,8 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(BOOST_LIB);../Luabind/lib;../Lua514/lib;../GUIChan/lib;../HGE/lib;../TinyXML/lib;../Box2D/lib;../Engine/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>lua_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(BOOST_LIB);../Luabind/lib;$(ISILME_LIB);../GUIChan/lib;../HGE/lib;../TinyXML/lib;../Box2D/lib;../Engine/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>libc.lib; libcmt.lib; libcmtd.lib</IgnoreSpecificDefaultLibraries>
       <ImportLibrary>$(ProjectDir)/lib/Engine_d.lib</ImportLibrary>
       <OutputFile>../Debug/Engine_d.dll</OutputFile>
@@ -87,7 +87,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>LUABIND_DYNAMIC_LINK;WIN32;ISILME_DLL;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)../Luabind/;$(ProjectDir)../;$(ProjectDir)../GUIChan/include/;$(ProjectDir)../HGE/include;$(ProjectDir)/include;$(ProjectDir)../TinyXML/include;$(ProjectDir)../Box2D/;$(ProjectDir)../Lua514/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)../Luabind/;$(ProjectDir)../;$(ProjectDir)../GUIChan/include/;$(ProjectDir)../HGE/include;$(ProjectDir)/include;$(ProjectDir)../TinyXML/include;$(ProjectDir)../Box2D/;$(BOOST_INCLUDE);$(ISILME_INCLUDE)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4251;4275;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Link>
@@ -95,7 +95,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>../boost/lib;../Luabind/lib;../Lua514/lib; ../GUIChan/lib;../HGE/lib;../TinyXML/lib;../Box2D/lib;../Engine/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(BOOST_LIB);../Luabind/lib;$(ISILME_LIB);../GUIChan/lib;../HGE/lib;../TinyXML/lib;../Box2D/lib;../Engine/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>$(ProjectDir)/lib/Engine.lib</ImportLibrary>
       <OutputFile>../Release/Engine.dll</OutputFile>

@@ -24,6 +24,7 @@
 #include "Core/Wrappers/BehaviourWrapper.h"
 #include "Core/Wrappers/AIPackageWrapper.h"
 #include "Core/Wrappers/CameraWrapper.h"
+#include "luabind/adopt_policy.hpp"
 
 namespace ScriptAPI
 {
@@ -36,7 +37,7 @@ namespace ScriptAPI
 		s.append(body);
 		s.append("\nend;");
 
-		lua_State* state = Engine::GetSingleton()->GetLua()->GetState();
+		lua_State* state = Engine::GetSingleton()->GetLua();
 				
 		if (luaL_loadstring(state, s.c_str()) == 0)
 		{
@@ -127,7 +128,7 @@ namespace ScriptAPI
 
 	void RegisterEngineAPI()
 	{
-		lua_State* state = Engine::GetSingleton()->GetLua()->GetState();
+		lua_State* state = Engine::GetSingleton()->GetLua();
 		luabind::open(state);
 
 		// Vector2
@@ -183,8 +184,8 @@ namespace ScriptAPI
 		// AIPackage
 		luabind::module(state)
 			[
-				luabind::class_<AIPackage, AIPackagePtr, AIPackageWrapper>("AIPackage")
-				.def(luabind::constructor<>())
+				luabind::class_<AIPackage, AIPackagePtr, AIPackageWrapper >("AIPackage")
+				.def(luabind::constructor<>(), luabind::adopt(luabind::result))
 				.def("CheckCondition", &AIPackage::CheckCondition, &AIPackageWrapper::defaultCheckCondition)
 				.def("CreateAction", &AIPackage::CreateAction, &AIPackageWrapper::defaultCreateAction)
 				.def("GetBehaviour", &AIPackage::GetBehaviour)

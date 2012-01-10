@@ -293,7 +293,7 @@ void	Editor::OnUpdate(float elapsedTime)
 	}
 
 	InputSystem* inputSystem = Engine::GetSingleton()->GetInputSystem();
-	lua_State* state = Engine::GetSingleton()->GetLua()->GetState();
+	lua_State* state = Engine::GetSingleton()->GetLua();
 
 	if (inputSystem->IsKeyUp(HGEK_Z) && inputSystem->GetKeyState(HGEK_CTRL))
 	{
@@ -339,7 +339,7 @@ void	Editor::OnUpdate(float elapsedTime)
 
 	if (inputSystem->IsKeyDown(HGEK_0))
 	{
-		luaL_dostring(Engine::GetSingleton()->GetLua()->GetState(), "Player:GetHealth()");
+		luaL_dostring(Engine::GetSingleton()->GetLua(), "Player:GetHealth()");
 	}
 	if (inputSystem->IsKeyDown(HGEK_9))
 	{
@@ -413,7 +413,7 @@ void Editor::OnStart()
 	//Engine::GetSingleton()->GetLua()->DoFile("../Data/Scripts/Triggers.lua");
 
 	EntityPtr player = FactoryManager::GetSingleton()->GetEntity("Player");
-	luabind::globals(Engine::GetSingleton()->GetLua()->GetState())["Player"] = boost::shared_dynamic_cast<behaviour::Creature>(player->GetBehaviour());
+	luabind::globals(Engine::GetSingleton()->GetLua())["Player"] = boost::shared_dynamic_cast<behaviour::Creature>(player->GetBehaviour());
 	boost::shared_dynamic_cast<behaviour::Creature>(player->GetBehaviour())->SavePoint();
 
 	mMenu->setVisible(false);

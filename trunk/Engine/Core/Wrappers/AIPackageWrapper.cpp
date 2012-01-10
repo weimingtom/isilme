@@ -1,8 +1,24 @@
 ﻿#include "IsilmePCH.h"
 #include "AIPackageWrapper.h"
 
+static unsigned long long callCounter = 0;
+
+AIPackageWrapper::AIPackageWrapper()
+{
+	int a = 4;
+	self1 = luabind::detail::wrap_access::ref(*this);
+	int b = 0;
+}
+
+AIPackageWrapper::~AIPackageWrapper()
+{
+	LOG_W("Package was destroyed");
+}
+
 bool AIPackageWrapper::CheckCondition()
 {
+	++callCounter;
+	self1 = luabind::detail::wrap_access::ref(*this);
 	bool result = luabind::call_member<bool>(this, "CheckCondition");
 	return result;
 }

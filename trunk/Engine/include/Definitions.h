@@ -28,6 +28,15 @@
 
 #include <tinyxml.h>
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+#include <lualib.h>
+#ifdef __cplusplus
+}
+#endif
+
 #include <luabind/lua_include.hpp>
 #include <luabind/luabind.hpp>
 

@@ -406,19 +406,19 @@ void ParseScripts(LevelPtr level, TiXmlElement* rootElement)
 		return;
 
 	// Читаем и выполняем Lua-сценарии
-	Lua* lua = Engine::GetSingleton()->GetLua();
+	lua_State* state = Engine::GetSingleton()->GetLua();
 
 	TiXmlElement* luaElement = scriptsElement->FirstChildElement("Lua");
 	while (luaElement)
 	{
-		lua->DoFile(luaElement->GetText());
+		luaL_dofile(state, luaElement->GetText());
 		luaElement = luaElement->NextSiblingElement("Lua");
 	}
 
 	if (scriptsElement->Attribute("StartScript"))
 	{
 		const char* sc = scriptsElement->Attribute("StartScript");
-		luaL_dostring(lua->GetState(), sc);
+		luaL_dostring(state, sc);
 	}
 
 }

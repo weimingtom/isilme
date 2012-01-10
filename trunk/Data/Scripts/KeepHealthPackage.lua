@@ -7,9 +7,13 @@ end
 
 function TestAction:OnStart()
 	local position = self:GetEntity():GetPosition();
-	self:GetEntity():SetPosition(position.x + 5, position.y);
+	self:GetEntity():GetBehaviour():SetHealth(140);
+	self:GetEntity():SetPosition(position.x + 1, position.y);
 	--self:Stop();
 end
+
+indexerTemp = 0;
+indexedTable = {};
 
 class 'KeepHealthPackage'(AIPackage)
 
@@ -18,10 +22,11 @@ function KeepHealthPackage:__init()
 end
 
 function KeepHealthPackage:CheckCondition()
---	local e = self:GetEntity();
---	local c = ToCreature(e);
-	return false;
-	--return c:GetHealth() < c:GetMaxHealth() / 2;
+	--return false;
+	--local e = self:GetEntity();
+	--local c = ToCreature(e);
+	--return false;
+	return self:GetBehaviour():GetHealth() < 100; --c:GetMaxHealth() / 2;
 end
 
 function KeepHealthPackage:CreateAction()

@@ -14,6 +14,7 @@
 #include "Engine/Quest/Stage.h"
 #include "Engine/Quest/Conversation.h"
 
+
 namespace state
 {
 
@@ -288,7 +289,7 @@ void	Play::OnUpdate(float elapsedTime)
 	}
 
 	InputSystem* inputSystem = Engine::GetSingleton()->GetInputSystem();
-	lua_State* state = Engine::GetSingleton()->GetLua()->GetState();
+	lua_State* state = Engine::GetSingleton()->GetLua();
 
 	if (inputSystem->IsKeyDown(HGEK_Z))
 	{
@@ -298,7 +299,8 @@ void	Play::OnUpdate(float elapsedTime)
 
 	if (inputSystem->IsKeyDown(HGEK_Y))
 	{
-		luaL_dostring(state, "tstAction = TestAction(); Player:StartAction(tstAction);");
+		lua_gc(state, LUA_GCSTOP, 0);
+	//	luaL_dostring(state, "tstAction = TestAction(); Player:StartAction(tstAction);");
 	}
 	if (Engine::GetSingleton()->GetInputSystem()->IsKeyDown(HGEK_ESCAPE))
 	{
@@ -319,7 +321,7 @@ void	Play::OnUpdate(float elapsedTime)
 
 	if (inputSystem->IsKeyDown(HGEK_0))
 	{
-		luaL_dostring(Engine::GetSingleton()->GetLua()->GetState(), "Player:GetHealth()");
+		luaL_dostring(Engine::GetSingleton()->GetLua(), "Player:GetHealth()");
 	}
 	if (inputSystem->IsKeyDown(HGEK_9))
 	{
@@ -392,7 +394,7 @@ void Play::OnStart()
 	//Engine::GetSingleton()->GetLua()->DoFile("../Data/Scripts/Triggers.lua");
 
 	EntityPtr player = FactoryManager::GetSingleton()->GetEntity("Player");
-	luabind::globals(Engine::GetSingleton()->GetLua()->GetState())["Player"] = boost::shared_dynamic_cast<behaviour::Creature>(player->GetBehaviour());
+	luabind::globals(Engine::GetSingleton()->GetLua())["Player"] = boost::shared_dynamic_cast<behaviour::Creature>(player->GetBehaviour());
 	boost::shared_dynamic_cast<behaviour::Creature>(player->GetBehaviour())->SavePoint();
 
 	mMenu->setVisible(false);

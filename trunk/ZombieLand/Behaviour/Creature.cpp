@@ -36,11 +36,11 @@ namespace behaviour
 
 		onThink = def->OnThink;
 
-		// Пакеты ИИ
-		for (std::list<std::string>::iterator it = def->AIPackages.begin(); it != def->AIPackages.end(); ++it)
-		{
-			AddAIPackage(*it);
-		}
+		//// Пакеты ИИ
+		//for (std::list<std::string>::iterator it = def->AIPackages.begin(); it != def->AIPackages.end(); ++it)
+		//{
+		//	AddAIPackage(*it);
+		//}
 
 		// Фракции
 		for (std::list<FractionInfo>::iterator it = def->Fractions.begin(); it != def->Fractions.end(); ++it)

@@ -524,7 +524,7 @@ void FactoryManager::LoadMasterFile( std::string fileName )
 			if (fileElement->GetText())
 			{
 				std::string fileName = dirName + fileElement->GetText();
-				lua_State* state = Engine::GetSingleton()->GetLua()->GetState();
+				lua_State* state = Engine::GetSingleton()->GetLua();
 				luaL_dofile(state, fileName.c_str());
 			}
 			else

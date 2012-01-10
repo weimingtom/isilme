@@ -1,10 +1,9 @@
 #include "ZombieLand.h"
-#include "../Lua514/include/LuaCPP.h"
 #include <guichan.hpp>
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
-	Lua* state = new Lua();
+	//Lua* state = new Lua();
 	//double value = 0.0;
 	//state->RegisterFunction<double,(Test::fa)>("fa");
 	//state->RegisterFunction<double,(Test::fb)>("fb");

@@ -90,7 +90,7 @@ void	ZombieLand::Init()
 	GetStateManager()->Push(playState);
 	//GetStateManager()->Push(editorState);
 
-	Engine::GetSingleton()->GetLua()->DoFile("../Data/Scripts/script.lua");
+	luaL_dofile(Engine::GetSingleton()->GetLua(), "../Data/Scripts/script.lua");
 }
 
 void	ZombieLand::ApplyConfiguration()

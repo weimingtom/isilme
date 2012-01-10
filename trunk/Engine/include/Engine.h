@@ -1,7 +1,6 @@
 ﻿#ifndef ENGINE_H
 #define ENGINE_H
 
-#include <LuaCPP.h>
 #include "Definitions.h"
 #include "LogoState.h"
 
@@ -13,10 +12,9 @@
 class ISILME_API Engine
 {
 public:
-	/// Возвращает Lua
-	/// @depricated
+	/// Возвращает состояние Lua
 	/// @return Lua* 
-	Lua*					GetLua();
+	lua_State*					GetLua();
 
 	/// Демонстрирует логотип
 	/// @depricated
@@ -76,7 +74,7 @@ private:
 	StateManager*			mStateManager;
 	InputSystem*			mInputSystem;
 	SoundSystem*			mSoundSystem;
-	Lua*					mLua;
+	lua_State*					mLua;
 
 	// Экземпляр движка
 	static Engine* mInstance;

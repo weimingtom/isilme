@@ -2,6 +2,7 @@
 #include "Quest.h"
 #include "Stage.h"
 #include "ScriptAPI.h"
+#include "Engine.h"
 
 namespace story
 {
@@ -46,7 +47,7 @@ namespace story
 
 		// Скрипт итерации
 
-		lua_State* state = Engine::GetSingleton()->GetLua()->GetState();
+		lua_State* state = Engine::GetSingleton()->GetLua();
 
 		if (element->Attribute("UpdateScript"))
 		{

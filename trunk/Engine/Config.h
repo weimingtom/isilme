@@ -10,7 +10,7 @@
 #		pragma comment(lib, "GUIChan_d.lib")
 #		pragma comment(lib, "tinyxml_d.lib")
 #		pragma comment(lib, "box2d_d.lib")
-#		pragma comment(lib, "lua514_d.lib")
+#		pragma comment(lib, "lua_d.lib")
 #	else
 #		pragma comment(lib, "xinput.lib")
 #		pragma comment(lib, "luabind.lib")
@@ -19,7 +19,7 @@
 #		pragma comment(lib, "GUIChan.lib")
 #		pragma comment(lib, "tinyxml.lib")
 #		pragma comment(lib, "box2d.lib")
-#		pragma comment(lib, "lua514.lib")
+#		pragma comment(lib, "lua.lib")
 #	endif
 #endif
 

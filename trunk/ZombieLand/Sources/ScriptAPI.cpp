@@ -17,8 +17,8 @@ behaviour::CreaturePtr ToCreature(EntityPtr e)
 
 void	ScriptAPI::RegisterAPI()
 {
-	Lua* lua = Engine::GetSingleton()->GetLua();
-	lua_State* state = lua->GetState();
+	//Lua* lua = Engine::GetSingleton()->GetLua();
+	lua_State* state = Engine::GetSingleton()->GetLua();
 //	luabind::open(state);
 
 	//luabind::open(state);	

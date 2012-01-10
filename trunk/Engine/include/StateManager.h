@@ -4,7 +4,6 @@
 #include <stack>
 #include <list>
 #include <vector>
-#include <LuaCPP.h>
 #include "Definitions.h"
 
 /// @class StateManager
@@ -27,7 +26,7 @@ public:
 private:
 	StateList	mStates;
 	StateList	mUpdatedStates;
-	Lua*				mLua;
+	lua_State*				mLua;
 	Renderer*			mRenderer;
 	HGE*				mHGE;
 };

@@ -1,7 +1,6 @@
 ﻿#include "IsilmePCH.h"
 #include "Trigger.h"
 #include "ScriptAPI.h"
-#include "LuaCPP.h"
 #include "Engine.h"
 
 Trigger::Trigger(TriggerDefinition* def) : Behaviour(def)
@@ -42,7 +41,7 @@ void	Trigger::Think(float elapsedTime)
 {
 	if (IsActivated())
 	{
-		Lua* lua = Engine::GetSingleton()->GetLua();
+		lua_State* state = Engine::GetSingleton()->GetLua();
 		bool result;
 		if (mActivationFunction)
 		{
