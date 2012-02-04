@@ -28,4 +28,15 @@ namespace ai
 	{
 		return mID;
 	}
+
+	float Attribute::GetMaxValue()
+	{
+		return mMaxValue;
+	}
+
+	void Attribute::SetMaxValue( float value )
+	{
+		mMaxValue = value;
+	}
+
 };

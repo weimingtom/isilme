@@ -14,11 +14,13 @@ end
 
 indexerTemp = 0;
 indexedTable = {};
+indexedTable[4] = 1;
 
 class 'KeepHealthPackage'(AIPackage)
 
 function KeepHealthPackage:__init()
 	AIPackage.__init(self);
+	--indexedTable[self] = self;
 end
 
 function KeepHealthPackage:CheckCondition()

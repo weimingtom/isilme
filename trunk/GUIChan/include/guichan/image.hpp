@@ -126,7 +126,7 @@ namespace gcn
          *
          * @since 0.5.0
          */
-        virtual void free() = 0;
+        virtual void Release() = 0;
 
         /**
          * Gets the width of the image.

@@ -3,10 +3,25 @@
 #include <luabind/adopt_policy.hpp>
 #include "Core/Wrappers/AIPackageWrapper.h"
 
+static AIPackagePtr mStaticPackage;
+static bool isInit = false;
+
+void __setStaticPackage(AIPackagePtr package)
+{
+	mStaticPackage = package;
+}
+
 
 ScriptAIPackageDef::ScriptAIPackageDef()
 {
-
+	if (!isInit)
+	{
+		isInit = true;
+		luabind::module(Engine::GetSingleton()->GetLua())
+			[
+				luabind::def("__setStaticPackage", &__setStaticPackage)
+			];
+	}
 }
 
 ScriptAIPackageDef::~ScriptAIPackageDef()
@@ -32,14 +47,19 @@ AIPackagePtr ScriptAIPackageDef::CreatePackage()
 
 	//luabind::object result = classTable();
 	//luabind ::object test = luabind::call_function<luabind::object>(state, "TestAction");
-	//AIPackagePtr result = luabind::call_function<AIPackagePtr>(state, mClassName.c_str());
+	char buf[512];
+	sprintf(buf, "function __hack__lua__function__%s()\nreturn %s();\nend;", mClassName.c_str(), mClassName.c_str());
+	luaL_dostring(state, buf);
+	AIPackagePtr result = luabind::call_function<AIPackagePtr>(state, mClassName.c_str());
 	
 	//AIPackagePtr wrapper(new AIPackageWrapper());
 
 	std::string test =  "return function end;";
-	luaL_dostring(state, "local o = KeepHealthPackage();o:CheckCondition();");
-	luaL_dostring(state, "o:CheckCondition()");
-	AIPackagePtr result = luabind::call_function<AIPackagePtr>(state, mClassName.c_str());
+
+	//AIPackagePtr result = mStaticPackage;
+
+
+	//AIPackagePtr result = luabind::call_function<AIPackagePtr>(state, mClassName.c_str());
 //	luabind::object wrapped = luabind::object(state, result);
 
 	return result; // /*AIPackagePtr(result); //*/AIPackagePtr(luabind::object_cast<AIPackage*>(wrapped));

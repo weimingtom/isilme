@@ -107,6 +107,8 @@
   <ItemGroup>
     <ClInclude Include="AI\Attribute.h" />
     <ClInclude Include="AI\AttributeDef.h" />
+    <ClInclude Include="AI\Message.h" />
+    <ClInclude Include="AI\MessageData.h" />
     <ClInclude Include="AI\ScriptAIPackageDef.h" />
     <ClInclude Include="AI\ScriptAIPackage.h" />
     <ClInclude Include="Config.h" />
@@ -202,6 +204,8 @@
     <ClCompile Include="AIPackage.cpp" />
     <ClCompile Include="AI\Attribute.cpp" />
     <ClCompile Include="AI\AttributeDef.cpp" />
+    <ClCompile Include="AI\Message.cpp" />
+    <ClCompile Include="AI\MessageData.cpp" />
     <ClCompile Include="AI\ScriptAIPackageDef.cpp" />
     <ClCompile Include="Core\AIPackageDef.cpp" />
     <ClCompile Include="Core\Palette\AIPalette.cpp" />

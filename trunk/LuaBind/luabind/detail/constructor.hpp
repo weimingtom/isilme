@@ -28,6 +28,18 @@ void inject_backref(lua_State* L, T* p, wrap_base*)
     weak_ref(get_main_thread(L), L, 1).swap(wrap_access::ref(*p));
 }
 
+inline void store_self(lua_State* L, void*)
+{
+
+}
+
+inline void store_self(lua_State* L, wrap_base* wb)
+{
+	wb->m_self.get(L);
+	luabind::object obj( luabind::from_stack( L, -1 ) );
+	wb->self = obj;
+}
+
 template <std::size_t Arity, class T, class Pointer, class Signature>
 struct construct_aux;
 
@@ -55,6 +67,8 @@ struct construct_aux<0, T, Pointer, Signature>
 
         self->set_instance(new (storage) holder_type(
             ptr, registered_class<T>::id, naked_ptr));
+
+		store_self(self_.interpreter(), (T*)naked_ptr);
     }
 };
 

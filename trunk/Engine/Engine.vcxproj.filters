@@ -307,6 +307,12 @@
     <ClInclude Include="Core\Palette\Palette.h">
       <Filter>Core\Palette</Filter>
     </ClInclude>
+    <ClInclude Include="AI\Message.h">
+      <Filter>AI</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\MessageData.h">
+      <Filter>AI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Graphics\Sprite.cpp">
@@ -528,6 +534,12 @@
     </ClCompile>
     <ClCompile Include="Core\AIPackageDef.cpp">
       <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\Message.cpp">
+      <Filter>AI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\MessageData.cpp">
+      <Filter>AI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -60,10 +60,15 @@ namespace luabind
 		friend struct detail::wrap_access;
 		wrap_base() {}
 
+		virtual ~wrap_base()
+		{
+
+		}
+
     #define BOOST_PP_ITERATION_PARAMS_1 (4, (0, LUABIND_MAX_ARITY, <luabind/wrapper_base.hpp>, 1))
 	#include BOOST_PP_ITERATE()
 
-	private:
+		luabind::object self;
 		wrapped_self_t m_self;
 	};
 

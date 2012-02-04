@@ -65,13 +65,13 @@ namespace gcn
     {
         if (mAutoFree)
         { 
-            free();
+            Release();
         }
 
         mHGE->Release();
     }
 
-    void HGEImage::free()
+    void HGEImage::Release()
     {
         if (mHGESprite != NULL)
         {

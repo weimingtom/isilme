@@ -93,7 +93,7 @@ namespace gcn
     
         // Inherited from Image
 
-        virtual void free();
+        virtual void Release();
     
         virtual int getWidth() const;
     

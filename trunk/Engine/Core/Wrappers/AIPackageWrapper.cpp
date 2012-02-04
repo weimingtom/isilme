@@ -8,6 +8,13 @@ AIPackageWrapper::AIPackageWrapper()
 	int a = 4;
 	self1 = luabind::detail::wrap_access::ref(*this);
 	int b = 0;
+
+	//luabind::gettable(state)
+	//luabind::object table = luabind::newtable( luaState );
+
+	//table[self1] = self1;
+
+	//return table;
 }
 
 AIPackageWrapper::~AIPackageWrapper()

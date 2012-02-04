@@ -84,6 +84,9 @@ public:
 	/// 
 	/// @param [in]	element	If non-null, the element.
 	virtual void	Customize(TiXmlElement* element);
+
+	/// Отправить сообщение 
+	void SendMessage(BehaviourPtr dest, ai::MessageDataPtr data);
 protected:
 	Behaviour(BehaviourDefinition* def);
 private:

@@ -162,6 +162,14 @@ namespace ai
 
 	class AttributeDef;
 	typedef boost::shared_ptr<AttributeDef> AttributeDefPtr;
+
+	class Message;
+	typedef boost::shared_ptr<Message> MessagePtr;
+	typedef boost::weak_ptr<Message> MessageWPtr;
+
+	class MessageData;
+	typedef boost::shared_ptr<MessageData> MessageDataPtr;
+
 };
 
 namespace serialisation
