@@ -31,120 +31,120 @@ Play::Play() : State()
 	isSpellCasting = false;
 	// Init GUI
 	//
-	top = new gcn::Container();
+	top = gcn::ContainerPtr(new gcn::Container());
     // We set the dimension of the top container to match the screen.
-    top->setDimension(gcn::Rectangle(0, 0, 800, 600));
+    top->SetDimension(gcn::Rectangle(0, 0, 800, 600));
 	top->setBackgroundColor(gcn::Color(0,0,0,0));
 	top->setBaseColor(gcn::Color(0,0,0,0));
-	top->setFocusable(true);
-	gcn::Font* font = new gcn::HGEImageFont("../Data/Fonts/font2.fnt");//new gcn::ImageFont("../Data/Fonts/fixedfont.bmp", " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
-	gcn::Widget::setGlobalFont(font);
+	top->SetFocusable(true);
+	gcn::FontPtr font = gcn::FontPtr(new gcn::HGEImageFont("../Data/Fonts/font2.fnt"));//new gcn::ImageFont("../Data/Fonts/fixedfont.bmp", " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
+	gcn::Widget::SetGlobalFont(font);
     // Finally we pass the top widget to the Gui object.
-    GetGUI()->setTop(top);
+    GetGUI()->SetTop(top);
 	
 	// Элементы
-	mMenu		= new gcn::Window();
-	mContinue	= new gcn::Button();
-	mSave		= new gcn::Button();
-	mRestart	= new gcn::Button();
-	mOptions	= new gcn::Button();
-	mExit		= new gcn::Button();
+	mMenu		= gcn::WindowPtr(new gcn::Window());
+	mContinue	= gcn::ButtonPtr(new gcn::Button());
+	mSave		= gcn::ButtonPtr(new gcn::Button());
+	mRestart	= gcn::ButtonPtr(new gcn::Button());
+	mOptions	= gcn::ButtonPtr(new gcn::Button());
+	mExit		= gcn::ButtonPtr(new gcn::Button());
 
-	mRespawn	= new gcn::Window();
-	mRRestart	= new gcn::Button();
-	mRRespawn	= new gcn::Button();
-	mRMenu		= new gcn::Button();
+	mRespawn	= gcn::WindowPtr(new gcn::Window());
+	mRRestart	= gcn::ButtonPtr(new gcn::Button());
+	mRRespawn	= gcn::ButtonPtr(new gcn::Button());
+	mRMenu		= gcn::ButtonPtr(new gcn::Button());
 
-	mHealthImage	= new gcn::Icon();
-	mHealthField	= new gcn::Label("none");
-	mAmmoLabel		= new gcn::HGELabel("../Data/Fonts/font1.fnt");
-	mWeaponIcon		= new gcn::Icon();
-	mWeaponAmmo		= new gcn::HGELabel("../Data/Fonts/font1.fnt");
-	mSpellIcon		= new gcn::Icon();
-	mSpellAmmo		= new gcn::HGELabel("../Data/Fonts/font1.fnt");
+	mHealthImage	= gcn::IconPtr(new gcn::Icon());
+	mHealthField	= gcn::LabelPtr(new gcn::Label("none"));
+	mAmmoLabel		= gcn::LabelPtr(new gcn::Label("../Data/Fonts/font1.fnt"));
+	mWeaponIcon		= gcn::IconPtr(new gcn::Icon());
+	mWeaponAmmo		= gcn::LabelPtr(new gcn::Label("../Data/Fonts/font1.fnt"));
+	mSpellIcon		= gcn::IconPtr(new gcn::Icon());
+	mSpellAmmo		= gcn::LabelPtr(new gcn::Label("../Data/Fonts/font1.fnt"));
 
-	mQuestBook		= new gcn::QuestBook();
-	mConversationWindow = new gcn::ConversationWindow();
+	mQuestBook		= gcn::QuestBookPtr(new gcn::QuestBook());
+	mQuestBook->Initialise();
 
-	mQuestBook->setVisible(false);
+	mQuestBook->SetVisible(false);
 
 	// Иконка способности
-	mSpellIcon->setSize(64, 64);
+	mSpellIcon->SetSize(64, 64);
 	mSpellIcon->setImage(gcn::Image::load("../Data/Icons/Empty.png"));
 
 	// Иконка здоровья
 	mHealthImage->setImage(gcn::Image::load("../Data/Textures/Icons/Health.png"));
-	mHealthImage->setSize(64, 64);
+	mHealthImage->SetSize(64, 64);
 
 	// Иконка оружия
 	mWeaponIcon->setImage(gcn::Image::load("../Data/Icons/Empty.png"));
-	mWeaponIcon->setSize(64, 64);
+	mWeaponIcon->SetSize(64, 64);
 
 	// Уровень заряда
-	mWeaponAmmo->setTextColor(gcn::Color(255,255,255));
+//	mWeaponAmmo->setTextColor(gcn::Color(255,255,255));
 
 	// Количество заклинаний
-	mSpellAmmo->setTextColor(gcn::Color(255,255,255));
+//	mSpellAmmo->setTextColor(gcn::Color(255,255,255));
 
 	// Количество паторнов
-	mAmmoLabel->setTextColor(gcn::Color(255, 255, 255));
+//	mAmmoLabel->setTextColor(gcn::Color(255, 255, 255));
 	
 	// Иконка бонусов
-	mOrbImage = new gcn::Icon("../Data/Textures/Icons/Orb.png");
-	mOrbImage->setSize(64, 64);
+	mOrbImage = gcn::IconPtr(new gcn::Icon("../Data/Textures/Icons/Orb.png"));
+	mOrbImage->SetSize(64, 64);
 
 	// Количество бонусов
-	mOrbLabel = new gcn::Label("x");
+	mOrbLabel = gcn::LabelPtr(new gcn::Label("x"));
 
 	// Количество зомби
-	mZombieLeftLabel = new gcn::HGELabel("../Data/Fonts/font1.fnt");
-	mZombieLeftLabel->setTextColor(gcn::Color(200, 200, 200));
+	mZombieLeftLabel = gcn::LabelPtr(new gcn::Label("../Data/Fonts/font1.fnt"));
+	//mZombieLeftLabel->setTextColor(gcn::Color(200, 200, 200));
 	//mZombieLeftLabel->setForegroundColor(gcn::Color(200, 200, 200));
 
 	// Продолжить игру
 	mContinue->setCaption("Continue");
-	mContinue->setSize(150, 20);
+	mContinue->SetSize(150, 20);
 //	mContinue->addMouseListener(this);
 
 	// Сохранить игру
 	mSave->setCaption("Save");
-	mSave->setSize(150, 20);
+	mSave->SetSize(150, 20);
 //	mSave->addMouseListener(this);
 
 	// Опции
 	mOptions->setCaption("Options");
-	mOptions->setSize(150, 20);
+	mOptions->SetSize(150, 20);
 //	mOptions->addMouseListener(this);
 
 	// Завершить уровень
 	mExit->setCaption("Exit to menu");
-	mExit->setSize(150, 20);
+	mExit->SetSize(150, 20);
 //	mExit->addMouseListener(this);
 
 	// Начать сначала
 	mRestart->setCaption("Restart");
-	mRestart->setSize(150, 20);
+	mRestart->SetSize(150, 20);
 //	mRestart->addMouseListener(this);
 
 	// Меню
 	mMenu->setCaption("Menu");
-	mMenu->setSize(200, 400);
-	mMenu->setPosition(300, 100);
-	mMenu->add(mContinue, 10, 10);
-	mMenu->add(mSave, 10, 50);
-	mMenu->add(mRestart, 10, 80);
-	mMenu->add(mOptions, 10, 110);
-	mMenu->add(mExit, 10, 140);
+	mMenu->SetSize(200, 400);
+	mMenu->SetPosition(300, 100);
+	mMenu->Add(mContinue, 10, 10);
+	mMenu->Add(mSave, 10, 50);
+	mMenu->Add(mRestart, 10, 80);
+	mMenu->Add(mOptions, 10, 110);
+	mMenu->Add(mExit, 10, 140);
 //	mMenu->addMouseListener(this);
-	mMenu->setVisible(false);
+	mMenu->SetVisible(false);
 
 	// Респаун
 	mRespawn->setCaption("");
-	mRespawn->setSize(400, 200);
-	mRespawn->add(mRRespawn, 16, 16);
-	mRespawn->add(mRRestart, 16, 72);
-	mRespawn->add(mRMenu, 16, 136);
-	mRespawn->setVisible(false);
+	mRespawn->SetSize(400, 200);
+	mRespawn->Add(mRRespawn, 16, 16);
+	mRespawn->Add(mRRestart, 16, 72);
+	mRespawn->Add(mRMenu, 16, 136);
+	mRespawn->SetVisible(false);
 
 	mRRespawn->setCaption("Respawn");
 	mRRespawn->adjustSize();
@@ -154,30 +154,30 @@ Play::Play() : State()
 	mRMenu->adjustSize();
 
 
-	top->add(mWeaponIcon, 0, 536);
-	top->add(mWeaponAmmo,70, 550);
-	top->add(mAmmoLabel, 70, 580);
-	top->add(mSpellIcon, 736, 536);
-	top->add(mSpellAmmo, 710, 550);
+	top->Add(mWeaponIcon, 0, 536);
+	top->Add(mWeaponAmmo,70, 550);
+	top->Add(mAmmoLabel, 70, 580);
+	top->Add(mSpellIcon, 736, 536);
+	top->Add(mSpellAmmo, 710, 550);
 
-	top->add(mZombieLeftLabel, 600, 8);
+	top->Add(mZombieLeftLabel, 600, 8);
 	top->addMouseListener(this);
-	top->add(mMenu);
+	top->Add(mMenu);
 	
 	// Здоровье
-	mHealthBar = new gcn::ProgressBar();
-	mHealthBar->setSize(320, 32);
+	mHealthBar = gcn::ProgressBarPtr(new gcn::ProgressBar());
+	mHealthBar->SetSize(320, 32);
 	mHealthBar->setProgress(0.7);
 
 	// Энергия
-	mEnergyBar = new gcn::ProgressBar();
-	mEnergyBar->setSize(320, 24);
+	mEnergyBar = gcn::ProgressBarPtr(new gcn::ProgressBar());
+	mEnergyBar->SetSize(320, 24);
 	mEnergyBar->setProgress(0.7);
 
-	top->add(mHealthBar, 8, 8);
-	top->add(mEnergyBar, 8, 42);
-	top->add(mRespawn, 100, 100);
-	top->add(mQuestBook);
+	top->Add(mHealthBar, 8, 8);
+	top->Add(mEnergyBar, 8, 42);
+	top->Add(mRespawn, 100, 100);
+	top->Add(mQuestBook);
 
 	Game::GetSingleton()->GetStory()->OnSetStage.connect(boost::bind(&Play::OnSetStage, this, _1, _2));
 }
@@ -187,20 +187,20 @@ void Play::mouseClicked(gcn::MouseEvent& evt)
 {
 	ZombieLand* game = (ZombieLand*)(ZombieLand::GetSingleton());
 
-	if (evt.getSource() == mExit)
+	if (evt.GetSource() == mExit)
 	{
 		Close();
 	}
-	else if (evt.getSource() == mContinue)
+	else if (evt.GetSource() == mContinue)
 	{
-		mMenu->setVisible(!(mMenu->isVisible()));
-		SetPaused(mMenu->isVisible());
+		mMenu->SetVisible(!(mMenu->IsVisible()));
+		SetPaused(mMenu->IsVisible());
 	}
-	else if (evt.getSource() == mRRespawn)
+	else if (evt.GetSource() == mRRespawn)
 	{
 		mPlayer->Respawn();
 		SetPaused(false);
-		mRespawn->setVisible(false);
+		mRespawn->SetVisible(false);
 	}
 	else if (!IsPaused())
 	{
@@ -226,7 +226,7 @@ void	Play::OnUpdate(float elapsedTime)
 		if (!(mPlayer->IsActive()) && !IsPaused())
 		{
 			//GetLevel()->GetLayer("Grass")->Add(mPlayer->GetActor());
-			mRespawn->setVisible(true);
+			mRespawn->SetVisible(true);
 			SetPaused(true);
 		}
 
@@ -257,15 +257,15 @@ void	Play::OnUpdate(float elapsedTime)
 		w = mPlayer->GetInventory()->GetSlot(inventory::Item::Spell);
 		if (w != 0)
 		{
-			mSpellIcon->setVisible(true);
-			mSpellAmmo->setVisible(true);
+			mSpellIcon->SetVisible(true);
+			mSpellAmmo->SetVisible(true);
 			mSpellIcon->setImage(w->GetIcon());
 			mSpellAmmo->setCaption(itoa(w->GetAmmo(), h, 10));
 		}
 		else
 		{
-			mSpellIcon->setVisible(false);
-			mSpellAmmo->setVisible(false);
+			mSpellIcon->SetVisible(false);
+			mSpellAmmo->SetVisible(false);
 		}
 
 		w = mPlayer->GetInventory()->GetSlot(inventory::Item::Ammo);
@@ -304,10 +304,10 @@ void	Play::OnUpdate(float elapsedTime)
 	}
 	if (Engine::GetSingleton()->GetInputSystem()->IsKeyDown(HGEK_ESCAPE))
 	{
-		mMenu->setVisible(!(mMenu->isVisible()));
+		mMenu->SetVisible(!(mMenu->IsVisible()));
 		
 		mQuestBook->UpdateQuests(Game::GetSingleton()->GetStory());
-		SetPaused(mMenu->isVisible());
+		SetPaused(mMenu->IsVisible());
 	}
 
 	if (inputSystem->IsKeyDown(HGEK_TAB))
@@ -315,8 +315,8 @@ void	Play::OnUpdate(float elapsedTime)
 		//mMenu->setVisible(!(mMenu->isVisible()));
 		
 		mQuestBook->UpdateQuests(Game::GetSingleton()->GetStory());
-		mQuestBook->setVisible(!(mQuestBook->isVisible()));
-		SetPaused(mQuestBook->isVisible());
+		mQuestBook->SetVisible(!(mQuestBook->IsVisible()));
+		SetPaused(mQuestBook->IsVisible());
 	}
 
 	if (inputSystem->IsKeyDown(HGEK_0))
@@ -397,7 +397,7 @@ void Play::OnStart()
 	luabind::globals(Engine::GetSingleton()->GetLua())["Player"] = boost::shared_dynamic_cast<behaviour::Creature>(player->GetBehaviour());
 	boost::shared_dynamic_cast<behaviour::Creature>(player->GetBehaviour())->SavePoint();
 
-	mMenu->setVisible(false);
+	mMenu->SetVisible(false);
 	SetPaused(false);
 }
 };

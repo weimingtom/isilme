@@ -62,8 +62,8 @@ namespace gcn
           mListModel(NULL),
           mWrappingEnabled(false)
     {
-        setWidth(100);
-        setFocusable(true);
+        SetWidth(100);
+        SetFocusable(true);
 
         addMouseListener(this);
         addKeyListener(this);
@@ -73,18 +73,18 @@ namespace gcn
         : mSelected(-1),
           mWrappingEnabled(false)
     {
-        setWidth(100);
+        SetWidth(100);
         setListModel(listModel);
-        setFocusable(true);
+        SetFocusable(true);
 
         addMouseListener(this);
         addKeyListener(this);
     }
 
-    void ListBox::draw(Graphics* graphics)
+    void ListBox::Draw(GraphicsPtr graphics)
     {
         graphics->setColor(getBackgroundColor());
-        graphics->fillRectangle(Rectangle(0, 0, getWidth(), getHeight()));
+        graphics->fillRectangle(Rectangle(0, 0, GetWidth(), GetHeight()));
 
         if (mListModel == NULL)
         {
@@ -92,7 +92,7 @@ namespace gcn
         }
 
         graphics->setColor(getForegroundColor());
-        graphics->setFont(getFont());
+        graphics->SetFont(GetFont());
          
         // Check the current clip area so we don't draw unnecessary items
         // that are not visible.
@@ -116,9 +116,9 @@ namespace gcn
 		// common if the list box for instance resides in a scroll
 		// area and the user has scrolled the list box downwards.
 		int startRow;    	
-		if (getY() < 0)
+		if (GetY() < 0)
 		{
-			startRow = -1 * (getY() / rowHeight);
+			startRow = -1 * (GetY() / rowHeight);
 		}
 		else
 		{
@@ -134,15 +134,15 @@ namespace gcn
             if (i == mSelected)
             {
                 graphics->setColor(getSelectionColor());
-                graphics->fillRectangle(Rectangle(0, y, getWidth(), rowHeight));
+                graphics->fillRectangle(Rectangle(0, y, GetWidth(), rowHeight));
                 graphics->setColor(getForegroundColor());
             }
 			
 			// If the row height is greater than the font height we
 			// draw the text with a center vertical alignment.
-			if (rowHeight > getFont()->getHeight())
+			if (rowHeight > GetFont()->getHeight())
 			{
-				graphics->drawText(mListModel->getElementAt(i), 1, y + rowHeight / 2 - getFont()->getHeight() / 2);
+				graphics->drawText(mListModel->getElementAt(i), 1, y + rowHeight / 2 - GetFont()->getHeight() / 2);
 			}
 			else
 			{
@@ -153,7 +153,7 @@ namespace gcn
         }
     }
 
-    void ListBox::logic()
+    void ListBox::Logic()
     {
         adjustSize();
     }
@@ -257,7 +257,7 @@ namespace gcn
 
     void ListBox::mousePressed(MouseEvent& mouseEvent)
     {
-        if (mouseEvent.getButton() == MouseEvent::LEFT)
+        if (mouseEvent.GetButton() == MouseEvent::LEFT)
         {
             setSelected(mouseEvent.getY() / getRowHeight());
             distributeActionEvent();
@@ -266,7 +266,7 @@ namespace gcn
 
     void ListBox::mouseWheelMovedUp(MouseEvent& mouseEvent)
     {
-        if (isFocused())
+        if (IsFocused())
         {
             if (getSelected() > 0 )
             {
@@ -279,7 +279,7 @@ namespace gcn
 
     void ListBox::mouseWheelMovedDown(MouseEvent& mouseEvent)
     {
-        if (isFocused())
+        if (IsFocused())
         {
             setSelected(getSelected() + 1);
 
@@ -308,7 +308,7 @@ namespace gcn
     {
         if (mListModel != NULL)
         {
-            setHeight(getRowHeight() * mListModel->getNumberOfElements());
+            SetHeight(getRowHeight() * mListModel->getNumberOfElements());
         }
     }
 
@@ -338,13 +338,13 @@ namespace gcn
 
         for (iter = mSelectionListeners.begin(); iter != mSelectionListeners.end(); ++iter)
         {
-            SelectionEvent event(this);
+            SelectionEvent event(shared_from_this());
             (*iter)->valueChanged(event);
         }
     }
 
 	unsigned int ListBox::getRowHeight() const
 	{
-		return getFont()->getHeight();
+		return GetFont()->getHeight();
 	}
 }

@@ -80,7 +80,7 @@ namespace gcn
          *                     false otherwise.
          * @param key The key of the event.
          */
-        KeyEvent(Widget* source,
+        KeyEvent(WidgetPtr source,
                  bool isShiftPressed,
                  bool isControlPressed,
                  bool isAltPressed,

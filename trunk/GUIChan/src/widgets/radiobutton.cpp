@@ -60,7 +60,7 @@ namespace gcn
     {
         setSelected(false);
 
-        setFocusable(true);
+        SetFocusable(true);
         addMouseListener(this);
         addKeyListener(this);
     }
@@ -73,7 +73,7 @@ namespace gcn
         setGroup(group);
         setSelected(selected);
 
-        setFocusable(true);
+        SetFocusable(true);
         addMouseListener(this);
         addKeyListener(this);
 
@@ -86,30 +86,30 @@ namespace gcn
         setGroup("");
     }
 
-    void RadioButton::draw(Graphics* graphics)
+    void RadioButton::Draw(Graphics* graphics)
     {
         graphics->pushClipArea(Rectangle(1,
                                          1,
-                                         getWidth() - 1,
-                                         getHeight() - 1));
+                                         GetWidth() - 1,
+                                         GetHeight() - 1));
         drawBox(graphics);
         graphics->popClipArea();
 
         
-        graphics->setFont(getFont());
+        graphics->SetFont(GetFont());
         graphics->setColor(getForegroundColor());
 
-        if (isFocused())
+        if (IsFocused())
         {
             int fh;
             
-            if (getHeight()%2 == 0)
+            if (GetHeight()%2 == 0)
             {
-                fh = getHeight() - 4;
+                fh = GetHeight() - 4;
             }
             else
             {
-                fh = getHeight() - 3;
+                fh = GetHeight() - 3;
             }
 
             int hh = (fh + 1) / 2;
@@ -120,7 +120,7 @@ namespace gcn
             graphics->drawLine(hh + 1, fh + 2, 1, hh + 2);            
         }
         
-        int h = getHeight() + getHeight() / 2;
+        int h = GetHeight() + GetHeight() / 2;
 
         graphics->drawText(getCaption(), h - 2, 0);
     }
@@ -129,13 +129,13 @@ namespace gcn
     {
         int h;
 
-        if (getHeight()%2 == 0)
+        if (GetHeight()%2 == 0)
         {
-            h = getHeight() - 4;
+            h = GetHeight() - 4;
         }
         else
         {
-            h = getHeight() - 3;
+            h = GetHeight() - 3;
         }
 
         int alpha = getBaseColor().a;
@@ -243,7 +243,7 @@ namespace gcn
 
     void RadioButton::mouseClicked(MouseEvent& mouseEvent)
     {
-        if (mouseEvent.getButton() == MouseEvent::LEFT)
+        if (mouseEvent.GetButton() == MouseEvent::LEFT)
         {
             setSelected(true);
             distributeActionEvent();
@@ -290,9 +290,9 @@ namespace gcn
 
     void RadioButton::adjustSize()
     {
-        int height = getFont()->getHeight();
+        int height = GetFont()->getHeight();
 
-        setHeight(height);
-        setWidth(getFont()->getWidth(getCaption()) + height + height/2);
+        SetHeight(height);
+        SetWidth(GetFont()->getWidth(getCaption()) + height + height/2);
     }
 }

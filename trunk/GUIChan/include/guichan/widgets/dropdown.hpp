@@ -92,8 +92,8 @@ namespace gcn {
          * @see ListModel, ScrollArea, ListBox.
          */
         DropDown(ListModel *listModel = NULL,
-                 ScrollArea *scrollArea = NULL,
-                 ListBox *listBox = NULL);
+                 ScrollAreaPtr scrollArea = ScrollAreaPtr(),
+                 ListBoxPtr listBox = ListBoxPtr());
 
         /**
          * Destructor.
@@ -164,7 +164,7 @@ namespace gcn {
 
         // Inherited from Widget
 
-        virtual void draw(Graphics* graphics);
+        virtual void Draw(GraphicsPtr graphics);
 
         void setBaseColor(const Color& color);
 
@@ -172,7 +172,7 @@ namespace gcn {
 
         void setForegroundColor(const Color& color);
 
-        void setFont(Font *font);
+        void SetFont(FontPtr font);
 
         void setSelectionColor(const Color& color);
 
@@ -225,17 +225,17 @@ namespace gcn {
          *
          * @param graphics a Graphics object to draw with.
          */
-        virtual void drawButton(Graphics *graphics);
+        virtual void drawButton(GraphicsPtr graphics);
 
         /**
          * Sets the drop down to be dropped down.
          */
-        virtual void dropDown();
+        virtual void DoDropDown();
 
         /**
          * Sets the drop down to be folded up.
          */
-        virtual void foldUp();
+        virtual void FoldUp();
 
         /**
          * Distributes a value changed event to all selection listeners
@@ -266,18 +266,18 @@ namespace gcn {
         /**
          * The scroll area used.
          */
-        ScrollArea* mScrollArea;
+        ScrollAreaPtr mScrollArea;
 
         /**
          * The list box used.
          */
-        ListBox* mListBox;
+        ListBoxPtr mListBox;
 
         /**
          * The internal focus handler used to keep track of focus for the
          * internal list box.
          */
-        FocusHandler mInternalFocusHandler;
+        FocusHandlerPtr mInternalFocusHandler;
 
         /**
          * True if an internal scroll area is used, false if a scroll area

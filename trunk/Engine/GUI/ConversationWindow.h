@@ -21,11 +21,12 @@ namespace gcn
 		void SetCurrentPhrase(story::PhrasePtr phrase);
 	private:
 		EntityPtr mSpeaker;
-		TextBox* mText;
+		TextBoxPtr mText;
 		story::ConversationPtr mConversation;
 		story::PhrasePtr mCurrentPhrase;
-		std::map<gcn::Button*, story::PhrasePtr> mAnswers;
+		std::map<gcn::ButtonPtr, story::PhrasePtr> mAnswers;
 	};
+	typedef boost::shared_ptr<ConversationWindow> ConversationWindowPtr;
 };
 
 #endif

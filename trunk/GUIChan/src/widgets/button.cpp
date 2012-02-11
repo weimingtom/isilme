@@ -63,9 +63,9 @@ namespace gcn
           mAlignment(Graphics::CENTER),
           mSpacing(4)
     {
-        setFocusable(true);
+        SetFocusable(true);
         adjustSize();
-        setFrameSize(1);
+        SetFrameSize(1);
 
         addMouseListener(this);
         addKeyListener(this);
@@ -80,9 +80,9 @@ namespace gcn
               mAlignment(Graphics::CENTER),
               mSpacing(4)
     {
-        setFocusable(true);
+        SetFocusable(true);
         adjustSize();
-        setFrameSize(1);
+        SetFrameSize(1);
 
         addMouseListener(this);
         addKeyListener(this);
@@ -119,7 +119,7 @@ namespace gcn
       return mSpacing;
     }
 
-    void Button::draw(Graphics* graphics)
+    void Button::Draw(GraphicsPtr graphics)
     {
         Color faceColor = getBaseColor();
         Color highlightColor, shadowColor;
@@ -143,20 +143,20 @@ namespace gcn
         }
 
         graphics->setColor(faceColor);
-        graphics->fillRectangle(Rectangle(1, 1, getDimension().width-1, getHeight() - 1));
+        graphics->fillRectangle(Rectangle(1, 1, GetDimension().width-1, GetHeight() - 1));
 
         graphics->setColor(highlightColor);
-        graphics->drawLine(0, 0, getWidth() - 1, 0);
-        graphics->drawLine(0, 1, 0, getHeight() - 1);
+        graphics->drawLine(0, 0, GetWidth() - 1, 0);
+        graphics->drawLine(0, 1, 0, GetHeight() - 1);
 
         graphics->setColor(shadowColor);
-        graphics->drawLine(getWidth() - 1, 1, getWidth() - 1, getHeight() - 1);
-        graphics->drawLine(1, getHeight() - 1, getWidth() - 1, getHeight() - 1);
+        graphics->drawLine(GetWidth() - 1, 1, GetWidth() - 1, GetHeight() - 1);
+        graphics->drawLine(1, GetHeight() - 1, GetWidth() - 1, GetHeight() - 1);
 
         graphics->setColor(getForegroundColor());
 
         int textX;
-        int textY = getHeight() / 2 - getFont()->getHeight() / 2;
+        int textY = GetHeight() / 2 - GetFont()->getHeight() / 2;
 
         switch (getAlignment())
         {
@@ -164,16 +164,16 @@ namespace gcn
               textX = mSpacing;
               break;
           case Graphics::CENTER:
-              textX = getWidth() / 2;
+              textX = GetWidth() / 2;
               break;
           case Graphics::RIGHT:
-              textX = getWidth() - mSpacing;
+              textX = GetWidth() - mSpacing;
               break;
           default:
               throw GCN_EXCEPTION("Unknown alignment.");
         }
 
-        graphics->setFont(getFont());
+        graphics->SetFont(GetFont());
 
         if (isPressed())
         {
@@ -183,18 +183,18 @@ namespace gcn
         {
             graphics->drawText(getCaption(), textX, textY, getAlignment());
 
-            if (isFocused())
+            if (IsFocused())
             {
-                graphics->drawRectangle(Rectangle(2, 2, getWidth() - 4,
-                                                  getHeight() - 4));
+                graphics->drawRectangle(Rectangle(2, 2, GetWidth() - 4,
+                                                  GetHeight() - 4));
             }
         }
     }
 
     void Button::adjustSize()
     {
-        setWidth(getFont()->getWidth(mCaption) + 2*mSpacing);
-        setHeight(getFont()->getHeight() + 2*mSpacing);
+        SetWidth(GetFont()->getWidth(mCaption) + 2*mSpacing);
+        SetHeight(GetFont()->getHeight() + 2*mSpacing);
     }
 
     bool Button::isPressed() const
@@ -211,7 +211,7 @@ namespace gcn
 
     void Button::mousePressed(MouseEvent& mouseEvent)
     {
-        if (mouseEvent.getButton() == MouseEvent::LEFT)
+        if (mouseEvent.GetButton() == MouseEvent::LEFT)
         {
             mMousePressed = true;
             mouseEvent.consume();
@@ -230,7 +230,7 @@ namespace gcn
 
     void Button::mouseReleased(MouseEvent& mouseEvent)
     {
-        if (mouseEvent.getButton() == MouseEvent::LEFT
+        if (mouseEvent.GetButton() == MouseEvent::LEFT
             && mMousePressed
             && mHasMouse)
         {
@@ -238,7 +238,7 @@ namespace gcn
             distributeActionEvent();
             mouseEvent.consume();
         }
-        else if (mouseEvent.getButton() == MouseEvent::LEFT)
+        else if (mouseEvent.GetButton() == MouseEvent::LEFT)
         {
             mMousePressed = false;
             mouseEvent.consume();

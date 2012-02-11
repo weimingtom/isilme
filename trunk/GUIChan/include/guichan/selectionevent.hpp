@@ -66,7 +66,7 @@ namespace gcn
          *
          * @param source source The widget of the selection event.
          */
-        SelectionEvent(Widget* source);
+        SelectionEvent(WidgetPtr source);
 
         /**
          * Destructor.

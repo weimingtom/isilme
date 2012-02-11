@@ -184,8 +184,8 @@ namespace ScriptAPI
 		// AIPackage
 		luabind::module(state)
 			[
-				luabind::class_<AIPackage, AIPackagePtr, AIPackageWrapper >("AIPackage")
-				.def(luabind::constructor<>(), luabind::adopt(luabind::result))
+				luabind::class_<AIPackage, AIPackagePtr, AIPackageWrapper, boost::shared_ptr<AIPackageWrapper> >("AIPackage")
+				.def(luabind::constructor<>())
 				.def("CheckCondition", &AIPackage::CheckCondition, &AIPackageWrapper::defaultCheckCondition)
 				.def("CreateAction", &AIPackage::CreateAction, &AIPackageWrapper::defaultCreateAction)
 				.def("GetBehaviour", &AIPackage::GetBehaviour)

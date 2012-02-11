@@ -93,9 +93,7 @@
 #include <guichan/widgets/window.hpp>
 
 #include "guichan/platform.hpp"
-
-
-class Widget;
+#include "guichan/gcnTypes.h"
 
 extern "C"
 {

@@ -79,7 +79,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <AdditionalOptions> /Zm1000 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(ProjectDir)/include;$(ProjectDir)/../HGE/include;$(ProjectDir)/../TinyXML/include;$(ProjectDir)/XML/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)/include;$(ProjectDir)/../HGE/include;$(ProjectDir)/../TinyXML/include;$(BOOST_INCLUDE);$(ProjectDir)/XML/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <CompileAs>CompileAsCpp</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -338,6 +338,7 @@
     <ClCompile Include="src\widgets\window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\guichan\gcnTypes.h" />
     <ClInclude Include="include\guichan\widgets\ListBoxItem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

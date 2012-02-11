@@ -14,16 +14,20 @@ namespace gcn
 		virtual ~QuestBook();
 
 		void	UpdateQuests(story::StoryPtr story);
+
+		virtual void Initialise();
 	protected:
 		virtual void mouseClicked(gcn::MouseEvent& evt);
 	private:
-		Container* mActiveList;
-		Container* mFinishedList;
-		ScrollArea* mActiveTab;
-		ScrollArea* mFinishedTab;
-		TextBox* mText;
-		std::map<Widget*, story::QuestPtr> mQuests;
+		ContainerPtr mActiveList;
+		ContainerPtr mFinishedList;
+		ScrollAreaPtr mActiveTab;
+		ScrollAreaPtr mFinishedTab;
+		TextBoxPtr mText;
+		std::map<WidgetPtr, story::QuestPtr> mQuests;
 	};
+
+	typedef boost::shared_ptr<QuestBook> QuestBookPtr;
 };
 
 #endif

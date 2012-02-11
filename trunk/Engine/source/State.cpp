@@ -16,11 +16,11 @@ State::State()
 	imageLoader = new gcn::HGEImageLoader();
 
 	gcn::Image::setImageLoader(imageLoader);
-	graphics = new gcn::HGEGraphics();
+	graphics = gcn::GraphicsPtr(new gcn::HGEGraphics());
 	input = new gcn::HGEInput();
     
-	mGUI->setGraphics(graphics);
-	mGUI->setInput(input);
+	mGUI->SetGraphics(graphics);
+	mGUI->SetInput(input);
 }
 
 void	State::SetLevel(LevelPtr level)
@@ -61,7 +61,7 @@ void State::Close()
 bool State::Update(float elapsedTime)
 {
 	if (mGUI)
-		mGUI->logic();
+		mGUI->Logic();
 
 	if (!isPaused)
 	{

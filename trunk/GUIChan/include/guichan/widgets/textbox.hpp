@@ -227,7 +227,7 @@ namespace gcn
 
         // Inherited from Widget
 
-        virtual void draw(Graphics* graphics);
+        virtual void Draw(GraphicsPtr graphics);
 
         virtual void fontChanged();
 
@@ -252,7 +252,7 @@ namespace gcn
          * @param x the x position.
          * @param y the y position.
          */
-        virtual void drawCaret(Graphics* graphics, int x, int y);
+		virtual void drawCaret(GraphicsPtr graphics, int x, int y);
 
         /**
          * Adjusts the text box's size to fit the text.

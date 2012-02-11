@@ -57,26 +57,26 @@ namespace gcn
     Window::Window()
             :mMoved(false)
     {
-        setFrameSize(1);
+        SetFrameSize(1);
         setPadding(2);
         setTitleBarHeight(16);
         setAlignment(Graphics::CENTER);
         addMouseListener(this);
         setMovable(true);
-        setOpaque(true);
+        SetOpaque(true);
     }
 
     Window::Window(const std::string& caption)
             :mMoved(false)
     {
         setCaption(caption);
-        setFrameSize(1);
+        SetFrameSize(1);
         setPadding(2);
         setTitleBarHeight(16);
         setAlignment(Graphics::CENTER);
         addMouseListener(this);
         setMovable(true);
-        setOpaque(true);
+        SetOpaque(true);
     }
 
     Window::~Window()
@@ -123,7 +123,7 @@ namespace gcn
         return mAlignment;
     }
 
-    void Window::draw(Graphics* graphics)
+    void Window::Draw(GraphicsPtr graphics)
     {
         const Color &faceColor = getBaseColor();
         Color highlightColor, shadowColor;
@@ -138,21 +138,21 @@ namespace gcn
         // Fill the background around the content
         graphics->setColor(faceColor);
         // Fill top
-        graphics->fillRectangle(Rectangle(0,0,getWidth(),d.y - 1));
+        graphics->fillRectangle(Rectangle(0,0,GetWidth(),d.y - 1));
         // Fill left
-        graphics->fillRectangle(Rectangle(0,d.y - 1, d.x - 1, getHeight() - d.y + 1));
+        graphics->fillRectangle(Rectangle(0,d.y - 1, d.x - 1, GetHeight() - d.y + 1));
         // Fill right
         graphics->fillRectangle(Rectangle(d.x + d.width + 1,
                                           d.y - 1,
-                                          getWidth() - d.x - d.width - 1,
-                                          getHeight() - d.y + 1));
+                                          GetWidth() - d.x - d.width - 1,
+                                          GetHeight() - d.y + 1));
         // Fill bottom
         graphics->fillRectangle(Rectangle(d.x - 1,
                                           d.y + d.height + 1,
                                           d.width + 2,
-                                          getHeight() - d.height - d.y - 1));
+                                          GetHeight() - d.height - d.y - 1));
 
-        if (isOpaque())
+        if (IsOpaque())
         {
             graphics->fillRectangle(d);
         }
@@ -189,12 +189,12 @@ namespace gcn
                            d.x + d.width - 1,
                            d.y + d.height - 1);
 
-        drawChildren(graphics);
+        DrawChildren(graphics);
 
         int textX;
         int textY;
 
-        textY = ((int)getTitleBarHeight() - getFont()->getHeight()) / 2;
+        textY = ((int)getTitleBarHeight() - GetFont()->getHeight()) / 2;
 
         switch (getAlignment())
         {
@@ -202,32 +202,32 @@ namespace gcn
               textX = 4;
               break;
           case Graphics::CENTER:
-              textX = getWidth() / 2;
+              textX = GetWidth() / 2;
               break;
           case Graphics::RIGHT:
-              textX = getWidth() - 4;
+              textX = GetWidth() - 4;
               break;
           default:
               throw GCN_EXCEPTION("Unknown alignment.");
         }
 
         graphics->setColor(getForegroundColor());
-        graphics->setFont(getFont());
-        graphics->pushClipArea(Rectangle(0, 0, getWidth(), getTitleBarHeight() - 1));
+        graphics->SetFont(GetFont());
+        graphics->pushClipArea(Rectangle(0, 0, GetWidth(), getTitleBarHeight() - 1));
         graphics->drawText(getCaption(), textX, textY, getAlignment());
         graphics->popClipArea();
     }
 
     void Window::mousePressed(MouseEvent& mouseEvent)
     {
-        if (mouseEvent.getSource() != this)
+        if (mouseEvent.GetSource() != shared_from_this())
         {
             return;
         }
 
-        if (getParent() != NULL)
+        if (GetParent())
         {
-            getParent()->moveToTop(this);
+            GetParent()->MoveToTop(shared_from_this());
         }
 
         mDragOffsetX = mouseEvent.getX();
@@ -243,15 +243,15 @@ namespace gcn
 
     void Window::mouseDragged(MouseEvent& mouseEvent)
     {
-        if (mouseEvent.isConsumed() || mouseEvent.getSource() != this)
+        if (mouseEvent.isConsumed() || mouseEvent.GetSource() != shared_from_this())
         {
             return;
         }
 
         if (isMovable() && mMoved)
         {
-            setPosition(mouseEvent.getX() - mDragOffsetX + getX(),
-                        mouseEvent.getY() - mDragOffsetY + getY());
+            SetPosition(mouseEvent.getX() - mDragOffsetX + GetX(),
+                        mouseEvent.getY() - mDragOffsetY + GetY());
         }
 
         mouseEvent.consume();
@@ -261,8 +261,8 @@ namespace gcn
     {
         return Rectangle(getPadding(),
                          getTitleBarHeight(),
-                         getWidth() - getPadding() * 2,
-                         getHeight() - getPadding() - getTitleBarHeight());
+                         GetWidth() - getPadding() * 2,
+                         GetHeight() - getPadding() - getTitleBarHeight());
     }
 
     void Window::setMovable(bool movable)
@@ -275,12 +275,12 @@ namespace gcn
         return mMovable;
     }
 
-    void Window::setOpaque(bool opaque)
+    void Window::SetOpaque(bool opaque)
     {
         mOpaque = opaque;
     }
 
-    bool Window::isOpaque()
+    bool Window::IsOpaque()
     {
         return mOpaque;
     }
@@ -292,17 +292,17 @@ namespace gcn
         int w = 0, h = 0;
         for (it = mWidgets.begin(); it != mWidgets.end(); it++)
         {
-            if ((*it)->getX() + (*it)->getWidth() > w)
+            if ((*it)->GetX() + (*it)->GetWidth() > w)
             {
-                w = (*it)->getX() + (*it)->getWidth();
+                w = (*it)->GetX() + (*it)->GetWidth();
             }
 
-            if ((*it)->getY() + (*it)->getHeight() > h)
+            if ((*it)->GetY() + (*it)->GetHeight() > h)
             {
-                h = (*it)->getY() + (*it)->getHeight();
+                h = (*it)->GetY() + (*it)->GetHeight();
             }
         }
 
-        setSize(w + 2* getPadding(), h + getPadding() + getTitleBarHeight());
+        SetSize(w + 2* getPadding(), h + getPadding() + getTitleBarHeight());
     }
 }

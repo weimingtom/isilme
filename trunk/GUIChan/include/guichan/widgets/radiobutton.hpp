@@ -154,7 +154,7 @@ namespace gcn
 
         // Inherited from Widget
 
-        virtual void draw(Graphics* graphics);
+        virtual void Draw(Graphics* graphics);
 
 
         // Inherited from KeyListener

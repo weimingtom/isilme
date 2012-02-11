@@ -89,7 +89,7 @@ namespace gcn
          * @param opaque True if the container should be opaque, false otherwise.
          * @see isOpaque
          */
-        void setOpaque(bool opaque);
+        void SetOpaque(bool opaque);
 
         /**
          * Checks if the container is opaque or not.
@@ -97,7 +97,7 @@ namespace gcn
          * @return True if the container is opaque, false otherwise.
          * @see setOpaque
          */
-        bool isOpaque() const;
+        bool IsOpaque() const;
 
         /**
          * Adds a widget to the container.
@@ -105,7 +105,7 @@ namespace gcn
          * @param widget The widget to add.
          * @see remove, clear
          */
-        virtual void add(Widget* widget);
+        virtual void Add(WidgetPtr widget);
 
         /**
          * Adds a widget to the container and also specifies the widget's
@@ -117,7 +117,7 @@ namespace gcn
          * @param y The y coordinate for the widget.
          * @see remove, clear
          */
-        virtual void add(Widget* widget, int x, int y);
+        virtual void Add(WidgetPtr widget, int x, int y);
 
         /**
          * Removes a widget from the Container.
@@ -127,14 +127,14 @@ namespace gcn
          *                   container.
          * @see add, clear
          */
-        virtual void remove(Widget* widget);
+		virtual void Remove(WidgetPtr widget);
 
         /**
          * Clears the container of all widgets.
          *
          * @see add, remove
          */
-        virtual void clear();
+        virtual void Clear();
 
         /**
          * Finds a widget given an id.
@@ -144,14 +144,14 @@ namespace gcn
          *         is found.
          * @see Widget::setId
          */
-        virtual Widget* findWidgetById(const std::string &id);
+        virtual WidgetPtr FindWidgetById(const std::string &id);
 
 
         // Inherited from Widget
 
-        virtual void draw(Graphics* graphics);
+        virtual void Draw(GraphicsPtr graphics);
 
-		virtual void	setEnabled(bool enabled);
+		virtual void	SetEnabled(bool enabled);
     protected:
         /**
          * True if the container is opaque, false otherwise.

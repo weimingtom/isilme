@@ -77,7 +77,7 @@ namespace gcn
          * @param clickCount The number of clicks generated with the same button.
          *                   It's set to zero if another button is used.
          */
-        MouseEvent(Widget* source,
+        MouseEvent(WidgetPtr source,
                    bool isShiftPressed,
                    bool isControlPressed,
                    bool isAltPressed,
@@ -93,7 +93,7 @@ namespace gcn
          *
          * @return The button of the mouse event.
          */
-        unsigned int getButton() const;
+        unsigned int GetButton() const;
 
         /**
          * Gets the x coordinate of the mouse event. 

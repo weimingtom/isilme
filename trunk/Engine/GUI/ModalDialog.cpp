@@ -13,16 +13,16 @@ namespace gcn
 
 	void ModalDialog::Close()
 	{
-		mContainer->remove(this);
-		mContainer = 0;
+		mContainer->Remove(shared_from_this());
+		mContainer.reset();
 
 		//OnClosed(this);
 	}
 
-	void ModalDialog::Show(Container* container)
+	void ModalDialog::Show(ContainerPtr container)
 	{
 		mContainer = container;
 
-		mContainer->add(this);
+		mContainer->Add(shared_from_this());
 	}
 };

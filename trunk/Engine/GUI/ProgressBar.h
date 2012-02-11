@@ -18,20 +18,22 @@ public:
          mProgress = progress < 0.0f ? 0.0f : progress;
          mProgress = progress > 100.f ? 100.0f : progress;
     }    
-    virtual void draw(Graphics* g)
+    virtual void Draw(GraphicsPtr g)
     {
          g->setColor(getSelectionColor());
-         g->fillRectangle(gcn::Rectangle(0, 0, getWidth() * mProgress, getHeight()));
+         g->fillRectangle(gcn::Rectangle(0, 0, GetWidth() * mProgress, GetHeight()));
          g->setColor(getForegroundColor());
-         g->drawRectangle(gcn::Rectangle(0, 0, getWidth(), getHeight()));
+         g->drawRectangle(gcn::Rectangle(0, 0, GetWidth(), GetHeight()));
 
     }
-    virtual void logic()
+    virtual void Logic()
 	{
 	}
 private:
    float mProgress;
 };
+
+typedef boost::shared_ptr<ProgressBar> ProgressBarPtr;
 };
 
 #endif

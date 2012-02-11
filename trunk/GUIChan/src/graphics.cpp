@@ -56,7 +56,6 @@ namespace gcn
 
     Graphics::Graphics()
     {
-        mFont = NULL;
     }
 
     bool Graphics::pushClipArea(Rectangle area)
@@ -156,8 +155,8 @@ namespace gcn
         drawImage(image, 0, 0, dstX, dstY, image->getWidth(), image->getHeight());
     }
 
-    void Graphics::setFont(Font* font)
-    {
+	void Graphics::SetFont( FontPtr font )
+	{
         mFont = font;
     }
 

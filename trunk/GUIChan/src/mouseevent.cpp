@@ -49,7 +49,7 @@
 
 namespace gcn
 {
-    MouseEvent::MouseEvent(Widget* source,
+    MouseEvent::MouseEvent(WidgetPtr source,
                            bool isShiftPressed,
                            bool isControlPressed,
                            bool isAltPressed,
@@ -73,7 +73,7 @@ namespace gcn
 
     }
 
-    unsigned int MouseEvent::getButton() const
+    unsigned int MouseEvent::GetButton() const
     {
         return mButton;
     }

@@ -50,6 +50,7 @@
 #include "guichan/basiccontainer.hpp"
 #include "guichan/mouselistener.hpp"
 #include "guichan/platform.hpp"
+#include "guichan/gcnTypes.h"
 
 namespace gcn
 {
@@ -82,7 +83,7 @@ namespace gcn
          * Adjusts the size of the tab to fit the caption. If this tab was
          * added to a TabbedArea, it will also adjust the tab positions.
          */
-        void adjustSize();
+        void AdjustSize();
 
         /**
          * Sets the tabbed area the tab should be a part of.
@@ -90,7 +91,7 @@ namespace gcn
          * @param tabbedArea The tabbed area the tab should be a part of.
          * @see getTabbedArea
          */
-        void setTabbedArea(TabbedArea* tabbedArea);
+        void SetTabbedArea(TabbedAreaPtr tabbedArea);
 
         /**
          * Gets the tabbed are the tab is a part of.
@@ -98,7 +99,7 @@ namespace gcn
          * @return The tabbed are the tab is a part of.
          * @see setTabbedArea
          */
-        TabbedArea* getTabbedArea();
+        TabbedAreaPtr GetTabbedArea();
 
         /**
          * Sets the caption of the tab. It's advisable to call
@@ -108,7 +109,7 @@ namespace gcn
          * @param caption The caption of the tab.
          * @see getCaption, adjustSize
          */
-        void setCaption(const std::string& caption);
+        void SetCaption(const std::string& caption);
 
         /**
          * Gets the caption of the tab.
@@ -116,25 +117,26 @@ namespace gcn
          * @return The caption of the tab.
          * @see setCaption
          */
-        const std::string& getCaption() const;
+        const std::string& GetCaption() const;
 
 
         // Inherited from Widget
 
-        virtual void draw(Graphics *graphics);
+        virtual void Draw(GraphicsPtr graphics);
 
 
         // Inherited from MouseListener
 
-        virtual void mouseEntered(MouseEvent& mouseEvent);
+        virtual void MouseEntered(MouseEvent& mouseEvent);
 
-        virtual void mouseExited(MouseEvent& mouseEvent);
+        virtual void MouseExited(MouseEvent& mouseEvent);
+		virtual void Initialise();
 
     protected:
         /**
          * Holds the label of the tab.
          */
-        Label* mLabel;
+        LabelPtr mLabel;
 
         /**
          * True if the tab has the mouse, false otherwise.
@@ -144,7 +146,7 @@ namespace gcn
         /**
          * Holds the tabbed area the tab is a part of.
          */
-        TabbedArea* mTabbedArea;
+        TabbedAreaWPtr mTabbedArea;
     };
 }
 

@@ -54,34 +54,34 @@ namespace state
 		void	OnSetStage(story::QuestPtr quest, int stage);
 		virtual void OnStart();
 
-		gcn::Button* mOptions;
-		gcn::Button* mContinue;
-		gcn::Button* mSave;
-		gcn::Button* mExit;
-		gcn::Window* mMenu;
-		gcn::Button* mRestart;
-		gcn::Label* mHealthField;
-		gcn::Icon*			mHealthImage;
+		gcn::ButtonPtr mOptions;
+		gcn::ButtonPtr mContinue;
+		gcn::ButtonPtr mSave;
+		gcn::ButtonPtr mExit;
+		gcn::WindowPtr mMenu;
+		gcn::ButtonPtr mRestart;
+		gcn::LabelPtr mHealthField;
+		gcn::IconPtr			mHealthImage;
 
-		gcn::Icon*			mOrbImage;
-		gcn::Label*			mOrbLabel;
-		gcn::ProgressBar*	mHealthBar;
-		gcn::ProgressBar*	mEnergyBar;
-		gcn::HGELabel*			mZombieLeftLabel;
+		gcn::IconPtr			mOrbImage;
+		gcn::LabelPtr			mOrbLabel;
+		gcn::ProgressBarPtr	mHealthBar;
+		gcn::ProgressBarPtr	mEnergyBar;
+		gcn::LabelPtr			mZombieLeftLabel;
 
-		gcn::Icon*			mWeaponIcon;
-		gcn::HGELabel*		mWeaponAmmo;
-		gcn::HGELabel*		mSpellAmmo;
-		gcn::HGELabel*		mAmmoLabel;
-		gcn::Icon*			mSpellIcon;
+		gcn::IconPtr			mWeaponIcon;
+		gcn::LabelPtr		mWeaponAmmo;
+		gcn::LabelPtr		mSpellAmmo;
+		gcn::LabelPtr		mAmmoLabel;
+		gcn::IconPtr			mSpellIcon;
 		behaviour::CreaturePtr mPlayer;
 		
-		gcn::Container* top;
-		gcn::Window* mRespawn;
-		gcn::Button* mRRestart;
-		gcn::Button* mRRespawn;
-		gcn::Button* mRMenu;
-		gcn::QuestBook* mQuestBook;
+		gcn::ContainerPtr top;
+		gcn::WindowPtr mRespawn;
+		gcn::ButtonPtr mRRestart;
+		gcn::ButtonPtr mRRespawn;
+		gcn::ButtonPtr mRMenu;
+		gcn::QuestBookPtr mQuestBook;
 
 		virtual void OnUpdate(float elapsedTime);
 

@@ -60,78 +60,67 @@
 namespace gcn
 {
     TabbedArea::TabbedArea()
-            :mSelectedTab(NULL),
+            :
              mOpaque(false)
     {
-        setFocusable(true);
+        SetFocusable(true);
         addKeyListener(this);
         addMouseListener(this);
 
-        mTabContainer = new Container();
-        mTabContainer->setOpaque(false);
-        mWidgetContainer = new Container();
-
-        add(mTabContainer);
-        add(mWidgetContainer);
+        mTabContainer = ContainerPtr(new Container());
+        mTabContainer->SetOpaque(false);
+        mWidgetContainer = ContainerPtr(new Container());
     }
 
     TabbedArea::~TabbedArea()
     {
-        remove(mTabContainer);
-        remove(mWidgetContainer);
-
-        delete mTabContainer;
-        delete mWidgetContainer;
-
-        for (unsigned int i = 0; i < mTabsToDelete.size(); i++)
-        {
-            delete mTabsToDelete[i];
-        }
+        Remove(mTabContainer);
+        Remove(mWidgetContainer);
     }
 
-    void TabbedArea::addTab(const std::string& caption, Widget* widget)
+    void TabbedArea::AddTab(const std::string& caption, WidgetPtr widget)
     {
-        Tab* tab = new Tab();
-        tab->setCaption(caption);
-        mTabsToDelete.push_back(tab);
+        TabPtr tab(new Tab());
+		tab->Initialise();
+        tab->SetCaption(caption);
 
-        addTab(tab, widget);
+        AddTab(tab, widget);
     }
 
-    void TabbedArea::addTab(Tab* tab, Widget* widget)
+    void TabbedArea::AddTab(TabPtr tab, WidgetPtr widget)
     {
-        tab->setTabbedArea(this);
+        tab->SetTabbedArea(boost::shared_dynamic_cast<TabbedArea>(shared_from_this()));
         tab->addActionListener(this);
 
-        mTabContainer->add(tab);
-        mTabs.push_back(std::pair<Tab*, Widget*>(tab, widget));
+        mTabContainer->Add(tab);
+        mTabs.push_back(std::pair<TabPtr, WidgetPtr>(tab, widget));
 
         if (mSelectedTab == NULL)
         {
-            setSelectedTab(tab);
+            SetSelectedTab(tab);
         }
 
         adjustTabPositions();
         adjustSize();
     }
 
-    void TabbedArea::removeTabWithIndex(unsigned int index)
+    void TabbedArea::RemoveTabWithIndex(unsigned int index)
     {
         if (index >= mTabs.size())
         {
             throw GCN_EXCEPTION("No such tab index.");
         }
 
-        removeTab(mTabs[index].first);
+        RemoveTab(mTabs[index].first);
     }
 
-    void TabbedArea::removeTab(Tab* tab)
+    void TabbedArea::RemoveTab(TabPtr tab)
     {
         int tabIndexToBeSelected = - 1;
 
         if (tab == mSelectedTab)
         {
-            int index = getSelectedTabIndex();
+            int index = GetSelectedTabIndex();
 
             if (index == (int)mTabs.size() - 1
                 && mTabs.size() >= 2)
@@ -149,36 +138,25 @@ namespace gcn
             }
         }
 
-        std::vector<std::pair<Tab*, Widget*> >::iterator iter;
+        std::vector<std::pair<TabPtr, WidgetPtr> >::iterator iter;
         for (iter = mTabs.begin(); iter != mTabs.end(); iter++)
         {
             if (iter->first == tab)
             {
-                mTabContainer->remove(tab);
+                mTabContainer->Remove(tab);
                 mTabs.erase(iter);
-                break;
-            }
-        }
-
-        std::vector<Tab*>::iterator iter2;
-        for (iter2 = mTabsToDelete.begin(); iter2 != mTabsToDelete.end(); iter2++)
-        {
-            if (*iter2 == tab)
-            {
-                mTabsToDelete.erase(iter2);
-                delete tab;
                 break;
             }
         }
 
         if (tabIndexToBeSelected == -1)
         {
-            mSelectedTab = NULL;
-            mWidgetContainer->clear();
+            mSelectedTab.reset();
+            mWidgetContainer->Clear();
         }
         else
         {
-            setSelectedTab(tabIndexToBeSelected);
+            SetSelectedTab(tabIndexToBeSelected);
         }
 
         adjustSize();
@@ -195,29 +173,29 @@ namespace gcn
         return mSelectedTab == mTabs[index].first;
     }
 
-    bool TabbedArea::isTabSelected(Tab* tab)
+    bool TabbedArea::IsTabSelected(TabPtr tab)
     {
         return mSelectedTab == tab;
     }
 
-    void TabbedArea::setSelectedTab(unsigned int index)
+    void TabbedArea::SetSelectedTab(unsigned int index)
     {
         if (index >= mTabs.size())
         {
             throw GCN_EXCEPTION("No such tab index.");
         }
 
-        setSelectedTab(mTabs[index].first);
+        SetSelectedTab(mTabs[index].first);
     }
 
-    void TabbedArea::setSelectedTab(Tab* tab)
+    void TabbedArea::SetSelectedTab(TabPtr tab)
     {
         unsigned int i;
         for (i = 0; i < mTabs.size(); i++)
         {
             if (mTabs[i].first == mSelectedTab)
             {
-                mWidgetContainer->remove(mTabs[i].second);
+                mWidgetContainer->Remove(mTabs[i].second);
             }
         }
 
@@ -226,12 +204,12 @@ namespace gcn
             if (mTabs[i].first == tab)
             {
                 mSelectedTab = tab;
-                mWidgetContainer->add(mTabs[i].second);
+                mWidgetContainer->Add(mTabs[i].second);
             }
         }
     }
 
-    int TabbedArea::getSelectedTabIndex() const
+    int TabbedArea::GetSelectedTabIndex() const
     {
         unsigned int i;
         for (i = 0; i < mTabs.size(); i++)
@@ -245,22 +223,22 @@ namespace gcn
         return -1;
     }
 
-    Tab* TabbedArea::getSelectedTab()
+    TabPtr TabbedArea::GetSelectedTab()
     {
         return mSelectedTab;
     }
 
-    void TabbedArea::setOpaque(bool opaque)
+    void TabbedArea::SetOpaque(bool opaque)
     {
         mOpaque = opaque;
     }
 
-    bool TabbedArea::isOpaque() const
+    bool TabbedArea::IsOpaque() const
     {
         return mOpaque;
     }
 
-    void TabbedArea::draw(Graphics *graphics)
+    void TabbedArea::Draw(GraphicsPtr graphics)
     {
         const Color &faceColor = getBaseColor();
         const int alpha = getBaseColor().a;
@@ -272,50 +250,50 @@ namespace gcn
         // Draw a border.
         graphics->setColor(highlightColor);
         graphics->drawLine(0,
-                           mTabContainer->getHeight(),
+                           mTabContainer->GetHeight(),
                            0,
-                           getHeight() - 2);
+                           GetHeight() - 2);
         graphics->setColor(shadowColor);
-        graphics->drawLine(getWidth() - 1,
-                           mTabContainer->getHeight() + 1,
-                           getWidth() - 1,
-                           getHeight() - 1);
+        graphics->drawLine(GetWidth() - 1,
+                           mTabContainer->GetHeight() + 1,
+                           GetWidth() - 1,
+                           GetHeight() - 1);
         graphics->drawLine(1,
-                           getHeight() - 1,
-                           getWidth() - 1,
-                           getHeight() - 1);
+                           GetHeight() - 1,
+                           GetWidth() - 1,
+                           GetHeight() - 1);
 
-        if (isOpaque())
+        if (IsOpaque())
         {
             graphics->setColor(getBaseColor());
             graphics->fillRectangle(Rectangle(1, 1,
-                                              getWidth() - 2,
-                                              getHeight() - 2));
+                                              GetWidth() - 2,
+                                              GetHeight() - 2));
         }
 
         // Draw a line underneath the tabs.
         graphics->setColor(highlightColor);
         graphics->drawLine(1,
-                           mTabContainer->getHeight(),
-                           getWidth() - 1,
-                           mTabContainer->getHeight());
+                           mTabContainer->GetHeight(),
+                           GetWidth() - 1,
+                           mTabContainer->GetHeight());
 
         // If a tab is selected, remove the line right underneath
         // the selected tab.
         if (mSelectedTab != NULL)
         {
             graphics->setColor(getBaseColor());
-            graphics->drawLine(mSelectedTab->getX() + 1,
-                               mTabContainer->getHeight(),
-                               mSelectedTab->getX() + mSelectedTab->getWidth() - 2,
-                               mTabContainer->getHeight());
+            graphics->drawLine(mSelectedTab->GetX() + 1,
+                               mTabContainer->GetHeight(),
+                               mSelectedTab->GetX() + mSelectedTab->GetWidth() - 2,
+                               mTabContainer->GetHeight());
 
         }
 
-        drawChildren(graphics);
+        DrawChildren(graphics);
     }
 
-    void TabbedArea::logic()
+    void TabbedArea::Logic()
     {
     }
 
@@ -325,18 +303,18 @@ namespace gcn
 
         for (unsigned int i = 0; i < mTabs.size(); i++)
         {
-            if (mTabs[i].first->getHeight() > maxTabHeight)
+            if (mTabs[i].first->GetHeight() > maxTabHeight)
             {
-                maxTabHeight = mTabs[i].first->getHeight();
+                maxTabHeight = mTabs[i].first->GetHeight();
             }
         }
 
-        mTabContainer->setSize(getWidth() - 2,
+        mTabContainer->SetSize(GetWidth() - 2,
                                maxTabHeight);
 
-        mWidgetContainer->setPosition(1, maxTabHeight + 1);
-        mWidgetContainer->setSize(getWidth() - 2,
-                                  getHeight() - maxTabHeight - 2);
+        mWidgetContainer->SetPosition(1, maxTabHeight + 1);
+        mWidgetContainer->SetSize(GetWidth() - 2,
+                                  GetHeight() - maxTabHeight - 2);
     }
 
     void TabbedArea::adjustTabPositions()
@@ -345,55 +323,55 @@ namespace gcn
         unsigned int i;
         for (i = 0; i < mTabs.size(); i++)
         {
-            if (mTabs[i].first->getHeight() > maxTabHeight)
+            if (mTabs[i].first->GetHeight() > maxTabHeight)
             {
-                maxTabHeight = mTabs[i].first->getHeight();
+                maxTabHeight = mTabs[i].first->GetHeight();
             }
         }
 
         int x = 0;
         for (i = 0; i < mTabs.size(); i++)
         {
-            Tab* tab = mTabs[i].first;
-            tab->setPosition(x, maxTabHeight - tab->getHeight());
-            x += tab->getWidth();
+            TabPtr tab = mTabs[i].first;
+            tab->SetPosition(x, maxTabHeight - tab->GetHeight());
+            x += tab->GetWidth();
         }
     }
 
-    void TabbedArea::setWidth(int width)
+    void TabbedArea::SetWidth(int width)
     {
-        Widget::setWidth(width);
+        Widget::SetWidth(width);
         adjustSize();
     }
 
-    void TabbedArea::setHeight(int height)
+    void TabbedArea::SetHeight(int height)
     {
-        Widget::setHeight(height);
+        Widget::SetHeight(height);
         adjustSize();
     }
 
-    void TabbedArea::setSize(int width, int height)
+    void TabbedArea::SetSize(int width, int height)
     {
-        Widget::setSize(width, height);
+        Widget::SetSize(width, height);
         adjustSize();
     }
 
-    void TabbedArea::setDimension(const Rectangle& dimension)
+    void TabbedArea::SetDimension(const Rectangle& dimension)
     {
-        Widget::setDimension(dimension);
+        Widget::SetDimension(dimension);
         adjustSize();
     }
 
     void TabbedArea::keyPressed(KeyEvent& keyEvent)
     {
-        if (keyEvent.isConsumed() || !isFocused())
+        if (keyEvent.isConsumed() || !IsFocused())
         {
             return;
         }
 
         if (keyEvent.getKey().getValue() == Key::LEFT)
         {
-            int index = getSelectedTabIndex();
+            int index = GetSelectedTabIndex();
             index--;
 
             if (index < 0)
@@ -402,14 +380,14 @@ namespace gcn
             }
             else
             {
-                setSelectedTab(mTabs[index].first);
+                SetSelectedTab(mTabs[index].first);
             }
 
             keyEvent.consume();
         }
         else if (keyEvent.getKey().getValue() == Key::RIGHT)
         {
-            int index = getSelectedTabIndex();
+            int index = GetSelectedTabIndex();
             index++;
 
             if (index >= (int)mTabs.size())
@@ -418,7 +396,7 @@ namespace gcn
             }
             else
             {
-                setSelectedTab(mTabs[index].first);
+                SetSelectedTab(mTabs[index].first);
             }
 
             keyEvent.consume();
@@ -433,21 +411,21 @@ namespace gcn
             return;
         }
 
-        if (mouseEvent.getButton() == MouseEvent::LEFT)
+        if (mouseEvent.GetButton() == MouseEvent::LEFT)
         {
-            Widget* widget = mTabContainer->getWidgetAt(mouseEvent.getX(), mouseEvent.getY());
-            Tab* tab = dynamic_cast<Tab*>(widget);
+            WidgetPtr widget = mTabContainer->GetWidgetAt(mouseEvent.getX(), mouseEvent.getY());
+            TabPtr tab = boost::shared_dynamic_cast<Tab>(widget);
 
-            if (tab != NULL)
+            if (tab)
             {
-                setSelectedTab(tab);
+                SetSelectedTab(tab);
             }
         }
 
         // Request focus only if the source of the event
         // is not focusble. If the source of the event
         // is focused we don't want to steal the focus.
-        if (!mouseEvent.getSource()->isFocusable())
+        if (!mouseEvent.GetSource()->IsFocusable())
         {
             requestFocus();
         }
@@ -455,11 +433,11 @@ namespace gcn
 
     void TabbedArea::death(const Event& event)
     {
-        Tab* tab = dynamic_cast<Tab*>(event.getSource());
+        TabPtr tab = boost::shared_dynamic_cast<Tab>(event.GetSource());
 
-        if (tab != NULL)
+        if (tab)
         {
-            removeTab(tab);
+            RemoveTab(tab);
         }
         else
         {
@@ -469,14 +447,21 @@ namespace gcn
 
     void TabbedArea::action(const ActionEvent& actionEvent)
     {
-        Widget* source = actionEvent.getSource();
-        Tab* tab = dynamic_cast<Tab*>(source);
+        WidgetPtr source = actionEvent.GetSource();
+        TabPtr tab = boost::shared_dynamic_cast<Tab>(source);
 
-        if (tab == NULL)
+        if (!tab)
         {
             throw GCN_EXCEPTION("Received an action from a widget that's not a tab!");
         }
 
-        setSelectedTab(tab);
+        SetSelectedTab(tab);
     }
+
+	void TabbedArea::Initialise()
+	{
+		Add(mTabContainer);
+		Add(mWidgetContainer);
+	}
+
 }

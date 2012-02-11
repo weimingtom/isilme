@@ -49,7 +49,7 @@
 
 namespace gcn
 {
-    SelectionEvent::SelectionEvent(Widget* source)
+    SelectionEvent::SelectionEvent(WidgetPtr source)
             :Event(source)
     {
 

@@ -49,7 +49,7 @@
 
 namespace gcn
 {
-    ActionEvent::ActionEvent(Widget* source, const std::string& id)
+    ActionEvent::ActionEvent(WidgetPtr source, const std::string& id)
             :Event(source),
              mId(id)
     {
@@ -61,7 +61,7 @@ namespace gcn
 
     }
 
-    const std::string& ActionEvent::getId() const
+    const std::string& ActionEvent::GetID() const
     {
         return mId;
     }

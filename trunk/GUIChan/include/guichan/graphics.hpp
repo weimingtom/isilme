@@ -49,6 +49,7 @@
 
 #include "guichan/cliprectangle.hpp"
 #include "guichan/platform.hpp"
+#include "gcnTypes.h"
 
 namespace gcn
 {
@@ -259,7 +260,7 @@ namespace gcn
          *
          * @param font The font to use when drawing.
          */
-        virtual void setFont(Font* font);
+		virtual void SetFont(FontPtr font);
 
         /**
          * Draws text.
@@ -284,7 +285,7 @@ namespace gcn
         /**
          * Holds the current font.
          */
-        Font* mFont;
+        FontPtr mFont;
     };
 }
 

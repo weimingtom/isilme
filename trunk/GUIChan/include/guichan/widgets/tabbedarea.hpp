@@ -98,7 +98,7 @@ namespace gcn
          *               otherwise.
          * @see isOpaque
          */
-        void setOpaque(bool opaque);
+        void SetOpaque(bool opaque);
 
         /**
          * Checks if the tabbed area is opaque or not.
@@ -106,7 +106,7 @@ namespace gcn
          * @return true if the tabbed area is opaque, false otherwise.
          * @see setOpaque
          */
-        bool isOpaque() const;
+        bool IsOpaque() const;
 
         /**
          * Adds a tab to the tabbed area. The newly created tab will be
@@ -116,7 +116,7 @@ namespace gcn
          * @param widget The widget to view when the tab is selected.
          * @see removeTab, removeTabWithIndex
          */
-        virtual void addTab(const std::string& caption, Widget* widget);
+        virtual void AddTab(const std::string& caption, WidgetPtr widget);
 
         /**
          * Adds a tab to the tabbed area. The tab will not be deleted by the
@@ -126,7 +126,7 @@ namespace gcn
          * @param widget The widget to view when the tab is selected.
          * @see removeTab, removeTabWithIndex
          */
-        virtual void addTab(Tab* tab, Widget* widget);
+        virtual void AddTab(TabPtr tab, WidgetPtr widget);
 
         /**
          * Removes a tab from the tabbed area.
@@ -134,7 +134,7 @@ namespace gcn
          * @param index The index of the tab to remove.
          * @see addTab
          */
-        virtual void removeTabWithIndex(unsigned int index);
+        virtual void RemoveTabWithIndex(unsigned int index);
 
         /**
          * Removes a tab from the tabbed area.
@@ -142,7 +142,7 @@ namespace gcn
          * @param index The tab to remove.
          * @see addTab
          */
-        virtual void removeTab(Tab* tab);
+        virtual void RemoveTab(TabPtr tab);
 
         /**
          * Checks if a tab given an index is selected or not.
@@ -160,7 +160,7 @@ namespace gcn
          * @return True if the tab is selected, false otherwise.
          * @see setSelectedTab
          */
-        virtual bool isTabSelected(Tab* tab);
+        virtual bool IsTabSelected(TabPtr tab);
 
         /**
          * Sets a tab given an index to be selected.
@@ -168,7 +168,7 @@ namespace gcn
          * @param index The index of the tab to be selected.
          * @see isTabSelected, getSelectedTab
          */
-        virtual void setSelectedTab(unsigned int index);
+        virtual void SetSelectedTab(unsigned int index);
 
         /**
          * Sets a tab to be selected or not.
@@ -176,7 +176,7 @@ namespace gcn
          * @param index The tab to be selected.
          * @see isTabSelected, getSelectedTab
          */
-        virtual void setSelectedTab(Tab* tab);
+        virtual void SetSelectedTab(TabPtr tab);
 
         /**
          * Gets the index of the selected tab.
@@ -185,7 +185,7 @@ namespace gcn
          *         If no tab is selected -1 will be returned.
          * @see isTabSelected, setSelectedTab
          */
-        virtual int getSelectedTabIndex() const;
+        virtual int GetSelectedTabIndex() const;
 
         /**
          * Gets the selected tab.
@@ -193,22 +193,22 @@ namespace gcn
          * @return The selected tab.
          * @see isTabSelected, setSelectedTab
          */
-        Tab* getSelectedTab();
+        TabPtr GetSelectedTab();
 
 
         // Inherited from Widget
 
-        virtual void draw(Graphics *graphics);
+        virtual void Draw(GraphicsPtr graphics);
 
-        virtual void logic();
+        virtual void Logic();
 
-        void setWidth(int width);
+        void SetWidth(int width);
 
-        void setHeight(int height);
+        void SetHeight(int height);
 
-        void setSize(int width, int height);
+        void SetSize(int width, int height);
 
-        void setDimension(const Rectangle& dimension);
+        void SetDimension(const Rectangle& dimension);
 
 
         // Inherited from ActionListener
@@ -230,7 +230,8 @@ namespace gcn
 
         virtual void mousePressed(MouseEvent& mouseEvent);
 
-
+		/// Initialise data TODO: automaitcal call in static New function
+		virtual void Initialise();
     protected:
         /**
          * Adjusts the size of the tab container and the widget container.
@@ -245,30 +246,23 @@ namespace gcn
         /**
          * Holds the selected tab.
          */
-        Tab* mSelectedTab;
+        TabPtr mSelectedTab;
 
         /**
          * Holds the container for the tabs.
          */
-        Container* mTabContainer;
+        ContainerPtr mTabContainer;
 
         /**
          * Holds the container for the widgets.
          */
-        Container* mWidgetContainer;
-
-        /**
-         * Holds a vector of tabs to delete in the destructor.
-         * A tab that is to be deleted is a tab that has been
-         * internally created by the tabbed area.
-         */
-        std::vector<Tab*> mTabsToDelete;
+        ContainerPtr mWidgetContainer;
 
         /**
          * A map between a tab and a widget to display when the
          * tab is selected.
          */
-        std::vector<std::pair<Tab*, Widget*> > mTabs;
+        std::vector<std::pair<TabPtr, WidgetPtr> > mTabs;
 
         /**
          * True if the tabbed area is opaque, false otherwise.

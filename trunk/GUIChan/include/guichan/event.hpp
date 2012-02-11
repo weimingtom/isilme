@@ -45,6 +45,7 @@
 #define GCN_EVENT_HPP
 
 #include "guichan/platform.hpp"
+#include "guichan/gcnTypes.h"
 
 namespace gcn
 {
@@ -66,7 +67,7 @@ namespace gcn
          *
          * @param source The source widget of the event.
          */
-        Event(Widget* source);
+        Event(WidgetPtr source);
 
         /**
          * Destructor.
@@ -79,7 +80,7 @@ namespace gcn
          *
          * @return The source widget of the event.
          */
-        Widget* getSource() const;
+        WidgetPtr GetSource() const;
 
 
     protected:
@@ -87,7 +88,7 @@ namespace gcn
         /**
          * Holds the source widget of the event.
          */
-        Widget* mSource;
+        WidgetPtr mSource;
     };
 }
 

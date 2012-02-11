@@ -166,7 +166,7 @@ namespace gcn
          * @param opaque True if the window should be opaque, false otherwise.
          * @see isOpaque
          */
-        void setOpaque(bool opaque);
+        void SetOpaque(bool opaque);
 
         /**
          * Checks if the window is opaque.
@@ -174,7 +174,7 @@ namespace gcn
          * @return True if the window is opaque, false otherwise.
          * @see setOpaque
          */
-        bool isOpaque();
+        bool IsOpaque();
 
         /**
          * Resizes the window to fit the content.
@@ -189,7 +189,7 @@ namespace gcn
 
         // Inherited from Widget
 
-        virtual void draw(Graphics* graphics);
+        virtual void Draw(GraphicsPtr graphics);
 
 
         // Inherited from MouseListener

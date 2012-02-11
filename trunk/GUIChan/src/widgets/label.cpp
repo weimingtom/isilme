@@ -63,8 +63,8 @@ namespace gcn
         mCaption = caption;
         mAlignment = Graphics::LEFT;
 
-        setWidth(getFont()->getWidth(caption));
-        setHeight(getFont()->getHeight());
+        SetWidth(GetFont()->getWidth(caption));
+        SetHeight(GetFont()->getHeight());
     }
 
     const std::string &Label::getCaption() const
@@ -87,10 +87,10 @@ namespace gcn
         return mAlignment;
     }
 
-    void Label::draw(Graphics* graphics)
+    void Label::Draw(GraphicsPtr graphics)
     {
         int textX;
-        int textY = getHeight() / 2 - getFont()->getHeight() / 2;
+        int textY = GetHeight() / 2 - GetFont()->getHeight() / 2;
 
         switch (getAlignment())
         {
@@ -98,23 +98,23 @@ namespace gcn
               textX = 0;
               break;
           case Graphics::CENTER:
-              textX = getWidth() / 2;
+              textX = GetWidth() / 2;
               break;
           case Graphics::RIGHT:
-              textX = getWidth();
+              textX = GetWidth();
               break;
           default:
               throw GCN_EXCEPTION("Unknown alignment.");
         }
 
-        graphics->setFont(getFont());
+        graphics->SetFont(GetFont());
         graphics->setColor(getForegroundColor());
         graphics->drawText(getCaption(), textX, textY, getAlignment());
     }
 
     void Label::adjustSize()
     {
-        setWidth(getFont()->getWidth(getCaption()));
-        setHeight(getFont()->getHeight());
+        SetWidth(GetFont()->getWidth(getCaption()));
+        SetHeight(GetFont()->getHeight());
     }
 }

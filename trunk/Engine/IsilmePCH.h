@@ -1,12 +1,12 @@
 #ifndef ISILME_PCH_H
 #define ISILME_PCH_H
 
-//#ifdef _DEBUG
-//#define _CRTDBG_MAP_ALLOC
-//#include <stdlib.h>
-//#include <crtdbg.h>
-////#define new DEBUG_NEW
-//#endif
+#ifdef _DEBUG
+#define _CRTDBG_MAP_ALLOC
+#include <stdlib.h>
+#include <crtdbg.h>
+//#define new DEBUG_NEW
+#endif
 
 #include <luabind/lua_include.hpp>
 #include <luabind/luabind.hpp>

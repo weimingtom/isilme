@@ -40,3 +40,8 @@ void ActionWrapper::defaultOnForceStop( Action* base )
 {
 	base->Action::OnForceStop();
 }
+
+ActionWrapper::~ActionWrapper()
+{
+
+}

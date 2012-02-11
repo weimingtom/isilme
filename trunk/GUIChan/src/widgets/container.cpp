@@ -63,60 +63,60 @@ namespace gcn
 
     }
 
-    void Container::draw(Graphics* graphics)
+    void Container::Draw(GraphicsPtr graphics)
     {
-        if (isOpaque())
+        if (IsOpaque())
         {
             graphics->setColor(getBaseColor());
-            graphics->fillRectangle(Rectangle(0, 0, getWidth(), getHeight()));
+            graphics->fillRectangle(Rectangle(0, 0, GetWidth(), GetHeight()));
         }
 
-        drawChildren(graphics);
+        DrawChildren(graphics);
     }
 
-    void Container::setOpaque(bool opaque)
+    void Container::SetOpaque(bool opaque)
     {
         mOpaque = opaque;
     }
 
-    bool Container::isOpaque() const
+    bool Container::IsOpaque() const
     {
         return mOpaque;
     }
 
-    void Container::add(Widget* widget)
+    void Container::Add(WidgetPtr widget)
     {
-        BasicContainer::add(widget);
+        BasicContainer::Add(widget);
     }
 
-    void Container::add(Widget* widget, int x, int y)
+    void Container::Add(WidgetPtr widget, int x, int y)
     {
-        widget->setPosition(x, y);
-        BasicContainer::add(widget);
+        widget->SetPosition(x, y);
+        BasicContainer::Add(widget);
     }
 
-    void Container::remove(Widget* widget)
-    {
-        BasicContainer::remove(widget);
-    }
-
-    void Container::clear()
-    {
-        BasicContainer::clear();
-    }
-
-    Widget* Container::findWidgetById(const std::string &id)
-    {
-        return BasicContainer::findWidgetById(id);
-    }
-
-	void	Container::setEnabled(bool enabled)
+	void Container::Remove( WidgetPtr widget )
 	{
-		Widget::setEnabled(enabled);
+        BasicContainer::Remove(widget);
+    }
+
+    void Container::Clear()
+    {
+        BasicContainer::Clear();
+    }
+
+    WidgetPtr Container::FindWidgetById(const std::string &id)
+    {
+        return BasicContainer::FindWidgetById(id);
+    }
+
+	void	Container::SetEnabled(bool enabled)
+	{
+		Widget::SetEnabled(enabled);
 
 		for (WidgetList::iterator it = mWidgets.begin(); it != mWidgets.end(); ++it)
 		{
-			(*it)->setEnabled(enabled);
+			(*it)->SetEnabled(enabled);
 		}
 	}
 }

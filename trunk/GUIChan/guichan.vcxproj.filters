@@ -265,9 +265,6 @@
     <None Include="include\guichan\widget.hpp">
       <Filter>GUIChan</Filter>
     </None>
-    <None Include="include\guichan\widgetlistener.hpp">
-      <Filter>GUIChan</Filter>
-    </None>
     <None Include="include\guichan\hge\hgegraphics.hpp">
       <Filter>GUIChan</Filter>
     </None>
@@ -334,10 +331,14 @@
     <None Include="include\guichan\contrib\widgets\adjustingcontainer.hpp">
       <Filter>src/guichan/contrib/widgets</Filter>
     </None>
+    <None Include="include\guichan\widgetlistener.hpp">
+      <Filter>GUIChan</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\guichan\widgets\ListBoxItem.h">
       <Filter>Widgets</Filter>
     </ClInclude>
+    <ClInclude Include="include\guichan\gcnTypes.h" />
   </ItemGroup>
 </Project>

@@ -18,9 +18,9 @@ namespace gcn
 		ListBoxItem();
 		virtual ~ListBoxItem();
 
-		virtual void	draw(Graphics* graphics);
+		virtual void	Draw(Graphics* graphics);
 
-		virtual void	logic();
+		virtual void	Logic();
 	};
 
 	typedef std::list<ListBoxItem*> ItemsList;

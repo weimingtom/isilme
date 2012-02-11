@@ -19,13 +19,13 @@
  * modification, are permitted provided that the following conditions
  * are met:
  * 1. Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
+ *    notice, shared_from_this() list of conditions and the following disclaimer.
  * 2. Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in
+ *    notice, shared_from_this() list of conditions and the following disclaimer in
  *    the documentation and/or other materials provided with the
  *    distribution.
  * 3. Neither the name of Guichan nor the names of its contributors may
- *    be used to endorse or promote products derived from this software
+ *    be used to endorse or promote products derived from shared_from_this() software
  *    without specific prior written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
@@ -64,8 +64,8 @@
 
 namespace gcn
 {
-    Font* Widget::mGlobalFont = NULL;
-    DefaultFont Widget::mDefaultFont;
+    FontPtr Widget::mGlobalFont;
+    DefaultFontPtr Widget::mDefaultFont;
     std::list<Widget*> Widget::mWidgets;
 
     Widget::Widget()
@@ -73,16 +73,16 @@ namespace gcn
               mBackgroundColor(0xffffff),
               mBaseColor(0x808090),
               mSelectionColor(0xc3d9ff),
-              mFocusHandler(NULL),
-              mInternalFocusHandler(NULL),
-              mParent(NULL),
+              mFocusHandler(FocusHandlerPtr()),
+              mInternalFocusHandler(FocusHandlerPtr()),
+              mParent(WidgetPtr()),
               mFrameSize(0),
               mFocusable(false),
               mVisible(true),
               mTabIn(true),
               mTabOut(true),
               mEnabled(true),
-              mCurrentFont(NULL)
+              mCurrentFont(FontPtr())
     {
         mWidgets.push_back(this);
     }
@@ -93,29 +93,29 @@ namespace gcn
 
         for (iter = mDeathListeners.begin(); iter != mDeathListeners.end(); ++iter)
         {
-            Event event(this);
+            Event event(shared_from_this());
             (*iter)->death(event);
         }
 
-        _setFocusHandler(NULL);
+        _setFocusHandler(FocusHandlerPtr());
 
         mWidgets.remove(this);
     }
 
-    void Widget::drawFrame(Graphics* graphics)
+    void Widget::DrawFrame(GraphicsPtr graphics)
     {
         Color faceColor = getBaseColor();
         Color highlightColor, shadowColor;
         int alpha = getBaseColor().a;
-        int width = getWidth() + getFrameSize() * 2 - 1;
-        int height = getHeight() + getFrameSize() * 2 - 1;
+        int width = GetWidth() + GetFrameSize() * 2 - 1;
+        int height = GetHeight() + GetFrameSize() * 2 - 1;
         highlightColor = faceColor + 0x303030;
         highlightColor.a = alpha;
         shadowColor = faceColor - 0x303030;
         shadowColor.a = alpha;
 
         unsigned int i;
-        for (i = 0; i < getFrameSize(); ++i)
+        for (i = 0; i < GetFrameSize(); ++i)
         {
             graphics->setColor(shadowColor);
             graphics->drawLine(i,i, width - i, i);
@@ -126,78 +126,78 @@ namespace gcn
         }
     }
 
-    void Widget::_setParent(Widget* parent)
+    void Widget::_setParent(WidgetPtr parent)
     {
         mParent = parent;
     }
 
-    Widget* Widget::getParent() const
-    {
-        return mParent;
+	gcn::WidgetPtr Widget::GetParent() const
+	{
+        return mParent.lock();
     }
 
-    void Widget::setWidth(int width)
+    void Widget::SetWidth(int width)
     {
         Rectangle newDimension = mDimension;
         newDimension.width = width;
 
-        setDimension(newDimension);
+        SetDimension(newDimension);
     }
 
-    int Widget::getWidth() const
+    int Widget::GetWidth() const
     {
         return mDimension.width;
     }
 
-    void Widget::setHeight(int height)
+    void Widget::SetHeight(int height)
     {
         Rectangle newDimension = mDimension;
         newDimension.height = height;
 
-        setDimension(newDimension);
+        SetDimension(newDimension);
     }
 
-    int Widget::getHeight() const
+    int Widget::GetHeight() const
     {
         return mDimension.height;
     }
 
-    void Widget::setX(int x)
+    void Widget::SetX(int x)
     {
         Rectangle newDimension = mDimension;
         newDimension.x = x;
 
-        setDimension(newDimension);
+        SetDimension(newDimension);
     }
 
-    int Widget::getX() const
+    int Widget::GetX() const
     {
         return mDimension.x;
     }
 
-    void Widget::setY(int y)
+    void Widget::SetY(int y)
     {
         Rectangle newDimension = mDimension;
         newDimension.y = y;
 
-        setDimension(newDimension);
+        SetDimension(newDimension);
     }
 
-    int Widget::getY() const
+    int Widget::GetY() const
     {
         return mDimension.y;
     }
 
-    void Widget::setPosition(int x, int y)
+    void Widget::SetPosition(int x, int y)
     {
         Rectangle newDimension = mDimension;
         newDimension.x = x;
         newDimension.y = y;
         
-        setDimension(newDimension);
+        SetDimension(newDimension);
     }
 
-    void Widget::setDimension(const Rectangle& dimension)
+    void Widget::SetDimension(const Rectangle& dimension)
     { 
         Rectangle oldDimension = mDimension;
         mDimension = dimension;
@@ -215,17 +215,17 @@ namespace gcn
         }
     }
 
-    void Widget::setFrameSize(unsigned int frameSize)
+    void Widget::SetFrameSize(unsigned int frameSize)
     {
         mFrameSize = frameSize;
     }
 
-    unsigned int Widget::getFrameSize() const
+    unsigned int Widget::GetFrameSize() const
     {
         return mFrameSize;
     }
 
-    const Rectangle& Widget::getDimension() const
+    const Rectangle& Widget::GetDimension() const
     {
         return mDimension;
     }
@@ -240,65 +240,65 @@ namespace gcn
         mActionEventId = actionEventId;
     }
 
-    bool Widget::isFocused() const
+    bool Widget::IsFocused()
     {
         if (!mFocusHandler)
         {
             return false;
         }
-
-        return (mFocusHandler->isFocused(this));
+		
+        return mFocusHandler->IsFocused(shared_from_this());
     }
 
-    void Widget::setFocusable(bool focusable)
+    void Widget::SetFocusable(bool focusable)
     {
-        if (!focusable && isFocused())
+        if (!focusable && IsFocused())
         {
-            mFocusHandler->focusNone();
+            mFocusHandler->FocusNone();
         }
 
         mFocusable = focusable;
     }
 
-    bool Widget::isFocusable() const
+    bool Widget::IsFocusable() const
     {
-        return mFocusable && isVisible() && isEnabled();
+        return mFocusable && IsVisible() && IsEnabled();
     }
 
     void Widget::requestFocus()
     {
-        if (mFocusHandler == NULL)
+        if (!mFocusHandler)
         {
             throw GCN_EXCEPTION("No focushandler set (did you add the widget to the gui?).");
         }
 
-        if (isFocusable())
+        if (IsFocusable())
         {
-            mFocusHandler->requestFocus(this);
+            mFocusHandler->RequestFocus(shared_from_this());
         }
     }
 
     void Widget::requestMoveToTop()
     {
-        if (mParent)
+        if (mParent.lock())
         {
-            mParent->moveToTop(this);
+            mParent.lock()->MoveToTop(shared_from_this());
         }
     }
 
     void Widget::requestMoveToBottom()
     {
-        if (mParent)
+        if (mParent.lock())
         {
-            mParent->moveToBottom(this);
+            mParent.lock()->MoveToBottom(shared_from_this());
         }
     }
 
-    void Widget::setVisible(bool visible)
+    void Widget::SetVisible(bool visible)
     {
-        if (!visible && isFocused())
+        if (!visible && IsFocused())
         {
-            mFocusHandler->focusNone();
+            mFocusHandler->FocusNone();
         }
         
         if (visible)
@@ -313,15 +313,15 @@ namespace gcn
         mVisible = visible;
     }
 
-    bool Widget::isVisible() const
+    bool Widget::IsVisible() const
     {
-        if (getParent() == NULL)
+        if (!GetParent())
         {
             return mVisible;
         }
         else
         {
-            return mVisible && getParent()->isVisible();
+            return mVisible && GetParent()->IsVisible();
         }
     }
 
@@ -365,24 +365,24 @@ namespace gcn
         return mSelectionColor;
     }    
     
-    void Widget::_setFocusHandler(FocusHandler* focusHandler)
-    {
+	void Widget::_setFocusHandler( FocusHandlerPtr focusHandler )
+	{
         if (mFocusHandler)
         {
             releaseModalFocus();
-            mFocusHandler->remove(this);
+            mFocusHandler->Remove(shared_from_this());
         }
 
         if (focusHandler)
         {
-            focusHandler->add(this);
+            focusHandler->Add(shared_from_this());
         }
 
         mFocusHandler = focusHandler;
     }
 
-    FocusHandler* Widget::_getFocusHandler()
-    {
+	gcn::FocusHandlerPtr Widget::_getFocusHandler()
+	{
         return mFocusHandler;
     }
 
@@ -448,7 +448,7 @@ namespace gcn
 
     void Widget::getAbsolutePosition(int& x, int& y) const
     {
-        if (getParent() == NULL)
+        if (!GetParent())
         {
             x = mDimension.x;
             y = mDimension.y;
@@ -458,19 +458,19 @@ namespace gcn
         int parentX;
         int parentY;
 
-        getParent()->getAbsolutePosition(parentX, parentY);
+        GetParent()->getAbsolutePosition(parentX, parentY);
 
-        x = parentX + mDimension.x + getParent()->getChildrenArea().x;
-        y = parentY + mDimension.y + getParent()->getChildrenArea().y;
+        x = parentX + mDimension.x + GetParent()->getChildrenArea().x;
+        y = parentY + mDimension.y + GetParent()->getChildrenArea().y;
     }
 
-    Font* Widget::getFont() const
+    FontPtr Widget::GetFont() const
     {
-        if (mCurrentFont == NULL)
+        if (!mCurrentFont)
         {
-            if (mGlobalFont == NULL)
+            if (!mGlobalFont)
             {
-                return &mDefaultFont;
+                return mDefaultFont;
             }
 
             return mGlobalFont;
@@ -479,34 +479,34 @@ namespace gcn
         return mCurrentFont;
     }
 
-    void Widget::setGlobalFont(Font* font)
+    void Widget::SetGlobalFont(FontPtr font)
     {
         mGlobalFont = font;
 
         std::list<Widget*>::iterator iter;
         for (iter = mWidgets.begin(); iter != mWidgets.end(); ++iter)
         {
-            if ((*iter)->mCurrentFont == NULL)
+            if (!(*iter)->mCurrentFont)
             {
                 (*iter)->fontChanged();
             }
         }
     }
 
-    void Widget::setFont(Font* font)
+    void Widget::SetFont(FontPtr font)
     {
         mCurrentFont = font;
         fontChanged();
     }
 
-    bool Widget::widgetExists(const Widget* widget)
+    bool Widget::widgetExists(const WidgetPtr widget)
     {
         bool result = false;
 
         std::list<Widget*>::iterator iter;
         for (iter = mWidgets.begin(); iter != mWidgets.end(); ++iter)
         {
-            if (*iter == widget)
+            if ((*iter) == widget.get())
             {
                 return true;
             }
@@ -535,23 +535,23 @@ namespace gcn
         mTabOut = enabled;
     }
 
-    void Widget::setSize(int width, int height)
+    void Widget::SetSize(int width, int height)
     {
         Rectangle newDimension = mDimension;
         newDimension.width = width;
         newDimension.height = height;
 
-        setDimension(newDimension);
+        SetDimension(newDimension);
     }
 
-    void Widget::setEnabled(bool enabled)
+    void Widget::SetEnabled(bool enabled)
     {
         mEnabled = enabled;
     }
 
-    bool Widget::isEnabled() const
+    bool Widget::IsEnabled() const
     {
-        return mEnabled && isVisible();
+        return mEnabled && IsVisible();
     }
 
     void Widget::requestModalFocus()
@@ -561,7 +561,7 @@ namespace gcn
             throw GCN_EXCEPTION("No focushandler set (did you add the widget to the gui?).");
         }
 
-        mFocusHandler->requestModalFocus(this);
+        mFocusHandler->RequestModalFocus(shared_from_this());
     }
 
     void Widget::requestModalMouseInputFocus()
@@ -571,7 +571,7 @@ namespace gcn
             throw GCN_EXCEPTION("No focushandler set (did you add the widget to the gui?).");
         }
 
-        mFocusHandler->requestModalMouseInputFocus(this);
+        mFocusHandler->RequestModalMouseInputFocus(shared_from_this());
     }
 
     void Widget::releaseModalFocus()
@@ -581,7 +581,7 @@ namespace gcn
             return;
         }
 
-        mFocusHandler->releaseModalFocus(this);
+        mFocusHandler->ReleaseModalFocus(shared_from_this());
     }
 
     void Widget::releaseModalMouseInputFocus()
@@ -591,7 +591,7 @@ namespace gcn
             return;
         }
 
-        mFocusHandler->releaseModalMouseInputFocus(this);
+        mFocusHandler->ReleaseModalMouseInputFocus(shared_from_this());
     }
 
     bool Widget::isModalFocused() const
@@ -601,13 +601,13 @@ namespace gcn
             throw GCN_EXCEPTION("No focushandler set (did you add the widget to the gui?).");
         }
 
-        if (getParent() != NULL)
+        if (GetParent() != NULL)
         {
-            return (mFocusHandler->getModalFocused() == this) 
-                || getParent()->isModalFocused();
+            return (mFocusHandler->GetModalFocused() == shared_from_this()) 
+                || GetParent()->isModalFocused();
         }
 
-        return mFocusHandler->getModalFocused() == this;
+        return mFocusHandler->GetModalFocused() == shared_from_this();
     }
 
     bool Widget::isModalMouseInputFocused() const
@@ -617,18 +617,18 @@ namespace gcn
             throw GCN_EXCEPTION("No focushandler set (did you add the widget to the gui?).");
         }
 
-        if (getParent() != NULL)
+        if (GetParent())
         {
-            return (mFocusHandler->getModalMouseInputFocused() == this) 
-                || getParent()->isModalMouseInputFocused();
+            return (mFocusHandler->GetModalMouseInputFocused() == shared_from_this()) 
+                || GetParent()->isModalMouseInputFocused();
         }
 
-        return mFocusHandler->getModalMouseInputFocused() == this;
+        return mFocusHandler->GetModalMouseInputFocused() == shared_from_this();
     }
 
-    Widget *Widget::getWidgetAt(int x, int y)
+    WidgetPtr Widget::GetWidgetAt(int x, int y)
     {
-        return NULL;
+        return WidgetPtr();
     }
 
     const std::list<MouseListener*>& Widget::_getMouseListeners()
@@ -651,12 +651,12 @@ namespace gcn
         return Rectangle(0, 0, 0, 0);
     }
 
-    FocusHandler* Widget::_getInternalFocusHandler()
+    FocusHandlerPtr Widget::_getInternalFocusHandler()
     {
         return mInternalFocusHandler;
     }
 
-    void Widget::setInternalFocusHandler(FocusHandler* focusHandler)
+    void Widget::SetInternalFocusHandler(FocusHandlerPtr focusHandler)
     {
         mInternalFocusHandler = focusHandler;
     }
@@ -677,7 +677,7 @@ namespace gcn
 
         for (iter = mWidgetListeners.begin(); iter != mWidgetListeners.end(); ++iter)
         {
-            Event event(this);
+            Event event(shared_from_this());
             (*iter)->widgetResized(event);
         }
     }
@@ -688,7 +688,7 @@ namespace gcn
 
         for (iter = mWidgetListeners.begin(); iter != mWidgetListeners.end(); ++iter)
         {
-            Event event(this);
+            Event event(shared_from_this());
             (*iter)->widgetMoved(event);
         }
     }
@@ -699,7 +699,7 @@ namespace gcn
 
         for (iter = mWidgetListeners.begin(); iter != mWidgetListeners.end(); ++iter)
         {
-            Event event(this);
+            Event event(shared_from_this());
             (*iter)->widgetHidden(event);
         }
     }
@@ -709,7 +709,7 @@ namespace gcn
         ActionListenerIterator iter;
         for (iter = mActionListeners.begin(); iter != mActionListeners.end(); ++iter)
         {
-            ActionEvent actionEvent(this, mActionEventId);
+            ActionEvent actionEvent(shared_from_this(), mActionEventId);
             (*iter)->action(actionEvent);
         }
     }
@@ -720,16 +720,16 @@ namespace gcn
 
         for (iter = mWidgetListeners.begin(); iter != mWidgetListeners.end(); ++iter)
         {
-            Event event(this);
+            Event event(shared_from_this());
             (*iter)->widgetShown(event);
         }
     }
 
     void Widget::showPart(Rectangle rectangle)
     {
-        if (mParent != NULL)
+        if (mParent.lock())
         {
-            mParent->showWidgetPart(this, rectangle);
+            mParent.lock()->ShowWidgetPart(shared_from_this(), rectangle);
         }                
     }
 }

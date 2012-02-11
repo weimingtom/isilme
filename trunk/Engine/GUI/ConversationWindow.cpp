@@ -8,11 +8,11 @@ namespace gcn
 {
 	ConversationWindow::ConversationWindow()
 	{
-		mText = new TextBox();
-		mText->setSize(500, 100);
+		mText = TextBoxPtr(new TextBox());
+		mText->SetSize(500, 100);
 
-		add(mText, 0, 0);
-		setSize(600, 400);
+		Add(mText, 0, 0);
+		SetSize(600, 400);
 
 		setCaption("Quests");
 	}
@@ -23,7 +23,7 @@ namespace gcn
 
 	void ConversationWindow::mouseClicked(MouseEvent& evt)
 	{
-		Button* b = dynamic_cast<gcn::Button*>( evt.getSource());
+		ButtonPtr b = boost::shared_dynamic_cast<gcn::Button>( evt.GetSource());
 		if (b)
 		{
 			story::PhrasePtr answer = mAnswers[b];
@@ -42,9 +42,9 @@ namespace gcn
 
 	void ConversationWindow::SetCurrentPhrase(story::PhrasePtr phrase)
 	{
-		for (std::map<Button*, story::PhrasePtr>::iterator it = mAnswers.begin(); it != mAnswers.end(); ++it)
+		for (std::map<ButtonPtr, story::PhrasePtr>::iterator it = mAnswers.begin(); it != mAnswers.end(); ++it)
 		{
-			remove(it->first);
+			Remove(it->first);
 		}
 
 		if (phrase == 0)
@@ -65,10 +65,10 @@ namespace gcn
 			if (phrase->GetAnswer(i)->CheckCondition(mSpeaker))
 			{
 				pos++;
-				Button* button = new Button();
+				ButtonPtr button(new Button());
 				button->setCaption(phrase->GetAnswer(i)->GetText());
 				button->adjustSize();
-				add(button, 0, 100 * pos);
+				Add(button, 0, 100 * pos);
 				mAnswers[button] = phrase->GetAnswer(i);
 			}
 	}

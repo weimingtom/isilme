@@ -68,7 +68,7 @@ namespace gcn
          * @param isAltPressed True if alt is pressed, false otherwise.
          * @param isMetaPressed True if meta is pressed, false otherwise.
          */
-        InputEvent(Widget* source,
+        InputEvent(WidgetPtr source,
                    bool isShiftPressed,
                    bool isControlPressed,
                    bool isAltPressed,

@@ -12,6 +12,7 @@ namespace gcn
 		virtual ~InventoryWindow();
 	private:
 	};
+	typedef boost::shared_ptr<InventoryWindow> InventoryWindowPtr;
 };
 
 #endif

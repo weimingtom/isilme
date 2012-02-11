@@ -431,8 +431,8 @@ namespace behaviour
 		story::ConversationPtr conversation = FactoryManager::GetSingleton()->GetConversation(mConversationID);
 		if (conversation)
 		{
-			gcn::Container* w = (gcn::Container*)(ZombieLand::GetSingleton()->playState->GetGUI()->getTop());
-			gcn::ConversationWindow* cw = new gcn::ConversationWindow();
+			gcn::ContainerPtr w = boost::shared_dynamic_cast<gcn::Container>(ZombieLand::GetSingleton()->playState->GetGUI()->GetTop());
+			gcn::ConversationWindowPtr cw(new gcn::ConversationWindow());
 			cw->Show(w);
 			cw->SetConversation(conversation, GetActor());
 			cw->setCaption(GetName());

@@ -56,55 +56,49 @@
 namespace gcn
 {
     Tab::Tab()
-            :mHasMouse(false),
-            mTabbedArea(NULL)
+            :mHasMouse(false)
     {
-        mLabel = new Label();
-        mLabel->setPosition(4, 4);
-        add(mLabel);
-
         addMouseListener(this);
     }
 
     Tab::~Tab()
     {
-        delete mLabel;
     }
 
-    void Tab::adjustSize()
+    void Tab::AdjustSize()
     {
-        setSize(mLabel->getWidth() + 8,
-                mLabel->getHeight() + 8);
+        SetSize(mLabel->GetWidth() + 8,
+                mLabel->GetHeight() + 8);
 
-        if (mTabbedArea != NULL)
+        if (mTabbedArea.lock())
         {
-            mTabbedArea->adjustTabPositions();
+            mTabbedArea.lock()->adjustTabPositions();
         }
     }
 
-    void Tab::setTabbedArea(TabbedArea* tabbedArea)
+    void Tab::SetTabbedArea(TabbedAreaPtr tabbedArea)
     {
         mTabbedArea = tabbedArea;
     }
 
-    TabbedArea* Tab::getTabbedArea()
+    TabbedAreaPtr Tab::GetTabbedArea()
     {
-        return mTabbedArea;
+        return mTabbedArea.lock();
     }
 
-    void Tab::setCaption(const std::string& caption)
+    void Tab::SetCaption(const std::string& caption)
     {
         mLabel->setCaption(caption);
         mLabel->adjustSize();
-        adjustSize();
+        AdjustSize();
     }
 
-    const std::string& Tab::getCaption() const
+    const std::string& Tab::GetCaption() const
     {
         return mLabel->getCaption();
     }
 
-    void Tab::draw(Graphics *graphics)
+    void Tab::Draw(GraphicsPtr graphics)
     {
         const Color &faceColor = getBaseColor();
         const int alpha = getBaseColor().a;
@@ -116,15 +110,15 @@ namespace gcn
         Color borderColor;
         Color baseColor;
 
-        if ((mTabbedArea != NULL && mTabbedArea->isTabSelected(this))
+        if ((mTabbedArea.lock() && mTabbedArea.lock()->IsTabSelected(boost::shared_dynamic_cast<Tab>(shared_from_this())))
             || mHasMouse)
         {
             // Draw a border.
             graphics->setColor(highlightColor);
-            graphics->drawLine(0, 0, getWidth() - 1, 0);
-            graphics->drawLine(0, 1, 0, getHeight() - 1);
+            graphics->drawLine(0, 0, GetWidth() - 1, 0);
+            graphics->drawLine(0, 1, 0, GetHeight() - 1);
             graphics->setColor(shadowColor);
-            graphics->drawLine(getWidth() - 1, 1, getWidth() - 1, getHeight() - 1);
+            graphics->drawLine(GetWidth() - 1, 1, GetWidth() - 1, GetHeight() - 1);
 
             borderColor = highlightColor;
             baseColor = getBaseColor();
@@ -133,9 +127,9 @@ namespace gcn
         {
             // Draw a border.
             graphics->setColor(shadowColor);
-            graphics->drawLine(0, 0, getWidth() - 1, 0);
-            graphics->drawLine(0, 1, 0, getHeight() - 1);
-            graphics->drawLine(getWidth() - 1, 1, getWidth() - 1, getHeight() - 1);
+            graphics->drawLine(0, 0, GetWidth() - 1, 0);
+            graphics->drawLine(0, 1, 0, GetHeight() - 1);
+            graphics->drawLine(GetWidth() - 1, 1, GetWidth() - 1, GetHeight() - 1);
 
             baseColor = getBaseColor() - 0x151515;
             baseColor.a = alpha;
@@ -143,7 +137,7 @@ namespace gcn
 
         // Push a clip area so the other drawings don't need to worry
         // about the border.
-        graphics->pushClipArea(Rectangle(1, 1, getWidth() - 2, getHeight() - 1));
+        graphics->pushClipArea(Rectangle(1, 1, GetWidth() - 2, GetHeight() - 1));
         const Rectangle currentClipArea = graphics->getCurrentClipArea();
 
         graphics->setColor(baseColor);
@@ -152,11 +146,11 @@ namespace gcn
                                           currentClipArea.width, 
                                           currentClipArea.height));
 
-        drawChildren(graphics);
+        DrawChildren(graphics);
 
-        if (mTabbedArea != NULL
-            && mTabbedArea->isFocused()
-            && mTabbedArea->isTabSelected(this))
+        if (mTabbedArea.lock()
+            && mTabbedArea.lock()->IsFocused()
+            && mTabbedArea.lock()->IsTabSelected(boost::shared_dynamic_cast<Tab>(shared_from_this())))
         {
             graphics->setColor(Color(0x000000));
             graphics->drawRectangle(Rectangle(2,
@@ -168,14 +162,22 @@ namespace gcn
         graphics->popClipArea();
     }
 
-    void Tab::mouseEntered(MouseEvent& mouseEvent)
+    void Tab::MouseEntered(MouseEvent& mouseEvent)
     {
         mHasMouse = true;
     }
 
-    void Tab::mouseExited(MouseEvent& mouseEvent)
+    void Tab::MouseExited(MouseEvent& mouseEvent)
     {
         mHasMouse = false;
     }
+
+	void Tab::Initialise()
+	{
+		mLabel = LabelPtr(new Label());
+		mLabel->SetPosition(4, 4);
+		Add(mLabel);
+	}
+
 }
 

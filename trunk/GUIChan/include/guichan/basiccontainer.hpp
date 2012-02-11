@@ -79,28 +79,28 @@ namespace gcn
          *               itself to be visible.
          * @param rectangle The rectangle to be visible.
          */
-        virtual void showWidgetPart(Widget* widget, Rectangle area);
+		virtual void ShowWidgetPart(WidgetPtr widget, Rectangle area);
 
         
         // Inherited from Widget
 
-        virtual void moveToTop(Widget* widget);
+		virtual void MoveToTop(WidgetPtr widget);
 
-        virtual void moveToBottom(Widget* widget);
+		virtual void MoveToBottom(WidgetPtr widget);
 
         virtual Rectangle getChildrenArea();
 
-        virtual void focusNext();
+        virtual void FocusNext();
 
         virtual void focusPrevious();
 
-        virtual void logic();
+        virtual void Logic();
 
-        virtual void _setFocusHandler(FocusHandler* focusHandler);
+		virtual void _setFocusHandler(FocusHandlerPtr focusHandler);
 
-        void setInternalFocusHandler(FocusHandler* focusHandler);
+		void SetInternalFocusHandler(FocusHandlerPtr focusHandler);
 
-        virtual Widget *getWidgetAt(int x, int y);
+		virtual WidgetPtr GetWidgetAt(int x, int y);
 
 
         // Inherited from DeathListener
@@ -114,7 +114,7 @@ namespace gcn
          * @param widget The widget to add.
          * @see remove, clear
          */
-        void add(Widget* widget);
+		void Add(WidgetPtr widget);
 
         /**
          * Removes a widget from the basic container.
@@ -122,21 +122,21 @@ namespace gcn
          * @param widget The widget to remove.
          * @see add, clear
          */
-        virtual void remove(Widget* widget);
+		virtual void Remove(WidgetPtr widget);
 
         /**
          * Clears the basic container from all widgets.
          *
          * @see remove, clear
          */
-        virtual void clear();
+        virtual void Clear();
         
         /**
          * Draws the children widgets of the basic container.
          *
          * @param graphics A graphics object to draw with.
          */
-        virtual void drawChildren(Graphics* graphics);
+		virtual void DrawChildren(GraphicsPtr graphics);
 
         /**
          * Calls logic for the children widgets of the basic
@@ -153,12 +153,12 @@ namespace gcn
          * @return The widget with the corrosponding id, 
                    NULL of no widget is found.
          */
-        virtual Widget* findWidgetById(const std::string& id);
+		virtual WidgetPtr FindWidgetById(const std::string& id);
 
         /**
          * Typedef.
          */
-        typedef std::list<Widget *> WidgetList;
+        typedef std::list<WidgetPtr> WidgetList;
 
          /**
          * Typedef.

@@ -46,25 +46,12 @@
 
 #include <list>
 #include <string>
-
+#include "gcnTypes.h"
 #include "guichan/color.hpp"
 #include "guichan/rectangle.hpp"
 
 namespace gcn
 {
-    class ActionListener;
-    class BasicContainer;
-    class DeathListener;
-    class DefaultFont;
-    class FocusHandler;
-    class FocusListener;
-    class Font;
-    class Graphics;
-    class KeyInput;
-    class KeyListener;
-    class MouseInput;
-    class MouseListener;
-    class WidgetListener;
 
     /**
      * Abstract class for widgets of Guichan. It contains basic functions 
@@ -77,7 +64,7 @@ namespace gcn
      * @author Per Larsson.
      * @since 0.1.0
      */
-    class GCN_CORE_DECLSPEC Widget
+    class GCN_CORE_DECLSPEC Widget : public boost::enable_shared_from_this<Widget>
     {
     public:
         /**
@@ -102,7 +89,7 @@ namespace gcn
          * @param graphics aA graphics object to draw with.
          * @since 0.1.0
          */
-        virtual void draw(Graphics* graphics) = 0;
+        virtual void Draw(GraphicsPtr graphics) = 0;
 
         /**
          * Called when a widget is given a chance to draw a frame around itself.
@@ -124,7 +111,7 @@ namespace gcn
          * @see setFrameSize, getFrameSize
          * @since 0.8.0
          */
-        virtual void drawFrame(Graphics* graphics);
+        virtual void DrawFrame(GraphicsPtr graphics);
 
         /**
          * Sets the size of the widget's frame. The frame is not considered a part of 
@@ -140,7 +127,7 @@ namespace gcn
          * @see getFrameSize, drawFrame
          * @since 0.8.0
          */
-        void setFrameSize(unsigned int frameSize);
+        void SetFrameSize(unsigned int frameSize);
 
         /**
          * Gets the size of the widget's frame. The frame is not considered a part of 
@@ -156,7 +143,7 @@ namespace gcn
          * @see setFrameSize, drawFrame
          * @since 0.8.0
          */
-        unsigned int getFrameSize() const;
+        unsigned int GetFrameSize() const;
 
         /**
          * Called for all widgets in the gui each time Gui::logic is called.
@@ -165,7 +152,7 @@ namespace gcn
          * @see Gui::logic
          * @since 0.1.0
          */
-        virtual void logic() { }
+        virtual void Logic() { }
 
         /**
          * Gets the widget's parent container.
@@ -174,7 +161,7 @@ namespace gcn
          *         has no parent.
          * @since 0.1.0
          */
-        virtual Widget* getParent() const;
+		virtual WidgetPtr GetParent() const;
 
         /**
          * Sets the width of the widget.
@@ -184,7 +171,7 @@ namespace gcn
          *      setDimension, getDimensi
          * @since 0.1.0
          */
-        void setWidth(int width);
+        void SetWidth(int width);
 
         /**
          * Gets the width of the widget.
@@ -194,7 +181,7 @@ namespace gcn
          *      setDimension, getDimension
          * @since 0.1.0
          */
-        int getWidth() const;
+        int GetWidth() const;
 
         /**
          * Sets the height of the widget.
@@ -204,7 +191,7 @@ namespace gcn
          *      setDimension, getDimension
          * @since 0.1.0
          */
-        void setHeight(int height);
+        void SetHeight(int height);
 
         /**
          * Gets the height of the widget.
@@ -214,7 +201,7 @@ namespace gcn
          *      setDimension, getDimension
          * @since 0.1.0
          */
-        int getHeight() const;
+        int GetHeight() const;
 
         /**
          * Sets the size of the widget.
@@ -225,7 +212,7 @@ namespace gcn
          *      setDimension, getDimension
          * @since 0.1.0
          */
-        void setSize(int width, int height);
+        void SetSize(int width, int height);
 
         /**
          * Sets the x coordinate of the widget. The coordinate is
@@ -235,7 +222,7 @@ namespace gcn
          * @see getX, setY, getY, setPosition, setDimension, getDimension
          * @since 0.1.0
          */
-        void setX(int x);
+        void SetX(int x);
 
         /**
          * Gets the x coordinate of the widget. The coordinate is
@@ -245,7 +232,7 @@ namespace gcn
          * @see setX, setY, getY, setPosition, setDimension, getDimension
          * @since 0.1.0
          */
-        int getX() const;
+        int GetX() const;
 
         /**
          * Sets the y coordinate of the widget. The coordinate is
@@ -255,7 +242,7 @@ namespace gcn
          * @see setY, setX, getX, setPosition, setDimension, getDimension
          * @since 0.1.0
          */
-        void setY(int y);
+        void SetY(int y);
 
         /**
          * Gets the y coordinate of the widget. The coordinate is
@@ -265,7 +252,7 @@ namespace gcn
          * @see setY, setX, getX, setPosition, setDimension, getDimension
          * @since 0.1.0
          */
-        int getY() const;
+        int GetY() const;
 
         /**
          * Sets position of the widget. The position is relative
@@ -276,7 +263,7 @@ namespace gcn
          * @see setX, getX, setY, getY, setDimension, getDimension
          * @since 0.1.0
          */
-        void setPosition(int x, int y);
+        void SetPosition(int x, int y);
 
         /**
          * Sets the dimension of the widget. The dimension is
@@ -286,7 +273,7 @@ namespace gcn
          * @see getDimension, setX, getX, setY, getY, setPosition
          * @since 0.1.0
          */
-        void setDimension(const Rectangle& dimension);
+        void SetDimension(const Rectangle& dimension);
 
         /**
          * Gets the dimension of the widget. The dimension is
@@ -296,7 +283,7 @@ namespace gcn
          * @see getDimension, setX, getX, setY, getY, setPosition
          * @since 0.1.0
          */
-        const Rectangle& getDimension() const;
+        const Rectangle& GetDimension() const;
 
         /**
          * Sets the widget to be fosusable, or not.
@@ -306,7 +293,7 @@ namespace gcn
          * @see isFocusable
          * @since 0.1.0
          */
-        void setFocusable(bool focusable);
+        void SetFocusable(bool focusable);
 
          /**
          * Checks if a widget is focsable.
@@ -315,7 +302,7 @@ namespace gcn
          * @see setFocusable
          * @since 0.1.0
          */
-        bool isFocusable() const;
+        bool IsFocusable() const;
 
         /**
          * Checks if the widget is focused.
@@ -323,7 +310,7 @@ namespace gcn
          * @return True if the widget is focused, false otherwise.
          * @since 0.1.0
          */
-        virtual bool isFocused() const;
+        virtual bool IsFocused();
 
         /**
          * Sets the widget to enabled, or not. A disabled
@@ -334,7 +321,7 @@ namespace gcn
          * @see isEnabled
          * @since 0.1.0
          */
-        void setEnabled(bool enabled);
+        void SetEnabled(bool enabled);
 
         /**
          * Checks if the widget is enabled. A disabled
@@ -344,7 +331,7 @@ namespace gcn
          * @see setEnabled
          * @since 0.1.0
          */
-        bool isEnabled() const;
+        bool IsEnabled() const;
 
         /**
          * Sets the widget to be visible, or not.
@@ -353,7 +340,7 @@ namespace gcn
          * @see isVisible
          * @since 0.1.0
          */
-        void setVisible(bool visible);
+        void SetVisible(bool visible);
 
         /**
          * Checks if the widget is visible.
@@ -362,7 +349,7 @@ namespace gcn
          * @see setVisible
          * @since 0.1.0
          */
-        bool isVisible() const;
+        bool IsVisible() const;
 
         /**
          * Sets the base color of the widget.
@@ -461,7 +448,7 @@ namespace gcn
          * @see _getFocusHandler
          * @since 0.1.0
          */
-        virtual void _setFocusHandler(FocusHandler* focusHandler);
+		virtual void _setFocusHandler(FocusHandlerPtr focusHandler);
 
         /**
          * Gets the focus handler used.
@@ -474,7 +461,7 @@ namespace gcn
          * @see _setFocusHandler
          * @since 0.1.0
          */
-        virtual FocusHandler* _getFocusHandler();
+		virtual FocusHandlerPtr _getFocusHandler();
 
         /**
          * Adds an action listener to the widget. When an action event 
@@ -639,7 +626,7 @@ namespace gcn
          * @see getParent
          * @since 0.1.0
          */
-        virtual void _setParent(Widget* parent);
+        virtual void _setParent(WidgetPtr parent);
 
         /**
          * Gets the font set for the widget. If no font has been set, 
@@ -650,7 +637,7 @@ namespace gcn
          * @see setFont, setGlobalFont
          * @since 0.1.0
          */
-        Font *getFont() const;
+        FontPtr GetFont() const;
 
         /**
          * Sets the global font to be used by default for all widgets.
@@ -659,7 +646,7 @@ namespace gcn
          * @see getGlobalFont
          * @since 0.1.0
          */
-        static void setGlobalFont(Font* font);
+        static void SetGlobalFont(FontPtr font);
 
         /**
          * Sets the font for the widget. If NULL is passed, the global font 
@@ -669,7 +656,7 @@ namespace gcn
          * @see getFont
          * @since 0.1.0
          */
-        void setFont(Font* font);
+        void SetFont(FontPtr font);
 
         /**
          * Called when the font has changed. If the change is global,
@@ -688,7 +675,7 @@ namespace gcn
          * @return True if an instance of the widget exists, false otherwise.
          * @since 0.1.0
          */
-        static bool widgetExists(const Widget* widget);
+        static bool widgetExists(const WidgetPtr widget);
 
         /**
          * Checks if tab in is enabled. Tab in means that you can set focus
@@ -810,7 +797,7 @@ namespace gcn
          *         if no widget is found.
          * @since 0.6.0
          */
-        virtual Widget *getWidgetAt(int x, int y);
+        virtual WidgetPtr GetWidgetAt(int x, int y);
 
         /**
          * Gets the mouse listeners of the widget.
@@ -866,7 +853,7 @@ namespace gcn
          * @see setInternalFocusHandler
          * @since 0.1.0
          */
-        virtual FocusHandler* _getInternalFocusHandler();
+        virtual FocusHandlerPtr _getInternalFocusHandler();
 
         /**
          * Sets the internal focus handler. An internal focus handler is
@@ -877,7 +864,7 @@ namespace gcn
          * @see getInternalFocusHandler
          * @since 0.1.0
          */
-        void setInternalFocusHandler(FocusHandler* internalFocusHandler);
+        void SetInternalFocusHandler(FocusHandlerPtr internalFocusHandler);
 
         /**
          * Moves a widget to the top of this widget. The moved widget will be
@@ -887,7 +874,7 @@ namespace gcn
          * @see moveToBottom
          * @since 0.1.0
          */
-        virtual void moveToTop(Widget* widget) { };
+        virtual void MoveToTop(WidgetPtr widget) { };
 
         /**
          * Moves a widget in this widget to the bottom of this widget.
@@ -897,7 +884,7 @@ namespace gcn
          * @see moveToTop
          * @since 0.1.0
          */
-        virtual void moveToBottom(Widget* widget) { };
+        virtual void MoveToBottom(WidgetPtr widget) { };
 
         /**
          * Focuses the next widget in the widget.
@@ -905,7 +892,7 @@ namespace gcn
          * @see moveToBottom
          * @since 0.1.0
          */
-        virtual void focusNext() { };
+        virtual void FocusNext() { };
 
         /**
          * Focuses the previous widget in the widget.
@@ -923,7 +910,7 @@ namespace gcn
          * @param area The area to show.
          * @since 0.1.0
          */
-        virtual void showWidgetPart(Widget* widget, Rectangle area) { };
+        virtual void ShowWidgetPart(WidgetPtr widget, Rectangle area) { };
 
         /**
          * Sets an id of a widget. An id can be useful if a widget needs to be
@@ -1110,19 +1097,19 @@ namespace gcn
         /**
          * Holds the focus handler used by the widget.
          */
-        FocusHandler* mFocusHandler;
+        FocusHandlerPtr mFocusHandler;
 
         /**
          * Holds the focus handler used by the widget. NULL
          * if no internal focus handler is used.
          */
-        FocusHandler* mInternalFocusHandler;
+        FocusHandlerPtr mInternalFocusHandler;
 
         /**
          * Holds the parent of the widget. NULL if the widget
          * has no parent.
          */
-        Widget* mParent;
+        WidgetWPtr mParent;
 
         /**
          * Holds the dimension of the widget.
@@ -1172,17 +1159,17 @@ namespace gcn
         /**
          * Holds the font used by the widget.
          */
-        Font* mCurrentFont;
+        FontPtr mCurrentFont;
 
         /**
          * Holds the default font used by the widget.
          */
-        static DefaultFont mDefaultFont;
+        static DefaultFontPtr mDefaultFont;
 
         /**
          * Holds the global font used by the widget.
          */
-        static Font* mGlobalFont;
+        static FontPtr mGlobalFont;
 
         /**
          * Holds a list of all instances of widgets.

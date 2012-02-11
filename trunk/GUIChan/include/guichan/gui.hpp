@@ -51,14 +51,10 @@
 #include "guichan/mouseevent.hpp"
 #include "guichan/mouseinput.hpp"
 #include "guichan/platform.hpp"
+#include "guichan/gcnTypes.h"
 
 namespace gcn
 {
-    class FocusHandler;
-    class Graphics;
-    class Input;
-    class KeyListener;
-    class Widget;
 
     // The following comment will appear in the doxygen main page.
     /**
@@ -111,7 +107,7 @@ namespace gcn
          * @see Container
          * @since 0.1.0
          */
-        virtual void setTop(Widget* top);
+		virtual void SetTop(WidgetPtr top);
 
         /**
          * Gets the top widget. The top widget is the root widget
@@ -120,7 +116,7 @@ namespace gcn
          * @return The top widget. NULL if no top widget has been set.
          * @since 0.1.0
          */
-        virtual Widget* getTop() const;
+		virtual WidgetPtr GetTop() const;
 
         /**
          * Sets the graphics object to use for drawing.
@@ -130,7 +126,7 @@ namespace gcn
          *      OpenLayerGraphics, OpenGLGraphics, SDLGraphics
          * @since 0.1.0
          */
-        virtual void setGraphics(Graphics* graphics);
+		virtual void SetGraphics(GraphicsPtr graphics);
 
         /**
          * Gets the graphics object used for drawing.
@@ -141,7 +137,7 @@ namespace gcn
          *      OpenLayerGraphics, OpenGLGraphics, SDLGraphics
          * @since 0.1.0
          */
-        virtual Graphics* getGraphics() const;
+		virtual GraphicsPtr GetGraphics() const;
 
         /**
          * Sets the input object to use for input handling.
@@ -151,7 +147,7 @@ namespace gcn
          *      SDLInput
          * @since 0.1.0
          */
-        virtual void setInput(Input* input);
+        virtual void SetInput(Input* input);
 
         /**
          * Gets the input object being used for input handling.
@@ -172,7 +168,7 @@ namespace gcn
          * @see Widget::logic
          * @since 0.1.0
          */
-        virtual void logic();
+        virtual void Logic();
 
         /**
          * Draws the GUI. By calling this funcion all draw functions
@@ -183,14 +179,14 @@ namespace gcn
          * @see Widget::draw
          * @since 0.1.0
          */
-        virtual void draw();
+        virtual void Draw();
 
         /**
          * Focuses none of the widgets in the Gui.
          *
          * @since 0.1.0
          */
-        virtual void focusNone();
+        virtual void FocusNone();
 
         /**
          * Sets tabbing enabled, or not. Tabbing is the usage of
@@ -201,7 +197,7 @@ namespace gcn
          * @see isTabbingEnabled
          * @since 0.1.0
          */
-        virtual void setTabbingEnabled(bool tabbing);
+        virtual void SetTabbingEnabled(bool tabbing);
 
         /**
          * Checks if tabbing is enabled.
@@ -343,7 +339,7 @@ namespace gcn
          *
          * @since 0.6.0
          */
-        virtual void distributeMouseEvent(Widget* source,
+        virtual void distributeMouseEvent(WidgetPtr source,
                                           int type,
                                           int button,
                                           int x,
@@ -375,7 +371,7 @@ namespace gcn
          * @return The widget at a certain position.
          * @since 0.6.0
          */
-        virtual Widget* getWidgetAt(int x, int y);
+        virtual WidgetPtr GetWidgetAt(int x, int y);
 
         /**
          * Gets the source of the mouse event.
@@ -383,7 +379,7 @@ namespace gcn
          * @return The source widget of the mouse event.
          * @since 0.6.0
          */
-        virtual Widget* getMouseEventSource(int x, int y);
+        virtual WidgetPtr GetMouseEventSource(int x, int y);
 
         /**
          * Gets the source of the key event.
@@ -391,17 +387,17 @@ namespace gcn
          * @return The source widget of the key event.
          * @since 0.6.0
          */
-        virtual Widget* getKeyEventSource();
+        virtual WidgetPtr GetKeyEventSource();
 
         /**
          * Holds the top widget.
          */
-        Widget* mTop;
+        WidgetPtr mTop;
 
         /**
          * Holds the graphics implementation used.
          */
-        Graphics* mGraphics;
+        GraphicsPtr mGraphics;
 
         /**
          * Holds the input implementation used.
@@ -411,7 +407,7 @@ namespace gcn
         /**
          * Holds the focus handler for the Gui.
          */
-        FocusHandler* mFocusHandler;
+        FocusHandlerPtr mFocusHandler;
 
         /**
          * True if tabbing is enabled, false otherwise.
@@ -490,7 +486,7 @@ namespace gcn
          * Holds a stack with all the widgets with the mouse.
          * Used to properly distribute mouse events.
          */
-        std::deque<Widget*> mWidgetWithMouseQueue;
+        std::deque<WidgetPtr> mWidgetWithMouseQueue;
     };
 }
 

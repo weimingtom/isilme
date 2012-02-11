@@ -64,7 +64,7 @@ namespace gcn
 
         setText("");
 
-        setFocusable(true);
+        SetFocusable(true);
 
         addMouseListener(this);
         addKeyListener(this);
@@ -80,7 +80,7 @@ namespace gcn
 
         setText(text);
 
-        setFocusable(true);
+        SetFocusable(true);
 
         addMouseListener(this);
         addKeyListener(this);
@@ -117,49 +117,49 @@ namespace gcn
         adjustSize();
     }
 
-    void TextBox::draw(Graphics* graphics)
+    void TextBox::Draw(GraphicsPtr graphics)
     {
         unsigned int i;
 
         if (mOpaque)
         {
             graphics->setColor(getBackgroundColor());
-            graphics->fillRectangle(Rectangle(0, 0, getWidth(), getHeight()));
+            graphics->fillRectangle(Rectangle(0, 0, GetWidth(), GetHeight()));
         }
 
-        if (isFocused() && isEditable())
+        if (IsFocused() && isEditable())
         {
-            drawCaret(graphics, getFont()->getWidth(mTextRows[mCaretRow].substr(0, mCaretColumn)), mCaretRow * getFont()->getHeight());
+            drawCaret(graphics, GetFont()->getWidth(mTextRows[mCaretRow].substr(0, mCaretColumn)), mCaretRow * GetFont()->getHeight());
         }
 
         graphics->setColor(getForegroundColor());
-        graphics->setFont(getFont());
+        graphics->SetFont(GetFont());
 
         for (i = 0; i < mTextRows.size(); i++)
         {
             // Move the text one pixel so we can have a caret before a letter.
-            graphics->drawText(mTextRows[i], 1, i * getFont()->getHeight());
+            graphics->drawText(mTextRows[i], 1, i * GetFont()->getHeight());
         }
     }
 
-    void TextBox::drawCaret(Graphics* graphics, int x, int y)
-    {
+	void TextBox::drawCaret( GraphicsPtr graphics, int x, int y )
+	{
         graphics->setColor(getForegroundColor());
-        graphics->drawLine(x, getFont()->getHeight() + y, x, y);
+        graphics->drawLine(x, GetFont()->getHeight() + y, x, y);
     }
 
     void TextBox::mousePressed(MouseEvent& mouseEvent)
     {
-        if (mouseEvent.getButton() == MouseEvent::LEFT)
+        if (mouseEvent.GetButton() == MouseEvent::LEFT)
         {
-            mCaretRow = mouseEvent.getY() / getFont()->getHeight();
+            mCaretRow = mouseEvent.getY() / GetFont()->getHeight();
 
             if (mCaretRow >= (int)mTextRows.size())
             {
                 mCaretRow = mTextRows.size() - 1;
             }
 
-            mCaretColumn = getFont()->getStringIndexAt(mTextRows[mCaretRow], mouseEvent.getX());
+            mCaretColumn = GetFont()->getStringIndexAt(mTextRows[mCaretRow], mouseEvent.getX());
         }
     }
 
@@ -281,11 +281,11 @@ namespace gcn
 
         else if(key.getValue() == Key::PAGE_UP)
         {
-            Widget* par = getParent();
+            WidgetPtr par = GetParent();
 
-            if (par != NULL)
+            if (par)
             {
-                int rowsPerPage = par->getChildrenArea().height / getFont()->getHeight();
+                int rowsPerPage = par->getChildrenArea().height / GetFont()->getHeight();
                 mCaretRow -= rowsPerPage;
 
                 if (mCaretRow < 0)
@@ -297,11 +297,11 @@ namespace gcn
 
         else if(key.getValue() == Key::PAGE_DOWN)
         {
-            Widget* par = getParent();
+            WidgetPtr par = GetParent();
 
-            if (par != NULL)
+            if (par)
             {
-                int rowsPerPage = par->getChildrenArea().height / getFont()->getHeight();
+                int rowsPerPage = par->getChildrenArea().height / GetFont()->getHeight();
                 mCaretRow += rowsPerPage;
 
                 if (mCaretRow >= (int)mTextRows.size())
@@ -337,15 +337,15 @@ namespace gcn
         int width = 0;
         for (i = 0; i < mTextRows.size(); ++i)
         {
-            int w = getFont()->getWidth(mTextRows[i]);
+            int w = GetFont()->getWidth(mTextRows[i]);
             if (width < w)
             {
                 width = w;
             }
         }
 
-        setWidth(width + 1);
-        setHeight(getFont()->getHeight() * mTextRows.size());
+        SetWidth(width + 1);
+        SetHeight(GetFont()->getHeight() * mTextRows.size());
     }
 
     void TextBox::setCaretPosition(unsigned int position)
@@ -481,10 +481,10 @@ namespace gcn
     void TextBox::scrollToCaret()
     {
         Rectangle scroll;
-        scroll.x = getFont()->getWidth(mTextRows[mCaretRow].substr(0, mCaretColumn));
-        scroll.y = getFont()->getHeight() * mCaretRow;
-        scroll.width = getFont()->getWidth(" ");
-        scroll.height = getFont()->getHeight() + 2; // add 2 for some extra space
+        scroll.x = GetFont()->getWidth(mTextRows[mCaretRow].substr(0, mCaretColumn));
+        scroll.y = GetFont()->getHeight() * mCaretRow;
+        scroll.width = GetFont()->getWidth(" ");
+        scroll.height = GetFont()->getHeight() + 2; // add 2 for some extra space
 
         showPart(scroll);
     }

@@ -56,8 +56,8 @@ namespace gcn
         : mImage(0), 
           mInternalImage(false)
     {
-        setWidth(0);
-        setHeight(0);
+        SetWidth(0);
+        SetHeight(0);
 		mAlignment = gcn::Graphics::CENTER;
 		
     }
@@ -68,8 +68,8 @@ namespace gcn
     {
         mImage = Image::load(filename);
         mInternalImage = true;
-        setWidth(mImage->getWidth() + mImage->getWidth() / 2);
-        setHeight(mImage->getHeight() + mImage->getHeight() / 2);
+        SetWidth(mImage->getWidth() + mImage->getWidth() / 2);
+        SetHeight(mImage->getHeight() + mImage->getHeight() / 2);
 		mAlignment = gcn::Graphics::CENTER;
     }
 
@@ -77,8 +77,8 @@ namespace gcn
         : mImage(image), 
           mInternalImage(false)
     {
-        setWidth(mImage->getWidth() + mImage->getWidth() / 2);
-        setHeight(mImage->getHeight() + mImage->getHeight() / 2);
+        SetWidth(mImage->getWidth() + mImage->getWidth() / 2);
+        SetHeight(mImage->getHeight() + mImage->getHeight() / 2);
 		mAlignment = gcn::Graphics::CENTER;
     }
 
@@ -106,9 +106,9 @@ namespace gcn
         return mImage;
     }
 
-    void ImageButton::draw(Graphics* graphics)
+    void ImageButton::Draw(Graphics* graphics)
     {
-		graphics->setFont(getFont());
+		graphics->SetFont(GetFont());
         gcn::Color faceColor = getBaseColor();
         gcn::Color highlightColor, shadowColor;
         int alpha = getBaseColor().a;
@@ -133,42 +133,42 @@ namespace gcn
         graphics->setColor(faceColor);
         graphics->fillRectangle(Rectangle(1, 
                                           1, 
-                                          getDimension().width - 1, 
-                                          getHeight() - 1));
+                                          GetDimension().width - 1, 
+                                          GetHeight() - 1));
 
         graphics->setColor(highlightColor);
-        graphics->drawLine(0, 0, getWidth() - 1, 0);
-        graphics->drawLine(0, 1, 0, getHeight() - 1);
+        graphics->drawLine(0, 0, GetWidth() - 1, 0);
+        graphics->drawLine(0, 1, 0, GetHeight() - 1);
 
         graphics->setColor(shadowColor);
-        graphics->drawLine(getWidth() - 1, 1, getWidth() - 1, getHeight() - 1);
-        graphics->drawLine(1, getHeight() - 1, getWidth() - 1, getHeight() - 1);
+        graphics->drawLine(GetWidth() - 1, 1, GetWidth() - 1, GetHeight() - 1);
+        graphics->drawLine(1, GetHeight() - 1, GetWidth() - 1, GetHeight() - 1);
 
         graphics->setColor(getForegroundColor());
 
-        const int textX = (getWidth() - (mImage ? mImage->getWidth() : 0) ) / 2;
-        const int textY = (getHeight() - (mImage ? mImage->getHeight() : 0) ) / 2;
+        const int textX = (GetWidth() - (mImage ? mImage->getWidth() : 0) ) / 2;
+        const int textY = (GetHeight() - (mImage ? mImage->getHeight() : 0) ) / 2;
 
         if (isPressed())
         {
             if(mImage)
                 graphics->drawImage(mImage, textX + 1, textY + 1);
 
-			graphics->drawText(getCaption(),  getWidth() / 2, getHeight() / 2, gcn::Graphics::CENTER);
+			graphics->drawText(getCaption(),  GetWidth() / 2, GetHeight() / 2, gcn::Graphics::CENTER);
         }
         else
         {
             if(mImage)
                 graphics->drawImage(mImage, textX, textY);
 
-			graphics->drawText(getCaption(),  getWidth() / 2, getHeight() / 2, gcn::Graphics::CENTER);
+			graphics->drawText(getCaption(),  GetWidth() / 2, GetHeight() / 2, gcn::Graphics::CENTER);
 
-            if (isFocused())
+            if (IsFocused())
             {
                 graphics->drawRectangle(Rectangle(2, 
                                                   2, 
-                                                  getWidth() - 4,
-                                                  getHeight() - 4));
+                                                  GetWidth() - 4,
+                                                  GetHeight() - 4));
             }
         }
     }

@@ -70,7 +70,7 @@ namespace gcn
          * @param mouseEvent Describes the event.
          * @since 0.6.0
          */
-        virtual void mouseEntered(MouseEvent& mouseEvent)
+        virtual void MouseEntered(MouseEvent& mouseEvent)
         {
 
         }
@@ -81,7 +81,7 @@ namespace gcn
          * @param mouseEvent Describes the event.
          * @since 0.6.0
          */
-        virtual void mouseExited(MouseEvent& mouseEvent)
+        virtual void MouseExited(MouseEvent& mouseEvent)
         {
 
         }

@@ -13,11 +13,11 @@ namespace gcn
 
 		virtual void Close();
 
-		void Show(gcn::Container* container);
+		void Show(gcn::ContainerPtr container);
 
 		//boost::signal<void(ModalDialog*)> OnClosed;
 	private:
-		Container* mContainer;
+		ContainerPtr mContainer;
 	};
 };
 

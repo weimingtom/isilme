@@ -48,9 +48,11 @@ AIPackagePtr ScriptAIPackageDef::CreatePackage()
 	//luabind::object result = classTable();
 	//luabind ::object test = luabind::call_function<luabind::object>(state, "TestAction");
 	char buf[512];
-	sprintf(buf, "function __hack__lua__function__%s()\nreturn %s();\nend;", mClassName.c_str(), mClassName.c_str());
-	luaL_dostring(state, buf);
-	AIPackagePtr result = luabind::call_function<AIPackagePtr>(state, mClassName.c_str());
+	//sprintf(buf, "function __hack__lua__function__%s()\nreturn %s();\nend;", mClassName.c_str(), mClassName.c_str());
+	//luaL_dostring(state, buf);
+	AIPackagePtr obj = luabind::call_function<AIPackagePtr>(state, mClassName.c_str());
+
+	AIPackagePtr result(obj);
 	
 	//AIPackagePtr wrapper(new AIPackageWrapper());
 

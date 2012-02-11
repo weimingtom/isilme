@@ -49,7 +49,7 @@
 
 namespace gcn
 {
-    Event::Event(Widget* source)
+    Event::Event(WidgetPtr source)
             :mSource(source)
     {
 
@@ -60,7 +60,7 @@ namespace gcn
 
     }
 
-    Widget* Event::getSource() const
+    WidgetPtr Event::GetSource() const
     {
         return mSource;
     }

@@ -55,23 +55,24 @@
 namespace gcn
 {
     DropDown::DropDown(ListModel *listModel,
-                       ScrollArea *scrollArea,
-                       ListBox *listBox)
+                       ScrollAreaPtr scrollArea,
+                       ListBoxPtr listBox)
     {
-        setWidth(100);
-        setFocusable(true);
+		mInternalFocusHandler = FocusHandlerPtr(new FocusHandler());
+        SetWidth(100);
+        SetFocusable(true);
         mDroppedDown = false;
         mPushed = false;
         mIsDragged = false;
 
-        setInternalFocusHandler(&mInternalFocusHandler);
+        SetInternalFocusHandler(mInternalFocusHandler);
 
         mInternalScrollArea = (scrollArea == NULL);
         mInternalListBox = (listBox == NULL);
 
         if (mInternalScrollArea)
         {
-            mScrollArea = new ScrollArea();
+            mScrollArea = ScrollAreaPtr(new ScrollArea());
         }
         else
         {
@@ -80,15 +81,15 @@ namespace gcn
 
         if (mInternalListBox)
         {
-            mListBox = new ListBox();
+            mListBox = ListBoxPtr(new ListBox());
         }
         else
         {
             mListBox = listBox;
         }
 
-        mScrollArea->setContent(mListBox);
-        add(mScrollArea);
+        mScrollArea->SetContent(mListBox);
+        Add(mScrollArea);
 
         mListBox->addActionListener(this);
         mListBox->addSelectionListener(this);
@@ -115,20 +116,10 @@ namespace gcn
             mListBox->removeSelectionListener(this);
         }
 
-        if (mInternalScrollArea)
-        {
-            delete mScrollArea;
-        }
-
-        if (mInternalListBox)
-        {
-            delete mListBox;
-        }
-
-        setInternalFocusHandler(NULL);
+        SetInternalFocusHandler(FocusHandlerPtr());
     }
 
-    void DropDown::draw(Graphics* graphics)
+    void DropDown::Draw(GraphicsPtr graphics)
     {
         int h;
 
@@ -138,7 +129,7 @@ namespace gcn
         }
         else
         {
-            h = getHeight();
+            h = GetHeight();
         }
 
         Color faceColor = getBaseColor();
@@ -151,21 +142,21 @@ namespace gcn
 
         // Draw a border.
         graphics->setColor(shadowColor);
-        graphics->drawLine(0, 0, getWidth() - 1, 0);
+        graphics->drawLine(0, 0, GetWidth() - 1, 0);
         graphics->drawLine(0, 1, 0, h - 2);
         graphics->setColor(highlightColor);
-        graphics->drawLine(getWidth() - 1, 1, getWidth() - 1, h - 1);
-        graphics->drawLine(0, h - 1, getWidth() - 1, h - 1);
+        graphics->drawLine(GetWidth() - 1, 1, GetWidth() - 1, h - 1);
+        graphics->drawLine(0, h - 1, GetWidth() - 1, h - 1);
 
          // Push a clip area so the other drawings don't need to worry
         // about the border.
-        graphics->pushClipArea(Rectangle(1, 1, getWidth() - 2, h - 2));
+        graphics->pushClipArea(Rectangle(1, 1, GetWidth() - 2, h - 2));
         const Rectangle currentClipArea = graphics->getCurrentClipArea();
 
         graphics->setColor(getBackgroundColor());
         graphics->fillRectangle(Rectangle(0, 0, currentClipArea.width, currentClipArea.height));
        
-        if (isFocused())
+        if (IsFocused())
         {
             graphics->setColor(getSelectionColor());
             graphics->fillRectangle(Rectangle(0, 
@@ -179,7 +170,7 @@ namespace gcn
             && mListBox->getSelected() >= 0)
         {
             graphics->setColor(getForegroundColor());
-            graphics->setFont(getFont());
+            graphics->SetFont(GetFont());
 
             graphics->drawText(mListBox->getListModel()->getElementAt(mListBox->getSelected()), 1, 0);
         }
@@ -199,13 +190,13 @@ namespace gcn
              graphics->setColor(shadowColor);
              graphics->drawRectangle(Rectangle(0,
                                                mFoldedUpHeight,
-                                               getWidth(),
-                                               getHeight() - mFoldedUpHeight));
-             drawChildren(graphics);
+                                               GetWidth(),
+                                               GetHeight() - mFoldedUpHeight));
+             DrawChildren(graphics);
          }
     }
 
-    void DropDown::drawButton(Graphics *graphics)
+    void DropDown::drawButton(GraphicsPtr graphics)
     {
         Color faceColor, highlightColor, shadowColor;
         int offset;
@@ -296,7 +287,7 @@ namespace gcn
         if ((key.getValue() == Key::ENTER || key.getValue() == Key::SPACE)
             && !mDroppedDown)
         {
-            dropDown();
+            DoDropDown();
             keyEvent.consume();
         }
         else if (key.getValue() == Key::UP)
@@ -315,38 +306,38 @@ namespace gcn
     {        
         // If we have a mouse press on the widget.
         if (0 <= mouseEvent.getY()
-            && mouseEvent.getY() < getHeight()
+            && mouseEvent.getY() < GetHeight()
             && mouseEvent.getX() >= 0
-            && mouseEvent.getX() < getWidth()
-            && mouseEvent.getButton() == MouseEvent::LEFT
+            && mouseEvent.getX() < GetWidth()
+            && mouseEvent.GetButton() == MouseEvent::LEFT
             && !mDroppedDown
-            && mouseEvent.getSource() == this)
+            && mouseEvent.GetSource() == shared_from_this())
         {
             mPushed = true;
-            dropDown();
+            DoDropDown();
             requestModalMouseInputFocus();
         }
         // Fold up the listbox if the upper part is clicked after fold down
         else if (0 <= mouseEvent.getY()
                  && mouseEvent.getY() < mFoldedUpHeight
                  && mouseEvent.getX() >= 0
-                 && mouseEvent.getX() < getWidth()
-                 && mouseEvent.getButton() == MouseEvent::LEFT
+                 && mouseEvent.getX() < GetWidth()
+                 && mouseEvent.GetButton() == MouseEvent::LEFT
                  && mDroppedDown
-                 && mouseEvent.getSource() == this)
+                 && mouseEvent.GetSource() == shared_from_this())
         {
             mPushed = false;
-            foldUp();
+            FoldUp();
             releaseModalMouseInputFocus();
         }
         // If we have a mouse press outside the widget
         else if (0 > mouseEvent.getY()
-                 || mouseEvent.getY() >= getHeight()
+                 || mouseEvent.getY() >= GetHeight()
                  || mouseEvent.getX() < 0
-                 || mouseEvent.getX() >= getWidth())
+                 || mouseEvent.getX() >= GetWidth())
         {
             mPushed = false;
-            foldUp();
+            FoldUp();
         }
     }
 
@@ -359,20 +350,20 @@ namespace gcn
 
         // Released outside of widget. Can happen when we have modal input focus.
         if ((0 > mouseEvent.getY()
-            || mouseEvent.getY() >= getHeight()
+            || mouseEvent.getY() >= GetHeight()
             || mouseEvent.getX() < 0
-            || mouseEvent.getX() >= getWidth())
-            && mouseEvent.getButton() == MouseEvent::LEFT
+            || mouseEvent.getX() >= GetWidth())
+            && mouseEvent.GetButton() == MouseEvent::LEFT
             && isModalMouseInputFocused())
         {
             releaseModalMouseInputFocus();
 
             if (mIsDragged)
             {
-                foldUp();
+                FoldUp();
             }
         }
-        else if (mouseEvent.getButton() == MouseEvent::LEFT)
+        else if (mouseEvent.GetButton() == MouseEvent::LEFT)
         {
             mPushed = false;
         }
@@ -416,77 +407,77 @@ namespace gcn
             throw GCN_EXCEPTION("List box has been deleted.");
         }
 
-        int listBoxHeight = mListBox->getHeight();
+        int listBoxHeight = mListBox->GetHeight();
         
         // We add 2 for the border
-        int h2 = getFont()->getHeight() + 2;
+        int h2 = GetFont()->getHeight() + 2;
 
-        setHeight(h2);
+        SetHeight(h2);
 
         // The addition/subtraction of 2 compensates for the seperation lines
         // seperating the selected element view and the scroll area.
 
-        if (mDroppedDown && getParent())
+        if (mDroppedDown && GetParent())
         {
-            int h = getParent()->getChildrenArea().height - getY();
+            int h = GetParent()->getChildrenArea().height - GetY();
 
             if (listBoxHeight > h - h2 - 2)
             {
-                mScrollArea->setHeight(h - h2 - 2);
-                setHeight(h);
+                mScrollArea->SetHeight(h - h2 - 2);
+                SetHeight(h);
             }
             else
             {
-                setHeight(listBoxHeight + h2 + 2);
-                mScrollArea->setHeight(listBoxHeight);
+                SetHeight(listBoxHeight + h2 + 2);
+                mScrollArea->SetHeight(listBoxHeight);
             }
         }
 
-        mScrollArea->setWidth(getWidth());
+        mScrollArea->SetWidth(GetWidth());
         // Resize the ListBox to exactly fit the ScrollArea.
-        mListBox->setWidth(mScrollArea->getChildrenArea().width);
-        mScrollArea->setPosition(0, 0);
+        mListBox->SetWidth(mScrollArea->getChildrenArea().width);
+        mScrollArea->SetPosition(0, 0);
     }
 
-    void DropDown::dropDown()
+    void DropDown::DoDropDown()
     {
         if (!mDroppedDown)
         {
             mDroppedDown = true;
-            mFoldedUpHeight = getHeight();
+            mFoldedUpHeight = GetHeight();
             adjustHeight();
 
-            if (getParent())
+            if (GetParent())
             {
-                getParent()->moveToTop(this);
+                GetParent()->MoveToTop(shared_from_this());
             }
         }
 
         mListBox->requestFocus();
     }
 
-    void DropDown::foldUp()
+    void DropDown::FoldUp()
     {
         if (mDroppedDown)
         {
             mDroppedDown = false;
             adjustHeight();
-            mInternalFocusHandler.focusNone();
+            mInternalFocusHandler->FocusNone();
         }
     }
 
     void DropDown::focusLost(const Event& event)
     {
-        foldUp();
-        mInternalFocusHandler.focusNone();
+        FoldUp();
+        mInternalFocusHandler->FocusNone();
     }
 
 
     void DropDown::death(const Event& event)
     {        
-        if (event.getSource() == mScrollArea)
+        if (event.GetSource() == mScrollArea)
         {
-            mScrollArea = NULL;
+            mScrollArea.reset();
         }
 
         BasicContainer::death(event);
@@ -494,7 +485,7 @@ namespace gcn
 
     void DropDown::action(const ActionEvent& actionEvent)
     {
-        foldUp();
+        FoldUp();
         releaseModalMouseInputFocus();
         distributeActionEvent();
     }
@@ -506,8 +497,8 @@ namespace gcn
             // Calculate the children area (with the one pixel border in mind)
             return Rectangle(1, 
                              mFoldedUpHeight + 1, 
-                             getWidth() - 2, 
-                             getHeight() - mFoldedUpHeight - 2);
+                             GetWidth() - 2, 
+                             GetHeight() - mFoldedUpHeight - 2);
         }
 
         return Rectangle();
@@ -558,24 +549,24 @@ namespace gcn
         Widget::setForegroundColor(color);
     }
 
-	void DropDown::setFont(Font *font)
+	void DropDown::SetFont(FontPtr font)
 	{
 		if (mInternalScrollArea)
         {
-            mScrollArea->setFont(font);
+            mScrollArea->SetFont(font);
         }
 
         if (mInternalListBox)
         {
-            mListBox->setFont(font);
+            mListBox->SetFont(font);
         }
 
-        Widget::setFont(font);
+        Widget::SetFont(font);
 	}
 
 	void DropDown::mouseWheelMovedUp(MouseEvent& mouseEvent)
 	{
-        if (isFocused() && mouseEvent.getSource() == this)
+        if (IsFocused() && mouseEvent.GetSource() == shared_from_this())
         {                   
             mouseEvent.consume();
 
@@ -588,7 +579,7 @@ namespace gcn
 
     void DropDown::mouseWheelMovedDown(MouseEvent& mouseEvent)
     {
-        if (isFocused() && mouseEvent.getSource() == this)
+        if (IsFocused() && mouseEvent.GetSource() == shared_from_this())
         {            
             mouseEvent.consume();
 
@@ -627,7 +618,7 @@ namespace gcn
 
         for (iter = mSelectionListeners.begin(); iter != mSelectionListeners.end(); ++iter)
         {
-            SelectionEvent event(this);
+            SelectionEvent event(shared_from_this());
             (*iter)->valueChanged(event);
         }
     }

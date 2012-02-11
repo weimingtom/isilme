@@ -89,7 +89,7 @@ namespace gcn
          *
          * @param content The content of the scroll area.
          */
-        ScrollArea(Widget *content);
+        ScrollArea(WidgetPtr content);
 
         /**
          * Constructor.
@@ -100,7 +100,7 @@ namespace gcn
          * @param vPolicy The policy for the vertical scrollbar. See enum with
          *                policies.
          */
-        ScrollArea(Widget *content, 
+        ScrollArea(WidgetPtr content, 
                    ScrollPolicy hPolicy, 
                    ScrollPolicy vPolicy);
 
@@ -114,14 +114,14 @@ namespace gcn
          *
          * @param widget The content of the scroll area.
          */
-        void setContent(Widget* widget);
+		void SetContent(WidgetPtr widget);
 
         /**
          * Gets the content.
          *
          * @return The content of the scroll area.
          */
-        Widget* getContent();
+		WidgetPtr GetContent();
 
         /**
          * Sets the horizontal scrollbar policy. See enum with policies.
@@ -129,7 +129,7 @@ namespace gcn
          * @param hPolicy The policy for the horizontal scrollbar.
          * @see getHorizontalScrollPolicy
          */
-        void setHorizontalScrollPolicy(ScrollPolicy hPolicy);
+        void SetHorizontalScrollPolicy(ScrollPolicy hPolicy);
 
         /**
          * Gets the horizontal scrollbar policy. See enum with policies.
@@ -137,7 +137,7 @@ namespace gcn
          * @return The policy for the horizontal scrollbar policy.
          * @see setHorizontalScrollPolicy, setScrollPolicy
          */
-        ScrollPolicy getHorizontalScrollPolicy() const;
+        ScrollPolicy GetHorizontalScrollPolicy() const;
 
         /**
          * Sets the vertical scrollbar policy. See enum with policies.
@@ -145,7 +145,7 @@ namespace gcn
          * @param vPolicy The policy for the vertical scrollbar.
          * @see getVerticalScrollPolicy
          */
-        void setVerticalScrollPolicy(ScrollPolicy vPolicy);
+        void SetVerticalScrollPolicy(ScrollPolicy vPolicy);
 
         /**
          * Gets the vertical scrollbar policy. See enum with policies.
@@ -153,7 +153,7 @@ namespace gcn
          * @return The policy for the vertical scrollbar.
          * @see setVerticalScrollPolicy, setScrollPolicy
          */
-        ScrollPolicy getVerticalScrollPolicy() const;
+        ScrollPolicy GetVerticalScrollPolicy() const;
 
         /**
          * Sets the horizontal and vertical scrollbar policy.
@@ -162,7 +162,7 @@ namespace gcn
          * @param vPolicy The policy for the vertical scrollbar.
          * @see getVerticalScrollPolicy, getHorizontalScrollPolicy
          */
-        void setScrollPolicy(ScrollPolicy hPolicy, ScrollPolicy vPolicy);
+        void SetScrollPolicy(ScrollPolicy hPolicy, ScrollPolicy vPolicy);
 
         /**
          * Sets the amount to scroll vertically.
@@ -170,7 +170,7 @@ namespace gcn
          * @param vScroll The amount to scroll.
          * @see getVerticalScrollAmount
          */
-        void setVerticalScrollAmount(int vScroll);
+        void SetVerticalScrollAmount(int vScroll);
 
         /**
          * Gets the amount that is scrolled vertically.
@@ -178,7 +178,7 @@ namespace gcn
          * @return The scroll amount on vertical scroll.
          * @see setVerticalScrollAmount, setScrollAmount
          */
-        int getVerticalScrollAmount() const;
+        int GetVerticalScrollAmount() const;
 
         /**
          * Sets the amount to scroll horizontally.
@@ -186,7 +186,7 @@ namespace gcn
          * @param hScroll The amount to scroll.
          * @see getHorizontalScrollAmount
          */
-        void setHorizontalScrollAmount(int hScroll);
+        void SetHorizontalScrollAmount(int hScroll);
 
         /**
          * Gets the amount that is scrolled horizontally.
@@ -194,7 +194,7 @@ namespace gcn
          * @return The scroll amount on horizontal scroll.
          * @see setHorizontalScrollAmount, setScrollAmount
          */
-        int getHorizontalScrollAmount() const;
+        int GetHorizontalScrollAmount() const;
 
         /**
          * Sets the amount to scroll horizontally and vertically.
@@ -203,21 +203,21 @@ namespace gcn
          * @param vScroll The amount to scroll on vertical scroll.
          * @see getHorizontalScrollAmount, getVerticalScrollAmount
          */
-        void setScrollAmount(int hScroll, int vScroll);
+        void SetScrollAmount(int hScroll, int vScroll);
 
         /**
          * Gets the maximum amount of horizontal scroll.
          *
          * @return The horizontal max scroll.
          */
-        int getHorizontalMaxScroll();
+        int GetHorizontalMaxScroll();
 
         /**
          * Gets the maximum amount of vertical scroll.
          *
          * @return The vertical max scroll.
          */
-        int getVerticalMaxScroll();
+        int GetVerticalMaxScroll();
 
         /**
          * Sets the width of the scroll bars.
@@ -225,7 +225,7 @@ namespace gcn
          * @param width The width of the scroll bars.
          * @see getScrollbarWidth
          */
-        void setScrollbarWidth(int width);
+        void SetScrollbarWidth(int width);
 
         /**
          * Gets the width of the scroll bars.
@@ -233,7 +233,7 @@ namespace gcn
          * @return the width of the ScrollBar.
          * @see setScrollbarWidth
          */
-        int getScrollbarWidth() const;
+        int GetScrollbarWidth() const;
 
         /**
          * Sets the amount to scroll in pixels when the left scroll button is
@@ -242,7 +242,7 @@ namespace gcn
          * @param amount The amount to scroll in pixels. 
          * @see getLeftButtonScrollAmount
          */
-        void setLeftButtonScrollAmount(int amount);
+        void SetLeftButtonScrollAmount(int amount);
 
         /**
          * Sets the amount to scroll in pixels when the right scroll button is
@@ -260,7 +260,7 @@ namespace gcn
          * @param amount The amount to scroll in pixels.
          * @see getUpButtonScrollAmount
          */
-        void setUpButtonScrollAmount(int amount);
+        void SetUpButtonScrollAmount(int amount);
 
         /**
          * Sets the amount to scroll in pixels when the down scroll button is
@@ -269,7 +269,7 @@ namespace gcn
          * @param amount The amount to scroll in pixels.
          * @see getDownButtonScrollAmount
          */
-        void setDownButtonScrollAmount(int amount);
+        void SetDownButtonScrollAmount(int amount);
 
         /**
          * Gets the amount to scroll in pixels when the left scroll button is
@@ -278,7 +278,7 @@ namespace gcn
          * @return The amount to scroll in pixels.
          * @see setLeftButtonScrollAmount
          */
-        int getLeftButtonScrollAmount() const;
+        int GetLeftButtonScrollAmount() const;
 
         /**
          * Gets the amount to scroll in pixels when the right scroll button is
@@ -326,24 +326,24 @@ namespace gcn
         
         // Inherited from BasicContainer
 
-        virtual void showWidgetPart(Widget* widget, Rectangle area);
+        virtual void ShowWidgetPart(WidgetPtr widget, Rectangle area);
 
         virtual Rectangle getChildrenArea();
 
-        virtual Widget *getWidgetAt(int x, int y);
+        virtual WidgetPtr GetWidgetAt(int x, int y);
 
 
         // Inherited from Widget
 
-        virtual void draw(Graphics *graphics);
+        virtual void Draw(GraphicsPtr graphics);
 
-        virtual void logic();
+        virtual void Logic();
 
-        void setWidth(int width);
+        void SetWidth(int width);
 
-        void setHeight(int height);
+        void SetHeight(int height);
 
-        void setDimension(const Rectangle& dimension);
+        void SetDimension(const Rectangle& dimension);
 
 
         // Inherited from MouseListener
@@ -365,63 +365,63 @@ namespace gcn
          *
          * @param graphics a Graphics object to draw with.
          */
-        virtual void drawBackground(Graphics *graphics);
+        virtual void drawBackground(GraphicsPtr graphics);
 
         /**
          * Draws the up button.
          *
          * @param graphics a Graphics object to draw with.
          */
-        virtual void drawUpButton(Graphics *graphics);
+        virtual void drawUpButton(GraphicsPtr graphics);
 
         /**
          * Draws the down button.
          *
          * @param graphics a Graphics object to draw with.
          */
-        virtual void drawDownButton(Graphics *graphics);
+        virtual void drawDownButton(GraphicsPtr graphics);
 
         /**
          * Draws the left button.
          *
          * @param graphics a Graphics object to draw with.
          */
-        virtual void drawLeftButton(Graphics *graphics);
+        virtual void drawLeftButton(GraphicsPtr graphics);
 
         /**
          * Draws the right button.
          *
          * @param graphics a Graphics object to draw with.
          */
-        virtual void drawRightButton(Graphics *graphics);
+        virtual void drawRightButton(GraphicsPtr graphics);
 
         /**
          * Draws the vertical scroll bar.
          *
          * @param graphics a Graphics object to draw with.
          */
-        virtual void drawVBar(Graphics* graphics);
+        virtual void drawVBar(GraphicsPtr graphics);
 
         /**
          * Draws the horizontal scroll bar.
          *
          * @param graphics a Graphics object to draw with.
          */
-        virtual void drawHBar(Graphics* graphics);
+        virtual void drawHBar(GraphicsPtr graphics);
 
         /**
          * Draws the vertical marker.
          *
          * @param graphics a Graphics object to draw with.
          */
-        virtual void drawVMarker(Graphics* graphics);
+        virtual void drawVMarker(GraphicsPtr graphics);
 
         /**
          * Draws the horizontal marker.
          *
          * @param graphics a Graphics object to draw with.
          */
-        virtual void drawHMarker(Graphics* graphics);
+        virtual void drawHMarker(GraphicsPtr graphics);
 
         /**
          * Checks the policies for the scroll bars.

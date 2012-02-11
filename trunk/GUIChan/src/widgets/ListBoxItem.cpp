@@ -10,11 +10,11 @@ namespace gcn
 	{
 	}
 
-	void	ListBoxItem::draw(Graphics* graphics)
+	void	ListBoxItem::Draw(Graphics* graphics)
 	{
 	}
 
-	void	ListBoxItem::logic()
+	void	ListBoxItem::Logic()
 	{
 	}
 };

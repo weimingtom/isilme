@@ -49,7 +49,7 @@
 
 namespace gcn
 {
-    InputEvent::InputEvent(Widget* source,
+    InputEvent::InputEvent(WidgetPtr source,
                            bool isShiftPressed,
                            bool isControlPressed,
                            bool isAltPressed,

@@ -104,7 +104,7 @@ namespace gcn
 
         // Inherited from Widget
 
-        void draw(gcn::Graphics* graphics);
+        void Draw(gcn::Graphics* graphics);
 
     protected:
         /**

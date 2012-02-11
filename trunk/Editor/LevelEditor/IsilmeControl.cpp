@@ -23,8 +23,8 @@ namespace LevelEditor
 		EditorState() :
 			mCommandManager(new editor::CommandManager())
 		{
-			gcn::Container* top = new gcn::Container();
-			GetGUI()->setTop(top);
+			gcn::ContainerPtr top(new gcn::Container());
+			GetGUI()->SetTop(top);
 		}
 
 		virtual void OnUpdate(float elapsedTime)

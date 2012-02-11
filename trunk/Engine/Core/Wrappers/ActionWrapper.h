@@ -7,6 +7,7 @@
 class ISILME_API ActionWrapper : public Action, public luabind::wrap_base
 {
 public:
+	virtual ~ActionWrapper();
 	virtual void OnStart();
 	virtual void OnDone();
 	virtual void OnUpdate(float elapsedTime);

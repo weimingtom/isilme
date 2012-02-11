@@ -124,7 +124,7 @@ namespace gcn
 
         virtual void fontChanged();
 
-        virtual void draw(Graphics* graphics);
+        virtual void Draw(Graphics* graphics);
 
 
         // Inherited from MouseListener

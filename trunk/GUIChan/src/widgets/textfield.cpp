@@ -59,7 +59,7 @@ namespace gcn
         mCaretPosition = 0;
         mXScroll = 0;
 
-        setFocusable(true);
+        SetFocusable(true);
 
         addMouseListener(this);
         addKeyListener(this);
@@ -73,7 +73,7 @@ namespace gcn
         mText = text;
         adjustSize();
 
-        setFocusable(true);
+        SetFocusable(true);
 
         addMouseListener(this);
         addKeyListener(this);
@@ -89,7 +89,7 @@ namespace gcn
         mText = text;
     }
 
-    void TextField::draw(Graphics* graphics)
+    void TextField::Draw(Graphics* graphics)
     {
         Color faceColor = getBaseColor();
         Color highlightColor, shadowColor;
@@ -101,33 +101,33 @@ namespace gcn
 
         // Draw a border.
         graphics->setColor(shadowColor);
-        graphics->drawLine(0, 0, getWidth() - 1, 0);
-        graphics->drawLine(0, 1, 0, getHeight() - 2);
+        graphics->drawLine(0, 0, GetWidth() - 1, 0);
+        graphics->drawLine(0, 1, 0, GetHeight() - 2);
         graphics->setColor(highlightColor);
-        graphics->drawLine(getWidth() - 1, 1, getWidth() - 1, getHeight() - 1);
-        graphics->drawLine(0, getHeight() - 1, getWidth() - 1, getHeight() - 1);
+        graphics->drawLine(GetWidth() - 1, 1, GetWidth() - 1, GetHeight() - 1);
+        graphics->drawLine(0, GetHeight() - 1, GetWidth() - 1, GetHeight() - 1);
 
         // Push a clip area so the other drawings don't need to worry
         // about the border.
-        graphics->pushClipArea(Rectangle(1, 1, getWidth() - 2, getHeight() - 2));
+        graphics->pushClipArea(Rectangle(1, 1, GetWidth() - 2, GetHeight() - 2));
 
         graphics->setColor(getBackgroundColor());
-        graphics->fillRectangle(Rectangle(0, 0, getWidth(), getHeight()));
+        graphics->fillRectangle(Rectangle(0, 0, GetWidth(), GetHeight()));
 
-        if (isFocused())
+        if (IsFocused())
         {
             graphics->setColor(getSelectionColor());
-            graphics->drawRectangle(Rectangle(0, 0, getWidth() - 2, getHeight() - 2));
-            graphics->drawRectangle(Rectangle(1, 1, getWidth() - 4, getHeight() - 4));
+            graphics->drawRectangle(Rectangle(0, 0, GetWidth() - 2, GetHeight() - 2));
+            graphics->drawRectangle(Rectangle(1, 1, GetWidth() - 4, GetHeight() - 4));
         }
 
-        if (isFocused())
+        if (IsFocused())
         {
-            drawCaret(graphics, getFont()->getWidth(mText.substr(0, mCaretPosition)) - mXScroll);
+            drawCaret(graphics, GetFont()->getWidth(mText.substr(0, mCaretPosition)) - mXScroll);
         }
 
         graphics->setColor(getForegroundColor());
-        graphics->setFont(getFont());
+        graphics->SetFont(GetFont());
         graphics->drawText(mText, 3 - mXScroll, 1);
 
         graphics->popClipArea();
@@ -147,9 +147,9 @@ namespace gcn
 
     void TextField::mousePressed(MouseEvent& mouseEvent)
     {
-        if (mouseEvent.getButton() == MouseEvent::LEFT)
+        if (mouseEvent.GetButton() == MouseEvent::LEFT)
         {
-            mCaretPosition = getFont()->getStringIndexAt(mText, mouseEvent.getX() + mXScroll);
+            mCaretPosition = GetFont()->getStringIndexAt(mText, mouseEvent.getX() + mXScroll);
             fixScroll();
         }
     }
@@ -216,7 +216,7 @@ namespace gcn
 
     void TextField::adjustSize()
     {
-        setWidth(getFont()->getWidth(mText) + 7);
+        SetWidth(GetFont()->getWidth(mText) + 7);
         adjustHeight();
 
         fixScroll();
@@ -224,22 +224,22 @@ namespace gcn
 
     void TextField::adjustHeight()
     {
-        setHeight(getFont()->getHeight() + 4);
+        SetHeight(GetFont()->getHeight() + 4);
     }
 
     void TextField::fixScroll()
     {
-        if (isFocused())
+        if (IsFocused())
         {
-            int caretX = getFont()->getWidth(mText.substr(0, mCaretPosition));
+            int caretX = GetFont()->getWidth(mText.substr(0, mCaretPosition));
 
-            if (caretX - mXScroll >= getWidth() - 4)
+            if (caretX - mXScroll >= GetWidth() - 4)
             {
-                mXScroll = caretX - getWidth() + 4;
+                mXScroll = caretX - GetWidth() + 4;
             }
             else if (caretX - mXScroll <= 0)
             {
-                mXScroll = caretX - getWidth() / 2;
+                mXScroll = caretX - GetWidth() / 2;
 
                 if (mXScroll < 0)
                 {

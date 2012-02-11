@@ -41,11 +41,11 @@ public:
 		return mCaption;
 	}
 
-    virtual void draw(Graphics* g)
+    virtual void Draw(Graphics* g)
     {
-		mFont->Render(getX(), getY(), HGETEXT_LEFT, mCaption.c_str());
+		mFont->Render(GetX(), GetY(), HGETEXT_LEFT, mCaption.c_str());
     }
-    virtual void logic()
+    virtual void Logic()
 	{
 	}
 private:

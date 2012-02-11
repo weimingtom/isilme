@@ -121,7 +121,7 @@ private:
 	LevelPtr mLevel;
 
     /// The graphics
-    gcn::HGEGraphics* graphics;
+    gcn::GraphicsPtr graphics;
     /// The input
     gcn::HGEInput* input;
     /// The image loader

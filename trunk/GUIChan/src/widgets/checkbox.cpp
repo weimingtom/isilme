@@ -59,7 +59,7 @@ namespace gcn
     {
         setSelected(false);
 
-        setFocusable(true);
+        SetFocusable(true);
         addMouseListener(this);
         addKeyListener(this);
     }
@@ -69,28 +69,28 @@ namespace gcn
         setCaption(caption);
         setSelected(selected);
 
-        setFocusable(true);
+        SetFocusable(true);
         addMouseListener(this);
         addKeyListener(this);
 
         adjustSize();
     }
 
-    void CheckBox::draw(Graphics* graphics)
+    void CheckBox::Draw(Graphics* graphics)
     {
         drawBox(graphics);
 
-        graphics->setFont(getFont());
+        graphics->SetFont(GetFont());
         graphics->setColor(getForegroundColor());
 
-        const int h = getHeight() + getHeight() / 2;
+        const int h = GetHeight() + GetHeight() / 2;
 
         graphics->drawText(getCaption(), h - 2, 0);
     }
 
     void CheckBox::drawBox(Graphics *graphics)
     {
-        const int h = getHeight() - 2;
+        const int h = GetHeight() - 2;
         const int alpha = getBaseColor().a;
         Color faceColor = getBaseColor();
         faceColor.a = alpha;
@@ -112,7 +112,7 @@ namespace gcn
 
         graphics->setColor(getForegroundColor());
 
-        if (isFocused())
+        if (IsFocused())
         {
             graphics->drawRectangle(Rectangle(0, 0, h + 2, h + 2));
         }
@@ -161,7 +161,7 @@ namespace gcn
 
     void CheckBox::mouseClicked(MouseEvent& mouseEvent)
     {
-        if (mouseEvent.getButton() == MouseEvent::LEFT)
+        if (mouseEvent.GetButton() == MouseEvent::LEFT)
         {
             toggleSelected();
         }
@@ -174,10 +174,10 @@ namespace gcn
 
     void CheckBox::adjustSize()
     {
-        int height = getFont()->getHeight();
+        int height = GetFont()->getHeight();
 
-        setHeight(height);
-        setWidth(getFont()->getWidth(mCaption) + height + height / 2);
+        SetHeight(height);
+        SetWidth(GetFont()->getWidth(mCaption) + height + height / 2);
     }
 
     void CheckBox::toggleSelected()

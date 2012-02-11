@@ -185,15 +185,15 @@ namespace gcn
 
             // Inherited from Container
 
-            virtual void logic();
+            virtual void Logic();
         
-            virtual void add(Widget *widget);
+            virtual void Add(Widget *widget);
 
-            virtual void add(Widget *widget, int x, int y);
+            virtual void Add(Widget *widget, int x, int y);
 
-            virtual void remove(Widget *widget);
+            virtual void Remove(Widget *widget);
 
-            virtual void clear();
+            virtual void Clear();
                
             /**
              * Possible alignment values for each column.
