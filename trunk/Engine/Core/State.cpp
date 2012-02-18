@@ -4,8 +4,9 @@
 
 State::State()
 {
+	mCamera = CameraPtr(new Camera());
 	isPaused = false;
-	mGUI = new gcn::Gui();
+	mGUI = gcn::GuiPtr(new gcn::Gui());
 	mPausePrev = true;
 	isTransporate = true;
 	isClosed = false;
@@ -38,12 +39,12 @@ void	State::SetPaused(bool pause)
 	isPaused = pause;
 }
 
-void	State::SetGUI(gcn::Gui* gui)
+void	State::SetGUI(gcn::GuiPtr gui)
 {
 	mGUI = gui;
 }
 
-gcn::Gui* State::GetGUI()
+gcn::GuiPtr State::GetGUI()
 {
 	return mGUI;
 }
@@ -68,6 +69,9 @@ bool State::Update(float elapsedTime)
 		mLevel->Update(elapsedTime);
 	}
 
+	if (mCamera)
+		mCamera->Update(elapsedTime);
+
 	OnUpdate(elapsedTime);
 	return !isClosed;
 }
@@ -79,7 +83,6 @@ bool State::Draw(float elapsedTime)
 
 State::~State() 
 {
-	delete mGUI;
 }
 
 bool State::IsTransporate()
@@ -115,4 +118,14 @@ void State::OnDraw()
 LevelPtr State::GetLevel()
 {
 	return mLevel;
+}
+
+CameraPtr State::GetCamera()
+{
+	return mCamera;
+}
+
+void State::SetCamera(CameraPtr camera)
+{
+	mCamera = camera;
 }

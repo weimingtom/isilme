@@ -75,5 +75,7 @@ namespace gcn
 	class Window;
 	typedef boost::shared_ptr<Window> WindowPtr;
 
+	class Gui;
+	typedef boost::shared_ptr<Gui> GuiPtr;
 }
 #endif

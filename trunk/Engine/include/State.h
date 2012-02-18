@@ -22,12 +22,12 @@ public:
 	/// Gets the graphical user interface.
 	///
 	/// @return	null if it fails, else the graphical user interface.
-	gcn::Gui* GetGUI();
+	gcn::GuiPtr GetGUI();
 	
 	/// Sets a graphical user interface.
 	///
 	/// @param [in,out]	gui	If non-null, the graphical user interface.
-	void	SetGUI(gcn::Gui* gui);
+	void	SetGUI(gcn::GuiPtr gui);
 	
 	/// Query if this object is paused.
 	///
@@ -103,9 +103,14 @@ public:
 	/// Executes the draw action.
 	virtual void OnDraw();
 	
+	/// Gets current camera
+	CameraPtr	GetCamera();
+
+	/// Sets current camara
+	void SetCamera(CameraPtr camera);
 private:
 	/// Графический интерфейс
-	gcn::Gui*	mGUI;
+	gcn::GuiPtr	mGUI;
 
 	/// true to pause previous
 	bool mPausePrev;
@@ -126,6 +131,9 @@ private:
     gcn::HGEInput* input;
     /// The image loader
     gcn::HGEImageLoader* imageLoader;
+
+	/// Current active camera
+	CameraPtr mCamera;
 };
 
 

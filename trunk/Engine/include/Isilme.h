@@ -17,7 +17,6 @@
 #include "Entity.h"
 #include "FactoryManager.h"
 #include "Game.h"
-#include "IHotKey.h"
 #include "InputSystem.h"
 #include "SoundSystem.h"
 #include "LogoState.h"

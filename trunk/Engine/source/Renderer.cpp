@@ -68,9 +68,10 @@ void	HGERenderer::ApplyCamera(CameraPtr camera)
 	mHGE->Gfx_SetTransform(0.0f ,0.0f, std::floor(-MeterToPixel(camera->x)), std::floor(-MeterToPixel(camera->y)), 0.0f, 1.0f, 1.0f);
 }
 
-void	HGERenderer::Draw(LevelPtr level)
+void	HGERenderer::Draw(StatePtr state)
 {
-	CameraPtr	camera = level->GetActiveCamera();
+	LevelPtr level = state->GetLevel();
+	CameraPtr	camera = state->GetCamera();
 
 	for (int i = 0 ; i <  level->GetLayersCount(); ++i)
 	{

@@ -251,7 +251,7 @@
     <ClCompile Include="Quest\Quests.cpp" />
     <ClCompile Include="Quest\Stage.cpp" />
     <ClCompile Include="Quest\Story.cpp" />
-    <ClCompile Include="ScriptAPI.cpp" />
+    <ClCompile Include="Core\ScriptAPI.cpp" />
     <ClCompile Include="source\Action.cpp" />
     <ClCompile Include="source\Behaviour.cpp" />
     <ClCompile Include="source\Bodies.cpp" />
@@ -276,7 +276,7 @@
     <ClCompile Include="source\Renderer.cpp" />
     <ClCompile Include="source\ResourceManager.cpp" />
     <ClCompile Include="source\SoundSystem.cpp" />
-    <ClCompile Include="source\State.cpp" />
+    <ClCompile Include="Core\State.cpp" />
     <ClCompile Include="source\StateManager.cpp" />
     <ClCompile Include="source\Trigger.cpp" />
   </ItemGroup>

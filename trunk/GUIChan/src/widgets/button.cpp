@@ -64,7 +64,7 @@ namespace gcn
           mSpacing(4)
     {
         SetFocusable(true);
-        adjustSize();
+        AdjustSize();
         SetFrameSize(1);
 
         addMouseListener(this);
@@ -81,7 +81,7 @@ namespace gcn
               mSpacing(4)
     {
         SetFocusable(true);
-        adjustSize();
+        AdjustSize();
         SetFrameSize(1);
 
         addMouseListener(this);
@@ -89,32 +89,32 @@ namespace gcn
         addFocusListener(this);
     }
 
-    void Button::setCaption(const std::string& caption)
+    void Button::SetCaption(const std::string& caption)
     {
         mCaption = caption;
     }
 
-    const std::string& Button::getCaption() const
+    const std::string& Button::GetCaption() const
     {
         return mCaption;
     }
 
-    void Button::setAlignment(Graphics::Alignment alignment)
+    void Button::SetAlignment(Graphics::Alignment alignment)
     {
         mAlignment = alignment;
     }
 
-    Graphics::Alignment Button::getAlignment() const
+    Graphics::Alignment Button::GetAlignment() const
     {
         return mAlignment;
     }
 
-    void Button::setSpacing(unsigned int spacing)
+    void Button::SetSpacing(unsigned int spacing)
     {
         mSpacing = spacing;
     }
 
-    unsigned int Button::getSpacing() const
+    unsigned int Button::GetSpacing() const
     {
       return mSpacing;
     }
@@ -158,7 +158,7 @@ namespace gcn
         int textX;
         int textY = GetHeight() / 2 - GetFont()->getHeight() / 2;
 
-        switch (getAlignment())
+        switch (GetAlignment())
         {
           case Graphics::LEFT:
               textX = mSpacing;
@@ -177,11 +177,11 @@ namespace gcn
 
         if (isPressed())
         {
-            graphics->drawText(getCaption(), textX + 1, textY + 1, getAlignment());
+            graphics->drawText(GetCaption(), textX + 1, textY + 1, GetAlignment());
         }
         else
         {
-            graphics->drawText(getCaption(), textX, textY, getAlignment());
+            graphics->drawText(GetCaption(), textX, textY, GetAlignment());
 
             if (IsFocused())
             {
@@ -191,7 +191,7 @@ namespace gcn
         }
     }
 
-    void Button::adjustSize()
+    void Button::AdjustSize()
     {
         SetWidth(GetFont()->getWidth(mCaption) + 2*mSpacing);
         SetHeight(GetFont()->getHeight() + 2*mSpacing);

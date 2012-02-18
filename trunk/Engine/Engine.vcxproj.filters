@@ -453,13 +453,7 @@
     <ClCompile Include="source\ResourceManager.cpp">
       <Filter>Core</Filter>
     </ClCompile>
-    <ClCompile Include="ScriptAPI.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
     <ClCompile Include="source\SoundSystem.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
-    <ClCompile Include="source\State.cpp">
       <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="source\EntityDefinition.cpp">
@@ -540,6 +534,12 @@
     </ClCompile>
     <ClCompile Include="AI\MessageData.cpp">
       <Filter>AI</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\State.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\ScriptAPI.cpp">
+      <Filter>Core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -8,13 +8,6 @@ namespace gcn
 {
 	ConversationWindow::ConversationWindow()
 	{
-		mText = TextBoxPtr(new TextBox());
-		mText->SetSize(500, 100);
-
-		Add(mText, 0, 0);
-		SetSize(600, 400);
-
-		setCaption("Quests");
 	}
 
 	ConversationWindow::~ConversationWindow()
@@ -66,10 +59,22 @@ namespace gcn
 			{
 				pos++;
 				ButtonPtr button(new Button());
-				button->setCaption(phrase->GetAnswer(i)->GetText());
-				button->adjustSize();
+				button->SetCaption(phrase->GetAnswer(i)->GetText());
+				button->AdjustSize();
 				Add(button, 0, 100 * pos);
 				mAnswers[button] = phrase->GetAnswer(i);
 			}
 	}
+
+	void ConversationWindow::Init()
+	{
+		mText = TextBoxPtr(new TextBox());
+		mText->SetSize(500, 100);
+
+		Add(mText, 0, 0);
+		SetSize(600, 400);
+
+		setCaption("Quests");
+	}
+
 };

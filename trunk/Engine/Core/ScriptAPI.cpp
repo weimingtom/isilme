@@ -184,7 +184,8 @@ namespace ScriptAPI
 		// AIPackage
 		luabind::module(state)
 			[
-				luabind::class_<AIPackage, AIPackagePtr, AIPackageWrapper, boost::shared_ptr<AIPackageWrapper> >("AIPackage")
+				luabind::class_<AIPackage, AIPackagePtr>("AIPackage"),
+				luabind::class_<AIPackageWrapper, AIPackage, AIPackagePtr>("AIPackage")
 				.def(luabind::constructor<>())
 				.def("CheckCondition", &AIPackage::CheckCondition, &AIPackageWrapper::defaultCheckCondition)
 				.def("CreateAction", &AIPackage::CreateAction, &AIPackageWrapper::defaultCreateAction)
@@ -248,8 +249,6 @@ namespace ScriptAPI
 				.def("CreateEntity", &Level::CreateEntity)
 				.def("AddLayer", (void (Level::*)(LayerPtr))&Level::AddLayer)
 				.def("RemoveLayer", &Level::RemoveLayer)
-				.def("GetActiveCamera", &Level::GetActiveCamera)
-				.def("SetActiveCamera", &Level::SetActiveCamera)
 				.def("Clear", &Level::Clear)
 				.def("GetLayer", (LayerPtr (Level::*)(int))&Level::GetLayer)
 				.def("GetLayersCount", &Level::GetLayersCount)
@@ -279,6 +278,8 @@ namespace ScriptAPI
 				.def("OnUpdate", &State::OnUpdate, &StateWrapper::defaultOnUpdate)
 				.def("OnStart", &State::OnStart, &StateWrapper::defaultOnStart)
 				.def("OnResume", &State::OnResume, &StateWrapper::defaultOnResume)
+				.def("GetCamera", &State::GetCamera)
+				.def("SetCamera", &State::SetCamera)
 			];
 
 		// Factory

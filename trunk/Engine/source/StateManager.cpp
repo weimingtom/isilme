@@ -48,7 +48,7 @@ bool		StateManager::Draw(float elapsedTime)
 	mRenderer->BeginScene();
 
 	// Рисуем уровень
-	mRenderer->Draw(mStates.back()->GetLevel());
+	mRenderer->Draw(mStates.back());
 
 	// Рисуем интерфейс
 	mStates.back()->GetGUI()->Draw();

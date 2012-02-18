@@ -12,7 +12,7 @@ public:
 
 	/// Отображает сцену уровня
 	/// @param level Level*	сцена уровеня
-	virtual void	Draw(LevelPtr level) = 0;
+	virtual void	Draw(StatePtr state) = 0;
 
 	/// Изменяет размер окна
 	/// @param width int
@@ -61,7 +61,7 @@ public:
 	HGERenderer(HGE* hge);
 	virtual ~HGERenderer();
 
-	virtual void	Draw(LevelPtr level);
+	virtual void	Draw(StatePtr state);
 	virtual void	Resize(int width, int height);
 	virtual void	SetWindowed(bool windowed);
 	virtual bool	IsWindowed();

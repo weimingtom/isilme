@@ -51,16 +51,6 @@ public:
 	/// @return	The name.
 	std::string		GetID();
 
-	/// Gets the active camera.
-	///
-	/// @return	The active camera.
-	CameraPtr	GetActiveCamera();
-
-	/// Sets an active camera.
-	///
-	/// @param	camera	The camera.
-	void	SetActiveCamera(CameraPtr camera);
-
 	/// Gets the world.
 	///
 	/// @return	null if it fails, else the world.

@@ -433,6 +433,7 @@ namespace behaviour
 		{
 			gcn::ContainerPtr w = boost::shared_dynamic_cast<gcn::Container>(ZombieLand::GetSingleton()->playState->GetGUI()->GetTop());
 			gcn::ConversationWindowPtr cw(new gcn::ConversationWindow());
+			cw->Init();
 			cw->Show(w);
 			cw->SetConversation(conversation, GetActor());
 			cw->setCaption(GetName());

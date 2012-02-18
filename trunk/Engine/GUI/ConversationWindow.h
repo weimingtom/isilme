@@ -19,6 +19,7 @@ namespace gcn
 		void SetConversation(story::ConversationPtr conversation, EntityPtr speaker);
 
 		void SetCurrentPhrase(story::PhrasePtr phrase);
+		virtual void Init();
 	private:
 		EntityPtr mSpeaker;
 		TextBoxPtr mText;

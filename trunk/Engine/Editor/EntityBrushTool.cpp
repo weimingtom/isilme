@@ -33,8 +33,9 @@ namespace editor
 
 		Vector2 mouse(x,y);
 		mouse *= 1.0f / 64.0f;
-		mouse.x += layer->GetLevel()->GetActiveCamera()->x;
-		mouse.y += layer->GetLevel()->GetActiveCamera()->y;
+		CameraPtr camera = Game::GetSingleton()->GetStateManager()->GetState()->GetCamera();
+		mouse.x += camera->x;
+		mouse.y += camera->y;
 		entity->SetPosition(mouse.x, mouse.y);
 		entity->SetAngle(0);
 	}

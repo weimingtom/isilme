@@ -57,4 +57,15 @@ namespace camera
 		if (mPlayer->GetPosition().y > y + height - 1.0f)
 			y = mPlayer->GetPosition().y - height + 1.0f;*/
 	}
+
+	void FollowingCamera::SetName( std::string name )
+	{
+		mName = name;
+	}
+
+	FollowingCamera::FollowingCamera()
+	{
+		mName = "";
+	}
+
 };

@@ -32,8 +32,9 @@ namespace LevelEditor
 
 			if (isMoving)
 			{
-				float dx = Layer->Level->mLevel->Value->GetActiveCamera()->x;
-				float dy = Layer->Level->mLevel->Value->GetActiveCamera()->y;
+				CameraPtr camera = Game::GetSingleton()->GetStateManager()->GetState()->GetCamera();
+				float dx = camera->x;
+				float dy = camera->y;
 
 				EntityProxy^ e = dynamic_cast<EntityProxy^>(View::LevelEditorWindow::Instance->SelectedObject);
 				e->mEntity->Value->SetPosition(mOldX, mOldY);

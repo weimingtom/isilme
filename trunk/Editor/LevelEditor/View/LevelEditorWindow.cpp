@@ -307,11 +307,11 @@ namespace LevelEditor
 				LevelPtr level = FactoryManager::GetSingleton()->LoadLevel(static_cast<char*>(Marshal::StringToHGlobalAnsi(FileName).ToPointer()));
 				//LevelPtr level = FactoryManager::GetSingleton()->GetLevel("Level2");//new Level());
 				mLevel = gcnew property LevelProxy(level);
-				CameraPtr camera(new Camera());
-				camera->x = 0.0f;
-				camera->y = 0.0f;
-				//level->Load("../Data/TestL.xml");
-				level->SetActiveCamera(camera);
+				//CameraPtr camera(new Camera());
+				//camera->x = 0.0f;
+				//camera->y = 0.0f;
+				////level->Load("../Data/TestL.xml");
+				//level->SetActiveCamera(camera);
 				HGEGame::GetSingleton()->GetStateManager()->GetState()->SetLevel(level);
 
 				ObjectManager::Instance->Editor = this;

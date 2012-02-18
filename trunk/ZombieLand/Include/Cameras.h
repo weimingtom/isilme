@@ -20,11 +20,13 @@ namespace camera
 	class FollowingCamera : public Camera
 	{
 	public:
+		FollowingCamera();
 		FollowingCamera(FollowingCameraDef* def);
 		virtual ~FollowingCamera();
 
 		void	SetPlayer(EntityPtr Player);
 		virtual void OnUpdate(float elapsedTime);
+		void SetName( std::string name );
 	protected:
 		EntityWPtr mPlayer;
 		std::string mName;

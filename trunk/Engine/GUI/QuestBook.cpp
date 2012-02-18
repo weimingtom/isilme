@@ -22,8 +22,8 @@ namespace gcn
 		for (story::QuestList::iterator it = s->GetActiveQuests()->begin(); it != s->GetActiveQuests()->end(); ++it)
 		{
 			gcn::ButtonPtr btn(new gcn::Button());
-			btn->setCaption((*it)->GetTitle());
-			btn->adjustSize();
+			btn->SetCaption((*it)->GetTitle());
+			btn->AdjustSize();
 
 			mActiveList->Add(btn, 0, y);
 			y+=btn->GetHeight();

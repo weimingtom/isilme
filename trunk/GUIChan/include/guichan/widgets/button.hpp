@@ -92,14 +92,14 @@ namespace gcn
          * @param caption The caption of the button.
          * @see getCaption, adjustSize
          */
-        void setCaption(const std::string& caption);
+        void SetCaption(const std::string& caption);
 
         /**
          * Gets the caption of the button.
          *
          * @return The caption of the button.
          */
-        const std::string& getCaption() const;
+        const std::string& GetCaption() const;
 
         /**
          * Sets the alignment of the caption. The alignment is relative
@@ -108,7 +108,7 @@ namespace gcn
          * @param alignment The alignment of the caption.
          * @see getAlignment, Graphics
          */
-        void setAlignment(Graphics::Alignment alignment);
+        void SetAlignment(Graphics::Alignment alignment);
 
         /**
          * Gets the alignment of the caption.
@@ -116,7 +116,7 @@ namespace gcn
          * @return The alignment of the caption.
          * @see setAlignment, Graphics
          */
-        Graphics::Alignment getAlignment() const;
+        Graphics::Alignment GetAlignment() const;
 
         /**
          * Sets the spacing between the border of the button and its caption.
@@ -125,7 +125,7 @@ namespace gcn
          *                using this method.
          * @see getSpacing
          */
-        void setSpacing(unsigned int spacing);
+        void SetSpacing(unsigned int spacing);
 
         /**
          * Gets the spacing between the border of the button and its caption.
@@ -133,12 +133,12 @@ namespace gcn
          * @return spacing.
          * @see setSpacing
          */
-        unsigned int getSpacing() const;
+        unsigned int GetSpacing() const;
 
         /**
          * Adjusts the button's size to fit the caption.
          */
-        void adjustSize();
+        void AdjustSize();
 
 
         //Inherited from Widget

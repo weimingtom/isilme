@@ -154,14 +154,14 @@ namespace gcn
             if(mImage)
                 graphics->drawImage(mImage, textX + 1, textY + 1);
 
-			graphics->drawText(getCaption(),  GetWidth() / 2, GetHeight() / 2, gcn::Graphics::CENTER);
+			graphics->drawText(GetCaption(),  GetWidth() / 2, GetHeight() / 2, gcn::Graphics::CENTER);
         }
         else
         {
             if(mImage)
                 graphics->drawImage(mImage, textX, textY);
 
-			graphics->drawText(getCaption(),  GetWidth() / 2, GetHeight() / 2, gcn::Graphics::CENTER);
+			graphics->drawText(GetCaption(),  GetWidth() / 2, GetHeight() / 2, gcn::Graphics::CENTER);
 
             if (IsFocused())
             {

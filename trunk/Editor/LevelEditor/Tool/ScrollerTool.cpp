@@ -41,8 +41,9 @@ namespace LevelEditor
 				dx /= 64.0f;
 				dy /= 64.0f;
 
-				Level->mLevel->Value->GetActiveCamera()->x += dx;
-				Level->mLevel->Value->GetActiveCamera()->y += dy;
+				CameraPtr camera = Game::GetSingleton()->GetStateManager()->GetState()->GetCamera();
+				camera->x += dx;
+				camera->y += dy;
 
 				mOldX = mouse->x;
 				mOldY = mouse->y;

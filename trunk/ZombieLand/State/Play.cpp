@@ -13,6 +13,7 @@
 #include "Engine/Quest/Quest.h"
 #include "Engine/Quest/Stage.h"
 #include "Engine/Quest/Conversation.h"
+#include "Cameras.h"
 
 
 namespace state
@@ -102,27 +103,27 @@ Play::Play() : State()
 	//mZombieLeftLabel->setForegroundColor(gcn::Color(200, 200, 200));
 
 	// Продолжить игру
-	mContinue->setCaption("Continue");
+	mContinue->SetCaption("Continue");
 	mContinue->SetSize(150, 20);
 //	mContinue->addMouseListener(this);
 
 	// Сохранить игру
-	mSave->setCaption("Save");
+	mSave->SetCaption("Save");
 	mSave->SetSize(150, 20);
 //	mSave->addMouseListener(this);
 
 	// Опции
-	mOptions->setCaption("Options");
+	mOptions->SetCaption("Options");
 	mOptions->SetSize(150, 20);
 //	mOptions->addMouseListener(this);
 
 	// Завершить уровень
-	mExit->setCaption("Exit to menu");
+	mExit->SetCaption("Exit to menu");
 	mExit->SetSize(150, 20);
 //	mExit->addMouseListener(this);
 
 	// Начать сначала
-	mRestart->setCaption("Restart");
+	mRestart->SetCaption("Restart");
 	mRestart->SetSize(150, 20);
 //	mRestart->addMouseListener(this);
 
@@ -146,12 +147,12 @@ Play::Play() : State()
 	mRespawn->Add(mRMenu, 16, 136);
 	mRespawn->SetVisible(false);
 
-	mRRespawn->setCaption("Respawn");
-	mRRespawn->adjustSize();
-	mRRestart->setCaption("Restart");
-	mRRestart->adjustSize();
-	mRMenu->setCaption("Cancel");
-	mRMenu->adjustSize();
+	mRRespawn->SetCaption("Respawn");
+	mRRespawn->AdjustSize();
+	mRRestart->SetCaption("Restart");
+	mRRestart->AdjustSize();
+	mRMenu->SetCaption("Cancel");
+	mRMenu->AdjustSize();
 
 
 	top->Add(mWeaponIcon, 0, 536);
@@ -180,6 +181,10 @@ Play::Play() : State()
 	top->Add(mQuestBook);
 
 	Game::GetSingleton()->GetStory()->OnSetStage.connect(boost::bind(&Play::OnSetStage, this, _1, _2));
+
+	camera::FollowingCamera* cm = new camera::FollowingCamera();
+	cm->SetName("Player");
+	SetCamera(CameraPtr(cm));
 }
 
 

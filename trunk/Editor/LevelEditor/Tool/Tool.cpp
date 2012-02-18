@@ -47,8 +47,9 @@ namespace LevelEditor
 			LayerPtr nativeLayer = lp->Value;
 			LevelPtr nativeLevel = nativeLayer->GetLevel();
 
-			position.x += layer->mLayer->Value->GetLevel()->GetActiveCamera()->x;
-			position.y += layer->mLayer->Value->GetLevel()->GetActiveCamera()->y;
+			CameraPtr camera = Game::GetSingleton()->GetStateManager()->GetState()->GetCamera();
+			position.x += camera->x;
+			position.y += camera->y;
 
 			if (UseGrid)
 			{
@@ -79,8 +80,9 @@ namespace LevelEditor
 			LayerPtr nativeLayer = lp->Value;
 			LevelPtr nativeLevel = nativeLayer->GetLevel();
 
-			position.x += layer->mLayer->Value->GetLevel()->GetActiveCamera()->x;
-			position.y += layer->mLayer->Value->GetLevel()->GetActiveCamera()->y;
+			CameraPtr camera = Game::GetSingleton()->GetStateManager()->GetState()->GetCamera();
+			position.x += camera->x;
+			position.y += camera->y;
 			
 			Proxy::Point^ p = gcnew Proxy::Point();
 			p->X = position.x;

@@ -84,8 +84,8 @@ void	ZombieLand::Init()
 	playState.reset(new state::Play());
 	Game::GetSingleton()->GetStory()->Load("../Data/Quests/Story1.xml");
 	//StatePtr editorState = StatePtr(new state::Editor());
-	FactoryManager::GetSingleton()->LoadLevel("../Data/Levels/Level1.xml");
-	FactoryManager::GetSingleton()->LoadLevel("../Data/Levels/Level2.xml");
+	//FactoryManager::GetSingleton()->LoadLevel("../Data/Levels/Level1.xml");
+	//FactoryManager::GetSingleton()->LoadLevel("../Data/Levels/Level2.xml");
 
 	GetStateManager()->Push(playState);
 	//GetStateManager()->Push(editorState);

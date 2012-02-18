@@ -63,6 +63,7 @@ protected:
 			PushEntity((((Entity*)(fixture->GetBody()->GetUserData()))->GetBehaviour())->GetActor());
 			return 0;
 		}
+		return 1;
 	}
 
 private:
@@ -185,16 +186,6 @@ LayerPtr		Level::GetLayer(std::string name)
 	}
 }
 
-CameraPtr		Level::GetActiveCamera()
-{
-	return mCamera;
-}
-
-void		Level::SetActiveCamera(CameraPtr camera)
-{
-	mCamera = camera;
-}
-
 b2World*	Level::GetWorld()
 {
 	return mWorld;
@@ -302,23 +293,6 @@ void	ParseWorld(LevelPtr level, TiXmlElement* rootElement)
 	}
 
 	level->GetWorld()->SetGravity(gravity);
-}
-
-void	ParseCamera(LevelPtr level, TiXmlElement* rootElement)
-{
-	TiXmlElement* cameraElement = rootElement->FirstChildElement("Camera");
-
-	const char* attr = cameraElement ? cameraElement->Attribute("Type") : 0;
-	std::string type = attr ? attr : "Default";
-
-	ICameraFactory* factory = FactoryManager::GetSingleton()->GetCameraFactory(type);
-
-	if (!factory)
-		factory = FactoryManager::GetSingleton()->GetCameraFactory("Default");
-
-	CameraPtr camera = factory->LoadDefinition(cameraElement)->Create();
-	level->SetActiveCamera(camera);
-
 }
 
 void	ParseEntity(LayerPtr layer, TiXmlElement* entityElement)
@@ -451,7 +425,6 @@ LevelPtr	Level::Load(TiXmlElement* levelElement)
 		level->mName = nameAttr;
 
 	ParseWorld(level, levelElement);
-	ParseCamera(level, levelElement);
 	ParseLayers(level, levelElement);
 	ParseScripts(level, levelElement);
 	ParseJoints(level, levelElement);
