@@ -1,22 +1,23 @@
 #include "IsilmePCH.h"
 #include "ConversationLoader.h"
 #include "FactoryManager.h"
+#include "Core/MasterFile.h"
 
 namespace serialisation
 {
 
 
-	XMLConversationLoader::XMLConversationLoader()
+	ConversationLoader::ConversationLoader()
 	{
 
 	}
 
-	XMLConversationLoader::~XMLConversationLoader()
+	ConversationLoader::~ConversationLoader()
 	{
 
 	}
 
-	story::ConversationPtr XMLConversationLoader::LoadConversation( std::string fileName )
+	story::ConversationPtr ConversationLoader::LoadConversation( std::string fileName )
 	{
 		TiXmlDocument document(fileName.c_str());
 		document.LoadFile();
@@ -27,7 +28,7 @@ namespace serialisation
 		return story::ConversationPtr();
 	}
 
-	story::ConversationPtr XMLConversationLoader::LoadConversation( TiXmlElement* element )
+	story::ConversationPtr ConversationLoader::LoadConversation( TiXmlElement* element )
 	{
 		mPhraseMap.clear();
 
@@ -54,7 +55,7 @@ namespace serialisation
 		return conversation;
 	}
 
-	story::PhrasePtr XMLConversationLoader::LoadPhrase( TiXmlElement* element )
+	story::PhrasePtr ConversationLoader::LoadPhrase( TiXmlElement* element )
 	{
 		story::PhrasePtr phrase(new story::Phrase());
 
@@ -113,12 +114,20 @@ namespace serialisation
 		return phrase;
 	}
 
-	story::PhrasePtr XMLConversationLoader::GetPhraseByRef( int refValue )
+	story::PhrasePtr ConversationLoader::GetPhraseByRef( int refValue )
 	{
 		if (mPhraseMap.find(refValue) != mPhraseMap.end())
 			return mPhraseMap[refValue];
 		else 
 			return story::PhrasePtr();
+	}
+
+	EntryPtr ConversationLoader::LoadEntry( std::string filename )
+	{
+		ConversationEntry* entry = new ConversationEntry(filename);
+		story::ConversationPtr conversation = LoadConversation(filename);
+		entry->data = conversation;
+		return EntryPtr(entry);
 	}
 
 }

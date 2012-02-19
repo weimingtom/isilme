@@ -4,6 +4,7 @@
 #include "Definitions.h"
 #include "SpecialGraphics.h"
 #include "FactoryManager.h"
+#include "Engine/Core/Palette/GraphicsPalette.h"
 
 namespace graphics
 {
@@ -14,7 +15,8 @@ namespace graphics
 		virtual GraphicsPtr Create();
 		virtual void Parse(TiXmlElement* element);
 
-		GraphicsPalette Palette;
+		typedef std::map<std::string, GraphicsDefPtr> GraphicsMap;
+		GraphicsMap Palette;
 		std::string		State;
 	};
 
@@ -53,7 +55,7 @@ namespace graphics
 		SpecialGraphics<T>(def)
 	{
 		// Создаем графику каждого состояния
-		for (GraphicsPalette::iterator it = def->Palette.begin(); it != def->Palette.end(); ++it)
+		for (StateGraphicsDef<T>::GraphicsMap::iterator it = def->Palette.begin(); it != def->Palette.end(); ++it)
 		{
 			GraphicsPtr g = it->second->Create();
 			mGraphics[it->first] = g;
@@ -140,7 +142,8 @@ namespace graphics
 
 			TiXmlElement* graphicsElement = stateElement->FirstChildElement();
 
-			GraphicsDefPtr def = FactoryManager::GetSingleton()->LoadGraphics(graphicsElement);
+			std::string type = graphicsElement->Value();
+			GraphicsDefPtr def = FactoryManager::GetSingleton()->GetGraphicsPalette()->GetFactory(type)->LoadDefinition(graphicsElement);
 			Palette[name] = def;
 
 			stateElement = stateElement->NextSiblingElement("State");

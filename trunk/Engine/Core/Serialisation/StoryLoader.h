@@ -2,25 +2,24 @@
 #define ISILME_SERIALISATION_STORYLOADER_H
 
 #include "Definitions.h"
+#include "Types.h"
+#include "EntryLoader.h"
+
 #include "Quest/Story.h"
 #include "Quest/Quest.h"
 #include "Quest/Stage.h"
 
 namespace serialisation
 {
-	class ISILME_API IStoryLoader
+	/// @class StoryLoader
+	class ISILME_API StoryLoader : public EntryLoader
 	{
 	public:
-		virtual story::StoryPtr LoadStory(std::string fileName) = 0;
+		StoryLoader();
+		virtual ~StoryLoader();
 
-	};
-
-	class ISILME_API XMLStoryLoader
-	{
-	public:
-		XMLStoryLoader();
-		virtual ~XMLStoryLoader();
-
+		virtual EntryPtr LoadEntry(std::string filename);
+	protected:
 		virtual story::StagePtr LoadStage(TiXmlElement* element);
 		virtual story::QuestPtr LoadQuest(TiXmlElement* element);
 		virtual story::StoryPtr LoadStory(TiXmlElement* element);

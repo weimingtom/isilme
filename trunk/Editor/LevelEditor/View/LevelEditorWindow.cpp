@@ -18,6 +18,7 @@
 #include "Engine/Core/Serialisation/StaticLevelSerialiser.h"
 #include "../LevelEditorCommands.h"
 #include "../Commands/RemoveEntity.h"
+#include "../Core/MasterFile.h"
 
 namespace LevelEditor
 {
@@ -304,7 +305,23 @@ namespace LevelEditor
 			//else
 			//{
 				CommandManager->Clear();
-				LevelPtr level = FactoryManager::GetSingleton()->LoadLevel(static_cast<char*>(Marshal::StringToHGlobalAnsi(FileName).ToPointer()));
+
+				MasterFilePtr mf = FactoryManager::GetSingleton()->GetMasterFile();
+				CategoryPtr lc = mf->GetCategory("Levels");
+				std::string fn = static_cast<char*>(Marshal::StringToHGlobalAnsi(FileName->ToLower()).ToPointer());
+				LevelPtr level;
+				for (int i = 0; i < lc->GetSize(); ++i)
+				{
+					String^ fullPath = System::IO::Path::GetFullPath(gcnew String(lc->GetEntry(i)->GetFileName().c_str()))->ToLower();
+					std::string fp = static_cast<char*>(Marshal::StringToHGlobalAnsi(fullPath).ToPointer());
+
+					if (fn == fp)
+					{
+						level = lc->GetEntry< LevelEntry >(i)->data;
+						break;
+					}
+				}
+				/* = FactoryManager::GetSingleton()->LoadLevel();*/
 				//LevelPtr level = FactoryManager::GetSingleton()->GetLevel("Level2");//new Level());
 				mLevel = gcnew property LevelProxy(level);
 				//CameraPtr camera(new Camera());

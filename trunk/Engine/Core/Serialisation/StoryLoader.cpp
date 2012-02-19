@@ -1,21 +1,22 @@
 #include "IsilmePCH.h"
 #include "StoryLoader.h"
+#include "Core/MasterFile.h"
 
 namespace serialisation
 {
 
 
-	XMLStoryLoader::XMLStoryLoader()
+	StoryLoader::StoryLoader()
 	{
 
 	}
 
-	XMLStoryLoader::~XMLStoryLoader()
+	StoryLoader::~StoryLoader()
 	{
 
 	}
 
-	story::StagePtr XMLStoryLoader::LoadStage( TiXmlElement* element )
+	story::StagePtr StoryLoader::LoadStage( TiXmlElement* element )
 	{
 		story::StagePtr stage(new story::Stage());
 
@@ -23,23 +24,31 @@ namespace serialisation
 		return stage;
 	}
 
-	story::QuestPtr XMLStoryLoader::LoadQuest( TiXmlElement* element )
+	story::QuestPtr StoryLoader::LoadQuest( TiXmlElement* element )
 	{
 		story::QuestPtr quest(new story::Quest());
 
 		return quest;
 	}
 
-	story::StoryPtr XMLStoryLoader::LoadStory( TiXmlElement* element )
+	story::StoryPtr StoryLoader::LoadStory( TiXmlElement* element )
 	{
 		story::StoryPtr story(new story::Story());
 
 		return story;
 	}
 
-	story::StoryPtr XMLStoryLoader::LoadStory( std::string fileName )
+	story::StoryPtr StoryLoader::LoadStory( std::string fileName )
 	{
 		return LoadStory(0);
+	}
+
+	EntryPtr StoryLoader::LoadEntry( std::string filename )
+	{
+		StoryEntry* entry = new StoryEntry(filename);
+		story::StoryPtr story = LoadStory(filename);
+		entry->data = story;
+		return EntryPtr(entry);
 	}
 
 }

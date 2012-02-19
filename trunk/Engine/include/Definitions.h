@@ -93,6 +93,7 @@ typedef boost::shared_ptr<State> StatePtr;
 class StateManager;
 class FactoryManager;
 typedef boost::shared_ptr<FactoryManager> FactoryPtr;
+
 typedef std::list<StatePtr>	StateList;
 
 class Trigger;
@@ -109,7 +110,6 @@ typedef boost::shared_ptr<EntityDefinition> EntityDefPtr;
 
 class GraphicsDefinition;
 typedef boost::shared_ptr<GraphicsDefinition> GraphicsDefPtr;
-typedef std::map<std::string, GraphicsDefPtr> GraphicsPalette;
 
 class CameraDefinition;
 typedef boost::shared_ptr<CameraDefinition> CameraDefPtr;
@@ -117,10 +117,24 @@ typedef boost::shared_ptr<CameraDefinition> CameraDefPtr;
 class Graphics;
 typedef boost::shared_ptr<Graphics> GraphicsPtr;
 typedef boost::weak_ptr<Graphics> GraphicsWPtr;
-typedef std::map<std::string, GraphicsPtr> GraphicsMap;
 
 class Query;
 typedef boost::shared_ptr<Query> QueryPtr;
+
+class MasterFile;
+typedef boost::shared_ptr<MasterFile> MasterFilePtr;
+
+class Category;
+typedef boost::shared_ptr<Category> CategoryPtr;
+
+class Entry;
+typedef boost::shared_ptr<Entry> EntryPtr;
+
+class IBehaviourFactory;
+typedef boost::shared_ptr<IBehaviourFactory> BehaviourFactoryPtr;
+
+class IGraphicsFactory;
+typedef boost::shared_ptr<IGraphicsFactory> GraphicsFactoryPtr;
 
 /// @namespace graphics
 /// Графические модели, используемые для визуализации сущностей
@@ -143,7 +157,6 @@ namespace inventory
 
 	class ItemDef;
 	typedef boost::shared_ptr<ItemDef>	ItemDefPtr;
-	typedef std::map<std::string, ItemDefPtr> ItemsPalette;
 
 	class Item;
 	typedef boost::shared_ptr<Item> ItemPtr;
@@ -192,7 +205,6 @@ typedef boost::shared_ptr<AIPalette> AIPalettePtr;
 class Fraction;
 typedef boost::shared_ptr<Fraction> FractionPtr;
 typedef boost::weak_ptr<Fraction> FractionWptr;
-typedef std::map<std::string, FractionPtr> FractionMap;
 
 class Rank;
 typedef boost::shared_ptr<Rank> RankPtr;

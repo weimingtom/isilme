@@ -2,10 +2,12 @@
 #define ISILME_AI_RANK_H
 
 #include "Definitions.h"
+#include "Engine/Core/Serialisation/Types.h"
 
 class ISILME_API Rank
 {
 	friend class FactoryManager;
+	friend class serialisation::FractionsLoader;
 public:
 	Rank();
 	virtual ~Rank();

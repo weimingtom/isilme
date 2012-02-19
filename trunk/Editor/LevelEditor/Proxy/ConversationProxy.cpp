@@ -3,6 +3,7 @@
 #include "Engine/Core/Serialisation/ConversationSerialiser.h"
 #include "Engine/Core/Serialisation/ConversationLoader.h"
 #include "PhraseProxy.h"
+#include "../Core/MasterFile.h"
 
 using namespace System::Runtime::InteropServices;
 
@@ -54,9 +55,24 @@ namespace LevelEditor
 
 		ConversationProxy^ ConversationProxy::Load( String^ fileName )
 		{
-			serialisation::XMLConversationLoader loader;
+			serialisation::ConversationLoader loader;
 
-			ConversationProxy^ conversation = gcnew ConversationProxy(loader.LoadConversation((char*)Marshal::StringToHGlobalAnsi(fileName).ToPointer()));
+			MasterFilePtr mf = FactoryManager::GetSingleton()->GetMasterFile();
+			CategoryPtr lc = mf->GetCategory("Levels");
+			std::string fn = static_cast<char*>(Marshal::StringToHGlobalAnsi(fileName->ToLower()).ToPointer());
+			story::ConversationPtr conv;
+			for (int i = 0; i < lc->GetSize(); ++i)
+			{
+				String^ fullPath = System::IO::Path::GetFullPath(gcnew String(lc->GetEntry(i)->GetFileName().c_str()))->ToLower();
+				std::string fp = static_cast<char*>(Marshal::StringToHGlobalAnsi(fullPath).ToPointer());
+
+				if (fn == fp)
+				{
+					conv = lc->GetEntry<ContainerEntry<story::Conversation> >(i)->data;
+					break;
+				}
+			}
+			ConversationProxy^ conversation = gcnew ConversationProxy(conv);
 			return conversation;
 		}
 

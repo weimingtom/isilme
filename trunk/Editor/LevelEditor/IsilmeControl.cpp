@@ -169,8 +169,6 @@ namespace LevelEditor
 		//_hge->System_SetState(HGE_HWNDPARENT, handle);
 
 		new EditorGame(_hge);
-		FactoryManager::GetSingleton()->LoadGraphics("../Data/Graphics.xml");
-		FactoryManager::GetSingleton()->LoadEntities("../Data/Entities.xml");
 
 		LevelEditor::View::EntityPaletteTool::Instance->Palette = gcnew EntityPaletteProxy(FactoryManager::GetSingleton()->GetEntityPalette());
 	}

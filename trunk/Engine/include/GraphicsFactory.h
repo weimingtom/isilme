@@ -15,9 +15,6 @@ public:
 	virtual GraphicsDefPtr	LoadDefinition(TiXmlElement* graphicsElement) = 0;
 };
 
-typedef boost::shared_ptr<IGraphicsFactory> GraphicsFactoryPtr;
-typedef std::map<std::string, GraphicsFactoryPtr> GraphicsFactoryMap;
-
 template <class T>
 class GraphicsFactory : public IGraphicsFactory
 {

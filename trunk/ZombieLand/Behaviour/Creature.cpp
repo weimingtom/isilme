@@ -283,7 +283,6 @@ namespace behaviour
 		return attitude;
 	}
 
-	
 	void	Creature::SavePoint()
 	{
 		mCheckPoint = GetActor()->GetPosition();

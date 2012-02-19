@@ -6,6 +6,7 @@
 #include "Entity.h"
 #include "Behaviour.h"
 #include "FactoryManager.h"
+#include "../MasterFile.h"
 
 namespace serialisation
 {
@@ -59,9 +60,10 @@ namespace serialisation
 
 		FactoryPtr factory = FactoryManager::GetSingleton();
 
-		for (std::map<std::string, LevelPtr>::iterator lIt = factory->mLevels.begin(); lIt != factory->mLevels.end(); ++lIt)
+		CategoryPtr levels = FactoryManager::GetSingleton()->GetMasterFile()->GetCategory("Levels");
+		for (int i = 0; i < levels->GetSize(); ++i)
 		{
-			LevelPtr level = lIt->second;
+			LevelPtr level = levels->GetEntry<LevelEntry>(i)->data;
 			elemet->InsertEndChild(*Serialise(level));
 		}
 

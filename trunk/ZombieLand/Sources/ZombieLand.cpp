@@ -54,11 +54,11 @@ void	ZombieLand::Init()
 	factoryManager->RegisterGraphics("Creature", GraphicsFactory<graphics::CreatureDef>::New());
 
 	// Регистрируем поведение
-	factoryManager->RegisterBehaviour("Creature", new BehaviourFactory<behaviour::CreatureDef>());
-	factoryManager->RegisterBehaviour("Destroyable", new BehaviourFactory<behaviour::DestroyableDef>());
-	factoryManager->RegisterBehaviour("Bullet", new BehaviourFactory<behaviour::BulletDef>());
-	factoryManager->RegisterBehaviour("Item", new BehaviourFactory<behaviour::ItemDef>());
-	factoryManager->RegisterBehaviour("Door", new BehaviourFactory<behaviour::DoorDef>());
+	factoryManager->RegisterBehaviour("Creature", BehaviourFactory<behaviour::CreatureDef>::New());
+	factoryManager->RegisterBehaviour("Destroyable", BehaviourFactory<behaviour::DestroyableDef>::New());
+	factoryManager->RegisterBehaviour("Bullet", BehaviourFactory<behaviour::BulletDef>::New());
+	factoryManager->RegisterBehaviour("Door", BehaviourFactory<behaviour::DoorDef>::New());
+	factoryManager->RegisterBehaviour("Item", BehaviourFactory<behaviour::ItemDef>::New());
 
 	// Регистрируем камеру
 	factoryManager->RegisterCamera("Following", new CameraFactory<camera::FollowingCameraDef>());
@@ -76,7 +76,7 @@ void	ZombieLand::Init()
 	
 	FactoryManager::GetSingleton()->LoadMasterFile("../Data/Master.imf");
 //	factoryManager->LoadConversations("../Data/Conversations.xml");
-	factoryManager->LoadDataFile("../Data/Master.xml");
+//	factoryManager->LoadDataFile("../Data/Master.xml");
 //	factoryManager->LoadItems("../Data/Items.xml");
 	LootManager::GetSingleton()->Load("../Data/Loot.xml");
 	//FactoryManager::GetSingleton()->LoadEntities("../Data/Entities.xml");

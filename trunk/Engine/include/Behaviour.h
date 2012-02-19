@@ -11,6 +11,7 @@ class ISILME_API Behaviour : public boost::enable_shared_from_this<Behaviour>
 {
 	friend class Entity;
 	friend class FactoryManager;
+	friend class EntityPalette;
 public:
 	static BehaviourPtr New();
 
@@ -186,6 +187,8 @@ public:
 	virtual BehaviourDefPtr LoadDefinition(TiXmlElement* element) = 0;
 };
 
+typedef boost::shared_ptr<IBehaviourFactory> BehaviourFactoryPtr;
+
 template<class T = BehaviourDefinition>
 class BehaviourFactory : public IBehaviourFactory
 {
@@ -198,8 +201,11 @@ public:
 
 		return BehaviourDefPtr(def);
 	}
-};
 
-typedef std::map<std::string, IBehaviourFactory*> BehaviourMap;
+	static BehaviourFactoryPtr New()
+	{
+		return BehaviourFactoryPtr(new BehaviourFactory<T>());
+	}
+};
 
 #endif

@@ -13,9 +13,11 @@
 #include "EntityDefinition.h"
 #include "GraphicsFactory.h"
 #include "Engine/Inventory/ItemFactory.h"
+#include "Engine/Core/Palette/Types.h"
 
 /// class FactoryManager
 /// Управляет созданием всех объектов игры, графических моделей, поведений
+/// Helper class for embedded game components and factories
 class ISILME_API FactoryManager
 {
 	friend class serialisation::DynamicLevelSerialiser;
@@ -32,7 +34,7 @@ public:
 	void			RegisterGraphics(std::string type_info, GraphicsFactoryPtr factory);
 
 	/// Зарегистрировать новый тип поведения
-	void			RegisterBehaviour(std::string type, IBehaviourFactory* factory);
+	void			RegisterBehaviour(std::string type, BehaviourFactoryPtr factory);
 
 	/// Зарегистрировать тип предмета
 	void			RegisterItem(std::string type, inventory::ItemFactoryPtr factory);
@@ -55,20 +57,6 @@ public:
 	/// Создает связь между объектами
 	void			CreateJoint(JointDefPtr def);
 
-	/// Загружает палитру графики из XML-файла
-	void			LoadGraphics(std::string fileName);
-
-	/// Загружает отдельное описание графики
-	GraphicsDefPtr	LoadGraphics(TiXmlElement* element);
-
-	/// Загружает палитру объектов из XML-файла
-	void			LoadEntities(std::string fileName);
-
-	void			ClearItems();
-
-	/// Загружает палитру предметов
-	void			LoadItems(std::string fileName);
-
 	/// Фозвращает единственный экзэмпляр фабрики
 	static FactoryPtr GetSingleton();
 
@@ -84,22 +72,22 @@ public:
 	/// Возвращает фракцию по идентификатору
 	FractionPtr		GetFraction(std::string fractionID);
 
-	/// Загружает файл данных - палитры, объекты, уровни, квесты, предметы, лут, все в одном файле
-	void			LoadDataFile(std::string fileName);
+	///// Загружает файл данных - палитры, объекты, уровни, квесты, предметы, лут, все в одном файле
+	//void			LoadDataFile(std::string fileName);
 
-	/// Загружает imf-файл, в котором находятся ссылки на все файлы, которые необходимо загрузить
+	/// Loads master file
 	void			LoadMasterFile(std::string fileName);
 
 	/// Загружает описание фракций
-	void			LoadFractions(TiXmlElement* element);
+	//void			LoadFractions(TiXmlElement* element);
 
 	/// Загружает диалоги из файла
-	void			LoadConversations(std::string fileName);
+	//void			LoadConversations(std::string fileName);
 
-	/// Loads a level.
-	///
-	/// @param	fileName	Filename of the file.
-	LevelPtr			LoadLevel(std::string fileName);
+	///// Loads a level.
+	/////
+	///// @param	fileName	Filename of the file.
+	//LevelPtr			LoadLevel(std::string fileName);
 
 	/// Возвращает диалог по имени
 	story::ConversationPtr GetConversation(std::string id);
@@ -122,53 +110,61 @@ public:
 	/// @return	The entity palette.
 	EntityPalettePtr	GetEntityPalette();
 
+	/// Gets graphics palette
+	GraphicsPalettePtr	GetGraphicsPalette();
+
+	/// Gets behaviour palette
+	BehaviourPaletettePtr	GetBehaviourPalette();
+
+	/// Gets ai palette
+	AIPalettePtr GetAIPalette();
+
+	/// Gets fractions palette
+	FractionsPalettePtr GetFractionsPalette();
+	
+	/// Gets items palette
+	ItemsPalettePtr GetItemsPalette();
+
 	/// Добавить диалог
 	//void AddConversation(story::ConversationPtr conversation);
+
+	/// Gets master-file
+	MasterFilePtr		GetMasterFile();
 protected:	
 
 	/// Создает сущность из определения
 	EntityPtr			CreateEntity(EntityDefPtr definition, std::string name);
 
-	inventory::ItemDefPtr LoadItem(TiXmlElement* def);
-
 	/// Создает физическую модель объекта и определения
 	Body*			CreateBody(BodyDef* def);
 private:
-	/// Фабрики поведений
-	BehaviourMap			mBehaviourFactories;
-
-	/// Фабрики графических моделей
-	GraphicsFactoryMap		mGraphicsFactories;
-
-	/// Фабрики предметов
-	inventory::ItemFactoryMap mItemFactories;
 	std::map<std::string, ICameraFactory*>	mCameraFactories;
 
 	/// Диалоги
 	std::map<std::string, story::ConversationPtr> mConversations;
 
-	/// Уровни
-	std::map<std::string, LevelPtr> mLevels;
+	/// Items palette
+	ItemsPalettePtr mItemsPalette;
 
-	/// Графическая палитра
-	GraphicsPalette			mGraphicsDefinitions;
+	/// Fractions palette
+	FractionsPalettePtr mFractionsPalette;
 
-	/// Палитра объектов
-	EntityPalettePtr			mEntityDefinitions;
-
-	/// Палитра предметов
-	inventory::ItemsPalette mItemsPalette;
-	
-	// Созданные объекты
-	EntityMap		mCreatedEntities;
-
-	// Фракции
-	FractionMap		mFractions;
-
-	// Палитра ИИ
+	/// AI Palette
 	AIPalettePtr	mAIPalette;
 
+	/// Entities palette
+	EntityPalettePtr mEntitiesPalette;
+
+	/// Graphics palette
+	GraphicsPalettePtr mGraphicsPalette;
+
+	/// Behaviour palette
+	BehaviourPaletettePtr mBehaviourPalette;
+
 	FactoryManager();
+
+	/// All game data
+	MasterFilePtr	mMasterFile;
 
 	static FactoryPtr mInstance;
 };

@@ -2,11 +2,13 @@
 #define ISILME_FRACTION_
 
 #include "Definitions.h"
+#include "Engine/Core/Serialisation/Types.h"
 
 ///
 class ISILME_API Fraction
 {
 	friend class FactoryManager;
+	friend class serialisation::FractionsLoader;
 public:
 	Fraction();
 	virtual ~Fraction();

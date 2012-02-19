@@ -9,20 +9,20 @@ public:
 	AIPalette();
 	virtual ~AIPalette();
 
-	/// Заригестрировать тип пакета ИИ
+	/// Registers AI type
 	void RegisterAIType(std::string type, AIPackageFactoryPtr aiFactory);
 
-	/// Зарегистрировать тип пакета ИИ
+	/// Registers AI type
 	template<typename DefType>
 	void RegisterAIType(std::string type);
 
-	/// Создать пакет ИИ
+	/// Creates ai package
 	AIPackagePtr CreateAIPackage(std::string id);
 
-	/// Очистить палитру
+	/// Clears palette
 	void Clear();
 
-	/// Загрузить палитру из файла
+	/// Loads palette from file
 	void Load(std::string fileName);
 
 protected:

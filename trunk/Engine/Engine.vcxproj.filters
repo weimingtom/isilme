@@ -313,6 +313,54 @@
     <ClInclude Include="AI\MessageData.h">
       <Filter>AI</Filter>
     </ClInclude>
+    <ClInclude Include="Core\MasterFile.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Serialisation\Types.h" />
+    <ClInclude Include="Core\UpdateManager.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Serialisation\AIPaletteLoader.h" />
+    <ClInclude Include="Core\Palette\Types.h" />
+    <ClInclude Include="Core\Palette\ItemsPalette.h">
+      <Filter>Core\Palette</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Serialisation\FractionsLoader.h">
+      <Filter>Core\Serialisation</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Serialisation\EntityPaletteLoader.h">
+      <Filter>Core\Serialisation</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Serialisation\EntityPalettLoader.h">
+      <Filter>Core\Serialisation</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Serialisation\EntryLoader.h">
+      <Filter>Core\Serialisation</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Serialisation\MasterLoader.h">
+      <Filter>Core\Serialisation</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Serialisation\ScriptLoader.h">
+      <Filter>Core\Serialisation</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Serialisation\GraphicsPaletteLoader.h">
+      <Filter>Core\Serialisation</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Serialisation\LevelLoader.h">
+      <Filter>Core\Serialisation</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Palette\FractionsPalette.h">
+      <Filter>Core\Palette</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Palette\GraphicsPalette.h">
+      <Filter>Core\Palette</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Palette\BehaviourPalette.h">
+      <Filter>Core\Palette</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Serialisation\ItemsLoader.h">
+      <Filter>Core\Serialisation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Graphics\Sprite.cpp">
@@ -540,6 +588,41 @@
     </ClCompile>
     <ClCompile Include="Core\ScriptAPI.cpp">
       <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\MasterFile.cpp" />
+    <ClCompile Include="Core\Serialisation\AIPaletteLoader.cpp" />
+    <ClCompile Include="Core\Palette\ItemsPalette.cpp">
+      <Filter>Core\Palette</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Serialisation\EntityPaletteLoader.cpp">
+      <Filter>Core\Serialisation</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Serialisation\FractionsLoader.cpp">
+      <Filter>Core\Serialisation</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Serialisation\MasterLoader.cpp">
+      <Filter>Core\Serialisation</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Serialisation\ScriptLoader.cpp">
+      <Filter>Core\Serialisation</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Serialisation\GraphicsPaletteLoader.cpp">
+      <Filter>Core\Serialisation</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Serialisation\LevelLoader.cpp">
+      <Filter>Core\Serialisation</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Palette\FractionsPalette.cpp">
+      <Filter>Core\Palette</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Palette\GraphicsPalette.cpp">
+      <Filter>Core\Palette</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Palette\BehaviourPalette.cpp">
+      <Filter>Core\Palette</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Serialisation\ItemsLoader.cpp">
+      <Filter>Core\Serialisation</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

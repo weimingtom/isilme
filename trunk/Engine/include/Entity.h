@@ -22,6 +22,7 @@ class ISILME_API Entity
 	friend class FactoryManager;
 	friend class Layer;
 	friend class Level;
+	friend class EntityPalette;
 public:
 	
 	

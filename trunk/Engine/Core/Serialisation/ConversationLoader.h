@@ -2,23 +2,20 @@
 #define ISILME_SERIALISATION_CONVERSATIONLOADER_H
 
 #include "Definitions.h"
+#include "EntryLoader.h"
 #include "Engine/Quest/Conversation.h"
 #include "Engine/Quest/Phrase.h"
 
 namespace serialisation
 {
-	class ISILME_API IConversationLoader
+	class ISILME_API ConversationLoader : public EntryLoader
 	{
 	public:
-		virtual story::ConversationPtr LoadConversation(std::string fileName) = 0;
-	};
+		ConversationLoader();
+		virtual ~ConversationLoader();
 
-	class ISILME_API XMLConversationLoader : public IConversationLoader
-	{
-	public:
-		XMLConversationLoader();
-		virtual ~XMLConversationLoader();
-
+		virtual EntryPtr LoadEntry(std::string filename);
+	protected:
 		virtual story::ConversationPtr LoadConversation(std::string fileName);
 		virtual story::ConversationPtr LoadConversation(TiXmlElement* element);
 		virtual story::PhrasePtr LoadPhrase(TiXmlElement* element);

@@ -160,6 +160,9 @@
     <None Include="..\Data\Conversations\Civilian1.conv" />
     <None Include="..\Data\Conversations\tutorial.conv" />
     <None Include="..\Data\Entities.xml" />
+    <None Include="..\Data\Fractions.frs">
+      <FileType>Document</FileType>
+    </None>
     <None Include="..\Data\Graphics.xml" />
     <None Include="..\Data\Items.xml" />
     <None Include="..\Data\Levels\Level1.xml" />

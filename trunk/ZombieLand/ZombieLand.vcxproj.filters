@@ -265,6 +265,9 @@
     <None Include="..\Data\AIPackages.aip">
       <Filter>Data</Filter>
     </None>
+    <None Include="..\Data\Fractions.frs">
+      <Filter>Data</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Actions">

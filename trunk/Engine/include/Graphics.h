@@ -23,6 +23,7 @@ class ISILME_API Graphics
 {
 	friend class Entity;
 	friend class FactoryManager;
+	friend class EntityPalette;
 public:
 	Graphics(GraphicsDefinition* def = 0);
 	virtual ~Graphics();
@@ -63,6 +64,7 @@ public:
 	/// Устанавливает точку привязки графики к телу
 	void SetAnchor(Vector2 point);
 protected:
+	typedef std::map<std::string, GraphicsPtr> GraphicsMap;
 	float mScale;
 	EntityWPtr mEntity;
 	GraphicsMap mAttached;

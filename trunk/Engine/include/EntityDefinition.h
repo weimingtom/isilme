@@ -15,6 +15,9 @@ public:
 	EntityDefinition(BodyDef* body, GraphicsDefPtr graphics, BehaviourDefPtr behaviour);
 	virtual ~EntityDefinition();
 
+	/// Creates entity
+	//EntityPtr Create();
+
 	/// Возвращает определение для физической модели сущности
 	BodyDef*				GetBodyDefinition();
 
@@ -28,11 +31,12 @@ public:
 	///
 	/// @return	The type.
 	std::string		GetType();
+
+	std::string			mType;
 private:
 	BodyDef*			mBody;
 	GraphicsDefPtr		mGraphics;
 	BehaviourDefPtr		mBehaviour;
-	std::string			mType;
 };
 
 #endif
