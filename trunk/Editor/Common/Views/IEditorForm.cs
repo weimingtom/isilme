@@ -43,6 +43,8 @@ namespace Common.Views
 
         void Load();
 
+        void Load(IEditableData data);
+
 		/// <summary>
 		/// Сохранить как
 		/// </summary>

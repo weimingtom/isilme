@@ -19,6 +19,7 @@
 #include "../LevelEditorCommands.h"
 #include "../Commands/RemoveEntity.h"
 #include "../Core/MasterFile.h"
+#include "../Proxy/ModuleProxy.h"
 
 namespace LevelEditor
 {
@@ -344,6 +345,36 @@ namespace LevelEditor
 				Show();
 			//	mLoadedLevels[FileName] = Level;
 			//}
+		}
+
+		void LevelEditorWindow::Load( IEditableData^ data )
+		{
+			CommandManager->Clear();
+
+			EntryProxy^ entry = dynamic_cast<EntryProxy^>(data);
+			boost::shared_ptr<LevelEntry> le = boost::shared_dynamic_cast<LevelEntry>(entry->mEntry->Value);
+
+			/* = FactoryManager::GetSingleton()->LoadLevel();*/
+			//LevelPtr level = FactoryManager::GetSingleton()->GetLevel("Level2");//new Level());
+			mLevel = gcnew LevelProxy(le->data);
+			//CameraPtr camera(new Camera());
+			//camera->x = 0.0f;
+			//camera->y = 0.0f;
+			////level->Load("../Data/TestL.xml");
+			//level->SetActiveCamera(camera);
+			HGEGame::GetSingleton()->GetStateManager()->GetState()->SetLevel(le->data);
+
+			ObjectManager::Instance->Editor = this;
+
+			mEntityBrush->Layer = mLevel->Layers[0];
+
+			mScrollTool->Level = Level;
+
+			//// Тестируем создаение слоя
+			//lua_State* state = Engine::GetSingleton()->GetLua()->GetState();
+			//luaL_dostring(state, "testLayer = Layer(); testLayer:SetName(\"LuaLayer\"); Factory:GetLevel(\"Level2\"):AddLayer(testLayer); ");
+			//// end
+			Show();
 		}
 
 		void LevelEditorWindow::ExecutedRemoveEntity( Object^ sender, ExecutedRoutedEventArgs^ e )

@@ -3,18 +3,40 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:cm="clr-namespace:Common.Views;assembly=CommonLibrary"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:common="clr-namespace:Common;assembly=CommonLibrary"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" Title="Module Explorer">
     <Grid>
         <Grid.Resources>
+            
+            <!-- Template for entry-->
+            <HierarchicalDataTemplate 
+                x:Key="EntryTemplate">
+                <StackPanel>
+                    <StackPanel.InputBindings>
+                        <MouseBinding Gesture="LeftDoubleClick" Command="common:FileCommands.OpenFile" CommandParameter="{Binding}"></MouseBinding>
+                    </StackPanel.InputBindings>
+                    <TextBlock Text="{Binding Path=Name}"></TextBlock>
+                </StackPanel>
+            </HierarchicalDataTemplate>
+            <!-- Template for category-->
+            <HierarchicalDataTemplate x:Key="CategoryTemplate"
+                ItemsSource="{Binding Path=Entries}"
+                ItemTemplate="{StaticResource ResourceKey=EntryTemplate}">
+                <StackPanel >
+                    <TextBlock Text="{Binding Path=Name}"></TextBlock>
+                </StackPanel>
+            </HierarchicalDataTemplate>
             <!-- Template for module -->
             <HierarchicalDataTemplate x:Key="ModuleTemplate" 
-                 ItemsSource="{Binding Path=Categories}">
-                <TextBlock Text="Module"></TextBlock>
+                 ItemsSource="{Binding Path=Categories}"
+                 ItemTemplate="{StaticResource ResourceKey=CategoryTemplate}">
+                <TextBlock Text="Module">
+                </TextBlock>
             </HierarchicalDataTemplate>
         </Grid.Resources>
-        <TreeView Margin="12" Name="mModuleTree" ItemsSource="{Binding}" ItemTemplate="{StaticResource ResourceKey=ModuleTemplate}">
+        <TreeView Margin="12" Name="mModuleTree" ItemsSource="{Binding}" ItemTemplate="{StaticResource ResourceKey=ModuleTemplate}" MouseDoubleClick="mModuleTree_MouseDoubleClick">
             
         </TreeView>
     </Grid>

@@ -92,7 +92,7 @@ namespace LevelEditor
 			ObservableCollection<EntryProxy^>^ mEntries;
 		};
 
-		public ref class EntryProxy
+		public ref class EntryProxy : public Common::IEditableData
 		{
 		public:
 			EntryProxy(EntryPtr entry);
@@ -107,10 +107,13 @@ namespace LevelEditor
 			/// Gets the file name of the entry
 			property String^ FileName
 			{
-				String^ get();
+				virtual String^ get();
 			}
-		private:
+		internal:
 			SharedCLIPtr<Entry>* mEntry;
+		private:
+			/// Absolute file name
+			String^ mFilename;
 		};
 	}
 }

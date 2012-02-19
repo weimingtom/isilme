@@ -138,6 +138,9 @@ namespace IDE
             CommandBindings.Add(new CommandBinding(ApplicationCommands.Open, ExecutedOpen, CanExecuteOpen));
             CommandBindings.Add(new CommandBinding(SaveAll, ExecutedSaveAll, CanExecuteSaveAll));
 
+            Common.FileCommands.OpenFile.CanExecuteTargets += new Func<bool>(OpenFile_CanExecuteTargets);
+            Common.FileCommands.OpenFile.ExecuteTargets += new Action<object>(OpenFile_ExecuteTargets);
+
             // Регистрируем расширения
             ExtensionManager.RegisterExtension<TextEditorWindow>(".txt");
             ExtensionManager.RegisterExtension<LuaEditorWindow>(".lua");
@@ -170,6 +173,23 @@ namespace IDE
 
             tb = QuestEditor.Views.ConversationToolbar.Instance;
             mToolbarTray.ToolBars.Add(tb);
+        }
+
+        void OpenFile_ExecuteTargets(object obj)
+        {
+            IEditableData data = obj as IEditableData;
+            if (data != null)
+            {
+                IEditorAssotioation assotiation = ExtensionManager.GetEditorForFile(data.FileName);
+                EditorWindow editor = assotiation.CreateEditor();
+                editor.Load(data);
+                AddEditorWindow(editor);
+            }
+        }
+
+        bool OpenFile_CanExecuteTargets()
+        {
+            return true;
         }
 
         #region Methods

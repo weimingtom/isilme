@@ -44,6 +44,8 @@ namespace LevelEditor
 
 			virtual void Load() override;
 
+			virtual void Load(IEditableData^ data) override;
+
 			virtual void Save() override;
 
 			virtual void OnClosing(System::ComponentModel::CancelEventArgs^ e) override;

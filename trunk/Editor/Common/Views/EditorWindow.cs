@@ -132,6 +132,11 @@ namespace Common.Views
         {
         }
 
+        public virtual void Load(IEditableData data)
+        {
+            FileName = data.FileName;
+        }
+
         /// <summary>
         /// Сохраняет документ
         /// </summary>

@@ -103,6 +103,9 @@ namespace LevelEditor
 		EntryProxy::EntryProxy( EntryPtr entry )
 		{
 			mEntry = new SharedCLIPtr<Entry>(entry);
+
+			if (entry)
+				mFilename = System::IO::Path::GetFullPath(gcnew String(mEntry->Value->GetFileName().c_str()));
 		}
 
 		EntryProxy::~EntryProxy()
@@ -117,7 +120,7 @@ namespace LevelEditor
 
 		String^ EntryProxy::FileName::get()
 		{
-			return gcnew String(mEntry->Value->GetFileName().c_str());
+			return mFilename;
 		}
 	}
 }
