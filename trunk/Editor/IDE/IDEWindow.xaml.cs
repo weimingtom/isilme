@@ -69,7 +69,7 @@ namespace IDE
 
         void ExecutedSaveAll(object sender, ExecutedRoutedEventArgs e)
         {
-            mModuleManager.treeView1.DataContext = ObjectManager.Instance.Editor.Level.Layers;
+            //mModuleManager.mModuleTree.DataContext = ObjectManager.Instance.Editor.Level.Layers;
 
             foreach (EditorWindow editor in mOpendDocuments)
                 editor.Save();

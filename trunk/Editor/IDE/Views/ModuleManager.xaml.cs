@@ -23,6 +23,14 @@ namespace IDE.Views
         public ModuleManager()
         {
             InitializeComponent();
+
+            LevelEditor.Isilme.Instance.Loaded += new EventHandler(OnEngineLoaded);
+           // mModuleTree.DataContext = LevelEditor.Proxy.ModuleProxy.Instance;
+        }
+
+        void OnEngineLoaded(object sender, EventArgs e)
+        {
+            mModuleTree.DataContext = LevelEditor.Proxy.ModuleProxy.Instance;
         }
     }
 }

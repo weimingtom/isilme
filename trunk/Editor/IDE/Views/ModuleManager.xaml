@@ -7,7 +7,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" Title="Module Explorer">
     <Grid>
-        <TreeView Margin="12" Name="treeView1" ItemsSource="{Binding}">
+        <Grid.Resources>
+            <!-- Template for module -->
+            <HierarchicalDataTemplate x:Key="ModuleTemplate" 
+                 ItemsSource="{Binding Path=Categories}">
+                <TextBlock Text="Module"></TextBlock>
+            </HierarchicalDataTemplate>
+        </Grid.Resources>
+        <TreeView Margin="12" Name="mModuleTree" ItemsSource="{Binding}" ItemTemplate="{StaticResource ResourceKey=ModuleTemplate}">
             
         </TreeView>
     </Grid>

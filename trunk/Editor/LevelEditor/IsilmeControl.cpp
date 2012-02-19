@@ -10,6 +10,7 @@
 #include "View/EntityPaletteTool.h"
 #include "Proxy/EntityPaletteProxy.h"
 #include "View/LevelEditorWindow.h"
+#include "IsilmeProxy.h"
 
 using namespace System::Threading;
 
@@ -69,6 +70,7 @@ namespace LevelEditor
 			//state->SetLevel(level);
 			
 			GetStateManager()->Push(state);
+			Isilme::Instance->RaiseLoaded();
 			LevelEditor::View::LevelEditorWindow::Instance->Load();
 			SetUsePhisics(false);
 		}

@@ -15,6 +15,12 @@ public:
 
 	/// Gets category by id
 	CategoryPtr GetCategory(std::string id);
+
+	/// Gets count of categories
+	int GetSize();
+
+	/// Gets category by index
+	CategoryPtr	GetCategoryAt(int index);
 private:
 	typedef std::map<std::string, CategoryPtr> CategoryMap;
 

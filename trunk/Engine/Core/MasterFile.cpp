@@ -24,6 +24,20 @@ CategoryPtr MasterFile::GetCategory( std::string id )
 	return CategoryPtr();
 }
 
+int MasterFile::GetSize()
+{
+	return mCategories.size();
+}
+
+CategoryPtr MasterFile::GetCategoryAt( int index )
+{
+	CategoryMap::iterator it = mCategories.begin();
+	for (int i = 0; i < index; ++i)
+		++it;
+
+	return it->second;
+}
+
 std::string Category::GetName()
 {
 	return mName;
