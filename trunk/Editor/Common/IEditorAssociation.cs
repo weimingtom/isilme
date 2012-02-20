@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using Common.Views;
 
-namespace IDE
+namespace Common
 {
     /// <summary>
     /// Интерфейс ассоцииации редактора с файлом
     /// </summary>
-    public interface IEditorAssotioation
+    public interface IEditorAssociation
     {
         EditorWindow CreateEditor();
     }

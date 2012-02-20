@@ -11,11 +11,25 @@
 #include "Proxy/EntityPaletteProxy.h"
 #include "View/LevelEditorWindow.h"
 #include "IsilmeProxy.h"
+#include "Proxy/ModuleProxy.h"
+#include "Engine/Core/MasterFile.h"
+#include "Engine/Quest/Story.h"
+#include "Proxy/StoryProxy.h"
 
 using namespace System::Threading;
 
 namespace LevelEditor
 {
+	public ref class StoryConverter : public Proxy::IDataToProxyConverter
+	{
+	public:
+		virtual Common::IProxyObject^ Convert(SharedCLIPtr<Entry>* entry)
+		{
+			story::StoryPtr story = boost::shared_dynamic_cast<StoryEntry>(entry->Value)->data;
+			return gcnew Proxy::StoryProxy(story);
+		}
+	};
+
 	class EditorState : public State
 	{
 	public:
@@ -52,6 +66,10 @@ namespace LevelEditor
 		}
 		virtual void Init()
 		{
+			// Register converters to Proxy
+			GameDataToProxyConverter::RegisterConverter("Levels", gcnew LevelDataToProxyConverter());
+			GameDataToProxyConverter::RegisterConverter("Story", gcnew StoryConverter());
+
 			mHGE->System_Initiate();
 			EditorState* estate = new EditorState();
 			StatePtr state(estate);

@@ -116,5 +116,11 @@ namespace LevelEditor
 			void ExecutedPasteEntity(Object^ sender, ExecutedRoutedEventArgs^ e);
 			void CanExecutePasteEntity(System::Object^ sender, System::Windows::Input::CanExecuteRoutedEventArgs^ e);
 		};
+
+		public ref class LevelEditorAssociation : public Common::IEditorAssociation
+		{
+		public:
+			virtual EditorWindow^ CreateEditor() override;
+		};
 	}
 }

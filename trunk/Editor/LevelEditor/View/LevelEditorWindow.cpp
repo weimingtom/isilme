@@ -350,19 +350,20 @@ namespace LevelEditor
 		void LevelEditorWindow::Load( IEditableData^ data )
 		{
 			CommandManager->Clear();
+			mLevel = dynamic_cast<LevelProxy^>(data->Data);
 
-			EntryProxy^ entry = dynamic_cast<EntryProxy^>(data);
-			boost::shared_ptr<LevelEntry> le = boost::shared_dynamic_cast<LevelEntry>(entry->mEntry->Value);
+			//EntryProxy^ entry = dynamic_cast<EntryProxy^>(data);
+			//boost::shared_ptr<LevelEntry> le = boost::shared_dynamic_cast<LevelEntry>(entry->mEntry->Value);
 
-			/* = FactoryManager::GetSingleton()->LoadLevel();*/
-			//LevelPtr level = FactoryManager::GetSingleton()->GetLevel("Level2");//new Level());
-			mLevel = gcnew LevelProxy(le->data);
+			///* = FactoryManager::GetSingleton()->LoadLevel();*/
+			////LevelPtr level = FactoryManager::GetSingleton()->GetLevel("Level2");//new Level());
+			//mLevel = gcnew LevelProxy(le->data);
 			//CameraPtr camera(new Camera());
 			//camera->x = 0.0f;
 			//camera->y = 0.0f;
 			////level->Load("../Data/TestL.xml");
 			//level->SetActiveCamera(camera);
-			HGEGame::GetSingleton()->GetStateManager()->GetState()->SetLevel(le->data);
+			HGEGame::GetSingleton()->GetStateManager()->GetState()->SetLevel(mLevel->mLevel->Value);
 
 			ObjectManager::Instance->Editor = this;
 
@@ -482,5 +483,14 @@ namespace LevelEditor
 				((LayerTool^)mCurrentBrush)->Layer = mLayer;
 			}
 		}
+
+		EditorWindow^ LevelEditorAssociation::CreateEditor()
+		{
+			if (LevelEditorWindow::Instance == nullptr)
+				gcnew LevelEditorWindow();
+
+			return LevelEditorWindow::Instance;
+		}
+
 	}
 }

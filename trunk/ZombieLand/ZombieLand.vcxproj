@@ -177,6 +177,7 @@
     <None Include="..\Data\Scripts\Level1.lua" />
     <None Include="..\Data\Scripts\script.lua" />
     <None Include="..\Data\Scripts\Triggers.lua" />
+    <None Include="..\Data\Story.story" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action\AgressionPackage.h" />

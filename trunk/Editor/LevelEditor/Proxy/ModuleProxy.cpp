@@ -2,6 +2,7 @@
 #include "ModuleProxy.h"
 #include "Engine/Core/MasterFile.h"
 #include "../SharedCLIPtr.h"
+#include "LevelProxy.h"
 
 namespace LevelEditor
 {
@@ -80,7 +81,9 @@ namespace LevelEditor
 			// Fill entries in observable collection
 			for (int i = 0; i < category->GetSize(); ++i)
 			{
-				mEntries->Add(gcnew EntryProxy(category->GetEntry(i)));
+				EntryProxy^ entry = gcnew EntryProxy(category->GetEntry(i));
+				entry->mCategory = this;
+				mEntries->Add(entry);
 			}
 		}
 
@@ -122,5 +125,69 @@ namespace LevelEditor
 		{
 			return mFilename;
 		}
+
+		Common::IProxyObject^ EntryProxy::Data::get()
+		{
+			if (mData == nullptr)
+				mData = GameDataToProxyConverter::Convert(this, EditorTag);
+
+			return mData;
+		}
+
+		CategoryProxy^ EntryProxy::Category::get()
+		{
+			return mCategory;
+		}
+
+		String^ EntryProxy::EditorTag::get()
+		{
+			return mCategory->Name;
+		}
+
+		Common::IProxyObject^ GameDataToProxyConverter::Convert( SharedCLIPtr<Entry>* entry, String^ category )
+		{
+			IDataToProxyConverter^ converter = GetConverter(category);
+			if (converter != nullptr)
+				return converter->Convert(entry);
+
+			return nullptr;
+		}
+
+		Common::IProxyObject^ GameDataToProxyConverter::Convert( EntryProxy^ entry, String^ category )
+		{
+			return Convert(entry->mEntry, category);
+		}
+
+		IDataToProxyConverter^ GameDataToProxyConverter::GetConverter( String^ category )
+		{
+			if (mConverters->ContainsKey(category))
+				return mConverters[category];
+
+			return nullptr;
+		}
+
+		void GameDataToProxyConverter::RegisterConverter( String^ category, IDataToProxyConverter^ comverter )
+		{
+			mConverters[category] = comverter;
+		}
+
+
+		LevelDataToProxyConverter::LevelDataToProxyConverter()
+		{
+
+		}
+
+		Common::IProxyObject^ LevelDataToProxyConverter::Convert( SharedCLIPtr<Entry>* entry )
+		{
+			boost::shared_ptr<LevelEntry> le = boost::shared_dynamic_cast<LevelEntry>(entry->Value);
+			
+			if (!le)
+				return nullptr;
+
+			LevelPtr lvl = le->data;
+			LevelProxy^ level = gcnew LevelProxy(lvl);
+			return level;
+		}
+
 	}
 }

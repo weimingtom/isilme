@@ -54,7 +54,7 @@ namespace IDE
             if (dialog.ShowDialog() == true)
             {
                 String filename = dialog.FileName;
-                IEditorAssotioation assotiation =  ExtensionManager.GetEditorForFile(filename);
+                IEditorAssociation assotiation = EditorManager.Instance.GetEditorForFile(filename);
                 EditorWindow editor = assotiation.CreateEditor();
                 editor.FileName = filename;
                 editor.Load();
@@ -99,8 +99,6 @@ namespace IDE
         /// </summary>
         ModuleManager mModuleManager = new ModuleManager();
 
-        ExtensionManager mExtensionManager = new ExtensionManager();
-
         #endregion
 
         #region Prpperties
@@ -113,17 +111,6 @@ namespace IDE
             get
             {
                 return mDockingManager.ActiveDocument as EditorWindow;
-            }
-        }
-
-        /// <summary>
-        /// Возвращает менеджер расширений
-        /// </summary>
-        public ExtensionManager ExtensionManager
-        {
-            get
-            {
-                return mExtensionManager;
             }
         }
 
@@ -142,10 +129,13 @@ namespace IDE
             Common.FileCommands.OpenFile.ExecuteTargets += new Action<object>(OpenFile_ExecuteTargets);
 
             // Регистрируем расширения
-            ExtensionManager.RegisterExtension<TextEditorWindow>(".txt");
-            ExtensionManager.RegisterExtension<LuaEditorWindow>(".lua");
-            ExtensionManager.RegisterExtension<QuestEditorWindow>(".story");
-            ExtensionManager.RegisterExtension<ConversationEditorWindow>(".conv");
+            EditorManager.Instance.RegisterExtension<TextEditorWindow>(".txt");
+            EditorManager.Instance.RegisterExtension<LuaEditorWindow>(".lua");
+            EditorManager.Instance.RegisterExtension<QuestEditorWindow>(".story");
+            EditorManager.Instance.RegisterExtension<ConversationEditorWindow>(".conv");
+
+            EditorManager.Instance.RegisterEditorForTag(new LevelEditorAssociation(), "Levels");
+            EditorManager.Instance.RegisterEditorForTag<QuestEditorWindow>("Story");
           //  ExtensionManager.RegisterExtension<LevelEditorWindow>(".lvl");
 
             mToolWindowsMenu.DataContext = mTools;
@@ -180,10 +170,25 @@ namespace IDE
             IEditableData data = obj as IEditableData;
             if (data != null)
             {
-                IEditorAssotioation assotiation = ExtensionManager.GetEditorForFile(data.FileName);
-                EditorWindow editor = assotiation.CreateEditor();
-                editor.Load(data);
-                AddEditorWindow(editor);
+                foreach (EditorWindow w in mOpendDocuments)
+                {
+                    if (w.FileName.ToLower() == data.FileName.ToLower())
+                    {
+                        w.Activate();
+                        return;
+                    }
+                }
+
+                EditorWindow editor  = EditorManager.Instance.GetEditorForTag(data.EditorTag);
+                if (editor == null)
+                {
+                    MessageBox.Show("There is no editor for this typeof content", "Warning", MessageBoxButton.OK);
+                }
+                else
+                {
+                    editor.Load(data);
+                    AddEditorWindow(editor);
+                }
             }
         }
 

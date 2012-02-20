@@ -109,11 +109,62 @@ namespace LevelEditor
 			{
 				virtual String^ get();
 			}
+
+			property Common::IProxyObject^ Data
+			{
+				virtual Common::IProxyObject^ get();
+			}
+
+			property CategoryProxy^ Category
+			{
+				CategoryProxy^ get();
+			}
+
+			property String^ EditorTag
+			{
+				virtual String^ get();
+			}
 		internal:
+			/// Entry container
 			SharedCLIPtr<Entry>* mEntry;
+
+			/// Back reference to category
+			CategoryProxy^ mCategory;
+
+			/// Editable data
+			Common::IProxyObject^ mData;
 		private:
 			/// Absolute file name
 			String^ mFilename;
+		};
+
+		public interface class IDataToProxyConverter
+		{
+			Common::IProxyObject^ Convert(SharedCLIPtr<Entry>* entry);
+		};
+
+		public ref class LevelDataToProxyConverter : public IDataToProxyConverter
+		{
+		public:
+			LevelDataToProxyConverter();
+			virtual Common::IProxyObject^ Convert(SharedCLIPtr<Entry>* entry) override;
+		};
+
+		public ref class GameDataToProxyConverter
+		{
+		public:
+			/// Converts entry data to the proxy object for editor
+			static Common::IProxyObject^ Convert(SharedCLIPtr<Entry>* entry, String^ category);
+
+			static Common::IProxyObject^ Convert(EntryProxy^ entry, String^ category);
+
+			/// Registers converter for data
+			static void RegisterConverter(String^ category, IDataToProxyConverter^ comverter);
+
+			/// Gets converter for category
+			static IDataToProxyConverter^ GetConverter(String^ category);
+		private:
+			static System::Collections::Generic::Dictionary<String^, IDataToProxyConverter^>^ mConverters = gcnew System::Collections::Generic::Dictionary<String^, IDataToProxyConverter^>();;
 		};
 	}
 }

@@ -59,9 +59,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="EditorAssotiation.cs" />
-    <Compile Include="ExtensionManager.cs" />
-    <Compile Include="IEditorAssotioation.cs" />
     <Compile Include="Model\ModelDirectory.cs" />
     <Compile Include="Model\ModelFile.cs" />
     <Compile Include="Model\ModelNode.cs" />

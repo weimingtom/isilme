@@ -9,6 +9,7 @@
 #include "ScriptLoader.h"
 #include "FractionsLoader.h"
 #include "ItemsLoader.h"
+#include "StoryLoader.h"
 
 namespace serialisation
 {
@@ -22,6 +23,7 @@ namespace serialisation
 		Add("Scripts", EntryLoaderPtr(new ScriptLoader()));
 		Add("Fractions", EntryLoaderPtr(new FractionsLoader()));
 		Add("Items", EntryLoaderPtr(new ItemsLoader()));
+		Add("Story", EntryLoaderPtr(new StoryLoader()));
 	}
 
 	MasterFileLoader::~MasterFileLoader()
