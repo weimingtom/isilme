@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "../Stdafx.h"
 #include "../SharedCLIPtr.h"
+#include "IDataToProxyConverter.h"
 
 using namespace System;
 using namespace System::Collections::ObjectModel;
@@ -136,11 +137,6 @@ namespace LevelEditor
 		private:
 			/// Absolute file name
 			String^ mFilename;
-		};
-
-		public interface class IDataToProxyConverter
-		{
-			Common::IProxyObject^ Convert(SharedCLIPtr<Entry>* entry);
 		};
 
 		public ref class LevelDataToProxyConverter : public IDataToProxyConverter

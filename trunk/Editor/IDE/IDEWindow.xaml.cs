@@ -136,6 +136,7 @@ namespace IDE
 
             EditorManager.Instance.RegisterEditorForTag(new LevelEditorAssociation(), "Levels");
             EditorManager.Instance.RegisterEditorForTag<QuestEditorWindow>("Story");
+            EditorManager.Instance.RegisterEditorForTag<ScriptEditorWindow>("Scripts");
           //  ExtensionManager.RegisterExtension<LevelEditorWindow>(".lvl");
 
             mToolWindowsMenu.DataContext = mTools;
@@ -187,6 +188,7 @@ namespace IDE
                 else
                 {
                     editor.Load(data);
+                    editor.FileName = data.FileName;
                     AddEditorWindow(editor);
                 }
             }

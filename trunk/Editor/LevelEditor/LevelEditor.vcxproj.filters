@@ -103,6 +103,12 @@
     <ClCompile Include="Commands\MoveLayer.cpp">
       <Filter>Commands\LevelEditor</Filter>
     </ClCompile>
+    <ClCompile Include="View\ScriptEditorWindow.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="Proxy\ScriptProxy.cpp">
+      <Filter>Proxy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HGEProxyGame.h" />
@@ -214,6 +220,15 @@
     </ClInclude>
     <ClInclude Include="Commands\MoveLayer.h">
       <Filter>Commands\LevelEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="View\ScriptEditorWindow.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\ScriptProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\IDataToProxyConverter.h">
+      <Filter>Proxy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

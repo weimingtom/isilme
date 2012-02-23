@@ -39,6 +39,11 @@ namespace Common.Views
             reader.Close();
         }
 
+        public override void Load(IEditableData data)
+        {
+            
+        }
+
         public override void Save()
         {
             StreamWriter writer = new StreamWriter(FileName);

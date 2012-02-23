@@ -15,6 +15,9 @@
 #include "Engine/Core/MasterFile.h"
 #include "Engine/Quest/Story.h"
 #include "Proxy/StoryProxy.h"
+#include "Proxy/ScriptProxy.h"
+#include "FactoryManager.h"
+#include "../Core/Serialisation/MasterLoader.h"
 
 using namespace System::Threading;
 
@@ -66,9 +69,13 @@ namespace LevelEditor
 		}
 		virtual void Init()
 		{
+			// Register custom loaders
+			FactoryManager::GetSingleton()->GetLoader()->Add("Scripts", serialisation::EntryLoaderPtr(new serialisation::EditableScirptLoader()));
+
 			// Register converters to Proxy
 			GameDataToProxyConverter::RegisterConverter("Levels", gcnew LevelDataToProxyConverter());
 			GameDataToProxyConverter::RegisterConverter("Story", gcnew StoryConverter());
+			GameDataToProxyConverter::RegisterConverter("Scripts", gcnew ScriptDataToProxyConverter());
 
 			mHGE->System_Initiate();
 			EditorState* estate = new EditorState();

@@ -39,7 +39,8 @@ FactoryManager::FactoryManager() :
 	mGraphicsPalette(new GraphicsPalette()),
 	mBehaviourPalette(new BehaviourPalette()),
 	mFractionsPalette(new FractionsPalette()),
-	mItemsPalette(new ItemsPalette())
+	mItemsPalette(new ItemsPalette()),
+	mLoader(new serialisation::MasterFileLoader())
 {
 	RegisterBehaviour("Default", BehaviourFactory<BehaviourDefinition>::New());
 	RegisterBehaviour("Trigger", BehaviourFactory<TriggerDefinition>::New());
@@ -296,8 +297,7 @@ void FactoryManager::LoadMasterFile( std::string fileName )
 {
 	LOG_M("LoadMasterFile: %s", fileName.c_str());
 
-	serialisation::MasterFileLoader loader;
-	mMasterFile = loader.Load(fileName);
+	mMasterFile = mLoader->Load(fileName);
 
 	LOG_M("Success");
 }
@@ -330,6 +330,11 @@ FractionsPalettePtr FactoryManager::GetFractionsPalette()
 ItemsPalettePtr FactoryManager::GetItemsPalette()
 {
 	return mItemsPalette;
+}
+
+serialisation::MasterFileLoader* FactoryManager::GetLoader()
+{
+	return mLoader;
 }
 
 //void FactoryManager::AddConversation( story::ConversationPtr conversation )

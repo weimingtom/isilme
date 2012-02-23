@@ -14,6 +14,7 @@
 #include "GraphicsFactory.h"
 #include "Engine/Inventory/ItemFactory.h"
 #include "Engine/Core/Palette/Types.h"
+#include "Engine/Core/Serialisation/Types.h"
 
 /// class FactoryManager
 /// Управляет созданием всех объектов игры, графических моделей, поведений
@@ -130,6 +131,9 @@ public:
 
 	/// Gets master-file
 	MasterFilePtr		GetMasterFile();
+
+	/// Gets loader
+	serialisation::MasterFileLoader*		GetLoader();
 protected:	
 
 	/// Создает сущность из определения
@@ -165,6 +169,9 @@ private:
 
 	/// All game data
 	MasterFilePtr	mMasterFile;
+
+	/// Master-file loader
+	serialisation::MasterFileLoader* mLoader;
 
 	static FactoryPtr mInstance;
 };

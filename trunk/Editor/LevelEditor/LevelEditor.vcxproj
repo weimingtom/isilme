@@ -59,6 +59,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>engine_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(BOOST_LIB);$(ISILME_LIB)</AdditionalLibraryDirectories>
+      <Profile>true</Profile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -66,12 +67,15 @@
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AdditionalIncludeDirectories>$(BOOST_INCLUDE);$(ProjectDir)../Luabind;$(ProjectDir)../;$(ProjectDir)../GUIChan/include/;$ProjectDir)/include;../HGE/include;./Game;../Engine/include;../TinyXML/include;../Box2D/;./Include;$(ProjectDir)../Lua514/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ISILME_INCLUDE);</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zm150 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
+      <AdditionalDependencies>engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(BOOST_LIB);$(ISILME_LIB)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -109,11 +113,13 @@
     <ClInclude Include="Proxy\EntityPaletteProxy.h" />
     <ClInclude Include="Proxy\EntityProxy.h" />
     <ClInclude Include="Proxy\FolderProxy.h" />
+    <ClInclude Include="Proxy\IDataToProxyConverter.h" />
     <ClInclude Include="Proxy\LayerProxy.h" />
     <ClInclude Include="Proxy\LevelProxy.h" />
     <ClInclude Include="Proxy\ModuleProxy.h" />
     <ClInclude Include="Proxy\PhraseProxy.h" />
     <ClInclude Include="Proxy\QuestProxy.h" />
+    <ClInclude Include="Proxy\ScriptProxy.h" />
     <ClInclude Include="Proxy\StageProxy.h" />
     <ClInclude Include="Proxy\StoryProxy.h" />
     <ClInclude Include="resource.h" />
@@ -128,6 +134,7 @@
     <ClInclude Include="View\LevelEditorToolbar.h" />
     <ClInclude Include="View\LevelEditorWindow.h" />
     <ClInclude Include="View\ObjectManager.h" />
+    <ClInclude Include="View\ScriptEditorWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
@@ -155,6 +162,7 @@
     <ClCompile Include="Proxy\ModuleProxy.cpp" />
     <ClCompile Include="Proxy\PhraseProxy.cpp" />
     <ClCompile Include="Proxy\QuestProxy.cpp" />
+    <ClCompile Include="Proxy\ScriptProxy.cpp" />
     <ClCompile Include="Proxy\StageProxy.cpp" />
     <ClCompile Include="Proxy\StoryProxy.cpp" />
     <ClCompile Include="Tool\ScrollerTool.cpp" />
@@ -162,6 +170,7 @@
     <ClCompile Include="View\LevelEditorToolbar.cpp" />
     <ClCompile Include="View\LevelEditorWindow.cpp" />
     <ClCompile Include="View\ObjectManager.cpp" />
+    <ClCompile Include="View\ScriptEditorWindow.cpp" />
     <ClInclude Include="SharedCLIPtr.h">
       <FileType>CppHeader</FileType>
     </ClInclude>
@@ -194,6 +203,9 @@
     </ProjectReference>
     <ProjectReference Include="..\Engine\Engine.vcxproj">
       <Project>{a110b53d-ff13-4b46-be40-df3377753d29}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\ICSharpCode.AvalonEdit\ICSharpCode.AvalonEdit.csproj">
+      <Project>{6c55b776-26d4-4db3-a6ab-87e783b2f3d1}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

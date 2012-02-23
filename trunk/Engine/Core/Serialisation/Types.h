@@ -9,6 +9,8 @@ namespace serialisation
 	typedef boost::shared_ptr<EntryLoader> EntryLoaderPtr;
 
 	class FractionsLoader;
+
+	class MasterFileLoader;
 }
 
 #endif
