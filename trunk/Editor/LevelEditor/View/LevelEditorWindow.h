@@ -49,6 +49,8 @@ namespace LevelEditor
 			virtual void Save() override;
 
 			virtual void OnClosing(System::ComponentModel::CancelEventArgs^ e) override;
+
+			virtual void OnClosed(System::EventArgs^ e) override;
 		private:
 
 			Dictionary<String^, LevelProxy^>^ mLoadedLevels;

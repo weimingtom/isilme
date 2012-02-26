@@ -2,6 +2,7 @@
 #include "LevelEditorToolbar.h"
 #include "LevelEditorWindow.h"
 #include "../LevelEditorCommands.h"
+#include "../ResourceHelper.h"
 
 namespace LevelEditor
 {
@@ -9,34 +10,53 @@ namespace LevelEditor
 	{
 		LevelEditorToolBar::LevelEditorToolBar()
 		{
+			System::Windows::Controls::Image^ image;
 			// Кисть объектов
 			System::Windows::Controls::RadioButton^ mBrushToolBtn = gcnew RadioButton();
-			mBrushToolBtn->Content = "Brush";
+			image = gcnew System::Windows::Controls::Image();
+			image->Source = ResourceHelper::GetPngSource("Brush.png");
+			mBrushToolBtn->Content = image;
 			mBrushToolBtn->Command = LevelEditorWindow::SelectEntityBrush;
+			mBrushToolBtn->ToolTip = "Entity brush";
 
 			// Добавить слой
 			System::Windows::Controls::Button^ mAddLayerBtn = gcnew Button();
-			mAddLayerBtn->Content = "Layer";
+			image = gcnew System::Windows::Controls::Image();
+			image->Source = ResourceHelper::GetPngSource("AddLayer.png");
+			mAddLayerBtn->Content = image;
 			mAddLayerBtn->Command = LevelEditorWindow::AddLayerCommand;
+			mBrushToolBtn->ToolTip = "Add layer";
 
 			// Включить сетку
 			System::Windows::Controls::CheckBox^ mActivateGridBtn = gcnew CheckBox();
-			mActivateGridBtn->Content = "Grid";
+			image = gcnew System::Windows::Controls::Image();
+			image->Source = ResourceHelper::GetPngSource("Grid.png");
+			mActivateGridBtn->Content = image;
 			mActivateGridBtn->Command = LevelEditorCommands::ActivateGrid;
+			mActivateGridBtn->ToolTip = "Snap to grid";
 
 			// Выбор объектов
 			System::Windows::Controls::RadioButton^ mSelectorBtn = gcnew RadioButton();
-			mSelectorBtn->Content = "Select";
+			image = gcnew System::Windows::Controls::Image();
+			image->Source = ResourceHelper::GetPngSource("Select.png");
+			mSelectorBtn->Content = image;
 			mSelectorBtn->Command = LevelEditorCommands::SelectObjectsSelector;
+			mSelectorBtn->ToolTip = "Select entity";
 
 			// Включение физики
 			CheckBox^ mTurnPhisics = gcnew CheckBox();
-			mTurnPhisics->Content = "Phisics";
+			image = gcnew System::Windows::Controls::Image();
+			image->Source = ResourceHelper::GetPngSource("Physics.png");
+			mTurnPhisics->Content = image;
 			mTurnPhisics->Command = LevelEditorCommands::ActivatePhisics;
+			mTurnPhisics->ToolTip = "Physics";
 
 			CheckBox^ mDrawPhisics = gcnew CheckBox();
-			mDrawPhisics->Content = "Draw Phisics";
+			image = gcnew System::Windows::Controls::Image();
+			image->Source = ResourceHelper::GetPngSource("Shapes.png");
+			mDrawPhisics->Content = image;
 			mDrawPhisics->Command = LevelEditorCommands::DrawPhisics;
+			mDrawPhisics->ToolTip = "Draw physics";
 
 			// Добавляем кнопки
 			AddChild(mBrushToolBtn);

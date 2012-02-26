@@ -58,8 +58,9 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>engine_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(BOOST_LIB);$(ISILME_LIB)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)/Resources;$(BOOST_LIB);$(ISILME_LIB)</AdditionalLibraryDirectories>
       <Profile>true</Profile>
+      <EmbedManagedResourceFile>Resources/PaletteItem.png;Resources/FolderClosed.png;Resources/FolderOpen.png;Resources/Layers.png;Resources/Palette.png;Resources/Grid.png;Resources/Shapes.png;Resources/Brush.png;Resources/AddLayer.png;Resources/Select.png;Resources/Physics.png;%(EmbedManagedResourceFile)</EmbedManagedResourceFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -123,6 +124,7 @@
     <ClInclude Include="Proxy\StageProxy.h" />
     <ClInclude Include="Proxy\StoryProxy.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="ResourceHelper.h" />
     <ClInclude Include="Stdafx.h" />
     <ClInclude Include="Tool\EntityBrush.h" />
     <ClInclude Include="Tool\ITool.h" />
@@ -165,6 +167,7 @@
     <ClCompile Include="Proxy\ScriptProxy.cpp" />
     <ClCompile Include="Proxy\StageProxy.cpp" />
     <ClCompile Include="Proxy\StoryProxy.cpp" />
+    <ClCompile Include="ResourceHelper.cpp" />
     <ClCompile Include="Tool\ScrollerTool.cpp" />
     <ClCompile Include="View\EntityPaletteTool.cpp" />
     <ClCompile Include="View\LevelEditorToolbar.cpp" />
@@ -187,6 +190,14 @@
   <ItemGroup>
     <None Include="app.ico" />
     <None Include="ReadMe.txt" />
+    <None Include="Resources\AddLayer.png" />
+    <None Include="Resources\Brush.png" />
+    <None Include="Resources\Grid.png" />
+    <None Include="Resources\Layers.png" />
+    <None Include="Resources\Palette.png" />
+    <None Include="Resources\Physics.png" />
+    <None Include="Resources\Select.png" />
+    <None Include="Resources\Shapes.png" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />

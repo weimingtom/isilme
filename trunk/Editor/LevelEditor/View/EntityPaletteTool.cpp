@@ -3,6 +3,7 @@
 #include "LevelEditorWindow.h"
 #include "..\Proxy\FolderProxy.h"
 #include "..\IsilmeControl.h"
+#include "..\ResourceHelper.h"
 
 namespace LevelEditor
 {
@@ -36,6 +37,8 @@ namespace LevelEditor
 		//	Command = LevelEditorWindow::SelectPaletteItem;
 
 			Title = "Palette";
+
+			Icon = ResourceHelper::GetPngSource("Palette.png");
 		}
 
 		EntityPaletteTool^ EntityPaletteTool::Instance::get()
@@ -139,6 +142,8 @@ namespace LevelEditor
 		void EntityPaletteTool::Palette::set(EntityPaletteProxy^ value)
 		{
 			mPalette = value;
+			FrameworkElementFactory^ stackElementFactory;
+			FrameworkElementFactory^ iconEF;
 
 			// Привязываем данные
 			System::Windows::Data::Binding^ binding = gcnew System::Windows::Data::Binding("Items");
@@ -148,17 +153,37 @@ namespace LevelEditor
 
 			// Шаблон для элемента палитры
 			itemTemplate = gcnew HierarchicalDataTemplate(PaletteItemProxy::typeid);
+			stackElementFactory = gcnew FrameworkElementFactory(StackPanel::typeid);
+			stackElementFactory->SetValue(StackPanel::OrientationProperty, System::Windows::Controls::Orientation::Horizontal);
+
+			iconEF = gcnew FrameworkElementFactory(System::Windows::Controls::Image::typeid);
+			iconEF->SetValue(System::Windows::Controls::Image::SourceProperty, ResourceHelper::GetPngSource("PaletteItem.png"));
+
 			FrameworkElementFactory^ itemElementFactory = gcnew FrameworkElementFactory(TextBlock::typeid);
+
+			stackElementFactory->AppendChild(iconEF);
+			stackElementFactory->AppendChild(itemElementFactory);
 			itemElementFactory->SetBinding(TextBlock::TextProperty, gcnew System::Windows::Data::Binding("Name"));
-			itemTemplate->VisualTree = itemElementFactory;
+			itemTemplate->VisualTree = stackElementFactory;
 			
 			
 
 			// Шаблон каталога
 			folderTemplate = gcnew HierarchicalDataTemplate(FolderProxy::typeid);
+
+			stackElementFactory = gcnew FrameworkElementFactory(StackPanel::typeid);
+			stackElementFactory->SetValue(StackPanel::OrientationProperty, System::Windows::Controls::Orientation::Horizontal);
+
+			iconEF = gcnew FrameworkElementFactory(System::Windows::Controls::Image::typeid);
+			iconEF->SetValue(System::Windows::Controls::Image::SourceProperty, ResourceHelper::GetPngSource("FolderClosed.png"));
+
 			FrameworkElementFactory^ folderElementFactory = gcnew FrameworkElementFactory(TextBlock::typeid);
 			folderElementFactory->SetBinding(TextBlock::TextProperty, gcnew System::Windows::Data::Binding("Name"));
-			folderTemplate->VisualTree = folderElementFactory;
+
+			stackElementFactory->AppendChild(iconEF);
+			stackElementFactory->AppendChild(folderElementFactory);
+
+			folderTemplate->VisualTree = stackElementFactory;
 			folderTemplate->ItemsSource = gcnew System::Windows::Data::Binding("Items");
 			folderTemplate->ItemTemplateSelector = gcnew PaletteDataTemplateSelector();
 

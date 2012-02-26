@@ -6,6 +6,7 @@
 #include "../Proxy/EntityProxy.h"
 #include "../Commands/RemoveEntity.h"
 #include "../Commands/RemoveLayer.h"
+#include "../ResourceHelper.h"
 
 using namespace LevelEditor::Commands;
 
@@ -44,6 +45,7 @@ namespace LevelEditor
 			mObjectsTree->MouseUp += gcnew MouseButtonEventHandler(this, &ObjectManager::OnObjectSelected);
 
 			Title = "Objects";
+			Icon = ResourceHelper::GetPngSource("Layers.png");
 		}
 
 		void ObjectManager::OnObjectSelected(Object^ sender, MouseButtonEventArgs^ e)

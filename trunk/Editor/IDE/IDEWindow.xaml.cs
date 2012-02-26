@@ -175,6 +175,11 @@ namespace IDE
                 {
                     if (w.FileName.ToLower() == data.FileName.ToLower())
                     {
+                        if (!w.IsVisible)
+                        {
+                            w.Show();
+                        }
+
                         w.Activate();
                         return;
                     }
@@ -218,6 +223,14 @@ namespace IDE
             window.ShowAsDocument(mDockingManager);
             window.Activate();
             window.SelectionChanged += new EditorSelectionEventHandler(onEditor_SelectionChanged);
+            window.Closed += new EventHandler(onEditor_Closed);
+        }
+
+        void onEditor_Closed(object sender, EventArgs e)
+        {
+            IEditorWindow w = sender as IEditorWindow;
+            if (mOpendDocuments.Contains(w))
+                mOpendDocuments.Remove(w);
         }
 
         void onEditor_SelectionChanged(object sender, EditorSelectionEventArgs args)
@@ -246,9 +259,9 @@ namespace IDE
             selectedContent.Activate();
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        protected override void OnClosed(EventArgs e)
         {
-            AddEditorWindow(new LevelEditorWindow() { FileName = "1.lvl" });
+            base.OnClosed(e);
         }
     }
 }

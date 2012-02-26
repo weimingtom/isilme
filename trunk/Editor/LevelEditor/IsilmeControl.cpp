@@ -102,13 +102,21 @@ namespace LevelEditor
 	};
 	IsilmeHost::IsilmeHost()
 	{
-
+		// We can only use one host window!
+		Isilme::Instance->mHostWindow = this;
 
 	}
 
 	void IsilmeHost::Start()
 	{
-		ComponentDispatcher::RaiseIdle();
+		if (start == nullptr)
+			start = gcnew System::Threading::ThreadStart(this, &IsilmeHost::RaiseStart);
+		while (true)
+		{
+			//RaiseStart();
+			Dispatcher->BeginInvoke(System::Windows::Threading::DispatcherPriority::Background, start);
+			System::Threading::Thread::Sleep(30);
+		}
 	}
 
 	HandleRef IsilmeHost::BuildWindowCore( HandleRef hwndParent )
@@ -141,16 +149,21 @@ namespace LevelEditor
 		game->Init();
 		((EditorState*)game->GetStateManager()->GetState().get())->host = this;
 
-		ComponentDispatcher::ThreadIdle += gcnew EventHandler(this, &IsilmeHost::OnThreadIdle);
+		//System::Threading::Thread^ engineThread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &IsilmeHost::Start));
+
+		//// Start the thread
+		//engineThread->Start();
+		//ComponentDispatcher::ThreadIdle += gcnew EventHandler(this, &IsilmeHost::OnThreadIdle);
 	//	game->Start();
 		//HGEGame::RenderFunction();
 		//HGEGame::FrameFunction();
+		Isilme::Instance->StartEngineThread();
 		return HandleRef(this, IntPtr(handle));
 	}
 
 	void IsilmeHost::DestroyWindowCore( HandleRef hwndParent )
 	{
-
+		Isilme::Instance->StopEngineThread();
 	}
 
 	System::IntPtr IsilmeHost::WndProc( IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, bool handled )
@@ -159,14 +172,16 @@ namespace LevelEditor
 		{
 		
 		}
+		if (msg == WM_PAINT)
+		{
+
+		}
 		return IntPtr::Zero;
 	}
 
 	void IsilmeHost::OnThreadIdle( Object^ sender, EventArgs^ e )
 	{
-		HGEGame::GetSingleton()->Start();
-
-		Dispatcher->BeginInvoke(System::Windows::Threading::DispatcherPriority::ApplicationIdle,  gcnew ThreadStart(this, & IsilmeHost::Start));
+	//	Dispatcher->BeginInvoke(System::Windows::Threading::DispatcherPriority::ApplicationIdle,  gcnew ThreadStart(this, & IsilmeHost::Start));
 	}
 
 	void IsilmeHost::OnUpdate( float elapsedTime )
@@ -209,6 +224,11 @@ namespace LevelEditor
 			0, 0, width, height, true);
 		Width = width;
 		Height = height;
+	}
+
+	void IsilmeHost::RaiseStart()
+	{
+		HGEGame::GetSingleton()->Start();
 	}
 
 };

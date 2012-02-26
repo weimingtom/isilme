@@ -109,6 +109,7 @@
     <ClCompile Include="Proxy\ScriptProxy.cpp">
       <Filter>Proxy</Filter>
     </ClCompile>
+    <ClCompile Include="ResourceHelper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HGEProxyGame.h" />
@@ -230,6 +231,7 @@
     <ClInclude Include="Proxy\IDataToProxyConverter.h">
       <Filter>Proxy</Filter>
     </ClInclude>
+    <ClInclude Include="ResourceHelper.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
@@ -237,6 +239,30 @@
   <ItemGroup>
     <None Include="app.ico" />
     <None Include="ReadMe.txt" />
+    <None Include="Resources\Palette.png">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\AddLayer.png">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\Brush.png">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\Grid.png">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\Physics.png">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\Select.png">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\Shapes.png">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\Layers.png">
+      <Filter>Resources</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Proxy">
@@ -259,6 +285,9 @@
     </Filter>
     <Filter Include="Commands\QuestEditor">
       <UniqueIdentifier>{7163e742-bb4d-45d2-b6f6-9ff6fff457b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{937ecd81-edee-4749-bcb2-8203fc9bc98f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

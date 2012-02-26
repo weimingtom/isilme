@@ -74,7 +74,7 @@ namespace Common.Views
 
             if (target != null)
             {
-                e.CanExecute = CommandManager.IsChanged;
+                e.CanExecute = IsModified;
             }
             else
             {
@@ -251,6 +251,14 @@ namespace Common.Views
             }
         }
 
+        public virtual bool IsModified
+        {
+            get
+            {
+                return CommandManager.IsChanged;
+            }
+        }
+
         #endregion
 
         #region Events
@@ -261,5 +269,19 @@ namespace Common.Views
         public event EditorSelectionEventHandler SelectionChanged;
 
         #endregion
+
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            if (IsModified)
+            {
+                MessageBoxResult result = MessageBox.Show("The file was modified! Do you want to save it", "Warning", MessageBoxButton.YesNoCancel);
+                if (result == MessageBoxResult.Cancel)
+                    e.Cancel = true;
+                else if (result == MessageBoxResult.OK)
+                    Save();
+            }
+
+            base.OnClosing(e);
+        }
     }
 }

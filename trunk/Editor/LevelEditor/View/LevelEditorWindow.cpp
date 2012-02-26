@@ -20,6 +20,7 @@
 #include "../Commands/RemoveEntity.h"
 #include "../Core/MasterFile.h"
 #include "../Proxy/ModuleProxy.h"
+#include "../IsilmeProxy.h"
 
 namespace LevelEditor
 {
@@ -32,6 +33,7 @@ namespace LevelEditor
 
 		LevelEditorWindow::LevelEditorWindow()
 		{
+			Title = "Level window";
 			mLoadedLevels = gcnew Dictionary<String^, LevelProxy^>();
 			mOldMouseX = -1;
 			mOldMouseY = -1;
@@ -420,6 +422,7 @@ namespace LevelEditor
 		{
 			e->Cancel = true;
 			Hide();
+			Isilme::Instance->StartEngineThread();
 		}
 
 		void LevelEditorWindow::CanExecuteCopyEntity( System::Object^ sender, System::Windows::Input::CanExecuteRoutedEventArgs^ e )
@@ -463,6 +466,11 @@ namespace LevelEditor
 		bool LevelEditorWindow::CanExecuteDrawPhisics()
 		{
 			return true;
+		}
+
+		void LevelEditorWindow::OnClosed(System::EventArgs^ e)
+		{
+			EditorWindow::OnClosed();
 		}
 
 		LevelProxy^ LevelEditorWindow::Level::get()

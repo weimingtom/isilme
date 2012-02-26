@@ -16,6 +16,10 @@ namespace LevelEditor
 	private:
 		HWND dialog;
 		static HGE* _hge = 0;
+
+		void RaiseStart();
+
+		System::Threading::ThreadStart^ start;
 	public:
 		IsilmeHost();
 

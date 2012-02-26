@@ -17,6 +17,13 @@ namespace LevelEditor
 			virtual void Load() override;
 
 			virtual void Save() override;
+
+			virtual property bool IsModified
+			{
+				bool get() override;
+			}
+		protected:
+			//virtual void CanExecuteSave(System::Object^ sender, System::Windows::Input::CanExecuteRoutedEventArgs^ e) override;
 		private:
 			ICSharpCode::AvalonEdit::TextEditor^ mEditor;
 			Proxy::ScriptProxy^ mScript;
