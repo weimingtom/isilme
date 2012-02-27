@@ -138,6 +138,7 @@ void	Level::AddLayer(LayerPtr layer)
 {
 	mLayers.push_back(layer);
 	mLayerNames[layer->GetName()] = layer;
+	layer->mLevel = shared_from_this();
 }
 
 void	Level::RemoveLayer(LayerPtr layer)

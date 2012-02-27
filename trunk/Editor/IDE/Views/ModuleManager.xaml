@@ -24,7 +24,8 @@
             <HierarchicalDataTemplate x:Key="CategoryTemplate"
                 ItemsSource="{Binding Path=Entries}"
                 ItemTemplate="{StaticResource ResourceKey=EntryTemplate}">
-                <StackPanel >
+                <StackPanel Orientation="Horizontal">
+                    <!--<Image Source="{Binding Path=Icon}"></Image>-->
                     <TextBlock Text="{Binding Path=Name}"></TextBlock>
                 </StackPanel>
             </HierarchicalDataTemplate>
@@ -36,8 +37,17 @@
                 </TextBlock>
             </HierarchicalDataTemplate>
         </Grid.Resources>
-        <TreeView Margin="12" Name="mModuleTree" ItemsSource="{Binding}" ItemTemplate="{StaticResource ResourceKey=ModuleTemplate}" MouseDoubleClick="mModuleTree_MouseDoubleClick">
+        <TreeView Margin="0,30,0,0" Name="mModuleTree" ItemsSource="{Binding}" ItemTemplate="{StaticResource ResourceKey=ModuleTemplate}" MouseDoubleClick="mModuleTree_MouseDoubleClick">
             
         </TreeView>
+        <ToolBarTray Height="30" Name="toolBarTray1" VerticalAlignment="Top" IsLocked="True">
+            <ToolBar Height="30"  HorizontalAlignment="Left" Name="toolBar1" VerticalAlignment="Top" Width="300" >
+                <Button HorizontalAlignment="Left" Name="mNewBtn" VerticalAlignment="Top" OverridesDefaultStyle="False" Click="mNewBtn_Click">
+                    <Button.Content>
+                        <Image Source="/IDE;component/Resources/New.png"></Image>
+                    </Button.Content>
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
     </Grid>
 </cm:ToolWindow>

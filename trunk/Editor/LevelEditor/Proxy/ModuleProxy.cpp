@@ -3,26 +3,13 @@
 #include "Engine/Core/MasterFile.h"
 #include "../SharedCLIPtr.h"
 #include "LevelProxy.h"
+#include "IEntryFactory.h"
+#include "IDataToProxyConverter.h"
 
 namespace LevelEditor
 {
 	namespace Proxy
 	{
-		ObservableCollection<LevelProxy^>^ ModuleProxy::Levels::get()
-		{
-			return mLevels;
-		}
-
-		ObservableCollection<ConversationProxy^>^ ModuleProxy::Conversations::get()
-		{
-			return mConversations;
-		}
-
-		StoryProxy^ ModuleProxy::Story::get()
-		{
-			return mStory;
-		}
-
 		ModuleProxy::ModuleProxy(MasterFilePtr masterFile)
 		{
 			mMasterFile = new SharedCLIPtr<MasterFile>(masterFile);
@@ -40,29 +27,18 @@ namespace LevelEditor
 			delete mMasterFile;
 		}
 
+		CategoryProxy^ ModuleProxy::GetCategory( String^ name )
+		{
+			for each (CategoryProxy^ ctg in mCategories)
+				if (ctg->Name == name)
+					return ctg;
+
+			return nullptr;
+		}
+
 		ObservableCollection<CategoryProxy^>^	ModuleProxy::Categories::get()
 		{
 			return mCategories;
-		}
-
-		void ModuleProxy::AddLevel( LevelProxy^ level )
-		{
-
-		}
-
-		void ModuleProxy::AddConversation( ConversationProxy^ conversation )
-		{
-
-		}
-
-		void ModuleProxy::RemoveLevel( LevelProxy^ level )
-		{
-
-		}
-
-		void ModuleProxy::RemoveConversation( ConversationProxy^ conversation )
-		{
-
 		}
 
 		ModuleProxy^ ModuleProxy::Instance::get()
@@ -92,6 +68,20 @@ namespace LevelEditor
 			delete mCategory;
 		}
 
+		void CategoryProxy::AddEntry( EntryProxy^ entry )
+		{
+			mEntries->Add(entry);
+			entry->mCategory = this;
+			mCategory->Value->Add(entry->mEntry->Value);
+		}
+
+		void CategoryProxy::RemoveEntry( EntryProxy^ entry )
+		{
+			mEntries->Remove(entry);
+			entry->mCategory = nullptr;
+			mCategory->Value->Remove(entry->mEntry->Value);
+		}
+
 		ObservableCollection<EntryProxy^>^ CategoryProxy::Entries::get()
 		{
 			return mEntries;
@@ -102,12 +92,41 @@ namespace LevelEditor
 			return gcnew String(mCategory->Value->GetName().c_str());
 		}
 
+		System::Windows::Media::ImageSource^ CategoryProxy::Icon::get()
+		{
+			return mIcon;
+		}
+
+		void CategoryProxy::Icon::set(System::Windows::Media::ImageSource^ value)
+		{
+			mIcon = value;
+		}
+
+		IEntryFactory^ CategoryProxy::Factory::get()
+		{
+			return mFactory;
+		}
+
+		void CategoryProxy::Factory::set(IEntryFactory^ value)
+		{
+			mFactory = value;
+		}
+
+		IDataToProxyConverter^ CategoryProxy::Converter::get()
+		{
+			return mConverter;
+		}
+
+		void CategoryProxy::Converter::set(IDataToProxyConverter^ value)
+		{
+			mConverter = value;
+		}
 
 		EntryProxy::EntryProxy( EntryPtr entry )
 		{
 			mEntry = new SharedCLIPtr<Entry>(entry);
 
-			if (entry)
+			if (entry && mEntry->Value->GetFileName() != "")
 				mFilename = System::IO::Path::GetFullPath(gcnew String(mEntry->Value->GetFileName().c_str()));
 		}
 
@@ -121,6 +140,16 @@ namespace LevelEditor
 			return gcnew String(mEntry->Value->GetFileName().c_str());
 		}
 
+		void EntryProxy::Name::set(String^ value)
+		{
+		}
+
+		void EntryProxy::FileName::set(String^ value)
+		{
+			mFilename = value;
+			mEntry->Value->SetFileName((char*)System::Runtime::InteropServices::Marshal::StringToHGlobalAnsi(mFilename).ToPointer());
+		}
+
 		String^ EntryProxy::FileName::get()
 		{
 			return mFilename;
@@ -129,7 +158,11 @@ namespace LevelEditor
 		Common::IProxyObject^ EntryProxy::Data::get()
 		{
 			if (mData == nullptr)
-				mData = GameDataToProxyConverter::Convert(this, EditorTag);
+			{
+				IDataToProxyConverter^ converter = Category->Converter;
+				if (converter != nullptr)
+					mData = converter->Convert(mEntry);
+			}
 
 			return mData;
 		}
@@ -143,7 +176,6 @@ namespace LevelEditor
 		{
 			return mCategory->Name;
 		}
-
 		Common::IProxyObject^ GameDataToProxyConverter::Convert( SharedCLIPtr<Entry>* entry, String^ category )
 		{
 			IDataToProxyConverter^ converter = GetConverter(category);
@@ -171,6 +203,18 @@ namespace LevelEditor
 			mConverters[category] = comverter;
 		}
 
+		void GameDataToProxyConverter::RegisterFactory( String^ category, IEntryFactory^ factory )
+		{
+			mFactories[category] = factory;
+		}
+
+		EntryProxy^ GameDataToProxyConverter::CreateNewEntry( String^ category )
+		{
+			if (mFactories->ContainsKey(category))
+				return mFactories[category]->CreateNewEntry();
+
+			return nullptr;
+		}
 
 		LevelDataToProxyConverter::LevelDataToProxyConverter()
 		{
@@ -188,6 +232,5 @@ namespace LevelEditor
 			LevelProxy^ level = gcnew LevelProxy(lvl);
 			return level;
 		}
-
 	}
 }

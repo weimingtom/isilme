@@ -23,8 +23,15 @@ namespace LevelEditor
 			void AddLayer(LayerProxy^ layer);
 
 			void RemoveLayer(LayerProxy^ layer);
+
+			property String^ ID
+			{
+				String^ get();
+			}
 		private:
 			ObservableCollection<LayerProxy^>^ mLayers;
+
+			String^ mID;
 		internal:
 			SharedCLIPtr<Level>* mLevel;
 		};

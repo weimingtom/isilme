@@ -19,26 +19,6 @@ namespace LevelEditor
 		public:
 			ModuleProxy(MasterFilePtr masterFile);
 			virtual ~ModuleProxy();
-
-			void AddLevel(LevelProxy^ level);
-			void RemoveLevel(LevelProxy^ level);
-			void AddConversation(ConversationProxy^ conversation);
-			void RemoveConversation(ConversationProxy^ conversation);
-
-			property ObservableCollection<LevelProxy^>^ Levels
-			{
-				ObservableCollection<LevelProxy^>^ get();
-			}
-
-			property ObservableCollection<ConversationProxy^>^ Conversations
-			{
-				ObservableCollection<ConversationProxy^>^ get();
-			}
-
-			property StoryProxy^ Story
-			{
-				StoryProxy^ get();
-			}
 		
 			/// Categories of module
 			property ObservableCollection<CategoryProxy^>^ Categories
@@ -50,16 +30,16 @@ namespace LevelEditor
 			{
 				ModuleProxy^ get();
 			}
+
+			/// Gets category with name 
+			/// returns category or null
+			CategoryProxy^ GetCategory(String^ Name);
 		private:
 			/// Container for all game data
 			SharedCLIPtr<MasterFile>* mMasterFile;
 
 			/// Observable collection of categories
 			ObservableCollection<CategoryProxy^>^ mCategories;
-
-			ObservableCollection<LevelProxy^>^ mLevels;
-			ObservableCollection<ConversationProxy^>^ mConversations;
-			StoryProxy^ mStory;
 
 			/// Instance of module
 			static ModuleProxy^ mInstance;
@@ -82,6 +62,33 @@ namespace LevelEditor
 			{
 				String^ get();
 			}
+
+			/// Get or sets image source for icon in category
+			property System::Windows::Media::ImageSource^ Icon
+			{
+				System::Windows::Media::ImageSource^ get();
+				void set(System::Windows::Media::ImageSource^ value);
+			}
+
+			/// Gets or sets converter from native data to editable proxy object
+			property IDataToProxyConverter^ Converter
+			{
+				IDataToProxyConverter^ get();
+				void set(IDataToProxyConverter^ value);
+			}
+
+			/// Gets or sets factory for new entries in category
+			property IEntryFactory^ Factory
+			{
+				IEntryFactory^ get();
+				void set(IEntryFactory^ value);
+			}
+
+			/// Adds entry to category
+			void AddEntry(EntryProxy^ entry);
+
+			/// Removes entry from the category
+			void RemoveEntry(EntryProxy^ entry);
 		private:
 			/// Category
 			SharedCLIPtr<Category>* mCategory;
@@ -91,6 +98,12 @@ namespace LevelEditor
 
 			/// Observable collection of entries
 			ObservableCollection<EntryProxy^>^ mEntries;
+
+			IDataToProxyConverter^ mConverter;
+
+			IEntryFactory^ mFactory;
+
+			System::Windows::Media::ImageSource^ mIcon;
 		};
 
 		public ref class EntryProxy : public Common::IEditableData
@@ -99,16 +112,18 @@ namespace LevelEditor
 			EntryProxy(EntryPtr entry);
 			virtual ~EntryProxy();
 
-			/// Gets the short name of the entry
+			/// Gets or sets the short name of the entry
 			property String^ Name
 			{
 				String^ get();
+				void set(String^ value);
 			}
 
 			/// Gets the file name of the entry
 			property String^ FileName
 			{
 				virtual String^ get();
+				void set(String^ value);
 			}
 
 			property Common::IProxyObject^ Data
@@ -159,8 +174,15 @@ namespace LevelEditor
 
 			/// Gets converter for category
 			static IDataToProxyConverter^ GetConverter(String^ category);
+
+			/// Registers factory for entry
+			static void RegisterFactory(String^ category, IEntryFactory^ factory);
+
+			/// Creates new item for category
+			static EntryProxy^	CreateNewEntry(String^ category);
 		private:
-			static System::Collections::Generic::Dictionary<String^, IDataToProxyConverter^>^ mConverters = gcnew System::Collections::Generic::Dictionary<String^, IDataToProxyConverter^>();;
+			static System::Collections::Generic::Dictionary<String^, IDataToProxyConverter^>^ mConverters = gcnew System::Collections::Generic::Dictionary<String^, IDataToProxyConverter^>();
+			static System::Collections::Generic::Dictionary<String^, IEntryFactory^>^ mFactories = gcnew System::Collections::Generic::Dictionary<String^, IEntryFactory^>();
 		};
 	}
 }

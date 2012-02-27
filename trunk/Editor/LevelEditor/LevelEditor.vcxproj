@@ -60,7 +60,7 @@
       <AdditionalDependencies>engine_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)/Resources;$(BOOST_LIB);$(ISILME_LIB)</AdditionalLibraryDirectories>
       <Profile>true</Profile>
-      <EmbedManagedResourceFile>Resources/PaletteItem.png;Resources/FolderClosed.png;Resources/FolderOpen.png;Resources/Layers.png;Resources/Palette.png;Resources/Grid.png;Resources/Shapes.png;Resources/Brush.png;Resources/AddLayer.png;Resources/Select.png;Resources/Physics.png;%(EmbedManagedResourceFile)</EmbedManagedResourceFile>
+      <EmbedManagedResourceFile>Resources/Quest.png;Resources/Conversation.png;Resources/Script.png;Resources/Level.png;Resources/Up.png;Resources/Down.png;Resources/Top.png;Resources/Bottom.png;Resources/PaletteItem.png;Resources/FolderClosed.png;Resources/FolderOpen.png;Resources/Layers.png;Resources/Palette.png;Resources/Grid.png;Resources/Shapes.png;Resources/Brush.png;Resources/AddLayer.png;Resources/Select.png;Resources/Physics.png;%(EmbedManagedResourceFile)</EmbedManagedResourceFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -113,8 +113,10 @@
     <ClInclude Include="Proxy\ConversationProxy.h" />
     <ClInclude Include="Proxy\EntityPaletteProxy.h" />
     <ClInclude Include="Proxy\EntityProxy.h" />
+    <ClInclude Include="Proxy\EntryFactories.h" />
     <ClInclude Include="Proxy\FolderProxy.h" />
     <ClInclude Include="Proxy\IDataToProxyConverter.h" />
+    <ClInclude Include="Proxy\IEntryFactory.h" />
     <ClInclude Include="Proxy\LayerProxy.h" />
     <ClInclude Include="Proxy\LevelProxy.h" />
     <ClInclude Include="Proxy\ModuleProxy.h" />
@@ -159,6 +161,7 @@
     <ClCompile Include="IsilmeProxy.cpp" />
     <ClCompile Include="Proxy\ConversationProxy.cpp" />
     <ClCompile Include="Proxy\EntityPaletteProxy.cpp" />
+    <ClCompile Include="Proxy\EntryFactories.cpp" />
     <ClCompile Include="Proxy\FolderProxy.cpp" />
     <ClCompile Include="Proxy\LevelProxy.cpp" />
     <ClCompile Include="Proxy\ModuleProxy.cpp" />
@@ -192,9 +195,12 @@
     <None Include="ReadMe.txt" />
     <None Include="Resources\AddLayer.png" />
     <None Include="Resources\Brush.png" />
+    <None Include="Resources\FolderClosed.png" />
+    <None Include="Resources\FolderOpen.png" />
     <None Include="Resources\Grid.png" />
     <None Include="Resources\Layers.png" />
     <None Include="Resources\Palette.png" />
+    <None Include="Resources\PaletteItem.png" />
     <None Include="Resources\Physics.png" />
     <None Include="Resources\Select.png" />
     <None Include="Resources\Shapes.png" />

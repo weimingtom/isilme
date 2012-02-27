@@ -18,6 +18,8 @@
 #include "Proxy/ScriptProxy.h"
 #include "FactoryManager.h"
 #include "../Core/Serialisation/MasterLoader.h"
+#include "ResourceHelper.h"
+#include "Proxy/EntryFactories.h"
 
 using namespace System::Threading;
 
@@ -72,16 +74,34 @@ namespace LevelEditor
 			// Register custom loaders
 			FactoryManager::GetSingleton()->GetLoader()->Add("Scripts", serialisation::EntryLoaderPtr(new serialisation::EditableScirptLoader()));
 
-			// Register converters to Proxy
-			GameDataToProxyConverter::RegisterConverter("Levels", gcnew LevelDataToProxyConverter());
-			GameDataToProxyConverter::RegisterConverter("Story", gcnew StoryConverter());
-			GameDataToProxyConverter::RegisterConverter("Scripts", gcnew ScriptDataToProxyConverter());
-
 			mHGE->System_Initiate();
 			EditorState* estate = new EditorState();
 			StatePtr state(estate);
 
 			FactoryManager::GetSingleton()->LoadMasterFile("../Data/Master.imf");
+
+			// Register converters to Proxy
+			CategoryProxy^ levelsCtg = ModuleProxy::Instance->GetCategory("Levels");
+			if (levelsCtg != nullptr)
+			{
+				levelsCtg->Converter = gcnew LevelDataToProxyConverter();
+				levelsCtg->Icon = ResourceHelper::GetPngSource("Level.png");
+				levelsCtg->Factory = gcnew LevelEntryFactory();
+			}
+			CategoryProxy^ storyCtg = ModuleProxy::Instance->GetCategory("Story");
+			if (storyCtg != nullptr)
+			{
+				storyCtg->Converter = gcnew StoryConverter();
+				storyCtg->Icon = ResourceHelper::GetPngSource("Quest.png");
+			}
+			CategoryProxy^ scriptsCtg = ModuleProxy::Instance->GetCategory("Scripts");
+			if (scriptsCtg != nullptr)
+			{
+				scriptsCtg->Converter = gcnew ScriptDataToProxyConverter();
+				scriptsCtg->Icon = ResourceHelper::GetPngSource("Script.png");
+				scriptsCtg->Factory = gcnew ScriptEntryFactory();
+			}
+
 			//FactoryManager::GetSingleton()->LoadGraphics("../Data/Graphics.xml");
 			//FactoryManager::GetSingleton()->LoadEntities("../Data/Entities.xml");
 			LevelEditor::View::EntityPaletteTool::Instance->Palette = gcnew EntityPaletteProxy(FactoryManager::GetSingleton()->GetEntityPalette());

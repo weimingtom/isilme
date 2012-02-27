@@ -21,6 +21,30 @@ namespace IDE.Views
         public NewFileWizard()
         {
             InitializeComponent();
+            mFileTypeList.DataContext = LevelEditor.Proxy.ModuleProxy.Instance.Categories;
+        }
+
+        private void mCancelBtn_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+            Close();
+        }
+
+        private void mOkBtn_Click(object sender, RoutedEventArgs e)
+        {
+            LevelEditor.Proxy.CategoryProxy category = mFileTypeList.SelectedItem as LevelEditor.Proxy.CategoryProxy;
+            if (category.Factory != null)
+            {
+                LevelEditor.Proxy.EntryProxy entry = category.Factory.CreateNewEntry();
+                category.AddEntry(entry);
+                entry.FileName = "../Data/" + category.Name + "/" + mFileName.Text;
+                DialogResult = true;
+            }
+            else
+            {
+                DialogResult = false;
+            }
+            Close();
         }
     }
 }

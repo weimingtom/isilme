@@ -45,5 +45,11 @@ namespace IDE.Views
                 // Execute command for opening entry editor
             }
         }
+
+        private void mNewBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NewFileWizard wizardWindow = new NewFileWizard();
+            wizardWindow.ShowDialog();
+        }
     }
 }

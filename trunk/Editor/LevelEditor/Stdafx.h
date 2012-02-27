@@ -24,6 +24,9 @@ namespace LevelEditor
 	{
 		value class Point;
 		interface class IHierarchicalProxy;
+		interface class IDataToProxyConverter;
+		interface class IEntryFactory;
+
 		ref class FolderProxy;
 		ref class PaletteItemProxy;
 		ref class EntityPaletteProxy;
@@ -35,6 +38,10 @@ namespace LevelEditor
 		ref class StoryProxy;
 		ref class QuestProxy;
 		ref class StageProxy;
+
+		ref class EntryProxy;
+		ref class CategoryProxy;
+		ref class ModuleProxy;
 	}
 
 	namespace Commands

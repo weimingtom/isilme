@@ -110,6 +110,9 @@
       <Filter>Proxy</Filter>
     </ClCompile>
     <ClCompile Include="ResourceHelper.cpp" />
+    <ClCompile Include="Proxy\EntryFactories.cpp">
+      <Filter>Proxy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HGEProxyGame.h" />
@@ -232,6 +235,12 @@
       <Filter>Proxy</Filter>
     </ClInclude>
     <ClInclude Include="ResourceHelper.h" />
+    <ClInclude Include="Proxy\IEntryFactory.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\EntryFactories.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
@@ -261,6 +270,15 @@
       <Filter>Resources</Filter>
     </None>
     <None Include="Resources\Layers.png">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\FolderClosed.png">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\FolderOpen.png">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\PaletteItem.png">
       <Filter>Resources</Filter>
     </None>
   </ItemGroup>

@@ -81,6 +81,9 @@ public:
 
 	/// Gets name of file with entry definition
 	std::string GetFileName();
+
+	/// Sets file name
+	void SetFileName(std::string value);
 private:
 	/// Filename
 	std::string mFilename;

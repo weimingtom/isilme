@@ -25,7 +25,7 @@ namespace LevelEditor
 			image->Source = ResourceHelper::GetPngSource("AddLayer.png");
 			mAddLayerBtn->Content = image;
 			mAddLayerBtn->Command = LevelEditorWindow::AddLayerCommand;
-			mBrushToolBtn->ToolTip = "Add layer";
+			mAddLayerBtn->ToolTip = "Add layer";
 
 			// ¬ключить сетку
 			System::Windows::Controls::CheckBox^ mActivateGridBtn = gcnew CheckBox();

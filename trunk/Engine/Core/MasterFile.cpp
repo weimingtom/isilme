@@ -89,3 +89,8 @@ std::string Entry::GetFileName()
 {
 	return mFilename;
 }
+
+void Entry::SetFileName( std::string value )
+{
+	mFilename = value;
+}

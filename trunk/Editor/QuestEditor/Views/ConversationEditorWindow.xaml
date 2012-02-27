@@ -19,7 +19,7 @@
                 </StackPanel>
             </HierarchicalDataTemplate>
         </Grid.Resources>
-        <TreeView Name="mConvesationTree">
+        <TreeView Name="mConvesationTree" Margin="0,62,0,0">
             <TreeView.Items>
                 <TreeViewItem Name="mConvItem" Header="Dialog" ItemTemplate="{StaticResource ResourceKey=PhraseTemplate}" ItemsSource="{Binding Path=Phrases}"></TreeViewItem>
             </TreeView.Items>

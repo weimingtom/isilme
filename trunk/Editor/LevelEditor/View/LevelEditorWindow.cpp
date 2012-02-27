@@ -267,6 +267,8 @@ namespace LevelEditor
 		void LevelEditorWindow::ExecutedAddLayer( Object^ sender, ExecutedRoutedEventArgs^ e )
 		{
 			LayerProxy^ layer = gcnew LayerProxy(LayerPtr(new ::Layer()));
+			layer->Name = "Layer";
+			layer->Name += mLevel->Layers->Count;
 			Commands::AddLayer^ command = gcnew Commands::AddLayer(mLevel, layer);
 			CommandManager->Execute(command);
 		}
@@ -369,7 +371,8 @@ namespace LevelEditor
 
 			ObjectManager::Instance->Editor = this;
 
-			mEntityBrush->Layer = mLevel->Layers[0];
+			if (mLevel->Layers->Count > 0)
+				mEntityBrush->Layer = mLevel->Layers[0];
 
 			mScrollTool->Level = Level;
 

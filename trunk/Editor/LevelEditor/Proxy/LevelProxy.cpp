@@ -24,6 +24,8 @@ namespace LevelEditor
 				mLayers->Add(layer);
 				layer->mLevel = this;
 			}
+
+			mID = gcnew String(level->GetID().c_str());
 		}
 
 		LevelProxy::~LevelProxy()
@@ -35,15 +37,19 @@ namespace LevelEditor
 		{
 			mLevel->Value->AddLayer(layer->mLayer->Value);
 			mLayers->Add(layer);
-			layer->mLevel = nullptr;
+			layer->mLevel = this;
 		}
 
 		void LevelProxy::RemoveLayer( LayerProxy^ layer )
 		{
 			mLevel->Value->RemoveLayer(layer->mLayer->Value);
 			mLayers->Remove(layer);
-			layer->mLevel = this;
+			layer->mLevel = nullptr;
 		}
 
+		String^ LevelProxy::ID::get()
+		{
+			return mID;
+		}
 	}
 }
