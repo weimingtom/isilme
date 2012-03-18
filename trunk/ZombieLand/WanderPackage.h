@@ -1,10 +1,7 @@
 #ifndef AI_PACKAGES_WANDER_H
 #define AI_PACKAGES_WANDER_H
 
-#include <Isilme.h>
-#include "Definitions.h"
-#include <Engine/include/AIPackage.h>
-#include "../Core/AIPackageDef.h"
+#include "../Definitions.h"
 
 class WanderPackage : public AIPackage
 {

@@ -113,6 +113,9 @@
     <ClCompile Include="Action\AvoidPackage.cpp" />
     <ClCompile Include="Action\Control.cpp" />
     <ClCompile Include="Action\ControlPackage.cpp" />
+    <ClCompile Include="ZombielandPCH.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
     <ClInclude Include="Actions\KeepHealthPackage.h" />
     <ClInclude Include="Action\Avoid.h" />
     <ClInclude Include="Action\AvoidPackage.h" />
@@ -130,8 +133,11 @@
     <ClCompile Include="Action\Wind.cpp" />
     <ClCompile Include="Behaviour\Activator.cpp" />
     <ClCompile Include="Behaviour\Bullet.cpp" />
+    <ClCompile Include="Behaviour\Container.cpp" />
     <ClCompile Include="Behaviour\Creature.cpp" />
-    <ClCompile Include="Behaviour\Destroyable.cpp" />
+    <ClCompile Include="Behaviour\Destroyable.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">bDestroyable</ObjectFileName>
+    </ClCompile>
     <ClCompile Include="Behaviour\Door.cpp" />
     <ClCompile Include="Behaviour\Item.cpp" />
     <ClCompile Include="Graphics\Creature.cpp">
@@ -147,10 +153,9 @@
     <ClCompile Include="Sources\Configuration.cpp" />
     <ClCompile Include="sources\ScriptAPI.cpp" />
     <ClCompile Include="Sources\ZombieLand.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ZombieLand.h</PrecompiledHeaderFile>
     </ClCompile>
-    <ClCompile Include="State\Editor.cpp" />
     <ClCompile Include="State\Play.cpp" />
     <ClCompile Include="WanderPackage.cpp" />
   </ItemGroup>
@@ -178,6 +183,9 @@
     <None Include="..\Data\Scripts\script.lua" />
     <None Include="..\Data\Scripts\Triggers.lua" />
     <None Include="..\Data\Story.story" />
+    <None Include="Data\NewPackages.xml">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action\AgressionPackage.h" />
@@ -197,11 +205,11 @@
     <ClInclude Include="Action\Wind.h" />
     <ClInclude Include="Behaviour\Activator.h" />
     <ClInclude Include="Behaviour\Bullet.h" />
+    <ClInclude Include="Behaviour\Container.h" />
     <ClInclude Include="Behaviour\Creature.h" />
     <ClInclude Include="Behaviour\Destroyable.h" />
     <ClInclude Include="Behaviour\Door.h" />
     <ClInclude Include="Behaviour\Item.h" />
-    <ClInclude Include="ControlPad.h" />
     <ClInclude Include="Graphics\Creature.h" />
     <ClInclude Include="Graphics\Destroyable.h" />
     <ClInclude Include="Include\Cameras.h" />
@@ -213,7 +221,6 @@
     <ClInclude Include="Items\Spell.h" />
     <ClInclude Include="Items\Weapon.h" />
     <ClInclude Include="LootTable.h" />
-    <ClInclude Include="State\Editor.h" />
     <ClInclude Include="State\Play.h" />
     <ClInclude Include="WanderPackage.h" />
   </ItemGroup>

@@ -11,7 +11,7 @@ AgressionPackage::~AgressionPackage()
 {
 }
 
-ActionPtr AgressionPackage::CreateAction()
+ActionPtr AgressionPackage::CreateAction() const
 {
 	action::AttackTarget* a = new action::AttackTarget();
 	a->SetDuration(2.0f);
@@ -19,11 +19,12 @@ ActionPtr AgressionPackage::CreateAction()
 	return ActionPtr(a);
 }
 
-bool AgressionPackage::CheckCondition()
+bool AgressionPackage::IsApplicable(BehaviourPtr b) const
 {
-	behaviour::CreaturePtr c = GetEntity()->As<behaviour::Creature>();
-	c->SetTarget();
-	return c->GetTarget() != 0;
+	return false;
+	//behaviour::CreaturePtr c = GetEntity()->As<behaviour::Creature>();
+	//c->SetTarget();
+	//return c->GetTarget() != 0;
 }
 
 AIPackagePtr AgressionPackageDef::CreatePackage()

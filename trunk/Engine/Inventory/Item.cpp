@@ -2,8 +2,8 @@
 #include "Item.h"
 #include "Inventory.h"
 #include "ItemDef.h"
-#include "SoundSystem.h"
-#include "ResourceManager.h"
+#include "Core/SoundSystem.h"
+#include "Core/ResourceManager.h"
 
 namespace inventory
 {
@@ -100,7 +100,7 @@ int		Item::GetAmmo()
 
 void	Item::SetAmmo(int count)
 {
-	mAmmo = min(count, mMaxAmmo);
+	mAmmo = std::min(count, mMaxAmmo);
 }
 
 int		Item::GetMaxAmmo()

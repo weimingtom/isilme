@@ -1,24 +1,14 @@
 #ifndef ZOMBIELAND_BEHAVIOUR_CREATURE_H
 #define ZOMBIELAND_BEHAVIOUR_CREATURE_H
 
-#include <Isilme.h>
-#include "ZombieLand/Include/Definitions.h"
+#include "../Definitions.h"
 #include "Destroyable.h"
-#include "Engine/Inventory/Inventory.h"
-#include "Engine/Inventory/Item.h"
-#include "Engine/Quest/Conversation.h"
-#include <luabind/luabind.hpp>
+#include "Container.h"
+#include "Activator.h"
 
 namespace behaviour
 {
-	struct FractionInfo
-	{
-	public:
-		std::string id;
-		int	rank;
-	};
-
-	class CreatureDef : public DestroyableDef
+	class CreatureDef : public BehaviourDefinition
 	{
 	public:
 		virtual BehaviourPtr Create();
@@ -36,16 +26,26 @@ namespace behaviour
 		float	EnergyRestoration;
 
 		luabind::object OnThink;
-		std::list<FractionInfo> Fractions;
-		std::list<std::string> AIPackages;
+
 		std::string Conversation;
+
+		/// Definition of the AI
+		AIBehaviourDef AIDef;
+
+		/// Definition of inventory
+		ContainerDef containerDef;
+
+		DestroyableDef destroyableDef;
 	};
 
-	class Creature : public Destroyable
+	class Creature : public AIBehaviour, public Destroyable, public story::Speaker/*, public Steerable*/, public Activator, public Container
 	{
 	public:
-		Creature(CreatureDef* def);
+		Creature();
 		virtual ~Creature();
+
+		/// Initiate behaviour by data
+		void Init(CreatureDef* def);
 
 		action::MovePtr GetMoveAction();
 
@@ -62,7 +62,7 @@ namespace behaviour
 
 		action::AttackPtr GetAttackAction();
 
-		virtual void	Think(float elapsedTIme);
+		virtual void	OnUpdate(float elapsedTIme);
 
 		void	RotateToPoint(Vector2 position);
 
@@ -77,21 +77,6 @@ namespace behaviour
 
 		/// Возвращает максимальный запас энергии
 		float	GetMaxEnergy();
-
-		/// Возвращает ранг во фракции
-		int GetRank(FractionPtr fraction);
-
-		/// Возвращает ранг во фракции 
-		int GetRank(std::string fractionID);
-
-		/// Устанавливает ранг
-		void	SetRank(FractionPtr fraction, int rank);
-
-		/// Устанавливает ранг
-		void	SetRank(std::string fractionID, int rank);	
-
-		/// Возвращает отношение к другому персонажу
-		int		GetAttitudeTo(CreaturePtr creature);
 
 		/// Переключение оружия
 		void	NextWeapon();
@@ -109,6 +94,7 @@ namespace behaviour
 		void	Respawn();
 
 		void	SetTarget();
+
 		void	ClearTarget();
 
 		EntityPtr GetTarget();
@@ -124,9 +110,11 @@ namespace behaviour
 
 		/// Запускает диалог с персонажем
 		virtual void	OnUse(CreaturePtr creature);
+
+		virtual void OnDie() override;
+
+		ActionPtr GetDieAction();
 	protected:
-		/// Диалог с персонажем
-		std::string mConversationID;
 
 		void UpdateEnemiesList();
 		EntityPtr	mTarget;
@@ -138,8 +126,6 @@ namespace behaviour
 	
 		Vector2	mCheckPoint;
 
-		/// Фракции персонажа
-		std::map<FractionPtr, int>	mFractions;
 
 		/// Состояния
 		action::MovePtr	mMoveAction;
@@ -162,6 +148,8 @@ namespace behaviour
 
 		/// Список ближайших врагов
 		std::vector<CreaturePtr> mEnemies;
+
+		action::DiePtr	mDieAction;
 };
 
 };

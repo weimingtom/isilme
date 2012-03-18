@@ -1,0 +1,27 @@
+<Level Name="">
+    <World Gravity="0.000000, 9.800000" />
+    <Layer Name="Ground">
+        <Entity Name="GameObject_1cf" Type="Terrain/Grass" Position="2.000000, 2.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_1d3" Type="Terrain/Grass" Position="6.000000, 2.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_1d4" Type="Terrain/Grass" Position="10.000000, 2.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_1d9" Type="Terrain/Grass" Position="2.000000, 6.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_1da" Type="Terrain/Grass" Position="6.000000, 6.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_1db" Type="Terrain/Grass" Position="10.000000, 6.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_1de" Type="Terrain/Grass" Position="2.000000, 10.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_1e0" Type="Terrain/Grass" Position="6.000000, 10.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_1f2" Type="Terrain/Grass" Position="10.000000, 10.000000, 0.000000" Scale="1" />
+    </Layer>
+    <Layer Name="Trees">
+        <Entity Name="GameObject_1f3" Type="Trees/Tree1" Position="2.000000, 2.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_1f7" Type="Trees/Tree1" Position="10.000000, 2.000000, 1.570796" Scale="1" />
+        <Entity Name="GameObject_1fa" Type="Trees/Tree1" Position="2.000000, 6.000000, 6.283185" Scale="1" />
+        <Entity Name="GameObject_1fb" Type="Trees/Tree2" Position="10.000000, 8.000000, 6.283185" Scale="1" />
+        <Entity Name="GameObject_1fc" Type="Trees/Tree2" Position="8.000000, 10.000000, 6.283185" Scale="1" />
+        <Entity Name="GameObject_200" Type="Trees/Tree2" Position="5.000000, 10.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_201" Type="Trees/Tree2" Position="3.000000, 11.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_205" Type="Trees/Tree2" Position="6.000000, 11.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_20d" Type="Trees/Tree2" Position="9.000000, 11.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_20e" Type="Trees/Tree2" Position="11.000000, 10.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_211" Type="Trees/Tree2" Position="12.000000, 7.000000, 0.000000" Scale="1" />
+    </Layer>
+</Level>

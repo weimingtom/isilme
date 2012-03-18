@@ -89,12 +89,13 @@
     <ClCompile Include="Action\AvoidPackage.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
-    <ClCompile Include="State\Editor.cpp">
-      <Filter>States</Filter>
-    </ClCompile>
     <ClCompile Include="Behaviour\Door.cpp">
       <Filter>Behaviour</Filter>
     </ClCompile>
+    <ClCompile Include="Behaviour\Container.cpp">
+      <Filter>Behaviour</Filter>
+    </ClCompile>
+    <ClCompile Include="ZombielandPCH.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Configuration.h" />
@@ -182,9 +183,6 @@
     <ClInclude Include="Action\ControlKeyMouse.h">
       <Filter>Actions</Filter>
     </ClInclude>
-    <ClInclude Include="ControlPad.h">
-      <Filter>Actions</Filter>
-    </ClInclude>
     <ClInclude Include="WanderPackage.h">
       <Filter>Actions</Filter>
     </ClInclude>
@@ -203,14 +201,14 @@
     <ClInclude Include="Action\AvoidPackage.h">
       <Filter>Actions</Filter>
     </ClInclude>
-    <ClInclude Include="State\Editor.h">
-      <Filter>States</Filter>
-    </ClInclude>
     <ClInclude Include="Behaviour\Door.h">
       <Filter>Behaviour</Filter>
     </ClInclude>
     <ClInclude Include="Actions\KeepHealthPackage.h">
       <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Behaviour\Container.h">
+      <Filter>Behaviour</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -269,6 +267,9 @@
       <Filter>Data</Filter>
     </None>
     <None Include="..\Data\Story.story">
+      <Filter>Data</Filter>
+    </None>
+    <None Include="Data\NewPackages.xml">
       <Filter>Data</Filter>
     </None>
   </ItemGroup>

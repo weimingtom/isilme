@@ -1,8 +1,7 @@
 #ifndef ACTION_WANDER_H
 #define ACTION_WANDER_H
 
-#include <Engine/include/Isilme.h>
-#include "ZombieLand/Include/Definitions.h"
+#include "../Definitions.h"
 
 namespace action
 {

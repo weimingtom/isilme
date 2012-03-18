@@ -1,90 +1,98 @@
 #ifndef ZOMBIELAND_BEHAVIOUR_DESTROYABLE_H
 #define ZOMBIELAND_BEHAVIOUR_DESTROYABLE_H
 
-#include <Isilme.h>
+#include <Engine/Isilme.h>
 #include "ZombieLand/Action/Die.h"
 #include "Activator.h"
 
 namespace behaviour
 {
-	struct ItemInfo
-	{
-	public:
-		std::string tag;
-		int			ammo;
-		bool		equip;
-	};
-
-	class DestroyableDef : public ActivatorDef
+	class DestroyableDef
 	{
 	public:
 		DestroyableDef();
 
-		virtual BehaviourPtr Create();
 		virtual void Parse(TiXmlElement* element);
-
-		/// Чтение данных инвентаря
-		void	ParseInventory(TiXmlElement* inventoryElement);
 
 		float	Health;
 		float	MaxHealth;
 		float	Resistance;
 		std::string Blood;
-		std::string Loot;
-		std::list<ItemInfo>	Items;
 	};
 
-	class Destroyable : public Activator
+	/// @interface IDestroyable
+	class IDestroyable
 	{
 	public:
-		Destroyable(DestroyableDef* def);
+		virtual ~IDestroyable() {};
+
+		/// Gets health of the object
+		virtual float	GetHealth() const = 0;
+
+		/// Sets health of the object
+		virtual void	SetHealth(float health) = 0;
+
+		/// Gets maximum health for the object
+		virtual float	GetMaxHealth() const = 0;
+
+		/// Sets maximum health for the object
+		virtual void	SetMaxHealth(float health) = 0;
+
+		/// Gets resistance for the object
+		virtual float	GetResistance() const = 0;
+
+		/// Sets resistance
+		virtual void	SetResistance(float resistance) = 0;
+
+		/// Implements getting damage
+		virtual void	Damage(float damage) = 0;
+
+		/// Callback for die event
+		virtual void OnDie() = 0;
+	};
+
+	/// @class Destroyable
+	/// Simple destroyable implementation
+	class Destroyable : public IDestroyable
+	{
+	public:
+		Destroyable();
 		virtual ~Destroyable();
 
+		void Init(DestroyableDef* def);
+
 		/// Возврашщает здоровье объекта
-		float	GetHealth();
+		virtual float	GetHealth() const;
 
 		/// Установить здоровье
-		void	SetHealth(float health);
+		virtual void	SetHealth(float health);
 
 		/// Возвращает максимум здоровья
-		float	GetMaxHealth();
+		virtual float	GetMaxHealth() const;
 
 		/// Установить максимум здоровья
-		void	SetMaxHealth(float health);
+		virtual void	SetMaxHealth(float health);
 
 		/// Возвращает сопротивляемость
-		float	GetResistance();
+		virtual float	GetResistance() const;
 
 		/// Установить сопротивляемость
-		void	SetResistance(float resistance);
+		virtual void	SetResistance(float resistance);
 
 		/// Получить урон с учетом сопротивляемости
-		void	Damage(float damage);
-
-		action::DiePtr	GetDieAction();
-
-		virtual void	Think(float elapsedTime);
+		virtual void	Damage(float damage);
 
 		void	SetHitSound(std::string sound);
-
-		/// Возвращает снаряжение
-		inventory::InventoryPtr	GetInventory();
 		
 		void	SetBloodEntity(std::string blood);
-
-		/// Таблица выпадающих предметов 
-		LootTablePtr GetLootTable();
 	protected:
 	private:
 		float	mHealth;
 		float	mMaxHealth;
 		float	mResistance;
 
-		action::DiePtr	mDieAction;
 		HEFFECT mHitSound;
 		std::string mBlood;
-		std::string mLoot;
-		inventory::InventoryPtr	mInventory;
 	};
 
 };

@@ -1,8 +1,8 @@
 #ifndef ISILME_CORE_MASTERFILE_H
 #define ISILME_CORE_MASTERFILE_H
 
-#include "Definitions.h"
-#include "Engine/Quest/Quests.h"
+#include "../Definitions.h"
+#include "../Story/Quests.h"
 
 class ISILME_API MasterFile
 {

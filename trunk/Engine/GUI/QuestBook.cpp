@@ -1,9 +1,9 @@
 #include "IsilmePCH.h"
 #include "QuestBook.h"
-#include "Engine/Quest/Quest.h"
-#include "Engine/Quest/Story.h"
-#include "Engine/Quest/Stage.h"
-#include "Engine/Quest/Quest.h"
+#include "Engine/Story/Quest.h"
+#include "Engine/Story/Story.h"
+#include "Engine/Story/Stage.h"
+#include "Engine/Story/Quest.h"
 
 namespace gcn
 {

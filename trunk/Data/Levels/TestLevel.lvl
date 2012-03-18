@@ -406,20 +406,20 @@
         <Entity Name="GameObject_156" Type="Items/Weapons/Gun" Position="10.000000, 14.000000, 1.000000" Scale="1" />
         <Entity Name="GameObject_157" Type="Items/Weapons/AK47" Position="18.000000, 5.000000, 1.000000" Scale="1" />
         <Entity Name="GameObject_158" Type="Items/Weapons/AK47" Position="5.000000, 43.000000, 1.000000" Scale="1" />
-        <Entity Name="GameObject_1c2" Type="Trash/Box" Position="5.514761, 14.155662, 0.000089" Scale="1" />
-        <Entity Name="GameObject_1c3" Type="Trash/Box" Position="6.529371, 14.078367, 0.000338" Scale="1" />
-        <Entity Name="GameObject_1c4" Type="Trash/Box" Position="7.544065, 14.219047, 0.000542" Scale="1" />
-        <Entity Name="GameObject_1e9" Type="Trash/Box" Position="5.513126, 2.484671, 3.141679" Scale="1" />
-        <Entity Name="GameObject_1ea" Type="Trash/Box" Position="6.524475, 2.484832, 3.141825" Scale="1" />
-        <Entity Name="GameObject_1eb" Type="Trash/Box" Position="7.537233, 2.484851, 3.141901" Scale="1" />
+        <Entity Name="GameObject_1c2" Type="Trash/Box" Position="5.514822, 14.155662, 0.000067" Scale="1" />
+        <Entity Name="GameObject_1c3" Type="Trash/Box" Position="6.529530, 14.078367, 0.000255" Scale="1" />
+        <Entity Name="GameObject_1c4" Type="Trash/Box" Position="7.544301, 14.219047, 0.000410" Scale="1" />
+        <Entity Name="GameObject_1e9" Type="Trash/Box" Position="5.513836, 2.484671, 3.141673" Scale="1" />
+        <Entity Name="GameObject_1ea" Type="Trash/Box" Position="6.526695, 2.484832, 3.141800" Scale="1" />
+        <Entity Name="GameObject_1eb" Type="Trash/Box" Position="7.540382, 2.484848, 3.141875" Scale="1" />
         <Entity Name="GameObject_231" Type="Items/Ammo/AK47" Position="45.500000, 2.500000, 3.141593" Scale="1" />
         <Entity Name="GameObject_232" Type="Items/Ammo/AK47" Position="45.500000, 2.000000, 3.141593" Scale="1" />
-        <Entity Name="GameObject_235" Type="Trash/Box" Position="44.508221, 2.493622, 3.123929" Scale="1" />
-        <Entity Name="GameObject_236" Type="Trash/Box" Position="44.510887, 1.477481, 3.125872" Scale="1" />
-        <Entity Name="GameObject_237" Type="Trash/Box" Position="43.488770, 1.489046, 3.120127" Scale="1" />
-        <Entity Name="GameObject_238" Type="Trash/Box" Position="43.491783, 2.504605, 3.120938" Scale="1" />
-        <Entity Name="GameObject_239" Type="Trash/Box" Position="38.516129, -3.490386, 3.141133" Scale="1" />
-        <Entity Name="GameObject_23a" Type="Trash/Box" Position="38.518360, -2.484442, 3.140253" Scale="1" />
+        <Entity Name="GameObject_235" Type="Trash/Box" Position="44.508221, 2.493622, 3.123910" Scale="1" />
+        <Entity Name="GameObject_236" Type="Trash/Box" Position="44.510887, 1.477469, 3.125836" Scale="1" />
+        <Entity Name="GameObject_237" Type="Trash/Box" Position="43.488770, 1.489042, 3.120140" Scale="1" />
+        <Entity Name="GameObject_238" Type="Trash/Box" Position="43.491783, 2.504609, 3.120947" Scale="1" />
+        <Entity Name="GameObject_239" Type="Trash/Box" Position="38.516129, -3.486658, 3.141628" Scale="1" />
+        <Entity Name="GameObject_23a" Type="Trash/Box" Position="38.518360, -2.474222, 3.141631" Scale="1" />
         <Entity Name="GameObject_23b" Type="Buildings/Trash1" Position="38.500000, -1.000000, 0.000000" Scale="1" />
     </Layer>
     <Layer Name="Zombies">
@@ -428,7 +428,7 @@
         <Entity Name="GameObject_15b" Type="Creatures/Civilian1" Position="6.000000, 43.000000, 1.000000" Scale="1" />
         <Entity Name="GameObject_15c" Type="Creatures/Bandit1" Position="12.000000, 44.000000, 1.000000" Scale="1" />
         <Entity Name="GameObject_15d" Type="Creatures/Civilian1" Position="10.000000, 43.000000, 1.000000" Scale="1" />
-        <Entity Name="GameObject_15e" Type="Creatures/Civilian1" Position="9.149614, 45.369549, 0.828518" Scale="1" />
+        <Entity Name="GameObject_15e" Type="Creatures/Civilian1" Position="9.149584, 45.369530, 0.828637" Scale="1" />
         <Entity Name="doorA" Type="Doors/Simple" Position="7.000000, 12.000000, 0.000000" Scale="1" />
         <Entity Name="Player" Type="Player" Position="9.000000, 12.000000, 1.000000" Scale="1" />
         <Entity Name="GameObject_15f" Type="Creatures/Civilian1" Position="12.000000, 12.000000, 1.000000" Scale="1" />
@@ -436,7 +436,7 @@
         <Entity Name="GameObject_161" Type="Creatures/Bandit1" Position="32.000000, 26.000000, 1.000000" Scale="1" />
         <Entity Name="GameObject_162" Type="Creatures/Bandit1" Position="34.000000, 27.000000, 1.000000" Scale="1" />
         <Entity Name="GameObject_163" Type="Creatures/Police1" Position="8.000000, 43.000000, 1.000000" Scale="1" />
-        <Entity Name="GameObject_164" Type="Creatures/Police1" Position="8.634792, 44.463890, 0.827580" Scale="1" />
+        <Entity Name="GameObject_164" Type="Creatures/Police1" Position="8.634769, 44.463863, 0.827678" Scale="1" />
         <Entity Name="GameObject_165" Type="Creatures/Police1" Position="34.261303, 30.435106, 1.015788" Scale="1" />
         <Entity Name="GameObject_166" Type="Creatures/Police1" Position="33.738697, 29.564894, 1.015788" Scale="1" />
         <Entity Name="GameObject_167" Type="Creatures/Civilian1" Position="40.000000, 25.000000, 1.000000" Scale="1" />
@@ -453,10 +453,10 @@
     <Layer Name="Containers">
         <Entity Name="GameObject_16d" Type="Trash/Box" Position="11.898697, 9.975270, 0.139321" Scale="1" />
         <Entity Name="GameObject_16e" Type="Trash/Box" Position="13.101303, 10.524730, 0.145425" Scale="1" />
-        <Entity Name="GameObject_16f" Type="Trash/Box" Position="12.048875, 48.002415, 0.025448" Scale="1" />
+        <Entity Name="GameObject_16f" Type="Trash/Box" Position="12.048880, 48.006260, 0.025448" Scale="1" />
         <Entity Name="GameObject_170" Type="Trash/Box" Position="11.480884, 46.485020, 0.000002" Scale="1" />
-        <Entity Name="GameObject_171" Type="Trash/Box" Position="9.740179, 46.485176, 0.000166" Scale="1" />
-        <Entity Name="GameObject_172" Type="Trash/Box" Position="10.365618, 45.485851, 0.220466" Scale="1" />
+        <Entity Name="GameObject_171" Type="Trash/Box" Position="9.740191, 46.485111, 0.000105" Scale="1" />
+        <Entity Name="GameObject_172" Type="Trash/Box" Position="10.365659, 45.485672, 0.220481" Scale="1" />
     </Layer>
     <Layer Name="Fencies">
         <Entity Name="GameObject_173" Type="Fencies/Stone" Position="4.500000, 6.000000, 0.000000" Scale="1" />

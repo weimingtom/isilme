@@ -1,6 +1,8 @@
 #ifndef ISILME_PCH_H
 #define ISILME_PCH_H
 
+#define NOMINMAX
+
 #ifdef _DEBUG
 #define _CRTDBG_MAP_ALLOC
 #include <stdlib.h>

@@ -6,10 +6,30 @@
 #include <list>
 #include <set>
 #include <map>
+#include <string>
 
+#include <Engine/Isilme.h>
 
-#include "Engine/Inventory/Inventory.h"
-#include "Engine/Inventory/Item.h"
+#include "Engine/GUI/ProgressBar.h"
+#include "Engine/GUI/HGELabel.h"
+#include "Engine/GUI/QuestBook.h"
+#include "Engine/GUI/InventoryWindow.h"
+#include "Engine/GUI/ConversationWindow.h"
+
+#include <Engine/Story/Quests.h>
+#include <Engine/Story/Stage.h>
+#include <Engine/Story/Story.h>
+#include <Engine/Story/Phrase.h>
+#include <Engine/Story/Conversation.h>
+#include <Engine/Story/Quest.h>
+#include <Engine/Story/Speaker.h>
+
+#include <Engine/AI/AI.h>
+
+#include <Engine/Palette/AIPalette.h>
+
+#include <Engine/Inventory/Inventory.h>
+#include <Engine/Inventory/Item.h>
 
 namespace behaviour
 {
@@ -59,15 +79,6 @@ namespace action
 	class Avoid;
 	typedef boost::shared_ptr<Avoid> AvoidPtr;
 	typedef boost::weak_ptr<Avoid> AvoidWPtr;
-};
-
-enum Attribute
-{
-	Health = 0,
-	Speed = 1,
-	Accuracy = 2,
-	Endurance = 3,
-	Energy = 4
 };
 
 namespace state

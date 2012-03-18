@@ -1,6 +1,5 @@
 #include "ZombieLand.h"
 #include "ZombieLand/State/Play.h"
-#include "ZombieLand/State/Editor.h"
 #include "ZombieLand/Graphics/Creature.h"
 #include "ZombieLand/Behaviour/Creature.h"
 #include "ZombieLand/Behaviour/Bullet.h"
@@ -11,13 +10,13 @@
 #include "ZombieLand/Items/Ammo.h"
 #include "ZombieLand/Items/Spell.h"
 #include "ZombieLand/LootTable.h"
-#include <Engine/include/AIPackageFactory.h>
+#include <Engine/AI/Factories/AIPackageFactory.h>
 #include <ZombieLand/WanderPackage.h>
 #include <ZombieLand/Action/AgressionPackage.h>
 #include <ZombieLand/Action/ControlPackage.h>
 #include <ZombieLand/Action/AvoidPackage.h>
 #include "Definitions.h"
-#include "Engine/Quest/Story.h"
+#include "Engine/Story/Story.h"
 
 ZombieLand* ZombieLand::GetSingleton()
 {
@@ -55,7 +54,7 @@ void	ZombieLand::Init()
 
 	// Регистрируем поведение
 	factoryManager->RegisterBehaviour("Creature", BehaviourFactory<behaviour::CreatureDef>::New());
-	factoryManager->RegisterBehaviour("Destroyable", BehaviourFactory<behaviour::DestroyableDef>::New());
+//	factoryManager->RegisterBehaviour("Destroyable", BehaviourFactory<behaviour::DestroyableDef>::New());
 	factoryManager->RegisterBehaviour("Bullet", BehaviourFactory<behaviour::BulletDef>::New());
 	factoryManager->RegisterBehaviour("Door", BehaviourFactory<behaviour::DoorDef>::New());
 	factoryManager->RegisterBehaviour("Item", BehaviourFactory<behaviour::ItemDef>::New());
@@ -69,10 +68,10 @@ void	ZombieLand::Init()
 	factoryManager->RegisterItem("Spell", inventory::ItemFactory<inventory::SpellDef>::New());
 
 	// Регистрируем пакеты ИИ
-	factoryManager->RegisterAIPackage("Wander", AIPackageFactory<WanderPackageDef>::New());
-	factoryManager->RegisterAIPackage("Control", AIPackageFactory<ControlPackageDef>::New());
-	factoryManager->RegisterAIPackage("Agression", AIPackageFactory<AgressionPackageDef>::New());
-	factoryManager->RegisterAIPackage("Avoid", AIPackageFactory<AvoidPackageDef>::New());
+	factoryManager->GetAIPalette()->RegisterAIType("Wander", AIPackageFactory<WanderPackageDef>::New());
+	factoryManager->GetAIPalette()->RegisterAIType("Control", AIPackageFactory<ControlPackageDef>::New());
+	factoryManager->GetAIPalette()->RegisterAIType("Agression", AIPackageFactory<AgressionPackageDef>::New());
+	factoryManager->GetAIPalette()->RegisterAIType("Avoid", AIPackageFactory<AvoidPackageDef>::New());
 	
 	FactoryManager::GetSingleton()->LoadMasterFile("../Data/Master.imf");
 //	factoryManager->LoadConversations("../Data/Conversations.xml");

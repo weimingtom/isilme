@@ -1,8 +1,8 @@
 #include "IsilmePCH.h"
 #include "Line.h"
-#include "Renderer.h"
-#include "Game.h"
-#include "StateManager.h"
+#include "Core/Renderer.h"
+#include "Core/Game.h"
+#include "Core/StateManager.h"
 
 namespace graphics
 {

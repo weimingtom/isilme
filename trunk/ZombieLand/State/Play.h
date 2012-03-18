@@ -1,17 +1,11 @@
 #ifndef PLAYSTATE_H
 #define PLAYSTATE_H
 
+#include "Definitions.h"
 #include <string>
-#include <State.h>
 #include <guichan.hpp>
 #include "Cameras.h"
-#include "Definitions.h"
-#include "Engine/GUI/ProgressBar.h"
-#include "Engine/GUI/HGELabel.h"
-#include "Engine/GUI/QuestBook.h"
-#include "Engine/GUI/InventoryWindow.h"
-#include "Engine/GUI/ConversationWindow.h"
-#include "Engine/Quest/Quests.h"1
+
 
 namespace state
 {

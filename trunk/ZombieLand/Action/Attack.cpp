@@ -1,8 +1,7 @@
 #include "ZombieLand.h"
-#include <Isilme.h>
 #include "Attack.h"
-#include "ZombieLand/Behaviour/Destroyable.h"
-#include "ZombieLand/Behaviour/Creature.h"
+#include "../Behaviour/Destroyable.h"
+#include "../Behaviour/Creature.h"
 #include "Query.h"
 
 namespace action

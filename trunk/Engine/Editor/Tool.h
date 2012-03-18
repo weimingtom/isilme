@@ -1,7 +1,7 @@
 #ifndef EDITOR_TOOL_H
 #define EDITOR_TOOL_H
 
-#include <Isilme.h>
+#include "../Definitions.h"
 #include "EditorDefinitions.h"
 
 namespace editor

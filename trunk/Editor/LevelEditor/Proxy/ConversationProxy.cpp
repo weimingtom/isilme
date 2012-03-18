@@ -1,9 +1,9 @@
 ﻿#include "Stdafx.h"
 #include "ConversationProxy.h"
-#include "Engine/Core/Serialisation/ConversationSerialiser.h"
-#include "Engine/Core/Serialisation/ConversationLoader.h"
+#include "Engine/Serialisation/ConversationSerialiser.h"
+#include "Engine/Serialisation/ConversationLoader.h"
 #include "PhraseProxy.h"
-#include "../Core/MasterFile.h"
+#include "Engine/Core/MasterFile.h"
 
 using namespace System::Runtime::InteropServices;
 

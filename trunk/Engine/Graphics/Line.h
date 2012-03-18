@@ -2,7 +2,7 @@
 #define ISILME_GRAPHICS_LINE_H
 
 #include "Definitions.h"
-#include "Graphics.h"
+#include "Core/Graphics.h"
 
 namespace graphics
 {

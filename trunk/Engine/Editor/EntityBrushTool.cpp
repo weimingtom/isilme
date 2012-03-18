@@ -2,9 +2,13 @@
 #include "EntityBrushTool.h"
 #include "AddEntityCommand.h"
 #include "CommandManager.h"
-#include "Layer.h"
-#include "Level.h"
-#include "Entity.h"
+#include "Core/Layer.h"
+#include "Core/Level.h"
+#include "Core/Entity.h"
+#include "Core/FactoryManager.h"
+#include "Core/Game.h"
+#include "Core/StateManager.h"
+#include "Core/State.h"
 
 namespace editor
 {

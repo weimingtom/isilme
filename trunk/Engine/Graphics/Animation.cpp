@@ -1,6 +1,6 @@
 ﻿#include "IsilmePCH.h"
 #include "Animation.h"
-#include "ResourceManager.h"
+#include "Core/ResourceManager.h"
 
 namespace graphics
 {	

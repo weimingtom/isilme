@@ -1,8 +1,8 @@
 #include "IsilmePCH.h"
 #include "ConversationWindow.h"
-#include "Engine/Quest/Conversation.h"
-#include "Engine/Quest/Phrase.h"
-#include "Entity.h"
+#include "Engine/Story/Conversation.h"
+#include "Engine/Story/Phrase.h"
+#include "Core/Entity.h"
 
 namespace gcn
 {

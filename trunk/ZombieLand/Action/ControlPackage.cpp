@@ -10,12 +10,12 @@ ControlPackage::~ControlPackage()
 {
 }
 
-bool ControlPackage::CheckCondition()
+bool ControlPackage::IsApplicable(BehaviourPtr behaviour) const
 {
 	return true;
 }
 
-ActionPtr ControlPackage::CreateAction()
+ActionPtr ControlPackage::CreateAction() const
 {
 	action::Control* a = new action::Control();
 	return ActionPtr(a);

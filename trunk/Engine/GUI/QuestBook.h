@@ -3,7 +3,7 @@
 
 #include <guichan.hpp>
 #include <map>
-#include "Engine/Quest/Quests.h"
+#include "Engine/Story/Quests.h"
 
 namespace gcn
 {

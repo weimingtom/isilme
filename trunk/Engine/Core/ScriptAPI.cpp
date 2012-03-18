@@ -4,14 +4,14 @@
 #include <LuaBind/luabind/luabind.hpp>
 #include "Engine.h"
 #include "FactoryManager.h"
-#include "Quest/Quests.h"
-#include "Quest/Quest.h"
-#include "Quest/Story.h"
-#include "Quest/Stage.h"
+#include "Story/Quests.h"
+#include "Story/Quest.h"
+#include "Story/Story.h"
+#include "Story/Stage.h"
 #include "Inventory/Inventory.h"
 #include "Inventory/Item.h"
 #include <luabind/operator.hpp>
-#include "Fraction.h"
+#include "AI/Fraction.h"
 #include "Game.h"
 #include "Entity.h"
 #include "Level.h"
@@ -19,12 +19,13 @@
 #include "Behaviour.h"
 #include "State.h"
 #include "StateManager.h"
-#include "Core/Wrappers/ActionWrapper.h"
-#include "Core/Wrappers/StateWrapper.h"
-#include "Core/Wrappers/BehaviourWrapper.h"
-#include "Core/Wrappers/AIPackageWrapper.h"
-#include "Core/Wrappers/CameraWrapper.h"
+#include "Wrappers/ActionWrapper.h"
+#include "Wrappers/StateWrapper.h"
+#include "Wrappers/BehaviourWrapper.h"
+#include "Wrappers/AIPackageWrapper.h"
+#include "Wrappers/CameraWrapper.h"
 #include "luabind/adopt_policy.hpp"
+#include "AI/AIBehaviour.h"
 
 namespace ScriptAPI
 {
@@ -173,12 +174,12 @@ namespace ScriptAPI
 				.def("GetActor", &Behaviour::GetActor)
 				.def("GetEntity", &Behaviour::GetActor)
 				.def("GetLevel", &Behaviour::GetLevel)
-				.def("Think", &Behaviour::Think, &BehaviourWrapper::defaultThink)
+				.def("Think", &Behaviour::OnUpdate, &BehaviourWrapper::defaultThink)
 				.def("StartAction", &Behaviour::StartAction)
 				.def("IsActive", &Behaviour::IsActive)
 				.def("SetActive", &Behaviour::SetActive)
 				.def("StartAction", &Behaviour::StartAction)
-				.def("AddAIPackage", (void (Behaviour::*)(AIPackagePtr, int))&Behaviour::AddAIPackage)
+				
 			];
 
 		// AIPackage
@@ -187,10 +188,17 @@ namespace ScriptAPI
 				luabind::class_<AIPackage, AIPackagePtr>("AIPackage"),
 				luabind::class_<AIPackageWrapper, AIPackage, AIPackagePtr>("AIPackage")
 				.def(luabind::constructor<>())
-				.def("CheckCondition", &AIPackage::CheckCondition, &AIPackageWrapper::defaultCheckCondition)
+//				.def("CheckCondition", &AIPackage::CheckCondition, &AIPackageWrapper::defaultCheckCondition)
 				.def("CreateAction", &AIPackage::CreateAction, &AIPackageWrapper::defaultCreateAction)
-				.def("GetBehaviour", &AIPackage::GetBehaviour)
-				.def("GetEntity", &AIPackage::GetEntity)
+//				.def("GetBehaviour", &AIPackage::GetBehaviour)
+//				.def("GetEntity", &AIPackage::GetEntity)
+			];
+
+		// AIBehaviour
+		luabind::module(state)
+			[
+				luabind::class_<AIBehaviour, Behaviour>("AIBehaviour")
+				.def("AddAIPackage", (void (AIBehaviour::*)(AIPackagePtr))&AIBehaviour::AddAIPackage)
 			];
 
 		// ActionState

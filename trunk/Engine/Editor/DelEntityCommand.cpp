@@ -1,7 +1,7 @@
 #include "IsilmePCH.h"
 #include "DelEntityCommand.h"
-#include "Layer.h"
-#include "Entity.h"
+#include "Core/Layer.h"
+#include "Core/Entity.h"
 
 namespace editor
 {

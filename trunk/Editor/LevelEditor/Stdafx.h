@@ -4,12 +4,14 @@
 
 #pragma once
 
-#include <Isilme.h>
-#include "Engine/Quest/Story.h"
-#include "Engine/Quest/Quest.h"
-#include "Engine/Quest/Stage.h"
-#include "Engine/Quest/Conversation.h"
-#include "Engine/Quest/Phrase.h"
+#include <Engine/Isilme.h>
+#include <Engine/Story/Story.h>
+#include <Engine/Story/Quest.h>
+#include <Engine/Story/Stage.h>
+#include <Engine/Story/Conversation.h>
+#include <Engine/Story/Phrase.h>
+#include <Engine/Serialisation/MasterLoader.h>
+#include <Engine/Serialisation/EntryLoader.h>
 
 namespace LevelEditor
 {

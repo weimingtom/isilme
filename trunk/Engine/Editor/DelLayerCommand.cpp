@@ -1,7 +1,7 @@
 #include "IsilmePCH.h"
 #include "DelLayerCommand.h"
-#include "Level.h"
-#include "Layer.h"
+#include "Core/Level.h"
+#include "Core/Layer.h"
 
 namespace editor
 {

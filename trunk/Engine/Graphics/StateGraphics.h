@@ -3,8 +3,8 @@
 
 #include "Definitions.h"
 #include "SpecialGraphics.h"
-#include "FactoryManager.h"
-#include "Engine/Core/Palette/GraphicsPalette.h"
+#include "../Core/FactoryManager.h"
+#include "../Palette/GraphicsPalette.h"
 
 namespace graphics
 {

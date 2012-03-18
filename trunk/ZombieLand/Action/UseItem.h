@@ -1,8 +1,7 @@
 ﻿#ifndef ZOMBIELAND_ACTIONS_USEITEM_H
 #define ZOMBIELAND_ACTIONS_USEITEM_H
 
-#include "ZombieLand/Include/Definitions.h"
-#include "Engine/Inventory/Item.h"
+#include "../Definitions.h"
 
 namespace action
 {

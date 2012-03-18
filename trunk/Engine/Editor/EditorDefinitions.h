@@ -7,7 +7,7 @@
 #include <stack>
 #include <boost/shared_ptr.hpp>
 #include <boost/weak_ptr.hpp>
-#include "Definitions.h"
+#include "../Definitions.h"
 
 namespace editor
 {

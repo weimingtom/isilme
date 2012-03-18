@@ -1,8 +1,7 @@
 #ifndef ZOMBIELAND_ACTION_ATTACKTARGET_H
 #define ZOMBIELAND_ACTION_ATTACKTARGET_H
 
-#include <Engine/include/Isilme.h>
-#include "ZombieLand/Include/Definitions.h"
+#include "../Definitions.h"
 
 namespace action
 {

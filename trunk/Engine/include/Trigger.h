@@ -2,7 +2,7 @@
 #define TRIGGER_H
 
 #include "Definitions.h"
-#include "Behaviour.h"
+#include "Core/Behaviour.h"
 
 
 class ISILME_API TriggerDefinition : public BehaviourDefinition
@@ -55,7 +55,7 @@ protected:
 	bool		IsActivated();
 
 	/// ПРоверяет состояние триггера и активирует его в случае необходимости
-	virtual void	Think(float elapsedTime);
+	virtual void	OnUpdate(float elapsedTime);
 
 private:
 	/// Функция активации триггера

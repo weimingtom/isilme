@@ -37,7 +37,7 @@ namespace IDE.Views
             {
                 LevelEditor.Proxy.EntryProxy entry = category.Factory.CreateNewEntry();
                 category.AddEntry(entry);
-                entry.FileName = "../Data/" + category.Name + "/" + mFileName.Text;
+                entry.FileName = "../Data/" + category.Name + "/" + mFileName.Text + category.FileExtension;
                 DialogResult = true;
             }
             else

@@ -1,5 +1,6 @@
 #include "ZombieLand.h"
 #include "Die.h"
+#include "../Behaviour/Container.h"
 #include "ZombieLand/LootTable.h"
 #include "ZombieLand/Behaviour/Item.h"
 
@@ -19,7 +20,7 @@ namespace action
 	{
 		GetActor()->GetBehaviour()->SetActive(false);
 
-		LootTablePtr lootTable = GetEntity()->As<behaviour::Destroyable>()->GetLootTable();
+		LootTablePtr lootTable = GetEntity()->As<Container>()->GetLootTable();
 		if (lootTable)
 		{
 			std::list<Loot> lootList;

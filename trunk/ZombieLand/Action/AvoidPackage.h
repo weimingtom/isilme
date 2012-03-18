@@ -1,11 +1,7 @@
 #ifndef AI_AVOID_PACKAGE_H
 #define AI_AVOID_PACKAGE_H
 
-#include <Isilme.h>
-#include <Engine/include/AIPackage.h>
-#include <Engine/Core/AIPackageDef.h>
-
-#include "ZombieLand/Include/Definitions.h"
+#include "../Definitions.h"
 
 class AvoidPackage : public AIPackage
 {
@@ -14,10 +10,10 @@ public:
 	virtual ~AvoidPackage();
 
 	/// Проверяем, есть ли поблизости враждебно настроенные агенты
-	virtual bool CheckCondition();
+	virtual bool IsApplicable(BehaviourPtr behaviour) const override;
 
 	/// Создает и настраивает действие атаки цели
-	virtual ActionPtr CreateAction();
+	virtual ActionPtr CreateAction() const override;
 protected:
 private:
 };

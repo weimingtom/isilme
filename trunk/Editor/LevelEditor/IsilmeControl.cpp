@@ -12,12 +12,8 @@
 #include "View/LevelEditorWindow.h"
 #include "IsilmeProxy.h"
 #include "Proxy/ModuleProxy.h"
-#include "Engine/Core/MasterFile.h"
-#include "Engine/Quest/Story.h"
 #include "Proxy/StoryProxy.h"
 #include "Proxy/ScriptProxy.h"
-#include "FactoryManager.h"
-#include "../Core/Serialisation/MasterLoader.h"
 #include "ResourceHelper.h"
 #include "Proxy/EntryFactories.h"
 
@@ -87,6 +83,7 @@ namespace LevelEditor
 				levelsCtg->Converter = gcnew LevelDataToProxyConverter();
 				levelsCtg->Icon = ResourceHelper::GetPngSource("Level.png");
 				levelsCtg->Factory = gcnew LevelEntryFactory();
+				levelsCtg->FileExtension = ".lvl";
 			}
 			CategoryProxy^ storyCtg = ModuleProxy::Instance->GetCategory("Story");
 			if (storyCtg != nullptr)
@@ -100,6 +97,7 @@ namespace LevelEditor
 				scriptsCtg->Converter = gcnew ScriptDataToProxyConverter();
 				scriptsCtg->Icon = ResourceHelper::GetPngSource("Script.png");
 				scriptsCtg->Factory = gcnew ScriptEntryFactory();
+				scriptsCtg->FileExtension = ".lua";
 			}
 
 			//FactoryManager::GetSingleton()->LoadGraphics("../Data/Graphics.xml");

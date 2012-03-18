@@ -3,55 +3,54 @@
 
 #include "Definitions.h"
 
-namespace ai
+
+/// @class Attribute.
+class ISILME_API Attribute
 {
-	/// Attribute.
-	class ISILME_API Attribute
-	{
-	public:
-		/// Constructor.
-		///
-		/// @param	id   	The identifier.
-		/// @param	value	The value.
-		Attribute(std::string id, float value);
+public:
+	static const float Infinity;
+	/// Constructor.
+	///
+	/// @param	id   	The identifier.
+	/// @param	value	The value.
+	Attribute(std::string id, float value = 0.0f, float maxValue = Attribute::Infinity);
 
-		/// Destructor.
-		virtual ~Attribute();
+	/// Destructor.
+	virtual ~Attribute();
 
-		/// Gets the value.
-		///
-		/// @return	The value.
-		float	GetValue();
+	/// Gets the value.
+	///
+	/// @return	The value.
+	float	GetValue() const;
 
-		/// Sets a value.
-		///
-		/// @param	value	The value.
-		void	SetValue(float value);
+	/// Sets a value.
+	///
+	/// @param	value	The value.
+	void	SetValue(float value);
 
-		/// Gets the identifier.
-		///
-		/// @return	The identifier.
-		std::string GetID();
+	/// Gets the identifier.
+	///
+	/// @return	The identifier.
+	std::string GetID() const;
 
-		/// Возвращает максимальное значение атрибута
-		/// @return 
-		float	GetMaxValue();
+	/// Gets maximum attribute value
+	/// @return 
+	float	GetMaxValue() const;
 
-		/// Устанавливает максимальное значение атрибута
-		void	SetMaxValue(float value);
-	private:
-		/// The value of the attribute
-		float mValue;
+	/// Sets maximum attribute value
+	void	SetMaxValue(float value);
+private:
+	/// The value of the attribute
+	float mValue;
 
-		/// Наибольшее возможное значение атрибута
-		float mMaxValue;
+	/// Max value
+	float mMaxValue;
 
-		/// Наименьшее возможно значение атрибута
-		float mMinValue;
+	/// Min value
+	float mMinValue;
 
-		/// The identifier of attribute
-		std::string mID;
-	};
+	/// The identifier of attribute
+	std::string mID;
 };
 
 #endif

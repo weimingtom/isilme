@@ -1,9 +1,8 @@
 #ifndef ZOMBIELAND_ACTION_DIE
 #define ZOMBIELAND_ACTION_DIE
 
-#include <Isilme.h>
-#include "Definitions.h"
-#include "ZombieLand/Behaviour/Destroyable.h"
+#include "../Definitions.h"
+#include "../Behaviour/Destroyable.h"
 
 namespace action
 {

@@ -1,10 +1,5 @@
 #include "ZombieLand.h"
 #include "ZombieLand/Behaviour/Creature.h"
-#include "Engine/Inventory/Inventory.h"
-#include "Engine/Inventory/Item.h"
-#include "Engine/Quest/Stage.h"
-#include "Engine/Quest/Story.h"
-#include "Engine/Quest/Quest.h"
 #include "Engine/ScriptAPI.h"
 #include <luabind/lua_include.hpp>
 #include <luabind/luabind.hpp>
@@ -42,11 +37,12 @@ void	ScriptAPI::RegisterAPI()
 	// Класс игрока
 	luabind::module(state)
 	[
-		luabind::class_<behaviour::Activator, luabind::bases<Behaviour>, BehaviourPtr>("Activator")
+		luabind::class_<behaviour::Activator, boost::shared_ptr<behaviour::Activator> >("Activator")
 	];
+
 	luabind::module(state)
 	[
-		luabind::class_<behaviour::Destroyable, luabind::bases<behaviour::Activator>, BehaviourPtr>("Destroyable")
+		luabind::class_<behaviour::Destroyable, boost::shared_ptr<behaviour::Destroyable> >("Destroyable")
 		.def("GetHealth", &behaviour::Destroyable::GetHealth)
 		.def("GetMaxHealth", &behaviour::Destroyable::GetMaxHealth)
 		.def("SetHealth", &behaviour::Destroyable::SetHealth)
@@ -55,12 +51,12 @@ void	ScriptAPI::RegisterAPI()
 	// Creature
 	luabind::module(state)
 		[
-			luabind::class_<behaviour::Creature, luabind::bases<behaviour::Destroyable>, behaviour::CreaturePtr>("Creature")
-			.def("GetInventory", &behaviour::Creature::GetInventory)
-			.def("GetRank", (int (behaviour::Creature::*)(FractionPtr))&behaviour::Creature::GetRank)
-			.def("SetRank", (void (behaviour::Creature::*)(FractionPtr, int))&behaviour::Creature::SetRank)
-			.def("GetRank", (int (behaviour::Creature::*)(std::string))&behaviour::Creature::GetRank)
-			.def("SetRank", (void (behaviour::Creature::*)(std::string, int))&behaviour::Creature::SetRank)
+			luabind::class_<behaviour::Creature, luabind::bases<behaviour::Destroyable>, luabind::bases<behaviour::Activator>, behaviour::CreaturePtr>("Creature")
+			//.def("GetInventory", &behaviour::Creature::GetInventory)
+			//.def("GetRank", (int (behaviour::Creature::*)(FractionPtr))&behaviour::Creature::GetRank)
+			//.def("SetRank", (void (behaviour::Creature::*)(FractionPtr, int))&behaviour::Creature::SetRank)
+			//.def("GetRank", (int (behaviour::Creature::*)(std::string))&behaviour::Creature::GetRank)
+			//.def("SetRank", (void (behaviour::Creature::*)(std::string, int))&behaviour::Creature::SetRank)
 		];
 
 	luabind::module(state)

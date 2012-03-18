@@ -22,17 +22,26 @@ void	ItemDef::Parse(TiXmlElement* element)
 }
 BehaviourPtr ItemDef::Create()
 {
-	Item* item = new Item(this);
+	Item* item = new Item();
+	item->Init(this);
+
 	return BehaviourPtr(item);
 }
-Item::Item(ItemDef* def) : Activator(def)
+
+Item::Item() 
+{
+}
+
+Item::~Item()
+{
+}
+
+void Item::Init(ItemDef* def)
 {
 	mItemTag = def->ItemType;
 	mAmmo = def->Ammo;
 }
-Item::~Item()
-{
-}
+
 int		Item::GetAmmo()
 {
 	return mAmmo;

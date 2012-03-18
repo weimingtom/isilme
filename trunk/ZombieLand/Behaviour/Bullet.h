@@ -1,7 +1,6 @@
 #ifndef ZOMBIELAND_BEHAVIOUR_BULLET_H
 #define ZOMBIELAND_BEHAVIOUR_BULLET_H
 
-#include <Isilme.h>
 #include "Definitions.h"
 
 namespace behaviour
@@ -18,7 +17,7 @@ namespace behaviour
 		Bullet(BulletDef*);
 		virtual ~Bullet();
 		
-		virtual void	Think(float elapsedTime);
+		virtual void	OnUpdate(float elapsedTime);
 		virtual void	HandleContact(b2Contact* contact, const b2Manifold* oldMainfold, Entity* other);
 
 		void	SetGunslinger(BehaviourPtr behaviour);

@@ -1,7 +1,7 @@
 ﻿#ifndef ZOMBIELAND_ACTIONS_KEEP_HEALTH_H
 #define ZOMBIELAND_ACTIONS_KEEP_HEALTH_H
 
-#include "Definitions.h"
+#include "../Definitions.h"
 
 namespace action
 {

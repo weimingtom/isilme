@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using Common.Views;
 using Common;
 using LevelEditor.Proxy;
+using LevelEditor;
 
 namespace IDE.Views
 {
@@ -28,6 +29,7 @@ namespace IDE.Views
             LevelEditor.Isilme.Instance.Loaded += new EventHandler(OnEngineLoaded);
 
            // mModuleTree.DataContext = LevelEditor.Proxy.ModuleProxy.Instance;
+            CommandBindings.Add(new CommandBinding(ApplicationCommands.Save, ExecuterdSaveCommand, CaneExecuteSaveCommand));
         }
 
         void OnEngineLoaded(object sender, EventArgs e)
@@ -50,6 +52,16 @@ namespace IDE.Views
         {
             NewFileWizard wizardWindow = new NewFileWizard();
             wizardWindow.ShowDialog();
+        }
+
+        private void ExecuterdSaveCommand(Object sender, RoutedEventArgs e)
+        {
+            Isilme.Instance.SaveModule("../Data/Master.imf");
+        }
+
+        private void CaneExecuteSaveCommand(Object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
         }
     }
 }

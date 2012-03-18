@@ -1,7 +1,7 @@
 #include "IsilmePCH.h"
 #include "ScriptAIPackageDef.h"
 #include <luabind/adopt_policy.hpp>
-#include "Core/Wrappers/AIPackageWrapper.h"
+#include "Wrappers/AIPackageWrapper.h"
 
 static AIPackagePtr mStaticPackage;
 static bool isInit = false;

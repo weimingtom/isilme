@@ -6,7 +6,7 @@
 
 namespace behaviour
 {
-	class ItemDef : public ActivatorDef
+	class ItemDef : public BehaviourDefinition
 	{
 	public:
 		ItemDef();
@@ -20,11 +20,13 @@ namespace behaviour
 	protected:
 	};
 
-	class Item : public Activator
+	class Item : public Behaviour, public Activator
 	{
 	public:
-		Item(ItemDef* def);
+		Item();
 		virtual ~Item();
+
+		void Init(ItemDef* def);
 
 		virtual void	OnUse(CreaturePtr actor);
 

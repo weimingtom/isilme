@@ -4,20 +4,16 @@
 #include "ZombieLand/Action/Attack.h"
 #include "ZombieLand/Action/UseItem.h"
 #include "ZombieLand/Items/Weapon.h"
-#include "Engine/Inventory/Item.h"
-#include "Engine/include/Fraction.h"
-#include "Engine/include/Rank.h"
-#include "Engine/include/AIPackage.h"
 #include "ZombieLand/Action/Wander.h"
 #include "Engine/GUI/ConversationWindow.h"
 #include "ZombieLand/State/Play.h"
 #include "Query.h"
+#include "../ScriptAPI.h"
 
 namespace behaviour
 {
-	Creature::Creature(CreatureDef* def) : Destroyable(def)
+	Creature::Creature()
 	{
-		mConversationID = def->Conversation;
 		mMoveAction = action::MovePtr(new action::Move());
 
 		mMoveBack = action::MovePtr(new action::Move());
@@ -26,27 +22,11 @@ namespace behaviour
 		mAttack = action::AttackPtr(new action::Attack());
 
 
-		mEnergy = def->Energy;
-		mMaxEnergy = def->MaxEnergy;
-		mEnergyResoration = def->EnergyRestoration;
 
 		mShotAction = action::UseItem::New(inventory::Item::Weapon, GetInventory());
 		mReloadAction = action::UseItem::New(inventory::Item::Ammo, GetInventory());
 		mSpellAction = action::UseItem::New(inventory::Item::Spell, GetInventory());
-
-		onThink = def->OnThink;
-
-		//// Пакеты ИИ
-		//for (std::list<std::string>::iterator it = def->AIPackages.begin(); it != def->AIPackages.end(); ++it)
-		//{
-		//	AddAIPackage(*it);
-		//}
-
-		// Фракции
-		for (std::list<FractionInfo>::iterator it = def->Fractions.begin(); it != def->Fractions.end(); ++it)
-		{
-			SetRank(it->id, it->rank);
-		}
+		mDieAction = action::DiePtr(new action::Die());
 
 		pw = 0;
 		ps = 0;
@@ -57,6 +37,18 @@ namespace behaviour
 
 	Creature::~Creature()
 	{
+	}
+
+	void Creature::Init(CreatureDef* def)
+	{
+		Container::Init(&def->containerDef);
+		AIBehaviour::Init(&def->AIDef);
+		Destroyable::Init(&def->destroyableDef);
+
+		mEnergy = def->Energy;
+		mMaxEnergy = def->MaxEnergy;
+		mEnergyResoration = def->EnergyRestoration;
+		onThink = def->OnThink;
 	}
 
 	ActionPtr	Creature::GetSpellAction()
@@ -89,9 +81,14 @@ namespace behaviour
 		return mEnergy;
 	}
 
-	void	Creature::Think(float elapsedTime)
+	void	Creature::OnUpdate(float elapsedTime)
 	{
-		Destroyable::Think(elapsedTime);
+		if (GetHealth() < 0.0f)
+		{
+			OnDie();
+			return;
+		}
+		
 		UpdateEnemiesList();
 		if (mEnergy < mMaxEnergy)
 			mEnergy += mEnergyResoration * elapsedTime;
@@ -104,12 +101,17 @@ namespace behaviour
 
 	BehaviourPtr CreatureDef::Create()
 	{
-		return BehaviourPtr(new Creature(this));
+		boost::shared_ptr<Creature> c(new Creature());
+		c->Init(this);
+
+		return c;
 	}
 
 	void	CreatureDef::Parse(TiXmlElement* element)
 	{
-		DestroyableDef::Parse(element);
+		AIDef.Parse(element);
+		containerDef.Parse(element);
+		destroyableDef.Parse(element);
 		Energy = 100.0f;
 		MaxEnergy = 100.0f;
 		EnergyRestoration = 2.0f;
@@ -123,61 +125,13 @@ namespace behaviour
 			OnThink = ScriptAPI::MakeFunction("me, elapsedTime", element->Attribute("OnThink"));
 		}
 
-		/// Фракции
-		TiXmlElement* fractionsElement = element->FirstChildElement("Fractions");
-		if (fractionsElement)
-			ParseFractions(fractionsElement);
 
-		/// ИИ
-		TiXmlElement* AIElement = element->FirstChildElement("AI");
-		if (AIElement)
-			ParseAI(AIElement);
 
 		// Разговор
 		const char* convAttr = element->Attribute("Conversation");
 		if (convAttr)
 		{
 			Conversation = convAttr;
-		}
-	}
-
-	void	CreatureDef::ParseFractions(TiXmlElement* fractionsElement)
-	{
-		if (!fractionsElement)
-			return;
-
-		TiXmlElement* fractionElement = fractionsElement->FirstChildElement("Fraction");
-		while (fractionElement)
-		{
-			const char* idAttr = fractionElement->Attribute("ID");
-			if (idAttr)
-			{
-				FractionInfo f;
-				f.id = idAttr;
-				f.rank = 1;
-				fractionElement->QueryIntAttribute("Rank", &f.rank);
-
-				Fractions.push_back(f);
-			}
-
-			fractionElement = fractionElement->NextSiblingElement("Fraction");
-		}
-	}
-
-	void	CreatureDef::ParseAI(TiXmlElement* AIElement)
-	{
-		if (!AIElement)
-			return;
-
-		TiXmlElement* packageElement = AIElement->FirstChildElement("Package");
-		while (packageElement)
-		{
-			const char* idAttr = packageElement->Attribute("ID");
-
-			if (idAttr)
-				AIPackages.push_back(idAttr);
-
-			packageElement = packageElement->NextSiblingElement("Package");
 		}
 	}
 
@@ -230,57 +184,6 @@ namespace behaviour
 		{
 			GetActor()->SetAngle(a);
 		}
-	}
-
-	int	Creature::GetRank(FractionPtr fraction)
-	{
-		std::map<FractionPtr, int>::iterator it = mFractions.find(fraction);
-		if (it == mFractions.end())
-		{
-			return 0;
-		}
-		else
-		{
-			return it->second;
-		}
-	}
-
-	int	Creature::GetRank(std::string fractionID)
-	{
-		return GetRank(FactoryManager::GetSingleton()->GetFraction(fractionID));
-	}
-
-	void Creature::SetRank(FractionPtr fraction, int rank)
-	{
-		mFractions[fraction] = rank;
-	}
-
-	void Creature::SetRank(std::string fractionID, int rank)
-	{
-		SetRank(FactoryManager::GetSingleton()->GetFraction(fractionID), rank);
-	}
-
-	int Creature::GetAttitudeTo(CreaturePtr other)
-	{
-		int attitude = 0;
-		int count = 0;
-
-		for (std::map<FractionPtr, int>::iterator it1 = mFractions.begin(); it1 != mFractions.end(); ++it1)
-		{
-			for (std::map<FractionPtr, int>::iterator it2 = other->mFractions.begin(); it2 != other->mFractions.end(); ++it2)
-			{
-				count++;
-				if ((*it1).first != 0 && (*it2).first != 0)
-				{
-					attitude += it1->first->GetAttitudeTo(it2->first);
-				}
-			}
-		}
-
-		if (count != 0)
-			attitude /= count;
-
-		return attitude;
 	}
 
 	void	Creature::SavePoint()
@@ -422,12 +325,12 @@ namespace behaviour
 
 	bool Creature::IsUsable()
 	{
-		return FactoryManager::GetSingleton()->GetConversation(mConversationID) != nullptr;
+		return GetConversation() != nullptr;
 	}
 
 	void Creature::OnUse(CreaturePtr other)
 	{
-		story::ConversationPtr conversation = FactoryManager::GetSingleton()->GetConversation(mConversationID);
+		story::ConversationPtr conversation = GetConversation();
 		if (conversation)
 		{
 			gcn::ContainerPtr w = boost::shared_dynamic_cast<gcn::Container>(ZombieLand::GetSingleton()->playState->GetGUI()->GetTop());
@@ -438,4 +341,15 @@ namespace behaviour
 			cw->setCaption(GetName());
 		}
 	}
+
+	ActionPtr Creature::GetDieAction()
+	{
+		return mDieAction;
+	}
+
+	void Creature::OnDie()
+	{
+
+	}
+
 };

@@ -1,7 +1,6 @@
 #ifndef CAMERAS_H
 #define CAMERAS_H
 
-#include <Isilme.h>
 #include "Definitions.h"
 
 #include <string>

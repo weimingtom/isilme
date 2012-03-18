@@ -1,42 +1,47 @@
 #include "IsilmePCH.h"
 #include "Attribute.h"
 
-namespace ai
+
+Attribute::Attribute(std::string id, float value, float maxValue)
 {
-	Attribute::Attribute(std::string id, float value)
-	{
-		mID = id;
-		mValue = value;
-	}
+	mID = id;
+	mValue = value;
+	mMaxValue = mMaxValue;
+}
 
-	Attribute::~Attribute()
-	{
-	
-	}
+Attribute::~Attribute()
+{
 
-	float Attribute::GetValue()
-	{
-		return mValue;
-	}
+}
 
-	void Attribute::SetValue(float value)
-	{
-		mValue = value;
-	}
+float Attribute::GetValue() const
+{
+	return mValue;
+}
 
-	std::string Attribute::GetID()
-	{
-		return mID;
-	}
+void Attribute::SetValue(float value)
+{
+	if (mMaxValue != Infinity)
+		mValue = std::min(value, mMaxValue);
+	mValue = value;
+}
 
-	float Attribute::GetMaxValue()
-	{
-		return mMaxValue;
-	}
+std::string Attribute::GetID() const
+{
+	return mID;
+}
 
-	void Attribute::SetMaxValue( float value )
-	{
-		mMaxValue = value;
-	}
+float Attribute::GetMaxValue() const
+{
+	return mMaxValue;
+}
 
-};
+void Attribute::SetMaxValue( float value )
+{
+	mMaxValue = value;
+	if (mMaxValue != Infinity)
+		mValue = std::min(mValue, mMaxValue);
+}
+
+
+const float Attribute::Infinity = std::numeric_limits<float>::infinity();

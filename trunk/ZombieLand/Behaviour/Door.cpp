@@ -4,7 +4,7 @@
 
 namespace behaviour
 {
-	Door::Door(DoorDef* def) : Activator(def)
+	Door::Door()
 	{
 	}
 
@@ -23,7 +23,7 @@ namespace behaviour
 		}
 	}
 
-	bool Door::IsUsable()
+	bool Door::IsUsable() const
 	{
 		return true;
 	}
@@ -39,12 +39,13 @@ namespace behaviour
 
 	void DoorDef::Parse(TiXmlElement* element)
 	{
-		ActivatorDef::Parse(element);
 	}
 
 	BehaviourPtr DoorDef::Create()
 	{
-		return DoorPtr(new Door(this));
+		DoorPtr d(new Door());
+		d->Init(this);
+		return  d;
 	}
 
 
@@ -54,4 +55,9 @@ namespace behaviour
 		if (destAttr)
 			mDoorID = destAttr;
 	}
+
+	void Door::Init( behaviour::DoorDef* def )
+	{
+	}
+
 };

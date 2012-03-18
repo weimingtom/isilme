@@ -10,9 +10,9 @@
 #ifndef TEDDY_TERROR_H
 #define TEDDY_TERROR_H
 
-#include <Isilme.h>
-#include "Engine/Inventory/Inventory.h"
-#include "Engine/Inventory/Item.h"
+#include <Engine/Isilme.h>
+#include <Engine/Inventory/Inventory.h>
+#include <Engine/Inventory/Item.h>
 
 #include "Definitions.h"
 

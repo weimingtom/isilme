@@ -24,7 +24,7 @@ namespace LevelEditor
 		}
 
 		/// Gets module
-		static property Proxy::ModuleProxy^ Module
+		property Proxy::ModuleProxy^ Module
 		{
 			Proxy::ModuleProxy^ get();
 		}
@@ -37,6 +37,12 @@ namespace LevelEditor
 
 		/// Stops rendering thread
 		void StopEngineThread();
+
+		/// Loads module from file
+		void LoadModule(String^ fileName);
+
+		/// Writes module to file (only master-file)
+		void SaveModule(String^ fileName);
 	internal:
 		/// Raises Loaded event
 		void RaiseLoaded();

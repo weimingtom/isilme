@@ -1,11 +1,8 @@
 #ifndef AI_AGRESSION_PACKAGE_H
 #define AI_AGRESSION_PACKAGE_H
 
-#include <Isilme.h>
-#include <Engine/include/AIPackage.h>
-#include "ZombieLand/Include/Definitions.h"
-#include "ZombieLand/Action/AttackTarget.h"
-#include <Engine/Core/AIPackageDef.h>
+#include "../Definitions.h"
+#include "AttackTarget.h"
 
 /// Пакет ИИ, отвечающий за нападение на других агентов
 class AgressionPackage : public AIPackage
@@ -15,10 +12,10 @@ public:
 	virtual ~AgressionPackage();
 
 	/// Проверяем, есть ли поблизости враждебно настроенные агенты
-	virtual bool CheckCondition();
+	virtual bool IsApplicable(BehaviourPtr b) const override;
 
 	/// Создает и настраивает действие атаки цели
-	virtual ActionPtr CreateAction();
+	virtual ActionPtr CreateAction() const override;
 protected:
 private:
 };

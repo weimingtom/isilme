@@ -15,7 +15,7 @@
 #include "../Tool/ScrollerTool.h"
 #include "../Tool/Tool.h"
 #include "../Tool/SelectorTool.h"
-#include "Engine/Core/Serialisation/StaticLevelSerialiser.h"
+#include "Engine/Serialisation/StaticLevelSerialiser.h"
 #include "../LevelEditorCommands.h"
 #include "../Commands/RemoveEntity.h"
 #include "../Core/MasterFile.h"

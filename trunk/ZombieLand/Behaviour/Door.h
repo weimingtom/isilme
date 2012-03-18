@@ -6,7 +6,7 @@
 
 namespace behaviour
 {
-	class DoorDef : public ActivatorDef
+	class DoorDef : public BehaviourDefinition
 	{
 	public:
 		DoorDef();
@@ -17,17 +17,18 @@ namespace behaviour
 	private:
 	};
 
-	class Door : public Activator
+	class Door : public Behaviour, public Activator
 	{
 	public:
-		Door(DoorDef* def);
+		Door();
 		virtual ~Door();
 		
-		virtual bool	IsUsable();
+		virtual bool	IsUsable() const override;
 
-		virtual void	OnUse(CreaturePtr creature);
+		virtual void	OnUse(CreaturePtr creature) override;
 
 		virtual void	Customize(TiXmlElement* element);
+		void Init( DoorDef* def );
 	private:
 		/// Открыта ли дверь
 		bool isOpen;

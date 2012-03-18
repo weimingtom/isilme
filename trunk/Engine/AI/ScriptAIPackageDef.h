@@ -2,7 +2,7 @@
 #define ISILME_AI_SCRIPTAIPACKAGEDEF_H
 
 #include "Definitions.h"
-#include "Engine/Core/AIPackageDef.h"
+#include "AI/AIPackageDef.h"
 
 /// Описание скриптового пакета ИИ
 /// содержит имя класса пакета ИИ

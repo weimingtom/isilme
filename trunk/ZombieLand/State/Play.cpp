@@ -1,18 +1,8 @@
 #include "ZombieLand.h"
-#include "FactoryManager.h"
-#include "Engine/Quest/Story.h"
-#include "Engine/Quest/Quest.h"
-#include "Engine/Quest/Stage.h"
 #include <string>
 #include <guichan.hpp>
 #include "Play.h"
-#include "ZombieLand/Behaviour/Creature.h"
-#include "Engine/GUI/ProgressBar.h"
-#include "Engine/GUI/QuestBook.h"
-#include <luabind/function.hpp>
-#include "Engine/Quest/Quest.h"
-#include "Engine/Quest/Stage.h"
-#include "Engine/Quest/Conversation.h"
+#include "../Behaviour/Creature.h"
 #include "Cameras.h"
 
 

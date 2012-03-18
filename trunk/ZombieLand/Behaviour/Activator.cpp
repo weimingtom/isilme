@@ -6,46 +6,23 @@
 
 namespace behaviour
 {
-	ActivatorDef::ActivatorDef()
-	{
-	}
-
-	ActivatorDef::~ActivatorDef()
-	{
-	}
-
-	void ActivatorDef::Parse(TiXmlElement* element)
-	{
-		BehaviourDefinition::Parse(element);
-
-		const char* nameAttr = element->Attribute("Name");
-		if (nameAttr)
-			Name = nameAttr;
-	}
-
-	BehaviourPtr ActivatorDef::Create()
-	{
-		return BehaviourPtr(new Activator(this));
-	}
-
-	Activator::Activator(ActivatorDef* def) : Behaviour(def)
+	Activator::Activator()
 	{
 		isUsable = true;
-		mName = def->Name;
 	}
 
 	Activator::~Activator()
 	{
 	}
 
-	std::string Activator::GetName()
+	std::string Activator::GetName() const
 	{
 		return mName;
 	}
 
 	void	Activator::UseBy(CreaturePtr creature)
 	{
-		if (isUsable && IsActive() && !(GetActor()->IsRemoved()))
+		if (IsUsable())
 			OnUse(creature);
 	}
 
@@ -58,7 +35,7 @@ namespace behaviour
 		isUsable = usable;
 	}
 
-	bool	Activator::IsUsable()
+	bool	Activator::IsUsable() const
 	{
 		return isUsable;
 	}
@@ -87,4 +64,10 @@ namespace behaviour
 
 		return ActivatorPtr();
 	}
+
+	void Activator::SetName( std::string name )
+	{
+		mName = name;
+	}
+
 };

@@ -1,8 +1,7 @@
 #ifndef ZOMBIELAND_ACTION_WIND_H
 #define ZOMBIELAND_ACTION_WIND_H
 
-#include <Isilme.h>
-#include "ZombieLand/Behaviour/Creature.h"
+#include "../Behaviour/Creature.h"
 
 namespace action
 {

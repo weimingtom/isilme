@@ -1,6 +1,4 @@
 #include "ZombieLand.h"
-#include <isilme.h>
-#include <string>
 #include "Configuration.h"
 
 Configuration::Configuration(HGE* hge) :

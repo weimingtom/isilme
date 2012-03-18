@@ -47,6 +47,11 @@
                         <Image Source="/IDE;component/Resources/New.png"></Image>
                     </Button.Content>
                 </Button>
+                <Button HorizontalAlignment="Left" Name="mSaveBtn" VerticalAlignment="Top" Command="Save">
+                    <Button.Content>
+                        <Image Source="/IDE;component/Resources/Save.png"></Image>
+                    </Button.Content>
+                </Button>
             </ToolBar>
         </ToolBarTray>
     </Grid>

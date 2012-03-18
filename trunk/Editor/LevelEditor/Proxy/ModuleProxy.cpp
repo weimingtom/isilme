@@ -61,6 +61,8 @@ namespace LevelEditor
 				entry->mCategory = this;
 				mEntries->Add(entry);
 			}
+
+			mFileExtension = "";
 		}
 
 		CategoryProxy::~CategoryProxy()
@@ -100,6 +102,16 @@ namespace LevelEditor
 		void CategoryProxy::Icon::set(System::Windows::Media::ImageSource^ value)
 		{
 			mIcon = value;
+		}
+
+		String^ CategoryProxy::FileExtension::get()
+		{
+			return mFileExtension;
+		}
+
+		void CategoryProxy::FileExtension::set(String^ value)
+		{
+			mFileExtension = value;
 		}
 
 		IEntryFactory^ CategoryProxy::Factory::get()

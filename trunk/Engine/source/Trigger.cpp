@@ -1,7 +1,7 @@
 ﻿#include "IsilmePCH.h"
 #include "Trigger.h"
 #include "ScriptAPI.h"
-#include "Engine.h"
+#include "Core/Engine.h"
 
 Trigger::Trigger(TriggerDefinition* def) : Behaviour(def)
 {
@@ -37,12 +37,11 @@ void	Trigger::Activate(EntityPtr target)
 	isActivated = true;
 }
 
-void	Trigger::Think(float elapsedTime)
+void	Trigger::OnUpdate(float elapsedTime)
 {
 	if (IsActivated())
 	{
 		lua_State* state = Engine::GetSingleton()->GetLua();
-		bool result;
 		if (mActivationFunction)
 		{
 			mActivationFunction(GetActor(), GetTarget());

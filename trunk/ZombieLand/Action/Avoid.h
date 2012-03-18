@@ -1,8 +1,7 @@
 #ifndef ACTION_AVOID_H
 #define ACTION_AVOID_H
 
-#include <Isilme.h>
-#include "ZombieLand/Include/Definitions.h"
+#include "../Definitions.h"
 
 namespace action
 {

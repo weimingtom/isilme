@@ -1,7 +1,7 @@
 #ifndef ISILME_GUI_PROGRESSBAR_H
 #define ISILME_GUI_PROGRESSBAR_H
 
-#include "Isilme.h"
+#include "Definitions.h"
 #include <GUIChan/gui.hpp>
 
 namespace gcn

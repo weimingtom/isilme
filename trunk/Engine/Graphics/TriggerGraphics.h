@@ -1,7 +1,7 @@
 ﻿#ifndef ISILME_GRAPHICS_TIRGGER_H
 #define ISILME_GRAPHICS_TIRGGER_H
 
-#include "Graphics.h"
+#include "Core/Graphics.h"
 #include "Engine/Graphics/StateGraphics.h"
 #include "Trigger.h"
 

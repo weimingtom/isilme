@@ -34,10 +34,11 @@ namespace LevelEditor
 			/// Gets category with name 
 			/// returns category or null
 			CategoryProxy^ GetCategory(String^ Name);
-		private:
+		internal:
 			/// Container for all game data
 			SharedCLIPtr<MasterFile>* mMasterFile;
 
+		private:
 			/// Observable collection of categories
 			ObservableCollection<CategoryProxy^>^ mCategories;
 
@@ -61,6 +62,13 @@ namespace LevelEditor
 			property String^ Name
 			{
 				String^ get();
+			}
+
+			/// Gets or sets default extension for files
+			property System::String^ FileExtension
+			{
+				System::String^ get();
+				void set(System::String^ value);
 			}
 
 			/// Get or sets image source for icon in category
@@ -89,10 +97,11 @@ namespace LevelEditor
 
 			/// Removes entry from the category
 			void RemoveEntry(EntryProxy^ entry);
-		private:
+		internal:
 			/// Category
 			SharedCLIPtr<Category>* mCategory;
 
+		private:
 			/// Back reference to module
 			ModuleProxy^ mModule;
 
@@ -103,7 +112,11 @@ namespace LevelEditor
 
 			IEntryFactory^ mFactory;
 
+			/// Icon 
 			System::Windows::Media::ImageSource^ mIcon;
+
+			/// Default file extension
+			System::String^ mFileExtension;
 		};
 
 		public ref class EntryProxy : public Common::IEditableData

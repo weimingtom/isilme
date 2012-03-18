@@ -1,10 +1,7 @@
 #ifndef AI_CONTROL_PACKAGE_H
 #define AI_CONTROL_PACKAGE_H
 
-#include <Isilme.h>
-#include <Engine/include/AIPackage.h>
-#include "ZombieLand/Include/Definitions.h"
-#include "Engine/Core/AIPackageDef.h"
+#include "../Definitions.h"
 
 /// Пакет предоставляет возможность контролировать персонажа с помощью клавиатуры или геймпада
 class ControlPackage : public AIPackage
@@ -13,9 +10,9 @@ public:
 	ControlPackage();
 	virtual ~ControlPackage();
 
-	virtual ActionPtr CreateAction();
+	virtual ActionPtr CreateAction() const override;
 
-	virtual bool CheckCondition();
+	virtual bool IsApplicable(BehaviourPtr behaviour) const override;
 };
 
 class ControlPackageDef : public AIPackageDef

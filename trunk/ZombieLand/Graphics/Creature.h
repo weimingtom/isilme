@@ -1,7 +1,7 @@
 #ifndef ZOMBIELAND_GRAPHICS_CREATURE_H
 #define ZOMBIELAND_GRAPHICS_CREATURE_H
 
-#include <Isilme.h>
+#include "Definitions.h"
 #include <Engine/Graphics/SpecialGraphics.h>
 #include <Engine/Graphics/StateGraphics.h>
 #include "ZombieLand/Behaviour/Creature.h"

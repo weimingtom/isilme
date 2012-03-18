@@ -14,7 +14,7 @@ namespace behaviour
 	{
 	}
 
-	void Bullet::Think(float elapsedTime)
+	void Bullet::OnUpdate(float elapsedTime)
 	{
 		if (mTarget != 0)
 			mTarget->Damage(mDamage);
@@ -29,20 +29,14 @@ namespace behaviour
 	{
 		DestroyablePtr d;
 
-		try
-		{
-			d = boost::shared_dynamic_cast<Destroyable, Behaviour>(other->GetBehaviour());
-		}
-		catch (...)
-		{
-		}
+		d = other->As<Destroyable>();
 
-		if (d != 0 && d != mGunslinger)
+		if (d != nullptr && other->GetBehaviour() != mGunslinger)
 		{
 			mTarget = d;
 		}
 
-		if (d == mGunslinger)
+		if (other->GetBehaviour() == mGunslinger)
 			contact->SetEnabled(false);
 		else
 			isHit = true;

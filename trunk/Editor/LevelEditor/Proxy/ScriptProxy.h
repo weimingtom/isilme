@@ -1,8 +1,6 @@
 #pragma once
 
 #include "../Stdafx.h"
-#include "Engine/Core/MasterFile.h"
-#include "Engine/Core/Serialisation/EntryLoader.h"
 #include "IDataToProxyConverter.h"
 
 using namespace System;

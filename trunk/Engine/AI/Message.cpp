@@ -2,32 +2,28 @@
 #include "Message.h"
 #include "MessageData.h"
 
-namespace ai
+Message::~Message()
 {
-	Message::~Message()
-	{
 
-	}
+}
 
-	std::string Message::GetType()
-	{
-		return mType;
-	}
+std::string Message::GetType()
+{
+	return mType;
+}
 
-	ai::MessageDataPtr Message::GetData()
-	{
-		return mData;
-	}
+MessageDataPtr Message::GetData()
+{
+	return mData;
+}
 
-	BehaviourPtr	Message::GetSender()
-	{
-		return mSender.lock();
-	}
+BehaviourPtr	Message::GetSender()
+{
+	return mSender.lock();
+}
 
-	Message::Message( std::string type, MessageDataPtr data )
-	{
-		mType = type;
-		mData = data;
-	}
-
+Message::Message( std::string type, MessageDataPtr data )
+{
+	mType = type;
+	mData = data;
 }

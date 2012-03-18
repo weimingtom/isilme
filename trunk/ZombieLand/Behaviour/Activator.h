@@ -1,41 +1,50 @@
 #ifndef ZOMBIELAND_BEHAVIOUR_ACTIVATOR_H
 #define ZOMBIELAND_BEHAVIOUR_ACTIVATOR_H
 
-#include <Isilme.h>
-#include "ZombieLand/Include/Definitions.h"
+#include "../Definitions.h"
 
 namespace behaviour
 {
-	
-	class ActivatorDef : public BehaviourDefinition
+	/// @ interface IActivator
+	class IActivator
 	{
 	public:
-		ActivatorDef();
-		virtual ~ActivatorDef();
-		virtual BehaviourPtr Create();
-		virtual void Parse(TiXmlElement* element);
+		virtual ~IActivator() {};
 
-		std::string Name;
+		/// Gets if the activator is available
+		virtual bool IsUsable() const = 0;
+
+		/// Sets if the activator can be used
+		virtual void SetUsable(bool value) = 0;
+
+		/// Implements the logic of the activator
+		virtual void OnUse(CreaturePtr creature) = 0;
+
+		/// Implements the logic of the activator
+		virtual void	UseBy(CreaturePtr creature) = 0;
 	};
 
 	/// Поведение активатора. Персонажи могут использовать активаторы, и сами-по себе тоже являются активаторами
-	class Activator : public Behaviour
+	class Activator : public IActivator
 	{
 	public:
 		/// Возвращает активатор, который может использовать объект
 		static ActivatorPtr	GetActivatorFor(EntityPtr entity);
 
-		Activator(ActivatorDef* def);
+		Activator();
 		virtual ~Activator();
 
-		void	UseBy(CreaturePtr creature);
+		virtual void	UseBy(CreaturePtr creature);
 
-		virtual bool	IsUsable();
+		virtual bool	IsUsable() const;
 		
-		void	SetUsable(bool flag);
+		virtual void	SetUsable(bool flag);
 
 		/// Возвращает игровое имя активатора
-		std::string GetName();
+		virtual std::string GetName() const;
+
+		/// Sets ingame name of the activator
+		virtual void SetName(std::string name);
 	protected:
 		virtual void	OnUse(CreaturePtr creature);
 

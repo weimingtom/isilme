@@ -65,6 +65,18 @@ void LevelEditor::Isilme::CallUpdate()
 		HGEGame::GetSingleton()->Start();
 }
 
+void LevelEditor::Isilme::LoadModule( String^ fileName )
+{
+
+}
+
+void LevelEditor::Isilme::SaveModule( String^ fileName )
+{
+	char* fn = (char*)Marshal::StringToHGlobalAnsi(fileName).ToPointer();
+	serialisation::MasterFileSerialiser serialiser;
+	serialiser.Serialise(Module->mMasterFile->Value, fn);
+}
+
 LevelEditor::Isilme^ LevelEditor::Isilme::Instance::get()
 {
 	if (mInstance == nullptr)

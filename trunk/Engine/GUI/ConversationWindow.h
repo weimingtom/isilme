@@ -2,7 +2,7 @@
 #define GCN_CONVERSATION_WINDOW_H
 
 #include "Definitions.h"
-#include "Engine/Quest/Quests.h"
+#include "Engine/Story/Quests.h"
 #include "ModalDialog.h"
 
 namespace gcn

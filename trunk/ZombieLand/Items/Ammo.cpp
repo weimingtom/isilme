@@ -30,7 +30,7 @@ namespace inventory
 	{
 		ItemPtr weapon = GetInventory()->GetSlot(Item::Weapon);
 		int needAmmo = weapon->GetMaxAmmo() - weapon->GetAmmo();
-		int haveAmmo = min(GetAmmo() + 1, needAmmo);
+		int haveAmmo = std::min(GetAmmo() + 1, needAmmo);
 		if (IsInfinity())
 			haveAmmo = needAmmo;
 

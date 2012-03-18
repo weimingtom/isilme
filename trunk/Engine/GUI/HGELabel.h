@@ -1,7 +1,7 @@
 #ifndef ISILME_GUI_HGELABEL_H
 #define ISILME_GUI_HGELABEL_H
 
-#include "Isilme.h"
+#include "Definitions.h"
 #include <GUIChan/gui.hpp>
 #include <hgefont.h>
 
