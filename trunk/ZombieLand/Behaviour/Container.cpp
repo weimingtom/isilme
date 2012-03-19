@@ -4,7 +4,7 @@
 
 Container::Container()
 {
-
+	mInventory = inventory::Inventory::New();
 }
 
 Container::~Container()
@@ -15,7 +15,6 @@ Container::~Container()
 void Container::Init( ContainerDef* def )
 {
 	/// Èíâåíòàğü
-	mInventory = inventory::Inventory::New();
 	for (ContainerDef::ItemsList::iterator it = def->items.begin(); it != def->items.end(); ++it)
 	{
 		inventory::ItemPtr item = FactoryManager::GetSingleton()->CreateItem(it->tag);

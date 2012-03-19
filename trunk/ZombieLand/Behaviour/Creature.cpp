@@ -83,12 +83,14 @@ namespace behaviour
 
 	void	Creature::OnUpdate(float elapsedTime)
 	{
-		if (GetHealth() < 0.0f)
-		{
-			OnDie();
-			return;
-		}
+		//if (GetHealth() < 0.0f)
+		//{
+		//	OnDie();
+		//	return;
+		//}
 		
+		AIBehaviour::OnUpdate(elapsedTime);
+
 		UpdateEnemiesList();
 		if (mEnergy < mMaxEnergy)
 			mEnergy += mEnergyResoration * elapsedTime;
@@ -349,7 +351,23 @@ namespace behaviour
 
 	void Creature::OnDie()
 	{
+		StartAction(ActionPtr(new action::Die()));
+	}
 
+	void Creature::OnGotDamage( const float damage )
+	{
+		if (mBlood != "")
+		{
+			// Создаем кровь
+			EntityPtr blood = FactoryManager::GetSingleton()->CreateEntity(mBlood, "");
+
+			// Помещаем кровь на уровень травы
+			GetLevel()->GetLayer("Grass")->Add(blood);
+
+			// Устанавливаем позицию крови
+			blood->SetPosition(GetActor()->GetPosition().x, GetActor()->GetPosition().y);
+			blood->SetAngle(GetActor()->GetAngle());
+		}
 	}
 
 };

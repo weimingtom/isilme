@@ -1,7 +1,7 @@
 #include "ZombieLand.h"
 #include "AgressionPackage.h"
-#include "ZombieLand/Action/AttackTarget.h"
-#include "ZombieLand/Behaviour/Creature.h"
+#include "AttackTarget.h"
+#include "../Behaviour/Creature.h"
 
 AgressionPackage::AgressionPackage()
 {
@@ -21,10 +21,9 @@ ActionPtr AgressionPackage::CreateAction() const
 
 bool AgressionPackage::IsApplicable(BehaviourPtr b) const
 {
-	return false;
-	//behaviour::CreaturePtr c = GetEntity()->As<behaviour::Creature>();
-	//c->SetTarget();
-	//return c->GetTarget() != 0;
+	behaviour::CreaturePtr c = boost::shared_dynamic_cast<behaviour::Creature>(b);
+	c->SetTarget();
+	return c->GetTarget() != nullptr;
 }
 
 AIPackagePtr AgressionPackageDef::CreatePackage()

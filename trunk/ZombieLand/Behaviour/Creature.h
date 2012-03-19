@@ -114,6 +114,8 @@ namespace behaviour
 		virtual void OnDie() override;
 
 		ActionPtr GetDieAction();
+
+		virtual void OnGotDamage(const float damage) override;
 	protected:
 
 		void UpdateEnemiesList();

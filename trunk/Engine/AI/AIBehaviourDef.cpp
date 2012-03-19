@@ -4,21 +4,33 @@
 
 void AIBehaviourDef::Parse( TiXmlElement* element )
 {
-	/// Фракции
+	/// Fractions
 	TiXmlElement* fractionsElement = element->FirstChildElement("Fractions");
 	if (fractionsElement)
 		ParseFractions(fractionsElement);
 
-	/// ИИ
+	/// Packages
 	TiXmlElement* AIElement = element->FirstChildElement("AI");
 	if (AIElement)
 		ParseAIPackages(AIElement);
+
+	// Attributes
+	TiXmlElement* attributesElement = element->FirstChildElement("Attributes");
+	if (attributesElement)
+		ParseAttributes(attributesElement);
 }
 
 
 void AIBehaviourDef::ParseAttributes( TiXmlElement* attributesElement )
 {
-
+	TiXmlElement* attributeElement = attributesElement->FirstChildElement("Attribute");
+	while (attributeElement)
+	{
+		AttributeDef attrDef;
+		attrDef.Parse(attributeElement);
+		attributes.push_back(attrDef);
+		attributeElement = attributeElement->NextSiblingElement("Attribute");
+	}
 }
 
 void AIBehaviourDef::ParseAIPackages( TiXmlElement* AIElement )

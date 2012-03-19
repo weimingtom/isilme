@@ -49,6 +49,9 @@ namespace behaviour
 
 		/// Callback for die event
 		virtual void OnDie() = 0;
+
+		/// Callback for getting damage
+		virtual void OnGotDamage(const float damage) = 0;
 	};
 
 	/// @class Destroyable
@@ -85,14 +88,16 @@ namespace behaviour
 		void	SetHitSound(std::string sound);
 		
 		void	SetBloodEntity(std::string blood);
+
+		virtual void OnGotDamage(const float damage);
 	protected:
+		std::string mBlood;
 	private:
 		float	mHealth;
 		float	mMaxHealth;
 		float	mResistance;
 
 		HEFFECT mHitSound;
-		std::string mBlood;
 	};
 
 };

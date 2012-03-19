@@ -11,9 +11,14 @@ WanderPackage::~WanderPackage()
 {
 }
 
-ActionPtr WanderPackage::CreateAction()
+ActionPtr WanderPackage::CreateAction() const
 {
 	return ActionPtr(new action::Wander());
+}
+
+bool WanderPackage::IsApplicable( BehaviourPtr behaviour ) const 
+{
+	return behaviour->GetActiveActionsCount() == 0;
 }
 
 AIPackagePtr WanderPackageDef::CreatePackage()

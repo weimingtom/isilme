@@ -10,7 +10,9 @@ public:
 	virtual ~WanderPackage();
 
 	/// Создает тактическое действие для агента
-	virtual ActionPtr	CreateAction();
+	virtual ActionPtr	CreateAction() const override;
+
+	virtual bool IsApplicable(BehaviourPtr behaviour) const override;
 };
 
 class WanderPackageDef : public AIPackageDef

@@ -73,18 +73,10 @@ namespace behaviour
 		if (mHitSound)
 		Engine::GetSingleton()->GetSoundSystem()->PlayEffect(mHitSound);
 
-		//if (mBlood != "")
-		//{
-		//	// Создаем кровь
-		//	EntityPtr blood = FactoryManager::GetSingleton()->CreateEntity(mBlood, "");
+		OnGotDamage(damage);
 
-		//	// Помещаем кровь на уровень травы
-		//	GetLevel()->GetLayer("Grass")->Add(blood);
-
-		//	// Устанавливаем позицию крови
-		//	blood->SetPosition(GetActor()->GetPosition().x, GetActor()->GetPosition().y);
-		//	blood->SetAngle(GetActor()->GetAngle());
-		//}
+		if (mHealth <= 0.0f)
+			OnDie();
 	}
 
 	void	Destroyable::SetHitSound(std::string sound)
@@ -104,6 +96,11 @@ namespace behaviour
 		mHealth = def->Health;
 		mResistance = def->Resistance;
 		mBlood = def->Blood;
+	}
+
+	void Destroyable::OnGotDamage( const float damage )
+	{
+
 	}
 
 };

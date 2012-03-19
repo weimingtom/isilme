@@ -50,7 +50,7 @@ void AIBehaviour::AddAIPackage( std::string id )
 void AIBehaviour::AddAIPackage( AIPackagePtr package )
 {
 	if (std::find(mActivePackages.begin(), mActivePackages.end(), package) == mActivePackages.end())
-		mActivePackages.push_front(package);
+		mActivePackages.push_back(package);
 }
 
 void AIBehaviour::RemoveAIPackage( AIPackagePtr package )
@@ -74,7 +74,9 @@ void AIBehaviour::OnUpdate( float elapsedTime )
 			AIPackagePtr package = *it;
 			if (package->IsApplicable(shared_from_this()))
 			{
-				StartAction(package->CreateAction());
+				ActionPtr action = package->CreateAction();
+				if (action)
+					StartAction(action);
 				break;
 			}
 		}
