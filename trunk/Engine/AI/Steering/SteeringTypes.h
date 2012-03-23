@@ -6,7 +6,7 @@
 class ISteering;
 typedef boost::shared_ptr<ISteering> SteeringPtr;
 
-class ISteerable;
-typedef boost::shared_ptr<ISteerable> SteerablePtr;
+class IVehicle;
+typedef boost::shared_ptr<IVehicle> VehiclePtr;
 
 #endif

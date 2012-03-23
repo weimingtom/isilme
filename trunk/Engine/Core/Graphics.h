@@ -1,5 +1,5 @@
-﻿#ifndef GRAPHICS_H
-#define GRAPHICS_H
+﻿#ifndef ISILME_GRAPHICS_H
+#define ISILME_GRAPHICS_H
 
 #include "Definitions.h"
 #include "GraphicsDefinition.h"
@@ -28,7 +28,7 @@ public:
 	Graphics(GraphicsDefinition* def = 0);
 	virtual ~Graphics();
 
-	/// Обновить графику
+	/// Updates graphics
 	virtual void Update(float elapsedTime);
 
 	/// Визуализировать 

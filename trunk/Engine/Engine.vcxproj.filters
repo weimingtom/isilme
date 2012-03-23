@@ -52,6 +52,9 @@
     <Filter Include="AI\PathFinidng">
       <UniqueIdentifier>{fb6b4413-5b69-4d9f-9895-e1193f5bd75a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="AI\Logic">
+      <UniqueIdentifier>{b6044e0f-9f6b-452d-a3c7-29dc10e9067c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -414,6 +417,30 @@
     <ClInclude Include="AI\AI.h">
       <Filter>AI</Filter>
     </ClInclude>
+    <ClInclude Include="Core\View.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\Steering\Seek.h">
+      <Filter>AI\Steering</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\Steering\Arrival.h">
+      <Filter>AI\Steering</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\Steering\Pursuit.h">
+      <Filter>AI\Steering</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\Steering\Flee.h">
+      <Filter>AI\Steering</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\Steering\Evasion.h">
+      <Filter>AI\Steering</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\Steering\ObstacleAvoidance.h">
+      <Filter>AI\Steering</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\Steering\PathFollowing.h">
+      <Filter>AI\Steering</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Graphics\Sprite.cpp">
@@ -689,6 +716,27 @@
     </ClCompile>
     <ClCompile Include="AI\AIBehaviourDef.cpp">
       <Filter>AI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\Steering\Arrival.cpp">
+      <Filter>AI\Steering</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\Steering\Evasion.cpp">
+      <Filter>AI\Steering</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\Steering\Flee.cpp">
+      <Filter>AI\Steering</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\Steering\ObstacleAvoidance.cpp">
+      <Filter>AI\Steering</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\Steering\PathFollowing.cpp">
+      <Filter>AI\Steering</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\Steering\Pursuit.cpp">
+      <Filter>AI\Steering</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\Steering\Seek.cpp">
+      <Filter>AI\Steering</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
