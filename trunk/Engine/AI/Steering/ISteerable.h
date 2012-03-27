@@ -27,6 +27,12 @@ public:
 
 	/// Gets current velocity
 	virtual Vector2 GetVelocity() const = 0;
+
+	/// Gets nearest object in direction
+	///
+	/// @param		direction vector
+	/// @param		maxDistance vector length
+	virtual VehiclePtr	RayQuery(const Vector2 direction, float maxDistance) = 0;
 };
 
 #endif

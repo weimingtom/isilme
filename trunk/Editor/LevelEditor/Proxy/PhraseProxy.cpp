@@ -15,6 +15,15 @@ namespace LevelEditor
 			mPhrase = new SharedCLIPtr<story::Phrase>(phrase);
 			mAnswers = gcnew ObservableCollection<PhraseProxy^>();
 			isReference = phrase->IsReference();
+
+			if (!IsReference)
+			{
+				for (int i = 0; i < mPhrase->Value->GetAnswersCount(); ++i)
+				{
+					PhraseProxy^ child = gcnew PhraseProxy(mPhrase->Value->GetAnswer(i));
+					mAnswers->Add(child);
+				}
+			}
 		}
 
 		PhraseProxy::PhraseProxy()
@@ -28,6 +37,10 @@ namespace LevelEditor
 
 		}
 
+		bool PhraseProxy::IsReference::get()
+		{
+			return mPhrase->Value->IsReference();
+		}
 		void PhraseProxy::AddAnswer( PhraseProxy^ answer )
 		{
 			mPhrase->Value->AddAnswer(answer->mPhrase->Value);
@@ -56,6 +69,7 @@ namespace LevelEditor
 		void PhraseProxy::Text::set(String^ value)
 		{
 			mPhrase->Value->SetText((char*)Marshal::StringToHGlobalAnsi(value).ToPointer());
+			RaisePropertyChanged(this, "Text");
 		}
 
 		String^ PhraseProxy::Condition::get()

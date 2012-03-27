@@ -129,11 +129,14 @@
     <ClInclude Include="AI\Steering\Flee.h" />
     <ClInclude Include="AI\Steering\ISteerable.h" />
     <ClInclude Include="AI\Steering\ISteering.h" />
+    <ClInclude Include="AI\Steering\LinearWeightSteering.h" />
     <ClInclude Include="AI\Steering\ObstacleAvoidance.h" />
     <ClInclude Include="AI\Steering\PathFollowing.h" />
+    <ClInclude Include="AI\Steering\PrioritySteering.h" />
     <ClInclude Include="AI\Steering\Pursuit.h" />
     <ClInclude Include="AI\Steering\Seek.h" />
     <ClInclude Include="AI\Steering\SteeringTypes.h" />
+    <ClInclude Include="AI\Steering\Wander.h" />
     <ClInclude Include="AI\UtilityFunction.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="Core\MasterFile.h" />
@@ -244,6 +247,7 @@
     <ClInclude Include="ScriptAPI.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AI\Actuator.cpp" />
     <ClCompile Include="AI\AIBehaviour.cpp" />
     <ClCompile Include="AI\AIBehaviourDef.cpp" />
     <ClCompile Include="AI\AIPackage.cpp" />
@@ -257,10 +261,12 @@
     <ClCompile Include="AI\Steering\Arrival.cpp" />
     <ClCompile Include="AI\Steering\Evasion.cpp" />
     <ClCompile Include="AI\Steering\Flee.cpp" />
+    <ClCompile Include="AI\Steering\LinearWeightSteering.cpp" />
     <ClCompile Include="AI\Steering\ObstacleAvoidance.cpp" />
     <ClCompile Include="AI\Steering\PathFollowing.cpp" />
     <ClCompile Include="AI\Steering\Pursuit.cpp" />
     <ClCompile Include="AI\Steering\Seek.cpp" />
+    <ClCompile Include="AI\Steering\Wander.cpp" />
     <ClCompile Include="AI\UtilityFunction.cpp" />
     <ClCompile Include="Core\MasterFile.cpp" />
     <ClCompile Include="Palette\AIPalette.cpp" />

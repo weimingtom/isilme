@@ -3,6 +3,9 @@
 
 #include "Definitions.h"
 
+class Actuator;
+typedef boost::shared_ptr<Actuator> ActuatorPtr;
+
 class Attribute;
 typedef boost::shared_ptr<Attribute> AttributePtr;
 

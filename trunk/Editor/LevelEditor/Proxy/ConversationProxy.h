@@ -9,7 +9,7 @@ namespace LevelEditor
 {
 	namespace Proxy
 	{
-		public ref class ConversationProxy
+		public ref class ConversationProxy : public Common::ProxyObject
 		{
 		public:
 			static ConversationProxy^ Load(String^ fileName);

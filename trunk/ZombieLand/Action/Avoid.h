@@ -2,7 +2,6 @@
 #define ACTION_AVOID_H
 
 #include "../Definitions.h"
-
 namespace action
 {
 	class Avoid : public Action

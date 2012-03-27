@@ -134,6 +134,7 @@
     <ClInclude Include="Tool\ScrollerTool.h" />
     <ClInclude Include="Tool\SelectorTool.h" />
     <ClInclude Include="Tool\Tool.h" />
+    <ClInclude Include="View\ConversationEditorWindow.h" />
     <ClInclude Include="View\EntityPaletteTool.h" />
     <ClInclude Include="View\LevelEditorToolbar.h" />
     <ClInclude Include="View\LevelEditorWindow.h" />
@@ -172,6 +173,7 @@
     <ClCompile Include="Proxy\StoryProxy.cpp" />
     <ClCompile Include="ResourceHelper.cpp" />
     <ClCompile Include="Tool\ScrollerTool.cpp" />
+    <ClCompile Include="View\ConversationEditorWindow.cpp" />
     <ClCompile Include="View\EntityPaletteTool.cpp" />
     <ClCompile Include="View\LevelEditorToolbar.cpp" />
     <ClCompile Include="View\LevelEditorWindow.cpp" />

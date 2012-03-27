@@ -5,6 +5,16 @@
 
 namespace action
 {
+	class SteeringAction : public Action
+	{
+	public:
+		virtual void OnStart() override;
+		virtual void OnUpdate(float elapsedTime) override;
+		virtual void OnDone() override;
+
+		VehiclePtr mActorVehicle;
+	};
+
 	class Move : public Action
 	{
 	public:

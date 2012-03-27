@@ -99,6 +99,12 @@ namespace LevelEditor
 				scriptsCtg->Factory = gcnew ScriptEntryFactory();
 				scriptsCtg->FileExtension = ".lua";
 			}
+			CategoryProxy^ convCtg = ModuleProxy::Instance->GetCategory("Conversations");
+			if (convCtg != nullptr)
+			{
+				convCtg->Converter = gcnew ConversationDataToProxyConverter();
+				scriptsCtg->FileExtension = ".conv";
+			}
 
 			//FactoryManager::GetSingleton()->LoadGraphics("../Data/Graphics.xml");
 			//FactoryManager::GetSingleton()->LoadEntities("../Data/Entities.xml");

@@ -441,6 +441,15 @@
     <ClInclude Include="AI\Steering\PathFollowing.h">
       <Filter>AI\Steering</Filter>
     </ClInclude>
+    <ClInclude Include="AI\Steering\Wander.h">
+      <Filter>AI\Steering</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\Steering\LinearWeightSteering.h">
+      <Filter>AI\Steering</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\Steering\PrioritySteering.h">
+      <Filter>AI\Steering</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Graphics\Sprite.cpp">
@@ -736,6 +745,15 @@
       <Filter>AI\Steering</Filter>
     </ClCompile>
     <ClCompile Include="AI\Steering\Seek.cpp">
+      <Filter>AI\Steering</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\Steering\Wander.cpp">
+      <Filter>AI\Steering</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\Actuator.cpp">
+      <Filter>AI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\Steering\LinearWeightSteering.cpp">
       <Filter>AI\Steering</Filter>
     </ClCompile>
   </ItemGroup>

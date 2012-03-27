@@ -113,6 +113,9 @@
     <ClCompile Include="Proxy\EntryFactories.cpp">
       <Filter>Proxy</Filter>
     </ClCompile>
+    <ClCompile Include="View\ConversationEditorWindow.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HGEProxyGame.h" />
@@ -240,6 +243,9 @@
     </ClInclude>
     <ClInclude Include="Proxy\EntryFactories.h">
       <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="View\ConversationEditorWindow.h">
+      <Filter>View</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -132,11 +132,12 @@ namespace IDE
             EditorManager.Instance.RegisterExtension<TextEditorWindow>(".txt");
             EditorManager.Instance.RegisterExtension<LuaEditorWindow>(".lua");
             EditorManager.Instance.RegisterExtension<QuestEditorWindow>(".story");
-            EditorManager.Instance.RegisterExtension<ConversationEditorWindow>(".conv");
+            EditorManager.Instance.RegisterExtension<LevelEditor.View.ConversationEditorWindow>(".conv");
 
             EditorManager.Instance.RegisterEditorForTag(new LevelEditorAssociation(), "Levels");
             EditorManager.Instance.RegisterEditorForTag<QuestEditorWindow>("Story");
             EditorManager.Instance.RegisterEditorForTag<ScriptEditorWindow>("Scripts");
+            EditorManager.Instance.RegisterEditorForTag<LevelEditor.View.ConversationEditorWindow>("Conversations");
           //  ExtensionManager.RegisterExtension<LevelEditorWindow>(".lvl");
 
             mToolWindowsMenu.DataContext = mTools;

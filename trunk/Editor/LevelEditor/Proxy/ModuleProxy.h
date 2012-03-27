@@ -174,6 +174,13 @@ namespace LevelEditor
 			virtual Common::IProxyObject^ Convert(SharedCLIPtr<Entry>* entry) override;
 		};
 
+		public ref class ConversationDataToProxyConverter : public IDataToProxyConverter
+		{
+		public:
+			ConversationDataToProxyConverter();
+			virtual Common::IProxyObject^ Convert(SharedCLIPtr<Entry>* entry) override;
+		};
+
 		public ref class GameDataToProxyConverter
 		{
 		public:

@@ -5,6 +5,7 @@
 #include "LevelProxy.h"
 #include "IEntryFactory.h"
 #include "IDataToProxyConverter.h"
+#include "ConversationProxy.h"
 
 namespace LevelEditor
 {
@@ -244,5 +245,23 @@ namespace LevelEditor
 			LevelProxy^ level = gcnew LevelProxy(lvl);
 			return level;
 		}
+
+		ConversationDataToProxyConverter::ConversationDataToProxyConverter()
+		{
+
+		}
+
+		Common::IProxyObject^ ConversationDataToProxyConverter::Convert( SharedCLIPtr<Entry>* entry )
+		{
+			boost::shared_ptr<ConversationEntry> ce = boost::shared_dynamic_cast<ConversationEntry>(entry->Value);
+
+			if (!ce)
+				return nullptr;
+
+			story::ConversationPtr conv = ce->data;
+			ConversationProxy^ proxy = gcnew ConversationProxy(conv);
+			return proxy;
+		}
+
 	}
 }

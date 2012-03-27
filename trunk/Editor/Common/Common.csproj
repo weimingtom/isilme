@@ -92,6 +92,8 @@
     <Compile Include="ICommand.cs" />
     <Compile Include="IEditableData.cs" />
     <Compile Include="IEditorAssociation.cs" />
+    <Compile Include="Views\EditableTextBlock.cs" />
+    <Compile Include="Views\EditableTextBlockAdorner.cs" />
     <Compile Include="Views\EditorWindow.cs" />
     <Compile Include="Views\IEditorForm.cs" />
     <Compile Include="IProxyObject.cs" />

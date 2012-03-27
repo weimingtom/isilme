@@ -33,6 +33,11 @@ namespace LevelEditor
 				void set(String^ value);
 			}
 
+			property bool IsReference
+			{
+				bool get();
+			}
+
 			property ObservableCollection<PhraseProxy^>^ Answers
 			{
 				ObservableCollection<PhraseProxy^>^ get();
