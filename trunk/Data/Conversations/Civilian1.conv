@@ -1,21 +1,34 @@
 <Conversation ID="Civilian1">
-  <Phrase Ref="210167920" Text="gfgfgs" Action="" Condition="return test_check!=nil;" Chance="-842150451">
-    <Phrase Ref="3" Text="Referenced" Action="" Condition="" Chance="-842150451">
-        <Phrase Ref="327915824" Text="Text" Action="" Condition="" Chance="-842150451">
-            <Phrase Ref="210237640" Text="Text" Action="" Condition="" Chance="-842150451" />
-            <Phrase Ref="3"></Phrase>
+    <Phrase Ref="195900864" Text="Hello stranger!" Action="" Condition="return test_check!=nil;" Chance="-842150451">
+        <Phrase Ref="195655704" Text="Hello" Action="" Condition="" Chance="-842150451">
+            <Phrase Ref="195656080" Text="Text" Action="" Condition="" Chance="-842150451">
+                <Phrase Ref="195684416" Text="Text" Action="" Condition="" Chance="-842150451" />
+                <Phrase Ref="195686608" Text="Hello" Action="" Condition="" Chance="-842150451">
+                    <Phrase Ref="195688728" Text="Text" Action="" Condition="" Chance="-842150451">
+                        <Phrase Ref="195684416" />
+                        <Phrase Ref="195686608" />
+                    </Phrase>
+                    <Phrase Ref="195690832" Text="Text" Action="" Condition="" Chance="-842150451">
+                        <Phrase Ref="195691496" Text="Text" Action="" Condition="" Chance="-842150451" />
+                    </Phrase>
+                    <Phrase Ref="195693768" Text="Text" Action="" Condition="" Chance="-842150451">
+                        <Phrase Ref="195661640" Text="Text" Action="" Condition="" Chance="-842150451" />
+                    </Phrase>
+                </Phrase>
+            </Phrase>
+            <Phrase Ref="195663920" Text="Text" Action="" Condition="" Chance="-842150451">
+                <Phrase Ref="195691496" />
+            </Phrase>
+            <Phrase Ref="195666016" Text="Text" Action="" Condition="" Chance="-842150451">
+                <Phrase Ref="195661640" />
+            </Phrase>
         </Phrase>
-        <Phrase Ref="210233504" Text="Text" Action="" Condition="" Chance="-842150451">
-            <Phrase Ref="210164976" Text="Text" Action="" Condition="" Chance="-842150451" />
-        </Phrase>
-        <Phrase Ref="327745640" Text="Text" Action="" Condition="" Chance="-842150451">
-            <Phrase Ref="210357496" Text="Text" Action="" Condition="" Chance="-842150451" />
-        </Phrase>
+        <Phrase Ref="195666608" Text="Goodby" Action="" Condition="" Chance="-842150451" />
     </Phrase>
-    <Phrase Ref="2" Text="Goodby" Action="" Condition="" Chance="-842150451" />
-  </Phrase>
-  <Phrase Ref="210958232" Text="ttrt" Action="test_check=1" Condition="return test_check == nil;" Chance="50" >
-    <Phrase Ref="1" Text="Goodby" Action="" Condition="" Chance="-842150451" />
-  </Phrase>
-    <Phrase Ref="210239952" Text="Text" Action="" Condition="" Chance="-842150451" />
+    <Phrase Ref="195669480" Text="ttrt" Action="test_check=1" Condition="return test_check == nil;" Chance="50">
+        <Phrase Ref="195675976" Text="Goodby" Action="" Condition="" Chance="-842150451" />
+    </Phrase>
+    <Phrase Ref="195676424" Text="Text" Action="" Condition="" Chance="-842150451" />
+    <Phrase Ref="195680360" Text="Text..." Action="" Condition="" Chance="-842150451" />
+    <Phrase Ref="195620520" Text="I know everything what I need [Skip tutorial]" Action="" Condition="" Chance="-842150451" />
 </Conversation>

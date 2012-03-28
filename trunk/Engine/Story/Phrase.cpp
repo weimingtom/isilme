@@ -151,4 +151,11 @@ namespace story
 		return mChance;
 	}
 
+	void Phrase::RemoveAnswer( PhrasePtr phrase )
+	{
+		PhraseVector::iterator it = std::find(mChildren.begin(), mChildren.end(), phrase);
+		if (it != mChildren.end())
+			mChildren.erase(it);
+	}
+
 };

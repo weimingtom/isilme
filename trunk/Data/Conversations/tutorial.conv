@@ -1,34 +1,12 @@
-<?xml version="1.0" encoding="Windows-1251"?>
 <Conversation ID="tutorial">
-<Phrase>
-  <Text>Привет</Text>
-  <Answers>
-	<Phrase>
-	  <Text>Рад видеть тебя</Text>
-	  <Answers>
-		<Phrase>
-		  <Text>Who are you?</Text>
-		  <Answers>
-			<Phrase>
-			  <Text>I am new player</Text>
-			</Phrase>
-			<Phrase>
-			  <Text>I'm new player in this game</Text>
-			</Phrase>
-		  </Answers>
-		</Phrase>
-	  </Answers>
-	</Phrase>
-	<Phrase>
-	  <Text>Good by</Text>
-	</Phrase>
-	<Phrase>
-	  <Text></Text>
-	  
-	</Phrase>
-  </Answers>
-</Phrase>
-<Phrase>
-  <Text>Nice to meet you again</Text>
-</Phrase>
+    <Phrase Ref="172221880" Text="Hello, player! Are you ready to make your first step in this game?" Action="" Condition="" Chance="-842150451">
+        <Phrase Ref="172440096" Text="Yes, of couse!" Action="" Condition="" Chance="-842150451">
+            <Phrase Ref="172302472" Text="You should remember, that this world is dangerous. Evil men and evil beasts are everywhere." Action="" Condition="" Chance="-842150451">
+                <Phrase Ref="172709368" Text="What should I do?" Action="" Condition="" Chance="-842150451">
+                    <Phrase Ref="256142904" Text="Use your weapon!" Action="" Condition="" Chance="-842150451" />
+                </Phrase>
+            </Phrase>
+        </Phrase>
+        <Phrase Ref="172232400" Text="I know everything what I need [Skip tutorial]" Action="" Condition="" Chance="-842150451" />
+    </Phrase>
 </Conversation>

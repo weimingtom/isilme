@@ -30,6 +30,9 @@ namespace story
 		/// Добавить ответ
 		void AddAnswer(PhrasePtr phrase);
 
+		/// Removes answer phrase
+		void RemoveAnswer(PhrasePtr phrase);
+
 		/// Установить текст
 		void SetText(std::string text);
 
@@ -68,7 +71,8 @@ namespace story
 		luabind::object mAction;
 
 		/// Дочерние фразы
-		std::vector<PhrasePtr> mChildren;
+		typedef std::vector<PhrasePtr> PhraseVector;
+		PhraseVector mChildren;
 
 		/// Вероятность появления фразы от 0 до 100
 		int mChance;

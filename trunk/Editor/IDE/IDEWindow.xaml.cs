@@ -163,7 +163,7 @@ namespace IDE
             tb = new LevelEditor.View.LevelEditorToolBar();
             mToolbarTray.ToolBars.Add(tb);
 
-            tb = QuestEditor.Views.ConversationToolbar.Instance;
+            tb =LevelEditor.View.ConversationEditorToolBar.Instance;
             mToolbarTray.ToolBars.Add(tb);
         }
 

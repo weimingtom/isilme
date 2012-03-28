@@ -3,6 +3,8 @@
 #include "ConversationProxy.h"
 
 using namespace System::Runtime::InteropServices;
+using namespace System;
+using namespace System::Collections::Generic;
 
 namespace LevelEditor
 {
@@ -22,6 +24,7 @@ namespace LevelEditor
 				{
 					PhraseProxy^ child = gcnew PhraseProxy(mPhrase->Value->GetAnswer(i));
 					mAnswers->Add(child);
+					child->mParent = this;
 				}
 			}
 		}
@@ -32,9 +35,30 @@ namespace LevelEditor
 			mAnswers = gcnew ObservableCollection<PhraseProxy^>();
 		}
 
+		PhraseProxy::PhraseProxy( PhraseCopyData^ copyData )
+		{
+			mPhrase = new SharedCLIPtr<story::Phrase>(story::PhrasePtr(new story::Phrase()));
+			mAnswers = gcnew ObservableCollection<PhraseProxy^>();
+
+			Text = copyData->Text;
+			Condition = copyData->Condition;
+			Action = copyData->Action;
+
+			for each (PhraseCopyData^ child in copyData->Children)
+			{
+				PhraseProxy^ answer = gcnew PhraseProxy(child);
+				AddAnswer(answer);
+			}
+		}
+
 		PhraseProxy::~PhraseProxy()
 		{
 
+		}
+
+		PhraseProxy^	PhraseProxy::Parent::get()
+		{
+			return mParent;
 		}
 
 		bool PhraseProxy::IsReference::get()
@@ -45,12 +69,36 @@ namespace LevelEditor
 		{
 			mPhrase->Value->AddAnswer(answer->mPhrase->Value);
 			mAnswers->Add(answer);
+			answer->mParent = this;
 		}
 
 		void PhraseProxy::RemoveAnswer( PhraseProxy^ answer )
 		{
-			//mPhrase->Value->RemoveAnswer(answer->mPhrase->Value);
+			mPhrase->Value->RemoveAnswer(answer->mPhrase->Value);
+			answer->mParent = nullptr;
 			mAnswers->Remove(answer);
+		}
+
+		PhraseCopyData^ PhraseProxy::MakeCopy()
+		{
+			PhraseCopyData^ data = gcnew PhraseCopyData();
+			data->Text = Text;
+			data->Condition = Condition;
+			data->Action = Action;
+			data->Children = gcnew List<PhraseCopyData^>();
+
+			if (!IsReference)
+			{
+				for each (PhraseProxy^ child in Answers)
+				{
+					data->Children->Add(child->MakeCopy());
+				}
+			}
+			else
+			{
+			}
+
+			return data;
 		}
 
 		ObservableCollection<PhraseProxy^>^ PhraseProxy::Answers::get()
@@ -94,7 +142,10 @@ namespace LevelEditor
 
 		ConversationProxy^	PhraseProxy::Conversation::get()
 		{
-			return mConversation;
+			if (mConversation == nullptr)
+				return Parent->Conversation;
+			else
+				return mConversation;
 		}
 	}
 }

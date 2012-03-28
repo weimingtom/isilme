@@ -116,6 +116,9 @@
     <ClCompile Include="View\ConversationEditorWindow.cpp">
       <Filter>View</Filter>
     </ClCompile>
+    <ClCompile Include="Commands\RemovePhrase.cpp">
+      <Filter>Commands\ConversationEditor</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HGEProxyGame.h" />
@@ -246,6 +249,9 @@
     </ClInclude>
     <ClInclude Include="View\ConversationEditorWindow.h">
       <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\RemovePhrase.h">
+      <Filter>Commands\ConversationEditor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
