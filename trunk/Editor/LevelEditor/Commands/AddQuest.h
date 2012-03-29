@@ -8,11 +8,17 @@ namespace LevelEditor
 {
 	namespace Commands
 	{
-		public ref class AddQuest
+		public ref class AddQuest : public Common::ICommand
 		{
 		public:
+			AddQuest(StoryProxy^ story, QuestProxy^ quest);
+
+			virtual void Execute() override;
+
+			virtual void Unexecute() override;
 		private:
 			StoryProxy^ mStory;
+			QuestProxy^ mQuest;
 		};
 	}
 }

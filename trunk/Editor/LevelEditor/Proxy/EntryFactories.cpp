@@ -2,7 +2,7 @@
 #include "ModuleProxy.h"
 #include "EntryFactories.h"
 #include "Engine\Core\MasterFile.h"
-#include "ScriptProxy.h"
+#include "ScriptFileProxy.h"
 
 using namespace System;
 using namespace System::Runtime::InteropServices;

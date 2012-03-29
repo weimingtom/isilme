@@ -60,7 +60,7 @@
       <AdditionalDependencies>engine_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)/Resources;$(BOOST_LIB);$(ISILME_LIB)</AdditionalLibraryDirectories>
       <Profile>true</Profile>
-      <EmbedManagedResourceFile>Resources/Quest.png;Resources/Conversation.png;Resources/Script.png;Resources/Level.png;Resources/Up.png;Resources/Down.png;Resources/Top.png;Resources/Bottom.png;Resources/PaletteItem.png;Resources/FolderClosed.png;Resources/FolderOpen.png;Resources/Layers.png;Resources/Palette.png;Resources/Grid.png;Resources/Shapes.png;Resources/Brush.png;Resources/AddLayer.png;Resources/Select.png;Resources/Physics.png;Resources/NPCSpeaker.png;Resources/PCSpeaker.png;Resources/AddPhrase.png;Resources/PasteRef.png;%(EmbedManagedResourceFile)</EmbedManagedResourceFile>
+      <EmbedManagedResourceFile>Resources/Quest.png;Resources/Conversation.png;Resources/Script.png;Resources/Level.png;Resources/Up.png;Resources/Down.png;Resources/Top.png;Resources/Bottom.png;Resources/PaletteItem.png;Resources/FolderClosed.png;Resources/FolderOpen.png;Resources/Layers.png;Resources/Palette.png;Resources/Grid.png;Resources/Shapes.png;Resources/Brush.png;Resources/AddLayer.png;Resources/Select.png;Resources/Physics.png;Resources/NPCSpeaker.png;Resources/PCSpeaker.png;Resources/AddPhrase.png;Resources/PasteRef.png;Resources/Check.png;Resources/Comment.png;Resources/Uncomment.png;Resources/Compile.png;Resources/Stage.png;Resources/AddQuest.png;Resources/Ending.png;Resources/AddStage.png;%(EmbedManagedResourceFile)</EmbedManagedResourceFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -111,6 +111,8 @@
     <ClInclude Include="IsilmeControl.h" />
     <ClInclude Include="IsilmeProxy.h" />
     <ClInclude Include="LevelEditorCommands.h" />
+    <ClInclude Include="Proxy\AIPackageProxy.h" />
+    <ClInclude Include="Proxy\AIPaletteProxy.h" />
     <ClInclude Include="Proxy\ConversationProxy.h" />
     <ClInclude Include="Proxy\EntityPaletteProxy.h" />
     <ClInclude Include="Proxy\EntityProxy.h" />
@@ -123,6 +125,7 @@
     <ClInclude Include="Proxy\ModuleProxy.h" />
     <ClInclude Include="Proxy\PhraseProxy.h" />
     <ClInclude Include="Proxy\QuestProxy.h" />
+    <ClInclude Include="Proxy\ScriptFileProxy.h" />
     <ClInclude Include="Proxy\ScriptProxy.h" />
     <ClInclude Include="Proxy\StageProxy.h" />
     <ClInclude Include="Proxy\StoryProxy.h" />
@@ -140,6 +143,7 @@
     <ClInclude Include="View\LevelEditorToolbar.h" />
     <ClInclude Include="View\LevelEditorWindow.h" />
     <ClInclude Include="View\ObjectManager.h" />
+    <ClInclude Include="View\QuestEditorWindow.h" />
     <ClInclude Include="View\ScriptEditorWindow.h" />
   </ItemGroup>
   <ItemGroup>
@@ -170,6 +174,7 @@
     <ClCompile Include="Proxy\ModuleProxy.cpp" />
     <ClCompile Include="Proxy\PhraseProxy.cpp" />
     <ClCompile Include="Proxy\QuestProxy.cpp" />
+    <ClCompile Include="Proxy\ScriptFileProxy.cpp" />
     <ClCompile Include="Proxy\ScriptProxy.cpp" />
     <ClCompile Include="Proxy\StageProxy.cpp" />
     <ClCompile Include="Proxy\StoryProxy.cpp" />
@@ -180,6 +185,7 @@
     <ClCompile Include="View\LevelEditorToolbar.cpp" />
     <ClCompile Include="View\LevelEditorWindow.cpp" />
     <ClCompile Include="View\ObjectManager.cpp" />
+    <ClCompile Include="View\QuestEditorWindow.cpp" />
     <ClCompile Include="View\ScriptEditorWindow.cpp" />
     <ClInclude Include="SharedCLIPtr.h">
       <FileType>CppHeader</FileType>

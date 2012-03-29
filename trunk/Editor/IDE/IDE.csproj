@@ -134,14 +134,6 @@
       <Project>{A96DB6FA-DA44-469B-B0DA-E96F7B0E28DA}</Project>
       <Name>LevelEditor</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LuaEditor\LuaEditor.csproj">
-      <Project>{C1A65C3D-CEEF-4F10-BEC3-AB182E7E45E3}</Project>
-      <Name>LuaEditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\QuestEditor\QuestEditor.csproj">
-      <Project>{4B1BD7BB-01FF-45D7-863E-A97CC106B1CE}</Project>
-      <Name>QuestEditor</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Archive.png" />

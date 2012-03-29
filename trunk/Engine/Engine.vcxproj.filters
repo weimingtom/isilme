@@ -450,6 +450,7 @@
     <ClInclude Include="AI\Steering\PrioritySteering.h">
       <Filter>AI\Steering</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Script.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Graphics\Sprite.cpp">
@@ -755,6 +756,10 @@
     </ClCompile>
     <ClCompile Include="AI\Steering\LinearWeightSteering.cpp">
       <Filter>AI\Steering</Filter>
+    </ClCompile>
+    <ClCompile Include="Serialisation\StorySerialiser.cpp" />
+    <ClCompile Include="Core\Script.cpp">
+      <Filter>Core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

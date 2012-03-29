@@ -94,6 +94,9 @@ class State;
 typedef boost::shared_ptr<State> StatePtr;
 
 class StateManager;
+class Script;
+typedef Script* ScriptPtr;
+
 class FactoryManager;
 typedef boost::shared_ptr<FactoryManager> FactoryPtr;
 

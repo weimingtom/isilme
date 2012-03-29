@@ -13,7 +13,7 @@
 #include "IsilmeProxy.h"
 #include "Proxy/ModuleProxy.h"
 #include "Proxy/StoryProxy.h"
-#include "Proxy/ScriptProxy.h"
+#include "Proxy/ScriptFileProxy.h"
 #include "ResourceHelper.h"
 #include "Proxy/EntryFactories.h"
 

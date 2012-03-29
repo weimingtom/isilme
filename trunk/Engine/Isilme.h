@@ -22,6 +22,7 @@
 #include "Core/Graphics.h"
 #include "Core/InputSystem.h"
 #include "Core/Joints.h"
+#include "Core/Script.h"
 #include "Core/SoundSystem.h"
 #include "Core/StateManager.h"
 #include "Core/LogoState.h"

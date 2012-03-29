@@ -9,11 +9,27 @@ namespace LevelEditor
 {
 	namespace Proxy
 	{
+		ref class StageCopyData;
+
+		[Serializable]
+		public ref class QuestCopyData
+		{
+		public:
+			String^ ID;
+			String^ Title;
+			System::Collections::Generic::List<StageCopyData^>^ Stages;
+		};
+
 		public ref class QuestProxy : public Common::ProxyObject
 		{
 		public:
+			QuestProxy();
 			QuestProxy(story::QuestPtr quest);
+			QuestProxy(QuestCopyData^ data);
+
 			virtual ~QuestProxy();
+
+			QuestCopyData^ MakeCopy();
 
 			property String^ ID
 			{
@@ -40,11 +56,13 @@ namespace LevelEditor
 			void AddStage(StageProxy^ stage);
 
 			void RemoveStage(StageProxy^ stage);
+
+			int		GenerateID();
 		private:
-			SharedCLIPtr<story::Quest>* mQuest;
 			ObservableCollection<StageProxy^>^ mStages;
 		internal:
 			StoryProxy^ mStory;
+			SharedCLIPtr<story::Quest>* mQuest;
 		};
 	}
 }

@@ -1,10 +1,8 @@
 ﻿#ifndef ISILME_SERIALISATION_STORYSERIALISER_H
 #define ISILME_SERIALISATION_STORYSERIALISER_H
 
-#include "Definitions.h"
-#include "Quest/Story.h"
-#include "Quest/Quest.h"
-#include "Quest/Stage.h"
+#include "../Definitions.h"
+#include "../Story/Quests.h"
 
 namespace serialisation
 {

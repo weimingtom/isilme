@@ -44,6 +44,9 @@ namespace LevelEditor
 		ref class EntryProxy;
 		ref class CategoryProxy;
 		ref class ModuleProxy;
+
+		ref class AIPaletteProxy;
+		ref class AIPackageProxy;
 	}
 
 	namespace Commands

@@ -103,4 +103,32 @@ namespace story
 	{
 		return &mFinishedQuests;
 	}
+
+	void Story::AddQuest( QuestPtr quest )
+	{
+		mQuests[quest->GetName()] = quest;
+	}
+
+	void Story::RemoveQuest( QuestPtr quest )
+	{
+		QuestMap::iterator it = mQuests.find(quest->GetName());
+		if (it != mQuests.end())
+			mQuests.erase(it);
+	}
+
+	int Story::GetQuestsCount() const
+	{
+		return mQuests.size();
+	}
+
+	story::QuestPtr Story::GetQuestAtIndex( const int index ) const
+	{
+		QuestMap::const_iterator it = mQuests.begin();
+		for (int i = 0; i < index; ++i)
+		{
+			it++;
+		}
+		return it->second;
+	}
+
 };

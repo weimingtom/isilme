@@ -9,11 +9,24 @@ namespace LevelEditor
 {
 	namespace Proxy
 	{
+		[Serializable]
+		public ref class StageCopyData
+		{
+		public:
+			int ID;
+			String^ Text;
+		};
+
 		public ref class StageProxy : public Common::ProxyObject
 		{
 		public:
+			StageProxy();
 			StageProxy(story::StagePtr stage);
+			StageProxy(StageCopyData^ date);
+
 			virtual ~StageProxy();
+
+			StageCopyData^	MakeCopy();
 
 			property String^ Text
 			{
@@ -38,10 +51,16 @@ namespace LevelEditor
 				int get();
 				void set(int value);
 			}
+
+			property QuestProxy^ Quest
+			{
+				QuestProxy^ get();
+			}
 		private:
 		internal:
 			String^ mOnStart;
 			String^ mOnUpdate;
+			QuestProxy^ mQuest;
 			SharedCLIPtr<story::Stage>* mStage;
 		};
 	}

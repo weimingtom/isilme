@@ -22,12 +22,13 @@ namespace story
 			stage->mQuest = q;
 			q->mStages[stage->GetID()] = stage;
 
-			if (element->Attribute("StartScript"))
-			{
-				q->mStartScript = ScriptAPI::MakeFunction("quest", element->Attribute("StartScript"));
-			}
-
 			stageElement = stageElement->NextSiblingElement("Stage");
+		}
+
+		if (element->Attribute("StartScript"))
+		{
+			const char* attr = element->Attribute("StartScript");
+			q->mStartScript.Set(attr ? attr : "", "quest");
 		}
 		return q;
 	}
@@ -129,16 +130,16 @@ namespace story
 		isActive = true;
 		isFinished = false;
 
-		if (mStartScript)
-			mStartScript(me);
+		if (mStartScript.IsValid())
+			mStartScript.GetLuaObject()(me);
 	}
 
 	void	Quest::OnFinished()
 	{
 		isFinished = true;
 		isActive = false;
-		if (mFinishScript.interpreter() != 0)
-			luabind::call_function<void>(mFinishScript);
+		if (mFinishScript.IsValid() != 0)
+			mFinishScript.GetLuaObject()(mFinishScript);
 	}
 
 	bool	Quest::IsActive()
@@ -150,4 +151,42 @@ namespace story
 	{
 		return isFinished;
 	}
+
+	int Quest::GetStageCount() const
+	{
+		return mStages.size();
+	}
+
+	story::StagePtr Quest::GetStageAtIndex( int index ) const
+	{
+		StageMap::const_iterator it = mStages.begin();
+		for (int i = 0; i < index; ++i)
+		{
+			it++;
+		}
+		return it->second;
+	}
+
+	void Quest::AddStage( StagePtr stage )
+	{
+		mStages[stage->GetID()] = stage;
+	}
+
+	void Quest::RemoveStage( StagePtr stage )
+	{
+		StageMap::iterator it = mStages.find(stage->GetID());
+		if (it != mStages.end())
+			mStages.erase(it);
+	}
+
+	ScriptPtr Quest::GetStartScript()
+	{
+		return &mStartScript;
+	}
+
+	ScriptPtr Quest::GetFinishScript()
+	{
+		return &mFinishScript;
+	}
+
 };

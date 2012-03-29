@@ -3,6 +3,7 @@
 #include "Stage.h"
 #include "ScriptAPI.h"
 #include "Core/Engine.h"
+#include "Definitions.h"
 
 namespace story
 {
@@ -17,8 +18,8 @@ namespace story
 
 	void		Stage::OnUpdate(float elapsedTime)
 	{
-		if (mUpdateScript)
-			mUpdateScript(GetQuest(), elapsedTime);
+		if (mUpdateScript.IsValid())
+			mUpdateScript.GetLuaObject()(GetQuest(), elapsedTime);
 	}
 
 	bool		Stage::IsFinishQuest()
@@ -51,13 +52,15 @@ namespace story
 
 		if (element->Attribute("UpdateScript"))
 		{
-			stage->mUpdateScript = ScriptAPI::MakeFunction("quest, elapsedTime", element->Attribute("UpdateScript"));
+			const char* attr = element->Attribute("UpdateScript");
+			stage->mUpdateScript.Set(attr ? attr : "", "quest, elapsedTime");
 		}
 
 		// Скрипт старта
 		if (element->Attribute("StartScript"))
 		{
-			stage->mStartScript = ScriptAPI::MakeFunction("quest", element->Attribute("StartScript"));
+			const char* attr = element->Attribute("StartScript");
+			stage->mStartScript.Set(attr ? attr : "", "quest");
 		}
 
 		return stage;
@@ -73,15 +76,35 @@ namespace story
 		return mID;
 	}
 
-	std::string Stage::GetText()
+	std::string Stage::GetText() const
 	{
 		return mText;
 	}
 
 	void	Stage::OnStart()
 	{
-		if (mStartScript)
-			mStartScript(GetQuest());
+		if (mStartScript.IsValid())
+			mStartScript.GetLuaObject()(GetQuest());
+	}
+
+	void Stage::SetText( std::string text )
+	{
+		mText = text;
+	}
+
+	void Stage::SetID( int value )
+	{
+		mID = value;
+	}
+
+	ScriptPtr Stage::GetStartScript()
+	{
+		return &mStartScript;
+	}
+
+	ScriptPtr Stage::GetUpdateScript()
+	{
+		return &mUpdateScript;
 	}
 
 };

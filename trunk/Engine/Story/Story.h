@@ -24,6 +24,20 @@ namespace story
 		QuestList*		GetFinishedQuests();
 
 		boost::signal<void(QuestPtr, int)>	OnSetStage;
+
+		/// Adds quest to the story
+		///
+		/// @param	quest Quest to add
+		void			AddQuest(QuestPtr quest);
+
+		/// Removes quest from the tory
+		///
+		/// @param	quest Quest to remove
+		void			RemoveQuest(QuestPtr quest);
+
+		int				GetQuestsCount() const;
+
+		QuestPtr		GetQuestAtIndex(const int index) const;
 	protected:
 		void			OnStartQuest(QuestPtr quest);
 	private:

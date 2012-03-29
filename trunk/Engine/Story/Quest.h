@@ -3,6 +3,7 @@
 
 #include "Quests.h"
 #include <string>
+#include "../Core/Script.h"
 
 namespace story
 {
@@ -41,6 +42,19 @@ namespace story
 		/// Выполняется в начале квеста
 		void			OnStart();
 		void			OnFinished();
+
+		int				GetStageCount() const;
+		StagePtr		GetStageAtIndex(int index) const;
+
+		void			AddStage(StagePtr stage);
+
+		void			RemoveStage(StagePtr stage);
+
+		/// Gets script for start event
+		ScriptPtr		GetStartScript();
+
+		/// Gets script for finish event
+		ScriptPtr		GetFinishScript();
 	protected:
 		StoryWPtr	mStory;
 		std::string mName;
@@ -50,10 +64,11 @@ namespace story
 		bool	isActive;
 		bool	isFinished;
 
-		luabind::object		mStartScript;
-		luabind::object		mFinishScript;
+		Script		mStartScript;
+		Script		mFinishScript;
 		StageMap		mStages;
 		StagePtr		mCurrentStage;
+		
 	};
 };
 

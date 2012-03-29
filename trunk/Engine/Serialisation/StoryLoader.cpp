@@ -40,7 +40,9 @@ namespace serialisation
 
 	story::StoryPtr StoryLoader::LoadStory( std::string fileName )
 	{
-		return LoadStory(0);
+		story::StoryPtr s(new story::Story());
+		s->Load(fileName);
+		return s;
 	}
 
 	EntryPtr StoryLoader::LoadEntry( std::string filename )

@@ -106,9 +106,6 @@
     <ClCompile Include="View\ScriptEditorWindow.cpp">
       <Filter>View</Filter>
     </ClCompile>
-    <ClCompile Include="Proxy\ScriptProxy.cpp">
-      <Filter>Proxy</Filter>
-    </ClCompile>
     <ClCompile Include="ResourceHelper.cpp" />
     <ClCompile Include="Proxy\EntryFactories.cpp">
       <Filter>Proxy</Filter>
@@ -118,6 +115,15 @@
     </ClCompile>
     <ClCompile Include="Commands\RemovePhrase.cpp">
       <Filter>Commands\ConversationEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="View\QuestEditorWindow.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="Proxy\ScriptFileProxy.cpp">
+      <Filter>Proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="Proxy\ScriptProxy.cpp">
+      <Filter>Proxy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -234,9 +240,6 @@
     <ClInclude Include="View\ScriptEditorWindow.h">
       <Filter>View</Filter>
     </ClInclude>
-    <ClInclude Include="Proxy\ScriptProxy.h">
-      <Filter>Proxy</Filter>
-    </ClInclude>
     <ClInclude Include="Proxy\IDataToProxyConverter.h">
       <Filter>Proxy</Filter>
     </ClInclude>
@@ -252,6 +255,21 @@
     </ClInclude>
     <ClInclude Include="Commands\RemovePhrase.h">
       <Filter>Commands\ConversationEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="View\QuestEditorWindow.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\AIPackageProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\AIPaletteProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\ScriptFileProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\ScriptProxy.h">
+      <Filter>Proxy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

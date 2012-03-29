@@ -19,8 +19,6 @@ using Microsoft.Win32;
 using System.IO;
 using System.Reflection;
 using System.Windows.Markup;
-using LuaEditor.Views;
-using QuestEditor.Views;
 using LevelEditor.View;
 
 namespace IDE
@@ -130,7 +128,7 @@ namespace IDE
 
             // Регистрируем расширения
             EditorManager.Instance.RegisterExtension<TextEditorWindow>(".txt");
-            EditorManager.Instance.RegisterExtension<LuaEditorWindow>(".lua");
+            EditorManager.Instance.RegisterExtension<ScriptEditorWindow>(".lua");
             EditorManager.Instance.RegisterExtension<QuestEditorWindow>(".story");
             EditorManager.Instance.RegisterExtension<LevelEditor.View.ConversationEditorWindow>(".conv");
 
@@ -151,19 +149,22 @@ namespace IDE
             
             AddEditorWindow(new LevelEditor.View.LevelEditorWindow());
       //      AddEditorWindow(new LevelEditorWindow() { FileName = "../Data/Levels/Level1.xml" });
-            ToolBar tb = LuaEditor.Resources.getToolbar();
-            if (tb != null)
-                mToolbarTray.ToolBars.Add(tb);
+            ToolBar tb;// = LuaEditor.Resources.getToolbar();
+            //if (tb != null)
+            //    mToolbarTray.ToolBars.Add(tb);
 
-            Stream s = typeof(QuestEditor.Views.QuestEditorWindow).Assembly.GetManifestResourceStream("QuestEditor.Views.QuestToolbar.xaml");
+           // Stream s = typeof(QuestEditor.Views.QuestEditorWindow).Assembly.GetManifestResourceStream("QuestEditor.Views.QuestToolbar.xaml");
 
-            tb = QuestEditor.Views.QuestToolbar.Instance;
+            tb = LevelEditor.View.QuestEditorToolBar.Instance; 
             mToolbarTray.ToolBars.Add(tb);
 
             tb = new LevelEditor.View.LevelEditorToolBar();
             mToolbarTray.ToolBars.Add(tb);
 
             tb =LevelEditor.View.ConversationEditorToolBar.Instance;
+            mToolbarTray.ToolBars.Add(tb);
+
+            tb = LevelEditor.View.ScriptToolBar.Instance;
             mToolbarTray.ToolBars.Add(tb);
         }
 

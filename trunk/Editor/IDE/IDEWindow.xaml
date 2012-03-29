@@ -149,6 +149,11 @@
                         <Image Source="/IDE;component/Resources/Paste.png" Style="{StaticResource ResourceKey=ToolImageStyle}"></Image>
                     </Button.Content>
                 </Button>
+                <Button Command="Delete">
+                    <Button.Content>
+                    <Image Source="/IDE;component/Resources/Delete.png" Style="{StaticResource ResourceKey=ToolImageStyle}"></Image>
+                    </Button.Content>
+                </Button>
                 <Separator></Separator>
                 <Button Name="mUndo" Command="Undo">
                     <Button.Content>

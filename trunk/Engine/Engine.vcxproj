@@ -140,6 +140,7 @@
     <ClInclude Include="AI\UtilityFunction.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="Core\MasterFile.h" />
+    <ClInclude Include="Core\Script.h" />
     <ClInclude Include="Core\View.h" />
     <ClInclude Include="Palette\AIPalette.h" />
     <ClInclude Include="Palette\BehaviourPalette.h" />
@@ -286,9 +287,11 @@
     <ClCompile Include="Serialisation\MasterLoader.cpp" />
     <ClCompile Include="Serialisation\SaveData.cpp" />
     <ClCompile Include="Serialisation\SaveManager.cpp" />
+    <ClCompile Include="Core\Script.cpp" />
     <ClCompile Include="Serialisation\ScriptLoader.cpp" />
     <ClCompile Include="Serialisation\StaticLevelSerialiser.cpp" />
     <ClCompile Include="Serialisation\StoryLoader.cpp" />
+    <ClCompile Include="Serialisation\StorySerialiser.cpp" />
     <ClCompile Include="Story\Speaker.cpp" />
     <ClCompile Include="Wrappers\ActionWrapper.cpp" />
     <ClCompile Include="Wrappers\AIPackageWrapper.cpp" />

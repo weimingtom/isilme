@@ -19,8 +19,15 @@ namespace LevelEditor
 			{
 				ObservableCollection<QuestProxy^>^ get();
 			}
-		private:
+
+			void AddQuest(QuestProxy^ quest);
+
+			void RemoveQuest(QuestProxy^ quest);
+
+			System::String^	GenerateID();
+		internal:
 			SharedCLIPtr<story::Story>* mStory;
+		private:
 			ObservableCollection<QuestProxy^>^ mQuests;
 		};
 	}

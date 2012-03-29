@@ -2,6 +2,7 @@
 #define ISILME_STORY_STAGE_H
 
 #include "Quests.h"
+#include "../Core/Script.h"
 
 namespace story
 {
@@ -19,7 +20,9 @@ namespace story
 		int	GetID();
 
 		/// Возвращает текст стадии
-		std::string	GetText();
+		std::string GetText() const;
+
+		void	SetText(std::string text);
 
 		/// Завершает ли стадия квест
 		bool	IsFinishQuest();
@@ -28,11 +31,19 @@ namespace story
 		void	OnUpdate(float elapsedTime);
 
 		QuestPtr	GetQuest();
+
+		// Gets script for OnStart event
+		ScriptPtr	GetStartScript();
+
+		/// Gets script for OnUpdate event
+		ScriptPtr	GetUpdateScript();
+
+		void SetID( int value );
 	private:
 		int mID;
 		std::string mText;
-		luabind::object mStartScript;
-		luabind::object mUpdateScript;
+		::Script mStartScript;
+		::Script mUpdateScript;
 		QuestWPtr	mQuest;
 		bool	isFinish;
 	};
