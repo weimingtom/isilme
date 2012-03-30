@@ -25,6 +25,9 @@ public:
 
 	/// Gets lua object
 	luabind::object GetLuaObject() const;
+
+	/// Gets all params as string
+	std::string GetParamsString() const;
 private:
 	typedef std::list<std::string> StringList;
 

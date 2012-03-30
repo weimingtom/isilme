@@ -9,6 +9,7 @@ namespace story
 	class ISILME_API Conversation
 	{
 	public:
+		static	ConversationPtr Get(std::string id);
 		Conversation(std::string id);
 		virtual ~Conversation();
 		

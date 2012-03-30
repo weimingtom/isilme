@@ -53,6 +53,11 @@ namespace LevelEditor
 				StoryProxy^ get();
 			}
 
+			property ScriptProxy^ StartScript
+			{
+				ScriptProxy^ get();
+			}
+
 			void AddStage(StageProxy^ stage);
 
 			void RemoveStage(StageProxy^ stage);
@@ -61,6 +66,7 @@ namespace LevelEditor
 		private:
 			ObservableCollection<StageProxy^>^ mStages;
 		internal:
+			ScriptProxy^ mStartScript;
 			StoryProxy^ mStory;
 			SharedCLIPtr<story::Quest>* mQuest;
 		};

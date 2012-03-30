@@ -49,21 +49,25 @@ namespace gcn
 		phrase->RunAction(mSpeaker);
 		mCurrentPhrase = phrase;
 		mText->setText(phrase->GetText());
-
+		//mText->adjustSize();
 
 		mAnswers.clear();
-
-		int pos = 0;
+		int max = mText->GetWidth();
+		int pos = mText->GetHeight() + 5;
 		for (int i = 0; i < phrase->GetAnswersCount(); ++i)
 			if (phrase->GetAnswer(i)->CheckCondition(mSpeaker))
 			{
-				pos++;
 				ButtonPtr button(new Button());
 				button->SetCaption(phrase->GetAnswer(i)->GetText());
 				button->AdjustSize();
-				Add(button, 0, 100 * pos);
+				Add(button, 5, pos);
 				mAnswers[button] = phrase->GetAnswer(i);
+				pos += button->GetHeight() + 5;
+				if (button->GetWidth() > max)
+					max = button->GetWidth();
 			}
+		SetSize(max + 15, pos + 20);
+		SetPosition((GetParent()->GetWidth() - GetWidth()) / 2, GetParent()->GetHeight() - GetHeight() - 5 );
 	}
 
 	void ConversationWindow::Init()
@@ -72,7 +76,8 @@ namespace gcn
 		mText->SetSize(500, 100);
 
 		Add(mText, 0, 0);
-		SetSize(600, 400);
+		SetSize(800, 600);
+		mText->setBackgroundColor(Color(0, 0, 0, 0));
 
 		setCaption("Quests");
 	}

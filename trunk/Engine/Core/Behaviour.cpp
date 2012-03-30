@@ -94,6 +94,14 @@ int Behaviour::GetActiveActionsCount() const
 	return mActiveActions.size();
 }
 
+void Behaviour::StopAllActions()
+{
+	for (ActionList::iterator it = mActiveActions.begin(); it != mActiveActions.end(); ++it)
+	{
+		(*it)->Stop();
+	}
+}
+
 void BehaviourDefinition::Parse( TiXmlElement* element )
 {
 

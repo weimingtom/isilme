@@ -1,6 +1,8 @@
 #include "IsilmePCH.h"
 #include "Conversation.h"
 #include "Phrase.h"
+#include "Core/MasterFile.h"
+#include "Core/FactoryManager.h"
 
 namespace story
 {
@@ -44,4 +46,24 @@ namespace story
 
 		return PhrasePtr();
 	}
+
+	story::ConversationPtr Conversation::Get( std::string id ) 
+	{
+		CategoryPtr ctg = FactoryManager::GetSingleton()->GetMasterFile()->GetCategory("Conversations");
+		if (ctg)
+		{
+			for (int i = 0; i < ctg->GetSize(); ++i)
+			{
+				EntryPtr entry = ctg->GetEntry(i);
+				boost::shared_ptr<ConversationEntry> ce = boost::shared_dynamic_cast<ConversationEntry>(entry);
+				if (ce)
+				{
+					if (ce->data->GetID() == id)
+						return ce->data;
+				}
+			}
+		}
+		return ConversationPtr();
+	}
+
 }

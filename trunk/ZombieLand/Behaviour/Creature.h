@@ -116,6 +116,10 @@ namespace behaviour
 		ActionPtr GetDieAction();
 
 		virtual void OnGotDamage(const float damage) override;
+
+		virtual void OnConversationStart(story::SpeakerPtr other) override;
+		
+		virtual void OnConversationEnd(story::SpeakerPtr other) override;
 	protected:
 
 		void UpdateEnemiesList();

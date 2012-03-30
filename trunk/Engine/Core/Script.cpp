@@ -32,3 +32,18 @@ luabind::object Script::GetLuaObject() const
 	return mLuaScript;
 }
 
+std::string Script::GetParamsString() const
+{
+	StringList::const_iterator it = mParams.begin();
+	std::string result = *it;
+	++it;
+	while (it != mParams.end())
+	{
+		result += ", ";
+		result += *it;
+		++it;
+	}
+
+	return result;
+}
+

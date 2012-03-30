@@ -37,6 +37,7 @@ namespace LevelEditor
 		ref class LevelProxy;
 		ref class ConversationProxy;
 		ref class PhraseProxy;
+		ref class ScriptProxy;
 		ref class StoryProxy;
 		ref class QuestProxy;
 		ref class StageProxy;

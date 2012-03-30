@@ -10,6 +10,7 @@
 #include "FractionsLoader.h"
 #include "ItemsLoader.h"
 #include "StoryLoader.h"
+#include "Core/FactoryManager.h"
 
 namespace serialisation
 {
@@ -47,7 +48,7 @@ namespace serialisation
 
 	MasterFilePtr MasterFileLoader::Load( TiXmlElement* element )
 	{
-		MasterFilePtr masterFile(new MasterFile());
+		MasterFilePtr masterFile = FactoryManager::GetSingleton()->GetMasterFile();
 
 		TiXmlElement* categoryElement = element->FirstChildElement();
 		while (categoryElement)

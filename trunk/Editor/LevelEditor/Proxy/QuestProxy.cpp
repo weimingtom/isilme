@@ -2,6 +2,7 @@
 #include "QuestProxy.h"
 #include "StageProxy.h"
 #include "StoryProxy.h"
+#include "ScriptProxy.h"
 
 using namespace System::Runtime::InteropServices;
 
@@ -15,6 +16,7 @@ namespace LevelEditor
 		{
 			mQuest = new SharedCLIPtr<story::Quest>(quest);
 			mStages = gcnew ObservableCollection<StageProxy^>();
+			mStartScript = gcnew ScriptProxy(quest->GetStartScript());
 
 			for (int i = 0; i < quest->GetStageCount(); ++i)
 			{
@@ -28,12 +30,14 @@ namespace LevelEditor
 		{
 			mQuest = new SharedCLIPtr<story::Quest>(story::QuestPtr(new story::Quest()));
 			mStages = gcnew ObservableCollection<StageProxy^>();
+			mStartScript = gcnew ScriptProxy(mQuest->Value->GetStartScript());
 		}
 
 		QuestProxy::QuestProxy( QuestCopyData^ data )
 		{
 			mQuest = new SharedCLIPtr<story::Quest>(story::QuestPtr(new story::Quest()));
 			mStages = gcnew ObservableCollection<StageProxy^>();
+			mStartScript = gcnew ScriptProxy(mQuest->Value->GetStartScript());
 			ID = data->ID;
 			Title = data->Title;
 
@@ -46,6 +50,11 @@ namespace LevelEditor
 		QuestProxy::~QuestProxy()
 		{
 			delete mQuest;
+		}
+
+		ScriptProxy^ QuestProxy::StartScript::get()
+		{
+			return mStartScript;
 		}
 
 		void QuestProxy::AddStage( StageProxy^ stage )

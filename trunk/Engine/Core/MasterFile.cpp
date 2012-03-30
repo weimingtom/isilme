@@ -13,29 +13,28 @@ MasterFile::~MasterFile()
 
 void MasterFile::AddCategory( CategoryPtr ctg )
 {
-	mCategories[ctg->GetName()] = ctg;
+	mCategoriesMap[ctg->GetName()] = ctg;
+	mCategories.push_back(ctg);
 }
 
 CategoryPtr MasterFile::GetCategory( std::string id )
 {
-	CategoryMap::iterator it = mCategories.find(id);
-	if (it != mCategories.end())
+	CategoryMap::iterator it = mCategoriesMap.find(id);
+	if (it != mCategoriesMap.end())
 		return it->second;
 	return CategoryPtr();
 }
 
 int MasterFile::GetSize()
 {
-	return mCategories.size();
+	return mCategoriesMap.size();
 }
 
-CategoryPtr MasterFile::GetCategoryAt( int index )
+CategoryPtr MasterFile::GetCategoryAt( int index ) const
 {
-	CategoryMap::iterator it = mCategories.begin();
-	for (int i = 0; i < index; ++i)
-		++it;
+	CategoryList::const_iterator it = mCategories.cbegin() + index;
 
-	return it->second;
+	return *it;
 }
 
 std::string Category::GetName()

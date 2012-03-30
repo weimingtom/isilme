@@ -17,6 +17,12 @@ namespace story
 
 		/// Gets conversation for speaker
 		virtual ConversationPtr GetConversation() const = 0;
+
+		/// Callback for starting conversation
+		virtual void OnConversationStart(SpeakerPtr other) = 0;
+
+		/// Callback for ending conversation
+		virtual void OnConversationEnd(SpeakerPtr other) = 0;
 	};
 }
 #endif

@@ -6,5 +6,9 @@ namespace LevelEditor
 	{
 	public:
 		static System::Windows::Media::ImageSource^ GetPngSource(System::String^ filename);
+
+		static System::String^	CharToString(const char* value);
+
+		static char* StringToChar(System::String^ value);
 	};
 }

@@ -47,6 +47,9 @@ public:
 	/// Начать выполнениние действия
 	void			StartAction(ActionPtr action);
 
+	/// Terminates all active actions
+	void			StopAllActions();
+
 	/// Customizes.
 	/// 
 	/// @param [in]	element	If non-null, the element.

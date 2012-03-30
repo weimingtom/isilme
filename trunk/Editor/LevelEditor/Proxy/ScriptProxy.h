@@ -3,8 +3,6 @@
 #include "../Stdafx.h"
 #include "IDataToProxyConverter.h"
 
-using namespace System;
-
 namespace LevelEditor
 {
 	namespace Proxy
@@ -12,8 +10,16 @@ namespace LevelEditor
 		public ref class ScriptProxy : public Common::ProxyObject
 		{
 		public:
-			
+			ScriptProxy(ScriptPtr script);
+			virtual ~ScriptProxy();
+
+			property System::String^  Source
+			{
+				System::String^ get();
+				void set(System::String^ value);
+			}
 		private:
+			System::String^ mSource;
 			ScriptPtr mScript;
 		};
 

@@ -56,11 +56,29 @@ namespace LevelEditor
 			{
 				QuestProxy^ get();
 			}
+
+			property ScriptProxy^ StartScript
+			{
+				ScriptProxy^ get();
+			}
+
+			property ScriptProxy^ UpdateScript
+			{
+				ScriptProxy^ get();
+			}
+
+			property bool IsFinishQuest
+			{
+				bool get();
+				void set(bool value);
+			}
 		private:
 		internal:
 			String^ mOnStart;
 			String^ mOnUpdate;
 			QuestProxy^ mQuest;
+			ScriptProxy^ mStartScript;
+			ScriptProxy^ mUpdateScript;
 			SharedCLIPtr<story::Stage>* mStage;
 		};
 	}

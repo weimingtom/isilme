@@ -36,7 +36,8 @@ FactoryManager::FactoryManager() :
 	mBehaviourPalette(new BehaviourPalette()),
 	mFractionsPalette(new FractionsPalette()),
 	mItemsPalette(new ItemsPalette()),
-	mLoader(new serialisation::MasterFileLoader())
+	mLoader(new serialisation::MasterFileLoader()),
+	mMasterFile(new MasterFile())
 {
 	RegisterBehaviour("Default", BehaviourFactory<BehaviourDefinition>::New());
 	RegisterBehaviour("Trigger", BehaviourFactory<TriggerDefinition>::New());

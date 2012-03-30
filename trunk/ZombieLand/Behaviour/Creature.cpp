@@ -10,6 +10,22 @@
 #include "Query.h"
 #include "../ScriptAPI.h"
 
+namespace action
+{
+	class SpeakAction : public Action
+	{
+	public:
+		SpeakAction()
+		{
+			SetDuration(Action::InfiniteDuration);
+		}
+
+		virtual bool DoneCondition() override
+		{
+			return false;
+		}
+	};
+}
 namespace behaviour
 {
 	Creature::Creature()
@@ -44,6 +60,8 @@ namespace behaviour
 		Container::Init(&def->containerDef);
 		AIBehaviour::Init(&def->AIDef);
 		Destroyable::Init(&def->destroyableDef);
+		story::ConversationPtr conversation = story::Conversation::Get(def->Conversation);
+		SetConversation(conversation);
 
 		mEnergy = def->Energy;
 		mMaxEnergy = def->MaxEnergy;
@@ -368,6 +386,16 @@ namespace behaviour
 			blood->SetPosition(GetActor()->GetPosition().x, GetActor()->GetPosition().y);
 			blood->SetAngle(GetActor()->GetAngle());
 		}
+	}
+
+	void Creature::OnConversationStart( story::SpeakerPtr other )
+	{
+		StartAction(ActionPtr(new action::SpeakAction()));
+	}
+
+	void Creature::OnConversationEnd( story::SpeakerPtr other )
+	{
+		StopAllActions();
 	}
 
 };

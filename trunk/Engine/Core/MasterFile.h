@@ -20,12 +20,14 @@ public:
 	int GetSize();
 
 	/// Gets category by index
-	CategoryPtr	GetCategoryAt(int index);
+	CategoryPtr	GetCategoryAt(int index) const;
 private:
 	typedef std::map<std::string, CategoryPtr> CategoryMap;
+	typedef std::vector<CategoryPtr> CategoryList;
 
 	/// Categories
-	CategoryMap mCategories;
+	CategoryMap mCategoriesMap;
+	CategoryList mCategories;
 };
 
 /// @class Category

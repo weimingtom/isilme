@@ -22,7 +22,7 @@ namespace story
 			mUpdateScript.GetLuaObject()(GetQuest(), elapsedTime);
 	}
 
-	bool		Stage::IsFinishQuest()
+	bool Stage::IsFinishQuest() const
 	{
 		return isFinish;
 	}
@@ -107,4 +107,8 @@ namespace story
 		return &mUpdateScript;
 	}
 
+	void Stage::SetFinishQuest( bool value )
+	{
+		isFinish = value;
+	}
 };

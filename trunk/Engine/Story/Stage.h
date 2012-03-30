@@ -24,8 +24,11 @@ namespace story
 
 		void	SetText(std::string text);
 
-		/// Завершает ли стадия квест
-		bool	IsFinishQuest();
+		/// Gets if stage will finish the quest
+		bool IsFinishQuest() const;
+
+		/// Sets if stage will finish the quest
+		void SetFinishQuest(bool value);
 
 		void	OnStart();
 		void	OnUpdate(float elapsedTime);
