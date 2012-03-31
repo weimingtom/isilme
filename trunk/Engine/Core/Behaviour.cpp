@@ -102,6 +102,11 @@ void Behaviour::StopAllActions()
 	}
 }
 
+EntityPtr Behaviour::GetEntity()
+{
+	return mActor.lock();
+}
+
 void BehaviourDefinition::Parse( TiXmlElement* element )
 {
 

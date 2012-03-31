@@ -52,6 +52,19 @@ namespace serialisation
 			phraseElement = phraseElement->NextSiblingElement("Phrase");
 		}
 
+		// Set references
+		for (PhraseRefMap::iterator it = mRefMap.begin(); it != mRefMap.end(); ++it)
+		{
+			story::PhrasePtr refPhrase = mPhraseMap[it->second];
+			if (refPhrase)
+			{
+				it->first->SetReference(refPhrase);
+			}
+			else
+			{
+				LOG_W("There is no phrase for %d id", it->second);
+			}
+		}
 		return conversation;
 	}
 
@@ -62,53 +75,42 @@ namespace serialisation
 		int attrRef = 0;
 		int attrChance = 0;
 
-		element->QueryIntAttribute("Ref", &attrRef);
-		element->QueryIntAttribute("Chance", &attrChance);
-		const char* attrText = element->Attribute("Text");
-		const char* attrCondition = element->Attribute("Condition");
-		const char* atttrAction = element->Attribute("Action");
-
-		story::PhrasePtr;
-		if (attrRef)
+		if (element->Attribute("Ref") != nullptr)
 		{
-			phrase = GetPhraseByRef(attrRef);
-			if (phrase)
-			{
-				phrase.reset(new story::Phrase(phrase));
-				return phrase;
-			}
-			else
-			{
-				phrase.reset(new story::Phrase());
-				mPhraseMap[attrRef] = phrase;
-			}
+			element->QueryIntAttribute("Ref", &attrRef);
+			mRefMap[phrase] = attrRef;
 		}
-		else
+		else if (element->Attribute("ID") != nullptr)
 		{
-			LOG_W("Phrase has no ref uid");
-			return story::PhrasePtr();	
-		}
+			element->QueryIntAttribute("ID", &attrRef);
+			mPhraseMap[attrRef] = phrase;
 
-		if (attrText)
-			phrase->SetText(attrText);
+			element->QueryIntAttribute("Chance", &attrChance);
+			const char* attrText = element->Attribute("Text");
+			const char* attrCondition = element->Attribute("Condition");
+			const char* atttrAction = element->Attribute("Action");
 
-		if (attrCondition)
-			phrase->SetCondition(attrCondition);
+			if (attrText)
+				phrase->SetText(attrText);
 
-		if (atttrAction)
-			phrase->SetAction(atttrAction);
+			if (attrCondition)
+				phrase->SetCondition(attrCondition);
 
-		if (attrChance)
-			phrase->SetChance(attrChance);
+			if (atttrAction)
+				phrase->SetAction(atttrAction);
 
-		TiXmlElement* answerElement = element->FirstChildElement("Phrase");
-		while (answerElement)
-		{
-			story::PhrasePtr answer = LoadPhrase(answerElement);
-			if (answer)
-				phrase->AddAnswer(answer);
+			if (attrChance)
+				phrase->SetChance(attrChance);
 
-			answerElement = answerElement->NextSiblingElement("Phrase");
+			TiXmlElement* answerElement = element->FirstChildElement("Phrase");
+			while (answerElement)
+			{
+				story::PhrasePtr answer = LoadPhrase(answerElement);
+				if (answer)
+					phrase->AddAnswer(answer);
+
+				answerElement = answerElement->NextSiblingElement("Phrase");
+			}
 		}
 
 		return phrase;

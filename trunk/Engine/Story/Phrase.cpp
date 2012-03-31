@@ -1,4 +1,5 @@
 #include "IsilmePCH.h"
+#include "Speaker.h"
 #include "Phrase.h"
 #include "Core/Entity.h"
 #include "ScriptAPI.h"
@@ -39,7 +40,7 @@ namespace story
 		return mChildren.at(index);
 	}
 
-	void Phrase::RunAction(EntityPtr speaker)
+	void Phrase::RunAction(SpeakerPtr speaker)
 	{
 		if (mReference)
 		{
@@ -53,7 +54,7 @@ namespace story
 		}
 	}
 
-	bool Phrase::CheckCondition(EntityPtr speaker)
+	bool Phrase::CheckCondition(SpeakerPtr speaker)
 	{
 		if (mReference)
 			return mReference->CheckCondition(speaker);
@@ -91,7 +92,7 @@ namespace story
 		mChildren.push_back(phrase);
 	}
 
-	PhrasePtr Phrase::AutoChooseAnswer(EntityPtr speaker)
+	PhrasePtr Phrase::AutoChooseAnswer(SpeakerPtr speaker)
 	{
 		if (mReference)
 		{
@@ -156,6 +157,16 @@ namespace story
 		PhraseVector::iterator it = std::find(mChildren.begin(), mChildren.end(), phrase);
 		if (it != mChildren.end())
 			mChildren.erase(it);
+	}
+
+	void Phrase::SetReference( PhrasePtr phrase )
+	{
+		mReference = phrase;
+	}
+
+	story::PhrasePtr Phrase::GetReference() const
+	{
+		return mReference;
 	}
 
 };

@@ -12,19 +12,19 @@ namespace LevelEditor
 		public ref class LevelEntryFactory : public IEntryFactory
 		{
 		public:
-			virtual EntryProxy^ CreateNewEntry();
+			virtual EntryProxy^ CreateNewEntry(String^ fileName, String^ id);
 		};
 
 		public ref class ScriptEntryFactory : public IEntryFactory
 		{
 		public:
-			virtual EntryProxy^ CreateNewEntry();
+			virtual EntryProxy^ CreateNewEntry(String^ fileName, String^ id);
 		};
 
 		public ref class ConversationEntryFactory : public IEntryFactory
 		{
 		public:
-			virtual EntryProxy^ CreateNewEntry();
+			virtual EntryProxy^ CreateNewEntry(String^ fileName, String^ id);
 		};
 	}
 }

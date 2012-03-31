@@ -13,7 +13,7 @@ namespace story
 		virtual ~Phrase();
 
 		/// Проверяет, выполняется ли условие фразы
-		bool CheckCondition(EntityPtr speaker);
+		bool CheckCondition(SpeakerPtr speaker);
 
 		/// Возвращает текст фразы
 		std::string GetText();
@@ -25,7 +25,7 @@ namespace story
 		PhrasePtr GetAnswer(int index);
 
 		/// Запускае сценарий действия
-		void RunAction(EntityPtr speaker);
+		void RunAction(SpeakerPtr speaker);
 
 		/// Добавить ответ
 		void AddAnswer(PhrasePtr phrase);
@@ -37,7 +37,7 @@ namespace story
 		void SetText(std::string text);
 
 		/// Выбрать ответ
-		PhrasePtr AutoChooseAnswer(EntityPtr speaker);
+		PhrasePtr AutoChooseAnswer(SpeakerPtr speaker);
 
 		void SetCondition( std::string attrCondition );
 
@@ -52,6 +52,12 @@ namespace story
 		int GetChance();
 
 		bool IsReference();
+
+		/// Makes phrase as reference
+		void SetReference(PhrasePtr phrase);
+
+		/// Gets referenced phrase
+		PhrasePtr GetReference() const;
 	private:
 		PhrasePtr mReference;
 

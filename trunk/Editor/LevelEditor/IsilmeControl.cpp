@@ -103,7 +103,8 @@ namespace LevelEditor
 			if (convCtg != nullptr)
 			{
 				convCtg->Converter = gcnew ConversationDataToProxyConverter();
-				scriptsCtg->FileExtension = ".conv";
+				convCtg->Factory = gcnew ConversationEntryFactory();
+				convCtg->FileExtension = ".conv";
 			}
 
 			//FactoryManager::GetSingleton()->LoadGraphics("../Data/Graphics.xml");

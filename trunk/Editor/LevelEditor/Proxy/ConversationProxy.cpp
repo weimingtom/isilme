@@ -4,6 +4,7 @@
 #include "Engine/Serialisation/ConversationLoader.h"
 #include "PhraseProxy.h"
 #include "Engine/Core/MasterFile.h"
+#include "../ResourceHelper.h"
 
 using namespace System::Runtime::InteropServices;
 
@@ -13,15 +14,16 @@ namespace LevelEditor
 	{
 		ConversationProxy::ConversationProxy( story::ConversationPtr conversation )
 		{
-			mConversation = new SharedCLIPtr<story::Conversation>(conversation);
+			mConversation = new story::ConversationPtr();
+			*mConversation = conversation;
 			mPhrases = gcnew ObservableCollection<PhraseProxy^>();
 
-			if (!mConversation->Value)
-				mConversation->Value.reset(new story::Conversation(""));
+			if ((*mConversation) == nullptr)
+				(*mConversation).reset(new story::Conversation(""));
 
-			for (int i = 0; i < mConversation->Value->GetPhrasesCount(); ++i)
+			for (int i = 0; i < (*mConversation)->GetPhrasesCount(); ++i)
 			{
-				PhraseProxy^ phrase = gcnew PhraseProxy(mConversation->Value->GetPhrase(i));
+				PhraseProxy^ phrase = gcnew PhraseProxy((*mConversation)->GetPhrase(i));
 				phrase->mConversation = this;
 
 				mPhrases->Add(phrase);
@@ -30,7 +32,8 @@ namespace LevelEditor
 
 		ConversationProxy::ConversationProxy()
 		{
-			mConversation = new SharedCLIPtr<story::Conversation>(story::ConversationPtr(new story::Conversation("")));
+			mConversation = new story::ConversationPtr();
+			*mConversation = story::ConversationPtr(new story::Conversation(""));
 			mPhrases = gcnew ObservableCollection<PhraseProxy^>();
 		}
 
@@ -41,7 +44,7 @@ namespace LevelEditor
 
 		void ConversationProxy::AddPhrase( PhraseProxy^ phrase )
 		{
-			mConversation->Value->AddPhrase(phrase->mPhrase->Value);
+			(*mConversation)->AddPhrase(*phrase->mPhrase);
 			mPhrases->Add(phrase);
 			phrase->mConversation = this;
 		}
@@ -80,7 +83,20 @@ namespace LevelEditor
 		{
 			serialisation::XMLConversationSerialiser serialiser;
 
-			serialiser.Serilise(mConversation->Value, (char*)Marshal::StringToHGlobalAnsi(fileName).ToPointer());
+			serialiser.Serilise(*mConversation, (char*)Marshal::StringToHGlobalAnsi(fileName).ToPointer());
+		}
+
+		PhraseProxy^ ConversationProxy::FindByInternalID( System::String^ id )
+		{
+			for each(PhraseProxy^ phrase in mPhrases)
+			{
+				if (phrase->InternalID == id)
+					return phrase;
+				PhraseProxy^ child = phrase->FindByInternalID(id);
+				if (child != nullptr)
+					return child;
+			}
+			return nullptr;
 		}
 
 		ObservableCollection<PhraseProxy^>^ ConversationProxy::Phrases::get()
@@ -90,12 +106,12 @@ namespace LevelEditor
 
 		String^ ConversationProxy::ID::get()
 		{
-			return gcnew String(mConversation->Value->GetID().c_str());
+			return gcnew String((*mConversation)->GetID().c_str());
 		}
 
 		void ConversationProxy::ID::set(String^ value)
 		{
-			
+			(*mConversation)->SetID(ResourceHelper::StringToChar(value));
 		}
 	}
 }

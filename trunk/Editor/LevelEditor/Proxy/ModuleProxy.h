@@ -197,9 +197,6 @@ namespace LevelEditor
 
 			/// Registers factory for entry
 			static void RegisterFactory(String^ category, IEntryFactory^ factory);
-
-			/// Creates new item for category
-			static EntryProxy^	CreateNewEntry(String^ category);
 		private:
 			static System::Collections::Generic::Dictionary<String^, IDataToProxyConverter^>^ mConverters = gcnew System::Collections::Generic::Dictionary<String^, IDataToProxyConverter^>();
 			static System::Collections::Generic::Dictionary<String^, IEntryFactory^>^ mFactories = gcnew System::Collections::Generic::Dictionary<String^, IEntryFactory^>();

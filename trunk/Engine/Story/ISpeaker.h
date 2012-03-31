@@ -23,6 +23,12 @@ namespace story
 
 		/// Callback for ending conversation
 		virtual void OnConversationEnd(SpeakerPtr other) = 0;
+
+		/// Initiate conversation with other speaker
+		virtual void StartConversationWith(SpeakerPtr other) = 0;
+
+		/// Say phrase
+		//virtual void OnSay(PhrasePtr phrase) = 0;
 	};
 }
 #endif

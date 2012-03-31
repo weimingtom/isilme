@@ -120,6 +120,8 @@ namespace behaviour
 		virtual void OnConversationStart(story::SpeakerPtr other) override;
 		
 		virtual void OnConversationEnd(story::SpeakerPtr other) override;
+
+		virtual void StartConversationWith(story::SpeakerPtr other) override;
 	protected:
 
 		void UpdateEnemiesList();

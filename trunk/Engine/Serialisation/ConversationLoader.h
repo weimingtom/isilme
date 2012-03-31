@@ -22,7 +22,10 @@ namespace serialisation
 
 		story::PhrasePtr GetPhraseByRef(int refValue);
 	private:
-		std::map<int, story::PhrasePtr> mPhraseMap;
+		typedef std::map<int, story::PhrasePtr> IDPhraseMap;
+		typedef std::map<story::PhrasePtr, int> PhraseRefMap;
+		IDPhraseMap mPhraseMap;
+		PhraseRefMap mRefMap;
 	};
 }
 #endif

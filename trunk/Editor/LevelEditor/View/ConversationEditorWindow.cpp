@@ -165,12 +165,35 @@ namespace LevelEditor
 
 		void ConversationEditorWindow::ExecutedPasteRef( System::Object^ sender, System::Windows::Input::ExecutedRoutedEventArgs^ e )
 		{
+			Object^ objData = System::Windows::Clipboard::GetData("PhraseData");
+			
+			PhraseCopyData^ pData = dynamic_cast<PhraseCopyData^>(objData);
 
+			PhraseProxy^ original = mConversation->FindByInternalID(pData->InternalID);
+			if (original == nullptr)
+			{
+				System::Windows::MessageBox::Show(nullptr, "Impossible insert reference to a phrase into this conversation", "Warning");
+				return;
+			}
+			PhraseProxy^ phrase = gcnew PhraseProxy(original);
+
+			if (mDialogTree->SelectedItem == mConversation)
+			{
+				CommandManager->Execute(gcnew AddPhrase(mConversation, phrase));
+			}
+			else
+			{
+				PhraseProxy^ selected = dynamic_cast<PhraseProxy^>(mDialogTree->SelectedItem);
+				if (selected != nullptr)
+				{
+					CommandManager->Execute(gcnew AddPhrase(selected, phrase));
+				}
+			}
 		}
 
 		void ConversationEditorWindow::CanExecutePasteRef( System::Object^ sender, System::Windows::Input::CanExecuteRoutedEventArgs^ e )
 		{
-			e->CanExecute = false;
+			e->CanExecute = System::Windows::Clipboard::ContainsData("PhraseData") && mDialogTree->SelectedItem != nullptr;;
 		}
 
 		void ConversationEditorWindow::ExecutedDelete( System::Object^ sender, System::Windows::Input::ExecutedRoutedEventArgs^ e )

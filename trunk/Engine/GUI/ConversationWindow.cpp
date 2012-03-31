@@ -25,8 +25,9 @@ namespace gcn
 		}
 	}
 
-	void ConversationWindow::SetConversation(story::ConversationPtr conversation, EntityPtr speaker)
+	void ConversationWindow::SetConversation(story::ConversationPtr conversation, story::SpeakerPtr player, story::SpeakerPtr speaker)
 	{
+		mPlayer = player;
 		mSpeaker = speaker;
 		mConversation = conversation;
 

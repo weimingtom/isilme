@@ -353,12 +353,7 @@ namespace behaviour
 		story::ConversationPtr conversation = GetConversation();
 		if (conversation)
 		{
-			gcn::ContainerPtr w = boost::shared_dynamic_cast<gcn::Container>(ZombieLand::GetSingleton()->playState->GetGUI()->GetTop());
-			gcn::ConversationWindowPtr cw(new gcn::ConversationWindow());
-			cw->Init();
-			cw->Show(w);
-			cw->SetConversation(conversation, GetActor());
-			cw->setCaption(GetName());
+			StartConversationWith(other);
 		}
 	}
 
@@ -396,6 +391,26 @@ namespace behaviour
 	void Creature::OnConversationEnd( story::SpeakerPtr other )
 	{
 		StopAllActions();
+	}
+
+	void Creature::StartConversationWith( story::SpeakerPtr other )
+	{
+		story::SpeakerPtr me = boost::shared_dynamic_cast<story::ISpeaker>(shared_from_this());
+		BehaviourPtr bOtehr = boost::shared_dynamic_cast<Behaviour>(other);
+		story::ConversationPtr conversation = GetConversation();
+		gcn::ContainerPtr w = boost::shared_dynamic_cast<gcn::Container>(ZombieLand::GetSingleton()->playState->GetGUI()->GetTop());
+		gcn::ConversationWindowPtr cw(new gcn::ConversationWindow());
+		cw->Init();
+		cw->Show(w);
+		
+		if (GetEntity()->GetName() == "Player")
+		{
+			cw->SetConversation(conversation, me, other);
+		}
+		if (bOtehr->GetEntity()->GetName() == "Player")
+		{
+			cw->SetConversation(conversation, other, me);
+		}
 	}
 
 };

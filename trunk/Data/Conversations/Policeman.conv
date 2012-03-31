@@ -1,0 +1,5 @@
+<Conversation ID="Policeman">
+    <Phrase Ref="312684072" Text="You have my ear, citizen!" Action="" Condition="" Chance="-842150451">
+        <Phrase Ref="312826200" Text="[End dialog]" Action="" Condition="" Chance="-842150451" />
+    </Phrase>
+</Conversation>

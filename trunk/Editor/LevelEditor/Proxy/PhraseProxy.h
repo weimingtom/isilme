@@ -17,6 +17,8 @@ namespace LevelEditor
 			System::String^ Condition;
 			System::String^ Action;
 			System::Collections::Generic::List<PhraseCopyData^>^ Children;
+			System::String^ InternalID;
+			bool IsReference;
 		};
 
 		public ref class PhraseProxy : public Common::ProxyObject
@@ -26,6 +28,8 @@ namespace LevelEditor
 			PhraseProxy(story::PhrasePtr phrase);
 
 			PhraseProxy(PhraseCopyData^ copyData);
+
+			PhraseProxy(PhraseProxy^ refPhrase);
 
 			PhraseCopyData^ MakeCopy();
 
@@ -54,6 +58,12 @@ namespace LevelEditor
 				bool get();
 			}
 
+			/// Gets phrase that is referenced by
+			property PhraseProxy^ Reference
+			{
+				PhraseProxy^ get();
+			}
+
 			[System::ComponentModel::Browsable(false)]
 			property ObservableCollection<PhraseProxy^>^ Answers
 			{
@@ -75,13 +85,26 @@ namespace LevelEditor
 			{
 				PhraseProxy^ get();
 			}
+
+			property System::String^ InternalID
+			{
+				System::String^ get();
+			}
+
+			PhraseProxy^	FindByInternalID(System::String^ id);
 		private:
 			ObservableCollection<PhraseProxy^>^ mAnswers;
 			bool isReference;
 		internal:
-			SharedCLIPtr<story::Phrase>* mPhrase;
+			/// An internal identifier
+			System::String^ mInternalID;
+
+			/// All phrases that refers to this instance
+			System::Collections::Generic::List<PhraseProxy^>^ mRefers;
+			story::PhrasePtr* mPhrase;
 			ConversationProxy^ mConversation; // ?
 			PhraseProxy^ mParent;
+			PhraseProxy^ mReference;
 		};
 	}
 }

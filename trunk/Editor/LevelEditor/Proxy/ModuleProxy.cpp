@@ -221,14 +221,6 @@ namespace LevelEditor
 			mFactories[category] = factory;
 		}
 
-		EntryProxy^ GameDataToProxyConverter::CreateNewEntry( String^ category )
-		{
-			if (mFactories->ContainsKey(category))
-				return mFactories[category]->CreateNewEntry();
-
-			return nullptr;
-		}
-
 		LevelDataToProxyConverter::LevelDataToProxyConverter()
 		{
 

@@ -3,6 +3,7 @@
 #include "Phrase.h"
 #include "Core/MasterFile.h"
 #include "Core/FactoryManager.h"
+#include "Speaker.h"
 
 namespace story
 {
@@ -35,7 +36,7 @@ namespace story
 		return mID;
 	}
 
-	PhrasePtr Conversation::AutoChoosePhrase(EntityPtr speaker)
+	PhrasePtr Conversation::AutoChoosePhrase(SpeakerPtr speaker)
 	{
 		for (int i = 0; i < GetPhrasesCount(); ++i)
 		{
@@ -64,6 +65,11 @@ namespace story
 			}
 		}
 		return ConversationPtr();
+	}
+
+	void Conversation::SetID( std::string id )
+	{
+		mID = id;
 	}
 
 }

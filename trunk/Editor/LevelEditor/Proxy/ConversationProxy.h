@@ -34,10 +34,13 @@ namespace LevelEditor
 			void AddPhrase(PhraseProxy^ phrase);
 
 			void RemovePhrase(PhraseProxy^ phrase);
+
+			PhraseProxy^ FindByInternalID(System::String^ id);
 		private:
 			ObservableCollection<PhraseProxy^>^ mPhrases;
-			///< Модель диалога
-			SharedCLIPtr<story::Conversation>* mConversation;
+		internal:
+			/// Native dialog
+			story::ConversationPtr* mConversation;
 		};
 	}
 }

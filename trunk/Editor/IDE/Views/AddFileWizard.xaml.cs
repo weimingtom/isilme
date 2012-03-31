@@ -35,9 +35,9 @@ namespace IDE.Views
             LevelEditor.Proxy.CategoryProxy category = mFileTypeList.SelectedItem as LevelEditor.Proxy.CategoryProxy;
             if (category.Factory != null)
             {
-                LevelEditor.Proxy.EntryProxy entry = category.Factory.CreateNewEntry();
+                String fn = "../Data/" + category.Name + "/" + mFileName.Text + category.FileExtension;
+                LevelEditor.Proxy.EntryProxy entry = category.Factory.CreateNewEntry(fn, mFileName.Text);
                 category.AddEntry(entry);
-                entry.FileName = "../Data/" + category.Name + "/" + mFileName.Text + category.FileExtension;
                 DialogResult = true;
             }
             else

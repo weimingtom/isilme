@@ -40,12 +40,13 @@ namespace serialisation
 
 	void XMLConversationSerialiser::SerialisePhrase( story::PhrasePtr phrase, TiXmlElement* element )
 	{
-		element->SetAttribute("Ref", (int)(phrase.get()));
-
-		if (mRefs.find((int)phrase.get()) != mRefs.end())
+		if (phrase->IsReference())
+		{
+			element->SetAttribute("Ref", (int)(phrase->GetReference().get()));
 			return;
+		}
 
-		mRefs.insert((int)phrase.get());
+		element->SetAttribute("ID", (int)(phrase.get()));
 
 		element->SetAttribute("Text", phrase->GetText().c_str());
 		element->SetAttribute("Action", phrase->GetActionSource().c_str());

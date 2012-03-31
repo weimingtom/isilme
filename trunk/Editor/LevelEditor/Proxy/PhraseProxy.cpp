@@ -14,15 +14,17 @@ namespace LevelEditor
 
 		PhraseProxy::PhraseProxy( story::PhrasePtr phrase )
 		{
-			mPhrase = new SharedCLIPtr<story::Phrase>(phrase);
+			mInternalID = "Phrase" + GetHashCode();
+			mPhrase = new story::PhrasePtr();
+			*mPhrase = phrase;
 			mAnswers = gcnew ObservableCollection<PhraseProxy^>();
 			isReference = phrase->IsReference();
 
 			if (!IsReference)
 			{
-				for (int i = 0; i < mPhrase->Value->GetAnswersCount(); ++i)
+				for (int i = 0; i < (*mPhrase)->GetAnswersCount(); ++i)
 				{
-					PhraseProxy^ child = gcnew PhraseProxy(mPhrase->Value->GetAnswer(i));
+					PhraseProxy^ child = gcnew PhraseProxy((*mPhrase)->GetAnswer(i));
 					mAnswers->Add(child);
 					child->mParent = this;
 				}
@@ -31,13 +33,31 @@ namespace LevelEditor
 
 		PhraseProxy::PhraseProxy()
 		{
-			mPhrase = new SharedCLIPtr<story::Phrase>(story::PhrasePtr(new story::Phrase()));
+			mInternalID = "Phrase" + GetHashCode();
+			mPhrase = new story::PhrasePtr();
+			*mPhrase = story::PhrasePtr(new story::Phrase());
 			mAnswers = gcnew ObservableCollection<PhraseProxy^>();
+		}
+
+		PhraseProxy^ PhraseProxy::FindByInternalID( System::String^ id )
+		{
+			for each(PhraseProxy^ phrase in Answers)
+			{
+				if (phrase->InternalID == id)
+					return phrase;
+				PhraseProxy^ child = phrase->FindByInternalID(id);
+				if (child != nullptr)
+					return child;
+			}
+
+			return nullptr;
 		}
 
 		PhraseProxy::PhraseProxy( PhraseCopyData^ copyData )
 		{
-			mPhrase = new SharedCLIPtr<story::Phrase>(story::PhrasePtr(new story::Phrase()));
+			mInternalID = "Phrase" + GetHashCode();
+			mPhrase = new story::PhrasePtr();
+			*mPhrase = story::PhrasePtr(new story::Phrase());
 			mAnswers = gcnew ObservableCollection<PhraseProxy^>();
 
 			Text = copyData->Text;
@@ -51,9 +71,25 @@ namespace LevelEditor
 			}
 		}
 
+		PhraseProxy::PhraseProxy( PhraseProxy^ refPhrase )
+		{
+			mInternalID = "Phrase" + GetHashCode();
+			mPhrase = new story::PhrasePtr();
+			*mPhrase = story::PhrasePtr(new story::Phrase());
+			(*mPhrase)->SetReference(*(refPhrase->mPhrase));
+			mAnswers = gcnew ObservableCollection<PhraseProxy^>();
+			mReference = refPhrase;
+			isReference = true;
+		}
+
+		String^ PhraseProxy::InternalID::get()
+		{
+			return mInternalID;
+		}
+
 		PhraseProxy::~PhraseProxy()
 		{
-
+			delete mPhrase;
 		}
 
 		PhraseProxy^	PhraseProxy::Parent::get()
@@ -61,20 +97,25 @@ namespace LevelEditor
 			return mParent;
 		}
 
+		PhraseProxy^ PhraseProxy::Reference::get()
+		{
+			return mReference;
+		}
+
 		bool PhraseProxy::IsReference::get()
 		{
-			return mPhrase->Value->IsReference();
+			return (*mPhrase)->IsReference();
 		}
 		void PhraseProxy::AddAnswer( PhraseProxy^ answer )
 		{
-			mPhrase->Value->AddAnswer(answer->mPhrase->Value);
+			(*mPhrase)->AddAnswer(*(answer->mPhrase));
 			mAnswers->Add(answer);
 			answer->mParent = this;
 		}
 
 		void PhraseProxy::RemoveAnswer( PhraseProxy^ answer )
 		{
-			mPhrase->Value->RemoveAnswer(answer->mPhrase->Value);
+			(*mPhrase)->RemoveAnswer(*(answer->mPhrase));
 			answer->mParent = nullptr;
 			mAnswers->Remove(answer);
 		}
@@ -86,6 +127,8 @@ namespace LevelEditor
 			data->Condition = Condition;
 			data->Action = Action;
 			data->Children = gcnew List<PhraseCopyData^>();
+			data->InternalID = InternalID;
+			data->IsReference = isReference;
 
 			if (!IsReference)
 			{
@@ -93,9 +136,6 @@ namespace LevelEditor
 				{
 					data->Children->Add(child->MakeCopy());
 				}
-			}
-			else
-			{
 			}
 
 			return data;
@@ -111,18 +151,18 @@ namespace LevelEditor
 
 		String^ PhraseProxy::Text::get()
 		{
-			return gcnew String(mPhrase->Value->GetText().c_str());
+			return gcnew String((*mPhrase)->GetText().c_str());
 		}
 
 		void PhraseProxy::Text::set(String^ value)
 		{
-			mPhrase->Value->SetText((char*)Marshal::StringToHGlobalAnsi(value).ToPointer());
+			(*mPhrase)->SetText((char*)Marshal::StringToHGlobalAnsi(value).ToPointer());
 			RaisePropertyChanged(this, "Text");
 		}
 
 		String^ PhraseProxy::Condition::get()
 		{
-			return gcnew String(mPhrase->Value->GetConditionSource().c_str());
+			return gcnew String((*mPhrase)->GetConditionSource().c_str());
 		}
 
 		void PhraseProxy::Condition::set(String^ value)
@@ -132,7 +172,7 @@ namespace LevelEditor
 
 		String^ PhraseProxy::Action::get()
 		{
-			return gcnew String(mPhrase->Value->GetActionSource().c_str());
+			return gcnew String((*mPhrase)->GetActionSource().c_str());
 		}
 
 		void PhraseProxy::Action::set(String^ value)

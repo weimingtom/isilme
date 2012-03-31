@@ -8,7 +8,7 @@ namespace LevelEditor
 	{
 		public interface class IEntryFactory
 		{
-			EntryProxy^ CreateNewEntry();
+			EntryProxy^ CreateNewEntry(String^ fileName, String^ id);
 		};
 	}
 }
