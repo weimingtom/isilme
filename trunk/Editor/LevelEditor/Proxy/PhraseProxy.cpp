@@ -92,6 +92,16 @@ namespace LevelEditor
 			delete mPhrase;
 		}
 
+		int PhraseProxy::Chance::get()
+		{
+			return (*mPhrase)->GetChance();
+		}
+
+		void PhraseProxy::Chance::set(int value)
+		{
+			(*mPhrase)->SetChance(value);
+		}
+
 		PhraseProxy^	PhraseProxy::Parent::get()
 		{
 			return mParent;

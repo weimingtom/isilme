@@ -1,7 +1,6 @@
 #pragma once
 #include "../Stdafx.h"
 #include "../SharedCLIPtr.h"
-#include "Engine/Editor/AddEntityCommand.h"
 
 using namespace Common;
 using namespace LevelEditor::Proxy;

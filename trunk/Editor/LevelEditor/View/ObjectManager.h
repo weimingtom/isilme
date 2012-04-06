@@ -43,6 +43,8 @@ namespace LevelEditor
 			void ExecutedRemove( Object^ sender, ExecutedRoutedEventArgs^ e );
 
 			void CanExecuteRemove( Object^ sender, CanExecuteRoutedEventArgs^ e );
+
+			void OnLevelLoaded(Object^ sender, EventArgs^ e);
 		};
 	}
 }

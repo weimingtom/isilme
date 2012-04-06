@@ -9,6 +9,11 @@ namespace LevelEditor
 		public ref class AIPackageProxy : public Common::ProxyObject
 		{
 		public:
+			property System::String^ ID
+			{
+				System::String^ get();
+				void set(System::String^ value);
+			}
 		};
 	}
 }

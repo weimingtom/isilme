@@ -104,6 +104,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="COPYING" />
+    <None Include="COPYING.LESSER" />
+    <None Include="COPYING.LESSER.RU" />
+    <None Include="COPYING.RU" />
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -120,6 +124,8 @@
     <ClInclude Include="AI\Factories\AIPackageFactory.h" />
     <ClInclude Include="AI\Message.h" />
     <ClInclude Include="AI\MessageData.h" />
+    <ClInclude Include="AI\Pathfinding\PathMap.h" />
+    <ClInclude Include="AI\Pathfinding\Types.h" />
     <ClInclude Include="AI\Perception.h" />
     <ClInclude Include="AI\PerceptionList.h" />
     <ClInclude Include="AI\ScriptAIPackageDef.h" />
@@ -155,7 +161,6 @@
     <ClInclude Include="Serialisation\ConversationSerialiser.h" />
     <ClInclude Include="Serialisation\DynamicLevelSerialiser.h" />
     <ClInclude Include="Serialisation\EntityPaletteLoader.h" />
-    <ClInclude Include="Core\Serialisation\EntityPalettLoader.h" />
     <ClInclude Include="Serialisation\EntryLoader.h" />
     <ClInclude Include="Serialisation\FractionsLoader.h" />
     <ClInclude Include="Serialisation\GraphicsPaletteLoader.h" />
@@ -178,16 +183,6 @@
     <ClInclude Include="Wrappers\BehaviourWrapper.h" />
     <ClInclude Include="Wrappers\CameraWrapper.h" />
     <ClInclude Include="Wrappers\StateWrapper.h" />
-    <ClInclude Include="Editor\AddEntityCommand.h" />
-    <ClInclude Include="Editor\AddLayerCommand.h" />
-    <ClInclude Include="Editor\Command.h" />
-    <ClInclude Include="Editor\CommandManager.h" />
-    <ClInclude Include="Editor\DelEntityCommand.h" />
-    <ClInclude Include="Editor\DelLayerCommand.h" />
-    <ClInclude Include="Editor\EditorDefinitions.h" />
-    <ClInclude Include="Editor\EntityBrushTool.h" />
-    <ClInclude Include="Editor\SelectorTool.h" />
-    <ClInclude Include="Editor\Tool.h" />
     <ClInclude Include="Graphics\Animation.h" />
     <ClInclude Include="Graphics\Line.h" />
     <ClInclude Include="Graphics\Particles.h" />
@@ -257,6 +252,7 @@
     <ClCompile Include="AI\AttributeDef.cpp" />
     <ClCompile Include="AI\Message.cpp" />
     <ClCompile Include="AI\MessageData.cpp" />
+    <ClCompile Include="AI\Pathfinding\PathMap.cpp" />
     <ClCompile Include="AI\Perception.cpp" />
     <ClCompile Include="AI\ScriptAIPackageDef.cpp" />
     <ClCompile Include="AI\Steering\Arrival.cpp" />
@@ -298,14 +294,6 @@
     <ClCompile Include="Wrappers\BehaviourWrapper.cpp" />
     <ClCompile Include="Wrappers\CameraWrapper.cpp" />
     <ClCompile Include="Wrappers\StateWrapper.cpp" />
-    <ClCompile Include="Editor\AddEntityCommand.cpp" />
-    <ClCompile Include="Editor\AddLayerCommand.cpp" />
-    <ClCompile Include="Editor\CommandManager.cpp" />
-    <ClCompile Include="Editor\DelEntityCommand.cpp" />
-    <ClCompile Include="Editor\DelLayerCommand.cpp" />
-    <ClCompile Include="Editor\EntityBrushTool.cpp" />
-    <ClCompile Include="Editor\SelectorTool.cpp" />
-    <ClCompile Include="Editor\Tool.cpp" />
     <ClCompile Include="Graphics\Animation.cpp" />
     <ClCompile Include="Graphics\Line.cpp" />
     <ClCompile Include="Graphics\Particles.cpp" />

@@ -1,38 +1,33 @@
-========================================================================
-    DYNAMIC LINK LIBRARY : IsilmeProxy Project Overview
-========================================================================
+Copyright (C) 2010-2012 Alexander Alimov
 
-AppWizard has created this IsilmeProxy DLL for you.  
+This file is part of Isilme SDK.
 
-This file contains a summary of what you will find in each of the files that
-make up your IsilmeProxy application.
+	Isilme SDK is free software: you can redistribute it and/or modify
+	it under the terms of the GNU Lesser General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
 
-IsilmeProxy.vcxproj
-    This is the main project file for VC++ projects generated using an Application Wizard. 
-    It contains information about the version of Visual C++ that generated the file, and 
-    information about the platforms, configurations, and project features selected with the
-    Application Wizard.
+	Isilme SDK is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU Lesser General Public License for more details.
 
-IsilmeProxy.vcxproj.filters
-    This is the filters file for VC++ projects generated using an Application Wizard. 
-    It contains information about the association between the files in your project 
-    and the filters. This association is used in the IDE to show grouping of files with
-    similar extensions under a specific node (for e.g. ".cpp" files are associated with the
-    "Source Files" filter).
+	You should have received a copy of the GNU Lesser General Public License
+	along with Isilme SDK.  If not, see <http://www.gnu.org/licenses/>.
 
-IsilmeProxy.cpp
-    This is the main DLL source file.
+Этот файл — часть Isilme SDK.
 
-IsilmeProxy.h
-    This file contains a class declaration.
+	Isilme SDK - свободная программа: вы можете перераспространять ее и/или
+	изменять ее на условиях Меньшей стандартной общественной лицензии GNU в том виде,
+	в каком она была опубликована Фондом свободного программного обеспечения;
+	либо версии 3 лицензии, либо (по вашему выбору) любой более поздней
+	версии.
 
-AssemblyInfo.cpp
-	Contains custom attributes for modifying assembly metadata.
+	Isilme SDK распространяется в надежде, что она будет полезной,
+	но БЕЗО ВСЯКИХ ГАРАНТИЙ; даже без неявной гарантии ТОВАРНОГО ВИДА
+	или ПРИГОДНОСТИ ДЛЯ ОПРЕДЕЛЕННЫХ ЦЕЛЕЙ. Подробнее см. в Меньшей стандартной
+	общественной лицензии GNU.
 
-/////////////////////////////////////////////////////////////////////////////
-Other notes:
-
-AppWizard uses "TODO:" to indicate parts of the source code you
-should add to or customize.
-
-/////////////////////////////////////////////////////////////////////////////
+	Вы должны были получить копию Меньшей стандартной общественной лицензии GNU
+	вместе с этой программой. Если это не так, см.
+	<http://www.gnu.org/licenses/>.

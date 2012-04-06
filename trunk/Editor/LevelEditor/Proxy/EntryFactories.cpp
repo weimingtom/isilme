@@ -15,7 +15,8 @@ namespace LevelEditor
 
 		EntryProxy^ LevelEntryFactory::CreateNewEntry(String^ fileName, String^ id)
 		{
-			LevelPtr level(new Level());
+			LevelPtr level(new Level(ResourceHelper::StringToChar(id)));
+			
 			LevelEntry* e = new LevelEntry(ResourceHelper::StringToChar(fileName));
 			e->data = level;
 

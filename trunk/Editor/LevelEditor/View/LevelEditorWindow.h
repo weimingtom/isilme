@@ -20,11 +20,17 @@ namespace LevelEditor
 		public:
 			LevelEditorWindow();
 
+			#pragma region Commands
+
 			static Common::DelegateCommand^ SelectEntityBrush = gcnew Common::DelegateCommand();
 			static RoutedCommand^ SelectSelectorTool = gcnew RoutedCommand();
 			static RoutedCommand^ AddLayerCommand = gcnew RoutedCommand();
 			static RoutedCommand^ SelectPaletteItem = gcnew RoutedCommand();
 			static RoutedCommand^ ActivateGrid = gcnew RoutedCommand();
+
+			#pragma  endregion
+
+			#pragma region Properties
 
 			property LevelProxy^ Level
 			{
@@ -42,6 +48,8 @@ namespace LevelEditor
 				LevelEditorWindow^ get();
 			}
 
+			#pragma endregion
+
 			virtual void Load() override;
 
 			virtual void Load(IEditableData^ data) override;
@@ -51,17 +59,27 @@ namespace LevelEditor
 			virtual void OnClosing(System::ComponentModel::CancelEventArgs^ e) override;
 
 			virtual void OnClosed(System::EventArgs^ e) override;
+
+			#pragma region Events
+
+			event System::EventHandler^ LevelLoaded;
+
+			#pragma endregion
 		private:
+			#pragma region Members
 
 			Dictionary<String^, LevelProxy^>^ mLoadedLevels;
 
 			bool mNeedToLoad;
+
 			static LevelEditorWindow^ mInstance;
 
 			///< Редактируемый уровень
 			LevelProxy^ mLevel;
 
 			LayerProxy^ mLayer;
+
+			#pragma endregion
 
 			void OnMouseDown(Object^ sender, MouseButtonEventArgs^ e);
 

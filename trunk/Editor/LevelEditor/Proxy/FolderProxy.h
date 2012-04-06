@@ -104,6 +104,9 @@ namespace Proxy
 	private:
 		String^ mName;
 		IHierarchicalProxy^ mParent;
+
+		/// Instance of the entity palette definition
+		EntityDefPtr* mDefinition;
 	};
 }
 }

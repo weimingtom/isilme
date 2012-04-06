@@ -33,7 +33,6 @@
     <ClCompile Include="Proxy\LevelProxy.cpp">
       <Filter>Proxy</Filter>
     </ClCompile>
-    <ClCompile Include="Commands\NativeCommand.cpp" />
     <ClCompile Include="View\EntityPaletteTool.cpp">
       <Filter>View</Filter>
     </ClCompile>
@@ -166,7 +165,6 @@
     <ClInclude Include="Proxy\LevelProxy.h">
       <Filter>Proxy</Filter>
     </ClInclude>
-    <ClInclude Include="Commands\NativeCommand.h" />
     <ClInclude Include="Proxy\EntityPaletteProxy.h">
       <Filter>Proxy</Filter>
     </ClInclude>
@@ -269,6 +267,9 @@
       <Filter>Proxy</Filter>
     </ClInclude>
     <ClInclude Include="Proxy\ScriptProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\GraphicsDefProxy.h">
       <Filter>Proxy</Filter>
     </ClInclude>
   </ItemGroup>

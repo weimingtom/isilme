@@ -1,8 +1,6 @@
 #include "Stdafx.h"
 #include "LevelEditorWindow.h"
 #include "../IsilmeControl.h"
-#include "../Commands/NativeCommand.h"
-#include "../Editor/AddEntityCommand.h"
 #include "../Commands/AddEntity.h"
 #include "../Proxy/EntityProxy.h"
 #include "../Proxy/LayerProxy.h"
@@ -28,6 +26,8 @@ namespace LevelEditor
 	{
 		LevelEditorWindow^ LevelEditorWindow::Instance::get()
 		{
+			if (mInstance == nullptr)
+				mInstance = gcnew LevelEditorWindow();
 			return mInstance;
 		}
 
@@ -329,6 +329,10 @@ namespace LevelEditor
 				/* = FactoryManager::GetSingleton()->LoadLevel();*/
 				//LevelPtr level = FactoryManager::GetSingleton()->GetLevel("Level2");//new Level());
 				mLevel = gcnew property LevelProxy(level);
+
+				// Raise Loaded event
+				LevelLoaded(this, nullptr);
+
 				//CameraPtr camera(new Camera());
 				//camera->x = 0.0f;
 				//camera->y = 0.0f;

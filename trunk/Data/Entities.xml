@@ -170,7 +170,7 @@
     <Body Type="Dynamic" LinearDumping="2.5" AngularDumping="2.2">
       <Box Width="1.0" Height="1.0" CategoryBits="96" MaskBits="111" Restitution="0.5" Density="5"></Box>
     </Body>
-    <Behaviour  MaxHealth="100" Health="100" Resistance="0" Blood="Blood" Conversation="Civilian1">
+    <Behaviour  MaxHealth="100" Health="100" Resistance="0" Blood="Blood" Conversation="Policeman">
       <Attributes>
         <Attribute ID="Speed" Value="2"></Attribute>
       </Attributes>

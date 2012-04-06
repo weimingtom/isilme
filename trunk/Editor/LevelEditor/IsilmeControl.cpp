@@ -1,12 +1,7 @@
 #include "StdAfx.h"
 #include "IsilmeControl.h"
 #include <hge.h>
-#include "../Editor/Command.h"
-#include "../Editor/CommandManager.h"
-#include "../Editor/EditorDefinitions.h"
-#include "../Editor/AddEntityCommand.h"
 #include <vcclr.h>
-#include "Commands/NativeCommand.h"
 #include "View/EntityPaletteTool.h"
 #include "Proxy/EntityPaletteProxy.h"
 #include "View/LevelEditorWindow.h"
@@ -36,8 +31,7 @@ namespace LevelEditor
 	public:
 		gcroot<IsilmeHost^> host;
 
-		EditorState() :
-			mCommandManager(new editor::CommandManager())
+		EditorState()
 		{
 			gcn::ContainerPtr top(new gcn::Container());
 			GetGUI()->SetTop(top);
@@ -48,7 +42,6 @@ namespace LevelEditor
 			host->OnUpdate(elapsedTime);
 		}
 	private:
-		editor::CommandManagerPtr mCommandManager;
 	};
 	class EditorGame : public HGEGame
 	{

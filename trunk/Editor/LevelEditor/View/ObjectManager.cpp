@@ -89,6 +89,9 @@ namespace LevelEditor
 
 			Title = "Objects";
 			Icon = ResourceHelper::GetPngSource("Layers.png");
+
+			// Register event handler
+			View::LevelEditorWindow::Instance->LevelLoaded += gcnew System::EventHandler(this, &ObjectManager::OnLevelLoaded);
 		}
 
 		void ObjectManager::OnObjectSelected(Object^ sender, MouseButtonEventArgs^ e)
@@ -123,6 +126,13 @@ namespace LevelEditor
 		void ObjectManager::CanExecuteRemove( Object^ sender, CanExecuteRoutedEventArgs^ e )
 		{
 			e->CanExecute = mObjectsTree->SelectedItem != nullptr;
+		}
+
+		void ObjectManager::OnLevelLoaded( Object^ sender, EventArgs^ e )
+		{
+			System::Collections::ObjectModel::ObservableCollection<LevelProxy^>^ levelCollection = gcnew System::Collections::ObjectModel::ObservableCollection<LevelProxy^>();
+			levelCollection->Add(View::LevelEditorWindow::Instance->Level);
+			mObjectsTree->DataContext = levelCollection;//->Layers[0];
 		}
 
 		LevelEditorWindow^ ObjectManager::Editor::get()

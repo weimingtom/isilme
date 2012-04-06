@@ -99,7 +99,6 @@
     <ClInclude Include="Commands\AddStage.h" />
     <ClInclude Include="Commands\MoveEntity.h" />
     <ClInclude Include="Commands\MoveLayer.h" />
-    <ClInclude Include="Commands\NativeCommand.h" />
     <ClInclude Include="Commands\RemoveEntity.h" />
     <ClInclude Include="Commands\RemoveLayer.h" />
     <ClInclude Include="Commands\RemovePhrase.h" />
@@ -118,6 +117,7 @@
     <ClInclude Include="Proxy\EntityProxy.h" />
     <ClInclude Include="Proxy\EntryFactories.h" />
     <ClInclude Include="Proxy\FolderProxy.h" />
+    <ClInclude Include="Proxy\GraphicsDefProxy.h" />
     <ClInclude Include="Proxy\IDataToProxyConverter.h" />
     <ClInclude Include="Proxy\IEntryFactory.h" />
     <ClInclude Include="Proxy\LayerProxy.h" />
@@ -155,7 +155,6 @@
     <ClCompile Include="Commands\AddStage.cpp" />
     <ClCompile Include="Commands\MoveEntity.cpp" />
     <ClCompile Include="Commands\MoveLayer.cpp" />
-    <ClCompile Include="Commands\NativeCommand.cpp" />
     <ClCompile Include="Commands\RemoveEntity.cpp" />
     <ClCompile Include="Commands\RemoveLayer.cpp" />
     <ClCompile Include="Commands\RemovePhrase.cpp" />

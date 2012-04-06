@@ -147,7 +147,7 @@ namespace IDE
             AddToolWindow(LevelEditor.View.ObjectManager.Instance);
             AddToolWindow(LevelEditor.View.EntityPaletteTool.Instance);
             
-            AddEditorWindow(new LevelEditor.View.LevelEditorWindow());
+            AddEditorWindow(LevelEditor.View.LevelEditorWindow.Instance);
       //      AddEditorWindow(new LevelEditorWindow() { FileName = "../Data/Levels/Level1.xml" });
             ToolBar tb;// = LuaEditor.Resources.getToolbar();
             //if (tb != null)

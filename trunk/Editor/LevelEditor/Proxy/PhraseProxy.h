@@ -91,6 +91,12 @@ namespace LevelEditor
 				System::String^ get();
 			}
 
+			property int Chance
+			{
+				int get();
+				void set(int value);
+			}
+
 			PhraseProxy^	FindByInternalID(System::String^ id);
 		private:
 			ObservableCollection<PhraseProxy^>^ mAnswers;
