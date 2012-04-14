@@ -1,5 +1,6 @@
 #summary Руководство на русском языке
 #labels Featured
+#sidebar TableOfContents
 
 = Введение =
 
