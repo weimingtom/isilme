@@ -4,4 +4,4 @@
 
 * [Tutorials Уроки]
     * [TutorialHelloWorld Hello World!]
-	* [SimpleLevel Простой уровень]
+    * [TutorialSimpleLevel Простой уровень]
