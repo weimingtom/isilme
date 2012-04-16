@@ -1,4 +1,4 @@
-//  Copyright (C) 2010-2012 Alexander Alimov
+//  Copyright (C) 2010-2012 VSTU
 //
 //	This file is part of Isilme SDK.
 //
@@ -94,7 +94,7 @@ void State::Close()
 
 bool State::Update(float elapsedTime)
 {
-	if (mGUI)
+	if (mGUI->GetTop())
 		mGUI->Logic();
 
 	if (!isPaused)

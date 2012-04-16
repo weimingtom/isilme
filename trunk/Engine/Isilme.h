@@ -1,4 +1,4 @@
-//  Copyright (C) 2010-2012 Alexander Alimov
+//  Copyright (C) 2010-2012 VSTU
 //
 //	This file is part of Isilme SDK.
 //
@@ -39,6 +39,12 @@
 #include <set>
 #include <map>
 
+#if defined (_MSC_VER) 
+#	pragma warning(push)
+#	pragma warning (disable: 4251)
+#	pragma warning (disable: 4275)
+#endif
+
 #include "Definitions.h"
 #include "Engine/Config.h"
 
@@ -78,3 +84,7 @@
 #include "Graphics/TriggerGraphics.h"
 
 #include "Palette/EntityPalette.h"
+
+#if defined (_MSC_VER) 
+#	pragma warning(pop)
+#endif

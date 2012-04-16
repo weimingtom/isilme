@@ -1,4 +1,4 @@
-//  Copyright (C) 2010-2012 Alexander Alimov
+//  Copyright (C) 2010-2012 VSTU
 //
 //	This file is part of Isilme SDK.
 //
@@ -44,6 +44,9 @@
 #		pragma comment(lib, "tinyxml_d.lib")
 #		pragma comment(lib, "box2d_d.lib")
 #		pragma comment(lib, "lua_d.lib")
+#		if !defined(ISILME_DLL)
+#		pragma comment(lib, "Engine_d.lib")
+#		endif
 #	else
 #		pragma comment(lib, "xinput.lib")
 #		pragma comment(lib, "luabind.lib")
@@ -53,6 +56,9 @@
 #		pragma comment(lib, "tinyxml.lib")
 #		pragma comment(lib, "box2d.lib")
 #		pragma comment(lib, "lua.lib")
+#		if !defined(ISILME_DLL)
+#		pragma comment(lib, "Engine.lib")
+#		endif
 #	endif
 #endif
 

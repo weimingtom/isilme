@@ -1,12 +1,15 @@
 <Conversation ID="tutorial">
-    <Phrase ID="172221880" Text="Hello, player! Are you ready to make your first step in this game?" Action="" Condition="" Chance="-842150451">
-        <Phrase ID="172440096" Text="Yes, of couse!" Action="" Condition="" Chance="-842150451">
-            <Phrase ID="172302472" Text="You should remember, that this world is dangerous. Evil men and evil beasts are everywhere." Action="" Condition="" Chance="-842150451">
-                <Phrase ID="172709368" Text="What should I do?" Action="" Condition="" Chance="-842150451">
-                    <Phrase ID="256142904" Text="Use your weapon!" Action="" Condition="" Chance="-842150451" />
+    <Phrase ID="99892016" Text="Hello, player! Are you ready to make your first step in this game?" Action="" Condition="" Chance="100">
+        <Phrase ID="99892208" Text="Yes, of couse!" Action="" Condition="" Chance="100">
+            <Phrase ID="99892400" Text="You should remember, that this world is dangerous. Evil men and evil beasts are everywhere." Action="" Condition="" Chance="100">
+                <Phrase ID="99893112" Text="What should I do?" Action="" Condition="" Chance="100">
+                    <Phrase ID="99893304" Text="Use your weapon!" Action="" Condition="" Chance="100">
+                        <Phrase Ref="99893112" />
+                        <Phrase ID="99870152" Text="I&apos;m ready! [End dialog]" Action="" Condition="" Chance="-842150451" />
+                    </Phrase>
                 </Phrase>
             </Phrase>
         </Phrase>
-        <Phrase ID="172232400" Text="I know everything what I need [Skip tutorial]" Action="" Condition="" Chance="-842150451" />
+        <Phrase ID="99893496" Text="I know everything what I need [Skip tutorial]" Action="" Condition="" Chance="100" />
     </Phrase>
 </Conversation>

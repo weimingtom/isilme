@@ -115,9 +115,6 @@
     <ClInclude Include="GUI\ModalDialog.h">
       <Filter>GUIChan</Filter>
     </ClInclude>
-    <ClInclude Include="ScriptAPI.h">
-      <Filter>Core</Filter>
-    </ClInclude>
     <ClInclude Include="Config.h" />
     <ClInclude Include="IsilmePCH.h" />
     <ClInclude Include="AI\Attribute.h">
@@ -231,8 +228,6 @@
     <ClInclude Include="Core\Query.h">
       <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="Core\LogoState.h" />
-    <ClInclude Include="Core\Log.h" />
     <ClInclude Include="Core\Level.h">
       <Filter>Core</Filter>
     </ClInclude>
@@ -440,6 +435,13 @@
     <ClInclude Include="AI\AIPackageDef.h">
       <Filter>AI</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Log.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\LogoState.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptAPI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Graphics\Sprite.cpp">

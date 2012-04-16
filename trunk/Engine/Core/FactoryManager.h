@@ -1,4 +1,4 @@
-﻿//  Copyright (C) 2010-2012 Alexander Alimov
+﻿//  Copyright (C) 2010-2012 VSTU
 //
 //	This file is part of Isilme SDK.
 //
@@ -105,17 +105,6 @@ public:
 
 	/// Loads master file
 	void			LoadMasterFile(std::string fileName);
-
-	/// Загружает описание фракций
-	//void			LoadFractions(TiXmlElement* element);
-
-	/// Загружает диалоги из файла
-	//void			LoadConversations(std::string fileName);
-
-	///// Loads a level.
-	/////
-	///// @param	fileName	Filename of the file.
-	//LevelPtr			LoadLevel(std::string fileName);
 
 	/// Возвращает диалог по имени
 	story::ConversationPtr GetConversation(std::string id);

@@ -150,7 +150,7 @@ namespace gcn
     {
         if (mTop == NULL)
         {
-            throw GCN_EXCEPTION("No top widget set");
+			return;
         }
         if (mGraphics == NULL)
         {
