@@ -1,8 +1,8 @@
 #summary Содержание
 
- * [Introduction Введение]
+* [Introduction Введение]
 
- * [Tutorials Уроки]
+* [Tutorials Уроки]
     * [TutorialHelloWorld Hello World!]
     * [TutorialSimpleLevel Простой уровень]
 	* [TutorialCustomBehaviour Модель поведения]
