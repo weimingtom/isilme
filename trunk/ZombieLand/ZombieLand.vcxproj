@@ -83,15 +83,16 @@
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>$(BOOST_INCLUDE);$(ProjectDir)../;$ProjectDir)/include;$(ISILME_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(BOOST_INCLUDE);$(ISILME_INCLUDE);$(ProjectDir)../;$(ProjectDir)../GUIChan/include/;$ProjectDir)/include;../HGE/include;./Game;../Engine/include;../TinyXML/include;../Box2D/;./Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>LUABIND_DYNAMIC_LINK;WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <DisableSpecificWarnings>4251;4275</DisableSpecificWarnings>
+      <PrecompiledHeaderFile>ZombieLand.h</PrecompiledHeaderFile>
+      <AdditionalOptions>-Zm150 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -115,6 +116,7 @@
     <ClCompile Include="Action\ControlPackage.cpp" />
     <ClCompile Include="ZombielandPCH.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClInclude Include="Actions\KeepHealthPackage.h" />
     <ClInclude Include="Action\Avoid.h" />

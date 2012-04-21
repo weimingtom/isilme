@@ -66,17 +66,19 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>LUABIND_DYNAMIC_LINK;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <AdditionalIncludeDirectories>$(ISILME_INCLUDE);</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zm150 %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4251;4275;</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(BOOST_LIB);$(ISILME_LIB)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)/Resources;$(BOOST_LIB);$(ISILME_LIB)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
+      <EmbedManagedResourceFile>Resources/Quest.png;Resources/Conversation.png;Resources/Script.png;Resources/Level.png;Resources/Up.png;Resources/Down.png;Resources/Top.png;Resources/Bottom.png;Resources/PaletteItem.png;Resources/FolderClosed.png;Resources/FolderOpen.png;Resources/Layers.png;Resources/Palette.png;Resources/Grid.png;Resources/Shapes.png;Resources/Brush.png;Resources/AddLayer.png;Resources/Select.png;Resources/Physics.png;Resources/NPCSpeaker.png;Resources/PCSpeaker.png;Resources/AddPhrase.png;Resources/PasteRef.png;Resources/Check.png;Resources/Comment.png;Resources/Uncomment.png;Resources/Compile.png;Resources/Stage.png;Resources/AddQuest.png;Resources/Ending.png;Resources/AddStage.png;%(EmbedManagedResourceFile)</EmbedManagedResourceFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
