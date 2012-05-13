@@ -210,6 +210,9 @@
     <ClInclude Include="Behaviour\Container.h">
       <Filter>Behaviour</Filter>
     </ClInclude>
+    <ClInclude Include="Behaviour\ControlPoint.h">
+      <Filter>Behaviour</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Data\Entities.xml">

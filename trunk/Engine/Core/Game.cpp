@@ -39,10 +39,12 @@
 #include "SoundSystem.h"
 #include "Renderer.h"
 #include "ResourceManager.h"
+#include "ScheduleManager.h"
 
 // Game
 
-Game::Game()
+Game::Game() :
+	mScheduler(new ScheduleManager())
 {
 	mStory = story::StoryPtr(new story::Story());
 	mStateManager = new StateManager();
@@ -78,6 +80,11 @@ bool Game::GetUsePhisics()
 void Game::SetUsePhisics( bool value )
 {
 	mUsePhisics = value;
+}
+
+ScheduleManagerPtr Game::GetScheduler() const
+{
+	return mScheduler;
 }
 
 // HGEGame
@@ -173,7 +180,10 @@ void	HGEGame::Start()
 bool	HGEGame::FrameFunction()
 {
 	HGE* hge = ((HGEGame*)mInstance)->mHGE;
-	return mInstance->GetStateManager()->Update(hge->Timer_GetDelta());
+	float elapsedTime = hge->Timer_GetDelta();
+	bool result = mInstance->GetStateManager()->Update(elapsedTime);
+	mInstance->GetScheduler()->Update(elapsedTime);
+	return result;
 }
 
 bool	HGEGame::RenderFunction()

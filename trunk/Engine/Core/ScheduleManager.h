@@ -1,4 +1,4 @@
-//  Copyright (C) 2010-2012 VSTU
+//  Copyright (C) 2010-2012 Alexander Alimov, VSTU
 //
 //	This file is part of Isilme SDK.
 //
@@ -36,17 +36,32 @@
 
 #include "Definitions.h"
 
-/// @class Updater
-/// Update all instances of some component type
-class Updater
-{
-public:
-};
-
 /// @class UpdateManager
-class UpdateManager
+class ISILME_API ScheduleManager
 {
 public:
-	UpdateManager();
+	ScheduleManager();
+	virtual ~ScheduleManager();
+
+	/// Calls OnUpdate method for each scheduler
+	/// @param		elapsedTime
+	void Update(float elapsedTime);
+
+	/// Adds a scheduler to the task list
+	/// @param		scheduler	a scheduler
+	/// @param		key			a key assotiated with a scheduler
+	void AddScheduler(SchedulerPtr scheduler, std::string key = "");
+
+	/// Gets a scheduler with a given key
+	/// @param		key			The key of the schaduler
+	SchedulerPtr GetScheduler(std::string key) const;
+
+	/// Remove a scheduler from the task list
+	void RemoveScheduler(SchedulerPtr scheduler);
+private:
+	typedef std::list<SchedulerPtr> TaskList;
+
+	/// All schedulers
+	TaskList mTaskList;
 };
 #endif

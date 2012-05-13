@@ -146,6 +146,7 @@
     <ClInclude Include="AI\UtilityFunction.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="Core\MasterFile.h" />
+    <ClInclude Include="Core\Scheduler.h" />
     <ClInclude Include="Core\Script.h" />
     <ClInclude Include="Core\View.h" />
     <ClInclude Include="Palette\AIPalette.h" />
@@ -174,7 +175,7 @@
     <ClInclude Include="Serialisation\StoryLoader.h" />
     <ClInclude Include="Serialisation\StorySerialiser.h" />
     <ClInclude Include="Serialisation\Types.h" />
-    <ClInclude Include="Core\UpdateManager.h" />
+    <ClInclude Include="Core\ScheduleManager.h" />
     <ClInclude Include="Story\ISpeaker.h" />
     <ClInclude Include="Story\Speaker.h" />
     <ClInclude Include="Story\StoryTypes.h" />
@@ -266,6 +267,8 @@
     <ClCompile Include="AI\Steering\Wander.cpp" />
     <ClCompile Include="AI\UtilityFunction.cpp" />
     <ClCompile Include="Core\MasterFile.cpp" />
+    <ClCompile Include="Core\ScheduleManager.cpp" />
+    <ClCompile Include="Core\Scheduler.cpp" />
     <ClCompile Include="Palette\AIPalette.cpp" />
     <ClCompile Include="Palette\BehaviourPalette.cpp" />
     <ClCompile Include="Palette\EntityPalette.cpp" />

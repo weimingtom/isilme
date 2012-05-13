@@ -130,6 +130,12 @@ class StateManager;
 class Script;
 typedef Script* ScriptPtr;
 
+class Scheduler;
+typedef boost::shared_ptr<Scheduler> SchedulerPtr;
+
+class ScheduleManager;
+typedef ScheduleManager* ScheduleManagerPtr;
+
 class FactoryManager;
 typedef boost::shared_ptr<FactoryManager> FactoryPtr;
 

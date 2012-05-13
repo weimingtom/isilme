@@ -141,9 +141,6 @@
     <ClInclude Include="Core\MasterFile.h">
       <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="Core\UpdateManager.h">
-      <Filter>Core</Filter>
-    </ClInclude>
     <ClInclude Include="AI\Actuator.h">
       <Filter>AI</Filter>
     </ClInclude>
@@ -442,6 +439,12 @@
       <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="ScriptAPI.h" />
+    <ClInclude Include="Core\ScheduleManager.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Scheduler.h">
+      <Filter>Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Graphics\Sprite.cpp">
@@ -738,6 +741,12 @@
     </ClCompile>
     <ClCompile Include="AI\AIPackageDef.cpp">
       <Filter>AI</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\ScheduleManager.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Scheduler.cpp">
+      <Filter>Core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

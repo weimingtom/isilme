@@ -210,6 +210,7 @@
     <ClInclude Include="Behaviour\Activator.h" />
     <ClInclude Include="Behaviour\Bullet.h" />
     <ClInclude Include="Behaviour\Container.h" />
+    <ClInclude Include="Behaviour\ControlPoint.h" />
     <ClInclude Include="Behaviour\Creature.h" />
     <ClInclude Include="Behaviour\Destroyable.h" />
     <ClInclude Include="Behaviour\Door.h" />

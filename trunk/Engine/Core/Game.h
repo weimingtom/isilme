@@ -51,12 +51,20 @@ public:
 	static Game*		GetSingleton();
 	bool GetUsePhisics();
 	void SetUsePhisics(bool value);
+
+	/// Gets scheduler
+	/// @return		scheduler
+	ScheduleManagerPtr	GetScheduler() const;
 protected:
 	virtual void		InitEngine() = 0;
 	story::StoryPtr		mStory;
 	static	Game*		mInstance;
 private:
 	StateManager*		mStateManager;
+
+	/// Game routine scheduler
+	ScheduleManagerPtr	mScheduler;
+
 	bool mUsePhisics;
 };
 
