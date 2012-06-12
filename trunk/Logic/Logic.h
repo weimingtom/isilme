@@ -22,6 +22,8 @@
 #include "types.h"
 #include "Atom.h"
 #include "Context.h"
+#include "FactAtom.h"
+#include "FactBase.h"
 #include "Operators.h"
 #include "ValueSet.h"
 #include "Quantifiers.h"

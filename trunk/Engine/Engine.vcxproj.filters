@@ -55,6 +55,9 @@
     <Filter Include="Wrappers">
       <UniqueIdentifier>{f4616126-12e5-442f-b5b1-468c8144cd8e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Inventory\GUI">
+      <UniqueIdentifier>{2b10e58f-4a3c-417d-b7fc-bf5a0b3ad908}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -107,9 +110,6 @@
       <Filter>Inventory</Filter>
     </ClInclude>
     <ClInclude Include="GUI\ConversationWindow.h">
-      <Filter>GUIChan</Filter>
-    </ClInclude>
-    <ClInclude Include="GUI\InventoryWindow.h">
       <Filter>GUIChan</Filter>
     </ClInclude>
     <ClInclude Include="GUI\ModalDialog.h">
@@ -445,6 +445,17 @@
     <ClInclude Include="Core\Scheduler.h">
       <Filter>Core</Filter>
     </ClInclude>
+    <ClInclude Include="Inventory\GUI\ItemView.h" />
+    <ClInclude Include="Inventory\Types.h">
+      <Filter>Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory\GUI\InventoryView.h">
+      <Filter>Inventory\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory\GUI\InventoryWindow.h">
+      <Filter>GUIChan</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory\GUI\Types.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Graphics\Sprite.cpp">
@@ -478,9 +489,6 @@
       <Filter>Inventory</Filter>
     </ClCompile>
     <ClCompile Include="GUI\ConversationWindow.cpp">
-      <Filter>GUIChan</Filter>
-    </ClCompile>
-    <ClCompile Include="GUI\InventoryWindow.cpp">
       <Filter>GUIChan</Filter>
     </ClCompile>
     <ClCompile Include="GUI\ModalDialog.cpp">
@@ -747,6 +755,15 @@
     </ClCompile>
     <ClCompile Include="Core\Scheduler.cpp">
       <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Inventory\GUI\ItemView.cpp">
+      <Filter>Inventory\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Inventory\GUI\InventoryView.cpp">
+      <Filter>Inventory\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Inventory\GUI\InventoryWindow.cpp">
+      <Filter>GUIChan</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

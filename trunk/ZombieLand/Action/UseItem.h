@@ -2,6 +2,7 @@
 #define ZOMBIELAND_ACTIONS_USEITEM_H
 
 #include "../Definitions.h"
+#include "../AI/AIPackage.h"
 
 namespace action
 {
@@ -20,6 +21,34 @@ namespace action
 		inventory::ItemPtr	mItem;
 		inventory::InventoryPtr mInventory;
 		inventory::Item::Slot mSlot;
+	};
+
+	class PickItem : public Action
+	{
+	public:
+		PickItem(behaviour::ItemPtr it);
+
+		virtual void OnStart() override;
+	private:
+		behaviour::ItemPtr mItem;
+	};
+
+	class PickItemPackage : public AIPackage
+	{
+	public:
+		virtual bool IsApplicable(BehaviourPtr behaviour) const override;
+
+		virtual ActionPtr CreateAction() const override;
+	private:
+		mutable behaviour::ItemPtr mTarget;
+	};
+
+	class PickItemPackageDef : public AIPackageDef
+	{
+	public:
+		virtual void Parse(TiXmlElement* element) override;
+
+		virtual AIPackagePtr CreatePackage() override;
 	};
 };
 #endif

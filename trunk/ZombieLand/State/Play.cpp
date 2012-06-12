@@ -4,8 +4,16 @@
 #include "Play.h"
 #include "../Behaviour/Creature.h"
 #include "Cameras.h"
+#include "guichan/widgets/stack.hpp"
+#include "guichan/widgets/ListView.hpp"
+#include "Engine/Inventory/GUI/InventoryView.h"
 
+gcn::InventoryWindowPtr mInventoryWindow;
 
+namespace gcn
+{
+	typedef boost::shared_ptr<Stack> StackPtr;
+}
 namespace state
 {
 
@@ -368,6 +376,12 @@ void	Play::OnUpdate(float elapsedTime)
 	{
 		isSpellCasting = false;
 	}
+
+	// Инвентарь
+	if (inputSystem->IsKeyUp(HGEK_I))
+	{
+		mInventoryWindow->SetVisible(!mInventoryWindow->IsVisible());
+	}
 	Game::GetSingleton()->GetStory()->Update(elapsedTime);
 
 	// Смена способности
@@ -389,6 +403,12 @@ void Play::OnStart()
 	//Engine::GetSingleton()->GetLua()->DoFile("../Data/Scripts/Triggers.lua");
 
 	EntityPtr player = FactoryManager::GetSingleton()->GetEntity("Player");
+	inventory::InventoryPtr inv = player->As<behaviour::Creature>()->GetInventory();
+
+	mInventoryWindow = gcn::InventoryWindow::Create(inv);
+	top->Add(mInventoryWindow, 0, 64);
+	mInventoryWindow->SetVisible(false);
+
 	luabind::globals(Engine::GetSingleton()->GetLua())["Player"] = boost::shared_dynamic_cast<behaviour::Creature>(player->GetBehaviour());
 	boost::shared_dynamic_cast<behaviour::Creature>(player->GetBehaviour())->SavePoint();
 

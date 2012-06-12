@@ -18,6 +18,7 @@
 
 #include "stdafx.h"
 #include "Context.h"
+#include "FactBase.h"
 
 namespace logic
 {
@@ -55,6 +56,16 @@ namespace logic
 		mValues[id].pop();
 		if (mValues[id].size() == 0)
 			mValues.erase(id);
+	}
+
+	logic::FactBasePtr Context::GetFactsTable( std::string id ) const
+	{
+		return mFacts.at(id);
+	}
+
+	void Context::AddFacts( FactBasePtr facts )
+	{
+		mFacts[facts->GetID()] = facts;
 	}
 
 }

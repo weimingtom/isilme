@@ -13,7 +13,7 @@
 #include "Engine/GUI/ProgressBar.h"
 #include "Engine/GUI/HGELabel.h"
 #include "Engine/GUI/QuestBook.h"
-#include "Engine/GUI/InventoryWindow.h"
+#include "Engine/Inventory/GUI/InventoryWindow.h"
 #include "Engine/GUI/ConversationWindow.h"
 
 #include <Engine/Story/Quests.h>
@@ -47,6 +47,9 @@ namespace behaviour
 
 	class Door;
 	typedef boost::shared_ptr<Door> DoorPtr;
+
+	class Item;
+	typedef boost::shared_ptr<Item> ItemPtr;
 };
 
 namespace action

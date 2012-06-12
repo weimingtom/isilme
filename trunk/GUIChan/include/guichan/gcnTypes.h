@@ -59,8 +59,14 @@ namespace gcn
 	class ListBox;
 	typedef boost::shared_ptr<ListBox> ListBoxPtr;
 
+	class ListView;
+	typedef boost::shared_ptr<ListView> ListViewPtr;
+
 	class ScrollArea;
 	typedef boost::shared_ptr<ScrollArea> ScrollAreaPtr;
+
+	class Stack;
+	typedef boost::shared_ptr<Stack> StackPtr;
 
 	class Tab;
 	typedef boost::shared_ptr<Tab> TabPtr;

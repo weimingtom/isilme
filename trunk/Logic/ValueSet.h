@@ -44,6 +44,30 @@ namespace logic
 	private:
 		ValueVector mValues;
 	};
+
+	class NamedSet
+	{
+		typedef std::map<std::string, ValuePtr> ValueMap;
+	public:
+		typedef ValueMap::iterator Iterator;
+
+		void AddValue(std::string key, ValuePtr value);
+
+		Iterator	Begin();
+		Iterator	End();
+
+		unsigned int Size() const;
+
+		ValuePtr Get(std::string key) const;
+	private:
+		ValueMap mValues;
+	};
+
+	class OrderedSet
+	{
+		typedef std::vector<ValuePtr> ValueVector;
+	public:
+	};
 }
 
 #endif

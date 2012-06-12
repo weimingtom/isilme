@@ -149,6 +149,10 @@
     <ClInclude Include="Core\Scheduler.h" />
     <ClInclude Include="Core\Script.h" />
     <ClInclude Include="Core\View.h" />
+    <ClInclude Include="Inventory\GUI\InventoryView.h" />
+    <ClInclude Include="Inventory\GUI\ItemView.h" />
+    <ClInclude Include="Inventory\GUI\Types.h" />
+    <ClInclude Include="Inventory\Types.h" />
     <ClInclude Include="Palette\AIPalette.h" />
     <ClInclude Include="Palette\BehaviourPalette.h" />
     <ClInclude Include="Palette\EntityPalette.h" />
@@ -193,7 +197,7 @@
     <ClInclude Include="Graphics\TriggerGraphics.h" />
     <ClInclude Include="GUI\ConversationWindow.h" />
     <ClInclude Include="GUI\HGELabel.h" />
-    <ClInclude Include="GUI\InventoryWindow.h" />
+    <ClInclude Include="Inventory\GUI\InventoryWindow.h" />
     <ClInclude Include="GUI\ModalDialog.h" />
     <ClInclude Include="GUI\ProgressBar.h" />
     <ClInclude Include="GUI\QuestBook.h" />
@@ -269,6 +273,8 @@
     <ClCompile Include="Core\MasterFile.cpp" />
     <ClCompile Include="Core\ScheduleManager.cpp" />
     <ClCompile Include="Core\Scheduler.cpp" />
+    <ClCompile Include="Inventory\GUI\InventoryView.cpp" />
+    <ClCompile Include="Inventory\GUI\ItemView.cpp" />
     <ClCompile Include="Palette\AIPalette.cpp" />
     <ClCompile Include="Palette\BehaviourPalette.cpp" />
     <ClCompile Include="Palette\EntityPalette.cpp" />
@@ -303,7 +309,7 @@
     <ClCompile Include="Graphics\Sprite.cpp" />
     <ClCompile Include="Graphics\TriggerGraphics.cpp" />
     <ClCompile Include="GUI\ConversationWindow.cpp" />
-    <ClCompile Include="GUI\InventoryWindow.cpp" />
+    <ClCompile Include="Inventory\GUI\InventoryWindow.cpp" />
     <ClCompile Include="GUI\ModalDialog.cpp" />
     <ClCompile Include="GUI\QuestBook.cpp" />
     <ClCompile Include="Inventory\Inventory.cpp" />

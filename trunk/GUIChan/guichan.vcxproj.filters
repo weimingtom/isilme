@@ -139,6 +139,8 @@
     <ClCompile Include="src\widgets\ListBoxItem.cpp">
       <Filter>Widgets</Filter>
     </ClCompile>
+    <ClCompile Include="src\widgets\stack.cpp" />
+    <ClCompile Include="src\widgets\ListView.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="HGE">
@@ -340,5 +342,7 @@
       <Filter>Widgets</Filter>
     </ClInclude>
     <ClInclude Include="include\guichan\gcnTypes.h" />
+    <ClInclude Include="include\guichan\widgets\stack.hpp" />
+    <ClInclude Include="include\guichan\widgets\ListView.hpp" />
   </ItemGroup>
 </Project>

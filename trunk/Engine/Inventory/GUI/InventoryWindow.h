@@ -34,18 +34,22 @@
 #ifndef ISILME_GCN_INVENTORY_WINDOW_H
 #define ISILME_GCN_INVENTORY_WINDOW_H
 
-#include "Definitions.h"
+#include "Types.h"
 
 namespace gcn
 {
-	class InventoryWindow : public Window
+	class ISILME_API InventoryWindow : public Window
 	{
 	public:
+		static InventoryWindowPtr Create(inventory::InventoryPtr inv);
+
 		InventoryWindow();
 		virtual ~InventoryWindow();
+
+		virtual void Init(inventory::InventoryPtr inv);
 	private:
+		InventoryViewPtr mInventory;
 	};
-	typedef boost::shared_ptr<InventoryWindow> InventoryWindowPtr;
 };
 
 #endif

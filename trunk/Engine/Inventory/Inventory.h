@@ -38,6 +38,7 @@
 #include "Item.h"
 #include <list>
 #include <map>
+#include "boost/signal.hpp"
 
 namespace inventory
 {
@@ -77,6 +78,9 @@ public:
 
 	/// Удаляет предмет из инвентаря
 	void	Remove(ItemPtr item);
+
+	boost::signal< void(ItemPtr) >	ItemAdded;
+	boost::signal< void (ItemPtr) > ItemRemoved;
 protected:
 	Inventory();
 private:

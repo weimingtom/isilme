@@ -70,6 +70,7 @@
 	<Entity Type="Player" Graphics="Player" Behaviour="Creature">
 		<Body Type="Dynamic" LinearDumping="2.5" AngularDumping="2.2">
 			<Box Width="1.0" Height="1.0" CategoryBits="96" MaskBits="111" Restitution="0.5" Density="5"></Box>
+      <!-- CategoryBits = 96!!!-->
 		</Body>
 		<Behaviour  MaxHealth="100" Health="100" Resistance="0" Blood="Blood">
       <Attributes>
@@ -94,7 +95,10 @@
     </Body>
     <Behaviour  MaxHealth="40" Health="40" Resistance="0" Blood="Blood" Loot="Zombie">
       <AI>
+        <Package ID="Heal"></Package>
         <Package ID="Agression"></Package>
+        <Package ID="PickItem"></Package>
+        <Package ID="Avoid"></Package>
         <Package ID="Wander"></Package>
       </AI>
       <Attributes>
@@ -127,8 +131,10 @@
         <Attribute ID="Brave" Value="10"></Attribute>
       </Attributes>
       <AI>
-        <Package ID="Avoid"></Package>
+        <Package ID="Heal"></Package>
         <Package ID="Agression"></Package>
+        <Package ID="PickItem"></Package>
+        <Package ID="Avoid"></Package>
         <Package ID="Wander"></Package>
       </AI>
       <Fractions>
@@ -155,7 +161,9 @@
         <Attribute ID="Speed" Value="1.5" Type="Float"></Attribute>
       </Attributes>
       <AI>
-        <Package ID="KeepHealth"></Package>
+        <Package ID="Heal"></Package>
+        <Package ID="Agression"></Package>
+        <Package ID="PickItem"></Package>
         <Package ID="Avoid"></Package>
         <Package ID="Wander"></Package>
       </AI>

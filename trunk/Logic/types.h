@@ -37,6 +37,12 @@ namespace logic
 
 	class Interpreter;
 
+	class FactBase;
+	typedef boost::shared_ptr<FactBase> FactBasePtr;
+
+	class RuleTable;
+	typedef boost::shared_ptr<RuleTable> RuleTablePtr;
+
 	class Variable;
 	typedef boost::shared_ptr<Variable> VariablePtr;
 

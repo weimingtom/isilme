@@ -3,6 +3,9 @@
 #include "MoveTo.h"
 #include "Move.h"
 #include "ZombieLand/Behaviour/Creature.h"
+#include "../Behaviour/Activator.h"
+#include "../Behaviour/Item.h"
+#include "UseItem.h"
 
 namespace action
 {
@@ -31,6 +34,15 @@ namespace action
 
 	void	Wander::OnUpdate(float elapsedTime)
 	{
+		behaviour::ActivatorPtr activator = behaviour::Activator::GetActivatorFor(GetEntity());
+
+		behaviour::ItemPtr item = boost::shared_dynamic_cast<behaviour::Item>(activator);
+
+		if (item != nullptr)
+		{
+			PickItem* a = new PickItem(item);
+			GetEntity()->GetBehaviour()->StartAction(ActionPtr(a));
+		}
 	}
 
 	void	Wander::OnDone()

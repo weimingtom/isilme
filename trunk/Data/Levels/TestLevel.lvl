@@ -421,6 +421,38 @@
         <Entity Name="GameObject_239" Type="Trash/Box" Position="38.516129, -3.486658, 3.141628" Scale="1" />
         <Entity Name="GameObject_23a" Type="Trash/Box" Position="38.518360, -2.474222, 3.141631" Scale="1" />
         <Entity Name="GameObject_23b" Type="Buildings/Trash1" Position="38.500000, -1.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_20e" Type="Items/Spells/Heal" Position="20.406250, 29.640625, 1.570796" Scale="1" />
+        <Entity Name="GameObject_211" Type="Items/Spells/Heal" Position="16.546875, 28.593750, 1.570796" Scale="1" />
+        <Entity Name="GameObject_213" Type="Items/Spells/Heal" Position="25.890625, 21.937500, 1.570796" Scale="1" />
+        <Entity Name="GameObject_216" Type="Items/Spells/Heal" Position="18.937500, 14.656250, 1.570796" Scale="1" />
+        <Entity Name="GameObject_217" Type="Items/Spells/Heal" Position="27.062500, 10.562500, 1.570796" Scale="1" />
+        <Entity Name="GameObject_221" Type="Items/Spells/Heal" Position="17.000000, -0.390625, 1.570796" Scale="1" />
+        <Entity Name="GameObject_228" Type="Items/Spells/Heal" Position="35.500000, 9.375000, 1.570796" Scale="1" />
+        <Entity Name="GameObject_233" Type="Items/Spells/Heal" Position="49.187500, 1.265625, 1.570796" Scale="1" />
+        <Entity Name="GameObject_234" Type="Items/Spells/Heal" Position="40.328125, -2.578125, 1.570796" Scale="1" />
+        <Entity Name="GameObject_240" Type="Creatures/Civilian1" Position="38.609375, 0.000000, 1.570796" Scale="1" />
+        <Entity Name="GameObject_241" Type="Creatures/Bandit1" Position="55.968750, -2.890625, 3.141593" Scale="1" />
+        <Entity Name="GameObject_242" Type="Creatures/Bandit1" Position="56.656250, -0.718750, 3.926991" Scale="1" />
+        <Entity Name="GameObject_243" Type="Creatures/Bandit1" Position="53.671875, 11.515625, 3.926991" Scale="1" />
+        <Entity Name="GameObject_244" Type="Creatures/Bandit1" Position="53.500000, 13.484375, 3.926991" Scale="1" />
+        <Entity Name="GameObject_24f" Type="Creatures/Police1" Position="46.859375, 15.171875, 3.926991" Scale="1" />
+        <Entity Name="GameObject_253" Type="Creatures/Civilian1" Position="50.718750, 9.953125, 3.926991" Scale="1" />
+        <Entity Name="GameObject_254" Type="Creatures/Civilian1" Position="47.218750, 10.046875, 3.926991" Scale="1" />
+        <Entity Name="GameObject_255" Type="Creatures/Civilian1" Position="47.828125, 12.234375, 4.712389" Scale="1" />
+        <Entity Name="GameObject_256" Type="Creatures/Civilian1" Position="47.781250, 22.296875, 4.712389" Scale="1" />
+        <Entity Name="GameObject_257" Type="Creatures/Civilian1" Position="45.734375, 23.875000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_258" Type="Creatures/Bandit1" Position="51.015625, 28.531250, 4.712389" Scale="1" />
+        <Entity Name="GameObject_259" Type="Creatures/Bandit1" Position="47.828125, 29.468750, 4.712389" Scale="1" />
+        <Entity Name="GameObject_25a" Type="Creatures/Bandit1" Position="41.109375, 33.921875, 4.712389" Scale="1" />
+        <Entity Name="GameObject_25b" Type="Creatures/Bandit1" Position="29.531250, 41.390625, 4.712389" Scale="1" />
+        <Entity Name="GameObject_25c" Type="Creatures/Bandit1" Position="30.875000, 41.109375, 4.712389" Scale="1" />
+        <Entity Name="GameObject_25d" Type="Creatures/Bandit1" Position="33.953125, 40.968750, 4.712389" Scale="1" />
+        <Entity Name="GameObject_25e" Type="Creatures/Police1" Position="21.421875, 39.250000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_25f" Type="Creatures/Police1" Position="21.359375, 40.750000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_260" Type="Creatures/Police1" Position="23.906250, 40.484375, 6.283185" Scale="1" />
+        <Entity Name="GameObject_261" Type="Creatures/Police1" Position="24.656250, 39.031250, 6.283185" Scale="1" />
+        <Entity Name="GameObject_262" Type="Creatures/Civilian1" Position="28.671875, 32.796875, 1.570796" Scale="1" />
+        <Entity Name="GameObject_263" Type="Creatures/Civilian1" Position="29.671875, 32.953125, 1.570796" Scale="1" />
     </Layer>
     <Layer Name="Zombies">
         <Entity Name="GameObject_159" Type="Creatures/Civilian1" Position="19.968130, 3.945524, 1.095089" Scale="1" />
@@ -448,6 +480,25 @@
         <Entity Name="GameObject_1ec" Type="Creatures/Police1" Position="7.984375, 0.937500, -1.000000" Scale="1" />
         <Entity Name="GameObject_1ed" Type="Creatures/Police1" Position="12.000000, 1.000000, 4.712389" Scale="1" />
         <Entity Name="GameObject_23f" Type="Creatures/Bandit1" Position="45.999802, 1.002704, 0.073389" Scale="1" />
+        <Entity Name="GameObject_c8" Type="Creatures/Bandit1" Position="24.750000, -2.156250, 0.000000" Scale="1" />
+        <Entity Name="GameObject_1cf" Type="Creatures/Bandit1" Position="26.593750, 0.250000, 3.141593" Scale="1" />
+        <Entity Name="GameObject_1d3" Type="Creatures/Civilian1" Position="25.281250, 9.531250, 3.141593" Scale="1" />
+        <Entity Name="GameObject_1d4" Type="Creatures/Civilian1" Position="25.625000, 14.218750, 4.712389" Scale="1" />
+        <Entity Name="GameObject_1d9" Type="Creatures/Police1" Position="15.984375, 19.062500, 4.712389" Scale="1" />
+        <Entity Name="GameObject_1da" Type="Creatures/Police1" Position="17.078125, 19.109375, 4.712389" Scale="1" />
+        <Entity Name="GameObject_1db" Type="Creatures/Police1" Position="18.062500, 19.250000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_1de" Type="Creatures/Police1" Position="19.921875, 19.281250, 4.712389" Scale="1" />
+        <Entity Name="GameObject_1e0" Type="Creatures/Bandit1" Position="15.625000, 32.968750, 4.712389" Scale="1" />
+        <Entity Name="GameObject_1f2" Type="Creatures/Bandit1" Position="17.359375, 33.078125, 4.712389" Scale="1" />
+        <Entity Name="GameObject_1f3" Type="Creatures/Bandit1" Position="16.593750, 33.125000, 4.712389" Scale="1" />
+        <Entity Name="GameObject_1f7" Type="Creatures/Bandit1" Position="18.453125, 33.171875, 4.712389" Scale="1" />
+        <Entity Name="GameObject_1fa" Type="Creatures/Bandit1" Position="19.546875, 33.218750, 4.712389" Scale="1" />
+        <Entity Name="GameObject_1fb" Type="Creatures/Police1" Position="15.750000, 25.781250, 1.570796" Scale="1" />
+        <Entity Name="GameObject_1fc" Type="Creatures/Police1" Position="16.500000, 25.625000, 1.570796" Scale="1" />
+        <Entity Name="GameObject_200" Type="Creatures/Police1" Position="17.437500, 25.562500, 1.570796" Scale="1" />
+        <Entity Name="GameObject_201" Type="Creatures/Police1" Position="18.468750, 25.593750, 1.570796" Scale="1" />
+        <Entity Name="GameObject_205" Type="Creatures/Police1" Position="19.453125, 25.640625, 1.570796" Scale="1" />
+        <Entity Name="GameObject_20d" Type="Creatures/Police1" Position="20.171875, 25.703125, 1.570796" Scale="1" />
     </Layer>
     <Layer Name="Bullets" />
     <Layer Name="Containers">

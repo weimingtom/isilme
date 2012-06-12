@@ -32,13 +32,37 @@ namespace logic
 		/// Gets a parameter by id
 		ValuePtr	GetParam(std::string id) const;
 
+		/// Pushes a parameter into a stack.
+		///
+		/// @param	id   	The identifier fo the parameter.
+		/// @param	value	The value of the parameter.
 		void PushParam(std::string id, ValuePtr value);
 
+		/// Pops the parameter from stack by id
+		///
+		/// @param	id	The identifier.
 		void PopParam(std::string id);
+
+		/// Adds a set of facts to the memory.
+		///
+		/// @param	facts	The facts.
+		void AddFacts(FactBasePtr facts);
+
+		/// Gets the table of the facts.
+		///
+		/// @param	id	The identifier of the table.
+		///
+		/// @return	The facts table if it exists.
+		FactBasePtr	GetFactsTable(std::string id) const;
 	private:
 		typedef std::stack<ValuePtr> ValueStack;
 		typedef std::map<std::string, ValueStack> ValueMap;
+		typedef std::map<std::string, FactBasePtr> FactsTable;
+
 		ValueMap mValues;
+
+		/// @summary	The facts.
+		FactsTable mFacts;
 	};
 }
 #endif 

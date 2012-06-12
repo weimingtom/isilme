@@ -329,9 +329,11 @@
     <ClCompile Include="src\widgets\label.cpp" />
     <ClCompile Include="src\widgets\listbox.cpp" />
     <ClCompile Include="src\widgets\ListBoxItem.cpp" />
+    <ClCompile Include="src\widgets\ListView.cpp" />
     <ClCompile Include="src\widgets\radiobutton.cpp" />
     <ClCompile Include="src\widgets\scrollarea.cpp" />
     <ClCompile Include="src\widgets\slider.cpp" />
+    <ClCompile Include="src\widgets\stack.cpp" />
     <ClCompile Include="src\widgets\tab.cpp" />
     <ClCompile Include="src\widgets\tabbedarea.cpp" />
     <ClCompile Include="src\widgets\textbox.cpp" />
@@ -341,6 +343,8 @@
   <ItemGroup>
     <ClInclude Include="include\guichan\gcnTypes.h" />
     <ClInclude Include="include\guichan\widgets\ListBoxItem.h" />
+    <ClInclude Include="include\guichan\widgets\ListView.hpp" />
+    <ClInclude Include="include\guichan\widgets\stack.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

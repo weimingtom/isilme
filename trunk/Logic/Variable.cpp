@@ -17,3 +17,49 @@
 //
 #include "stdafx.h"
 #include "Variable.h"
+#include "Context.h"
+
+namespace logic
+{
+	StackVariable::StackVariable( std::string id )
+	{
+		mID = id;
+	}
+
+	StackVariable::~StackVariable()
+	{
+
+	}
+
+	logic::ValuePtr StackVariable::GetValue( ContextPtr context ) const 
+	{
+		return context->GetParam(mID);
+	}
+
+	void StackVariable::SetValue( ContextPtr context, ValuePtr v )
+	{
+
+	}
+
+
+	ValuePtr FreeVariable::GetValue( ContextPtr context )
+	{
+		return mValue;
+	}
+
+	FreeVariable::FreeVariable()
+	{
+
+	}
+
+	FreeVariable::~FreeVariable()
+	{
+
+	}
+
+	void FreeVariable::SetValue( ContextPtr context, ValuePtr v )
+	{
+
+	}
+
+}

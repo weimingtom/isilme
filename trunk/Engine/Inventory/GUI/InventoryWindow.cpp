@@ -34,6 +34,7 @@
 #include "IsilmePCH.h"
 #include "InventoryWindow.h"
 #include "Engine/Inventory/Inventory.h"
+#include "InventoryView.h"
 
 namespace gcn
 {
@@ -44,4 +45,20 @@ namespace gcn
 	InventoryWindow::~InventoryWindow()
 	{
 	}
+
+	gcn::InventoryWindowPtr InventoryWindow::Create( inventory::InventoryPtr inv )
+	{
+		InventoryWindowPtr w(new InventoryWindow());
+		w->Init(inv);
+		return w;
+	}
+
+	void InventoryWindow::Init( inventory::InventoryPtr inv )
+	{
+		setCaption("Equipment");
+		SetSize(400, 350);
+		InventoryViewPtr iv = InventoryView::Create(inv, 200, 300);
+		Add(iv, 0, 0);
+	}
+
 };

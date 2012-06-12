@@ -387,4 +387,10 @@ namespace gcn
 
         return WidgetPtr();
     }
+
+	BasicContainer::WidgetIteratorPair BasicContainer::GetChildren()
+	{
+		return WidgetIteratorPair(mWidgets.begin(), mWidgets.end());
+	}
+
 }

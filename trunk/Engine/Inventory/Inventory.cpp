@@ -99,6 +99,8 @@ void	Inventory::AddItem(ItemPtr item)
 	mItems.push_back(item);
 	item->mInventory = shared_from_this();
 	item->OnAdd();
+
+	ItemAdded(item);
 }
 
 void	Inventory::Unequip(Item::Slot slot)
@@ -144,6 +146,9 @@ void	Inventory::Remove(ItemPtr item)
 
 	ItemsList::iterator it = std::find(mItems.begin(), mItems.end(), item);
 	if (it != mItems.end())
+	{
 		mItems.erase(it);
+		ItemRemoved(item);
+	}
 }
 };

@@ -39,4 +39,30 @@ namespace logic
 	{
 		return mValues.size();
 	}
+
+	void NamedSet::AddValue( std::string key, ValuePtr value )
+	{
+		mValues[key] = value;
+	}
+
+	NamedSet::Iterator NamedSet::Begin()
+	{
+		return mValues.begin();
+	}
+
+	NamedSet::Iterator NamedSet::End()
+	{
+		return mValues.end();
+	}
+
+	unsigned int NamedSet::Size() const
+	{
+		return mValues.size();
+	}
+
+	logic::ValuePtr NamedSet::Get( std::string key ) const
+	{
+		return mValues.at(key);
+	}
+
 }

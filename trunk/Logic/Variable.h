@@ -20,9 +20,46 @@
 
 #include "types.h"
 
-class Variable
+namespace logic
 {
-public:
-};
+	/// @class Variable
+	/// Local variable for rules
+	class Variable
+	{
+	public:
+		Variable() {};
+		virtual ~Variable() {};
+
+		virtual ValuePtr	GetValue(ContextPtr context) const = 0;
+
+		virtual void		SetValue(ContextPtr context, ValuePtr v) = 0;
+	private:
+	};
+
+	class StackVariable : public Variable
+	{
+	public:
+		StackVariable(std::string id);
+		virtual ~StackVariable();
+		ValuePtr	GetValue(ContextPtr context) const override;
+
+		void		SetValue(ContextPtr context, ValuePtr v) override;
+	private:
+		std::string mID;
+	};
+
+	class FreeVariable : public Variable
+	{
+	public:
+		FreeVariable();
+		virtual ~FreeVariable();
+
+		virtual ValuePtr GetValue(ContextPtr context) override;
+
+		virtual void SetValue(ContextPtr context, ValuePtr v) override;
+	private:
+		ValuePtr mValue;
+	};
+}
 
 #endif

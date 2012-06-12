@@ -174,6 +174,10 @@ namespace gcn
          * Holds all widgets of the basic container.
          */
         WidgetList mWidgets;
+	public:
+		typedef std::pair<WidgetListIterator, WidgetListIterator> WidgetIteratorPair;
+
+		WidgetIteratorPair	GetChildren();
     };
 }
 

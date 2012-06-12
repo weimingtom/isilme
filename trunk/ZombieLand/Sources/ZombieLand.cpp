@@ -17,6 +17,8 @@
 #include <ZombieLand/Action/AvoidPackage.h>
 #include "Definitions.h"
 #include "Engine/Story/Story.h"
+#include "../Action/Heal.h"
+#include "../Action/UseItem.h"
 
 ZombieLand* ZombieLand::GetSingleton()
 {
@@ -72,6 +74,8 @@ void	ZombieLand::Init()
 	factoryManager->GetAIPalette()->RegisterAIType("Control", AIPackageFactory<ControlPackageDef>::New());
 	factoryManager->GetAIPalette()->RegisterAIType("Agression", AIPackageFactory<AgressionPackageDef>::New());
 	factoryManager->GetAIPalette()->RegisterAIType("Avoid", AIPackageFactory<AvoidPackageDef>::New());
+	factoryManager->GetAIPalette()->RegisterAIType("Heal", AIPackageFactory<action::HealPackageDef>::New());
+	factoryManager->GetAIPalette()->RegisterAIType("PickItem", AIPackageFactory<action::PickItemPackageDef>::New());
 	
 	FactoryManager::GetSingleton()->LoadMasterFile("../Data/Master.imf");
 //	factoryManager->LoadConversations("../Data/Conversations.xml");

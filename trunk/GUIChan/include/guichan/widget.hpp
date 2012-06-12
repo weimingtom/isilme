@@ -273,7 +273,7 @@ namespace gcn
          * @see getDimension, setX, getX, setY, getY, setPosition
          * @since 0.1.0
          */
-        void SetDimension(const Rectangle& dimension);
+        virtual void SetDimension(const Rectangle& dimension);
 
         /**
          * Gets the dimension of the widget. The dimension is

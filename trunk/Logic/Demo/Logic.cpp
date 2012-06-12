@@ -157,7 +157,6 @@ namespace logic
 		ActorValuePtr v = Cast<ActorValue>(context->GetParam(mA1));
 		return v->mHealth < 0.5 * v->mMaxHealth;
 	}
-
 }
 
 int main()
@@ -214,6 +213,33 @@ int main()
 	bool result2 = test2->Calc(context);
 	bool result3 = test3->Calc(context);
 	bool result4 = test4->Calc(context);
+
+	// Test for fact tables
+	FactBasePtr isHuman(new FactBase("isHuman", 1));
+	isHuman->AddFact(a);
+	isHuman->AddFact(b);
+	isHuman->AddFact(c);
+	isHuman->AddFact(d);
+	isHuman->AddFact(e);
+	//isHuman->AddFact(f);
+
+	AtomPtr test5(new AnyQuantifier(
+		"X",
+		entitySet,
+		AtomPtr(new FactAtom(isHuman, "X"))));
+
+	AtomPtr test6(new ExtQuntifier(
+		"X",
+		entitySet,
+		AtomPtr(new FactAtom(isHuman, "X"))));
+
+	AtomPtr test7(new FactAtom(isHuman, a));
+	AtomPtr test8(new FactAtom(isHuman, f));
+
+	bool result5 = test5->Calc(context);
+	bool result6 = test6->Calc(context);
+	bool result7 = test7->Calc(context);
+	bool result8 = test8->Calc(context);
 
 	return 0;
 }

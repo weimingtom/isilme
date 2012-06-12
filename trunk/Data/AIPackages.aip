@@ -8,6 +8,8 @@
   <Control ID="Control"></Control>
   <!-- Агент убегает от превосходящего по численности противника -->
   <Avoid ID="Avoid"></Avoid>
+  <Heal ID="Heal"></Heal>
+  <PickItem ID="PickItem"></PickItem>
   <!-- Агент старается сохранять свое здоровье -->
   <Script ID="KeepHealth" Class="KeepHealthPackage">
   </Script>

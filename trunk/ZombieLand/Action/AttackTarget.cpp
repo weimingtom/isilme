@@ -59,6 +59,9 @@ namespace action
 		{
 			mAction->SetAngle(angle);
 			GetEntity()->SetAngle(angle);
+
+			if (GetEntity()->GetDistanceTo(mCreature->GetTarget()) < 2.5f)
+				mAction->Stop();
 		}
 
 		inventory::ItemPtr weapon = mCreature->GetInventory()->GetSlot(inventory::Item::Weapon);
@@ -88,7 +91,8 @@ namespace action
 
 	void	AttackTarget::OnDone()
 	{
-		mAction->Stop();
+		if (mAction->GetState() != ActionState::Done)
+			mAction->Stop();
 	}
 
 	void	AttackTarget::OnForceStop()
