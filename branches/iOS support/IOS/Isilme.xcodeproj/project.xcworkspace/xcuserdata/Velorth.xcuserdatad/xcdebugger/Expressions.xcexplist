@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesStackState
+   version = "1.0">
+   <StackStates>
+      <StackState
+         stackFrameDescription = "HGE_Impl::System_Start:system.mm">
+         <expressions>
+         </expressions>
+      </StackState>
+      <StackState
+         stackFrameDescription = "RenderFunc():main.mm">
+         <expressions>
+            <expression
+               value = "par">
+            </expression>
+         </expressions>
+      </StackState>
+      <StackState
+         stackFrameDescription = "hgeParticleSystem::Render():hgeparticle.cpp">
+         <expressions>
+            <expression
+               value = "info">
+            </expression>
+         </expressions>
+      </StackState>
+   </StackStates>
+</VariablesStackState>

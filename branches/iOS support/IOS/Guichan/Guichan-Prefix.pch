@@ -1,0 +1,16 @@
+//
+// Prefix header for all source files of the 'Guichan' target in the 'Guichan' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
+
+#define GCC_VERSION (__GNUC__ * 10000 \
++ __GNUC_MINOR__ * 100 \
++ __GNUC_PATCHLEVEL__)
+
+#if GCC_VERSION < 40600
+#define nullptr NULL
+#define override
+#endif
