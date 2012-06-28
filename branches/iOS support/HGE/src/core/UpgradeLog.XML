@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="hge">
+</Property><Property Name="Solution File" Value="C:\Users\Velorth\Desktop\hge181\src\core\hge.sln">
+</Property><Property Name="Date" Value="10 сентября 2010 г.">
+</Property><Property Name="Time" Value="12:49">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="hge.sln" Description="File successfully backed up as C:\Users\Velorth\Desktop\hge181\src\core\hge.sln.old">
+</Event><Event ErrorLevel="0" Project="hge" Source="hge.vcproj" Description="Converting project file 'C:\Users\Velorth\Desktop\hge181\src\core\hge.vcproj'.">
+</Event><Event ErrorLevel="1" Project="hge" Source="hge.vcproj" Description="This application has been updated to include settings related to the User Account Control (UAC) feature of Windows Vista. By default, when run on Windows Vista with UAC enabled, this application is marked to run with the same privileges as the process that launched it. This marking also disables the application from running with virtualization. You can change UAC related settings from the Property Pages of the project.">
+</Event><Event ErrorLevel="1" Project="hge" Source="hge.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="hge" Source="hge.vcproj" Description="Web deployment to the local IIS server is no longer supported. The Web Deployment build tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="hge" Source="hge.vcproj" Description="MSB8012: $(TargetPath) ('C:\Users\Velorth\Desktop\hge181\src\core\.\Debug\hge.dll') does not match the Linker's OutputFile property value '..\..\hge.dll' ('C:\Users\Velorth\Desktop\hge181\hge.dll') in project configuration 'Debug|Win32'. This may cause your project to build incorrectly. To correct this, please make sure that $(TargetPath) property value matches the value specified in %(Link.OutputFile).">
+</Event><Event ErrorLevel="1" Project="hge" Source="hge.vcproj" Description="MSB8012: $(TargetPath) ('C:\Users\Velorth\Desktop\hge181\src\core\.\Release\hge.dll') does not match the Linker's OutputFile property value '..\..\hge.dll' ('C:\Users\Velorth\Desktop\hge181\hge.dll') in project configuration 'Release|Win32'. This may cause your project to build incorrectly. To correct this, please make sure that $(TargetPath) property value matches the value specified in %(Link.OutputFile).">
+</Event><Event ErrorLevel="0" Project="hge" Source="hge.vcproj" Description="Done converting to new project file 'C:\Users\Velorth\Desktop\hge181\src\core\hge.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="hge" Source="hge.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="hge.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="hge.sln" Description="Converted">
+</Event></UpgradeLog>

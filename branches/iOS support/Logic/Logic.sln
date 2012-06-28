@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Logic", "Logic.vcxproj", "{013361F5-EC1C-4CC7-8C32-79BAC1421909}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Demo", "Demo\Demo.vcxproj", "{95829827-965E-4230-A100-F41417F0BA77}"
+	ProjectSection(ProjectDependencies) = postProject
+		{013361F5-EC1C-4CC7-8C32-79BAC1421909} = {013361F5-EC1C-4CC7-8C32-79BAC1421909}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug-DLL|Win32 = Debug-DLL|Win32
+		Debug-Static|Win32 = Debug-Static|Win32
+		Release-DLL|Win32 = Release-DLL|Win32
+		Release-Static|Win32 = Release-Static|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{013361F5-EC1C-4CC7-8C32-79BAC1421909}.Debug-DLL|Win32.ActiveCfg = Debug-DLL|Win32
+		{013361F5-EC1C-4CC7-8C32-79BAC1421909}.Debug-DLL|Win32.Build.0 = Debug-DLL|Win32
+		{013361F5-EC1C-4CC7-8C32-79BAC1421909}.Debug-Static|Win32.ActiveCfg = Debug-Static|Win32
+		{013361F5-EC1C-4CC7-8C32-79BAC1421909}.Debug-Static|Win32.Build.0 = Debug-Static|Win32
+		{013361F5-EC1C-4CC7-8C32-79BAC1421909}.Release-DLL|Win32.ActiveCfg = Release-DLL|Win32
+		{013361F5-EC1C-4CC7-8C32-79BAC1421909}.Release-DLL|Win32.Build.0 = Release-DLL|Win32
+		{013361F5-EC1C-4CC7-8C32-79BAC1421909}.Release-Static|Win32.ActiveCfg = Release-Static|Win32
+		{013361F5-EC1C-4CC7-8C32-79BAC1421909}.Release-Static|Win32.Build.0 = Release-Static|Win32
+		{95829827-965E-4230-A100-F41417F0BA77}.Debug-DLL|Win32.ActiveCfg = Debug-Static|Win32
+		{95829827-965E-4230-A100-F41417F0BA77}.Debug-DLL|Win32.Build.0 = Debug-Static|Win32
+		{95829827-965E-4230-A100-F41417F0BA77}.Debug-Static|Win32.ActiveCfg = Debug-Static|Win32
+		{95829827-965E-4230-A100-F41417F0BA77}.Debug-Static|Win32.Build.0 = Debug-Static|Win32
+		{95829827-965E-4230-A100-F41417F0BA77}.Release-DLL|Win32.ActiveCfg = Release-Static|Win32
+		{95829827-965E-4230-A100-F41417F0BA77}.Release-DLL|Win32.Build.0 = Release-Static|Win32
+		{95829827-965E-4230-A100-F41417F0BA77}.Release-Static|Win32.ActiveCfg = Release-Static|Win32
+		{95829827-965E-4230-A100-F41417F0BA77}.Release-Static|Win32.Build.0 = Release-Static|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

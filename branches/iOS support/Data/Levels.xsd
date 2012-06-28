@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Level">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Group">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded" name="Entity">
+								<xs:complexType>
+									<xs:attribute name="Name" type="xs:string" use="required" />
+									<xs:attribute name="Type" type="xs:string" use="required" />
+									<xs:attribute name="Position" type="xs:string" use="required" />
+									<xs:attribute name="Scale" type="xs:decimal" use="required" />
+								</xs:complexType>
+							</xs:element>
+							<xs:element maxOccurs="unbounded" name="Joint">
+								<xs:complexType>
+									<xs:attribute name="Type" type="xs:string" use="required" />
+									<xs:attribute name="EntityA" type="xs:string" use="required" />
+									<xs:attribute name="EntityB" type="xs:string" use="required" />
+									<xs:attribute name="PointA" type="xs:string" use="required" />
+									<xs:attribute name="PointB" type="xs:string" use="required" />
+									<xs:attribute name="Collide" type="xs:unsignedByte" use="required" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="Type" type="xs:string" use="required" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element maxOccurs="unbounded" name="Layer">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded" name="Entity">
+								<xs:complexType>
+									<xs:sequence minOccurs="0">
+										<xs:element name="BehaviourParams">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute name="WayPoint1" type="xs:string" use="required" />
+														<xs:attribute name="WayPoint2" type="xs:string" use="required" />
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="Name" type="xs:string" use="required" />
+									<xs:attribute name="Type" type="xs:string" use="required" />
+									<xs:attribute name="Position" type="xs:string" use="required" />
+									<xs:attribute name="Scale" type="xs:decimal" use="required" />
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" maxOccurs="unbounded" name="Group">
+								<xs:complexType>
+									<xs:attribute name="Type" type="xs:string" use="required" />
+									<xs:attribute name="Position" type="xs:string" use="required" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="Name" type="xs:string" use="required" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Joint">
+					<xs:complexType>
+						<xs:attribute name="Type" type="xs:string" use="required" />
+						<xs:attribute name="Name" type="xs:string" use="required" />
+						<xs:attribute name="EntityA" type="xs:string" use="required" />
+						<xs:attribute name="EntityB" type="xs:string" use="required" />
+						<xs:attribute name="PointB" type="xs:string" use="required" />
+						<xs:attribute name="PointA" type="xs:string" use="required" />
+						<xs:attribute name="Length" type="xs:decimal" use="required" />
+						<xs:attribute name="Collide" type="xs:unsignedByte" use="required" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="World">
+					<xs:complexType>
+						<xs:attribute name="Gravity" type="xs:string" use="required" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Scripts">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded" name="Lua" type="xs:string" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

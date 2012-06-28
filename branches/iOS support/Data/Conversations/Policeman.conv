@@ -1,0 +1,16 @@
+<Conversation ID="Policeman">
+    <Phrase ID="105438912" Text="You have my ear, citizen!" Action="" Condition="" Chance="-842150451">
+        <Phrase ID="105441216" Text="Can I ask a question?" Action="" Condition="" Chance="-842150451">
+            <Phrase ID="105441408" Text="What do you want to know?" Action="" Condition="" Chance="-842150451">
+                <Phrase ID="105441600" Text="Where can I find police captain?" Action="" Condition="" Chance="-842150451">
+                    <Phrase ID="105441792" Text="You can find him in a townhall" Action="" Condition="" Chance="-842150451">
+                        <Phrase ID="105441984" Text="Back to my questions" Action="" Condition="" Chance="-842150451" />
+                        <Phrase ID="105442368" Text="Goodby [End dialog]" Action="" Condition="" Chance="-842150451" />
+                    </Phrase>
+                </Phrase>
+                <Phrase ID="105442176" Text="Goodby [End dialog]" Action="" Condition="" Chance="-842150451" />
+            </Phrase>
+        </Phrase>
+        <Phrase ID="105439104" Text="[End dialog]" Action="" Condition="" Chance="-842150451" />
+    </Phrase>
+</Conversation>

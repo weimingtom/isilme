@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A110B53D-FF13-4B46-BE40-DF3377753D29}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Engine</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>../Debug/</OutDir>
+    <TargetName>Engine_d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>../Release/</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>LUABIND_DYNAMIC_LINK;WIN32;ISILME_DLL;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(BOOST_INCLUDE);$(ProjectDir)/;$(ProjectDir)../Luabind;$(ProjectDir)../;$(ProjectDir)../GUIChan/include/;$(ProjectDir)../HGE/include;$(ProjectDir)/include;$(ProjectDir)../TinyXML/include;$(ProjectDir)../Box2D/;$(ISILME_INCLUDE)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>IsilmePCH.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)Isilme.pch</PrecompiledHeaderOutputFile>
+      <DisableSpecificWarnings>4251;4275;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <AdditionalOptions>-Zm144 %(AdditionalOptions)</AdditionalOptions>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <XMLDocumentationFileName>
+      </XMLDocumentationFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>lua_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(BOOST_LIB);../Luabind/lib;$(ISILME_LIB);../GUIChan/lib;../HGE/lib;../TinyXML/lib;../Box2D/lib;../Engine/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>libc.lib;  libcmtd.lib</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>$(ProjectDir)/lib/Engine_d.lib</ImportLibrary>
+      <OutputFile>../Debug/Engine_d.dll</OutputFile>
+      <Profile>true</Profile>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>GUIChan.lib; hge.lib; hgehelp.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../GUIChan/lib/;../HGE/lib;../TinyXML/lib;../Box2D/lib;../Lua514/lib%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>LUABIND_DYNAMIC_LINK;WIN32;ISILME_DLL;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(BOOST_INCLUDE);$(ProjectDir)/;$(ProjectDir)../Luabind;$(ProjectDir)../;$(ProjectDir)../GUIChan/include/;$(ProjectDir)../HGE/include;$(ProjectDir)/include;$(ProjectDir)../TinyXML/include;$(ProjectDir)../Box2D/;$(ISILME_INCLUDE)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4251;4275;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <AdditionalOptions>-Zm144 %(AdditionalOptions)</AdditionalOptions>
+      <PrecompiledHeaderFile>IsilmePCH.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(BOOST_LIB);../Luabind/lib;$(ISILME_LIB);../GUIChan/lib;../HGE/lib;../TinyXML/lib;../Box2D/lib;../Engine/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>$(ProjectDir)/lib/Engine.lib</ImportLibrary>
+      <OutputFile>../Release/Engine.dll</OutputFile>
+      <IgnoreSpecificDefaultLibraries>libc.lib; libcmt.lib; libcmtd.lib</IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="COPYING" />
+    <None Include="COPYING.LESSER" />
+    <None Include="COPYING.LESSER.RU" />
+    <None Include="COPYING.RU" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AI\AI.h" />
+    <ClInclude Include="AI\AIBehaviourDef.h" />
+    <ClInclude Include="AI\Actuator.h" />
+    <ClInclude Include="AI\AIAction.h" />
+    <ClInclude Include="AI\AIBehaviour.h" />
+    <ClInclude Include="AI\AIPackage.h" />
+    <ClInclude Include="AI\AIPackageDef.h" />
+    <ClInclude Include="AI\AITypes.h" />
+    <ClInclude Include="AI\Attribute.h" />
+    <ClInclude Include="AI\AttributeDef.h" />
+    <ClInclude Include="AI\Factories\AIPackageFactory.h" />
+    <ClInclude Include="AI\Message.h" />
+    <ClInclude Include="AI\MessageData.h" />
+    <ClInclude Include="AI\Pathfinding\PathMap.h" />
+    <ClInclude Include="AI\Pathfinding\Types.h" />
+    <ClInclude Include="AI\Perception.h" />
+    <ClInclude Include="AI\PerceptionList.h" />
+    <ClInclude Include="AI\ScriptAIPackageDef.h" />
+    <ClInclude Include="AI\ScriptAIPackage.h" />
+    <ClInclude Include="AI\Steering\Arrival.h" />
+    <ClInclude Include="AI\Steering\Evasion.h" />
+    <ClInclude Include="AI\Steering\Flee.h" />
+    <ClInclude Include="AI\Steering\ISteerable.h" />
+    <ClInclude Include="AI\Steering\ISteering.h" />
+    <ClInclude Include="AI\Steering\LinearWeightSteering.h" />
+    <ClInclude Include="AI\Steering\ObstacleAvoidance.h" />
+    <ClInclude Include="AI\Steering\PathFollowing.h" />
+    <ClInclude Include="AI\Steering\PrioritySteering.h" />
+    <ClInclude Include="AI\Steering\Pursuit.h" />
+    <ClInclude Include="AI\Steering\Seek.h" />
+    <ClInclude Include="AI\Steering\SteeringTypes.h" />
+    <ClInclude Include="AI\Steering\Wander.h" />
+    <ClInclude Include="AI\UtilityFunction.h" />
+    <ClInclude Include="Config.h" />
+    <ClInclude Include="Core\MasterFile.h" />
+    <ClInclude Include="Core\Scheduler.h" />
+    <ClInclude Include="Core\Script.h" />
+    <ClInclude Include="Core\View.h" />
+    <ClInclude Include="Inventory\GUI\InventoryView.h" />
+    <ClInclude Include="Inventory\GUI\ItemView.h" />
+    <ClInclude Include="Inventory\GUI\Types.h" />
+    <ClInclude Include="Inventory\Types.h" />
+    <ClInclude Include="Palette\AIPalette.h" />
+    <ClInclude Include="Palette\BehaviourPalette.h" />
+    <ClInclude Include="Palette\EntityPalette.h" />
+    <ClInclude Include="Palette\FractionsPalette.h" />
+    <ClInclude Include="Palette\GraphicsPalette.h" />
+    <ClInclude Include="Palette\ItemsPalette.h" />
+    <ClInclude Include="Palette\Palette.h" />
+    <ClInclude Include="Palette\Types.h" />
+    <ClInclude Include="Serialisation\AIPaletteLoader.h" />
+    <ClInclude Include="Serialisation\ConversationLoader.h" />
+    <ClInclude Include="Serialisation\ConversationSerialiser.h" />
+    <ClInclude Include="Serialisation\DynamicLevelSerialiser.h" />
+    <ClInclude Include="Serialisation\EntityPaletteLoader.h" />
+    <ClInclude Include="Serialisation\EntryLoader.h" />
+    <ClInclude Include="Serialisation\FractionsLoader.h" />
+    <ClInclude Include="Serialisation\GraphicsPaletteLoader.h" />
+    <ClInclude Include="Serialisation\ItemsLoader.h" />
+    <ClInclude Include="Serialisation\LevelSerialiser.h" />
+    <ClInclude Include="Serialisation\MasterLoader.h" />
+    <ClInclude Include="Serialisation\SaveData.h" />
+    <ClInclude Include="Serialisation\SaveManager.h" />
+    <ClInclude Include="Serialisation\ScriptLoader.h" />
+    <ClInclude Include="Serialisation\StaticLevelSerialiser.h" />
+    <ClInclude Include="Serialisation\StoryLoader.h" />
+    <ClInclude Include="Serialisation\StorySerialiser.h" />
+    <ClInclude Include="Serialisation\Types.h" />
+    <ClInclude Include="Core\ScheduleManager.h" />
+    <ClInclude Include="Story\ISpeaker.h" />
+    <ClInclude Include="Story\Speaker.h" />
+    <ClInclude Include="Story\StoryTypes.h" />
+    <ClInclude Include="Wrappers\ActionWrapper.h" />
+    <ClInclude Include="Wrappers\AIPackageWrapper.h" />
+    <ClInclude Include="Wrappers\BehaviourWrapper.h" />
+    <ClInclude Include="Wrappers\CameraWrapper.h" />
+    <ClInclude Include="Wrappers\StateWrapper.h" />
+    <ClInclude Include="Graphics\Animation.h" />
+    <ClInclude Include="Graphics\Line.h" />
+    <ClInclude Include="Graphics\Particles.h" />
+    <ClInclude Include="Graphics\SpecialGraphics.h" />
+    <ClInclude Include="Graphics\Sprite.h" />
+    <ClInclude Include="Graphics\StateGraphics.h" />
+    <ClInclude Include="Graphics\TriggerGraphics.h" />
+    <ClInclude Include="GUI\ConversationWindow.h" />
+    <ClInclude Include="GUI\HGELabel.h" />
+    <ClInclude Include="Inventory\GUI\InventoryWindow.h" />
+    <ClInclude Include="GUI\ModalDialog.h" />
+    <ClInclude Include="GUI\ProgressBar.h" />
+    <ClInclude Include="GUI\QuestBook.h" />
+    <ClInclude Include="Core\Action.h" />
+    <ClInclude Include="Core\Behaviour.h" />
+    <ClInclude Include="Core\Bodies.h" />
+    <ClInclude Include="Core\Camera.h" />
+    <ClInclude Include="Core\Collisions.h" />
+    <ClInclude Include="Debug.h" />
+    <ClInclude Include="Definitions.h" />
+    <ClInclude Include="Core\Engine.h" />
+    <ClInclude Include="Core\Entity.h" />
+    <ClInclude Include="Core\EntityDefinition.h" />
+    <ClInclude Include="Core\FactoryManager.h" />
+    <ClInclude Include="AI\Fraction.h" />
+    <ClInclude Include="Core\Game.h" />
+    <ClInclude Include="Core\Graphics.h" />
+    <ClInclude Include="Core\GraphicsFactory.h" />
+    <ClInclude Include="Core\InputSystem.h" />
+    <ClInclude Include="Isilme.h" />
+    <ClInclude Include="Core\Joints.h" />
+    <ClInclude Include="Core\Layer.h" />
+    <ClInclude Include="Core\Level.h" />
+    <ClInclude Include="Core\Log.h" />
+    <ClInclude Include="Core\LogoState.h" />
+    <ClInclude Include="Core\Query.h" />
+    <ClInclude Include="AI\Rank.h" />
+    <ClInclude Include="Core\Renderer.h" />
+    <ClInclude Include="Core\ResourceManager.h" />
+    <ClInclude Include="Core\SoundSystem.h" />
+    <ClInclude Include="Core\State.h" />
+    <ClInclude Include="Core\StateManager.h" />
+    <ClInclude Include="include\Trigger.h" />
+    <ClInclude Include="Inventory\ItemDef.h" />
+    <ClInclude Include="Inventory\ItemFactory.h" />
+    <ClInclude Include="Inventory\Inventory.h" />
+    <ClInclude Include="Inventory\Item.h" />
+    <ClInclude Include="IsilmePCH.h" />
+    <ClInclude Include="Serialisation\LevelLoader.h" />
+    <ClInclude Include="Core\GraphicsDefinition.h" />
+    <ClInclude Include="Story\Conversation.h" />
+    <ClInclude Include="Story\Phrase.h" />
+    <ClInclude Include="Story\Quest.h" />
+    <ClInclude Include="Story\QuestAPI.h" />
+    <ClInclude Include="Story\Quests.h" />
+    <ClInclude Include="Story\Stage.h" />
+    <ClInclude Include="Story\Story.h" />
+    <ClInclude Include="ScriptAPI.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AI\Actuator.cpp" />
+    <ClCompile Include="AI\AIBehaviour.cpp" />
+    <ClCompile Include="AI\AIBehaviourDef.cpp" />
+    <ClCompile Include="AI\AIPackage.cpp" />
+    <ClCompile Include="AI\AIPackageDef.cpp" />
+    <ClCompile Include="AI\Attribute.cpp" />
+    <ClCompile Include="AI\AttributeDef.cpp" />
+    <ClCompile Include="AI\Message.cpp" />
+    <ClCompile Include="AI\MessageData.cpp" />
+    <ClCompile Include="AI\Pathfinding\PathMap.cpp" />
+    <ClCompile Include="AI\Perception.cpp" />
+    <ClCompile Include="AI\ScriptAIPackageDef.cpp" />
+    <ClCompile Include="AI\Steering\Arrival.cpp" />
+    <ClCompile Include="AI\Steering\Evasion.cpp" />
+    <ClCompile Include="AI\Steering\Flee.cpp" />
+    <ClCompile Include="AI\Steering\LinearWeightSteering.cpp" />
+    <ClCompile Include="AI\Steering\ObstacleAvoidance.cpp" />
+    <ClCompile Include="AI\Steering\PathFollowing.cpp" />
+    <ClCompile Include="AI\Steering\Pursuit.cpp" />
+    <ClCompile Include="AI\Steering\Seek.cpp" />
+    <ClCompile Include="AI\Steering\Wander.cpp" />
+    <ClCompile Include="AI\UtilityFunction.cpp" />
+    <ClCompile Include="Core\MasterFile.cpp" />
+    <ClCompile Include="Core\ScheduleManager.cpp" />
+    <ClCompile Include="Core\Scheduler.cpp" />
+    <ClCompile Include="Inventory\GUI\InventoryView.cpp" />
+    <ClCompile Include="Inventory\GUI\ItemView.cpp" />
+    <ClCompile Include="Palette\AIPalette.cpp" />
+    <ClCompile Include="Palette\BehaviourPalette.cpp" />
+    <ClCompile Include="Palette\EntityPalette.cpp" />
+    <ClCompile Include="Palette\FractionsPalette.cpp" />
+    <ClCompile Include="Palette\GraphicsPalette.cpp" />
+    <ClCompile Include="Palette\ItemsPalette.cpp" />
+    <ClCompile Include="Serialisation\AIPaletteLoader.cpp" />
+    <ClCompile Include="Serialisation\ConversationLoader.cpp" />
+    <ClCompile Include="Serialisation\ConversationSerialiser.cpp" />
+    <ClCompile Include="Serialisation\DynamicLevelSerialiser.cpp" />
+    <ClCompile Include="Serialisation\EntityPaletteLoader.cpp" />
+    <ClCompile Include="Serialisation\FractionsLoader.cpp" />
+    <ClCompile Include="Serialisation\GraphicsPaletteLoader.cpp" />
+    <ClCompile Include="Serialisation\ItemsLoader.cpp" />
+    <ClCompile Include="Serialisation\MasterLoader.cpp" />
+    <ClCompile Include="Serialisation\SaveData.cpp" />
+    <ClCompile Include="Serialisation\SaveManager.cpp" />
+    <ClCompile Include="Core\Script.cpp" />
+    <ClCompile Include="Serialisation\ScriptLoader.cpp" />
+    <ClCompile Include="Serialisation\StaticLevelSerialiser.cpp" />
+    <ClCompile Include="Serialisation\StoryLoader.cpp" />
+    <ClCompile Include="Serialisation\StorySerialiser.cpp" />
+    <ClCompile Include="Story\Speaker.cpp" />
+    <ClCompile Include="Wrappers\ActionWrapper.cpp" />
+    <ClCompile Include="Wrappers\AIPackageWrapper.cpp" />
+    <ClCompile Include="Wrappers\BehaviourWrapper.cpp" />
+    <ClCompile Include="Wrappers\CameraWrapper.cpp" />
+    <ClCompile Include="Wrappers\StateWrapper.cpp" />
+    <ClCompile Include="Graphics\Animation.cpp" />
+    <ClCompile Include="Graphics\Line.cpp" />
+    <ClCompile Include="Graphics\Particles.cpp" />
+    <ClCompile Include="Graphics\Sprite.cpp" />
+    <ClCompile Include="Graphics\TriggerGraphics.cpp" />
+    <ClCompile Include="GUI\ConversationWindow.cpp" />
+    <ClCompile Include="Inventory\GUI\InventoryWindow.cpp" />
+    <ClCompile Include="GUI\ModalDialog.cpp" />
+    <ClCompile Include="GUI\QuestBook.cpp" />
+    <ClCompile Include="Inventory\Inventory.cpp" />
+    <ClCompile Include="Inventory\Item.cpp" />
+    <ClCompile Include="Inventory\ItemDef.cpp" />
+    <ClCompile Include="Inventory\ItemFactory.cpp" />
+    <ClCompile Include="Serialisation\LevelLoader.cpp" />
+    <ClCompile Include="Core\Query.cpp" />
+    <ClCompile Include="Story\Conversation.cpp" />
+    <ClCompile Include="Story\Phrase.cpp" />
+    <ClCompile Include="Story\Quest.cpp" />
+    <ClCompile Include="Story\QuestAPI.cpp" />
+    <ClCompile Include="Story\Quests.cpp" />
+    <ClCompile Include="Story\Stage.cpp" />
+    <ClCompile Include="Story\Story.cpp" />
+    <ClCompile Include="Core\ScriptAPI.cpp" />
+    <ClCompile Include="Core\Action.cpp" />
+    <ClCompile Include="Core\Behaviour.cpp" />
+    <ClCompile Include="Core\Bodies.cpp" />
+    <ClCompile Include="Core\Camera.cpp" />
+    <ClCompile Include="Core\Collisions.cpp" />
+    <ClCompile Include="Core\Engine.cpp" />
+    <ClCompile Include="Core\Entity.cpp" />
+    <ClCompile Include="Core\EntityDefinition.cpp" />
+    <ClCompile Include="Core\FactoryManager.cpp" />
+    <ClCompile Include="AI\Fraction.cpp" />
+    <ClCompile Include="Core\Game.cpp" />
+    <ClCompile Include="Core\Graphics.cpp" />
+    <ClCompile Include="Core\GraphicsFactory.cpp" />
+    <ClCompile Include="Core\InputSystem.cpp" />
+    <ClCompile Include="Core\Isilme.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Core\Joints.cpp" />
+    <ClCompile Include="Core\Layer.cpp" />
+    <ClCompile Include="Core\Level.cpp" />
+    <ClCompile Include="AI\Rank.cpp" />
+    <ClCompile Include="Core\Renderer.cpp" />
+    <ClCompile Include="Core\ResourceManager.cpp" />
+    <ClCompile Include="Core\SoundSystem.cpp" />
+    <ClCompile Include="Core\State.cpp" />
+    <ClCompile Include="Core\StateManager.cpp" />
+    <ClCompile Include="source\Trigger.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

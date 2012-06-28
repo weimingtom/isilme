@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Joints>
+	<Joint Type="BoxBoxJoint">
+		<Graphics>
+			<Sprite State="Idle" X="0" Y ="64" Width="192" Height="16">../Data/Textures/Sprites.png</Sprite>
+		</Graphics>
+		<Connection Type="Distance" Collide="1" Length="3.0"></Connection>
+	</Joint>
+</Joints>

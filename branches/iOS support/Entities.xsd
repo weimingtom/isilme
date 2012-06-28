@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Entities">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" name="Entity">
+					<xs:complexType>
+						<xs:sequence minOccurs="0">
+							<xs:element name="Body">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" name="Circle">
+											<xs:complexType>
+												<xs:attribute name="Radius" type="xs:decimal" use="required" />
+												<xs:attribute name="CategoryBits" type="xs:unsignedByte" use="required" />
+												<xs:attribute name="MaskBits" type="xs:unsignedByte" use="required" />
+												<xs:attribute name="Restitution" type="xs:decimal" use="optional" />
+												<xs:attribute name="Density" type="xs:unsignedByte" use="optional" />
+											</xs:complexType>
+										</xs:element>
+										<xs:element minOccurs="0" name="Box">
+											<xs:complexType>
+												<xs:attribute name="Width" type="xs:decimal" use="required" />
+												<xs:attribute name="Heigh" type="xs:decimal" use="required" />
+												<xs:attribute name="CategoryBits" type="xs:unsignedByte" use="required" />
+												<xs:attribute name="MaskBits" type="xs:unsignedByte" use="required" />
+												<xs:attribute name="Restitution" type="xs:decimal" use="optional" />
+												<xs:attribute name="Density" type="xs:unsignedByte" use="optional" />
+												<xs:attribute name="LinearDumping" type="xs:decimal" use="optional" />
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="Type" type="xs:string" use="required" />
+									<xs:attribute name="LinearDumping" type="xs:decimal" use="optional" />
+									<xs:attribute name="AngularDumping" type="xs:decimal" use="optional" />
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" name="Behaviour">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute name="Health" type="xs:unsignedByte" use="optional" />
+											<xs:attribute name="MaxHealth" type="xs:unsignedByte" use="optional" />
+											<xs:attribute name="Resistance" type="xs:unsignedByte" use="optional" />
+											<xs:attribute name="Blood" type="xs:string" use="optional" />
+											<xs:attribute name="ActivationFunction" type="xs:string" use="optional" />
+											<xs:attribute name="ReactivateTime" type="xs:unsignedByte" use="optional" />
+											<xs:attribute name="ActivateMask" type="xs:unsignedByte" use="optional" />
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="Type" type="xs:string" use="required" />
+						<xs:attribute name="Graphics" type="xs:string" use="required" />
+						<xs:attribute name="Behaviour" type="xs:string" use="optional" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

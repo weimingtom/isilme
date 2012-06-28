@@ -1,0 +1,26 @@
+<Conversation ID="Civilian1">
+    <Phrase ID="209297296" Text="Hello stranger!" Action="" Condition="return test_check!=nil;" Chance="-842150451">
+        <Phrase ID="209354256" Text="Hello, I have some questions" Action="" Condition="" Chance="-842150451">
+            <Phrase ID="209354656" Text="What do you want to know?" Action="" Condition="" Chance="-842150451">
+                <Phrase ID="209382016" Text="Where is the nearest shop?" Action="" Condition="" Chance="-842150451">
+                    <Phrase ID="209384256" Text="I don&apos;t know" Action="" Condition="" Chance="-842150451">
+                        <Phrase ID="209386232" Text="Back to my questions" Action="" Condition="" Chance="-842150451">
+                            <Phrase Ref="209354656" />
+                        </Phrase>
+                    </Phrase>
+                </Phrase>
+                <Phrase ID="209390280" Text="Goodby [End dialog]" Action="" Condition="" Chance="-842150451" />
+            </Phrase>
+            <Phrase ID="209391064" Text="Get out!" Action="" Condition="" Chance="-842150451">
+                <Phrase ID="209393112" Text="[End dialog]" Action="" Condition="" Chance="-842150451" />
+            </Phrase>
+        </Phrase>
+        <Phrase ID="209361168" Text="Goodby [End dialog]" Action="" Condition="" Chance="-842150451" />
+    </Phrase>
+    <Phrase ID="209363544" Text="ttrt" Action="test_check=1" Condition="return test_check == nil;" Chance="50">
+        <Phrase ID="209369984" Text="Goodby" Action="" Condition="" Chance="-842150451" />
+    </Phrase>
+    <Phrase ID="209370432" Text="Text" Action="" Condition="" Chance="-842150451" />
+    <Phrase ID="209372560" Text="Text..." Action="" Condition="" Chance="-842150451" />
+    <Phrase ID="209374688" Text="I know everything what I need [Skip tutorial]" Action="" Condition="" Chance="-842150451" />
+</Conversation>

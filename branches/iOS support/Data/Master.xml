@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataFile Module="Master" Version="0.3">
+	<Levels>
+		<File>levels/testlevel.lvl</File>
+		<File>levels/testlevel2.lvl</File>
+	</Levels>
+	<Conversations>
+		<File>conversations/test.conv</File>
+	</Conversations>
+	<Graphics>
+		<File>Graphics.XML</File>
+	</Graphics>
+	<Entities>
+		<File>Entities.xml</File>
+	</Entities>
+  <Fractions>
+    <Fraction
+      ID="Player"
+      Name="Player"
+      Agression="0">
+      <Rank
+        ID="1">
+      </Rank>
+      <Attitude Fraction="Zombie" Value="-100"></Attitude>
+      <Attitude Fraction="Police" Value="10"></Attitude>
+      <Attitude Fraction="Bandit" Value="-10"></Attitude>
+    </Fraction>
+    <Fraction
+      ID="Police"
+      Name="Police"
+      Agression="0">
+      <Rank
+        ID="1">
+      </Rank>
+      <Attitude Fraction="Zombie" Value="-100"></Attitude>
+      <Attitude Fraction="Police" Value="10"></Attitude>
+      <Attitude Fraction="Bandit" Value="-10"></Attitude>
+    </Fraction>
+    <Fraction
+      ID="Zombie"
+      Name="Zombie"
+      Agression="100">
+      <Rank
+        ID="1"
+        Title="Weak zombie">
+      </Rank>
+      <Rank ID="2" Title="Normal zombie"></Rank>
+      <Rank ID="3" Title="Savage zombie"></Rank>
+      <Attitude Fraction="Player" Value="-100"></Attitude>
+      <Attitude Fraction="Bandits" Value="-100"></Attitude>
+    </Fraction>
+    <Fraction
+     ID="Bandit"
+     Name="Bandits"
+     Agression="50">
+      <Rank
+        ID="1">
+      </Rank>
+      <Attitude Fraction="Zombie" Value="-100"></Attitude>
+      <Attitude Fraction="Player" Value="-10"></Attitude>
+    </Fraction>
+    <Fraction ID="Civilian" Name="Civilians" Agression="0">
+      <Rank ID="1" Title="Civilian"></Rank>
+      <Rank ID="2" Title=""></Rank>
+      <Rank ID="3" Title=""></Rank>
+      <Attitude Fraction="Zombie" Value="-100"></Attitude>
+      <Attitude Fraction="Police" Value="100"></Attitude>
+      <Attitude Fraction="Bandit" Value="-100"></Attitude>
+    </Fraction>
+  </Fractions>
+  <AIPackages>
+    <!-- Агент блуждает в окрестностях текущей точки-->
+    <Wander ID="Wander"></Wander>
+    <!-- Агент нападает на других агентов -->
+    <Agression ID="Agression"></Agression>
+    <!-- Агент управляется игроком -->
+    <Control ID="Control"></Control>
+    <!-- Агент убегает от превосходящего по численности противника -->
+    <Avoid ID="Avoid"></Avoid>
+  </AIPackages>
+</DataFile>
