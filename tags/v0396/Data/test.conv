@@ -1,0 +1,12 @@
+<Conversation>
+    <Phrase Ref="98271848" Text="TextByRef" Action="" Condition="" Chance="-842150451">
+        <Phrase Ref="98274456" Text="Text" Action="" Condition="" Chance="-842150451" />
+        <Phrase Ref="98275168" Text="Text" Action="" Condition="" Chance="-842150451" />
+		 <Phrase Ref="98271848" />
+    </Phrase>
+    <Phrase Ref="98273152" Text="Text" Action="" Condition="" Chance="-842150451" />
+    <Phrase Ref="98273800" Text="Text" Action="" Condition="" Chance="-842150451">
+        <Phrase Ref="98275816" Text="Text" Action="" Condition="" Chance="-842150451" />
+        <Phrase Ref="98276528" Text="Text" Action="" Condition="" Chance="-842150451" />
+    </Phrase>
+</Conversation>

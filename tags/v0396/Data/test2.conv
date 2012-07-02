@@ -1,0 +1,7 @@
+<Conversation>
+    <Phrase Ref="376840096" Text="Text" Action="" Condition="" Chance="-842150451">
+        <Phrase Ref="109923688" Text="Text" Action="" Condition="" Chance="-842150451" />
+        <Phrase Ref="376847264" Text="Text" Action="" Condition="" Chance="-842150451" />
+    </Phrase>
+    <Phrase Ref="376838096" Text="Text" Action="" Condition="" Chance="-842150451" />
+</Conversation>

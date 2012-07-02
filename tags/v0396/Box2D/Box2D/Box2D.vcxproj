@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{02596DDA-8B5A-4CD5-9C52-6EB922396A10}</ProjectGUID>
+    <SccProjectName />
+    <SccLocalPath />
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)../lib/</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Box2D.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Box2D_d</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)\Box2D\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Box2D.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Box2D</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\Velorth\Desktop\Downloads\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Box2D\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Box2D.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Box2D</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\Velorth\Desktop\Downloads\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Box2D\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Box2D.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Box2D</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions> /Zm1000 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>..; %(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>Debug</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>C:/Users/Velorth/Desktop/Downloads/Box2D_v2.1.2/Box2D_v2.1.2/Box2D/Box2D/Debug/Box2D.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>C:/Users/Velorth/Desktop/Downloads/Box2D_v2.1.2/Box2D_v2.1.2/Box2D/Box2D/..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:/Users/Velorth/Desktop/Downloads/Box2D_v2.1.2/Box2D_v2.1.2/Box2D/Box2D/..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </Midl>
+    <Lib>
+      <OutputFile>$(ProjectDir)../lib/Box2D_d.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions> /Zm1000 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>..; %(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>Release</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>C:/Users/Velorth/Desktop/Downloads/Box2D_v2.1.2/Box2D_v2.1.2/Box2D/Box2D/Release/Box2D.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>C:/Users/Velorth/Desktop/Downloads/Box2D_v2.1.2/Box2D_v2.1.2/Box2D/Box2D/..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:/Users/Velorth/Desktop/Downloads/Box2D_v2.1.2/Box2D_v2.1.2/Box2D/Box2D/..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </Midl>
+    <Lib>
+      <OutputFile>$(ProjectDir)../lib/Box2D.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <ClCompile>
+      <AdditionalOptions> /Zm1000 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>C:/Users/Velorth/Desktop/Downloads/Box2D_v2.1.2/Box2D_v2.1.2/Box2D/Box2D/..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>MinSizeRel</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>C:/Users/Velorth/Desktop/Downloads/Box2D_v2.1.2/Box2D_v2.1.2/Box2D/Box2D/MinSizeRel/Box2D.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>C:/Users/Velorth/Desktop/Downloads/Box2D_v2.1.2/Box2D_v2.1.2/Box2D/Box2D/..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:/Users/Velorth/Desktop/Downloads/Box2D_v2.1.2/Box2D_v2.1.2/Box2D/Box2D/..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalOptions> /Zm1000 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>C:/Users/Velorth/Desktop/Downloads/Box2D_v2.1.2/Box2D_v2.1.2/Box2D/Box2D/..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>RelWithDebInfo</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>C:/Users/Velorth/Desktop/Downloads/Box2D_v2.1.2/Box2D_v2.1.2/Box2D/Box2D/RelWithDebInfo/Box2D.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>C:/Users/Velorth/Desktop/Downloads/Box2D_v2.1.2/Box2D_v2.1.2/Box2D/Box2D/..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:/Users/Velorth/Desktop/Downloads/Box2D_v2.1.2/Box2D_v2.1.2/Box2D/Box2D/..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Box2D.h" />
+    <ClCompile Include="Dynamics\Joints\b2DistanceJoint.cpp" />
+    <ClCompile Include="Dynamics\Joints\b2FrictionJoint.cpp" />
+    <ClCompile Include="Dynamics\Joints\b2GearJoint.cpp" />
+    <ClCompile Include="Dynamics\Joints\b2Joint.cpp" />
+    <ClCompile Include="Dynamics\Joints\b2LineJoint.cpp" />
+    <ClCompile Include="Dynamics\Joints\b2MouseJoint.cpp" />
+    <ClCompile Include="Dynamics\Joints\b2PrismaticJoint.cpp" />
+    <ClCompile Include="Dynamics\Joints\b2PulleyJoint.cpp" />
+    <ClCompile Include="Dynamics\Joints\b2RevoluteJoint.cpp" />
+    <ClCompile Include="Dynamics\Joints\b2WeldJoint.cpp" />
+    <ClInclude Include="Dynamics\Joints\b2DistanceJoint.h" />
+    <ClInclude Include="Dynamics\Joints\b2FrictionJoint.h" />
+    <ClInclude Include="Dynamics\Joints\b2GearJoint.h" />
+    <ClInclude Include="Dynamics\Joints\b2Joint.h" />
+    <ClInclude Include="Dynamics\Joints\b2LineJoint.h" />
+    <ClInclude Include="Dynamics\Joints\b2MouseJoint.h" />
+    <ClInclude Include="Dynamics\Joints\b2PrismaticJoint.h" />
+    <ClInclude Include="Dynamics\Joints\b2PulleyJoint.h" />
+    <ClInclude Include="Dynamics\Joints\b2RevoluteJoint.h" />
+    <ClInclude Include="Dynamics\Joints\b2WeldJoint.h" />
+    <ClCompile Include="Dynamics\Contacts\b2CircleContact.cpp" />
+    <ClCompile Include="Dynamics\Contacts\b2Contact.cpp" />
+    <ClCompile Include="Dynamics\Contacts\b2ContactSolver.cpp" />
+    <ClCompile Include="Dynamics\Contacts\b2PolygonAndCircleContact.cpp" />
+    <ClCompile Include="Dynamics\Contacts\b2PolygonContact.cpp" />
+    <ClCompile Include="Dynamics\Contacts\b2TOISolver.cpp" />
+    <ClInclude Include="Dynamics\Contacts\b2CircleContact.h" />
+    <ClInclude Include="Dynamics\Contacts\b2Contact.h" />
+    <ClInclude Include="Dynamics\Contacts\b2ContactSolver.h" />
+    <ClInclude Include="Dynamics\Contacts\b2PolygonAndCircleContact.h" />
+    <ClInclude Include="Dynamics\Contacts\b2PolygonContact.h" />
+    <ClInclude Include="Dynamics\Contacts\b2TOISolver.h" />
+    <ClCompile Include="Dynamics\b2Body.cpp" />
+    <ClCompile Include="Dynamics\b2ContactManager.cpp" />
+    <ClCompile Include="Dynamics\b2Fixture.cpp" />
+    <ClCompile Include="Dynamics\b2Island.cpp" />
+    <ClCompile Include="Dynamics\b2World.cpp" />
+    <ClCompile Include="Dynamics\b2WorldCallbacks.cpp" />
+    <ClInclude Include="Dynamics\b2Body.h" />
+    <ClInclude Include="Dynamics\b2ContactManager.h" />
+    <ClInclude Include="Dynamics\b2Fixture.h" />
+    <ClInclude Include="Dynamics\b2Island.h" />
+    <ClInclude Include="Dynamics\b2TimeStep.h" />
+    <ClInclude Include="Dynamics\b2World.h" />
+    <ClInclude Include="Dynamics\b2WorldCallbacks.h" />
+    <ClCompile Include="Common\b2BlockAllocator.cpp" />
+    <ClCompile Include="Common\b2Math.cpp" />
+    <ClCompile Include="Common\b2Settings.cpp" />
+    <ClCompile Include="Common\b2StackAllocator.cpp" />
+    <ClInclude Include="Common\b2BlockAllocator.h" />
+    <ClInclude Include="Common\b2Math.h" />
+    <ClInclude Include="Common\b2Settings.h" />
+    <ClInclude Include="Common\b2StackAllocator.h" />
+    <ClCompile Include="Collision\Shapes\b2CircleShape.cpp" />
+    <ClCompile Include="Collision\Shapes\b2PolygonShape.cpp" />
+    <ClInclude Include="Collision\Shapes\b2CircleShape.h" />
+    <ClInclude Include="Collision\Shapes\b2PolygonShape.h" />
+    <ClInclude Include="Collision\Shapes\b2Shape.h" />
+    <ClCompile Include="Collision\b2BroadPhase.cpp" />
+    <ClCompile Include="Collision\b2CollideCircle.cpp" />
+    <ClCompile Include="Collision\b2CollidePolygon.cpp" />
+    <ClCompile Include="Collision\b2Collision.cpp" />
+    <ClCompile Include="Collision\b2Distance.cpp" />
+    <ClCompile Include="Collision\b2DynamicTree.cpp" />
+    <ClCompile Include="Collision\b2TimeOfImpact.cpp" />
+    <ClInclude Include="Collision\b2BroadPhase.h" />
+    <ClInclude Include="Collision\b2Collision.h" />
+    <ClInclude Include="Collision\b2Distance.h" />
+    <ClInclude Include="Collision\b2DynamicTree.h" />
+    <ClInclude Include="Collision\b2TimeOfImpact.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:/Users/Velorth/Desktop/Downloads/Box2D_v2.1.2/Box2D_v2.1.2/Box2D/ZERO_CHECK.vcxproj">
+      <Project>A77D7518-49DC-4097-9D7B-4061C1689ACD</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

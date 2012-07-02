@@ -1,0 +1,17 @@
+<Level Name="">
+    <World Gravity="0.000000, 9.800000" />
+    <Layer Name="Grass">
+        <Entity Name="GameObject_1cf" Type="Terrain/Sand" Position="2.000000, 2.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_1d3" Type="Terrain/Sand" Position="6.000000, 2.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_1d4" Type="Terrain/Sand" Position="2.000000, 6.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_1d9" Type="Terrain/Sand" Position="6.000000, 6.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_1da" Type="Terrain/Sand" Position="10.000000, 2.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_1db" Type="Terrain/Sand" Position="10.000000, 6.000000, 0.000000" Scale="1" />
+    </Layer>
+    <Layer Name="Items" />
+    <Layer Name="Containers">
+        <Entity Name="GameObject_1de" Type="Trash/Box" Position="1.000000, 3.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_1e0" Type="Trash/Box" Position="2.000000, 3.000000, 0.000000" Scale="1" />
+        <Entity Name="GameObject_1f2" Type="Trash/Box" Position="3.000000, 3.000000, 0.000000" Scale="1" />
+    </Layer>
+</Level>

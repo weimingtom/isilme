@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Sources\Configuration.cpp" />
+    <ClCompile Include="sources\ScriptAPI.cpp" />
+    <ClCompile Include="Sources\Cameras.cpp">
+      <Filter>Cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\ZombieLand.cpp" />
+    <ClCompile Include="State\Play.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
+    <ClCompile Include="Behaviour\Destroyable.cpp">
+      <Filter>Behaviour</Filter>
+    </ClCompile>
+    <ClCompile Include="Action\Die.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Action\Move.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Creature.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Behaviour\Bullet.cpp">
+      <Filter>Behaviour</Filter>
+    </ClCompile>
+    <ClCompile Include="Action\Attack.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Action\Heal.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Action\Wind.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Action\Shild.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Items\Weapon.cpp">
+      <Filter>Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="Behaviour\Activator.cpp">
+      <Filter>Behaviour</Filter>
+    </ClCompile>
+    <ClCompile Include="Behaviour\Item.cpp">
+      <Filter>Behaviour</Filter>
+    </ClCompile>
+    <ClCompile Include="Action\UseItem.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Items\Ammo.cpp">
+      <Filter>Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="Items\Spell.cpp">
+      <Filter>Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="LootTable.cpp">
+      <Filter>Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="Action\MoveTo.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Action\Wander.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Action\AttackTarget.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="WanderPackage.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Behaviour\Creature.cpp">
+      <Filter>Behaviour</Filter>
+    </ClCompile>
+    <ClCompile Include="Action\AgressionPackage.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Action\ControlPackage.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Action\Control.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Action\Avoid.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Action\AvoidPackage.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Behaviour\Door.cpp">
+      <Filter>Behaviour</Filter>
+    </ClCompile>
+    <ClCompile Include="Behaviour\Container.cpp">
+      <Filter>Behaviour</Filter>
+    </ClCompile>
+    <ClCompile Include="ZombielandPCH.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Configuration.h" />
+    <ClInclude Include="include\Definitions.h" />
+    <ClInclude Include="include\ScriptAPI.h" />
+    <ClInclude Include="Include\Cameras.h">
+      <Filter>Cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\ZombieLand.h" />
+    <ClInclude Include="State\Play.h">
+      <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Destroyable.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Creature.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Behaviour\Creature.h">
+      <Filter>Behaviour</Filter>
+    </ClInclude>
+    <ClInclude Include="Behaviour\Destroyable.h">
+      <Filter>Behaviour</Filter>
+    </ClInclude>
+    <ClInclude Include="Behaviour\Bullet.h">
+      <Filter>Behaviour</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\Die.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\Move.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\Attack.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\Heal.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\Wind.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\Shild.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Items\Weapon.h">
+      <Filter>Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="Behaviour\Activator.h">
+      <Filter>Behaviour</Filter>
+    </ClInclude>
+    <ClInclude Include="Behaviour\Item.h">
+      <Filter>Behaviour</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\UseItem.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Items\Ammo.h">
+      <Filter>Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="Items\Spell.h">
+      <Filter>Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\Seek.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\Pursue.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="LootTable.h">
+      <Filter>Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\MoveTo.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\Hunt.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\Wander.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\AttackTarget.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\ControlKeyMouse.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="WanderPackage.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\AgressionPackage.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\ControlPackage.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\Control.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\Avoid.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Action\AvoidPackage.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Behaviour\Door.h">
+      <Filter>Behaviour</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\KeepHealthPackage.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Behaviour\Container.h">
+      <Filter>Behaviour</Filter>
+    </ClInclude>
+    <ClInclude Include="Behaviour\ControlPoint.h">
+      <Filter>Behaviour</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Data\Entities.xml">
+      <Filter>Data</Filter>
+    </None>
+    <None Include="..\Data\Graphics.xml">
+      <Filter>Data</Filter>
+    </None>
+    <None Include="..\Data\Levels\Level1.xml">
+      <Filter>Data</Filter>
+    </None>
+    <None Include="..\Data\Quests\Story1.xml">
+      <Filter>Data</Filter>
+    </None>
+    <None Include="..\Data\Items.xml">
+      <Filter>Data</Filter>
+    </None>
+    <None Include="..\Data\Loot.xml">
+      <Filter>Data</Filter>
+    </None>
+    <None Include="..\Data\Master.xml">
+      <Filter>Data</Filter>
+    </None>
+    <None Include="..\Data\Conversations.xml">
+      <Filter>Data</Filter>
+    </None>
+    <None Include="..\Data\Levels\Level2.xml">
+      <Filter>Data</Filter>
+    </None>
+    <None Include="..\Data\Master.imf">
+      <Filter>Data</Filter>
+    </None>
+    <None Include="..\Data\Scripts\Level1.lua">
+      <Filter>Data\Scripts</Filter>
+    </None>
+    <None Include="..\Data\Scripts\script.lua">
+      <Filter>Data\Scripts</Filter>
+    </None>
+    <None Include="..\Data\Scripts\Triggers.lua">
+      <Filter>Data\Scripts</Filter>
+    </None>
+    <None Include="..\Data\Scripts\KeepHealthPackage.lua">
+      <Filter>Data\Scripts</Filter>
+    </None>
+    <None Include="..\Data\Conversations\Civilian1.conv">
+      <Filter>Data\Conversations</Filter>
+    </None>
+    <None Include="..\Data\Conversations\tutorial.conv">
+      <Filter>Data\Conversations</Filter>
+    </None>
+    <None Include="..\Data\AIPackages.aip">
+      <Filter>Data</Filter>
+    </None>
+    <None Include="..\Data\Fractions.frs">
+      <Filter>Data</Filter>
+    </None>
+    <None Include="..\Data\Story.story">
+      <Filter>Data</Filter>
+    </None>
+    <None Include="Data\NewPackages.xml">
+      <Filter>Data</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Actions">
+      <UniqueIdentifier>{1b7e5e20-af99-4cfe-a2de-1581f3a5cbab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cameras">
+      <UniqueIdentifier>{9f7b7f8c-f6d4-4947-ba1b-a2c7d3db8aea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="States">
+      <UniqueIdentifier>{bfdee777-0834-4f94-b809-d1bea35d8798}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{5b27d57a-60e5-4b33-aa29-f6cc132fd901}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data">
+      <UniqueIdentifier>{5c2e514f-da5c-49f5-ad80-08e905fc0e48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Behaviour">
+      <UniqueIdentifier>{ffcc0f15-7102-4ee3-a6a2-ad4e1bdb27ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inventory">
+      <UniqueIdentifier>{f8b106b0-58d4-4dcf-95fa-9ab29ba9d457}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\Scripts">
+      <UniqueIdentifier>{feac5ea1-3c77-417d-9c6b-9016d6e030ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\Conversations">
+      <UniqueIdentifier>{f87f543a-66d0-4834-ba15-1e1a2af458f8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,26 @@
+DONE:
+ENGINE
+- DEL: IAction, Tactics, Action::BeginningTime, EndingTime, Strategy, Seek
+- CHG: Action::OnDone вызывается только в случае успеха
+- ADD: Action::StartChildAction
+- ADD: Action::StopChildActions()
+
+Движок
+ - FIX: Issue1
+ - ADD: Дать имена уровням
+ - ADD: Сделать переходы между локациями (Держать в памяти несколько уровней, текущим устанавливать тот, который требуется)
+ - ADD: Сериализация игры
+ - ADD: Загрузка из одного Data-файла
+ - ADD: Добавить загрузку фракций
+ - ADD: Добавить от ношения между фракциями
+ - ADD: Реализовать лог
+ 
+ИИ
+ - ADD: Вложенные действия
+ - ADD: ScriptedAction 
+ - 
+
+Редактор
+ - ADD: Редактирование предметов
+ - ADD: Редактирование таблиц лута
+ - ADD: Редактор тактик

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="Windows-1251"?>
+<Entities>
+	<Entity Type="Cars/Car1" Graphics="Cars/Car1">
+		<Body Type="Static">
+			<Box Width="3.6" Heigh="1.9" CategoryBits="32" MaskBits="111"></Box>
+		</Body>
+	</Entity>
+	<Entity Type="Cars/Car2" Graphics="Cars/Car2">
+		<Body Type="Static">
+			<Box Width="3.6" Heigh="1.9" CategoryBits="32" MaskBits="111"></Box>
+		</Body>
+	</Entity>
+</Entities>

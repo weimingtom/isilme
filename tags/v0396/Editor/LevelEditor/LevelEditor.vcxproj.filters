@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="HGEProxyGame.cpp" />
+    <ClCompile Include="IsilmeControl.cpp" />
+    <ClCompile Include="IsilmeProxy.cpp" />
+    <ClCompile Include="Stdafx.cpp" />
+    <ClCompile Include="Proxy\EntityProxy.cpp">
+      <Filter>Proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="Proxy\LayerProxy.cpp">
+      <Filter>Proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="Tool\EntityBrush.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Tool\SelectorTool.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Tool\Tool.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="View\LevelEditorToolbar.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="View\LevelEditorWindow.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="View\ObjectManager.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="Proxy\LevelProxy.cpp">
+      <Filter>Proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="View\EntityPaletteTool.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="Proxy\EntityPaletteProxy.cpp">
+      <Filter>Proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="Proxy\FolderProxy.cpp">
+      <Filter>Proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="Tool\ScrollerTool.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Proxy\StageProxy.cpp">
+      <Filter>Proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="Proxy\QuestProxy.cpp">
+      <Filter>Proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="Proxy\StoryProxy.cpp">
+      <Filter>Proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="Proxy\ConversationProxy.cpp">
+      <Filter>Proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="Proxy\PhraseProxy.cpp">
+      <Filter>Proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\AddEntity.cpp">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\AddLayer.cpp">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\MoveEntity.cpp">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\RemoveEntity.cpp">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\RotateEntity.cpp">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\ScaleEntity.cpp">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\AddPhrase.cpp">
+      <Filter>Commands\ConversationEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\AddQuest.cpp">
+      <Filter>Commands\QuestEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\AddStage.cpp">
+      <Filter>Commands\QuestEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\RemoveQuest.cpp">
+      <Filter>Commands\QuestEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\RemoveStage.cpp">
+      <Filter>Commands\QuestEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="Proxy\ModuleProxy.cpp">
+      <Filter>Proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\RemoveLayer.cpp">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\MoveLayer.cpp">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="View\ScriptEditorWindow.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceHelper.cpp" />
+    <ClCompile Include="Proxy\EntryFactories.cpp">
+      <Filter>Proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="View\ConversationEditorWindow.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\RemovePhrase.cpp">
+      <Filter>Commands\ConversationEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="View\QuestEditorWindow.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="Proxy\ScriptFileProxy.cpp">
+      <Filter>Proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="Proxy\ScriptProxy.cpp">
+      <Filter>Proxy</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="HGEProxyGame.h" />
+    <ClInclude Include="IsilmeControl.h" />
+    <ClInclude Include="IsilmeProxy.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Stdafx.h" />
+    <ClInclude Include="SharedCLIPtr.h" />
+    <ClInclude Include="Proxy\EntityProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\LayerProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool\EntityBrush.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool\ITool.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool\SelectorTool.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool\Tool.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="View\LevelEditorToolbar.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="View\LevelEditorWindow.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool\MouseData.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="View\ObjectManager.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\LevelProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\EntityPaletteProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\FolderProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool\ScrollerTool.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelEditorCommands.h" />
+    <ClInclude Include="View\EntityPaletteTool.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\ConversationProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\PhraseProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\StoryProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\QuestProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\StageProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\ScaleEntity.h">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\AddEntity.h">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\AddLayer.h">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\MoveEntity.h">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\RemoveEntity.h">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\RotateEntity.h">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\AddPhrase.h">
+      <Filter>Commands\ConversationEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\AddQuest.h">
+      <Filter>Commands\QuestEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\AddStage.h">
+      <Filter>Commands\QuestEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\RemoveQuest.h">
+      <Filter>Commands\QuestEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\RemoveStage.h">
+      <Filter>Commands\QuestEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\ModuleProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\RemoveLayer.h">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\MoveLayer.h">
+      <Filter>Commands\LevelEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="View\ScriptEditorWindow.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\IDataToProxyConverter.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceHelper.h" />
+    <ClInclude Include="Proxy\IEntryFactory.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\EntryFactories.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="View\ConversationEditorWindow.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\RemovePhrase.h">
+      <Filter>Commands\ConversationEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="View\QuestEditorWindow.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\AIPackageProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\AIPaletteProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\ScriptFileProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\ScriptProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="Proxy\GraphicsDefProxy.h">
+      <Filter>Proxy</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="app.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.ico" />
+    <None Include="ReadMe.txt" />
+    <None Include="Resources\Palette.png">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\AddLayer.png">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\Brush.png">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\Grid.png">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\Physics.png">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\Select.png">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\Shapes.png">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\Layers.png">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\FolderClosed.png">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\FolderOpen.png">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\PaletteItem.png">
+      <Filter>Resources</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Proxy">
+      <UniqueIdentifier>{c285a808-6295-45bc-b3d9-32fc9d495fe7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands">
+      <UniqueIdentifier>{d1101306-4de9-4341-b931-64676b351601}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tool">
+      <UniqueIdentifier>{957a2b91-b718-4db9-a680-9725d06171df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View">
+      <UniqueIdentifier>{3358363c-7534-45a8-b8e4-51ab8cda89be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\LevelEditor">
+      <UniqueIdentifier>{edead689-bb65-44e3-8012-68a83bfcb119}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\ConversationEditor">
+      <UniqueIdentifier>{3885f891-77f8-4ec0-bf17-048273a2d836}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\QuestEditor">
+      <UniqueIdentifier>{7163e742-bb4d-45d2-b6f6-9ff6fff457b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{937ecd81-edee-4749-bcb2-8203fc9bc98f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

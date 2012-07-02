@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Level">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Camera">
+					<xs:complexType>
+						<xs:attribute name="Type" type="xs:string" use="required" />
+						<xs:attribute name="Player" type="xs:string" use="required" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element maxOccurs="unbounded" name="Layer">
+					<xs:complexType mixed="true">
+						<xs:sequence minOccurs="0">
+							<xs:element maxOccurs="unbounded" name="Entity">
+								<xs:complexType>
+									<xs:attribute name="Name" type="xs:string" use="required" />
+									<xs:attribute name="Type" type="xs:string" use="required" />
+									<xs:attribute name="Position" type="xs:string" use="required" />
+									<xs:attribute name="Scale" type="xs:decimal" use="required" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="Name" type="xs:string" use="required" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="World">
+					<xs:complexType>
+						<xs:attribute name="Gravity" type="xs:string" use="required" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Scripts">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Lua" type="xs:string" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

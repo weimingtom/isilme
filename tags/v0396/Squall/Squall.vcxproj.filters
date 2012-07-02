@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="SoundEngine">
+      <UniqueIdentifier>{428807a6-8026-48ed-85e8-5448d13a1cf6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SoundEngine\Ext">
+      <UniqueIdentifier>{2f1f22a7-31c6-458a-82fb-c36aae30d071}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SoundFile">
+      <UniqueIdentifier>{409284fd-f065-43e1-9f44-79e0f933053c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SoundFile\Mp3">
+      <UniqueIdentifier>{a57ba995-0dbc-4952-b306-7ef4fd610925}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SoundFile\Ogg">
+      <UniqueIdentifier>{3c3b1d5a-fa5f-46f5-8108-527a917715c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SoundFile\Wav">
+      <UniqueIdentifier>{06a2dd61-67de-471e-8a68-bf35958ba7e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SoundFile\Wma">
+      <UniqueIdentifier>{4ced6253-a4cf-4e87-b2a1-0eb8c19cf043}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SoundFile\Track">
+      <UniqueIdentifier>{e6df4808-e786-4d79-bd2d-ed9f342cd2fa}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SoundEngine\CAbstractChannel.cpp">
+      <Filter>SoundEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundEngine\CAbstractOutput.cpp">
+      <Filter>SoundEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundEngine\CDXChannel.cpp">
+      <Filter>SoundEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundEngine\CDXOutput.cpp">
+      <Filter>SoundEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundEngine\Channels.cpp">
+      <Filter>SoundEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundEngine\Context.cpp">
+      <Filter>SoundEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundEngine\DirectSound.cpp">
+      <Filter>SoundEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundEngine\HiddenWindow.cpp">
+      <Filter>SoundEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundEngine\Squall.cpp">
+      <Filter>SoundEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundEngine\SquallApi.cpp">
+      <Filter>SoundEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundEngine\ext\Eax.cpp">
+      <Filter>SoundEngine\Ext</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundEngine\ext\ZoomFX.cpp">
+      <Filter>SoundEngine\Ext</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\Reader.cpp">
+      <Filter>SoundFile</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\SoundFile.cpp">
+      <Filter>SoundFile</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\MP3\l1dec.cpp">
+      <Filter>SoundFile\Mp3</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\MP3\l2dec.cpp">
+      <Filter>SoundFile\Mp3</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\MP3\l3dec.cpp">
+      <Filter>SoundFile\Mp3</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\MP3\MpegDecoder.cpp">
+      <Filter>SoundFile\Mp3</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\MP3\MpegFile.cpp">
+      <Filter>SoundFile\Mp3</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\Ogg\OggDecoder.cpp">
+      <Filter>SoundFile\Ogg</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\Ogg\OggFile.cpp">
+      <Filter>SoundFile\Ogg</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\WAV\ImaAdpcmDecoder.cpp">
+      <Filter>SoundFile\Wav</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\WAV\MsAdpcmDecoder.cpp">
+      <Filter>SoundFile\Wav</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\WAV\PcmDecoder.cpp">
+      <Filter>SoundFile\Wav</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\WAV\WavFile.cpp">
+      <Filter>SoundFile\Wav</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\Wma\WmaDecoder.cpp">
+      <Filter>SoundFile\Wma</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\Wma\WmaFile.cpp">
+      <Filter>SoundFile\Wma</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\track\fastmix.cpp">
+      <Filter>SoundFile\Track</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\track\load_669.cpp">
+      <Filter>SoundFile\Track</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\track\load_amf.cpp">
+      <Filter>SoundFile\Track</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\track\load_ams.cpp">
+      <Filter>SoundFile\Track</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\track\load_dbm.cpp">
+      <Filter>SoundFile\Track</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\track\load_dmf.cpp">
+      <Filter>SoundFile\Track</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\track\load_dsm.cpp">
+      <Filter>SoundFile\Track</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\track\load_far.cpp">
+      <Filter>SoundFile\Track</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\track\load_it.cpp">
+      <Filter>SoundFile\Track</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\track\load_mdl.cpp">
+      <Filter>SoundFile\Track</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\track\load_med.cpp">
+      <Filter>SoundFile\Track</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\track\load_mod.cpp">
+      <Filter>SoundFile\Track</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\track\load_mt2.cpp">
+      <Filter>SoundFile\Track</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\track\load_mtm.cpp">
+      <Filter>SoundFile\Track</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\track\load_okt.cpp">
+      <Filter>SoundFile\Track</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\track\load_psm.cpp">
+      <Filter>SoundFile\Track</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\track\load_ptm.cpp">
+      <Filter>SoundFile\Track</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\track\load_s3m.cpp">
+      <Filter>SoundFile\Track</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\track\load_stm.cpp">
+      <Filter>SoundFile\Track</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\track\load_ult.cpp">
+      <Filter>SoundFile\Track</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\track\load_umx.cpp">
+      <Filter>SoundFile\Track</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\track\load_xm.cpp">
+      <Filter>SoundFile\Track</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\track\snd_fx.cpp">
+      <Filter>SoundFile\Track</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\track\sndmix.cpp">
+      <Filter>SoundFile\Track</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\track\tables.cpp">
+      <Filter>SoundFile\Track</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\track\TrackDecoder.cpp">
+      <Filter>SoundFile\Track</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFile\track\TrackFile.cpp">
+      <Filter>SoundFile\Track</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SoundEngine\CAbstractChannel.h">
+      <Filter>SoundEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundEngine\CAbstractOutput.h">
+      <Filter>SoundEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundEngine\CDXChannel.h">
+      <Filter>SoundEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundEngine\CDXOutput.h">
+      <Filter>SoundEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundEngine\Channels.h">
+      <Filter>SoundEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundEngine\Context.h">
+      <Filter>SoundEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundEngine\DirectSound.h">
+      <Filter>SoundEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundEngine\HiddenWindow.h">
+      <Filter>SoundEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundEngine\SquallApi.h">
+      <Filter>SoundEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundEngine\ext\Eax.h">
+      <Filter>SoundEngine\Ext</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundEngine\ext\Eax1_api.h">
+      <Filter>SoundEngine\Ext</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundEngine\ext\Eax2_api.h">
+      <Filter>SoundEngine\Ext</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundEngine\ext\Eax3_api.h">
+      <Filter>SoundEngine\Ext</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundEngine\ext\Eax4_api.h">
+      <Filter>SoundEngine\Ext</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundEngine\ext\ZoomFX.h">
+      <Filter>SoundEngine\Ext</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundEngine\ext\ZoomFX_api.h">
+      <Filter>SoundEngine\Ext</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundFile\AbstractDecoder.h">
+      <Filter>SoundFile</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundFile\AbstractSoundFile.h">
+      <Filter>SoundFile</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundFile\ExternFunction.h">
+      <Filter>SoundFile</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundFile\Reader.h">
+      <Filter>SoundFile</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundFile\SoundFile.h">
+      <Filter>SoundFile</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundFile\MP3\MpegDecoder.h">
+      <Filter>SoundFile\Mp3</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundFile\MP3\MpegFile.h">
+      <Filter>SoundFile\Mp3</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundFile\MP3\MpegHuff.h">
+      <Filter>SoundFile\Mp3</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundFile\Ogg\OggDecoder.h">
+      <Filter>SoundFile\Ogg</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundFile\Ogg\OggFile.h">
+      <Filter>SoundFile\Ogg</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundFile\WAV\ImaAdpcmDecoder.h">
+      <Filter>SoundFile\Wav</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundFile\WAV\MsAdpcmDecoder.h">
+      <Filter>SoundFile\Wav</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundFile\WAV\PcmDecoder.h">
+      <Filter>SoundFile\Wav</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundFile\WAV\WavFile.h">
+      <Filter>SoundFile\Wav</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundFile\Wma\WmaDecoder.h">
+      <Filter>SoundFile\Wma</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundFile\Wma\WmaFile.h">
+      <Filter>SoundFile\Wma</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundFile\track\it_defs.h">
+      <Filter>SoundFile\Track</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundFile\track\stdafx.h">
+      <Filter>SoundFile\Track</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundFile\track\TrackDecoder.h">
+      <Filter>SoundFile\Track</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundFile\track\TrackFile.h">
+      <Filter>SoundFile\Track</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Squall.h">
+      <Filter>SoundEngine</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
