@@ -220,9 +220,6 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Engine\Engine.vcxproj">
-      <Project>{a110b53d-ff13-4b46-be40-df3377753d29}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\AvalonDock\AvalonDock.csproj">
       <Project>{87e61430-4243-45f2-b74e-0a4c096cebf3}</Project>
     </ProjectReference>
