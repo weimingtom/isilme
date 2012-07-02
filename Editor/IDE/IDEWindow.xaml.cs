@@ -136,7 +136,6 @@ namespace IDE
             EditorManager.Instance.RegisterEditorForTag<QuestEditorWindow>("Story");
             EditorManager.Instance.RegisterEditorForTag<ScriptEditorWindow>("Scripts");
             EditorManager.Instance.RegisterEditorForTag<LevelEditor.View.ConversationEditorWindow>("Conversations");
-            EditorManager.Instance.RegisterExtension<AIPackagesEditor.AIPackagesEditorWindow>(".aip");
           //  ExtensionManager.RegisterExtension<LevelEditorWindow>(".lvl");
 
             mToolWindowsMenu.DataContext = mTools;
