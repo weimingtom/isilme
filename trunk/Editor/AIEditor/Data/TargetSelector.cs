@@ -7,5 +7,7 @@ namespace MyApplication1.Data
 {
     public class TargetSelector
     {
+        String ID;
+        List<ParamInfo> Params;
     }
 }

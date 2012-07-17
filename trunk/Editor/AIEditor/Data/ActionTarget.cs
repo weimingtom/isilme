@@ -7,5 +7,7 @@ namespace MyApplication1.Data
 {
     public class ActionTarget
     {
+        TargetSelector Selector;
+        ParamsTable Params;
     }
 }

@@ -14,6 +14,8 @@ namespace MyApplication1.Data
         }
         AIAction Action;
         ActionTarget Target;
+        Script Condition;
+        Script Priority;
 
     }
 }

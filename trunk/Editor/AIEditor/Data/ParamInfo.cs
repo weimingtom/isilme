@@ -5,9 +5,9 @@ using System.Text;
 
 namespace MyApplication1.Data
 {
-    public class Script
+    public class ParamInfo
     {
-        List<String> Params;
-        String Code;
+        ParamType Type;
+        String ID;
     }
 }
