@@ -12,9 +12,22 @@ namespace MyApplication1.Data
         public AIRulesList()
         {
             Rules = new ObservableCollection<AIRule>();
+            Actions = new ObservableCollection<AIAction>();
+            TargetSelectors = new ObservableCollection<TargetSelector>();
+
         }
 
         public ObservableCollection<AIRule> Rules
+        {
+            get;
+            set;
+        }
+        public ObservableCollection<AIAction> Actions
+        {
+            get;
+            set;
+        }
+        public ObservableCollection<TargetSelector> TargetSelectors
         {
             get;
             set;

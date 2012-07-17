@@ -82,6 +82,8 @@
     <Compile Include="Data\AIAction.cs" />
     <Compile Include="Data\AIRule.cs" />
     <Compile Include="Data\AIRulesList.cs" />
+    <Compile Include="Data\Script.cs" />
+    <Compile Include="Data\TargetSelector.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
