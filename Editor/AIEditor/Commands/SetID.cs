@@ -9,7 +9,7 @@ namespace MyApplication1.Commands
 {
     class SetID : ICommand
     {
-        public SetID()
+        public SetID(AIRule rule, String id)
         {
         }
 
