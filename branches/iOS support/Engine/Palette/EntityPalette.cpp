@@ -31,10 +31,11 @@
 //		Вы должны были получить копию Меньшей стандартной общественной лицензии GNU
 //		вместе с этой программой. Если это не так, см.
 //		<http://www.gnu.org/licenses/>.
-#include "IsilmePCH.h"
 #include "EntityPalette.h"
 #include "Core/EntityDefinition.h"
 #include "Core/Behaviour.h"
+#include "../Core/Engine.h"
+#include "../Core/ResourceManager.h"
 
 std::string itoa (const int value,
       const unsigned int base=10,
@@ -141,7 +142,6 @@ EntityPtr EntityPalette::Create( std::string type, std::string id )
 	if (id == "")
 	{
 		std::string prefix = "GameObject_";
-		char s[20];
 		int n = 0;
 		while (mEntites.find(prefix + itoa(n, 16)) != mEntites.end())
 			++n;

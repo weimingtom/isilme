@@ -1,7 +1,7 @@
 #ifndef ZOMBIELAND_ACTION_ATTACK_H
 #define ZOMBIELAND_ACTION_ATTACK_H
 
-#include "../Definitions.h"
+#include "../include/Definitions.h"
 #include "../Behaviour/Creature.h"
 
 namespace action

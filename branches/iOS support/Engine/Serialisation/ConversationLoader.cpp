@@ -35,6 +35,8 @@
 #include "ConversationLoader.h"
 #include "Core/FactoryManager.h"
 #include "Core/MasterFile.h"
+#include "../Core/Engine.h"
+#include "../Core/ResourceManager.h"
 
 namespace serialisation
 {
@@ -52,7 +54,8 @@ namespace serialisation
 
 	story::ConversationPtr ConversationLoader::LoadConversation( std::string fileName )
 	{
-		TiXmlDocument document(fileName.c_str());
+        char* path = Engine::GetSingleton()->GetResourceManager()->ResourcePath(fileName.c_str());
+		TiXmlDocument document(path);
 		document.LoadFile();
 
 		if (document.RootElement())

@@ -36,7 +36,7 @@
 
 #include "AITypes.h"
 
-class Actuator
+class ISILME_API Actuator
 {
 public:
 	/// Constructor

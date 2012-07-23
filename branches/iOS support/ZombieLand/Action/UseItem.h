@@ -1,8 +1,8 @@
 ﻿#ifndef ZOMBIELAND_ACTIONS_USEITEM_H
 #define ZOMBIELAND_ACTIONS_USEITEM_H
 
-#include "../Definitions.h"
-#include "../AI/AIPackage.h"
+#include "../include/Definitions.h"
+#include "Engine/AI/AIPackage.h"
 
 namespace action
 {

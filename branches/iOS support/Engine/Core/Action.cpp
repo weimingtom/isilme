@@ -168,6 +168,16 @@ void	Action::StartChildAction(ActionPtr action)
 	mChildActions.insert(action);
 }
 
+void Action::SetTarget(EntityPtr target)
+{
+    mTarget = target;
+}
+
+EntityPtr Action::GetTarget()
+{
+    return mTarget;
+}
+
 void	Action::OnDone()
 {
 }

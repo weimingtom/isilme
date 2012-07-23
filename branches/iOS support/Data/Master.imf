@@ -1,32 +1,32 @@
 <DataFile>
     <Scripts>
-        <File>../Data/Scripts/KeepHealthPackage.lua</File>
+        <File>Data/Scripts/KeepHealthPackage.lua</File>
     </Scripts>
     <AIPackages>
-        <File>../Data/AIPackages.aip</File>
+        <File>Data/AIPackages.aip</File>
     </AIPackages>
     <Fractions>
-        <File>../Data/Fractions.frs</File>
+        <File>Data/Fractions.frs</File>
     </Fractions>
     <Graphics>
-        <File>../Data/Graphics.XML</File>
+        <File>Data/Graphics.XML</File>
     </Graphics>
     <Entities>
-        <File>../Data/Entities.xml</File>
+        <File>Data/Entities.xml</File>
     </Entities>
     <Conversations>
-        <File>../Data/Conversations/tutorial.conv</File>
-        <File>../Data/Conversations/Civilian1.conv</File>
-        <File>../Data/Conversations/Policeman.conv</File>
+        <File>Data/Conversations/tutorial.conv</File>
+        <File>Data/Conversations/Civilian1.conv</File>
+        <File>Data/Conversations/Policeman.conv</File>
     </Conversations>
     <Story>
-        <File>../Data/story.story</File>
+        <File>Data/story.story</File>
     </Story>
     <Items>
-        <File>../Data/Items.xml</File>
+        <File>Data/Items.xml</File>
     </Items>
     <Levels>
-        <File>../Data/Levels/testlevel.lvl</File>
-        <File>../Data/Levels/testlevel2.lvl</File>
+        <File>Data/Levels/testlevel.lvl</File>
+        <File>Data/Levels/testlevel2.lvl</File>
     </Levels>
 </DataFile>

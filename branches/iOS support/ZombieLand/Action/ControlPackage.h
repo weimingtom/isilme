@@ -1,7 +1,7 @@
 #ifndef AI_CONTROL_PACKAGE_H
 #define AI_CONTROL_PACKAGE_H
 
-#include "../Definitions.h"
+#include "../include/Definitions.h"
 
 /// Пакет предоставляет возможность контролировать персонажа с помощью клавиатуры или геймпада
 class ControlPackage : public AIPackage

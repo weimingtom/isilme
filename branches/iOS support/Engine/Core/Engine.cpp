@@ -1,4 +1,4 @@
-﻿//  Copyright (C) 2010-2012 VSTU
+//  Copyright (C) 2010-2012 VSTU
 //
 //	This file is part of Isilme SDK.
 //
@@ -99,7 +99,7 @@ void Engine::ShowLogo()
 	Sleep(200);
 #endif
     
-	mLogo = new LogoState(new hgeSprite(mResourceManager->GetTexture("../Data/Textures/Logo.png"),0,0,954, 755));
+	mLogo = new LogoState(new hgeSprite(mResourceManager->GetTexture("Data/Textures/Logo.png"),0,0,954, 755));
 	mStateManager->Push(StatePtr(mLogo));
 	mHGE->System_Start();
     

@@ -98,3 +98,8 @@ HTARGET		HGEResourceManager::GetTarget(std::string name)
 {
 	return mResourceManager->GetTarget(name.c_str());
 }
+
+char* HGEResourceManager::ResourcePath(const char* path)
+{
+    return mHGE->Resource_MakePath(path);
+}

@@ -77,15 +77,15 @@ void	ZombieLand::Init()
 	factoryManager->GetAIPalette()->RegisterAIType("Heal", AIPackageFactory<action::HealPackageDef>::New());
 	factoryManager->GetAIPalette()->RegisterAIType("PickItem", AIPackageFactory<action::PickItemPackageDef>::New());
 	
-	FactoryManager::GetSingleton()->LoadMasterFile("../Data/Master.imf");
+	FactoryManager::GetSingleton()->LoadMasterFile("./data/master.imf");
 //	factoryManager->LoadConversations("../Data/Conversations.xml");
 //	factoryManager->LoadDataFile("../Data/Master.xml");
 //	factoryManager->LoadItems("../Data/Items.xml");
-	LootManager::GetSingleton()->Load("../Data/Loot.xml");
+	LootManager::GetSingleton()->Load("./Data/Loot.xml");
 	//FactoryManager::GetSingleton()->LoadEntities("../Data/Entities.xml");
 
 	playState.reset(new state::Play());
-	Game::GetSingleton()->GetStory()->Load("../Data/Quests/Story1.xml");
+	Game::GetSingleton()->GetStory()->Load("./Data/Quests/Story1.xml");
 	//StatePtr editorState = StatePtr(new state::Editor());
 	//FactoryManager::GetSingleton()->LoadLevel("../Data/Levels/Level1.xml");
 	//FactoryManager::GetSingleton()->LoadLevel("../Data/Levels/Level2.xml");
@@ -93,7 +93,7 @@ void	ZombieLand::Init()
 	GetStateManager()->Push(playState);
 	//GetStateManager()->Push(editorState);
 
-	luaL_dofile(Engine::GetSingleton()->GetLua(), "../Data/Scripts/script.lua");
+	luaL_dofile(Engine::GetSingleton()->GetLua(), "Data/Scripts/script.lua");
 }
 
 void	ZombieLand::ApplyConfiguration()

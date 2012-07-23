@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<VariablesStackState
+<VariablesViewState
    version = "1.0">
-   <StackStates>
-      <StackState
-         stackFrameDescription = "HGE_Impl::System_Start:system.mm">
-         <expressions>
-         </expressions>
-      </StackState>
-      <StackState
-         stackFrameDescription = "RenderFunc():main.mm">
-         <expressions>
-            <expression
-               value = "par">
-            </expression>
-         </expressions>
-      </StackState>
-      <StackState
-         stackFrameDescription = "hgeParticleSystem::Render():hgeparticle.cpp">
-         <expressions>
-            <expression
-               value = "info">
-            </expression>
-         </expressions>
-      </StackState>
-   </StackStates>
-</VariablesStackState>
+   <ContextStates>
+      <ContextState
+         contextName = "serialisation::MasterFileLoader::Load(std::string):MasterLoader.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "document">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AIPalette::Load(std::string):AIPalette.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "fileName">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "serialisation::MasterFileLoader::Load(TiXmlElement*):MasterLoader.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "element">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

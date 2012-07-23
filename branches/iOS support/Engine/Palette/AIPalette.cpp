@@ -36,6 +36,7 @@
 #include "AI/AIPackage.h"
 #include "Engine/AI/AIPackageDef.h"
 #include "AI/Factories/AIPackageFactory.h"
+#include "../Core/ResourceManager.h"
 
 AIPalette::AIPalette()
 {
@@ -68,7 +69,8 @@ void AIPalette::Clear()
 
 void AIPalette::Load( std::string fileName )
 {
-	TiXmlDocument document(fileName.c_str());
+    char* path = Engine::GetSingleton()->GetResourceManager()->ResourcePath(fileName.c_str());
+	TiXmlDocument document(path);
 	document.LoadFile();
 	
 	Load(document.RootElement());

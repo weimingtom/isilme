@@ -58,6 +58,8 @@
 #include "Core/MasterFile.h"
 #include "Palette/FractionsPalette.h"
 #include "Palette/ItemsPalette.h"
+#include "ResourceManager.h"
+#include "Engine.h"
 
 FactoryPtr FactoryManager::mInstance;
 

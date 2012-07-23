@@ -8,7 +8,7 @@
 #include "Engine/GUI/ConversationWindow.h"
 #include "ZombieLand/State/Play.h"
 #include "Query.h"
-#include "../ScriptAPI.h"
+#include "Engine/ScriptAPI.h"
 
 namespace action
 {

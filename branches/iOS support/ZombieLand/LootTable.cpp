@@ -82,7 +82,8 @@ LootTablePtr LootManager::GetLootTable(std::string name)
 void	LootManager::Load(std::string fileName)
 {
 	TiXmlDocument* document = new TiXmlDocument();
-	document->LoadFile(fileName.data());
+    char* path = Engine::GetSingleton()->GetResourceManager()->ResourcePath(fileName.c_str());
+	document->LoadFile(path);
 
 	TiXmlElement* root = document->RootElement();
 

@@ -31,7 +31,6 @@
 //		Вы должны были получить копию Меньшей стандартной общественной лицензии GNU
 //		вместе с этой программой. Если это не так, см.
 //		<http://www.gnu.org/licenses/>.
-#include "IsilmePCH.h"
 #include "Joints.h"
 #include "Layer.h"
 #include "Level.h"
@@ -39,6 +38,8 @@
 #include "Query.h"
 #include "FactoryManager.h"
 #include "Game.h"
+#include "../Core/Engine.h"
+#include "../Core/ResourceManager.h"
 
 namespace RayCast
 {
@@ -469,7 +470,8 @@ LevelPtr	Level::Load(TiXmlElement* levelElement)
 LevelPtr	Level::Load(std::string fileName)
 {
 	TiXmlDocument* document = new TiXmlDocument();
-	document->LoadFile(fileName.data());
+    char* path = Engine::GetSingleton()->GetResourceManager()->ResourcePath(fileName.c_str());
+	document->LoadFile(path);
 
 	TiXmlElement* root = document->RootElement();
 

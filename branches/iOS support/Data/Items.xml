@@ -7,8 +7,8 @@
 		Ammo="40"
 		UseTime="0"
 		ReloadingTime="0.2"
-		UseSound="../Data/Sounds/Weapons/Gun.wav"
-		Icon="../Data/Icons/Weapons/AK47.png"
+		UseSound="Data/Sounds/Weapons/Gun.wav"
+		Icon="Data/Icons/Weapons/AK47.png"
 		AmmoTag="AK47Ammo"
 		GND="Items/Weapons/AK47">
 	</Weapon>
@@ -19,8 +19,8 @@
 		Ammo="15"
 		UseTime="0"
 		ReloadingTime="0.4"
-		UseSound="../Data/Sounds/Weapons/Gun.wav"
-		Icon="../Data/Icons/Weapons/Gun.png"
+		UseSound="Data/Sounds/Weapons/Gun.wav"
+		Icon="Data/Icons/Weapons/Gun.png"
 		AmmoTag="PistolAmmo"
 		GND="Items/Weapons/Gun">
 	</Weapon>
@@ -48,7 +48,7 @@
 		UseTime="0.8"
 		UseMerging="1"
 		GND="Items/Ammo/AK47"
-    Icon="../Data/Icons/Spells/Shild.png"
+    Icon="Data/Icons/Spells/Shild.png"
     Action="Shild">
   </Spell>
   <Spell
@@ -59,7 +59,7 @@
 		UseTime="0.8"
 		UseMerging="1"
 		GND="Items/Ammo/AK47"
-    Icon="../Data/Icons/Spells/Wind.png"
+    Icon="Data/Icons/Spells/Wind.png"
     Action="Wind">
   </Spell>
   <Spell
@@ -69,7 +69,7 @@
 		MaxAmmo="360"
 		UseTime="0.8"
 		UseMerging="1"
-    Icon="../Data/Icons/Spells/Heal.png"
+    Icon="Data/Icons/Spells/Heal.png"
 		GND="Items/Ammo/AK47"
     Action="Heal">
   </Spell>

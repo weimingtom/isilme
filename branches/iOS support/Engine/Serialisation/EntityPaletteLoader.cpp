@@ -38,6 +38,8 @@
 #include "Palette/GraphicsPalette.h"
 #include "Palette/EntityPalette.h"
 #include "Core/MasterFile.h"
+#include "../Core/Engine.h"
+#include "../Core/ResourceManager.h"
 
 namespace serialisation
 {
@@ -56,7 +58,8 @@ namespace serialisation
 	{
 		ContainerEntry<EntityPalette>* entry = new ContainerEntry<EntityPalette>(filename);
 
-		TiXmlDocument document(filename.c_str());
+        char* path = Engine::GetSingleton()->GetResourceManager()->ResourcePath(filename.c_str());
+		TiXmlDocument document(path);
 		document.LoadFile();
 
 		entry->data = Load(document.RootElement());

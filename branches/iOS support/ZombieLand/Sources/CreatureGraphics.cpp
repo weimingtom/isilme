@@ -1,6 +1,5 @@
-#include "TeddyTerror.h"
-#include "Definitions.h"
-#include "CreatureGraphics.h"
+#include "../include/Definitions.h"
+#include "../include/CreatureGraphics.h"
 
 namespace graphics
 {

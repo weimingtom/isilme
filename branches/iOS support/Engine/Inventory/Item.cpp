@@ -156,7 +156,7 @@ gcn::Image* Item::GetIcon()
 	if (mIconImage == 0)
 	{
 		if (mIcon == "")
-			mIcon = "../Data/Icons/Empty.png";
+			mIcon = "Data/Icons/Empty.png";
 		mIconImage = gcn::Image::load(mIcon.c_str());
 	}
 	return mIconImage;

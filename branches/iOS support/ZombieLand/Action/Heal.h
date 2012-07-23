@@ -3,7 +3,7 @@
 
 #include "../Behaviour/Creature.h"
 #include <Engine/AI/AIPackage.h>
-#include "../AI/AIPackageDef.h"
+#include "Engine/AI/AIPackageDef.h"
 
 namespace action
 {

@@ -36,8 +36,32 @@
 #include "Core/Action.h"
 #include "Core/Behaviour.h"
 
+TargetSelectorPtr AIPackage::GetTargetSelector() const
+{
+    return mTargetSelector;
+}
+
+void AIPackage::SetTargetSelector(TargetSelectorPtr selector)
+{
+    mTargetSelector = selector;
+}
+
+float AIPackage::CalcPriority(BehaviourPtr behaviour)
+{
+    return 1.0f;
+}
+
+float AIPackage::CalcUtility(AIBehaviourPtr behaviour, EntityPtr target)
+{
+    return 1.0f;
+}
 
 bool AIPackage::IsApplicable( BehaviourPtr behaviour ) const
+{
+	return true;
+}
+
+bool AIPackage::IsApplicable( AIBehaviourPtr behaviour ) const
 {
 	return true;
 }

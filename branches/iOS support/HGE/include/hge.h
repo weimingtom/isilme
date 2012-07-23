@@ -26,7 +26,6 @@ typedef	void* HWND;
 //#	define min(x,y) ((x) < (y)) ? (x) : (y)
 //#	define max(x,y) ((x) > (y)) ? (x) : (y)
 #	define HCURSOR unsigned int
-#define NULL 0
 #	include <stdint.h>
 #endif
 

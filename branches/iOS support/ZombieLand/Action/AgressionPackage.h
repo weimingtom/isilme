@@ -1,7 +1,7 @@
 #ifndef AI_AGRESSION_PACKAGE_H
 #define AI_AGRESSION_PACKAGE_H
 
-#include "../Definitions.h"
+#include "../include/Definitions.h"
 #include "AttackTarget.h"
 
 /// Пакет ИИ, отвечающий за нападение на других агентов

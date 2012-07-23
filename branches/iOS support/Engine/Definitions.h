@@ -67,7 +67,6 @@
 #include <boost/function.hpp>
 #include <boost/bind.hpp>
 #include <boost/signals.hpp>
-#include <boost/signals2.hpp>
 #include <boost/smart_ptr/shared_ptr.hpp>
 #include <boost/smart_ptr/enable_shared_from_this.hpp>
 

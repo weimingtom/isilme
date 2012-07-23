@@ -7,53 +7,13 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "TestApp/main.mm"
-         timestampString = "361438187.246827"
+         filePath = "../TinyXML/tinyxml.cpp"
+         timestampString = "364736671.902941"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "140"
-         endingLineNumber = "140"
-         landmarkName = "main (int argc, char * const argv[])"
-         landmarkType = "7">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "../GUIChan/src/hge/hgeimagefont.cpp"
-         timestampString = "362567042.138293"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "109"
-         endingLineNumber = "109"
-         landmarkName = "HGEImageFont::drawString(Graphics *graphics, const std::string &amp;text, int x, int y)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "../GUIChan/src/widgets/button.cpp"
-         timestampString = "362567089.207607"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "124"
-         endingLineNumber = "124"
-         landmarkName = "Button::Draw(GraphicsPtr graphics)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "../GUIChan/src/hge/hgegraphics.cpp"
-         timestampString = "362567142.289662"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "281"
-         endingLineNumber = "281"
-         landmarkName = "HGEGraphics::fillRectangle(const Rectangle &amp;rectangle)"
+         startingLineNumber = "973"
+         endingLineNumber = "973"
+         landmarkName = "TiXmlDocument::LoadFile( const char* _filename, TiXmlEncoding encoding )"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

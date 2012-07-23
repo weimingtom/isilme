@@ -1,7 +1,7 @@
 #ifndef AI_PACKAGES_WANDER_H
 #define AI_PACKAGES_WANDER_H
 
-#include "../Definitions.h"
+#include "include/Definitions.h"
 
 class WanderPackage : public AIPackage
 {
