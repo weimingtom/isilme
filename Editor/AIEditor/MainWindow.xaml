@@ -21,7 +21,7 @@
                                 <Label Content="Тип действия" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" Margin="10,38,0,0" Name="label4" VerticalAlignment="Top" VerticalContentAlignment="Stretch" />
                                 <Label Content="Условие" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" Margin="10,72,0,0" Name="label5" VerticalAlignment="Top" VerticalContentAlignment="Stretch" />
                                 <Label Content="Приоритет" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" Margin="10,106,0,0" Name="label6" VerticalAlignment="Top" VerticalContentAlignment="Stretch" />
-                                <TextBox Height="23" HorizontalAlignment="Center" HorizontalContentAlignment="Stretch" Margin="109,9,6,0" Name="text" Text="" VerticalAlignment="Top" VerticalContentAlignment="Stretch" Width="213" />
+                                <TextBox Height="23" HorizontalAlignment="Center" HorizontalContentAlignment="Stretch" Margin="109,9,6,0" Name="text" Text="" VerticalAlignment="Top" VerticalContentAlignment="Stretch" Width="213" LostFocus="text_LostFocus" />
                                 <ComboBox Height="23" HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" Margin="106,40,0,0" Name="comboBox1" VerticalAlignment="Top" VerticalContentAlignment="Stretch" Width="213" />
                                 <TextBox Height="23" HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" Margin="105,75,0,0" Name="text2" VerticalAlignment="Top" VerticalContentAlignment="Stretch" Width="213" />
                                 <TextBox Height="23" HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" Margin="104,108,0,0" Name="text3" VerticalAlignment="Top" VerticalContentAlignment="Stretch" Width="213" />
@@ -44,7 +44,15 @@
                             <Grid />
                         </TabItem>
                     </TabControl>
-                    <ListBox Height="248" HorizontalAlignment="Left" Margin="6,6,0,0" Name="list" VerticalAlignment="Top" Width="149" SelectionChanged="list_SelectionChanged"></ListBox>
+                    <ListBox ItemsSource="{Binding Path=Rules}" Height="248" HorizontalAlignment="Left" Margin="6,6,0,0" Name="list" VerticalAlignment="Top" Width="149" SelectionChanged="list_SelectionChanged">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Path=ID}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                     <Button Content="Добавить" Height="23" HorizontalAlignment="Left" Margin="341,242,0,0" Name="btnAdd" VerticalAlignment="Top" Width="75" Click="btnAdd_Click" />
                     <Button Content="Удалить" Height="23" HorizontalAlignment="Right" Margin="0,242,14,0" Name="btnDel" VerticalAlignment="Top" Width="75" Click="btnDel_Click" />
                 </Grid>
