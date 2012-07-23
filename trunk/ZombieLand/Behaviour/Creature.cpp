@@ -8,7 +8,7 @@
 #include "Engine/GUI/ConversationWindow.h"
 #include "ZombieLand/State/Play.h"
 #include "Query.h"
-#include "../ScriptAPI.h"
+#include "Engine/ScriptAPI.h"
 
 namespace action
 {
@@ -292,7 +292,6 @@ namespace behaviour
 				mTarget.reset();
 		}
 
-		float min = 1000;
 		Vector2 v = GetActor()->GetPosition();
 		QueryPtr targets = GetLevel()->AABBQuery(v.x - 4, v.y - 4, v.x + 4, v.y + 4);
 

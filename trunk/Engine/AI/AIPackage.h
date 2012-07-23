@@ -45,7 +45,22 @@ public:
 
 	/// Checks if AIPackage is applicable 
 	virtual bool IsApplicable(BehaviourPtr behaviour) const;
+    
+    /// Calculates priority for the package
+    ///
+    /// @return a real value in [-1;1]
+    virtual float   CalcPriority(BehaviourPtr behviour);
+
+    virtual bool IsApplicable(AIBehaviourPtr actor) const;
+    
+    /// @return a real value 
+    virtual float   CalcUtility(AIBehaviourPtr actor, EntityPtr target);
+    
+    TargetSelectorPtr   GetTargetSelector() const;
+    
+    void    SetTargetSelector(TargetSelectorPtr selector);
 private:
+    TargetSelectorPtr   mTargetSelector;
 };
 
 

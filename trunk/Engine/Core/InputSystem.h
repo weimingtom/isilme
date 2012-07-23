@@ -36,6 +36,8 @@
 
 #include <hge.h>
 #include "Definitions.h"
+
+#ifdef _WINDOWS
 #include "xinput.h"
 
 namespace gamepad
@@ -58,6 +60,31 @@ namespace gamepad
 		GamepadY		= XINPUT_GAMEPAD_Y
 	};
 };
+
+#else
+// No xinput in mobile platforms..
+namespace gamepad
+{
+	enum PadKey
+	{
+		DPadUp			= 0,
+		DPadDpwn		= 1,
+		DPadLeft		= 2,       
+		DPadRIght		= 4,
+		Start			= 8,
+		Back			= 16,
+		LeftThumb		= 32,       
+		RightThumb		= 64,      
+		LeftShoulder	= 128,    
+		RightShoulder	= 256,   
+		GamepadA		= 512,                
+		GamepadB		= 1024,                
+		GamepadX		= 2048,                
+		GamepadY		= 4096
+	};
+};
+
+#endif
 
 /// @class InputEvent
 /// Структура с описанием базового события

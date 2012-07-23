@@ -50,5 +50,6 @@ namespace graphics
 			return dynamic_cast<T*>(GetEntity()->GetBehaviour().get());
 		}
 	};
-};
+}
+
 #endif

@@ -1,5 +1,7 @@
 #include "ZombieLand.h"
 #include "LootTable.h"
+#include "../Core/Engine.h"
+#include "../Core/ResourceManager.h"
 
 LootManager* LootManager::mInstance = 0;
 
@@ -82,7 +84,8 @@ LootTablePtr LootManager::GetLootTable(std::string name)
 void	LootManager::Load(std::string fileName)
 {
 	TiXmlDocument* document = new TiXmlDocument();
-	document->LoadFile(fileName.data());
+    char* path = Engine::GetSingleton()->GetResourceManager()->ResourcePath(fileName.c_str());
+	document->LoadFile(path);
 
 	TiXmlElement* root = document->RootElement();
 

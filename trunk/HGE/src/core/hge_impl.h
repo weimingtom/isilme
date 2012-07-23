@@ -162,7 +162,7 @@ public:
 	virtual bool		CALL	Input_KeyDown(int key);
 	virtual bool		CALL	Input_KeyUp(int key);
 	virtual bool		CALL	Input_GetKeyState(int key);
-	virtual char*		CALL	Input_GetKeyName(int key);
+	virtual const char*		CALL	Input_GetKeyName(int key);
 	virtual int			CALL	Input_GetKey();
 	virtual int			CALL	Input_GetChar();
 	virtual bool		CALL	Input_GetEvent(hgeInputEvent *event);
@@ -177,6 +177,8 @@ public:
 	virtual void		CALL	Gfx_FinishBatch(int nprim);
 	virtual void		CALL	Gfx_SetClipping(int x=0, int y=0, int w=0, int h=0);
 	virtual void		CALL	Gfx_SetTransform(float x=0, float y=0, float dx=0, float dy=0, float rot=0, float hscale=0, float vscale=0); 
+	virtual hgeVertex*	CALL	Gfx_StartBatch(int prim_type, HTEXTURE tex, HTEXTURE tex_mask, int blend, int *max_prim);
+	virtual void        CALL    Input_SetCursor(HCURSOR cursor);
 
 	virtual HTARGET		CALL	Target_Create(int width, int height, bool zbuffer);
 	virtual void		CALL	Target_Free(HTARGET target);
@@ -187,7 +189,7 @@ public:
 	virtual void		CALL	Texture_Free(HTEXTURE tex);
 	virtual int			CALL	Texture_GetWidth(HTEXTURE tex, bool bOriginal=false);
 	virtual int			CALL	Texture_GetHeight(HTEXTURE tex, bool bOriginal=false);
-	virtual DWORD*		CALL	Texture_Lock(HTEXTURE tex, bool bReadOnly=true, int left=0, int top=0, int width=0, int height=0);
+	virtual void*		CALL	Texture_Lock(HTEXTURE tex, bool bReadOnly=true, int left=0, int top=0, int width=0, int height=0);
 	virtual void		CALL	Texture_Unlock(HTEXTURE tex);
 
 	//////// Implementation ////////

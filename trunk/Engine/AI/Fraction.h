@@ -32,7 +32,7 @@
 //		вместе с этой программой. Если это не так, см.
 //		<http://www.gnu.org/licenses/>.
 #ifndef ISILME_FRACTION_H
-#define ISILME_FRACTION_
+#define ISILME_FRACTION_H
 
 #include "Definitions.h"
 #include "../Serialisation/Types.h"

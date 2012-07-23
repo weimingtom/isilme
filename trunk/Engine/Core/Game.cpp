@@ -31,7 +31,6 @@
 //		Вы должны были получить копию Меньшей стандартной общественной лицензии GNU
 //		вместе с этой программой. Если это не так, см.
 //		<http://www.gnu.org/licenses/>.
-#include "IsilmePCH.h"
 #include "Engine/Story/Story.h"
 #include "Game.h"
 #include "StateManager.h"
@@ -133,7 +132,7 @@ void	HGEGame::SetupHGE()
 	// Создаем HGE
 	if (!(mHGE = hgeCreate(HGE_VERSION)))
 	{
-		MessageBoxA(0, "Невозможно создать интерфейс HGE", "Ошибка", 0);
+        LOG_E("HGE creation faild");
 		return;
 	}
 
@@ -144,7 +143,7 @@ void	HGEGame::SetupHGE()
 	char* res = mHGE->Ini_GetString("VIDEO", "Resolution", "800x600");
 	int mWidth = 800;
 	int mHeight = 600;
-	sscanf_s(res, "%dx%d", &mWidth, &mHeight);
+	sscanf(res, "%dx%d", &mWidth, &mHeight);
 	int		color = mHGE->Ini_GetInt("VIDEO", "Color", 32);
 	char*	windowTitle = mHGE->Ini_GetString("WINDOW", "Title", "");
 
@@ -166,7 +165,7 @@ void	HGEGame::SetupHGE()
 		mHGE->System_Shutdown();
 		mHGE->Release();
 		mHGE = NULL;
-		MessageBoxA(0, "Ошибка инициализации", "Ошибка", 0);
+        LOG_E("HGE initialisation failed");
 		return;
 	}
 

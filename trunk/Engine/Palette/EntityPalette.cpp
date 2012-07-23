@@ -31,10 +31,37 @@
 //		Вы должны были получить копию Меньшей стандартной общественной лицензии GNU
 //		вместе с этой программой. Если это не так, см.
 //		<http://www.gnu.org/licenses/>.
-#include "IsilmePCH.h"
 #include "EntityPalette.h"
 #include "Core/EntityDefinition.h"
 #include "Core/Behaviour.h"
+#include "../Core/Engine.h"
+#include "../Core/ResourceManager.h"
+
+std::string itoa (const int value,
+      const unsigned int base=10,
+      const bool printf_style=true)
+{
+    const char *base_key = "0123456789abcdef";
+    std::string s = "0";
+    unsigned int v = value;
+    
+    if (base >= 2 && base <= 16 && value)
+    {
+        s = "";
+        if (value < 0 && (base == 10 || !printf_style))
+            v = -value;
+        
+        while (v != 0)
+        {
+            s.insert (s.begin (), 1, base_key[v % base]);
+            v /= base;
+        }
+    }
+    
+    if (value < 0 && (base == 10 || !printf_style))
+        s.insert (s.begin (), 1, '-');
+    return s;
+}
 
 EntityPalette::EntityPalette()
 {
@@ -115,11 +142,10 @@ EntityPtr EntityPalette::Create( std::string type, std::string id )
 	if (id == "")
 	{
 		std::string prefix = "GameObject_";
-		char s[20];
 		int n = 0;
-		while (mEntites.find(prefix + _itoa(n, s, 16)) != mEntites.end())
+		while (mEntites.find(prefix + itoa(n, 16)) != mEntites.end())
 			++n;
-		id = prefix + _itoa(n, s, 16);
+		id = prefix + itoa(n, 16);
 	}
 
 	entity->mName = id;

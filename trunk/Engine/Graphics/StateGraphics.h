@@ -15,21 +15,21 @@
 //		You should have received a copy of the GNU Lesser General Public License
 //		along with Isilme SDK.  If not, see <http://www.gnu.org/licenses/>.
 //
-//	Этот файл — часть Isilme SDK.
+//	Р­С‚РѕС‚ С„Р°Р№Р» вЂ” С‡Р°СЃС‚СЊ Isilme SDK.
 //
-//		Isilme SDK - свободная программа: вы можете перераспространять ее и/или
-//		изменять ее на условиях Меньшей стандартной общественной лицензии GNU в том виде,
-//		в каком она была опубликована Фондом свободного программного обеспечения;
-//		либо версии 3 лицензии, либо (по вашему выбору) любой более поздней
-//		версии.
+//		Isilme SDK - СЃРІРѕР±РѕРґРЅР°СЏ РїСЂРѕРіСЂР°РјРјР°: РІС‹ РјРѕР¶РµС‚Рµ РїРµСЂРµСЂР°СЃРїСЂРѕСЃС‚СЂР°РЅСЏС‚СЊ РµРµ Рё/РёР»Рё
+//		РёР·РјРµРЅСЏС‚СЊ РµРµ РЅР° СѓСЃР»РѕРІРёСЏС… РњРµРЅСЊС€РµР№ СЃС‚Р°РЅРґР°СЂС‚РЅРѕР№ РѕР±С‰РµСЃС‚РІРµРЅРЅРѕР№ Р»РёС†РµРЅР·РёРё GNU РІ С‚РѕРј РІРёРґРµ,
+//		РІ РєР°РєРѕРј РѕРЅР° Р±С‹Р»Р° РѕРїСѓР±Р»РёРєРѕРІР°РЅР° Р¤РѕРЅРґРѕРј СЃРІРѕР±РѕРґРЅРѕРіРѕ РїСЂРѕРіСЂР°РјРјРЅРѕРіРѕ РѕР±РµСЃРїРµС‡РµРЅРёСЏ;
+//		Р»РёР±Рѕ РІРµСЂСЃРёРё 3 Р»РёС†РµРЅР·РёРё, Р»РёР±Рѕ (РїРѕ РІР°С€РµРјСѓ РІС‹Р±РѕСЂСѓ) Р»СЋР±РѕР№ Р±РѕР»РµРµ РїРѕР·РґРЅРµР№
+//		РІРµСЂСЃРёРё.
 //
-//		Isilme SDK распространяется в надежде, что она будет полезной,
-//		но БЕЗО ВСЯКИХ ГАРАНТИЙ; даже без неявной гарантии ТОВАРНОГО ВИДА
-//		или ПРИГОДНОСТИ ДЛЯ ОПРЕДЕЛЕННЫХ ЦЕЛЕЙ. Подробнее см. в Меньшей стандартной
-//		общественной лицензии GNU.
+//		Isilme SDK СЂР°СЃРїСЂРѕСЃС‚СЂР°РЅСЏРµС‚СЃСЏ РІ РЅР°РґРµР¶РґРµ, С‡С‚Рѕ РѕРЅР° Р±СѓРґРµС‚ РїРѕР»РµР·РЅРѕР№,
+//		РЅРѕ Р‘Р•Р—Рћ Р’РЎРЇРљРРҐ Р“РђР РђРќРўРР™; РґР°Р¶Рµ Р±РµР· РЅРµСЏРІРЅРѕР№ РіР°СЂР°РЅС‚РёРё РўРћР’РђР РќРћР“Рћ Р’РР”Рђ
+//		РёР»Рё РџР РР“РћР”РќРћРЎРўР Р”Р›РЇ РћРџР Р•Р”Р•Р›Р•РќРќР«РҐ Р¦Р•Р›Р•Р™. РџРѕРґСЂРѕР±РЅРµРµ СЃРј. РІ РњРµРЅСЊС€РµР№ СЃС‚Р°РЅРґР°СЂС‚РЅРѕР№
+//		РѕР±С‰РµСЃС‚РІРµРЅРЅРѕР№ Р»РёС†РµРЅР·РёРё GNU.
 //
-//		Вы должны были получить копию Меньшей стандартной общественной лицензии GNU
-//		вместе с этой программой. Если это не так, см.
+//		Р’С‹ РґРѕР»Р¶РЅС‹ Р±С‹Р»Рё РїРѕР»СѓС‡РёС‚СЊ РєРѕРїРёСЋ РњРµРЅСЊС€РµР№ СЃС‚Р°РЅРґР°СЂС‚РЅРѕР№ РѕР±С‰РµСЃС‚РІРµРЅРЅРѕР№ Р»РёС†РµРЅР·РёРё GNU
+//		РІРјРµСЃС‚Рµ СЃ СЌС‚РѕР№ РїСЂРѕРіСЂР°РјРјРѕР№. Р•СЃР»Рё СЌС‚Рѕ РЅРµ С‚Р°Рє, СЃРј.
 //		<http://www.gnu.org/licenses/>.
 #ifndef ISILME_GRAPHICS_STATEGRAPHICS_H
 #define ISILME_GRAPHICS_STATEGRAPHICS_H
@@ -48,12 +48,12 @@ namespace graphics
 		virtual GraphicsPtr Create();
 		virtual void Parse(TiXmlElement* element);
 
-		typedef std::map<std::string, GraphicsDefPtr> GraphicsMap;
-		GraphicsMap Palette;
+		typedef typename std::map<std::string, GraphicsDefPtr> GraphicsDefMap;
+		GraphicsDefMap Palette;
 		std::string		State;
 	};
 
-	/// Графика по состояниям
+	/// Р“СЂР°С„РёРєР° РїРѕ СЃРѕСЃС‚РѕСЏРЅРёСЏРј
 	template <class T>
 	class StateGraphics : public SpecialGraphics<T>
 	{
@@ -61,14 +61,14 @@ namespace graphics
 		StateGraphics(StateGraphicsDef<T>* def);
 		virtual ~StateGraphics();
 
-		/// Установить графику для состояния
+		/// РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РіСЂР°С„РёРєСѓ РґР»СЏ СЃРѕСЃС‚РѕСЏРЅРёСЏ
 		void	SetState(std::string state);
 
 		GraphicsPtr	GetState();
 
 		GraphicsPtr GetState(std::string name);
 
-		/// Изображает текущее состояние
+		/// РР·РѕР±СЂР°Р¶Р°РµС‚ С‚РµРєСѓС‰РµРµ СЃРѕСЃС‚РѕСЏРЅРёРµ
 		virtual void Render(float x, float y, float angle);
 
 		virtual void Update(float elapsedTime);
@@ -76,25 +76,28 @@ namespace graphics
 		virtual void SelectState();
 	protected:
 	private:
+        typedef typename std::map<std::string, GraphicsPtr> GraphicsMap;
+        typedef typename StateGraphicsDef<T>::GraphicsDefMap GraphicsDefMap;
+        
 		GraphicsMap mGraphics;
 		GraphicsPtr mCurrentGraphics;
 	};
 
 
 	/// IMPLEMENTATION
-
+//#ifndef TACKLE_IOS
 	template<class T>
 	StateGraphics<T>::StateGraphics(StateGraphicsDef<T>* def) :
 		SpecialGraphics<T>(def)
 	{
-		// Создаем графику каждого состояния
-		for (StateGraphicsDef<T>::GraphicsMap::iterator it = def->Palette.begin(); it != def->Palette.end(); ++it)
+		// РЎРѕР·РґР°РµРј РіСЂР°С„РёРєСѓ РєР°Р¶РґРѕРіРѕ СЃРѕСЃС‚РѕСЏРЅРёСЏ
+		for (std::map<std::string, GraphicsDefPtr>::iterator it = def->Palette.begin(); it != def->Palette.end(); ++it)
 		{
 			GraphicsPtr g = it->second->Create();
 			mGraphics[it->first] = g;
 		}
 
-		// Устанавливаем текущую графику
+		// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј С‚РµРєСѓС‰СѓСЋ РіСЂР°С„РёРєСѓ
 		SetState(def->State);
 	}
 	
@@ -119,7 +122,7 @@ namespace graphics
 		if (it != mGraphics.end())
 		{
 			mCurrentGraphics = it->second;
-			mCurrentGraphics->SetScale(GetScale());
+			mCurrentGraphics->SetScale(this->GetScale());
 		}
 	}
 
@@ -163,14 +166,15 @@ namespace graphics
 		GraphicsDefinition::Parse(element);
 
 		TiXmlElement* stateElement = element->FirstChildElement("State");
-		char* state = const_cast<char*>(element->Attribute("State"));
+		const char* stateattr = element->Attribute("State");
+        std::string state = stateattr == nullptr ? "" : stateattr;
 
 		while (stateElement)
 		{
-			char* name = const_cast<char*>(stateElement->Attribute("Name"));
-			if (name == 0) name = "Default";
+			const char* nameattr = stateElement->Attribute("Name");
+            std::string name = nameattr == nullptr ? "Default" : nameattr;
 			
-			if (state == 0)
+			if (state == "")
 				state = name;
 
 			TiXmlElement* graphicsElement = stateElement->FirstChildElement();
@@ -184,6 +188,6 @@ namespace graphics
 
 		State = state;
 	}
-};
+}
 
 #endif

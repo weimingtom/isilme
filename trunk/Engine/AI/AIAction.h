@@ -36,10 +36,11 @@
 
 #include "Definitions.h"
 #include "Action.h"
+#include "AIPackagesExecuter.h"
 
 /// @class
 /// Action adds
-class AIAction : public Action
+class ISILME_API AIAction : public Action
 {
 public:
 	virtual ~AIAction();
@@ -47,5 +48,14 @@ public:
 	void LockActuator(std::string actuatorID);
 
 	void LockActuator(ActuatorPtr actuator);
+    
+    virtual void OnStart() override;
+    virtual void OnUpdate(float elapsedTime) override;
+    virtual void OnDone() override;
+    
+    AIBehaviourPtr  GetActor();
+private:
+    AIPackagesExecuter mExecuter;
+
 };
 #endif

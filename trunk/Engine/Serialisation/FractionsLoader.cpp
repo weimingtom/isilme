@@ -31,7 +31,6 @@
 //		Вы должны были получить копию Меньшей стандартной общественной лицензии GNU
 //		вместе с этой программой. Если это не так, см.
 //		<http://www.gnu.org/licenses/>.
-#include "IsilmePCH.h"
 #include "Core/FactoryManager.h"
 #include "FractionsLoader.h"
 #include "../Palette/Types.h"
@@ -39,6 +38,8 @@
 #include "AI/Fraction.h"
 #include "AI/Rank.h"
 #include "Core/MasterFile.h"
+#include "../Core/Engine.h"
+#include "../Core/ResourceManager.h"
 
 namespace serialisation
 {
@@ -58,7 +59,8 @@ namespace serialisation
 		ContainerEntry<FractionsPalette>* entry = new ContainerEntry<FractionsPalette>(filename);
 		entry->data = FactoryManager::GetSingleton()->GetFractionsPalette();
 
-		TiXmlDocument document(filename.c_str());
+        char* path = Engine::GetSingleton()->GetResourceManager()->ResourcePath(filename.c_str());
+		TiXmlDocument document(path);
 		document.LoadFile();
 
 		LoadFractions(document.RootElement());

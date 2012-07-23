@@ -91,7 +91,7 @@ namespace action
 
 	void	AttackTarget::OnDone()
 	{
-		if (mAction->GetState() != ActionState::Done)
+		if (mAction->GetState() != action::Done)
 			mAction->Stop();
 	}
 

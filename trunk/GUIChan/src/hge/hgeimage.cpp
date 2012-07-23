@@ -6,11 +6,11 @@
  * /______/ //______/ //_/ //_____/\ /_/ //_/ //_/ //_/ //_/ /|_/ /
  * \______\/ \______\/ \_\/ \_____\/ \_\/ \_\/ \_\/ \_\/ \_\/ \_\/
  *
- * Copyright (c) 2004 - 2008 Olof Naessén and Per Larsson
+ * Copyright (c) 2004 - 2008 Olof NaessÃˆn and Per Larsson
  *
  *
  * Per Larsson a.k.a finalman
- * Olof Naessén a.k.a jansem/yakslem
+ * Olof NaessÃˆn a.k.a jansem/yakslem
  *
  * Visit: http://guichan.sourceforge.net
  *
@@ -98,7 +98,7 @@ namespace gcn
 
     Color HGEImage::getPixel(int x, int y)
     {
-        DWORD *pLockPtr = mHGE->Texture_Lock(mTexture);
+        DWORD *pLockPtr = (DWORD*)(mHGE->Texture_Lock(mTexture));
 
         if (pLockPtr == NULL)
         {
@@ -119,7 +119,7 @@ namespace gcn
     {
         DWORD hardwareColor = ARGB(color.a, color.r, color.g, color.b);
 
-        DWORD *pLockPtr = mHGE->Texture_Lock(mTexture, false);
+        DWORD *pLockPtr = (DWORD*)(mHGE->Texture_Lock(mTexture, false));
 
         if (pLockPtr == NULL)
         {
@@ -133,7 +133,7 @@ namespace gcn
 
     void HGEImage::convertToDisplayFormat()
     {
-        DWORD *pLockPtr = mHGE->Texture_Lock(mTexture);
+        DWORD *pLockPtr = (DWORD*)(mHGE->Texture_Lock(mTexture));
 
         if (pLockPtr == NULL)
         {

@@ -34,7 +34,7 @@
 #ifndef ISILME_CORE_AIPACKAGEWRAPPER_H
 #define ISILME_CORE_AIPACKAGEWRAPPER_H
 
-#include "Definitions.h"
+#include "../Definitions.h"
 #include "AI/AIPackage.h"
 
 class ISILME_API AIPackageWrapper : public AIPackage, public luabind::wrap_base

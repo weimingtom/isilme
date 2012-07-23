@@ -84,22 +84,31 @@ HGEInputSystem::~HGEInputSystem()
 
 int		HGEInputSystem::GetLeftTrigger(int pad)
 {
+#ifdef _WINDOWS
 	XINPUT_STATE state;
 	if (XInputGetState(pad, &state) != ERROR_SUCCESS)
 		return 0;
 	return state.Gamepad.bLeftTrigger;
+#else
+    return 0;
+#endif
 }
 
 int		HGEInputSystem::GetRightTrigger(int pad)
 {
+#ifdef _WINDOWS
 	XINPUT_STATE state;
 	if (XInputGetState(pad, &state) != ERROR_SUCCESS)
 		return 0;
 	return state.Gamepad.bRightTrigger;
+#else
+    return 0;
+#endif
 }
 
 bool	HGEInputSystem::GetPadState(int pad, gamepad::PadKey key)
 {
+#ifdef _WINDOWS
 	bool value;
 	XINPUT_STATE state;
 	if (XInputGetState(pad, &state) != ERROR_SUCCESS)
@@ -107,24 +116,35 @@ bool	HGEInputSystem::GetPadState(int pad, gamepad::PadKey key)
 
 	value = (state.Gamepad.wButtons & key) != 0;
 	return value;
+#else
+    return false;
+#endif
 }
 
 Vector2 HGEInputSystem::GetPadLeftStick(int pad)
 {
+#ifdef _WINDOWS
 	XINPUT_STATE state;
 	XInputGetState(pad, &state);
 	if (XInputGetState(pad, &state) != ERROR_SUCCESS)
 		return Vector2(0.0f, 0.0f);
 	return Vector2(state.Gamepad.sThumbLX, state.Gamepad.sThumbLY);
+#else
+    return Vector2(0.0f, 0.0f);
+#endif
 }
 
 Vector2 HGEInputSystem::GetPadRightStick(int pad)
 {
+#ifdef _WINDOWS
 	XINPUT_STATE state;
 	XInputGetState(pad, &state);
 	if (XInputGetState(pad, &state) != ERROR_SUCCESS)
 		return Vector2(0.0f, 0.0f);
 	return Vector2(state.Gamepad.sThumbRX, state.Gamepad.sThumbRY);
+#else
+    return Vector2(0.0f, 0.0f);
+#endif
 }
 
 void	HGEInputSystem::SetMousePosition(float x, float y)

@@ -79,7 +79,7 @@ namespace serialisation
 
 		// Сохраняем координты, угол, масштаб
 		char position[256];
-		sprintf(position, "%d, %d", entity->GetPosition().x, entity->GetPosition().y);
+		sprintf(position, "%f, %f", entity->GetPosition().x, entity->GetPosition().y);
 		element->SetAttribute("Position", position);
 		element->SetAttribute("Angle", entity->GetAngle());
 		element->SetAttribute("Scale", entity->GetScale());

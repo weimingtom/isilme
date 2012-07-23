@@ -1,7 +1,7 @@
 #ifndef ACTION_WANDER_H
 #define ACTION_WANDER_H
 
-#include "../Definitions.h"
+#include "../include/Definitions.h"
 
 namespace action
 {

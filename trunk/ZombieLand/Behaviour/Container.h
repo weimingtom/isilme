@@ -1,7 +1,7 @@
 #ifndef ZOMBIELAND_BEHAVIOUR_CONTAINER_H
 #define ZOMBIELAND_BEHAVIOUR_CONTAINER_H
 
-#include "../Definitions.h"
+#include "../include/Definitions.h"
 
 /// @interface IContainer
 class IContainer

@@ -44,6 +44,7 @@
 #include "ItemsLoader.h"
 #include "StoryLoader.h"
 #include "Core/FactoryManager.h"
+#include "Core/ResourceManager.h"
 
 namespace serialisation
 {
@@ -72,7 +73,9 @@ namespace serialisation
 
 	MasterFilePtr MasterFileLoader::Load( std::string fileName )
 	{
-		TiXmlDocument document(fileName.c_str());
+        const char* absPath = Engine::GetSingleton()->GetResourceManager()->ResourcePath(fileName.c_str());
+		TiXmlDocument document(absPath);
+        
 		document.LoadFile();
 
 		MasterFilePtr masterfile = Load(document.RootElement());
@@ -106,7 +109,7 @@ namespace serialisation
 			TiXmlElement* entryElement = categoryElement->FirstChildElement("File");
 			while (entryElement)
 			{
-				std::string fileName = std::string("../Data/") + entryElement->GetText();
+				std::string fileName = entryElement->GetText();
 
 				EntryPtr entry = loader->LoadEntry(fileName);
 				category->Add(entry);

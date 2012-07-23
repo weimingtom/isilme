@@ -31,11 +31,12 @@
 //		Вы должны были получить копию Меньшей стандартной общественной лицензии GNU
 //		вместе с этой программой. Если это не так, см.
 //		<http://www.gnu.org/licenses/>.
-#include "IsilmePCH.h"
 #include "Story.h"
 #include "Quest.h"
 #include "Stage.h"
 #include "Core/Game.h"
+#include "../Core/Engine.h"
+#include "../Core/ResourceManager.h"
 
 namespace story
 {
@@ -108,7 +109,8 @@ namespace story
 		//mQuests["Level1"] = q;
 		TiXmlDocument* document = new TiXmlDocument();
 
-		document->LoadFile(fileName.data());
+        char* path = Engine::GetSingleton()->GetResourceManager()->ResourcePath(fileName.c_str());
+		document->LoadFile(path);
 
 		TiXmlElement* root = document->RootElement();
 		TiXmlElement* questElement = root->FirstChildElement("Quest");

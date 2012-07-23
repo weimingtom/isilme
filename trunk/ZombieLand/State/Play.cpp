@@ -36,7 +36,7 @@ Play::Play() : State()
 	top->setBackgroundColor(gcn::Color(0,0,0,0));
 	top->setBaseColor(gcn::Color(0,0,0,0));
 	top->SetFocusable(true);
-	gcn::FontPtr font = gcn::FontPtr(new gcn::HGEImageFont("../Data/Fonts/font2.fnt"));//new gcn::ImageFont("../Data/Fonts/fixedfont.bmp", " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
+	gcn::FontPtr font = gcn::FontPtr(new gcn::HGEImageFont("Data/Fonts/font2.fnt"));//new gcn::ImageFont("Data/Fonts/fixedfont.bmp", " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
 	gcn::Widget::SetGlobalFont(font);
     // Finally we pass the top widget to the Gui object.
     GetGUI()->SetTop(top);
@@ -56,11 +56,11 @@ Play::Play() : State()
 
 	mHealthImage	= gcn::IconPtr(new gcn::Icon());
 	mHealthField	= gcn::LabelPtr(new gcn::Label("none"));
-	mAmmoLabel		= gcn::LabelPtr(new gcn::Label("../Data/Fonts/font1.fnt"));
+	mAmmoLabel		= gcn::LabelPtr(new gcn::Label("Data/Fonts/font1.fnt"));
 	mWeaponIcon		= gcn::IconPtr(new gcn::Icon());
-	mWeaponAmmo		= gcn::LabelPtr(new gcn::Label("../Data/Fonts/font1.fnt"));
+	mWeaponAmmo		= gcn::LabelPtr(new gcn::Label("Data/Fonts/font1.fnt"));
 	mSpellIcon		= gcn::IconPtr(new gcn::Icon());
-	mSpellAmmo		= gcn::LabelPtr(new gcn::Label("../Data/Fonts/font1.fnt"));
+	mSpellAmmo		= gcn::LabelPtr(new gcn::Label("Data/Fonts/font1.fnt"));
 
 	mQuestBook		= gcn::QuestBookPtr(new gcn::QuestBook());
 	mQuestBook->Initialise();
@@ -69,14 +69,14 @@ Play::Play() : State()
 
 	// Иконка способности
 	mSpellIcon->SetSize(64, 64);
-	mSpellIcon->setImage(gcn::Image::load("../Data/Icons/Empty.png"));
+	mSpellIcon->setImage(gcn::Image::load("Data/Icons/Empty.png"));
 
 	// Иконка здоровья
-	mHealthImage->setImage(gcn::Image::load("../Data/Textures/Icons/Health.png"));
+	mHealthImage->setImage(gcn::Image::load("Data/Textures/Icons/Health.png"));
 	mHealthImage->SetSize(64, 64);
 
 	// Иконка оружия
-	mWeaponIcon->setImage(gcn::Image::load("../Data/Icons/Empty.png"));
+	mWeaponIcon->setImage(gcn::Image::load("Data/Icons/Empty.png"));
 	mWeaponIcon->SetSize(64, 64);
 
 	// Уровень заряда
@@ -89,14 +89,14 @@ Play::Play() : State()
 //	mAmmoLabel->setTextColor(gcn::Color(255, 255, 255));
 	
 	// Иконка бонусов
-	mOrbImage = gcn::IconPtr(new gcn::Icon("../Data/Textures/Icons/Orb.png"));
+	mOrbImage = gcn::IconPtr(new gcn::Icon("Data/Textures/Icons/Orb.png"));
 	mOrbImage->SetSize(64, 64);
 
 	// Количество бонусов
 	mOrbLabel = gcn::LabelPtr(new gcn::Label("x"));
 
 	// Количество зомби
-	mZombieLeftLabel = gcn::LabelPtr(new gcn::Label("../Data/Fonts/font1.fnt"));
+	mZombieLeftLabel = gcn::LabelPtr(new gcn::Label("Data/Fonts/font1.fnt"));
 	//mZombieLeftLabel->setTextColor(gcn::Color(200, 200, 200));
 	//mZombieLeftLabel->setForegroundColor(gcn::Color(200, 200, 200));
 
@@ -188,8 +188,6 @@ Play::Play() : State()
 
 void Play::mouseClicked(gcn::MouseEvent& evt)
 {
-	ZombieLand* game = (ZombieLand*)(ZombieLand::GetSingleton());
-
 	if (evt.GetSource() == mExit)
 	{
 		Close();
@@ -263,7 +261,9 @@ void	Play::OnUpdate(float elapsedTime)
 			mSpellIcon->SetVisible(true);
 			mSpellAmmo->SetVisible(true);
 			mSpellIcon->setImage(w->GetIcon());
-			mSpellAmmo->setCaption(itoa(w->GetAmmo(), h, 10));
+            
+            sprintf(h, "%d", w->GetAmmo());
+			mSpellAmmo->setCaption(h);
 		}
 		else
 		{
@@ -400,7 +400,7 @@ void	Play::OnUpdate(float elapsedTime)
 void Play::OnStart()
 {
 	SetLevel(FactoryManager::GetSingleton()->GetLevel("Level1"));
-	//Engine::GetSingleton()->GetLua()->DoFile("../Data/Scripts/Triggers.lua");
+	//Engine::GetSingleton()->GetLua()->DoFile("Data/Scripts/Triggers.lua");
 
 	EntityPtr player = FactoryManager::GetSingleton()->GetEntity("Player");
 	inventory::InventoryPtr inv = player->As<behaviour::Creature>()->GetInventory();

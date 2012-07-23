@@ -1,6 +1,6 @@
 #include "IsilmePCH.h"
 #include "ItemView.h"
-#include "..\Item.h"
+#include "../Item.h"
 
 namespace gcn
 {

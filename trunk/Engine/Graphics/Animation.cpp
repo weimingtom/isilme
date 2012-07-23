@@ -31,7 +31,7 @@
 //		Вы должны были получить копию Меньшей стандартной общественной лицензии GNU
 //		вместе с этой программой. Если это не так, см.
 //		<http://www.gnu.org/licenses/>.
-#include "IsilmePCH.h"
+//#include "IsilmePCH.h"
 #include "Animation.h"
 #include "Core/ResourceManager.h"
 

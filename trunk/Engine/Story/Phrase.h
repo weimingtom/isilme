@@ -116,6 +116,6 @@ namespace story
 		/// Вероятность появления фразы от 0 до 100
 		int mChance;
 	};
-};
+}
 
 #endif 

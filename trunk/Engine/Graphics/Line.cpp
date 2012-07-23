@@ -31,7 +31,7 @@
 //		Вы должны были получить копию Меньшей стандартной общественной лицензии GNU
 //		вместе с этой программой. Если это не так, см.
 //		<http://www.gnu.org/licenses/>.
-#include "IsilmePCH.h"
+//#include "IsilmePCH.h"
 #include "Line.h"
 #include "Core/Renderer.h"
 #include "Core/Game.h"

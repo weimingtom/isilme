@@ -31,7 +31,6 @@
 //		Вы должны были получить копию Меньшей стандартной общественной лицензии GNU
 //		вместе с этой программой. Если это не так, см.
 //		<http://www.gnu.org/licenses/>.
-#include "IsilmePCH.h"
 #include "Behaviour.h"
 
 EntityPtr Entity::New(LevelPtr level, BehaviourPtr behaviour, Body* body, GraphicsPtr graphics)
@@ -167,7 +166,8 @@ void			Entity::Update(float elapsedTime)
 
 void			Entity::SetPosition(float x, float y)
 {
-	mBody->SetPosition(Vector2(x, y));
+    Vector2 p(x, y);
+	mBody->SetPosition(p);
 }
 
 void			Entity::SetAngle(float angle)

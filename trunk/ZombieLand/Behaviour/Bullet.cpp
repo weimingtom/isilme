@@ -22,7 +22,8 @@ namespace behaviour
 		if (isHit)
 			GetActor()->Remove();
 
-		GetActor()->GetBody()->SetLinearVelocity(Vector2(mSpeed * cos(GetActor()->GetAngle()), mSpeed * sin(GetActor()->GetAngle())));
+        Vector2 velocity(mSpeed * cos(GetActor()->GetAngle()), mSpeed * sin(GetActor()->GetAngle()));
+		GetActor()->GetBody()->SetLinearVelocity(velocity);
 	}
 
 	void Bullet::HandleContact(b2Contact* contact, const b2Manifold* oldMainfold, Entity* other)

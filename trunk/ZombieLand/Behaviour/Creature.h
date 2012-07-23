@@ -1,7 +1,7 @@
 #ifndef ZOMBIELAND_BEHAVIOUR_CREATURE_H
 #define ZOMBIELAND_BEHAVIOUR_CREATURE_H
 
-#include "../Definitions.h"
+#include "../include/Definitions.h"
 #include "Destroyable.h"
 #include "Container.h"
 #include "Activator.h"

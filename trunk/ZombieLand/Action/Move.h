@@ -1,7 +1,7 @@
 #ifndef ZOMBIELAND_ACTION_MOVE_H
 #define ZOMBIELAND_ACTION_MOVE_H
 
-#include "../Definitions.h"
+#include "../include/Definitions.h"
 
 namespace action
 {

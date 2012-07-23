@@ -14,24 +14,6 @@
 //
 //		You should have received a copy of the GNU Lesser General Public License
 //		along with Isilme SDK.  If not, see <http://www.gnu.org/licenses/>.
-//
-//	Этот файл — часть Isilme SDK.
-//
-//		Isilme SDK - свободная программа: вы можете перераспространять ее и/или
-//		изменять ее на условиях Меньшей стандартной общественной лицензии GNU в том виде,
-//		в каком она была опубликована Фондом свободного программного обеспечения;
-//		либо версии 3 лицензии, либо (по вашему выбору) любой более поздней
-//		версии.
-//
-//		Isilme SDK распространяется в надежде, что она будет полезной,
-//		но БЕЗО ВСЯКИХ ГАРАНТИЙ; даже без неявной гарантии ТОВАРНОГО ВИДА
-//		или ПРИГОДНОСТИ ДЛЯ ОПРЕДЕЛЕННЫХ ЦЕЛЕЙ. Подробнее см. в Меньшей стандартной
-//		общественной лицензии GNU.
-//
-//		Вы должны были получить копию Меньшей стандартной общественной лицензии GNU
-//		вместе с этой программой. Если это не так, см.
-//		<http://www.gnu.org/licenses/>.
-#include "IsilmePCH.h"
 #include "Behaviour.h"
 
 Box2DEngine* Box2DEngine::mInstance = 0;
@@ -40,7 +22,6 @@ Box2DEngine* Box2DEngine::mInstance = 0;
 Box2DEngine::Box2DEngine()
 {
 	b2Vec2	gravity(0.0f, 1.8f);
-	bool	doSleep = true;
 }
 
 Box2DEngine::~Box2DEngine()

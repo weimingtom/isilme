@@ -1,7 +1,7 @@
 #ifndef ZOMBIELAND_ACTION_CONTROL_H
 #define ZOMBIELAND_ACTION_CONTROL_H
 
-#include "../Definitions.h"
+#include "../include/Definitions.h"
 
 namespace action
 {

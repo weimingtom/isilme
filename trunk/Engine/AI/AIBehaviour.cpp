@@ -150,7 +150,7 @@ void AIBehaviour::SetRank(std::string fractionID, int rank)
 int	AIBehaviour::GetRank(FractionPtr fraction) const
 {
 	std::map<FractionPtr, int>::const_iterator it = mFractions.find(fraction);
-	if (it == mFractions.cend())
+	if (it == mFractions.end())
 	{
 		return 0;
 	}
@@ -170,9 +170,9 @@ int AIBehaviour::GetAttitudeTo(AIBehaviourPtr other) const
 	int attitude = 0;
 	int count = 0;
 
-	for (std::map<FractionPtr, int>::const_iterator it1 = mFractions.cbegin(); it1 != mFractions.cend(); ++it1)
+	for (std::map<FractionPtr, int>::const_iterator it1 = mFractions.begin(); it1 != mFractions.end(); ++it1)
 	{
-		for (std::map<FractionPtr, int>::const_iterator it2 = other->mFractions.cbegin(); it2 != other->mFractions.cend(); ++it2)
+		for (std::map<FractionPtr, int>::const_iterator it2 = other->mFractions.begin(); it2 != other->mFractions.end(); ++it2)
 		{
 			count++;
 			if ((*it1).first != 0 && (*it2).first != 0)

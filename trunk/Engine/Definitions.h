@@ -1,4 +1,4 @@
-﻿//  Copyright (C) 2010-2012 VSTU
+//  Copyright (C) 2010-2012 VSTU
 //
 //	This file is part of Isilme SDK.
 //
@@ -39,10 +39,19 @@
 #define MY_CODE_COLOUR 0xff4e677b
 #define MY_TASK_COLOUR 0xff4b5b0b
 
+
+#if defined (_MSC_VER) 
+
 #ifdef ISILME_DLL
 #define ISILME_API __declspec(dllexport)
 #else
 #define ISILME_API __declspec(dllimport)
+#endif
+
+#elif defined (TACKLE_IOS)
+
+#define ISILME_API
+
 #endif
 
 #include <map>
@@ -58,7 +67,6 @@
 #include <boost/function.hpp>
 #include <boost/bind.hpp>
 #include <boost/signals.hpp>
-#include <boost/signals2.hpp>
 #include <boost/smart_ptr/shared_ptr.hpp>
 #include <boost/smart_ptr/enable_shared_from_this.hpp>
 
@@ -81,6 +89,7 @@ extern "C"
 #include <hge.h>
 #include <hgeanim.h>
 
+#include "Config.h"
 #include "Debug.h"
 
 //class IAction;

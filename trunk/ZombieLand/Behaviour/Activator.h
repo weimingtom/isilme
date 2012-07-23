@@ -1,7 +1,7 @@
 #ifndef ZOMBIELAND_BEHAVIOUR_ACTIVATOR_H
 #define ZOMBIELAND_BEHAVIOUR_ACTIVATOR_H
 
-#include "../Definitions.h"
+#include "../include/Definitions.h"
 
 namespace behaviour
 {

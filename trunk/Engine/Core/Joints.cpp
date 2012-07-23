@@ -54,8 +54,8 @@ void	JointDefinition::Parse(TiXmlElement* jointElement)
 	Vector2	pointA(0.0f, 0.0f);
 	Vector2 pointB(0.0f, 0.0f);
 
-	sscanf_s(jointElement->Attribute("PointA"), "%f, %f", &pointA.x, &pointA.y);
-	sscanf_s(jointElement->Attribute("PointB"), "%f, %f", &pointB.x, &pointB.y);
+	sscanf(jointElement->Attribute("PointA"), "%f, %f", &pointA.x, &pointA.y);
+	sscanf(jointElement->Attribute("PointB"), "%f, %f", &pointB.x, &pointB.y);
 
 	if (type == "Distance")
 	{

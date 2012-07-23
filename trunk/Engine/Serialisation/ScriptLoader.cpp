@@ -37,6 +37,8 @@
 #include "Core/MasterFile.h"
 #include "Core/Engine.h"
 #include "luabind/lua_include.hpp"
+#include "../Core/Engine.h"
+#include "../Core/ResourceManager.h"
 
 namespace serialisation
 {
@@ -54,8 +56,9 @@ namespace serialisation
 
 	EntryPtr ScriptLoader::LoadEntry( std::string filename )
 	{
+        char* path = Engine::GetSingleton()->GetResourceManager()->ResourcePath(filename.c_str());
 		lua_State* state = Engine::GetSingleton()->GetLua();
-		luaL_dofile(state, filename.c_str());
+		luaL_dofile(state, path);
 
 		return EntryPtr();
 	}
