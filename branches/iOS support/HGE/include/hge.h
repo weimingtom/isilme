@@ -12,6 +12,7 @@
 
 
 #if defined (WIN32)
+#	define NOMINMAX
 #	include <windows.h>
 #	define CALL  __stdcall
 

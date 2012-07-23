@@ -1,5 +1,7 @@
 #include "ZombieLand.h"
 #include "LootTable.h"
+#include "../Core/Engine.h"
+#include "../Core/ResourceManager.h"
 
 LootManager* LootManager::mInstance = 0;
 
