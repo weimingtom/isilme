@@ -30,6 +30,8 @@ namespace MyApplication1
         {
             InitializeComponent();
 
+            list.DataContext = mRules.Rules;
+
             ComboBoxItem cboxitem1 = new ComboBoxItem();
             cboxitem1.Content = "MoveTo";
             comboBox1.Items.Add(cboxitem1);
@@ -60,9 +62,6 @@ namespace MyApplication1
             IDgenerator++;
             Commands.AddRule command = new Commands.AddRule(mRules, rule);
             mCommandManager.Execute(command);
-
-            list.Items.Insert(mRules.Rules.IndexOf(rule),rule.ID);
-            list.SelectedIndex = mRules.Rules.IndexOf(rule);
         }
 
         private void btnDel_Click(object sender, RoutedEventArgs e)
@@ -78,8 +77,6 @@ namespace MyApplication1
                 Commands.DelRule command = new Commands.DelRule(mRules, rule);
                 mCommandManager.Execute(command);
 
-                list.Items.RemoveAt(list.SelectedIndex);
-                list.SelectedIndex = -1;
             }
             else
                 MessageBox.Show("Выберите элемент");
@@ -118,6 +115,13 @@ namespace MyApplication1
                 comboBox2.SelectedIndex = -1;
             }
         }
+
+        private void text_LostFocus(object sender, RoutedEventArgs e)
+        {
+            Commands.SetID command = new Commands.SetID(mRules.Rules.ElementAt(list.SelectedIndex), text.Text);
+            mCommandManager.Execute(command);        
+        }
+
 
     }
 
