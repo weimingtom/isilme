@@ -28,16 +28,18 @@
 #include <glob.h>
 #endif
 
-class GLAppViewController;
 
 #define VERTEX_BUFFER_SIZE 5000
 
 /* The classes below are exported */
 #pragma GCC visibility push(default)
 
-class NSString;
-class UIWindow;
-class EAGLView;
+#ifdef __OBJC__
+@class GLAppViewController;
+@class NSString;
+@class UIWindow;
+@class EAGLView;
+#endif
 
 // Input events
 enum c_INPUT_EVENTS
@@ -258,7 +260,7 @@ public:
 	virtual bool		CALL	Input_KeyDown(int key);
 	virtual bool		CALL	Input_KeyUp(int key);
 	virtual bool		CALL	Input_GetKeyState(int key);
-	virtual char*		CALL	Input_GetKeyName(int key);
+	virtual const char*		CALL	Input_GetKeyName(int key);
 	virtual int			CALL	Input_GetKey();
 	virtual int			CALL	Input_GetChar();
 	virtual bool		CALL	Input_GetEvent(hgeInputEvent *event);

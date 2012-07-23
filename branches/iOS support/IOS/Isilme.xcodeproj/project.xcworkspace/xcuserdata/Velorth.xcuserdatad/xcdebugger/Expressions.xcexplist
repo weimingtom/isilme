@@ -8,13 +8,8 @@
             <PersistentString
                value = "document">
             </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "AIPalette::Load(std::string):AIPalette.cpp">
-         <PersistentStrings>
             <PersistentString
-               value = "fileName">
+               value = "absPath">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -23,6 +18,14 @@
          <PersistentStrings>
             <PersistentString
                value = "element">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AIPalette::Load(std::string):AIPalette.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "fileName">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

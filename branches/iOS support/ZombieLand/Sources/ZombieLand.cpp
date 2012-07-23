@@ -77,7 +77,7 @@ void	ZombieLand::Init()
 	factoryManager->GetAIPalette()->RegisterAIType("Heal", AIPackageFactory<action::HealPackageDef>::New());
 	factoryManager->GetAIPalette()->RegisterAIType("PickItem", AIPackageFactory<action::PickItemPackageDef>::New());
 	
-	FactoryManager::GetSingleton()->LoadMasterFile("./data/master.imf");
+	FactoryManager::GetSingleton()->LoadMasterFile("./Data/Master.imf");
 //	factoryManager->LoadConversations("../Data/Conversations.xml");
 //	factoryManager->LoadDataFile("../Data/Master.xml");
 //	factoryManager->LoadItems("../Data/Items.xml");

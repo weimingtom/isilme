@@ -188,8 +188,6 @@ Play::Play() : State()
 
 void Play::mouseClicked(gcn::MouseEvent& evt)
 {
-	ZombieLand* game = (ZombieLand*)(ZombieLand::GetSingleton());
-
 	if (evt.GetSource() == mExit)
 	{
 		Close();

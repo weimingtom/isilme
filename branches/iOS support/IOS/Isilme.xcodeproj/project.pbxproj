@@ -552,7 +552,6 @@
 		485EDD9E15BD756F00280016 /* Data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Data; path = ../Data; sourceTree = "<group>"; };
 		4872E735158A1DB100AF70E1 /* libLua.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLua.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4872E738158A1DB100AF70E1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		4872E73C158A1DB100AF70E1 /* Isilme-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Isilme-Prefix.pch"; sourceTree = "<group>"; };
 		4872E7C6158A1F1C00AF70E1 /* Actuator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Actuator.cpp; sourceTree = "<group>"; };
 		4872E7C7158A1F1C00AF70E1 /* Actuator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Actuator.h; sourceTree = "<group>"; };
 		4872E7C8158A1F1C00AF70E1 /* AI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AI.h; sourceTree = "<group>"; };
@@ -1173,11 +1172,8 @@
 		4872EAA2158A1F1D00AF70E1 /* tinyxmlparser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
 		4872EAA3158A1F1D00AF70E1 /* xmltest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = xmltest.cpp; sourceTree = "<group>"; };
 		4872EACA158A1F6300AF70E1 /* libTinyXML.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTinyXML.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		4872EACE158A1F6300AF70E1 /* TinyXML-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TinyXML-Prefix.pch"; sourceTree = "<group>"; };
 		4872EADA158A1FE400AF70E1 /* libzlib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libzlib.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		4872EADE158A1FE400AF70E1 /* zlib-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "zlib-Prefix.pch"; sourceTree = "<group>"; };
 		4872EAF0158A207100AF70E1 /* libhgecore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libhgecore.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		4872EAF4158A207100AF70E1 /* hgecore-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "hgecore-Prefix.pch"; sourceTree = "<group>"; };
 		4872EAF9158A208800AF70E1 /* appdelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appdelegate.h; sourceTree = "<group>"; };
 		4872EAFA158A208800AF70E1 /* appdelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = appdelegate.mm; sourceTree = "<group>"; };
 		4872EAFB158A208800AF70E1 /* eaglview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eaglview.h; sourceTree = "<group>"; };
@@ -1197,7 +1193,6 @@
 		4872EB19158A21C500AF70E1 /* ConvertUTF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConvertUTF.h; sourceTree = "<group>"; };
 		4872EB1A158A21C500AF70E1 /* SimpleIni.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleIni.h; sourceTree = "<group>"; };
 		4872EB1F158A22CC00AF70E1 /* libBox2D.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBox2D.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		4872EB23158A22CC00AF70E1 /* Box2D-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Box2D-Prefix.pch"; sourceTree = "<group>"; };
 		4872EB28158A22E800AF70E1 /* Box2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box2D.h; sourceTree = "<group>"; };
 		4872EB2F158A22E800AF70E1 /* b2BroadPhase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = b2BroadPhase.cpp; sourceTree = "<group>"; };
 		4872EB30158A22E800AF70E1 /* b2BroadPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2BroadPhase.h; sourceTree = "<group>"; };
@@ -1270,11 +1265,8 @@
 		4872EB78158A22E800AF70E1 /* b2WeldJoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = b2WeldJoint.cpp; sourceTree = "<group>"; };
 		4872EB79158A22E800AF70E1 /* b2WeldJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2WeldJoint.h; sourceTree = "<group>"; };
 		4872EBC5158A2AD300AF70E1 /* libhgehelp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libhgehelp.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		4872EBC9158A2ADC00AF70E1 /* hgehelp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "hgehelp-Prefix.pch"; sourceTree = "<group>"; };
 		4872EBE2158A2CBB00AF70E1 /* libGuichan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGuichan.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		4872EBE6158A2CC400AF70E1 /* Guichan-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Guichan-Prefix.pch"; sourceTree = "<group>"; };
 		4872EBEE158A2CD700AF70E1 /* libLuabind.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLuabind.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		4872EBF2158A2CE100AF70E1 /* Luabind-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Luabind-Prefix.pch"; sourceTree = "<group>"; };
 		4872EBFA158A2D8A00AF70E1 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4872EBFC158A2D8A00AF70E1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4872EBFF158A2D8A00AF70E1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1284,15 +1276,9 @@
 		4872EC09158A2D9400AF70E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4872EC0B158A2D9400AF70E1 /* TestApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestApp-Prefix.pch"; sourceTree = "<group>"; };
 		4872EC0C158A2D9400AF70E1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		4872EC2A158A2E7400AF70E1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		4872EC2D158A2E7400AF70E1 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		4872EC2E158A2E7400AF70E1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4872EC2F158A2E7400AF70E1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4872ECED158B390C00AF70E1 /* libengine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libengine.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		4872ECF1158B391D00AF70E1 /* engine-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "engine-Prefix.pch"; sourceTree = "<group>"; };
-		4875461B159C335700D274BF /* IsilmeStory-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IsilmeStory-Prefix.pch"; sourceTree = "<group>"; };
-		4875461C159C335800D274BF /* IsilmeStory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IsilmeStory.h; sourceTree = "<group>"; };
-		4875461D159C335800D274BF /* IsilmeStory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IsilmeStory.m; sourceTree = "<group>"; };
 		487546BF159C476700D274BF /* Definitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definitions.h; sourceTree = "<group>"; };
 		487546C0159C476700D274BF /* main2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main2.cpp; sourceTree = "<group>"; };
 		487546C1159C476700D274BF /* MyGame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyGame.cpp; sourceTree = "<group>"; };
@@ -1521,17 +1507,7 @@
 				4872E9E4158A1F1D00AF70E1 /* Lua */,
 				4872EA29158A1F1D00AF70E1 /* LuaBind */,
 				4872EA98158A1F1D00AF70E1 /* TinyXML */,
-				4872E73A158A1DB100AF70E1 /* Isilme */,
-				4872EACC158A1F6300AF70E1 /* TinyXML */,
-				4872EADC158A1FE400AF70E1 /* zlib */,
-				4872EAF2158A207100AF70E1 /* hgecore */,
-				4872EB21158A22CC00AF70E1 /* Box2D */,
-				4872EBC7158A2AD300AF70E1 /* hgehelp */,
-				4872EBE4158A2CBB00AF70E1 /* Guichan */,
-				4872EBF0158A2CD700AF70E1 /* Luabind */,
 				4872EC05158A2D8A00AF70E1 /* TestApp */,
-				4872ECEF158B390C00AF70E1 /* engine */,
-				48754619159C335700D274BF /* IsilmeStory */,
 				487546D1159C4EDD00D274BF /* BoostSignals */,
 				4872E737158A1DB100AF70E1 /* Frameworks */,
 				4872E736158A1DB100AF70E1 /* Products */,
@@ -1558,26 +1534,9 @@
 				4872EBFF158A2D8A00AF70E1 /* CoreGraphics.framework */,
 				4872EC01158A2D8A00AF70E1 /* QuartzCore.framework */,
 				4872EC03158A2D8A00AF70E1 /* OpenGLES.framework */,
-				4872EC2A158A2E7400AF70E1 /* Cocoa.framework */,
 				4872EC2C158A2E7400AF70E1 /* Other Frameworks */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4872E73A158A1DB100AF70E1 /* Isilme */ = {
-			isa = PBXGroup;
-			children = (
-				4872E73B158A1DB100AF70E1 /* Supporting Files */,
-			);
-			path = Isilme;
-			sourceTree = "<group>";
-		};
-		4872E73B158A1DB100AF70E1 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4872E73C158A1DB100AF70E1 /* Isilme-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		4872E7C4158A1F1C00AF70E1 /* Engine */ = {
@@ -2574,54 +2533,6 @@
 			path = include;
 			sourceTree = "<group>";
 		};
-		4872EACC158A1F6300AF70E1 /* TinyXML */ = {
-			isa = PBXGroup;
-			children = (
-				4872EACD158A1F6300AF70E1 /* Supporting Files */,
-			);
-			path = TinyXML;
-			sourceTree = "<group>";
-		};
-		4872EACD158A1F6300AF70E1 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4872EACE158A1F6300AF70E1 /* TinyXML-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		4872EADC158A1FE400AF70E1 /* zlib */ = {
-			isa = PBXGroup;
-			children = (
-				4872EADD158A1FE400AF70E1 /* Supporting Files */,
-			);
-			path = zlib;
-			sourceTree = "<group>";
-		};
-		4872EADD158A1FE400AF70E1 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4872EADE158A1FE400AF70E1 /* zlib-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		4872EAF2158A207100AF70E1 /* hgecore */ = {
-			isa = PBXGroup;
-			children = (
-				4872EAF3158A207100AF70E1 /* Supporting Files */,
-			);
-			path = hgecore;
-			sourceTree = "<group>";
-		};
-		4872EAF3158A207100AF70E1 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4872EAF4158A207100AF70E1 /* hgecore-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		4872EAF8158A208800AF70E1 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -2652,22 +2563,6 @@
 				4872EB1A158A21C500AF70E1 /* SimpleIni.h */,
 			);
 			path = Ini;
-			sourceTree = "<group>";
-		};
-		4872EB21158A22CC00AF70E1 /* Box2D */ = {
-			isa = PBXGroup;
-			children = (
-				4872EB22158A22CC00AF70E1 /* Supporting Files */,
-			);
-			path = Box2D;
-			sourceTree = "<group>";
-		};
-		4872EB22158A22CC00AF70E1 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4872EB23158A22CC00AF70E1 /* Box2D-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		4872EB27158A22E800AF70E1 /* Box2D */ = {
@@ -2797,54 +2692,6 @@
 			path = Joints;
 			sourceTree = "<group>";
 		};
-		4872EBC7158A2AD300AF70E1 /* hgehelp */ = {
-			isa = PBXGroup;
-			children = (
-				4872EBC8158A2ADC00AF70E1 /* Supporting Files */,
-			);
-			path = hgehelp;
-			sourceTree = "<group>";
-		};
-		4872EBC8158A2ADC00AF70E1 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4872EBC9158A2ADC00AF70E1 /* hgehelp-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		4872EBE4158A2CBB00AF70E1 /* Guichan */ = {
-			isa = PBXGroup;
-			children = (
-				4872EBE5158A2CC400AF70E1 /* Supporting Files */,
-			);
-			path = Guichan;
-			sourceTree = "<group>";
-		};
-		4872EBE5158A2CC400AF70E1 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4872EBE6158A2CC400AF70E1 /* Guichan-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		4872EBF0158A2CD700AF70E1 /* Luabind */ = {
-			isa = PBXGroup;
-			children = (
-				4872EBF1158A2CE100AF70E1 /* Supporting Files */,
-			);
-			path = Luabind;
-			sourceTree = "<group>";
-		};
-		4872EBF1158A2CE100AF70E1 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4872EBF2158A2CE100AF70E1 /* Luabind-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		4872EC05158A2D8A00AF70E1 /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -2873,45 +2720,10 @@
 		4872EC2C158A2E7400AF70E1 /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4872EC2D158A2E7400AF70E1 /* AppKit.framework */,
 				4872EC2E158A2E7400AF70E1 /* CoreData.framework */,
 				4872EC2F158A2E7400AF70E1 /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
-			sourceTree = "<group>";
-		};
-		4872ECEF158B390C00AF70E1 /* engine */ = {
-			isa = PBXGroup;
-			children = (
-				4872ECF0158B391D00AF70E1 /* Supporting Files */,
-			);
-			path = engine;
-			sourceTree = "<group>";
-		};
-		4872ECF0158B391D00AF70E1 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4872ECF1158B391D00AF70E1 /* engine-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		48754619159C335700D274BF /* IsilmeStory */ = {
-			isa = PBXGroup;
-			children = (
-				4875461C159C335800D274BF /* IsilmeStory.h */,
-				4875461D159C335800D274BF /* IsilmeStory.m */,
-				4875461A159C335700D274BF /* Supporting Files */,
-			);
-			path = IsilmeStory;
-			sourceTree = "<group>";
-		};
-		4875461A159C335700D274BF /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4875461B159C335700D274BF /* IsilmeStory-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		487546D1159C4EDD00D274BF /* BoostSignals */ = {
@@ -3567,6 +3379,9 @@
 /* Begin PBXProject section */
 		4872E72C158A1DB100AF70E1 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
 			buildConfigurationList = 4872E72F158A1DB100AF70E1 /* Build configuration list for PBXProject "Isilme" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -4054,7 +3869,8 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Isilme/Isilme-Prefix.pch";
+				GCC_PREFIX_HEADER = "Lua-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -4068,7 +3884,8 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Isilme/Isilme-Prefix.pch";
+				GCC_PREFIX_HEADER = "Lua-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -4080,7 +3897,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DSTROOT = /tmp/TinyXML.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TinyXML/TinyXML-Prefix.pch";
+				GCC_PREFIX_HEADER = "TinyXML-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -4092,7 +3910,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DSTROOT = /tmp/TinyXML.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TinyXML/TinyXML-Prefix.pch";
+				GCC_PREFIX_HEADER = "TinyXML-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -4104,7 +3923,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DSTROOT = /tmp/zlib.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "zlib/zlib-Prefix.pch";
+				GCC_PREFIX_HEADER = "zlib-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -4116,7 +3936,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DSTROOT = /tmp/zlib.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "zlib/zlib-Prefix.pch";
+				GCC_PREFIX_HEADER = "zlib-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -4128,11 +3949,12 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DSTROOT = /tmp/hgecore.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "hgecore/hgecore-Prefix.pch";
+				GCC_PREFIX_HEADER = "hgecore-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					DEBUG,
 					TACKLE_IOS,
 				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -4144,8 +3966,9 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DSTROOT = /tmp/hgecore.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "hgecore/hgecore-Prefix.pch";
+				GCC_PREFIX_HEADER = "hgecore-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = TACKLE_IOS;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -4162,7 +3985,8 @@
 					../../../,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Box2D/Box2D-Prefix.pch";
+				GCC_PREFIX_HEADER = "Box2D-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					../../,
 					../,
@@ -4184,7 +4008,8 @@
 					../../../,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Box2D/Box2D-Prefix.pch";
+				GCC_PREFIX_HEADER = "Box2D-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					../../,
 					../,
@@ -4201,11 +4026,12 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DSTROOT = /tmp/hgehelp.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "hgehelp/hgehelp-Prefix.pch";
+				GCC_PREFIX_HEADER = "hgehelp-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					DEBUG,
 					TACKLE_IOS,
 				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -4217,8 +4043,9 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DSTROOT = /tmp/hgehelp.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "hgehelp/hgehelp-Prefix.pch";
+				GCC_PREFIX_HEADER = "hgehelp-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = TACKLE_IOS;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -4230,11 +4057,12 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DSTROOT = /tmp/Guichan.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Guichan/Guichan-Prefix.pch";
+				GCC_PREFIX_HEADER = "Guichan-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					DEBUG,
 					TACKLE_IOS,
 				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					$SRCROOT/../,
 					$SRCROOT/../HGE/include,
@@ -4251,8 +4079,9 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DSTROOT = /tmp/Guichan.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Guichan/Guichan-Prefix.pch";
+				GCC_PREFIX_HEADER = "Guichan-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = TACKLE_IOS;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					$SRCROOT/../,
 					$SRCROOT/../HGE/include,
@@ -4268,8 +4097,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DSTROOT = /tmp/Luabind.dst;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Luabind/Luabind-Prefix.pch";
+				GCC_PREFIX_HEADER = "Luabind-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					$SRCROOT/../Lua/src,
 					$SRCROOT/../,
@@ -4285,8 +4116,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DSTROOT = /tmp/Luabind.dst;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Luabind/Luabind-Prefix.pch";
+				GCC_PREFIX_HEADER = "Luabind-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					$SRCROOT/../Lua/src,
 					$SRCROOT/../,
@@ -4314,6 +4147,7 @@
 				);
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					$SRCROOT/../HGE/include,
 					$SRCROOT/../,
@@ -4345,6 +4179,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = TACKLE_IOS;
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					$SRCROOT/../HGE/include,
 					$SRCROOT/../,
@@ -4371,11 +4206,12 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DSTROOT = /tmp/engine.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "engine/engine-prefix.pch";
+				GCC_PREFIX_HEADER = ../Engine/IsilmePCH.h;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					DEBUG,
 					TACKLE_IOS,
 				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					$SRCROOT/../HGE/include,
 					$SRCROOT/../,
@@ -4397,8 +4233,9 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DSTROOT = /tmp/engine.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "engine/engine-prefix.pch";
+				GCC_PREFIX_HEADER = ../Engine/IsilmePCH.h;
 				GCC_PREPROCESSOR_DEFINITIONS = TACKLE_IOS;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					$SRCROOT/../HGE/include,
 					$SRCROOT/../,

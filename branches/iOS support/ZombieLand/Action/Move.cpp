@@ -34,7 +34,7 @@ namespace action
 	void	Move::OnUpdate(float elapsedTime)
 	{
 		EntityPtr e = GetEntity();
-		float da = 0.0f;
+
 		float ds = 1.0f;
 
 		Vector2 v(cos(mAngle) * mSpeed * ds , sin(mAngle) * mSpeed * ds);

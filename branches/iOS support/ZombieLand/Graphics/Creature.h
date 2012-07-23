@@ -13,8 +13,7 @@ namespace graphics
 	public:
 		Creature(StateGraphicsDef<behaviour::Creature>* def)  :
 			StateGraphics<behaviour::Creature>(def)
-		{
-			int a = 4;		
+		{		
 		}	
 
 		virtual ~Creature() {}

@@ -4,7 +4,7 @@
    version = "1.0">
    <FileBreakpoints>
       <FileBreakpoint
-         shouldBeEnabled = "No"
+         shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "../TinyXML/tinyxml.cpp"
@@ -14,6 +14,19 @@
          startingLineNumber = "973"
          endingLineNumber = "973"
          landmarkName = "TiXmlDocument::LoadFile( const char* _filename, TiXmlEncoding encoding )"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../Engine/Serialisation/MasterLoader.cpp"
+         timestampString = "364748984.611356"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "79"
+         endingLineNumber = "79"
+         landmarkName = "MasterFileLoader::Load( std::string fileName )"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
