@@ -16,6 +16,15 @@ namespace MyApplication1.Commands
         {
             mList = list;
             mRule = rule;
+            mRule.Action = new AIAction();
+            mRule.Action.ID = "-1";
+            mRule.Priority = new Script();
+            mRule.Priority.Code = "";
+            mRule.Condition = new Script();
+            mRule.Condition.Code = "";
+            mRule.Target = new ActionTarget();
+            mRule.Target.Selector = new TargetSelector();
+            mRule.Target.Selector.ID = "-1";
         }
 
         public void Execute()

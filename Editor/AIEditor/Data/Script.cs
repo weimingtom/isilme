@@ -2,12 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Common;
 
 namespace MyApplication1.Data
 {
-    public class Script
+    public class Script : ProxyObject
     {
-        List<String> Params;
-        String Code;
+        public List<String> Params
+        {
+            get;
+            set;
+        }
+        public String Code
+        {
+            get;
+            set;
+        }
     }
 }
