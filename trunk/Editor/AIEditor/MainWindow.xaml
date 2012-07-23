@@ -21,7 +21,7 @@
                                 <Label Content="Тип действия" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" Margin="10,38,0,0" Name="label4" VerticalAlignment="Top" VerticalContentAlignment="Stretch" />
                                 <Label Content="Условие" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" Margin="10,72,0,0" Name="label5" VerticalAlignment="Top" VerticalContentAlignment="Stretch" />
                                 <Label Content="Приоритет" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" Margin="10,106,0,0" Name="label6" VerticalAlignment="Top" VerticalContentAlignment="Stretch" />
-                                <TextBox Height="23" HorizontalAlignment="Center" HorizontalContentAlignment="Stretch" Margin="109,9,6,0" Name="text" Text="" VerticalAlignment="Top" VerticalContentAlignment="Stretch" Width="213" DataContext="{Binding ElementName=list, Path=SelectedItem}" />
+                                <TextBox Height="23" HorizontalAlignment="Center" HorizontalContentAlignment="Stretch" Margin="109,9,6,0" Name="text" Text="" VerticalAlignment="Top" VerticalContentAlignment="Stretch" Width="213" />
                                 <ComboBox Height="23" HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" Margin="106,40,0,0" Name="comboBox1" VerticalAlignment="Top" VerticalContentAlignment="Stretch" Width="213" />
                                 <TextBox Height="23" HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" Margin="105,75,0,0" Name="text2" VerticalAlignment="Top" VerticalContentAlignment="Stretch" Width="213" />
                                 <TextBox Height="23" HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" Margin="104,108,0,0" Name="text3" VerticalAlignment="Top" VerticalContentAlignment="Stretch" Width="213" />
@@ -29,8 +29,12 @@
                         </TabItem>
                         <TabItem Header="Цель" Name="tabItem3">
                             <Grid>
-                                <ComboBox Height="23" HorizontalAlignment="Right" Margin="0,20,6,0" Name="comboBox2" VerticalAlignment="Top" Width="156" />
-                                <Label Content="Алгоритм выбора цели" Height="31" Margin="6,20,177,0" Name="label1" VerticalAlignment="Top" Width="142" />
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="40*" />
+                                    <ColumnDefinition Width="316*" />
+                                </Grid.ColumnDefinitions>
+                                <ComboBox Height="23" HorizontalAlignment="Right" Margin="0,20,6,0" Name="comboBox2" VerticalAlignment="Top" Width="156" Grid.Column="1" />
+                                <Label Content="Алгоритм выбора цели" Height="31" Margin="22,20,192,0" Name="label1" VerticalAlignment="Top" Width="142" Grid.ColumnSpan="2" />
                             </Grid>
                         </TabItem>
                         <TabItem Header="Расписание" Name="tabItem4">
@@ -40,7 +44,7 @@
                             <Grid />
                         </TabItem>
                     </TabControl>
-                    <ListBox Height="248" HorizontalAlignment="Left" Margin="6,6,0,0" Name="list" VerticalAlignment="Top" Width="149" ItemsSource="{Binding Path=Rules}" SelectionChanged="list_SelectionChanged"></ListBox>
+                    <ListBox Height="248" HorizontalAlignment="Left" Margin="6,6,0,0" Name="list" VerticalAlignment="Top" Width="149" SelectionChanged="list_SelectionChanged"></ListBox>
                     <Button Content="Добавить" Height="23" HorizontalAlignment="Left" Margin="341,242,0,0" Name="btnAdd" VerticalAlignment="Top" Width="75" Click="btnAdd_Click" />
                     <Button Content="Удалить" Height="23" HorizontalAlignment="Right" Margin="0,242,14,0" Name="btnDel" VerticalAlignment="Top" Width="75" Click="btnDel_Click" />
                 </Grid>

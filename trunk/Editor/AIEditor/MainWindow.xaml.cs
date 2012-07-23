@@ -24,36 +24,63 @@ namespace MyApplication1
     {
         Common.CommandManager mCommandManager = new Common.CommandManager();
         Data.AIRulesList mRules = new AIRulesList();
+        int IDgenerator = 0;
 
         public MainWindow()
         {
-                       /* MyData d = new MyData();
-            System.Collections.ObjectModel.ObservableCollection<MyData> l = new();
-
-            d.Data = "dfdf";*/
-
             InitializeComponent();
+
+            ComboBoxItem cboxitem1 = new ComboBoxItem();
+            cboxitem1.Content = "MoveTo";
+            comboBox1.Items.Add(cboxitem1);
+            ComboBoxItem cboxitem2 = new ComboBoxItem();
+            cboxitem2.Content = "UseItem";
+            comboBox1.Items.Add(cboxitem2);
+
+            ComboBoxItem cboxitem3 = new ComboBoxItem();
+            cboxitem3.Content = "RayCastQuery";
+            comboBox2.Items.Add(cboxitem3);
+            ComboBoxItem cboxitem4 = new ComboBoxItem();
+            cboxitem4.Content = "GetByID";
+            comboBox2.Items.Add(cboxitem4);
+            ComboBoxItem cboxitem5 = new ComboBoxItem();
+            cboxitem5.Content = "AABBQuery";
+            comboBox2.Items.Add(cboxitem5);
+            ComboBoxItem cboxitem6 = new ComboBoxItem();
+            cboxitem6.Content = "RadiusQuery";
+            comboBox2.Items.Add(cboxitem6);
+
             list.DataContext = mRules;
-        }
-
-        private void tabControl2_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             AIRule rule = new AIRule();
-            rule.ID = "3143";
+            rule.ID = IDgenerator.ToString();
+            IDgenerator++;
             Commands.AddRule command = new Commands.AddRule(mRules, rule);
             mCommandManager.Execute(command);
+
+            list.Items.Insert(mRules.Rules.IndexOf(rule),rule.ID);
+            list.SelectedIndex = mRules.Rules.IndexOf(rule);
         }
 
         private void btnDel_Click(object sender, RoutedEventArgs e)
         {
             if (list.SelectedIndex != -1)
+            {
+                AIRule rule = new AIRule();
+                foreach (AIRule r in mRules.Rules)
+                {
+                    if (r.ID == text.Text)
+                        rule = r;
+                }
+                Commands.DelRule command = new Commands.DelRule(mRules, rule);
+                mCommandManager.Execute(command);
+
                 list.Items.RemoveAt(list.SelectedIndex);
-            
+                list.SelectedIndex = -1;
+            }
             else
                 MessageBox.Show("Выберите элемент");
         }
@@ -61,7 +88,7 @@ namespace MyApplication1
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             if (mCommandManager.UndoIsPossible())
-            mCommandManager.Undo();
+                mCommandManager.Undo();
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)
@@ -74,9 +101,21 @@ namespace MyApplication1
         {
             if (list.SelectedIndex != -1)
             {
-                text.Text = list.SelectedItem.ToString();
-                text2.Text = list.SelectedItem.ToString();
-                text3.Text = list.SelectedItem.ToString();
+                AIRule rule = new AIRule();
+                rule = mRules.Rules.ElementAt(list.SelectedIndex);
+                text.Text = rule.ID;
+                comboBox1.SelectedIndex = int.Parse(rule.Action.ID);
+                text3.Text = rule.Priority.Code;
+                text2.Text = rule.Condition.Code;
+                comboBox2.SelectedIndex = int.Parse(rule.Target.Selector.ID);
+            }
+            else
+            {
+                text.Text = "";
+                comboBox1.SelectedIndex = -1;
+                text3.Text = "";
+                text2.Text = "";
+                comboBox2.SelectedIndex = -1;
             }
         }
 
