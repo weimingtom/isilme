@@ -31,7 +31,6 @@
 //		Вы должны были получить копию Меньшей стандартной общественной лицензии GNU
 //		вместе с этой программой. Если это не так, см.
 //		<http://www.gnu.org/licenses/>.
-#include "IsilmePCH.h"
 #include "Behaviour.h"
 
 Action::Action()
@@ -153,7 +152,7 @@ void	Action::UpdateChildActions(float elapsedTime)
 
 		if (!(*it)->IsActive())
 		{
-			it = mChildActions.erase(it);
+			mChildActions.erase(it++);
 		}
 		else
 		{
@@ -167,6 +166,16 @@ void	Action::StartChildAction(ActionPtr action)
 	action->mParent = shared_from_this();
 	action->OnStart(mBehaviour.lock());
 	mChildActions.insert(action);
+}
+
+void Action::SetTarget(EntityPtr target)
+{
+    mTarget = target;
+}
+
+EntityPtr Action::GetTarget()
+{
+    return mTarget;
 }
 
 void	Action::OnDone()

@@ -54,7 +54,7 @@ float WeightUtilityFunction::Calculate( BehaviourPtr behaviour ) const
 {
 	float result = 0.0f;
 
-	for (PIVector::const_iterator it = mPerceptions.cbegin(); it != mPerceptions.cend(); ++it)
+	for (PIVector::const_iterator it = mPerceptions.begin(); it != mPerceptions.end(); ++it)
 		result += it->weight * it->perception->GetValue(behaviour);
 
 	return result;

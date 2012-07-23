@@ -31,7 +31,6 @@
 //		Вы должны были получить копию Меньшей стандартной общественной лицензии GNU
 //		вместе с этой программой. Если это не так, см.
 //		<http://www.gnu.org/licenses/>.
-#include "IsilmePCH.h"
 #include "Entity.h"
 #include "Level.h"
 #include "Bodies.h"
@@ -87,7 +86,7 @@ void		Layer::Remove(EntityPtr object)
 	}
 	else
 	{
-		LOG_W("Trying to remove entity from layer which doesn't contain it");
+		//LOG_W("Trying to remove entity from layer which doesn't contain it");
 	}
 }
 

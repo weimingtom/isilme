@@ -1,4 +1,4 @@
-﻿//  Copyright (C) 2010-2012 VSTU
+//  Copyright (C) 2010-2012 VSTU
 //
 //	This file is part of Isilme SDK.
 //
@@ -31,7 +31,6 @@
 //		Вы должны были получить копию Меньшей стандартной общественной лицензии GNU
 //		вместе с этой программой. Если это не так, см.
 //		<http://www.gnu.org/licenses/>.
-#include "IsilmePCH.h"
 #include "InputSystem.h"
 #include "Renderer.h"
 #include "ResourceManager.h"
@@ -96,11 +95,17 @@ lua_State*	Engine::GetLua()
 
 void Engine::ShowLogo()
 {
+#ifdef _WINDOWS
 	Sleep(200);
-	mLogo = new LogoState(new hgeSprite(mResourceManager->GetTexture("../Data/Textures/Logo.png"),0,0,954, 755));
+#endif
+    
+	mLogo = new LogoState(new hgeSprite(mResourceManager->GetTexture("Data/Textures/Logo.png"),0,0,954, 755));
 	mStateManager->Push(StatePtr(mLogo));
 	mHGE->System_Start();
+    
+#ifdef _WINDOWS
 	Sleep(200);
+#endif
 }
 
 ResourceManager* Engine::GetResourceManager()

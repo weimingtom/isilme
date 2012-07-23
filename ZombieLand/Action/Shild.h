@@ -1,7 +1,7 @@
 #ifndef ZOMBIELAND_ACTION_SHILD_H
 #define ZOMBIELAND_ACTION_SHILD_H
 
-#include "../Definitions.h"
+#include "../include/Definitions.h"
 #include "../Behaviour/Creature.h"
 
 namespace action

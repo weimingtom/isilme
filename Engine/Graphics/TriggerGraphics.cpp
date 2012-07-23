@@ -31,14 +31,12 @@
 //		Вы должны были получить копию Меньшей стандартной общественной лицензии GNU
 //		вместе с этой программой. Если это не так, см.
 //		<http://www.gnu.org/licenses/>.
-#include "IsilmePCH.h"
 #include "TriggerGraphics.h"
 
 namespace graphics
 {
 	TriggerGraphics::~TriggerGraphics()
 	{
-		int a = 4;
 	}
 
 	void TriggerGraphics::Update(float elapsedTime)
@@ -61,4 +59,4 @@ namespace graphics
 	{
 		return GraphicsPtr(new TriggerGraphics(this));
 	}
-};
+}

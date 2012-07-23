@@ -52,7 +52,7 @@ void Control::OnUpdate(float elapsedTime)
 	// Перемещение
 	Vector2 direction(0.0f, 0.0f);
 	float angle = 0.0f;
-	bool isMove = false;
+    
 	if (inputSystem->GetKeyState(HGEK_D))
 	{
 		direction.x += 1.0f;

@@ -70,6 +70,9 @@ typedef boost::shared_ptr<Perception> PerceptionPtr;
 
 class PerceptionList;
 
+class TargetSelector;
+typedef  boost::shared_ptr<TargetSelector> TargetSelectorPtr;
+
 class UtilityFunction;
 typedef boost::shared_ptr<UtilityFunction> UtilityFunctionPtr;
 

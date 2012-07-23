@@ -36,6 +36,11 @@
 
 #define NOMINMAX
 
+
+#ifdef __OBJC__
+#import <Foundation/Foundation.h>
+#endif
+
 #ifdef _DEBUG
 #define _CRTDBG_MAP_ALLOC
 #include <stdlib.h>

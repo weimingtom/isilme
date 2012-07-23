@@ -36,6 +36,8 @@
 #include "Core/GraphicsFactory.h"
 //#include "Graphics.h"
 #include "Graphics/StateGraphics.h"
+#include "../Core/Engine.h"
+#include "../Core/ResourceManager.h"
 
 GraphicsPalette::GraphicsPalette()
 {
@@ -69,7 +71,9 @@ void GraphicsPalette::ClearPalette()
 void GraphicsPalette::Load( std::string fileName )
 {
 	TiXmlDocument document;
-	document.LoadFile(fileName.data());
+    
+    char* path = Engine::GetSingleton()->GetResourceManager()->ResourcePath(fileName.c_str());
+	document.LoadFile(path);
 
 	TiXmlElement* root = document.RootElement();
 	TiXmlElement* defElement = root->FirstChildElement();

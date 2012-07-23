@@ -31,6 +31,18 @@
 //		Вы должны были получить копию Меньшей стандартной общественной лицензии GNU
 //		вместе с этой программой. Если это не так, см.
 //		<http://www.gnu.org/licenses/>.
+
+// Old versions of GCC don't support some C++11 keywords
+#define GCC_VERSION (__GNUC__ * 10000 \
++ __GNUC_MINOR__ * 100 \
++ __GNUC_PATCHLEVEL__)
+
+#if GCC_VERSION < 40600
+#define nullptr NULL
+#define override
+#endif
+
+// MSVS prelinked libraries
 #if !defined( __libPerstStat_link_h__ )
 #define __libPerstStat_link_h__
 

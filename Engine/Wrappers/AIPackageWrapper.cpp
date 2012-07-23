@@ -1,4 +1,4 @@
-﻿//  Copyright (C) 2010-2012 VSTU
+//  Copyright (C) 2010-2012 VSTU
 //
 //	This file is part of Isilme SDK.
 //
@@ -38,9 +38,7 @@ static unsigned long long callCounter = 0;
 
 AIPackageWrapper::AIPackageWrapper()
 {
-	int a = 4;
 	self1 = luabind::detail::wrap_access::ref(*this);
-	int b = 0;
 
 	//luabind::gettable(state)
 	//luabind::object table = luabind::newtable( luaState );

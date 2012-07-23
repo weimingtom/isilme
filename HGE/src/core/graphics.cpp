@@ -501,7 +501,7 @@ int CALL HGE_Impl::Texture_GetHeight(HTEXTURE tex, bool bOriginal)
 }
 
 
-DWORD * CALL HGE_Impl::Texture_Lock(HTEXTURE tex, bool bReadOnly, int left, int top, int width, int height)
+void * CALL HGE_Impl::Texture_Lock(HTEXTURE tex, bool bReadOnly, int left, int top, int width, int height)
 {
 	LPDIRECT3DTEXTURE9 pTex=(LPDIRECT3DTEXTURE9)tex;
 	D3DSURFACE_DESC TDesc;
@@ -531,7 +531,7 @@ DWORD * CALL HGE_Impl::Texture_Lock(HTEXTURE tex, bool bReadOnly, int left, int 
 		return 0;
 	}
 
-	return (DWORD *)TRect.pBits;
+	return TRect.pBits;
 }
 
 
@@ -539,6 +539,31 @@ void CALL HGE_Impl::Texture_Unlock(HTEXTURE tex)
 {
 	LPDIRECT3DTEXTURE9 pTex=(LPDIRECT3DTEXTURE9)tex;
 	pTex->UnlockRect(0);
+}
+
+void      HGE_Impl::Input_SetCursor(HCURSOR cursor)
+{
+
+}
+
+hgeVertex*	CALL	HGE_Impl::Gfx_StartBatch(int prim_type, HTEXTURE tex, HTEXTURE tex_mask, int blend, int *max_prim)
+{
+	if(VertArray)
+	{
+		_render_batch();
+
+		CurPrimType=prim_type;
+		if(CurBlendMode != blend) _SetBlendMode(blend);
+		if(tex != CurTexture)
+		{
+			pD3DDevice->SetTexture( 0, (LPDIRECT3DTEXTURE9)tex );
+			CurTexture = tex;
+		}
+
+		*max_prim=VERTEX_BUFFER_SIZE / prim_type;
+		return VertArray;
+	}
+	else return 0;
 }
 
 //////// Implementation ////////

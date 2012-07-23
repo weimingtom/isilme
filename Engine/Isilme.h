@@ -75,7 +75,6 @@
 #include "Core/Query.h"
 
 #include "Engine/ScriptAPI.h"
-#include "Journal.h"
 #include "Trigger.h"
 
 #include "Graphics/Sprite.h"

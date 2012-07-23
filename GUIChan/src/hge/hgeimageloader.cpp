@@ -67,7 +67,7 @@ namespace gcn
     {
         HTEXTURE texture = mHGE->Texture_Load(filename.c_str());
 
-        if (texture == NULL)
+        if (!texture)
         {
             throw GCN_EXCEPTION(std::string("Unable to load: ") + filename);
         }

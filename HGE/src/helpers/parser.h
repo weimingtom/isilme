@@ -10,7 +10,7 @@
 #define HGEPARSER_H
 
 
-#include "..\..\include\hge.h"
+#include "../../include/hge.h"
 #include <string.h>
 #include <stdlib.h>
 
@@ -59,7 +59,7 @@ public:
 	bool	tkn_bool()   { return (tokenvalue[0]=='t' || tokenvalue[0]=='T') ? true : false; }
 	DWORD	tkn_hex();
 
-	void	ScriptPostError(char *msg1, char *msg2);
+	void	ScriptPostError(const char *msg1, const char *msg2);
 
 	int		tokentype;
 	char	tokenvalue[128];
@@ -68,7 +68,7 @@ public:
 	int		line;
 
 private:
-	bool	strtkcmp(char *str, char *mem);
+	bool	strtkcmp(const char *str, char *mem);
 
 	static HGE *hge;
 };

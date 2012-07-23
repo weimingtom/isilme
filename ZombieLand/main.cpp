@@ -1,7 +1,11 @@
 #include "ZombieLand.h"
 #include <guichan.hpp>
 
+#ifdef _WINDOWS
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
+#else
+int main(int argc, char** argv)
+#endif
 {
 	//Lua* state = new Lua();
 	//double value = 0.0;

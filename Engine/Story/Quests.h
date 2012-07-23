@@ -15,24 +15,24 @@
 //		You should have received a copy of the GNU Lesser General Public License
 //		along with Isilme SDK.  If not, see <http://www.gnu.org/licenses/>.
 //
-//	Этот файл — часть Isilme SDK.
+//	Р­С‚РѕС‚ С„Р°Р№Р» вЂ” С‡Р°СЃС‚СЊ Isilme SDK.
 //
-//		Isilme SDK - свободная программа: вы можете перераспространять ее и/или
-//		изменять ее на условиях Меньшей стандартной общественной лицензии GNU в том виде,
-//		в каком она была опубликована Фондом свободного программного обеспечения;
-//		либо версии 3 лицензии, либо (по вашему выбору) любой более поздней
-//		версии.
+//		Isilme SDK - СЃРІРѕР±РѕРґРЅР°СЏ РїСЂРѕРіСЂР°РјРјР°: РІС‹ РјРѕР¶РµС‚Рµ РїРµСЂРµСЂР°СЃРїСЂРѕСЃС‚СЂР°РЅСЏС‚СЊ РµРµ Рё/РёР»Рё
+//		РёР·РјРµРЅСЏС‚СЊ РµРµ РЅР° СѓСЃР»РѕРІРёСЏС… РњРµРЅСЊС€РµР№ СЃС‚Р°РЅРґР°СЂС‚РЅРѕР№ РѕР±С‰РµСЃС‚РІРµРЅРЅРѕР№ Р»РёС†РµРЅР·РёРё GNU РІ С‚РѕРј РІРёРґРµ,
+//		РІ РєР°РєРѕРј РѕРЅР° Р±С‹Р»Р° РѕРїСѓР±Р»РёРєРѕРІР°РЅР° Р¤РѕРЅРґРѕРј СЃРІРѕР±РѕРґРЅРѕРіРѕ РїСЂРѕРіСЂР°РјРјРЅРѕРіРѕ РѕР±РµСЃРїРµС‡РµРЅРёСЏ;
+//		Р»РёР±Рѕ РІРµСЂСЃРёРё 3 Р»РёС†РµРЅР·РёРё, Р»РёР±Рѕ (РїРѕ РІР°С€РµРјСѓ РІС‹Р±РѕСЂСѓ) Р»СЋР±РѕР№ Р±РѕР»РµРµ РїРѕР·РґРЅРµР№
+//		РІРµСЂСЃРёРё.
 //
-//		Isilme SDK распространяется в надежде, что она будет полезной,
-//		но БЕЗО ВСЯКИХ ГАРАНТИЙ; даже без неявной гарантии ТОВАРНОГО ВИДА
-//		или ПРИГОДНОСТИ ДЛЯ ОПРЕДЕЛЕННЫХ ЦЕЛЕЙ. Подробнее см. в Меньшей стандартной
-//		общественной лицензии GNU.
+//		Isilme SDK СЂР°СЃРїСЂРѕСЃС‚СЂР°РЅСЏРµС‚СЃСЏ РІ РЅР°РґРµР¶РґРµ, С‡С‚Рѕ РѕРЅР° Р±СѓРґРµС‚ РїРѕР»РµР·РЅРѕР№,
+//		РЅРѕ Р‘Р•Р—Рћ Р’РЎРЇРљРРҐ Р“РђР РђРќРўРР™; РґР°Р¶Рµ Р±РµР· РЅРµСЏРІРЅРѕР№ РіР°СЂР°РЅС‚РёРё РўРћР’РђР РќРћР“Рћ Р’РР”Рђ
+//		РёР»Рё РџР РР“РћР”РќРћРЎРўР Р”Р›РЇ РћРџР Р•Р”Р•Р›Р•РќРќР«РҐ Р¦Р•Р›Р•Р™. РџРѕРґСЂРѕР±РЅРµРµ СЃРј. РІ РњРµРЅСЊС€РµР№ СЃС‚Р°РЅРґР°СЂС‚РЅРѕР№
+//		РѕР±С‰РµСЃС‚РІРµРЅРЅРѕР№ Р»РёС†РµРЅР·РёРё GNU.
 //
-//		Вы должны были получить копию Меньшей стандартной общественной лицензии GNU
-//		вместе с этой программой. Если это не так, см.
+//		Р’С‹ РґРѕР»Р¶РЅС‹ Р±С‹Р»Рё РїРѕР»СѓС‡РёС‚СЊ РєРѕРїРёСЋ РњРµРЅСЊС€РµР№ СЃС‚Р°РЅРґР°СЂС‚РЅРѕР№ РѕР±С‰РµСЃС‚РІРµРЅРЅРѕР№ Р»РёС†РµРЅР·РёРё GNU
+//		РІРјРµСЃС‚Рµ СЃ СЌС‚РѕР№ РїСЂРѕРіСЂР°РјРјРѕР№. Р•СЃР»Рё СЌС‚Рѕ РЅРµ С‚Р°Рє, СЃРј.
 //		<http://www.gnu.org/licenses/>.
-#ifndef QUESTS_H
-#define QUESTS_H
+#ifndef ISILME_STORY_QUESTS_H
+#define ISILME_STORY_QUESTS_H
 
 #include "../Definitions.h"
 
@@ -66,134 +66,6 @@ namespace story
 	class Phrase;
 	typedef boost::shared_ptr<Phrase> PhrasePtr;
 	typedef boost::weak_ptr<Phrase> PhraseWPtr;
-};
+}
 
-
-
-//
-//
-//class IsilmeExport Ending : public Object
-//{
-//public:
-//	Ending();
-//	virtual ~Ending();
-//	std::list<std::string>*	GetNewTasks();
-//	std::string				GetID();
-//	std::string				GetDescription();
-//	static Ending*			Parse(TiXmlElement*	endingElement);
-//
-//	std::string				GetConditionFunction();
-//	std::string				GetFinishFunction();
-//private:
-//	std::list<std::string>	mNewTasks;
-//	std::string				mID;
-//	std::string				mDescription;
-//
-//	// Сценарии
-//	std::string				mConditionFunction;
-//	std::string				mFinishFunction;
-//};
-//
-//class IsilmeExport Task: public Object
-//{
-//public:
-//	enum TaskStatus
-//	{
-//		Passive,
-//		Active,
-//		Finished
-//	};
-//	Task();
-//	virtual ~Task();
-//	std::string		GetID();
-//	std::string		GetDescription();
-//	std::string		GetTitle();
-//	TaskStatus		GetStatus();
-//	void			Start();
-//	void			Update(float elapsedTime);
-//	void			Finish(std::string ending);
-//	static Task*	Parse(TiXmlElement* taskElement);
-//
-//	std::string		GetStartFunction();
-//	std::string		GetUpdateFunction();
-//private:
-//	// Свойства
-//	std::string		mID;
-//	std::string		mTitle;
-//	std::string		mDescription;
-//	TaskStatus		mStatus;
-//
-//	// Решения
-//	EndingMap		mEndings;
-//	Ending*			mEnding;
-//
-//	// Сценарии
-//	std::string		mStartFunction;
-//	std::string		mUpdateFunction;
-//};
-//
-//class Quest : public Object
-//{
-//public:
-//	Quest();
-//	virtual ~Quest();
-//
-//	void			Update(float elapsedTime);
-//	void			OnStart();
-//	void			StartTask(std::string task);
-//	void			FinishTask(std::string task, std::string ending);
-//	std::string		GetID();
-//	std::string		GetDescription();
-//	std::string		GetTitle();
-//	TaskSet*		GetActiveTasks();
-//	TaskSet*		GetFinishedTasks();
-//	static Quest*	Parse(TiXmlElement* element);
-//
-//	std::string		GetStartFunction();
-//	std::string		GetFinishFunction();
-//private:
-//	TaskMap			mTasks;
-//	TaskSet			mActiveTasks;
-//	TaskSet			mFinishedTask;
-//	std::string		mID;
-//	std::string		mDescription;
-//	std::string		mTitle;
-//
-//	// Сценарии
-//	std::string		mStartFunction;
-//	std::string		mFinishFunction;
-//};
-//
-//class IsilmeExport Story : public Object
-//{
-//public:
-//	Story();
-//	virtual ~Story();
-//
-//	/// Обновить историю
-//	void			Update(float elapsedTime);
-//
-//	/// Начать выполнение задания
-//	void			StartQuest(std::string quest);
-//
-//	/// Загрузить историю
-//	void			Load(std::string fileName);
-//
-//	void			CreateJournal();
-//	gcn::Window*	GetJournal();
-//private:
-//	QuestMap		mQuests;
-//	QuestSet		mActiveQuests;
-//	QuestSet		mFinishedQuests;
-//	QuestSet		mQuestsForStart;
-//	gcn::Window*	mJournalWindow;
-//};
-//
-//class IsilmeExport QuestListModel : public gcn::ListModel, public Object
-//{
-//public:
-//	QuestListModel();
-//	virtual ~QuestListModel();
-//protected:
-//};
 #endif

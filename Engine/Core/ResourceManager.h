@@ -46,6 +46,8 @@ public:
 	virtual void				ChangeScript(std::string scriptname="") = 0;
 	virtual bool				Precache(int groupid=0) = 0;
 	virtual void				Purge(int groupid=0) = 0;
+    
+    virtual char* ResourcePath(const char* relativePath) = 0;
 
 	virtual void*				GetResource(std::string name, int resgroup=0) = 0;
 	virtual HTEXTURE			GetTexture(std::string name, int resgroup=0) = 0;
@@ -75,6 +77,8 @@ public:
 	virtual HMUSIC				GetMusic(std::string name, int resgroup=0);
 	virtual HSTREAM				GetStream(std::string name, int resgroup=0);
 	virtual HTARGET				GetTarget(std::string name);
+    
+    virtual char* ResourcePath(const char* relativePath) override;
 protected:
 	HGE*				mHGE;
 	hgeResourceManager* mResourceManager;

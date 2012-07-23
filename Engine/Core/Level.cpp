@@ -1,4 +1,4 @@
-﻿//  Copyright (C) 2010-2012 VSTU
+//  Copyright (C) 2010-2012 VSTU
 //
 //	This file is part of Isilme SDK.
 //
@@ -31,7 +31,6 @@
 //		Вы должны были получить копию Меньшей стандартной общественной лицензии GNU
 //		вместе с этой программой. Если это не так, см.
 //		<http://www.gnu.org/licenses/>.
-#include "IsilmePCH.h"
 #include "Joints.h"
 #include "Layer.h"
 #include "Level.h"
@@ -39,6 +38,8 @@
 #include "Query.h"
 #include "FactoryManager.h"
 #include "Game.h"
+#include "../Core/Engine.h"
+#include "../Core/ResourceManager.h"
 
 namespace RayCast
 {
@@ -323,7 +324,7 @@ void	ParseWorld(LevelPtr level, TiXmlElement* rootElement)
 	const char* str = worldElement->Attribute("Gravity");
 	if (str)
 	{
-		sscanf_s(str, "%f, %f", &gravity.x, &gravity.y);
+		sscanf(str, "%f, %f", &gravity.x, &gravity.y);
 	}
 
 	level->GetWorld()->SetGravity(gravity);
@@ -469,7 +470,8 @@ LevelPtr	Level::Load(TiXmlElement* levelElement)
 LevelPtr	Level::Load(std::string fileName)
 {
 	TiXmlDocument* document = new TiXmlDocument();
-	document->LoadFile(fileName.data());
+    char* path = Engine::GetSingleton()->GetResourceManager()->ResourcePath(fileName.c_str());
+	document->LoadFile(path);
 
 	TiXmlElement* root = document->RootElement();
 

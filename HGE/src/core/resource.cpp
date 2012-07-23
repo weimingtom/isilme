@@ -12,6 +12,7 @@
 #define NOCRYPT
 //#define NOUNCRYPT
 #include "ZLIB\unzip.h"
+#include <string>
 
 
 bool CALL HGE_Impl::Resource_AttachPack(const char *filename, const char *password)
@@ -192,8 +193,16 @@ void CALL HGE_Impl::Resource_Free(void *res)
 }
 
 
-char* CALL HGE_Impl::Resource_MakePath(const char *filename)
+char* CALL HGE_Impl::Resource_MakePath(const char *fn)
 {
+#ifdef _WINDOWS
+	std::string tmp = "../";
+#else
+	std::string tmp = "";
+#endif
+	
+	tmp += std::string(fn);
+	const char* filename = tmp.c_str();
 	int i;
 
 	if(!filename)

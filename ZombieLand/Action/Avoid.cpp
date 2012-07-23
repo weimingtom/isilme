@@ -40,7 +40,6 @@ namespace action
 
 		v = p + v;
 		
-		float oldAngle = GetEntity()->GetAngle();
 		float angle = GetEntity()->GetAngleTo(v);
 		if (!(angle >= -16.28 && angle < 16.28))
 			return;

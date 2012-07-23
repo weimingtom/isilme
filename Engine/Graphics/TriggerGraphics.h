@@ -34,8 +34,8 @@
 #ifndef ISILME_GRAPHICS_TIRGGER_H
 #define ISILME_GRAPHICS_TIRGGER_H
 
-#include "Core/Graphics.h"
-#include "Engine/Graphics/StateGraphics.h"
+#include "../Core/Graphics.h"
+#include "StateGraphics.h"
 #include "Trigger.h"
 
 namespace graphics
@@ -60,5 +60,6 @@ namespace graphics
 
 		virtual void Render(float x, float y, float angle);
 	};
-};
+}
+
 #endif

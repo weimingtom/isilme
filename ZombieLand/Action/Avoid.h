@@ -1,7 +1,7 @@
 #ifndef ACTION_AVOID_H
 #define ACTION_AVOID_H
 
-#include "../Definitions.h"
+#include "../include/Definitions.h"
 namespace action
 {
 	class Avoid : public Action

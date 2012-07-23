@@ -36,6 +36,8 @@
 #include "Core/MasterFile.h"
 #include "Palette/GraphicsPalette.h"
 #include "Core/FactoryManager.h"
+#include "../Core/Engine.h"
+#include "../Core/ResourceManager.h"
 
 namespace serialisation
 {

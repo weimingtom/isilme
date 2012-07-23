@@ -1,7 +1,7 @@
 #ifndef AI_AVOID_PACKAGE_H
 #define AI_AVOID_PACKAGE_H
 
-#include "../Definitions.h"
+#include "../include/Definitions.h"
 
 class AvoidPackage : public AIPackage
 {

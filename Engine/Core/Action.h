@@ -112,6 +112,10 @@ public:
 	virtual ActionPtr	GetParent();
 
 	virtual void	StartChildAction(ActionPtr action);
+    
+    void SetTarget(EntityPtr target);
+    
+    EntityPtr   GetTarget();
 protected:
 	/// Родительское действие
 	ActionWPtr	mParent;
@@ -137,6 +141,8 @@ protected:
 	ActionSet mChildActions;
 protected:
 	void	UpdateChildActions(float elapsedTime);
+private:
+    EntityPtr mTarget;
 };
 
 typedef std::list<ActionPtr> ActionList;
