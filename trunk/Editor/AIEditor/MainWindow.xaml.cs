@@ -30,8 +30,6 @@ namespace MyApplication1
         {
             InitializeComponent();
 
-            list.DataContext = mRules.Rules;
-
             ComboBoxItem cboxitem1 = new ComboBoxItem();
             cboxitem1.Content = "MoveTo";
             comboBox1.Items.Add(cboxitem1);
@@ -58,8 +56,14 @@ namespace MyApplication1
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             AIRule rule = new AIRule();
+            UncorrectID:
+            foreach (AIRule i in mRules.Rules)
+                if (i.ID == IDgenerator.ToString())
+                {
+                    IDgenerator++;
+                    goto UncorrectID;
+                }
             rule.ID = IDgenerator.ToString();
-            IDgenerator++;
             Commands.AddRule command = new Commands.AddRule(mRules, rule);
             mCommandManager.Execute(command);
         }
@@ -118,10 +122,43 @@ namespace MyApplication1
 
         private void text_LostFocus(object sender, RoutedEventArgs e)
         {
+            if (list.SelectedIndex == -1)
+                return;
+            foreach (AIRule i in mRules.Rules)
+                if (i.ID == text.Text && mRules.Rules.ElementAt(list.SelectedIndex).ID != text.Text)
+                {
+                    MessageBox.Show("Правило с таким ID уже существует", "Ошибка!!!");
+                    text.Text = mRules.Rules.ElementAt(list.SelectedIndex).ID;
+                    return;
+                }
             Commands.SetID command = new Commands.SetID(mRules.Rules.ElementAt(list.SelectedIndex), text.Text);
             mCommandManager.Execute(command);        
         }
 
+        private void text2_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (list.SelectedIndex == -1)
+                return;
+            Commands.SetCondition command = new Commands.SetCondition(mRules.Rules.ElementAt(list.SelectedIndex), text2.Text);
+            mCommandManager.Execute(command); 
+        }
+
+
+        private void text3_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (list.SelectedIndex == -1)
+                return;
+            Commands.SetPriority command = new Commands.SetPriority(mRules.Rules.ElementAt(list.SelectedIndex), text3.Text);
+            mCommandManager.Execute(command);
+        }
+
+        private void comboBox2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (list.SelectedIndex == -1)
+                return;
+            Commands.SetTargetSelector command = new Commands.SetTargetSelector(mRules.Rules.ElementAt(list.SelectedIndex), comboBox2.SelectedIndex.ToString());
+            mCommandManager.Execute(command);
+        }
 
     }
 

@@ -9,16 +9,25 @@ namespace MyApplication1.Commands
 {
     class SetPriority : ICommand
     {
-        public SetPriority()
+        AIRule mRule;
+        String newPriority;
+        String oldPriority;
+        public SetPriority(AIRule rule, String priority)
         {
+            mRule = rule;
+            oldPriority = rule.Priority.Code;
+            newPriority = priority;
         }
 
         public void Execute()
         {
+            mRule.Priority.Code = newPriority;
         }
 
         public void Unexecute()
         {
+            mRule.Priority.Code = oldPriority;
         }
     }
 }
+
