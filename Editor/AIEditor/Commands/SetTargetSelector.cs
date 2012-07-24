@@ -9,16 +9,24 @@ namespace MyApplication1.Commands
 {
     class SetTargetSelector : ICommand
     {
-        public SetTargetSelector()
+        AIRule mRule;
+        String newTargetID;
+        String oldTargetID;
+        public SetTargetSelector(AIRule rule, String TargetID)
         {
+            mRule = rule;
+            newTargetID = TargetID;
+            oldTargetID = rule.Target.Selector.ID;
         }
 
         public void Execute()
         {
+            mRule.Target.Selector.ID = newTargetID;
         }
 
         public void Unexecute()
         {
+            mRule.Target.Selector.ID = oldTargetID;
         }
     }
 }

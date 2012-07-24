@@ -9,16 +9,24 @@ namespace MyApplication1.Commands
 {
     class SetCondition : ICommand
     {
-        public SetCondition()
+        AIRule mRule;
+        String newCondition;
+        String oldCondition;
+        public SetCondition(AIRule rule, String condition)
         {
+            mRule = rule;
+            oldCondition = rule.Condition.Code;
+            newCondition = condition;
         }
 
         public void Execute()
         {
+            mRule.Condition.Code = newCondition;
         }
 
         public void Unexecute()
         {
+            mRule.Condition.Code = oldCondition;
         }
     }
 }
