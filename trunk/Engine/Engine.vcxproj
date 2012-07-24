@@ -119,6 +119,7 @@
     <ClInclude Include="AI\AIBehaviour.h" />
     <ClInclude Include="AI\AIPackage.h" />
     <ClInclude Include="AI\AIPackageDef.h" />
+    <ClInclude Include="ai\aipackagesexecuter.h" />
     <ClInclude Include="AI\AITypes.h" />
     <ClInclude Include="AI\Attribute.h" />
     <ClInclude Include="AI\AttributeDef.h" />
@@ -144,6 +145,7 @@
     <ClInclude Include="AI\Steering\Seek.h" />
     <ClInclude Include="AI\Steering\SteeringTypes.h" />
     <ClInclude Include="AI\Steering\Wander.h" />
+    <ClInclude Include="AI\TargetSelector.h" />
     <ClInclude Include="AI\UtilityFunction.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="Core\MasterFile.h" />
@@ -250,10 +252,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AI\Actuator.cpp" />
+    <ClCompile Include="AI\AIAction.cpp" />
     <ClCompile Include="AI\AIBehaviour.cpp" />
     <ClCompile Include="AI\AIBehaviourDef.cpp" />
     <ClCompile Include="AI\AIPackage.cpp" />
     <ClCompile Include="AI\AIPackageDef.cpp" />
+    <ClCompile Include="AI\AIPackagesExecuter.cpp" />
     <ClCompile Include="AI\Attribute.cpp" />
     <ClCompile Include="AI\AttributeDef.cpp" />
     <ClCompile Include="AI\Message.cpp" />
@@ -270,6 +274,7 @@
     <ClCompile Include="AI\Steering\Pursuit.cpp" />
     <ClCompile Include="AI\Steering\Seek.cpp" />
     <ClCompile Include="AI\Steering\Wander.cpp" />
+    <ClCompile Include="AI\TargetSelector.cpp" />
     <ClCompile Include="AI\UtilityFunction.cpp" />
     <ClCompile Include="Core\MasterFile.cpp" />
     <ClCompile Include="Core\ScheduleManager.cpp" />

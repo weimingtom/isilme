@@ -456,6 +456,8 @@
       <Filter>GUIChan</Filter>
     </ClInclude>
     <ClInclude Include="Inventory\GUI\Types.h" />
+    <ClInclude Include="ai\aipackagesexecuter.h" />
+    <ClInclude Include="AI\TargetSelector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Graphics\Sprite.cpp">
@@ -765,5 +767,8 @@
     <ClCompile Include="Inventory\GUI\InventoryWindow.cpp">
       <Filter>GUIChan</Filter>
     </ClCompile>
+    <ClCompile Include="AI\AIAction.cpp" />
+    <ClCompile Include="AI\AIPackagesExecuter.cpp" />
+    <ClCompile Include="AI\TargetSelector.cpp" />
   </ItemGroup>
 </Project>

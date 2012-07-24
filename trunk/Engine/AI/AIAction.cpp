@@ -8,6 +8,11 @@
 
 #include "AIAction.h"
 
+AIAction::~AIAction()
+{
+
+}
+
 void AIAction::OnStart()
 {
     
@@ -21,4 +26,10 @@ void AIAction::OnDone()
 void AIAction::OnUpdate(float elapsedTime)
 {
     mExecuter.ChooseAction(GetActor(), GetTarget());
+}
+
+AIBehaviourPtr AIAction::GetActor()
+{
+	AIBehaviourPtr a;
+	return a;
 }
