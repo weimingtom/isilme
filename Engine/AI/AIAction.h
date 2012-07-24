@@ -35,7 +35,7 @@
 #define ISILME_AI_AIACTION_H
 
 #include "Definitions.h"
-#include "Action.h"
+#include "../Core/Action.h"
 #include "AIPackagesExecuter.h"
 
 /// @class

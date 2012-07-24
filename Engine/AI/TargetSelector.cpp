@@ -50,3 +50,9 @@ EntityPtr PieTargetSelector::SelectTargetFor(AIBehaviourPtr behaviour)
     // @TODO: implement PieTargetSelector
     return target;
 }
+
+EntityPtr ParentTargetSelector::SelectTargetFor(AIBehaviourPtr behaviour)
+{
+	EntityPtr target;
+	return target;
+}
