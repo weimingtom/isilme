@@ -182,6 +182,7 @@ namespace MyApplication1
 
             AILoader saved = new AILoader();
             mRules = saved.LoadFromFile(Name);
+            list.DataContext = mRules;
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)

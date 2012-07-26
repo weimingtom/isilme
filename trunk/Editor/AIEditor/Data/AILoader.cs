@@ -23,13 +23,22 @@ namespace MyApplication1.Data
         TargetSelector LoadTarget(XElement element)
         {
             TargetSelector rule = new TargetSelector();
-            rule.ID = element.Element("Target Selector").Value;
+            rule.ID = element.Element("TargetSelector").Value;
             return rule;
         }
         public AIRule LoadRule(XElement element) 
         { 
-            AIRule rule = new AIRule(); 
+            AIRule rule = new AIRule();
+            rule.Action = new AIAction();
+            rule.Priority = new Script();
+            rule.Condition = new Script();
+            rule.Target = new ActionTarget();
+            rule.Target.Selector = new TargetSelector();
             rule.ID = element.Attribute("ID").Value;
+            rule.Action.ID = element.Attribute("ActionID").Value;
+            rule.Condition.Code = element.Attribute("Condition").Value;
+            rule.Priority.Code = element.Attribute("Priority").Value;
+            rule.Target.Selector.ID = element.Attribute("Target").Value;
             return rule; 
         }
         public AIRulesList LoadFromFile(String fileName)
@@ -57,13 +66,17 @@ namespace MyApplication1.Data
         }
         XElement SaveTargetSelector(TargetSelector s)
         {
-            XElement rule = new XElement("Target Selector");
+            XElement rule = new XElement("TargetSelector");
             return rule;
         }
         XElement SaveRule(AIRule rule) 
         {
             XElement e = new XElement("AIRule"); 
             e.SetAttributeValue("ID", rule.ID);
+            e.SetAttributeValue("ActionID", rule.Action.ID);
+            e.SetAttributeValue("Condition", rule.Condition.Code);
+            e.SetAttributeValue("Priority", rule.Priority.Code);
+            e.SetAttributeValue("Target", rule.Target.Selector.ID);
             e.Add(SaveAction(rule.Action));
             e.Add(SaveTargetSelector(rule.Target.Selector));
           
