@@ -72,6 +72,7 @@
     </Compile>
     <Compile Include="Commands\AddRule.cs" />
     <Compile Include="Commands\DelRule.cs" />
+    <Compile Include="Commands\SetAction.cs" />
     <Compile Include="Commands\SetTargetParam.cs" />
     <Compile Include="Commands\SetParam.cs" />
     <Compile Include="Commands\SetCondition.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Commands\SetTargetSelector.cs" />
     <Compile Include="Data\ActionTarget.cs" />
     <Compile Include="Data\AIAction.cs" />
+    <Compile Include="Data\AILoader.cs" />
     <Compile Include="Data\AIRule.cs" />
     <Compile Include="Data\AIRulesList.cs" />
     <Compile Include="Data\Parameter.cs" />

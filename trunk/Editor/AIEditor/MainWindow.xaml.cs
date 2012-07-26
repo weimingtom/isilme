@@ -13,7 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Common;
 using MyApplication1.Data;
-
+using System.IO;
 
 namespace MyApplication1
 {
@@ -25,10 +25,13 @@ namespace MyApplication1
         Common.CommandManager mCommandManager = new Common.CommandManager();
         Data.AIRulesList mRules = new AIRulesList();
         int IDgenerator = 0;
+        string Name = "d://base.xml";
 
         public MainWindow()
         {
             InitializeComponent();
+
+            list.DataContext = mRules.Rules;
 
             ComboBoxItem cboxitem1 = new ComboBoxItem();
             cboxitem1.Content = "MoveTo";
@@ -56,21 +59,23 @@ namespace MyApplication1
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             AIRule rule = new AIRule();
-            UncorrectID:
+            repeat:
             foreach (AIRule i in mRules.Rules)
                 if (i.ID == IDgenerator.ToString())
                 {
                     IDgenerator++;
-                    goto UncorrectID;
+                    goto repeat;
                 }
             rule.ID = IDgenerator.ToString();
             Commands.AddRule command = new Commands.AddRule(mRules, rule);
             mCommandManager.Execute(command);
+            list.SelectedIndex = mRules.Rules.IndexOf(rule);
         }
 
         private void btnDel_Click(object sender, RoutedEventArgs e)
         {
-            if (list.SelectedIndex != -1)
+            int current = list.SelectedIndex;
+            if (current != -1)
             {
                 AIRule rule = new AIRule();
                 foreach (AIRule r in mRules.Rules)
@@ -80,6 +85,10 @@ namespace MyApplication1
                 }
                 Commands.DelRule command = new Commands.DelRule(mRules, rule);
                 mCommandManager.Execute(command);
+                if (current != list.Items.Count)
+                    list.SelectedIndex = current;
+                else
+                    list.SelectedIndex = current - 1;
 
             }
             else
@@ -132,7 +141,7 @@ namespace MyApplication1
                     return;
                 }
             Commands.SetID command = new Commands.SetID(mRules.Rules.ElementAt(list.SelectedIndex), text.Text);
-            mCommandManager.Execute(command);        
+            mCommandManager.Execute(command);
         }
 
         private void text2_LostFocus(object sender, RoutedEventArgs e)
@@ -140,7 +149,7 @@ namespace MyApplication1
             if (list.SelectedIndex == -1)
                 return;
             Commands.SetCondition command = new Commands.SetCondition(mRules.Rules.ElementAt(list.SelectedIndex), text2.Text);
-            mCommandManager.Execute(command); 
+            mCommandManager.Execute(command);
         }
 
 
@@ -160,8 +169,28 @@ namespace MyApplication1
             mCommandManager.Execute(command);
         }
 
-    }
+        private void comboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (list.SelectedIndex == -1)
+                return;
+            Commands.SetAction command = new Commands.SetAction(mRules.Rules.ElementAt(list.SelectedIndex), comboBox1.SelectedIndex.ToString());
+            mCommandManager.Execute(command);
+        }
+       
+        private void btnLoad_Click(object sender, RoutedEventArgs e)
+        {
 
+            AILoader saved = new AILoader();
+            mRules = saved.LoadFromFile(Name);
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            AILoader loader = new AILoader();
+            loader.SaveToFile(mRules, Name);
+        }
+
+    }
 
     public class MyData
     {
