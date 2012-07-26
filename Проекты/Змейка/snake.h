@@ -4,8 +4,8 @@ enum direction
 {
 	up,
 	down,
-	left,
-	right,
+	lft,
+	rght,
 	unknown
 };
 
@@ -14,7 +14,8 @@ enum cell
 	player,
 	empty,
 	object,
-	wall
+	wall,
+	invalid
 };
 
 struct net
@@ -30,9 +31,6 @@ public:
 	bool toDown;
 	bool toLeft;
 	bool toRight;
-	float increaseX;
-	float increaseY;
-	bool reflux;
 };
 
 struct work
