@@ -174,11 +174,9 @@ void hgeFont::printf(float x, float y, int align, const char *format, ...)
 {
 	char	*pArg=(char *) &format+sizeof(format);
 
-	_vsnprintf(buffer, sizeof(buffer)-1, format, pArg);
-	buffer[sizeof(buffer)-1]=0;
-	//vsprintf(buffer, format, pArg);
+    sprintf(buffer, format, pArg);
 
-	Render(x,y,align,buffer);
+    Render(x,y,align,buffer);
 }
 
 void hgeFont::printfb(float x, float y, float w, float h, int align, const char *format, ...)
@@ -188,9 +186,7 @@ void hgeFont::printfb(float x, float y, float w, float h, int align, const char 
 	float	tx, ty, hh, ww;
 	char	*pArg=(char *) &format+sizeof(format);
 
-	_vsnprintf(buffer, sizeof(buffer)-1, format, pArg);
-	buffer[sizeof(buffer)-1]=0;
-	//vsprintf(buffer, format, pArg);
+    sprintf(buffer, format, pArg);
 
 	linestart=buffer;
 	pbuf=buffer;

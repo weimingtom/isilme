@@ -9,7 +9,7 @@
 
 #include "../../include/hgecolor.h"
 #include <math.h>
-#include <xutility>
+#include <algorithm>
 
 
 void hgeColorHSV::SetHWColor(DWORD col)

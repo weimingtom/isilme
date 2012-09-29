@@ -67,7 +67,7 @@ namespace LevelEditor
 			EditorState* estate = new EditorState();
 			StatePtr state(estate);
 
-			FactoryManager::GetSingleton()->LoadMasterFile("../Data/Master.imf");
+			FactoryManager::GetSingleton()->LoadMasterFile("Data/Master.imf");
 
 			// Register converters to Proxy
 			CategoryProxy^ levelsCtg = ModuleProxy::Instance->GetCategory("Levels");

@@ -44,6 +44,27 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\AddRule.cs" />
+    <Compile Include="Commands\DelRule.cs" />
+    <Compile Include="Commands\SetAction.cs" />
+    <Compile Include="Commands\SetCondition.cs" />
+    <Compile Include="Commands\SetID.cs" />
+    <Compile Include="Commands\SetParam.cs" />
+    <Compile Include="Commands\SetPriority.cs" />
+    <Compile Include="Commands\SetTargetParam.cs" />
+    <Compile Include="Commands\SetTargetSelector.cs" />
+    <Compile Include="Data\ActionTarget.cs" />
+    <Compile Include="Data\ActionType.cs" />
+    <Compile Include="Data\AIAction.cs" />
+    <Compile Include="Data\AILoader.cs" />
+    <Compile Include="Data\AIRule.cs" />
+    <Compile Include="Data\AIRulesList.cs" />
+    <Compile Include="Data\Parameter.cs" />
+    <Compile Include="Data\ParamInfo.cs" />
+    <Compile Include="Data\ParamsTable.cs" />
+    <Compile Include="Data\ParamType.cs" />
+    <Compile Include="Data\Script.cs" />
+    <Compile Include="Data\TargetSelector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AIPackagesEditorWindow.xaml.cs">
       <DependentUpon>AIPackagesEditorWindow.xaml</DependentUpon>
@@ -66,8 +87,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Commands\" />
-    <Folder Include="Models\" />
     <Folder Include="Proxy\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

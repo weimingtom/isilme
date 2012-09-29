@@ -74,7 +74,7 @@ public:
 	/// Gets the name.
 	///
 	/// @return	The name.
-	std::string		GetName();
+    const std::string& GetName() const;
 	
 	/// Query if this object is removed.
 	///

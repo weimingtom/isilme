@@ -4,12 +4,12 @@
 
 namespace logic
 {
-	Rule1::Rule1(std::string a1, AtomPtr condition)
-	{
-		mA1 = "@";
-		mA1 += a1;
-		mCondition = condition;
-	}
+	//Rule1::Rule1(std::string a1, AtomPtr condition)
+	//{
+	//	mA1 = "@";
+	//	mA1 += a1;
+	//	mCondition = condition;
+	//}
 
 	Rule1::~Rule1()
 	{
