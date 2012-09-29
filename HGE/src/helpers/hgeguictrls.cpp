@@ -11,7 +11,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <xutility>
+#include <algorithm>
 
 
 /*
@@ -48,7 +48,7 @@ void hgeGUIText::SetText(const char *_text)
 
 void hgeGUIText::printf(const char *format, ...)
 {
-	vsprintf(text, format, (char *)&format+sizeof(format));
+    sprintf(text, format, (char *)&format+sizeof(format));
 }
 
 void hgeGUIText::Render()

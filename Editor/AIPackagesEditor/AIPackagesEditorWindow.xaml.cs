@@ -12,6 +12,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Common.Views;
+using MyApplication1.Commands;
+using MyApplication1.Data;
 
 namespace AIPackagesEditor
 {
@@ -20,11 +22,24 @@ namespace AIPackagesEditor
     /// </summary>
     public partial class AIPackagesEditorWindow : EditorWindow
     {
+        AIRulesList mRUles;
+
         /// <summary>
         /// Default constructor
         /// </summary>
         public AIPackagesEditorWindow()
         {
+            InitializeComponent();
+            mRUles = new AIRulesList();
+            list.DataContext = mRUles;
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            AIRule rule = new AIRule();
+            rule.ID = "Rule_" + mRUles.Rules.Count;
+
+            CommandManager.Execute(new AddRule(mRUles, rule));
         }
     }
 }

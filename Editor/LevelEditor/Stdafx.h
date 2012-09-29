@@ -12,6 +12,9 @@
 #include <Engine/Story/Phrase.h>
 #include <Engine/Serialisation/MasterLoader.h>
 #include <Engine/Serialisation/EntryLoader.h>
+#ifdef override
+#undef override
+#endif
 
 namespace LevelEditor
 {

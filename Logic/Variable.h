@@ -54,7 +54,7 @@ namespace logic
 		FreeVariable();
 		virtual ~FreeVariable();
 
-		virtual ValuePtr GetValue(ContextPtr context) override;
+		virtual ValuePtr GetValue(ContextPtr context) ;
 
 		virtual void SetValue(ContextPtr context, ValuePtr v) override;
 	private:

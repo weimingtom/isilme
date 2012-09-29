@@ -206,7 +206,7 @@ void			Entity::Remove()
 	isRemoved = true;
 }
 
-std::string		Entity::GetName()
+const std::string& Entity::GetName() const
 {
 	return mName;
 }
